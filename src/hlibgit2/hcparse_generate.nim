@@ -57,8 +57,26 @@ for file in walkDir(lib, AbsFile):
       resFile.writeFile(reader.getExpanded())
 
 
+for file in walkDir(outDir, AbsFile, exts = @["nim"]):
+  if file.name() != "hcparse_generate":
+    rmFile file
+
 var resultWrapped: seq[CxxFile]
-block:
+
+let onefile = true
+
+if onefile:
+  var merged: string
+  for file in walkDir(tmpDir, AbsFile, exts = @["h"]):
+    merged.add file.readFile()
+    merged.add "\n\n\n"
+
+  let full = tmpDir /. "full_merged.h"
+  echov full
+  writeFile(full, merged)
+  resultWrapped.add wrapViaTs(full, tmpDir, fixConf)
+
+else:
   for file in walkDir(tmpDir, AbsFile, exts = @["h"]):
     resultWrapped.add wrapViaTs(file, tmpDir, fixConf)
 
