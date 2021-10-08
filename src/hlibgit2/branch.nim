@@ -9,7 +9,7 @@ import
   . / config
 
 type
-  git_branch_iterator* {.bycopy, incompleteStruct.} = object
+  git_branch_iterator* {.bycopy, incompleteStruct, importc.} = object
   
 proc git_branch_create*(arg_out: ptr ptr git_reference;
                         repo: ptr git_repository; branch_name: cstring;

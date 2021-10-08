@@ -9,9 +9,9 @@ import
   . / strarray
 
 type
-  git_pathspec* {.bycopy, incompleteStruct.} = object
+  git_pathspec* {.bycopy, incompleteStruct, importc.} = object
   
-  git_pathspec_match_list* {.bycopy, incompleteStruct.} = object
+  git_pathspec_match_list* {.bycopy, incompleteStruct, importc.} = object
   
   git_pathspec_flag_t* = enum
     GIT_PATHSPEC_DEFAULT = 0, GIT_PATHSPEC_IGNORE_CASE = 1,

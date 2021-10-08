@@ -32,19 +32,19 @@ type
     GIT_STATUS_OPT_NO_REFRESH = 4096, GIT_STATUS_OPT_UPDATE_INDEX = 8192,
     GIT_STATUS_OPT_INCLUDE_UNREADABLE = 16384,
     GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED = 32768
-  git_status_options* {.bycopy.} = object
+  git_status_options* {.bycopy, header: "<git2/status.h>", importc.} = object
     version*: cuint
     show*: git_status_show_t ## The version 
     flags*: cuint
     pathspec*: git_strarray
     baseline*: ptr git_tree
 
-  git_status_entry* {.bycopy.} = object
+  git_status_entry* {.bycopy, header: "<git2/status.h>", importc.} = object
     status*: git_status_t
     head_to_index*: ptr git_diff_delta
     index_to_workdir*: ptr git_diff_delta
 
-  git_strarray* {.bycopy.} = object
+  git_strarray* {.bycopy, header: "<git2/strarray.h>", importc.} = object
     ## Array of strings 
     strings*: ptr cstring
     count*: size_t
@@ -86,7 +86,7 @@ type
     GIT_DELTA_TYPECHANGE = 8, ## entry is untracked item in workdir 
     GIT_DELTA_UNREADABLE = 9, ## type of entry changed between old and new 
     GIT_DELTA_CONFLICTED = 10 ## entry is unreadable 
-  git_diff_file* {.bycopy.} = object
+  git_diff_file* {.bycopy, header: "<git2/diff.h>", importc.} = object
     ## entry in the index is conflicted 
     id*: git_oid
     path*: cstring
@@ -95,7 +95,7 @@ type
     mode*: uint16
     id_abbrev*: uint16
 
-  git_diff_delta* {.bycopy.} = object
+  git_diff_delta* {.bycopy, header: "<git2/diff.h>", importc.} = object
     status*: git_delta_t
     flags*: uint32
     similarity*: uint16      ## git_diff_flag_t values 
@@ -115,7 +115,7 @@ type
       cdecl.}
   git_diff_progress_cbNim* = proc (diff_so_far: ptr git_diff; old_path: cstring;
                                    new_path: cstring): cint
-  git_diff_options* {.bycopy.} = object
+  git_diff_options* {.bycopy, header: "<git2/diff.h>", importc.} = object
     version*: cuint
     flags*: uint32           ## version for the struct 
     ignore_submodules*: git_submodule_ignore_t ## options controlling which files are in the diff 
@@ -138,14 +138,14 @@ type
     GIT_DIFF_BINARY_NONE = 0, ## There is no binary delta. 
     GIT_DIFF_BINARY_LITERAL = 1, ## The binary data is the literal contents of the file. 
     GIT_DIFF_BINARY_DELTA = 2 ## The binary data is the delta from one side to the other. 
-  git_diff_binary_file* {.bycopy.} = object
+  git_diff_binary_file* {.bycopy, header: "<git2/diff.h>", importc.} = object
     ## The contents of one of the files in a binary diff. 
     type_f* {.importc: "type".}: git_diff_binary_t ## The type of binary data for this file. 
     data*: cstring           ## The binary data, deflated. 
     datalen*: size_t         ## The length of the binary data. 
     inflatedlen*: size_t     ## The length of the binary data after inflation. 
   
-  git_diff_binary* {.bycopy.} = object
+  git_diff_binary* {.bycopy, header: "<git2/diff.h>", importc.} = object
     contains_data*: cuint
     old_file*: git_diff_binary_file
     new_file*: git_diff_binary_file ## The contents of the old file. 
@@ -155,7 +155,7 @@ type
       cdecl.}
   git_diff_binary_cbNim* = proc (delta: ptr git_diff_delta;
                                  binary: ptr git_diff_binary): cint
-  git_diff_hunk* {.bycopy.} = object
+  git_diff_hunk* {.bycopy, header: "<git2/diff.h>", importc.} = object
     ## The contents of the new file. 
     old_start*: cint
     old_lines*: cint         ## Starting line number in old_file 
@@ -170,7 +170,7 @@ type
                                hunk: ptr git_diff_hunk): cint
   git_diff_line_t* = enum   ## Header text, NUL-byte terminated
     GIT_DIFF_LINE_CONTEXT = 39 ## These values will be sent to `git_diff_line_cb` along with the line 
-  git_diff_line* {.bycopy.} = object
+  git_diff_line* {.bycopy, header: "<git2/diff.h>", importc.} = object
     ## For "Binary files x and y differ" 
     origin*: char
     old_lineno*: cint        ## A git_diff_line_t value 
@@ -199,7 +199,7 @@ type
     GIT_DIFF_FIND_EXACT_MATCH_ONLY = 16384, ## Measure similarity only by comparing SHAs (fast and cheap) 
     GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY = 32768,
     GIT_DIFF_FIND_REMOVE_UNMODIFIED = 65536
-  git_diff_similarity_metric* {.bycopy.} = object
+  git_diff_similarity_metric* {.bycopy, header: "<git2/diff.h>", importc.} = object
     file_signature*: proc (arg_out: ptr pointer; file: ptr git_diff_file;
                            fullpath: cstring; payload: pointer): cint {.cdecl.}
     buffer_signature*: proc (arg_out: ptr pointer; file: ptr git_diff_file;
@@ -210,7 +210,7 @@ type
                        payload: pointer): cint {.cdecl.}
     payload*: pointer
 
-  git_diff_find_options* {.bycopy.} = object
+  git_diff_find_options* {.bycopy, header: "<git2/diff.h>", importc.} = object
     version*: cuint
     flags*: uint32
     rename_threshold*: uint16
@@ -237,7 +237,7 @@ type
   git_diff_format_email_flags_t* = enum
     GIT_DIFF_FORMAT_EMAIL_NONE = 0, ## Normal patch, the default 
     GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER = 1 ## Don't insert "[PATCH]" in the subject header
-  git_diff_format_email_options* {.bycopy.} = object
+  git_diff_format_email_options* {.bycopy, header: "<git2/diff.h>", importc.} = object
     version*: cuint
     flags*: uint32           ## see `git_diff_format_email_flags_t` above 
     patch_no*: size_t        ## This patch number 
@@ -247,13 +247,13 @@ type
     body*: cstring           ## Commit message's body 
     author*: ptr git_signature ## Author of the change 
   
-  git_diff_patchid_options* {.bycopy.} = object
+  git_diff_patchid_options* {.bycopy, header: "<git2/diff.h>", importc.} = object
     version*: cuint
 
   git_remote_create_flags* = enum
     GIT_REMOTE_CREATE_SKIP_INSTEADOF = 1, ## Ignore the repository apply.insteadOf configuration 
     GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC = 2 ## Don't build a fetchspec from the name if none is set 
-  git_remote_create_options* {.bycopy.} = object
+  git_remote_create_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
     version*: cuint
     repository*: ptr git_repository
     name*: cstring
@@ -267,7 +267,7 @@ type
       bytes: size_t; payload: pointer): cint {.cdecl.}
   git_push_transfer_progress_cbNim* = proc (current: cuint; total: cuint;
       bytes: size_t): cint
-  git_push_update* {.bycopy.} = object
+  git_push_update* {.bycopy, header: "<git2/remote.h>", importc.} = object
     ## Push network progress notification function 
     src_refname*: cstring
     dst_refname*: cstring
@@ -284,7 +284,7 @@ type
                               direction: cint; payload: pointer): cint {.cdecl.}
   git_url_resolve_cbNim* = proc (url_resolved: ptr git_buf; url: cstring;
                                  direction: cint): cint
-  git_remote_callbacks* {.bycopy.} = object
+  git_remote_callbacks* {.bycopy, header: "<git2/remote.h>", importc.} = object
     version*: cuint
     sideband_progress*: git_transport_message_cb ## The version 
     completion*: proc (arg_type: git_remote_completion_t; data: pointer): cint {.
@@ -307,7 +307,7 @@ type
   git_remote_autotag_option_t* = enum
     GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED = 0, GIT_REMOTE_DOWNLOAD_TAGS_AUTO = 1,
     GIT_REMOTE_DOWNLOAD_TAGS_NONE = 2, GIT_REMOTE_DOWNLOAD_TAGS_ALL = 3
-  git_fetch_options* {.bycopy.} = object
+  git_fetch_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
     version*: cint
     callbacks*: git_remote_callbacks
     prune*: git_fetch_prune_t
@@ -316,7 +316,7 @@ type
     proxy_opts*: git_proxy_options
     custom_headers*: git_strarray
 
-  git_push_options* {.bycopy.} = object
+  git_push_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
     version*: cuint
     pb_parallelism*: cuint
     callbacks*: git_remote_callbacks
@@ -334,15 +334,15 @@ type
     GIT_OBJECT_TAG = 4,     ## A file revision object. 
     GIT_OBJECT_OFS_DELTA = 6, ## An annotated tag object. 
     GIT_OBJECT_REF_DELTA = 7 ## A delta, base is given by an offset. 
-  git_time* {.bycopy.} = object
+  git_time* {.bycopy, header: "<git2/types.h>", importc.} = object
     ## Time in a signature 
     time*: git_time_t
     offset*: cint            ## time in seconds from epoch 
     sign*: char              ## timezone offset, in minutes 
   
-  git_signature* {.bycopy.} = object
+  git_signature* {.bycopy, header: "<git2/types.h>", importc.} = object
     ## indicator for questionable '-0000' offsets in signature 
-                                     ## An action signature (e.g. for committers, taggers, etc) 
+                                                                        ## An action signature (e.g. for committers, taggers, etc) 
     name*: cstring
     email*: cstring          ## full name of the author 
     when_f* {.importc: "when".}: git_time ## email of the author 
@@ -369,8 +369,9 @@ type
   git_submodule_recurse_t* = enum ## never dirty
     GIT_SUBMODULE_RECURSE_NO = 0, GIT_SUBMODULE_RECURSE_YES = 1,
     GIT_SUBMODULE_RECURSE_ONDEMAND = 2
-  git_writestream* {.bycopy.} = object
-    ## A type to write in a streaming fashion, for example, for filters. 
+  git_writestream* {.bycopy, header: "<git2/types.h>", importc.} = object
+    ## A type to write in a 
+                                                                          ## streaming fashion, for example, for filters. 
     write*: proc (stream: ptr git_writestream; buffer: cstring; len: size_t): cint {.
         cdecl.}
     close*: proc (stream: ptr git_writestream): cint {.cdecl.}
@@ -400,7 +401,7 @@ type
     GIT_CHECKOUT_NOTIFY_NONE = 0, GIT_CHECKOUT_NOTIFY_CONFLICT = 1,
     GIT_CHECKOUT_NOTIFY_DIRTY = 2, GIT_CHECKOUT_NOTIFY_UPDATED = 4,
     GIT_CHECKOUT_NOTIFY_UNTRACKED = 8, GIT_CHECKOUT_NOTIFY_IGNORED = 16
-  git_checkout_perfdata* {.bycopy.} = object
+  git_checkout_perfdata* {.bycopy, header: "<git2/checkout.h>", importc.} = object
     ## Checkout performance-reporting structure 
     mkdir_calls*: size_t
     stat_calls*: size_t
@@ -423,10 +424,10 @@ type
   git_checkout_perfdata_cb* = proc (perfdata: ptr git_checkout_perfdata;
                                     payload: pointer): void {.cdecl.}
   git_checkout_perfdata_cbNim* = proc (perfdata: ptr git_checkout_perfdata): void
-  git_checkout_options* {.bycopy.} = object
+  git_checkout_options* {.bycopy, header: "<git2/checkout.h>", importc.} = object
     ## Checkout notification callback function 
-                                            ## Checkout progress notification function 
-                                            ## Checkout perfdata notification function 
+                                                                                  ## Checkout progress notification function 
+                                                                                  ## Checkout perfdata notification function 
     version*: cuint
     checkout_strategy*: cuint ## The version 
     disable_filters*: cint   ## default will be a safe checkout 
@@ -489,7 +490,7 @@ type
       cdecl.}
   git_repository_create_cbNim* = proc (arg_out: ptr ptr git_repository;
                                        path: cstring; bare: cint): cint
-  git_clone_options* {.bycopy.} = object
+  git_clone_options* {.bycopy, header: "<git2/clone.h>", importc.} = object
     version*: cuint
     checkout_opts*: git_checkout_options
     fetch_opts*: git_fetch_options
@@ -510,7 +511,7 @@ type
   git_attr_foreach_cbNim* = proc (name: cstring; value: cstring): cint
   git_proxy_t* = enum
     GIT_PROXY_NONE = 0, GIT_PROXY_AUTO = 1, GIT_PROXY_SPECIFIED = 2
-  git_proxy_options* {.bycopy.} = object
+  git_proxy_options* {.bycopy, header: "<git2/proxy.h>", importc.} = object
     version*: cuint
     type_f* {.importc: "type".}: git_proxy_t
     url*: cstring
@@ -521,7 +522,7 @@ type
   git_cert_t* = enum
     GIT_CERT_NONE = 0, GIT_CERT_X509 = 1, GIT_CERT_HOSTKEY_LIBSSH2 = 2,
     GIT_CERT_STRARRAY = 3
-  git_cert* {.bycopy.} = object
+  git_cert* {.bycopy, header: "<git2/cert.h>", importc.} = object
     cert_type*: git_cert_t
 
   git_transport_certificate_check_cb* = proc (cert: ptr git_cert; valid: cint;
@@ -532,19 +533,19 @@ type
     GIT_CERT_SSH_MD5 = 1,   ## MD5 is available 
     GIT_CERT_SSH_SHA1 = 2,  ## SHA-1 is available 
     GIT_CERT_SSH_SHA256 = 4  ## SHA-256 is available 
-  git_cert_hostkey* {.bycopy.} = object
+  git_cert_hostkey* {.bycopy, header: "<git2/cert.h>", importc.} = object
     parent*: git_cert
     type_f* {.importc: "type".}: git_cert_ssh_t ## The parent cert 
     hash_md5*: ptr UncheckedArray[uchar]
     hash_sha1*: ptr UncheckedArray[uchar]
     hash_sha256*: ptr UncheckedArray[uchar]
 
-  git_cert_x509* {.bycopy.} = object
+  git_cert_x509* {.bycopy, header: "<git2/cert.h>", importc.} = object
     parent*: git_cert
     data*: pointer           ## The parent cert 
     len*: size_t
 
-  git_merge_file_input* {.bycopy.} = object
+  git_merge_file_input* {.bycopy, header: "<git2/merge.h>", importc.} = object
     version*: cuint
     ptr_f* {.importc: "ptr".}: cstring ## Pointer to the contents of the file. 
     size*: size_t            ## Size of the contents pointed to in `ptr`. 
@@ -567,7 +568,7 @@ type
     GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL = 32, ## Ignore whitespace at end of line 
     GIT_MERGE_FILE_DIFF_PATIENCE = 64, ## Use the "patience diff" algorithm 
     GIT_MERGE_FILE_DIFF_MINIMAL = 128 ## Take extra time to find minimal diff 
-  git_merge_file_options* {.bycopy.} = object
+  git_merge_file_options* {.bycopy, header: "<git2/merge.h>", importc.} = object
     version*: cuint
     ancestor_label*: cstring
     our_label*: cstring
@@ -576,14 +577,14 @@ type
     flags*: uint32           ## see `git_merge_file_flag_t` above 
     marker_size*: cushort
 
-  git_merge_file_result* {.bycopy.} = object
+  git_merge_file_result* {.bycopy, header: "<git2/merge.h>", importc.} = object
     automergeable*: cuint
     path*: cstring
     mode*: cuint             ## The mode that the resultant merge file should use.  
     ptr_f* {.importc: "ptr".}: cstring ## The contents of the merge. 
     len*: size_t             ## The length of the merge contents. 
   
-  git_merge_options* {.bycopy.} = object
+  git_merge_options* {.bycopy, header: "<git2/merge.h>", importc.} = object
     version*: cuint
     flags*: uint32           ## See `git_merge_flag_t` above 
     rename_threshold*: cuint
@@ -603,7 +604,7 @@ type
     GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 2
   git_odb_stream_t* = enum  ## Streaming mode
     GIT_STREAM_RDONLY = 2, GIT_STREAM_WRONLY = 4, GIT_STREAM_RW = 6
-  git_odb_stream* {.bycopy.} = object
+  git_odb_stream* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
     backend*: ptr git_odb_backend
     mode*: cuint
     hash_ctx*: pointer
@@ -617,8 +618,9 @@ type
         cdecl.}
     free*: proc (stream: ptr git_odb_stream): void {.cdecl.}
 
-  git_odb_writepack* {.bycopy.} = object
-    ## A stream to write a pack file to the ODB 
+  git_odb_writepack* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
+    ## 
+                                                                                  ## A stream to write a pack file to the ODB 
     backend*: ptr git_odb_backend
     append*: proc (writepack: ptr git_odb_writepack; data: pointer;
                    size: size_t; stats: ptr git_indexer_progress): cint {.cdecl.}
@@ -626,7 +628,7 @@ type
                    stats: ptr git_indexer_progress): cint {.cdecl.}
     free*: proc (writepack: ptr git_odb_writepack): void {.cdecl.}
 
-  git_indexer_progress* {.bycopy.} = object
+  git_indexer_progress* {.bycopy, header: "<git2/indexer.h>", importc.} = object
     total_objects*: cuint    ## number of objects in the packfile being indexed 
     indexed_objects*: cuint  ## received objects that have been hashed 
     received_objects*: cuint ## received_objects: objects which have been downloaded 
@@ -638,7 +640,7 @@ type
   git_indexer_progress_cb* = proc (stats: ptr git_indexer_progress;
                                    payload: pointer): cint {.cdecl.}
   git_indexer_progress_cbNim* = proc (stats: ptr git_indexer_progress): cint
-  git_indexer_options* {.bycopy.} = object
+  git_indexer_options* {.bycopy, header: "<git2/indexer.h>", importc.} = object
     version*: cuint
     progress_cb*: git_indexer_progress_cb ## progress_cb function to call with progress information 
     progress_cb_payload*: pointer ## progress_cb_payload payload for the progress callback 
@@ -652,7 +654,7 @@ type
   git_apply_hunk_cbNim* = proc (hunk: ptr git_diff_hunk): cint
   git_apply_flags_t* = enum ## Flags controlling the behavior of git_apply
     GIT_APPLY_CHECK = 1
-  git_apply_options* {.bycopy.} = object
+  git_apply_options* {.bycopy, header: "<git2/apply.h>", importc.} = object
     version*: cuint
     delta_cb*: git_apply_delta_cb ## The version 
                                   ## When applying a patch, callback that will be made per delta (file). 
@@ -702,7 +704,7 @@ type
   git_stash_apply_progress_cb* = proc (progress: git_stash_apply_progress_t;
                                        payload: pointer): cint {.cdecl.}
   git_stash_apply_progress_cbNim* = proc (progress: git_stash_apply_progress_t): cint
-  git_stash_apply_options* {.bycopy.} = object
+  git_stash_apply_options* {.bycopy, header: "<git2/stash.h>", importc.} = object
     version*: cuint
     flags*: uint32           ## See `git_stash_apply_flags`, above. 
     checkout_options*: git_checkout_options ## Options to use when writing files to the working directory. 
@@ -719,7 +721,7 @@ type
     GIT_CONFIG_LEVEL_XDG = 3, ## XDG compatible configuration file; typically ~/.config/git/config 
     GIT_CONFIG_LEVEL_GLOBAL = 4, GIT_CONFIG_LEVEL_LOCAL = 5,
     GIT_CONFIG_LEVEL_APP = 6, GIT_CONFIG_HIGHEST_LEVEL = -1
-  git_config_entry* {.bycopy.} = object
+  git_config_entry* {.bycopy, header: "<git2/config.h>", importc.} = object
     name*: cstring
     value*: cstring          ## Name of the entry (normalised) 
     include_depth*: cuint    ## String value of the entry 
@@ -733,17 +735,17 @@ type
   git_configmap_t* = enum
     GIT_CONFIGMAP_FALSE = 0, GIT_CONFIGMAP_TRUE = 1, GIT_CONFIGMAP_INT32 = 2,
     GIT_CONFIGMAP_STRING = 3
-  git_configmap* {.bycopy.} = object
+  git_configmap* {.bycopy, header: "<git2/config.h>", importc.} = object
     type_f* {.importc: "type".}: git_configmap_t
     str_match*: cstring
     map_value*: cint
 
-  git_index_time* {.bycopy.} = object
+  git_index_time* {.bycopy, header: "<git2/index.h>", importc.} = object
     ## Time structure used in a git index entry 
     seconds*: int32
     nanoseconds*: uint32     ## nsec should not be stored as time_t compatible 
   
-  git_index_entry* {.bycopy.} = object
+  git_index_entry* {.bycopy, header: "<git2/index.h>", importc.} = object
     ctime*: git_index_time
     mtime*: git_index_time
     dev*: uint32
@@ -788,23 +790,23 @@ type
   git_trace_cb* = proc (level: git_trace_level_t; msg: cstring): void {.cdecl.}
   git_direction* = enum
     GIT_DIRECTION_FETCH = 0, GIT_DIRECTION_PUSH = 1
-  git_remote_head* {.bycopy.} = object
+  git_remote_head* {.bycopy, header: "<git2/net.h>", importc.} = object
     local*: cint
     oid*: git_oid            ## available locally 
     loid*: git_oid
     name*: cstring
     symref_target*: cstring
 
-  git_buf* {.bycopy.} = object
+  git_buf* {.bycopy, header: "<git2/buffer.h>", importc.} = object
     ptr_f* {.importc: "ptr".}: cstring
     asize*: size_t
     size*: size_t
 
-  git_message_trailer* {.bycopy.} = object
+  git_message_trailer* {.bycopy, header: "<git2/message.h>", importc.} = object
     key*: cstring
     value*: cstring
 
-  git_message_trailer_array* {.bycopy.} = object
+  git_message_trailer_array* {.bycopy, header: "<git2/message.h>", importc.} = object
     trailers*: ptr git_message_trailer
     count*: size_t
     trailer_block* {.importc: "_trailer_block".}: cstring ## private 
@@ -821,19 +823,19 @@ type
   git_tree_update_t* = enum ## Post-order
     GIT_TREE_UPDATE_UPSERT = 0, ## Update or insert an entry at the specified path 
     GIT_TREE_UPDATE_REMOVE = 1 ## Remove an entry from the specified path 
-  git_tree_update* {.bycopy.} = object
+  git_tree_update* {.bycopy, header: "<git2/tree.h>", importc.} = object
     action*: git_tree_update_t ## Update action. If it's an removal, only the path is looked at 
     id*: git_oid             ## The entry's id 
     filemode*: git_filemode_t ## The filemode/kind of object 
     path*: cstring           ## The full path from the root tree 
   
-  git_oid* {.bycopy.} = object
+  git_oid* {.bycopy, header: "<git2/oid.h>", importc.} = object
     ## Size (in bytes) of a raw/binary oid 
-                               ## Size (in bytes) of a hex formatted oid 
-                               ## Unique identity of any object (commit, tree, blob, tag). 
+                                                                ## Size (in bytes) of a hex formatted oid 
+                                                                ## Unique identity of any object (commit, tree, blob, tag). 
     id*: ptr UncheckedArray[uchar] ## raw binary formatted id 
   
-  git_rebase_options* {.bycopy.} = object
+  git_rebase_options* {.bycopy, header: "<git2/rebase.h>", importc.} = object
     version*: cuint
     quiet*: cint
     inmemory*: cint
@@ -847,13 +849,15 @@ type
     GIT_REBASE_OPERATION_PICK = 0, GIT_REBASE_OPERATION_REWORD = 1,
     GIT_REBASE_OPERATION_EDIT = 2, GIT_REBASE_OPERATION_SQUASH = 3,
     GIT_REBASE_OPERATION_FIXUP = 4, GIT_REBASE_OPERATION_EXEC = 5
-  git_rebase_operation* {.bycopy.} = object
+  git_rebase_operation* {.bycopy, header: "<git2/rebase.h>", importc.} = object
     ## Indicates that a rebase operation is not (yet) in progress. 
     type_f* {.importc: "type".}: git_rebase_operation_t ## The type of rebase operation. 
     id*: git_oid
     exec*: cstring
 
-  git_credential_userpass_payload* {.bycopy.} = object
+  git_credential_userpass_payload* {.bycopy,
+                                     header: "<git2/credential_helpers.h>",
+                                     importc.} = object
     username*: cstring
     password*: cstring
 
@@ -873,7 +877,7 @@ type
     GIT_REPOSITORY_INIT_SHARED_UMASK = 0,
     GIT_REPOSITORY_INIT_SHARED_GROUP = 2775,
     GIT_REPOSITORY_INIT_SHARED_ALL = 2777
-  git_repository_init_options* {.bycopy.} = object
+  git_repository_init_options* {.bycopy, header: "<git2/repository.h>", importc.} = object
     version*: cuint
     flags*: uint32
     mode*: uint32
@@ -932,13 +936,13 @@ type
   git_note_foreach_cbNim* = proc (blob_id: ptr git_oid;
                                   annotated_object_id: ptr git_oid): cint
   git_note_iterator* = git_iterator
-  git_cherrypick_options* {.bycopy.} = object
+  git_cherrypick_options* {.bycopy, header: "<git2/cherrypick.h>", importc.} = object
     version*: cuint
     mainline*: cuint         ## For merge commits, the "mainline" is treated as the parent. 
     merge_opts*: git_merge_options
     checkout_opts*: git_checkout_options ## Options for the merging 
   
-  git_worktree_add_options* {.bycopy.} = object
+  git_worktree_add_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
     version*: cuint
     lock*: cint
     ref_f* {.importc: "ref".}: ptr git_reference ## lock newly created worktree 
@@ -947,7 +951,7 @@ type
     GIT_WORKTREE_PRUNE_VALID = 1, ## Prune working tree even if working tree is valid 
     GIT_WORKTREE_PRUNE_LOCKED = 2, ## Prune working tree even if it is locked 
     GIT_WORKTREE_PRUNE_WORKING_TREE = 4 ## Prune checked out working tree 
-  git_worktree_prune_options* {.bycopy.} = object
+  git_worktree_prune_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
     version*: cuint
     flags*: uint32
 
@@ -980,7 +984,7 @@ type
     GIT_EMISMATCH = -33,    ## Internal only 
     GIT_EINDEXDIRTY = -34,  ## Hashsum mismatch in object 
     GIT_EAPPLYFAIL = -35     ## Unsaved changes in the index would be overwritten 
-  git_error* {.bycopy.} = object
+  git_error* {.bycopy, header: "<git2/errors.h>", importc.} = object
     ## Patch application failed 
     message*: cstring
     klass*: cint
@@ -1006,7 +1010,7 @@ type
   git_revwalk_hide_cbNim* = proc (commit_id: ptr git_oid): cint
   git_describe_strategy_t* = enum
     GIT_DESCRIBE_DEFAULT = 0, GIT_DESCRIBE_TAGS = 1, GIT_DESCRIBE_ALL = 2
-  git_describe_options* {.bycopy.} = object
+  git_describe_options* {.bycopy, header: "<git2/describe.h>", importc.} = object
     version*: cuint
     max_candidates_tags*: cuint
     describe_strategy*: cuint ## default: 10 
@@ -1014,7 +1018,7 @@ type
     only_follow_first_parent*: cint
     show_commit_oid_as_fallback*: cint
 
-  git_describe_format_options* {.bycopy.} = object
+  git_describe_format_options* {.bycopy, header: "<git2/describe.h>", importc.} = object
     version*: cuint
     abbreviated_size*: cuint
     always_use_long_format*: cint
@@ -1022,12 +1026,12 @@ type
 
   git_odb_foreach_cb* = proc (id: ptr git_oid; payload: pointer): cint {.cdecl.}
   git_odb_foreach_cbNim* = proc (id: ptr git_oid): cint
-  git_odb_expand_id* {.bycopy.} = object
+  git_odb_expand_id* {.bycopy, header: "<git2/odb.h>", importc.} = object
     id*: git_oid             ## The object ID to expand 
     length*: cushort
     type_f* {.importc: "type".}: git_object_t
 
-  git_revert_options* {.bycopy.} = object
+  git_revert_options* {.bycopy, header: "<git2/revert.h>", importc.} = object
     version*: cuint
     mainline*: cuint         ## For merge commits, the "mainline" is treated as the parent. 
     merge_opts*: git_merge_options
@@ -1040,7 +1044,7 @@ type
     GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES = 4,
     GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES = 8, GIT_BLAME_FIRST_PARENT = 16,
     GIT_BLAME_USE_MAILMAP = 32, GIT_BLAME_IGNORE_WHITESPACE = 64 ## Ignore whitespace differences 
-  git_blame_options* {.bycopy.} = object
+  git_blame_options* {.bycopy, header: "<git2/blame.h>", importc.} = object
     version*: cuint
     flags*: uint32           ## A combination of `git_blame_flag_t` 
     min_match_characters*: uint16
@@ -1049,7 +1053,7 @@ type
     min_line*: size_t
     max_line*: size_t
 
-  git_blame_hunk* {.bycopy.} = object
+  git_blame_hunk* {.bycopy, header: "<git2/blame.h>", importc.} = object
     lines_in_hunk*: size_t
     final_commit_id*: git_oid
     final_start_line_number*: size_t
@@ -1064,14 +1068,14 @@ type
     GIT_BLOB_FILTER_CHECK_FOR_BINARY = 1, ## When set, filters will not be applied to binary files. 
     GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES = 2,
     GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD = 4
-  git_blob_filter_options* {.bycopy.} = object
+  git_blob_filter_options* {.bycopy, header: "<git2/blob.h>", importc.} = object
     version*: cint
     flags*: uint32           ## Flags to control the filtering process, see `git_blob_filter_flag_t` above 
   
   git_tag_foreach_cb* = proc (name: cstring; oid: ptr git_oid; payload: pointer): cint {.
       cdecl.}
   git_tag_foreach_cbNim* = proc (name: cstring; oid: ptr git_oid): cint
-  git_oidarray* {.bycopy.} = object
+  git_oidarray* {.bycopy, header: "<git2/oidarray.h>", importc.} = object
     ## Array of object ids 
     ids*: ptr git_oid
     count*: size_t
@@ -1091,7 +1095,7 @@ type
   git_submodule_cb* = proc (sm: ptr git_submodule; name: cstring;
                             payload: pointer): cint {.cdecl.}
   git_submodule_cbNim* = proc (sm: ptr git_submodule; name: cstring): cint
-  git_submodule_update_options* {.bycopy.} = object
+  git_submodule_update_options* {.bycopy, header: "<git2/submodule.h>", importc.} = object
     version*: cuint
     checkout_opts*: git_checkout_options
     fetch_opts*: git_fetch_options
@@ -1101,7 +1105,7 @@ type
     GIT_REVPARSE_SINGLE = 1, ## The spec targeted a single object. 
     GIT_REVPARSE_RANGE = 2, ## The spec targeted a range of commits. 
     GIT_REVPARSE_MERGE_BASE = 4 ## The spec used the '...' operator, which invokes special semantics. 
-  git_revspec* {.bycopy.} = object
+  git_revspec* {.bycopy, header: "<git2/revparse.h>", importc.} = object
     from_f* {.importc: "from".}: ptr git_object ## The left element of the revspec; must be freed by the user 
     to*: ptr git_object      ## The right element of the revspec; must be freed by the user 
     flags*: cuint            ## The intent of the revspec (i.e. `git_revparse_mode_t` flags) 

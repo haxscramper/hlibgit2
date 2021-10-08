@@ -9,7 +9,7 @@ import
   . / config
 
 type
-  git_patch* {.bycopy, incompleteStruct.} = object
+  git_patch* {.bycopy, incompleteStruct, importc.} = object
   
 proc git_patch_from_diff*(arg_out: ptr ptr git_patch; diff: ptr git_diff;
                           idx: size_t): cint {.dynlib: libgitDl, importc.}
