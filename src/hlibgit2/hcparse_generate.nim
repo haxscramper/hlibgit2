@@ -22,13 +22,13 @@ fixConf.onGetBind():
     of cekProc: result = cxxDynlibVar("libgitDl")
     else: result = cxxNoBind()
 
+  result.imports.add cxxLibImport(
+    fixConf.libName, @["config"])
+
+fixConf.libNameStyle = idsSnake
+
 fixConf.onFixName():
-  if cache.knownRename(name.nim):
-    return cache.getRename(name.nim)
-
-  result = keepNimIdentChars(name.nim)
-
-  cache.newRename(name.nim, result)
+   cache.fixContextedName(name, fixConf.libNameStyle)
 
 fixConf.typeStore = newTypeStore()
 
@@ -58,27 +58,15 @@ for file in walkDir(lib, AbsFile):
 
 
 for file in walkDir(outDir, AbsFile, exts = @["nim"]):
-  if file.name() != "hcparse_generate":
+  if file.name() notin ["hcparse_generate", "config"]:
     rmFile file
 
 var resultWrapped: seq[CxxFile]
 
-let onefile = true
+let onefile = false
 
-if onefile:
-  var merged: string
-  for file in walkDir(tmpDir, AbsFile, exts = @["h"]):
-    merged.add file.readFile()
-    merged.add "\n\n\n"
-
-  let full = tmpDir /. "full_merged.h"
-  echov full
-  writeFile(full, merged)
-  resultWrapped.add wrapViaTs(full, tmpDir, fixConf)
-
-else:
-  for file in walkDir(tmpDir, AbsFile, exts = @["h"]):
-    resultWrapped.add wrapViaTs(file, tmpDir, fixConf)
+for file in walkDir(tmpDir, AbsFile, exts = @["h"]):
+  resultWrapped.add wrapViaTs(file, tmpDir, fixConf)
 
 for fix in regroupFiles(resultWrapped):
   let res = outDir / fix.getFile().withExt("nim")
