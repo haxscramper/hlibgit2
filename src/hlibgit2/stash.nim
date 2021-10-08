@@ -8,18 +8,17 @@ export
 
 proc git_stash_save*(out: ptr git_oid; repo: ptr git_repository;
                      stasher: ptr git_signature; message: cstring; flags: uint32): cint {.
-    dynlib: libgitDl, importc: "git_stash_save".}
+    dynlib: libgitDl, importc.}
 proc git_stash_apply_options_init*(opts: ptr git_stash_apply_options;
                                    version: cuint): cint {.dynlib: libgitDl,
-    importc: "git_stash_apply_options_init".}
+    importc.}
 proc git_stash_apply*(repo: ptr git_repository; index: size_t;
                       options: ptr git_stash_apply_options): cint {.
-    dynlib: libgitDl, importc: "git_stash_apply".}
+    dynlib: libgitDl, importc.}
 proc git_stash_foreach*(repo: ptr git_repository; callback: git_stash_cb;
-                        payload: pointer): cint {.dynlib: libgitDl,
-    importc: "git_stash_foreach".}
+                        payload: pointer): cint {.dynlib: libgitDl, importc.}
 proc git_stash_drop*(repo: ptr git_repository; index: size_t): cint {.
-    dynlib: libgitDl, importc: "git_stash_drop".}
+    dynlib: libgitDl, importc.}
 proc git_stash_pop*(repo: ptr git_repository; index: size_t;
                     options: ptr git_stash_apply_options): cint {.
-    dynlib: libgitDl, importc: "git_stash_pop".}
+    dynlib: libgitDl, importc.}

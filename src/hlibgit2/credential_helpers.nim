@@ -9,4 +9,4 @@ export
 proc git_credential_userpass*(out: ptr ptr git_credential; url: cstring;
                               user_from_url: cstring; allowed_types: cuint;
                               payload: pointer): cint {.dynlib: libgitDl,
-    importc: "git_credential_userpass".}
+    importc.}

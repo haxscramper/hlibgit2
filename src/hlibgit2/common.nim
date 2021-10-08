@@ -26,8 +26,6 @@ type
     GIT_OPT_ENABLE_HTTP_EXPECT_CONTINUE = 28,
     GIT_OPT_GET_MWINDOW_FILE_LIMIT = 29, GIT_OPT_SET_MWINDOW_FILE_LIMIT = 30
 proc git_libgit2_version*(major: ptr cint; minor: ptr cint; rev: ptr cint): cint {.
-    dynlib: libgitDl, importc: "git_libgit2_version".}
-proc git_libgit2_features*(a0: void): cint {.dynlib: libgitDl,
-    importc: "git_libgit2_features".}
-proc git_libgit2_opts*(option: cint): cint {.dynlib: libgitDl,
-    importc: "git_libgit2_opts".}
+    dynlib: libgitDl, importc.}
+proc git_libgit2_features*(a0: void): cint {.dynlib: libgitDl, importc.}
+proc git_libgit2_opts*(option: cint): cint {.dynlib: libgitDl, importc.}

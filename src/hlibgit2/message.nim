@@ -8,8 +8,8 @@ export
 
 proc git_message_prettify*(out: ptr git_buf; message: cstring;
                            strip_comments: cint; comment_char: char): cint {.
-    dynlib: libgitDl, importc: "git_message_prettify".}
+    dynlib: libgitDl, importc.}
 proc git_message_trailers*(arr: ptr git_message_trailer_array; message: cstring): cint {.
-    dynlib: libgitDl, importc: "git_message_trailers".}
+    dynlib: libgitDl, importc.}
 proc git_message_trailer_array_free*(arr: ptr git_message_trailer_array): void {.
-    dynlib: libgitDl, importc: "git_message_trailer_array_free".}
+    dynlib: libgitDl, importc.}

@@ -8,12 +8,12 @@ export
 
 proc git_reset*(repo: ptr git_repository; target: ptr git_object;
                 reset_type: git_reset_t; checkout_opts: ptr git_checkout_options): cint {.
-    dynlib: libgitDl, importc: "git_reset".}
+    dynlib: libgitDl, importc.}
 proc git_reset_from_annotated*(repo: ptr git_repository;
                                commit: ptr git_annotated_commit;
                                reset_type: git_reset_t;
                                checkout_opts: ptr git_checkout_options): cint {.
-    dynlib: libgitDl, importc: "git_reset_from_annotated".}
+    dynlib: libgitDl, importc.}
 proc git_reset_default*(repo: ptr git_repository; target: ptr git_object;
                         pathspecs: ptr git_strarray): cint {.dynlib: libgitDl,
-    importc: "git_reset_default".}
+    importc.}

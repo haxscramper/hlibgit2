@@ -8,116 +8,109 @@ export
 
 proc git_remote_create*(out: ptr ptr git_remote; repo: ptr git_repository;
                         name: cstring; url: cstring): cint {.dynlib: libgitDl,
-    importc: "git_remote_create".}
+    importc.}
 proc git_remote_create_options_init*(opts: ptr git_remote_create_options;
                                      version: cuint): cint {.dynlib: libgitDl,
-    importc: "git_remote_create_options_init".}
+    importc.}
 proc git_remote_create_with_opts*(out: ptr ptr git_remote; url: cstring;
                                   opts: ptr git_remote_create_options): cint {.
-    dynlib: libgitDl, importc: "git_remote_create_with_opts".}
+    dynlib: libgitDl, importc.}
 proc git_remote_create_with_fetchspec*(out: ptr ptr git_remote;
                                        repo: ptr git_repository; name: cstring;
                                        url: cstring; fetch: cstring): cint {.
-    dynlib: libgitDl, importc: "git_remote_create_with_fetchspec".}
+    dynlib: libgitDl, importc.}
 proc git_remote_create_anonymous*(out: ptr ptr git_remote;
                                   repo: ptr git_repository; url: cstring): cint {.
-    dynlib: libgitDl, importc: "git_remote_create_anonymous".}
+    dynlib: libgitDl, importc.}
 proc git_remote_create_detached*(out: ptr ptr git_remote; url: cstring): cint {.
-    dynlib: libgitDl, importc: "git_remote_create_detached".}
+    dynlib: libgitDl, importc.}
 proc git_remote_lookup*(out: ptr ptr git_remote; repo: ptr git_repository;
-                        name: cstring): cint {.dynlib: libgitDl,
-    importc: "git_remote_lookup".}
+                        name: cstring): cint {.dynlib: libgitDl, importc.}
 proc git_remote_dup*(dest: ptr ptr git_remote; source: ptr git_remote): cint {.
-    dynlib: libgitDl, importc: "git_remote_dup".}
+    dynlib: libgitDl, importc.}
 proc git_remote_owner*(remote: ptr git_remote): ptr git_repository {.
-    dynlib: libgitDl, importc: "git_remote_owner".}
+    dynlib: libgitDl, importc.}
 proc git_remote_name*(remote: ptr git_remote): cstring {.dynlib: libgitDl,
-    importc: "git_remote_name".}
+    importc.}
 proc git_remote_url*(remote: ptr git_remote): cstring {.dynlib: libgitDl,
-    importc: "git_remote_url".}
+    importc.}
 proc git_remote_pushurl*(remote: ptr git_remote): cstring {.dynlib: libgitDl,
-    importc: "git_remote_pushurl".}
+    importc.}
 proc git_remote_set_url*(repo: ptr git_repository; remote: cstring; url: cstring): cint {.
-    dynlib: libgitDl, importc: "git_remote_set_url".}
+    dynlib: libgitDl, importc.}
 proc git_remote_set_pushurl*(repo: ptr git_repository; remote: cstring;
-                             url: cstring): cint {.dynlib: libgitDl,
-    importc: "git_remote_set_pushurl".}
+                             url: cstring): cint {.dynlib: libgitDl, importc.}
 proc git_remote_add_fetch*(repo: ptr git_repository; remote: cstring;
-                           refspec: cstring): cint {.dynlib: libgitDl,
-    importc: "git_remote_add_fetch".}
+                           refspec: cstring): cint {.dynlib: libgitDl, importc.}
 proc git_remote_get_fetch_refspecs*(array: ptr git_strarray;
                                     remote: ptr git_remote): cint {.
-    dynlib: libgitDl, importc: "git_remote_get_fetch_refspecs".}
+    dynlib: libgitDl, importc.}
 proc git_remote_add_push*(repo: ptr git_repository; remote: cstring;
-                          refspec: cstring): cint {.dynlib: libgitDl,
-    importc: "git_remote_add_push".}
+                          refspec: cstring): cint {.dynlib: libgitDl, importc.}
 proc git_remote_get_push_refspecs*(array: ptr git_strarray;
                                    remote: ptr git_remote): cint {.
-    dynlib: libgitDl, importc: "git_remote_get_push_refspecs".}
+    dynlib: libgitDl, importc.}
 proc git_remote_refspec_count*(remote: ptr git_remote): size_t {.
-    dynlib: libgitDl, importc: "git_remote_refspec_count".}
+    dynlib: libgitDl, importc.}
 proc git_remote_get_refspec*(remote: ptr git_remote; n: size_t): ptr git_refspec {.
-    dynlib: libgitDl, importc: "git_remote_get_refspec".}
+    dynlib: libgitDl, importc.}
 proc git_remote_connect*(remote: ptr git_remote; direction: git_direction;
                          callbacks: ptr git_remote_callbacks;
                          proxy_opts: ptr git_proxy_options;
                          custom_headers: ptr git_strarray): cint {.
-    dynlib: libgitDl, importc: "git_remote_connect".}
+    dynlib: libgitDl, importc.}
 proc git_remote_ls*(out: ptr ptr ptr git_remote_head; size: ptr size_t;
-                    remote: ptr git_remote): cint {.dynlib: libgitDl,
-    importc: "git_remote_ls".}
+                    remote: ptr git_remote): cint {.dynlib: libgitDl, importc.}
 proc git_remote_connected*(remote: ptr git_remote): cint {.dynlib: libgitDl,
-    importc: "git_remote_connected".}
-proc git_remote_stop*(remote: ptr git_remote): cint {.dynlib: libgitDl,
-    importc: "git_remote_stop".}
+    importc.}
+proc git_remote_stop*(remote: ptr git_remote): cint {.dynlib: libgitDl, importc.}
 proc git_remote_disconnect*(remote: ptr git_remote): cint {.dynlib: libgitDl,
-    importc: "git_remote_disconnect".}
-proc git_remote_free*(remote: ptr git_remote): void {.dynlib: libgitDl,
-    importc: "git_remote_free".}
+    importc.}
+proc git_remote_free*(remote: ptr git_remote): void {.dynlib: libgitDl, importc.}
 proc git_remote_list*(out: ptr git_strarray; repo: ptr git_repository): cint {.
-    dynlib: libgitDl, importc: "git_remote_list".}
+    dynlib: libgitDl, importc.}
 proc git_remote_init_callbacks*(opts: ptr git_remote_callbacks; version: cuint): cint {.
-    dynlib: libgitDl, importc: "git_remote_init_callbacks".}
+    dynlib: libgitDl, importc.}
 proc git_fetch_options_init*(opts: ptr git_fetch_options; version: cuint): cint {.
-    dynlib: libgitDl, importc: "git_fetch_options_init".}
+    dynlib: libgitDl, importc.}
 proc git_push_options_init*(opts: ptr git_push_options; version: cuint): cint {.
-    dynlib: libgitDl, importc: "git_push_options_init".}
+    dynlib: libgitDl, importc.}
 proc git_remote_download*(remote: ptr git_remote; refspecs: ptr git_strarray;
                           opts: ptr git_fetch_options): cint {.dynlib: libgitDl,
-    importc: "git_remote_download".}
+    importc.}
 proc git_remote_upload*(remote: ptr git_remote; refspecs: ptr git_strarray;
                         opts: ptr git_push_options): cint {.dynlib: libgitDl,
-    importc: "git_remote_upload".}
+    importc.}
 proc git_remote_update_tips*(remote: ptr git_remote;
                              callbacks: ptr git_remote_callbacks;
                              update_fetchhead: cint;
                              download_tags: git_remote_autotag_option_t;
                              reflog_message: cstring): cint {.dynlib: libgitDl,
-    importc: "git_remote_update_tips".}
+    importc.}
 proc git_remote_fetch*(remote: ptr git_remote; refspecs: ptr git_strarray;
                        opts: ptr git_fetch_options; reflog_message: cstring): cint {.
-    dynlib: libgitDl, importc: "git_remote_fetch".}
+    dynlib: libgitDl, importc.}
 proc git_remote_prune*(remote: ptr git_remote;
                        callbacks: ptr git_remote_callbacks): cint {.
-    dynlib: libgitDl, importc: "git_remote_prune".}
+    dynlib: libgitDl, importc.}
 proc git_remote_push*(remote: ptr git_remote; refspecs: ptr git_strarray;
                       opts: ptr git_push_options): cint {.dynlib: libgitDl,
-    importc: "git_remote_push".}
+    importc.}
 proc git_remote_stats*(remote: ptr git_remote): ptr git_indexer_progress {.
-    dynlib: libgitDl, importc: "git_remote_stats".}
+    dynlib: libgitDl, importc.}
 proc git_remote_autotag*(remote: ptr git_remote): git_remote_autotag_option_t {.
-    dynlib: libgitDl, importc: "git_remote_autotag".}
+    dynlib: libgitDl, importc.}
 proc git_remote_set_autotag*(repo: ptr git_repository; remote: cstring;
                              value: git_remote_autotag_option_t): cint {.
-    dynlib: libgitDl, importc: "git_remote_set_autotag".}
+    dynlib: libgitDl, importc.}
 proc git_remote_prune_refs*(remote: ptr git_remote): cint {.dynlib: libgitDl,
-    importc: "git_remote_prune_refs".}
+    importc.}
 proc git_remote_rename*(problems: ptr git_strarray; repo: ptr git_repository;
                         name: cstring; new_name: cstring): cint {.
-    dynlib: libgitDl, importc: "git_remote_rename".}
+    dynlib: libgitDl, importc.}
 proc git_remote_is_valid_name*(remote_name: cstring): cint {.dynlib: libgitDl,
-    importc: "git_remote_is_valid_name".}
+    importc.}
 proc git_remote_delete*(repo: ptr git_repository; name: cstring): cint {.
-    dynlib: libgitDl, importc: "git_remote_delete".}
+    dynlib: libgitDl, importc.}
 proc git_remote_default_branch*(out: ptr git_buf; remote: ptr git_remote): cint {.
-    dynlib: libgitDl, importc: "git_remote_default_branch".}
+    dynlib: libgitDl, importc.}
