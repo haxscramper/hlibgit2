@@ -1,10 +1,6 @@
 import
   ./libgit_config
 
-
-
-
-
 proc git_libgit2_init*(a0: void): cint {.dynlib: libgitDl, importc.}
 
 

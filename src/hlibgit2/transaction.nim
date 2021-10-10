@@ -7,10 +7,6 @@ import
 import
   ./oid
 
-
-
-
-
 proc git_transaction_new*(
     arg_out: ptr ptr git_transaction,
     repo:    ptr git_repository

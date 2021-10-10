@@ -33,7 +33,6 @@ for file in walkDir(lib, AbsFile):
     expandMap[resFile] = file
 
     if not exists(resFile):
-      echov resFile
       var reader = newWaveReader(file, cache, @[], @[
         "/usr/include/sys",
         "/usr/include",
@@ -75,7 +74,8 @@ fixConf.onFixName():
 fixConf.typeStore = newTypeStore()
 
 for file in walkDir(tmpDir, AbsFile, exts = @["h"]):
-  resultWrapped.add wrapViaTs(file, tmpDir, fixConf)
+  let res = wrapViaTs(file, tmpDir, fixConf)
+  resultWrapped.add res
 
 for fix in regroupFiles(resultWrapped):
   let res = outDir / fix.getFile().withExt("nim")

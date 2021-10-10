@@ -4,10 +4,6 @@ import
 import
   ./types
 
-
-
-
-
 proc git_signature_new*(
     arg_out: ptr ptr git_signature,
     name:    cstring,

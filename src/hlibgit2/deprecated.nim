@@ -88,8 +88,6 @@ import
 import
   ./remote
 
-
-
 type
   git_attr_t* = git_attr_value_t
    

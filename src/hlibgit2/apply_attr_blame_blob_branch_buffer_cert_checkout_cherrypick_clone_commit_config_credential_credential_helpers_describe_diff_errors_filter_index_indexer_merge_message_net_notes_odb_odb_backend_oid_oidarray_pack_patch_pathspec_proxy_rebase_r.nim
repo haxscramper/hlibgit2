@@ -1,8 +1,6 @@
 import
   ./libgit_config
 
-
-
 type
   git_status_t* = enum
     GIT_STATUS_CURRENT = 0
@@ -59,10 +57,274 @@ type
     head_to_index*: ptr git_diff_delta
     index_to_workdir*: ptr git_diff_delta
    
-  git_strarray* {.bycopy, header: "<git2/strarray.h>", importc.} = object
-    ## Array of strings 
-    strings*: ptr cstring
-    count*: size_t
+  git_off_t* = int64
+   
+  git_time_t* = int64
+   
+  git_object_size_t* = uint64
+   
+  git_object_t* = enum
+    GIT_OBJECT_ANY = -2
+    GIT_OBJECT_INVALID = -1 ## Object can be any of the following 
+    GIT_OBJECT_COMMIT = 1 ## Object is invalid. 
+    GIT_OBJECT_TREE = 2 ## A commit object. 
+    GIT_OBJECT_BLOB = 3 ## A tree (directory listing) object. 
+    GIT_OBJECT_TAG = 4 ## A file revision object. 
+    GIT_OBJECT_OFS_DELTA = 6 ## An annotated tag object. 
+    GIT_OBJECT_REF_DELTA = 7 ## A delta, base is given by an offset. 
+   
+  git_time* {.bycopy, header: "<git2/types.h>", importc.} = object
+    ## Time in a signature 
+    time*: git_time_t
+    offset*: cint ## time in seconds from epoch 
+    sign*: char ## timezone offset, in minutes 
+   
+  git_signature* {.bycopy, header: "<git2/types.h>", importc.} = object
+    ## indicator for questionable '-0000' offsets in signature 
+    ## An action signature (e.g. for committers, taggers, etc) 
+    name*: cstring
+    email*: cstring ## full name of the author 
+    when_f* {.importc: "when".}: git_time ## email of the author 
+   
+  git_reference_t* = enum
+    GIT_REFERENCE_INVALID = 0
+    GIT_REFERENCE_DIRECT = 1 ## Invalid reference 
+    GIT_REFERENCE_SYMBOLIC = 2 ## A reference that points at an object id 
+    GIT_REFERENCE_ALL = 3 ## A reference that points at another reference 
+   
+  git_branch_t* = enum
+    GIT_BRANCH_LOCAL = 1
+    GIT_BRANCH_REMOTE = 2
+    GIT_BRANCH_ALL = 3
+   
+  git_filemode_t* = enum
+    GIT_FILEMODE_UNREADABLE = 0
+    GIT_FILEMODE_TREE = 40000
+    GIT_FILEMODE_BLOB = 100644
+    GIT_FILEMODE_BLOB_EXECUTABLE = 100755
+    GIT_FILEMODE_LINK = 120000
+    GIT_FILEMODE_COMMIT = 160000
+   
+  git_submodule_update_t* = enum
+    GIT_SUBMODULE_UPDATE_CHECKOUT = 1
+    GIT_SUBMODULE_UPDATE_REBASE = 2
+    GIT_SUBMODULE_UPDATE_MERGE = 3
+    GIT_SUBMODULE_UPDATE_NONE = 4
+    GIT_SUBMODULE_UPDATE_DEFAULT = 0
+   
+  git_submodule_ignore_t* = enum
+    GIT_SUBMODULE_IGNORE_UNSPECIFIED = -1
+    GIT_SUBMODULE_IGNORE_NONE = 1 ## use the submodule's configuration 
+    GIT_SUBMODULE_IGNORE_UNTRACKED = 2 ## any change or untracked == dirty 
+    GIT_SUBMODULE_IGNORE_DIRTY = 3 ## dirty if tracked files change 
+    GIT_SUBMODULE_IGNORE_ALL = 4 ## only dirty if HEAD moved 
+   
+  git_submodule_recurse_t* = enum
+    GIT_SUBMODULE_RECURSE_NO = 0
+    GIT_SUBMODULE_RECURSE_YES = 1
+    GIT_SUBMODULE_RECURSE_ONDEMAND = 2
+   
+  git_writestream* {.bycopy, header: "<git2/types.h>", importc.} = object
+    ## A type to write in a streaming fashion, for example, for filters. 
+    write*: proc(stream: ptr git_writestream, buffer: cstring, len: size_t): cint{.cdecl.}
+    close*: proc(stream: ptr git_writestream): cint{.cdecl.}
+    free*: proc(stream: ptr git_writestream): void{.cdecl.}
+   
+  git_remote_create_flags* = enum
+    GIT_REMOTE_CREATE_SKIP_INSTEADOF = 1 ## Ignore the repository apply.insteadOf configuration 
+    GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC = 2 ## Don't build a fetchspec from the name if none is set 
+   
+  git_remote_create_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    version*: cuint
+    repository*: ptr git_repository
+    name*: cstring
+    fetchspec*: cstring ## The fetchspec the remote should use. 
+    flags*: cuint ## Additional flags for the remote. See git_remote_create_flags. 
+   
+  git_remote_completion_t* = enum
+    GIT_REMOTE_COMPLETION_DOWNLOAD = 0
+    GIT_REMOTE_COMPLETION_INDEXING = 1
+    GIT_REMOTE_COMPLETION_ERROR = 2
+   
+  git_push_transfer_progress_cb* = proc(current: cuint, total: cuint, bytes: size_t, payload: pointer): cint{.cdecl.}
+   
+  git_push_transfer_progress_cbNim* = proc(current: cuint, total: cuint, bytes: size_t): cint
+   
+  git_push_update* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    ## Push network progress notification function 
+    src_refname*: cstring
+    dst_refname*: cstring
+    src*: git_oid
+    dst*: git_oid
+   
+  git_push_negotiation* = proc(updates: ptr ptr git_push_update, len: size_t, payload: pointer): cint{.cdecl.}
+   
+  git_push_negotiationNim* = proc(updates: ptr ptr git_push_update, len: size_t): cint
+   
+  git_push_update_reference_cb* = proc(refname: cstring, status: cstring, data: pointer): cint{.cdecl.}
+   
+  git_push_update_reference_cbNim* = proc(refname: cstring, status: cstring): cint
+   
+  git_url_resolve_cb* = proc(url_resolved: ptr git_buf, url: cstring, direction: cint, payload: pointer): cint{.cdecl.}
+   
+  git_url_resolve_cbNim* = proc(url_resolved: ptr git_buf, url: cstring, direction: cint): cint
+   
+  git_remote_callbacks* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    version*: cuint
+    sideband_progress*: git_transport_message_cb ## The version 
+    completion*: proc(arg_type: git_remote_completion_t, data: pointer): cint{.cdecl.}
+    credentials*: git_credential_acquire_cb
+    certificate_check*: git_transport_certificate_check_cb
+    transfer_progress*: git_indexer_progress_cb
+    update_tips*: proc(refname: cstring, a: ptr git_oid, b: ptr git_oid, data: pointer): cint{.cdecl.}
+    pack_progress*: git_packbuilder_progress
+    push_transfer_progress*: git_push_transfer_progress_cb
+    push_update_reference*: git_push_update_reference_cb
+    push_negotiation*: git_push_negotiation
+    transport*: git_transport_cb
+    payload*: pointer
+    resolve_url*: git_url_resolve_cb
+   
+  git_fetch_prune_t* = enum
+    GIT_FETCH_PRUNE_UNSPECIFIED = 0
+    GIT_FETCH_PRUNE = 1
+    GIT_FETCH_NO_PRUNE = 2
+   
+  git_remote_autotag_option_t* = enum
+    GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED = 0
+    GIT_REMOTE_DOWNLOAD_TAGS_AUTO = 1
+    GIT_REMOTE_DOWNLOAD_TAGS_NONE = 2
+    GIT_REMOTE_DOWNLOAD_TAGS_ALL = 3
+   
+  git_fetch_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    version*: cint
+    callbacks*: git_remote_callbacks
+    prune*: git_fetch_prune_t
+    update_fetchhead*: cint
+    download_tags*: git_remote_autotag_option_t
+    proxy_opts*: git_proxy_options
+    custom_headers*: git_strarray
+   
+  git_push_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    version*: cuint
+    pb_parallelism*: cuint
+    callbacks*: git_remote_callbacks
+    proxy_opts*: git_proxy_options
+    custom_headers*: git_strarray
+   
+  git_credential_t* = enum
+    GIT_CREDENTIAL_USERPASS_PLAINTEXT = 1
+    GIT_CREDENTIAL_SSH_KEY = 2
+    GIT_CREDENTIAL_SSH_CUSTOM = 4
+    GIT_CREDENTIAL_DEFAULT = 8
+    GIT_CREDENTIAL_SSH_INTERACTIVE = 16
+    GIT_CREDENTIAL_USERNAME = 32
+    GIT_CREDENTIAL_SSH_MEMORY = 64
+   
+  git_credential_default* = git_credential
+   
+  git_credential_acquire_cb* = proc(arg_out: ptr ptr git_credential, url: cstring, username_from_url: cstring, allowed_types: cuint, payload: pointer): cint{.cdecl.}
+   
+  git_credential_acquire_cbNim* = proc(arg_out: ptr ptr git_credential, url: cstring, username_from_url: cstring, allowed_types: cuint): cint
+   
+  LIBSSH2_SESSION* = LIBSSH2_SESSION
+   
+  LIBSSH2_USERAUTH_KBDINT_PROMPT* = LIBSSH2_USERAUTH_KBDINT_PROMPT
+   
+  LIBSSH2_USERAUTH_KBDINT_RESPONSE* = LIBSSH2_USERAUTH_KBDINT_RESPONSE
+   
+  git_credential_ssh_interactive_cb* = proc(name: cstring, name_len: cint, instruction: cstring, instruction_len: cint, num_prompts: cint, prompts: ptr LIBSSH2_USERAUTH_KBDINT_PROMPT, responses: ptr LIBSSH2_USERAUTH_KBDINT_RESPONSE, abstract: ptr pointer): void{.cdecl.}
+   
+  git_credential_sign_cb* = proc(session: ptr LIBSSH2_SESSION, sig: ptr ptr uchar, sig_len: ptr size_t, data: ptr uchar, data_len: size_t, abstract: ptr pointer): cint{.cdecl.}
+   
+  git_checkout_strategy_t* = enum
+    GIT_CHECKOUT_NONE = 0
+    GIT_CHECKOUT_SAFE = 1 ## default is a dry run, no actual updates 
+    GIT_CHECKOUT_FORCE = 2
+    GIT_CHECKOUT_RECREATE_MISSING = 4 ## Allow checkout to recreate missing files 
+    GIT_CHECKOUT_ALLOW_CONFLICTS = 16 ## Allow checkout to make safe updates even if conflicts are found 
+    GIT_CHECKOUT_REMOVE_UNTRACKED = 32 ## Remove untracked files not in index (that are not ignored) 
+    GIT_CHECKOUT_REMOVE_IGNORED = 64 ## Remove ignored files not in index 
+    GIT_CHECKOUT_UPDATE_ONLY = 128 ## Only update existing files, don't create new ones 
+    GIT_CHECKOUT_DONT_UPDATE_INDEX = 256
+    GIT_CHECKOUT_NO_REFRESH = 512 ## Don't refresh index/config/etc before doing checkout 
+    GIT_CHECKOUT_SKIP_UNMERGED = 1024 ## Allow checkout to skip unmerged files 
+    GIT_CHECKOUT_USE_OURS = 2048 ## For unmerged files, checkout stage 2 from index 
+    GIT_CHECKOUT_USE_THEIRS = 4096 ## For unmerged files, checkout stage 3 from index 
+    GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH = 8192 ## Treat pathspec as simple list of exact match file paths 
+    GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES = 262144 ## Ignore directories in use, they will be left empty 
+    GIT_CHECKOUT_DONT_OVERWRITE_IGNORED = 524288 ## Don't overwrite ignored files that exist in the checkout target 
+    GIT_CHECKOUT_CONFLICT_STYLE_MERGE = 1048576 ## Write normal merge files for conflicts 
+    GIT_CHECKOUT_CONFLICT_STYLE_DIFF3 = 2097152 ## Include common ancestor data in diff3 format files for conflicts 
+    GIT_CHECKOUT_DONT_REMOVE_EXISTING = 4194304 ## Don't overwrite existing files or folders 
+    GIT_CHECKOUT_DONT_WRITE_INDEX = 8388608 ## Normally checkout writes the index upon completion; this prevents that. 
+    GIT_CHECKOUT_UPDATE_SUBMODULES = 65536 ## Recursively checkout submodules with same options (NOT IMPLEMENTED) 
+    GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED = 131072 ## Recursively checkout submodules if HEAD moved in super repo (NOT IMPLEMENTED) 
+   
+  git_checkout_notify_t* = enum
+    GIT_CHECKOUT_NOTIFY_NONE = 0
+    GIT_CHECKOUT_NOTIFY_CONFLICT = 1
+    GIT_CHECKOUT_NOTIFY_DIRTY = 2
+    GIT_CHECKOUT_NOTIFY_UPDATED = 4
+    GIT_CHECKOUT_NOTIFY_UNTRACKED = 8
+    GIT_CHECKOUT_NOTIFY_IGNORED = 16
+   
+  git_checkout_perfdata* {.bycopy, header: "<git2/checkout.h>", importc.} = object
+    ## Checkout performance-reporting structure 
+    mkdir_calls*: size_t
+    stat_calls*: size_t
+    chmod_calls*: size_t
+   
+  git_checkout_notify_cb* = proc(why: git_checkout_notify_t, path: cstring, baseline: ptr git_diff_file, target: ptr git_diff_file, workdir: ptr git_diff_file, payload: pointer): cint{.cdecl.}
+   
+  git_checkout_notify_cbNim* = proc(why: git_checkout_notify_t, path: cstring, baseline: ptr git_diff_file, target: ptr git_diff_file, workdir: ptr git_diff_file): cint
+   
+  git_checkout_progress_cb* = proc(path: cstring, completed_steps: size_t, total_steps: size_t, payload: pointer): void{.cdecl.}
+   
+  git_checkout_progress_cbNim* = proc(path: cstring, completed_steps: size_t, total_steps: size_t): void
+   
+  git_checkout_perfdata_cb* = proc(perfdata: ptr git_checkout_perfdata, payload: pointer): void{.cdecl.}
+   
+  git_checkout_perfdata_cbNim* = proc(perfdata: ptr git_checkout_perfdata): void
+   
+  git_checkout_options* {.bycopy, header: "<git2/checkout.h>", importc.} = object
+    ## Checkout notification callback function 
+    ## Checkout progress notification function 
+    ## Checkout perfdata notification function 
+    version*: cuint
+    checkout_strategy*: cuint ## The version 
+    disable_filters*: cint ## default will be a safe checkout 
+    dir_mode*: cuint ## don't apply filters like CRLF conversion 
+    file_mode*: cuint ## default is 0755 
+    file_open_flags*: cint ## default is 0644 or 0755 as dictated by blob 
+    notify_flags*: cuint ## default is O_CREAT | O_TRUNC | O_WRONLY 
+    notify_cb*: git_checkout_notify_cb ## see `git_checkout_notify_t` above 
+    notify_payload*: pointer ## Payload passed to notify_cb 
+    progress_cb*: git_checkout_progress_cb ## Optional callback to notify the consumer of checkout progress. 
+    progress_payload*: pointer ## Payload passed to progress_cb 
+    paths*: git_strarray
+    baseline*: ptr git_tree
+    baseline_index*: ptr git_index
+    target_directory*: cstring
+    ancestor_label*: cstring ## alternative checkout path to workdir 
+    our_label*: cstring ## the name of the common ancestor side of conflicts 
+    their_label*: cstring ## the name of the "our" side of conflicts 
+    perfdata_cb*: git_checkout_perfdata_cb ## the name of the "their" side of conflicts 
+                                           ## Optional callback to notify the consumer of performance data. 
+    perfdata_payload*: pointer ## Payload passed to perfdata_cb 
+   
+  git_proxy_t* = enum
+    GIT_PROXY_NONE = 0
+    GIT_PROXY_AUTO = 1
+    GIT_PROXY_SPECIFIED = 2
+   
+  git_proxy_options* {.bycopy, header: "<git2/proxy.h>", importc.} = object
+    version*: cuint
+    type_f* {.importc: "type".}: git_proxy_t
+    url*: cstring
+    credentials*: git_credential_acquire_cb
+    certificate_check*: git_transport_certificate_check_cb
+    payload*: pointer
    
   git_diff_option_t* = enum
     GIT_DIFF_NORMAL = 0 ## Normal diff, the default 
@@ -276,311 +538,6 @@ type
   git_diff_patchid_options* {.bycopy, header: "<git2/diff.h>", importc.} = object
     version*: cuint
    
-  git_remote_create_flags* = enum
-    GIT_REMOTE_CREATE_SKIP_INSTEADOF = 1 ## Ignore the repository apply.insteadOf configuration 
-    GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC = 2 ## Don't build a fetchspec from the name if none is set 
-   
-  git_remote_create_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
-    version*: cuint
-    repository*: ptr git_repository
-    name*: cstring
-    fetchspec*: cstring ## The fetchspec the remote should use. 
-    flags*: cuint ## Additional flags for the remote. See git_remote_create_flags. 
-   
-  git_remote_completion_t* = enum
-    GIT_REMOTE_COMPLETION_DOWNLOAD = 0
-    GIT_REMOTE_COMPLETION_INDEXING = 1
-    GIT_REMOTE_COMPLETION_ERROR = 2
-   
-  git_push_transfer_progress_cb* = proc(current: cuint, total: cuint, bytes: size_t, payload: pointer): cint{.cdecl.}
-   
-  git_push_transfer_progress_cbNim* = proc(current: cuint, total: cuint, bytes: size_t): cint
-   
-  git_push_update* {.bycopy, header: "<git2/remote.h>", importc.} = object
-    ## Push network progress notification function 
-    src_refname*: cstring
-    dst_refname*: cstring
-    src*: git_oid
-    dst*: git_oid
-   
-  git_push_negotiation* = proc(updates: ptr ptr git_push_update, len: size_t, payload: pointer): cint{.cdecl.}
-   
-  git_push_negotiationNim* = proc(updates: ptr ptr git_push_update, len: size_t): cint
-   
-  git_push_update_reference_cb* = proc(refname: cstring, status: cstring, data: pointer): cint{.cdecl.}
-   
-  git_push_update_reference_cbNim* = proc(refname: cstring, status: cstring): cint
-   
-  git_url_resolve_cb* = proc(url_resolved: ptr git_buf, url: cstring, direction: cint, payload: pointer): cint{.cdecl.}
-   
-  git_url_resolve_cbNim* = proc(url_resolved: ptr git_buf, url: cstring, direction: cint): cint
-   
-  git_remote_callbacks* {.bycopy, header: "<git2/remote.h>", importc.} = object
-    version*: cuint
-    sideband_progress*: git_transport_message_cb ## The version 
-    completion*: proc(arg_type: git_remote_completion_t, data: pointer): cint{.cdecl.}
-    credentials*: git_credential_acquire_cb
-    certificate_check*: git_transport_certificate_check_cb
-    transfer_progress*: git_indexer_progress_cb
-    update_tips*: proc(refname: cstring, a: ptr git_oid, b: ptr git_oid, data: pointer): cint{.cdecl.}
-    pack_progress*: git_packbuilder_progress
-    push_transfer_progress*: git_push_transfer_progress_cb
-    push_update_reference*: git_push_update_reference_cb
-    push_negotiation*: git_push_negotiation
-    transport*: git_transport_cb
-    payload*: pointer
-    resolve_url*: git_url_resolve_cb
-   
-  git_fetch_prune_t* = enum
-    GIT_FETCH_PRUNE_UNSPECIFIED = 0
-    GIT_FETCH_PRUNE = 1
-    GIT_FETCH_NO_PRUNE = 2
-   
-  git_remote_autotag_option_t* = enum
-    GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED = 0
-    GIT_REMOTE_DOWNLOAD_TAGS_AUTO = 1
-    GIT_REMOTE_DOWNLOAD_TAGS_NONE = 2
-    GIT_REMOTE_DOWNLOAD_TAGS_ALL = 3
-   
-  git_fetch_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
-    version*: cint
-    callbacks*: git_remote_callbacks
-    prune*: git_fetch_prune_t
-    update_fetchhead*: cint
-    download_tags*: git_remote_autotag_option_t
-    proxy_opts*: git_proxy_options
-    custom_headers*: git_strarray
-   
-  git_push_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
-    version*: cuint
-    pb_parallelism*: cuint
-    callbacks*: git_remote_callbacks
-    proxy_opts*: git_proxy_options
-    custom_headers*: git_strarray
-   
-  git_off_t* = int64
-   
-  git_time_t* = int64
-   
-  git_object_size_t* = uint64
-   
-  git_object_t* = enum
-    GIT_OBJECT_ANY = -2
-    GIT_OBJECT_INVALID = -1 ## Object can be any of the following 
-    GIT_OBJECT_COMMIT = 1 ## Object is invalid. 
-    GIT_OBJECT_TREE = 2 ## A commit object. 
-    GIT_OBJECT_BLOB = 3 ## A tree (directory listing) object. 
-    GIT_OBJECT_TAG = 4 ## A file revision object. 
-    GIT_OBJECT_OFS_DELTA = 6 ## An annotated tag object. 
-    GIT_OBJECT_REF_DELTA = 7 ## A delta, base is given by an offset. 
-   
-  git_time* {.bycopy, header: "<git2/types.h>", importc.} = object
-    ## Time in a signature 
-    time*: git_time_t
-    offset*: cint ## time in seconds from epoch 
-    sign*: char ## timezone offset, in minutes 
-   
-  git_signature* {.bycopy, header: "<git2/types.h>", importc.} = object
-    ## indicator for questionable '-0000' offsets in signature 
-    ## An action signature (e.g. for committers, taggers, etc) 
-    name*: cstring
-    email*: cstring ## full name of the author 
-    when_f* {.importc: "when".}: git_time ## email of the author 
-   
-  git_reference_t* = enum
-    GIT_REFERENCE_INVALID = 0
-    GIT_REFERENCE_DIRECT = 1 ## Invalid reference 
-    GIT_REFERENCE_SYMBOLIC = 2 ## A reference that points at an object id 
-    GIT_REFERENCE_ALL = 3 ## A reference that points at another reference 
-   
-  git_branch_t* = enum
-    GIT_BRANCH_LOCAL = 1
-    GIT_BRANCH_REMOTE = 2
-    GIT_BRANCH_ALL = 3
-   
-  git_filemode_t* = enum
-    GIT_FILEMODE_UNREADABLE = 0
-    GIT_FILEMODE_TREE = 40000
-    GIT_FILEMODE_BLOB = 100644
-    GIT_FILEMODE_BLOB_EXECUTABLE = 100755
-    GIT_FILEMODE_LINK = 120000
-    GIT_FILEMODE_COMMIT = 160000
-   
-  git_submodule_update_t* = enum
-    GIT_SUBMODULE_UPDATE_CHECKOUT = 1
-    GIT_SUBMODULE_UPDATE_REBASE = 2
-    GIT_SUBMODULE_UPDATE_MERGE = 3
-    GIT_SUBMODULE_UPDATE_NONE = 4
-    GIT_SUBMODULE_UPDATE_DEFAULT = 0
-   
-  git_submodule_ignore_t* = enum
-    GIT_SUBMODULE_IGNORE_UNSPECIFIED = -1
-    GIT_SUBMODULE_IGNORE_NONE = 1 ## use the submodule's configuration 
-    GIT_SUBMODULE_IGNORE_UNTRACKED = 2 ## any change or untracked == dirty 
-    GIT_SUBMODULE_IGNORE_DIRTY = 3 ## dirty if tracked files change 
-    GIT_SUBMODULE_IGNORE_ALL = 4 ## only dirty if HEAD moved 
-   
-  git_submodule_recurse_t* = enum
-    GIT_SUBMODULE_RECURSE_NO = 0
-    GIT_SUBMODULE_RECURSE_YES = 1
-    GIT_SUBMODULE_RECURSE_ONDEMAND = 2
-   
-  git_writestream* {.bycopy, header: "<git2/types.h>", importc.} = object
-    ## A type to write in a streaming fashion, for example, for filters. 
-    write*: proc(stream: ptr git_writestream, buffer: cstring, len: size_t): cint{.cdecl.}
-    close*: proc(stream: ptr git_writestream): cint{.cdecl.}
-    free*: proc(stream: ptr git_writestream): void{.cdecl.}
-   
-  git_checkout_strategy_t* = enum
-    GIT_CHECKOUT_NONE = 0
-    GIT_CHECKOUT_SAFE = 1 ## default is a dry run, no actual updates 
-    GIT_CHECKOUT_FORCE = 2
-    GIT_CHECKOUT_RECREATE_MISSING = 4 ## Allow checkout to recreate missing files 
-    GIT_CHECKOUT_ALLOW_CONFLICTS = 16 ## Allow checkout to make safe updates even if conflicts are found 
-    GIT_CHECKOUT_REMOVE_UNTRACKED = 32 ## Remove untracked files not in index (that are not ignored) 
-    GIT_CHECKOUT_REMOVE_IGNORED = 64 ## Remove ignored files not in index 
-    GIT_CHECKOUT_UPDATE_ONLY = 128 ## Only update existing files, don't create new ones 
-    GIT_CHECKOUT_DONT_UPDATE_INDEX = 256
-    GIT_CHECKOUT_NO_REFRESH = 512 ## Don't refresh index/config/etc before doing checkout 
-    GIT_CHECKOUT_SKIP_UNMERGED = 1024 ## Allow checkout to skip unmerged files 
-    GIT_CHECKOUT_USE_OURS = 2048 ## For unmerged files, checkout stage 2 from index 
-    GIT_CHECKOUT_USE_THEIRS = 4096 ## For unmerged files, checkout stage 3 from index 
-    GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH = 8192 ## Treat pathspec as simple list of exact match file paths 
-    GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES = 262144 ## Ignore directories in use, they will be left empty 
-    GIT_CHECKOUT_DONT_OVERWRITE_IGNORED = 524288 ## Don't overwrite ignored files that exist in the checkout target 
-    GIT_CHECKOUT_CONFLICT_STYLE_MERGE = 1048576 ## Write normal merge files for conflicts 
-    GIT_CHECKOUT_CONFLICT_STYLE_DIFF3 = 2097152 ## Include common ancestor data in diff3 format files for conflicts 
-    GIT_CHECKOUT_DONT_REMOVE_EXISTING = 4194304 ## Don't overwrite existing files or folders 
-    GIT_CHECKOUT_DONT_WRITE_INDEX = 8388608 ## Normally checkout writes the index upon completion; this prevents that. 
-    GIT_CHECKOUT_UPDATE_SUBMODULES = 65536 ## Recursively checkout submodules with same options (NOT IMPLEMENTED) 
-    GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED = 131072 ## Recursively checkout submodules if HEAD moved in super repo (NOT IMPLEMENTED) 
-   
-  git_checkout_notify_t* = enum
-    GIT_CHECKOUT_NOTIFY_NONE = 0
-    GIT_CHECKOUT_NOTIFY_CONFLICT = 1
-    GIT_CHECKOUT_NOTIFY_DIRTY = 2
-    GIT_CHECKOUT_NOTIFY_UPDATED = 4
-    GIT_CHECKOUT_NOTIFY_UNTRACKED = 8
-    GIT_CHECKOUT_NOTIFY_IGNORED = 16
-   
-  git_checkout_perfdata* {.bycopy, header: "<git2/checkout.h>", importc.} = object
-    ## Checkout performance-reporting structure 
-    mkdir_calls*: size_t
-    stat_calls*: size_t
-    chmod_calls*: size_t
-   
-  git_checkout_notify_cb* = proc(why: git_checkout_notify_t, path: cstring, baseline: ptr git_diff_file, target: ptr git_diff_file, workdir: ptr git_diff_file, payload: pointer): cint{.cdecl.}
-   
-  git_checkout_notify_cbNim* = proc(why: git_checkout_notify_t, path: cstring, baseline: ptr git_diff_file, target: ptr git_diff_file, workdir: ptr git_diff_file): cint
-   
-  git_checkout_progress_cb* = proc(path: cstring, completed_steps: size_t, total_steps: size_t, payload: pointer): void{.cdecl.}
-   
-  git_checkout_progress_cbNim* = proc(path: cstring, completed_steps: size_t, total_steps: size_t): void
-   
-  git_checkout_perfdata_cb* = proc(perfdata: ptr git_checkout_perfdata, payload: pointer): void{.cdecl.}
-   
-  git_checkout_perfdata_cbNim* = proc(perfdata: ptr git_checkout_perfdata): void
-   
-  git_checkout_options* {.bycopy, header: "<git2/checkout.h>", importc.} = object
-    ## Checkout notification callback function 
-    ## Checkout progress notification function 
-    ## Checkout perfdata notification function 
-    version*: cuint
-    checkout_strategy*: cuint ## The version 
-    disable_filters*: cint ## default will be a safe checkout 
-    dir_mode*: cuint ## don't apply filters like CRLF conversion 
-    file_mode*: cuint ## default is 0755 
-    file_open_flags*: cint ## default is 0644 or 0755 as dictated by blob 
-    notify_flags*: cuint ## default is O_CREAT | O_TRUNC | O_WRONLY 
-    notify_cb*: git_checkout_notify_cb ## see `git_checkout_notify_t` above 
-    notify_payload*: pointer ## Payload passed to notify_cb 
-    progress_cb*: git_checkout_progress_cb ## Optional callback to notify the consumer of checkout progress. 
-    progress_payload*: pointer ## Payload passed to progress_cb 
-    paths*: git_strarray
-    baseline*: ptr git_tree
-    baseline_index*: ptr git_index
-    target_directory*: cstring
-    ancestor_label*: cstring ## alternative checkout path to workdir 
-    our_label*: cstring ## the name of the common ancestor side of conflicts 
-    their_label*: cstring ## the name of the "our" side of conflicts 
-    perfdata_cb*: git_checkout_perfdata_cb ## the name of the "their" side of conflicts 
-                                           ## Optional callback to notify the consumer of performance data. 
-    perfdata_payload*: pointer ## Payload passed to perfdata_cb 
-   
-  git_credential_t* = enum
-    GIT_CREDENTIAL_USERPASS_PLAINTEXT = 1
-    GIT_CREDENTIAL_SSH_KEY = 2
-    GIT_CREDENTIAL_SSH_CUSTOM = 4
-    GIT_CREDENTIAL_DEFAULT = 8
-    GIT_CREDENTIAL_SSH_INTERACTIVE = 16
-    GIT_CREDENTIAL_USERNAME = 32
-    GIT_CREDENTIAL_SSH_MEMORY = 64
-   
-  git_credential_default* = git_credential
-   
-  git_credential_acquire_cb* = proc(arg_out: ptr ptr git_credential, url: cstring, username_from_url: cstring, allowed_types: cuint, payload: pointer): cint{.cdecl.}
-   
-  git_credential_acquire_cbNim* = proc(arg_out: ptr ptr git_credential, url: cstring, username_from_url: cstring, allowed_types: cuint): cint
-   
-  LIBSSH2_SESSION* = LIBSSH2_SESSION
-   
-  LIBSSH2_USERAUTH_KBDINT_PROMPT* = LIBSSH2_USERAUTH_KBDINT_PROMPT
-   
-  LIBSSH2_USERAUTH_KBDINT_RESPONSE* = LIBSSH2_USERAUTH_KBDINT_RESPONSE
-   
-  git_credential_ssh_interactive_cb* = proc(name: cstring, name_len: cint, instruction: cstring, instruction_len: cint, num_prompts: cint, prompts: ptr LIBSSH2_USERAUTH_KBDINT_PROMPT, responses: ptr LIBSSH2_USERAUTH_KBDINT_RESPONSE, abstract: ptr pointer): void{.cdecl.}
-   
-  git_credential_sign_cb* = proc(session: ptr LIBSSH2_SESSION, sig: ptr ptr uchar, sig_len: ptr size_t, data: ptr uchar, data_len: size_t, abstract: ptr pointer): cint{.cdecl.}
-   
-  git_clone_local_t* = enum
-    GIT_CLONE_LOCAL_AUTO = 0
-    GIT_CLONE_LOCAL = 1
-    GIT_CLONE_NO_LOCAL = 2
-    GIT_CLONE_LOCAL_NO_LINKS = 3
-   
-  git_remote_create_cb* = proc(arg_out: ptr ptr git_remote, repo: ptr git_repository, name: cstring, url: cstring, payload: pointer): cint{.cdecl.}
-   
-  git_remote_create_cbNim* = proc(arg_out: ptr ptr git_remote, repo: ptr git_repository, name: cstring, url: cstring): cint
-   
-  git_repository_create_cb* = proc(arg_out: ptr ptr git_repository, path: cstring, bare: cint, payload: pointer): cint{.cdecl.}
-   
-  git_repository_create_cbNim* = proc(arg_out: ptr ptr git_repository, path: cstring, bare: cint): cint
-   
-  git_clone_options* {.bycopy, header: "<git2/clone.h>", importc.} = object
-    version*: cuint
-    checkout_opts*: git_checkout_options
-    fetch_opts*: git_fetch_options
-    bare*: cint
-    local*: git_clone_local_t
-    checkout_branch*: cstring
-    repository_cb*: git_repository_create_cb
-    repository_cb_payload*: pointer
-    remote_cb*: git_remote_create_cb
-    remote_cb_payload*: pointer
-   
-  git_attr_value_t* = enum
-    GIT_ATTR_VALUE_UNSPECIFIED = 0
-    GIT_ATTR_VALUE_TRUE = 1 ## The attribute has been left unspecified 
-    GIT_ATTR_VALUE_FALSE = 2 ## The attribute has been set 
-    GIT_ATTR_VALUE_STRING = 3 ## The attribute has been unset 
-   
-  git_attr_foreach_cb* = proc(name: cstring, value: cstring, payload: pointer): cint{.cdecl.}
-   
-  git_attr_foreach_cbNim* = proc(name: cstring, value: cstring): cint
-   
-  git_proxy_t* = enum
-    GIT_PROXY_NONE = 0
-    GIT_PROXY_AUTO = 1
-    GIT_PROXY_SPECIFIED = 2
-   
-  git_proxy_options* {.bycopy, header: "<git2/proxy.h>", importc.} = object
-    version*: cuint
-    type_f* {.importc: "type".}: git_proxy_t
-    url*: cstring
-    credentials*: git_credential_acquire_cb
-    certificate_check*: git_transport_certificate_check_cb
-    payload*: pointer
-   
   git_cert_t* = enum
     GIT_CERT_NONE = 0
     GIT_CERT_X509 = 1
@@ -611,98 +568,6 @@ type
     data*: pointer ## The parent cert 
     len*: size_t
    
-  git_merge_file_input* {.bycopy, header: "<git2/merge.h>", importc.} = object
-    version*: cuint
-    ptr_f* {.importc: "ptr".}: cstring ## Pointer to the contents of the file. 
-    size*: size_t ## Size of the contents pointed to in `ptr`. 
-    path*: cstring ## File name of the conflicted file, or `NULL` to not merge the path. 
-    mode*: cuint ## File mode of the conflicted file, or `0` to not merge the mode. 
-   
-  git_merge_flag_t* = enum
-    GIT_MERGE_FIND_RENAMES = 1
-    GIT_MERGE_FAIL_ON_CONFLICT = 2
-    GIT_MERGE_SKIP_REUC = 4
-    GIT_MERGE_NO_RECURSIVE = 8
-   
-  git_merge_file_favor_t* = enum
-    GIT_MERGE_FILE_FAVOR_NORMAL = 0
-    GIT_MERGE_FILE_FAVOR_OURS = 1
-    GIT_MERGE_FILE_FAVOR_THEIRS = 2
-    GIT_MERGE_FILE_FAVOR_UNION = 3
-   
-  git_merge_file_flag_t* = enum
-    GIT_MERGE_FILE_DEFAULT = 0 ## Defaults 
-    GIT_MERGE_FILE_STYLE_MERGE = 1 ## Create standard conflicted merge files 
-    GIT_MERGE_FILE_STYLE_DIFF3 = 2 ## Create diff3-style files 
-    GIT_MERGE_FILE_SIMPLIFY_ALNUM = 4 ## Condense non-alphanumeric regions for simplified diff file 
-    GIT_MERGE_FILE_IGNORE_WHITESPACE = 8 ## Ignore all whitespace 
-    GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE = 16 ## Ignore changes in amount of whitespace 
-    GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL = 32 ## Ignore whitespace at end of line 
-    GIT_MERGE_FILE_DIFF_PATIENCE = 64 ## Use the "patience diff" algorithm 
-    GIT_MERGE_FILE_DIFF_MINIMAL = 128 ## Take extra time to find minimal diff 
-   
-  git_merge_file_options* {.bycopy, header: "<git2/merge.h>", importc.} = object
-    version*: cuint
-    ancestor_label*: cstring
-    our_label*: cstring
-    their_label*: cstring
-    favor*: git_merge_file_favor_t ## The file to favor in region conflicts. 
-    flags*: uint32 ## see `git_merge_file_flag_t` above 
-    marker_size*: cushort
-   
-  git_merge_file_result* {.bycopy, header: "<git2/merge.h>", importc.} = object
-    automergeable*: cuint
-    path*: cstring
-    mode*: cuint ## The mode that the resultant merge file should use.  
-    ptr_f* {.importc: "ptr".}: cstring ## The contents of the merge. 
-    len*: size_t ## The length of the merge contents. 
-   
-  git_merge_options* {.bycopy, header: "<git2/merge.h>", importc.} = object
-    version*: cuint
-    flags*: uint32 ## See `git_merge_flag_t` above 
-    rename_threshold*: cuint
-    target_limit*: cuint
-    metric*: ptr git_diff_similarity_metric ## Pluggable similarity metric; pass NULL to use internal metric 
-    recursion_limit*: cuint
-    default_driver*: cstring
-    file_favor*: git_merge_file_favor_t
-    file_flags*: uint32 ## see `git_merge_file_flag_t` above 
-   
-  git_merge_analysis_t* = enum
-    GIT_MERGE_ANALYSIS_NONE = 0 ## No merge is possible.  (Unused.) 
-    GIT_MERGE_ANALYSIS_NORMAL = 1
-    GIT_MERGE_ANALYSIS_UP_TO_DATE = 2
-    GIT_MERGE_ANALYSIS_FASTFORWARD = 4
-    GIT_MERGE_ANALYSIS_UNBORN = 8
-   
-  git_merge_preference_t* = enum
-    GIT_MERGE_PREFERENCE_NONE = 0
-    GIT_MERGE_PREFERENCE_NO_FASTFORWARD = 1
-    GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 2
-   
-  git_odb_stream_t* = enum
-    GIT_STREAM_RDONLY = 2
-    GIT_STREAM_WRONLY = 4
-    GIT_STREAM_RW = 6
-   
-  git_odb_stream* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
-    backend*: ptr git_odb_backend
-    mode*: cuint
-    hash_ctx*: pointer
-    declared_size*: git_object_size_t
-    received_bytes*: git_object_size_t
-    read*: proc(stream: ptr git_odb_stream, buffer: cstring, len: size_t): cint{.cdecl.}
-    write*: proc(stream: ptr git_odb_stream, buffer: cstring, len: size_t): cint{.cdecl.}
-    finalize_write*: proc(stream: ptr git_odb_stream, oid: ptr git_oid): cint{.cdecl.}
-    free*: proc(stream: ptr git_odb_stream): void{.cdecl.}
-   
-  git_odb_writepack* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
-    ## A stream to write a pack file to the ODB 
-    backend*: ptr git_odb_backend
-    append*: proc(writepack: ptr git_odb_writepack, data: pointer, size: size_t, stats: ptr git_indexer_progress): cint{.cdecl.}
-    commit*: proc(writepack: ptr git_odb_writepack, stats: ptr git_indexer_progress): cint{.cdecl.}
-    free*: proc(writepack: ptr git_odb_writepack): void{.cdecl.}
-   
   git_indexer_progress* {.bycopy, header: "<git2/indexer.h>", importc.} = object
     total_objects*: cuint ## number of objects in the packfile being indexed 
     indexed_objects*: cuint ## received objects that have been hashed 
@@ -722,120 +587,9 @@ type
     progress_cb_payload*: pointer ## progress_cb_payload payload for the progress callback 
     verify*: uchar ## Do connectivity checks for the received pack 
    
-  git_apply_delta_cb* = proc(delta: ptr git_diff_delta, payload: pointer): cint{.cdecl.}
-   
-  git_apply_delta_cbNim* = proc(delta: ptr git_diff_delta): cint
-   
-  git_apply_hunk_cb* = proc(hunk: ptr git_diff_hunk, payload: pointer): cint{.cdecl.}
-   
-  git_apply_hunk_cbNim* = proc(hunk: ptr git_diff_hunk): cint
-   
-  git_apply_flags_t* = enum
-    GIT_APPLY_CHECK = 1
-   
-  git_apply_options* {.bycopy, header: "<git2/apply.h>", importc.} = object
-    version*: cuint
-    delta_cb*: git_apply_delta_cb ## The version 
-                                  ## When applying a patch, callback that will be made per delta (file). 
-    hunk_cb*: git_apply_hunk_cb ## When applying a patch, callback that will be made per hunk. 
-    payload*: pointer ## Payload passed to both delta_cb & hunk_cb. 
-    flags*: cuint ## Bitmask of git_apply_flags_t 
-   
-  git_apply_location_t* = enum
-    GIT_APPLY_LOCATION_WORKDIR = 0
-    GIT_APPLY_LOCATION_INDEX = 1
-    GIT_APPLY_LOCATION_BOTH = 2
-   
   git_commit_signing_cb* = proc(signature: ptr git_buf, signature_field: ptr git_buf, commit_content: cstring, payload: pointer): cint{.cdecl.}
    
   git_commit_signing_cbNim* = proc(signature: ptr git_buf, signature_field: ptr git_buf, commit_content: cstring): cint
-   
-  git_packbuilder_stage_t* = enum
-    GIT_PACKBUILDER_ADDING_OBJECTS = 0
-    GIT_PACKBUILDER_DELTAFICATION = 1
-   
-  git_packbuilder_foreach_cb* = proc(buf: pointer, size: size_t, payload: pointer): cint{.cdecl.}
-   
-  git_packbuilder_foreach_cbNim* = proc(buf: pointer, size: size_t): cint
-   
-  git_packbuilder_progress* = proc(stage: cint, current: uint32, total: uint32, payload: pointer): cint{.cdecl.}
-   
-  git_packbuilder_progressNim* = proc(stage: cint, current: uint32, total: uint32): cint
-   
-  git_transport_message_cb* = proc(str: cstring, len: cint, payload: pointer): cint{.cdecl.}
-   
-  git_transport_message_cbNim* = proc(str: cstring, len: cint): cint
-   
-  git_transport_cb* = proc(arg_out: ptr ptr git_transport, owner: ptr git_remote, param: pointer): cint{.cdecl.}
-   
-  git_transport_cbNim* = proc(arg_out: ptr ptr git_transport, owner: ptr git_remote): cint
-   
-  git_stash_flags* = enum
-    GIT_STASH_DEFAULT = 0
-    GIT_STASH_KEEP_INDEX = 1
-    GIT_STASH_INCLUDE_UNTRACKED = 2
-    GIT_STASH_INCLUDE_IGNORED = 4
-   
-  git_stash_apply_flags* = enum
-    GIT_STASH_APPLY_DEFAULT = 0
-    GIT_STASH_APPLY_REINSTATE_INDEX = 1
-   
-  git_stash_apply_progress_t* = enum
-    GIT_STASH_APPLY_PROGRESS_NONE = 0
-    GIT_STASH_APPLY_PROGRESS_LOADING_STASH = 1 ## Loading the stashed data from the object database. 
-    GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX = 2 ## The stored index is being analyzed. 
-    GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED = 3 ## The modified files are being analyzed. 
-    GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED = 4 ## The untracked and ignored files are being analyzed. 
-    GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED = 5 ## The untracked files are being written to disk. 
-    GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED = 6 ## The modified files are being written to disk. 
-    GIT_STASH_APPLY_PROGRESS_DONE = 7 ## The stash was applied successfully. 
-   
-  git_stash_apply_progress_cb* = proc(progress: git_stash_apply_progress_t, payload: pointer): cint{.cdecl.}
-   
-  git_stash_apply_progress_cbNim* = proc(progress: git_stash_apply_progress_t): cint
-   
-  git_stash_apply_options* {.bycopy, header: "<git2/stash.h>", importc.} = object
-    version*: cuint
-    flags*: uint32 ## See `git_stash_apply_flags`, above. 
-    checkout_options*: git_checkout_options ## Options to use when writing files to the working directory. 
-    progress_cb*: git_stash_apply_progress_cb ## Optional callback to notify the consumer of application progress. 
-    progress_payload*: pointer
-   
-  git_stash_cb* = proc(index: size_t, message: cstring, stash_id: ptr git_oid, payload: pointer): cint{.cdecl.}
-   
-  git_stash_cbNim* = proc(index: size_t, message: cstring, stash_id: ptr git_oid): cint
-   
-  git_config_level_t* = enum
-    GIT_CONFIG_LEVEL_PROGRAMDATA = 1 ## System-wide on Windows, for compatibility with portable git 
-    GIT_CONFIG_LEVEL_SYSTEM = 2 ## System-wide configuration file; /etc/gitconfig on Linux systems 
-    GIT_CONFIG_LEVEL_XDG = 3 ## XDG compatible configuration file; typically ~/.config/git/config 
-    GIT_CONFIG_LEVEL_GLOBAL = 4
-    GIT_CONFIG_LEVEL_LOCAL = 5
-    GIT_CONFIG_LEVEL_APP = 6
-    GIT_CONFIG_HIGHEST_LEVEL = -1
-   
-  git_config_entry* {.bycopy, header: "<git2/config.h>", importc.} = object
-    name*: cstring
-    value*: cstring ## Name of the entry (normalised) 
-    include_depth*: cuint ## String value of the entry 
-    level*: git_config_level_t ## Depth of includes where this variable was found 
-    free*: proc(entry: ptr git_config_entry): void{.cdecl.} ## Which config file this was found in 
-    payload*: pointer ## Free function for this entry 
-   
-  git_config_foreach_cb* = proc(entry: ptr git_config_entry, payload: pointer): cint{.cdecl.}
-   
-  git_config_foreach_cbNim* = proc(entry: ptr git_config_entry): cint
-   
-  git_configmap_t* = enum
-    GIT_CONFIGMAP_FALSE = 0
-    GIT_CONFIGMAP_TRUE = 1
-    GIT_CONFIGMAP_INT32 = 2
-    GIT_CONFIGMAP_STRING = 3
-   
-  git_configmap* {.bycopy, header: "<git2/config.h>", importc.} = object
-    type_f* {.importc: "type".}: git_configmap_t
-    str_match*: cstring
-    map_value*: cint
    
   git_index_time* {.bycopy, header: "<git2/index.h>", importc.} = object
     ## Time structure used in a git index entry 
@@ -915,6 +669,256 @@ type
     asize*: size_t
     size*: size_t
    
+  git_clone_local_t* = enum
+    GIT_CLONE_LOCAL_AUTO = 0
+    GIT_CLONE_LOCAL = 1
+    GIT_CLONE_NO_LOCAL = 2
+    GIT_CLONE_LOCAL_NO_LINKS = 3
+   
+  git_remote_create_cb* = proc(arg_out: ptr ptr git_remote, repo: ptr git_repository, name: cstring, url: cstring, payload: pointer): cint{.cdecl.}
+   
+  git_remote_create_cbNim* = proc(arg_out: ptr ptr git_remote, repo: ptr git_repository, name: cstring, url: cstring): cint
+   
+  git_repository_create_cb* = proc(arg_out: ptr ptr git_repository, path: cstring, bare: cint, payload: pointer): cint{.cdecl.}
+   
+  git_repository_create_cbNim* = proc(arg_out: ptr ptr git_repository, path: cstring, bare: cint): cint
+   
+  git_clone_options* {.bycopy, header: "<git2/clone.h>", importc.} = object
+    version*: cuint
+    checkout_opts*: git_checkout_options
+    fetch_opts*: git_fetch_options
+    bare*: cint
+    local*: git_clone_local_t
+    checkout_branch*: cstring
+    repository_cb*: git_repository_create_cb
+    repository_cb_payload*: pointer
+    remote_cb*: git_remote_create_cb
+    remote_cb_payload*: pointer
+   
+  git_transport_message_cb* = proc(str: cstring, len: cint, payload: pointer): cint{.cdecl.}
+   
+  git_transport_message_cbNim* = proc(str: cstring, len: cint): cint
+   
+  git_transport_cb* = proc(arg_out: ptr ptr git_transport, owner: ptr git_remote, param: pointer): cint{.cdecl.}
+   
+  git_transport_cbNim* = proc(arg_out: ptr ptr git_transport, owner: ptr git_remote): cint
+   
+  git_config_level_t* = enum
+    GIT_CONFIG_LEVEL_PROGRAMDATA = 1 ## System-wide on Windows, for compatibility with portable git 
+    GIT_CONFIG_LEVEL_SYSTEM = 2 ## System-wide configuration file; /etc/gitconfig on Linux systems 
+    GIT_CONFIG_LEVEL_XDG = 3 ## XDG compatible configuration file; typically ~/.config/git/config 
+    GIT_CONFIG_LEVEL_GLOBAL = 4
+    GIT_CONFIG_LEVEL_LOCAL = 5
+    GIT_CONFIG_LEVEL_APP = 6
+    GIT_CONFIG_HIGHEST_LEVEL = -1
+   
+  git_config_entry* {.bycopy, header: "<git2/config.h>", importc.} = object
+    name*: cstring
+    value*: cstring ## Name of the entry (normalised) 
+    include_depth*: cuint ## String value of the entry 
+    level*: git_config_level_t ## Depth of includes where this variable was found 
+    free*: proc(entry: ptr git_config_entry): void{.cdecl.} ## Which config file this was found in 
+    payload*: pointer ## Free function for this entry 
+   
+  git_config_foreach_cb* = proc(entry: ptr git_config_entry, payload: pointer): cint{.cdecl.}
+   
+  git_config_foreach_cbNim* = proc(entry: ptr git_config_entry): cint
+   
+  git_configmap_t* = enum
+    GIT_CONFIGMAP_FALSE = 0
+    GIT_CONFIGMAP_TRUE = 1
+    GIT_CONFIGMAP_INT32 = 2
+    GIT_CONFIGMAP_STRING = 3
+   
+  git_configmap* {.bycopy, header: "<git2/config.h>", importc.} = object
+    type_f* {.importc: "type".}: git_configmap_t
+    str_match*: cstring
+    map_value*: cint
+   
+  git_merge_file_input* {.bycopy, header: "<git2/merge.h>", importc.} = object
+    version*: cuint
+    ptr_f* {.importc: "ptr".}: cstring ## Pointer to the contents of the file. 
+    size*: size_t ## Size of the contents pointed to in `ptr`. 
+    path*: cstring ## File name of the conflicted file, or `NULL` to not merge the path. 
+    mode*: cuint ## File mode of the conflicted file, or `0` to not merge the mode. 
+   
+  git_merge_flag_t* = enum
+    GIT_MERGE_FIND_RENAMES = 1
+    GIT_MERGE_FAIL_ON_CONFLICT = 2
+    GIT_MERGE_SKIP_REUC = 4
+    GIT_MERGE_NO_RECURSIVE = 8
+   
+  git_merge_file_favor_t* = enum
+    GIT_MERGE_FILE_FAVOR_NORMAL = 0
+    GIT_MERGE_FILE_FAVOR_OURS = 1
+    GIT_MERGE_FILE_FAVOR_THEIRS = 2
+    GIT_MERGE_FILE_FAVOR_UNION = 3
+   
+  git_merge_file_flag_t* = enum
+    GIT_MERGE_FILE_DEFAULT = 0 ## Defaults 
+    GIT_MERGE_FILE_STYLE_MERGE = 1 ## Create standard conflicted merge files 
+    GIT_MERGE_FILE_STYLE_DIFF3 = 2 ## Create diff3-style files 
+    GIT_MERGE_FILE_SIMPLIFY_ALNUM = 4 ## Condense non-alphanumeric regions for simplified diff file 
+    GIT_MERGE_FILE_IGNORE_WHITESPACE = 8 ## Ignore all whitespace 
+    GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE = 16 ## Ignore changes in amount of whitespace 
+    GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL = 32 ## Ignore whitespace at end of line 
+    GIT_MERGE_FILE_DIFF_PATIENCE = 64 ## Use the "patience diff" algorithm 
+    GIT_MERGE_FILE_DIFF_MINIMAL = 128 ## Take extra time to find minimal diff 
+   
+  git_merge_file_options* {.bycopy, header: "<git2/merge.h>", importc.} = object
+    version*: cuint
+    ancestor_label*: cstring
+    our_label*: cstring
+    their_label*: cstring
+    favor*: git_merge_file_favor_t ## The file to favor in region conflicts. 
+    flags*: uint32 ## see `git_merge_file_flag_t` above 
+    marker_size*: cushort
+   
+  git_merge_file_result* {.bycopy, header: "<git2/merge.h>", importc.} = object
+    automergeable*: cuint
+    path*: cstring
+    mode*: cuint ## The mode that the resultant merge file should use.  
+    ptr_f* {.importc: "ptr".}: cstring ## The contents of the merge. 
+    len*: size_t ## The length of the merge contents. 
+   
+  git_merge_options* {.bycopy, header: "<git2/merge.h>", importc.} = object
+    version*: cuint
+    flags*: uint32 ## See `git_merge_flag_t` above 
+    rename_threshold*: cuint
+    target_limit*: cuint
+    metric*: ptr git_diff_similarity_metric ## Pluggable similarity metric; pass NULL to use internal metric 
+    recursion_limit*: cuint
+    default_driver*: cstring
+    file_favor*: git_merge_file_favor_t
+    file_flags*: uint32 ## see `git_merge_file_flag_t` above 
+   
+  git_merge_analysis_t* = enum
+    GIT_MERGE_ANALYSIS_NONE = 0 ## No merge is possible.  (Unused.) 
+    GIT_MERGE_ANALYSIS_NORMAL = 1
+    GIT_MERGE_ANALYSIS_UP_TO_DATE = 2
+    GIT_MERGE_ANALYSIS_FASTFORWARD = 4
+    GIT_MERGE_ANALYSIS_UNBORN = 8
+   
+  git_merge_preference_t* = enum
+    GIT_MERGE_PREFERENCE_NONE = 0
+    GIT_MERGE_PREFERENCE_NO_FASTFORWARD = 1
+    GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 2
+   
+  git_credential_userpass_payload* {.bycopy,
+                                     header: "<git2/credential_helpers.h>",
+                                     importc.} = object
+    username*: cstring
+    password*: cstring
+   
+  git_strarray* {.bycopy, header: "<git2/strarray.h>", importc.} = object
+    ## Array of strings 
+    strings*: ptr cstring
+    count*: size_t
+   
+  git_attr_value_t* = enum
+    GIT_ATTR_VALUE_UNSPECIFIED = 0
+    GIT_ATTR_VALUE_TRUE = 1 ## The attribute has been left unspecified 
+    GIT_ATTR_VALUE_FALSE = 2 ## The attribute has been set 
+    GIT_ATTR_VALUE_STRING = 3 ## The attribute has been unset 
+   
+  git_attr_foreach_cb* = proc(name: cstring, value: cstring, payload: pointer): cint{.cdecl.}
+   
+  git_attr_foreach_cbNim* = proc(name: cstring, value: cstring): cint
+   
+  git_odb_stream_t* = enum
+    GIT_STREAM_RDONLY = 2
+    GIT_STREAM_WRONLY = 4
+    GIT_STREAM_RW = 6
+   
+  git_odb_stream* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
+    backend*: ptr git_odb_backend
+    mode*: cuint
+    hash_ctx*: pointer
+    declared_size*: git_object_size_t
+    received_bytes*: git_object_size_t
+    read*: proc(stream: ptr git_odb_stream, buffer: cstring, len: size_t): cint{.cdecl.}
+    write*: proc(stream: ptr git_odb_stream, buffer: cstring, len: size_t): cint{.cdecl.}
+    finalize_write*: proc(stream: ptr git_odb_stream, oid: ptr git_oid): cint{.cdecl.}
+    free*: proc(stream: ptr git_odb_stream): void{.cdecl.}
+   
+  git_odb_writepack* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
+    ## A stream to write a pack file to the ODB 
+    backend*: ptr git_odb_backend
+    append*: proc(writepack: ptr git_odb_writepack, data: pointer, size: size_t, stats: ptr git_indexer_progress): cint{.cdecl.}
+    commit*: proc(writepack: ptr git_odb_writepack, stats: ptr git_indexer_progress): cint{.cdecl.}
+    free*: proc(writepack: ptr git_odb_writepack): void{.cdecl.}
+   
+  git_apply_delta_cb* = proc(delta: ptr git_diff_delta, payload: pointer): cint{.cdecl.}
+   
+  git_apply_delta_cbNim* = proc(delta: ptr git_diff_delta): cint
+   
+  git_apply_hunk_cb* = proc(hunk: ptr git_diff_hunk, payload: pointer): cint{.cdecl.}
+   
+  git_apply_hunk_cbNim* = proc(hunk: ptr git_diff_hunk): cint
+   
+  git_apply_flags_t* = enum
+    GIT_APPLY_CHECK = 1
+   
+  git_apply_options* {.bycopy, header: "<git2/apply.h>", importc.} = object
+    version*: cuint
+    delta_cb*: git_apply_delta_cb ## The version 
+                                  ## When applying a patch, callback that will be made per delta (file). 
+    hunk_cb*: git_apply_hunk_cb ## When applying a patch, callback that will be made per hunk. 
+    payload*: pointer ## Payload passed to both delta_cb & hunk_cb. 
+    flags*: cuint ## Bitmask of git_apply_flags_t 
+   
+  git_apply_location_t* = enum
+    GIT_APPLY_LOCATION_WORKDIR = 0
+    GIT_APPLY_LOCATION_INDEX = 1
+    GIT_APPLY_LOCATION_BOTH = 2
+   
+  git_packbuilder_stage_t* = enum
+    GIT_PACKBUILDER_ADDING_OBJECTS = 0
+    GIT_PACKBUILDER_DELTAFICATION = 1
+   
+  git_packbuilder_foreach_cb* = proc(buf: pointer, size: size_t, payload: pointer): cint{.cdecl.}
+   
+  git_packbuilder_foreach_cbNim* = proc(buf: pointer, size: size_t): cint
+   
+  git_packbuilder_progress* = proc(stage: cint, current: uint32, total: uint32, payload: pointer): cint{.cdecl.}
+   
+  git_packbuilder_progressNim* = proc(stage: cint, current: uint32, total: uint32): cint
+   
+  git_stash_flags* = enum
+    GIT_STASH_DEFAULT = 0
+    GIT_STASH_KEEP_INDEX = 1
+    GIT_STASH_INCLUDE_UNTRACKED = 2
+    GIT_STASH_INCLUDE_IGNORED = 4
+   
+  git_stash_apply_flags* = enum
+    GIT_STASH_APPLY_DEFAULT = 0
+    GIT_STASH_APPLY_REINSTATE_INDEX = 1
+   
+  git_stash_apply_progress_t* = enum
+    GIT_STASH_APPLY_PROGRESS_NONE = 0
+    GIT_STASH_APPLY_PROGRESS_LOADING_STASH = 1 ## Loading the stashed data from the object database. 
+    GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX = 2 ## The stored index is being analyzed. 
+    GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED = 3 ## The modified files are being analyzed. 
+    GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED = 4 ## The untracked and ignored files are being analyzed. 
+    GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED = 5 ## The untracked files are being written to disk. 
+    GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED = 6 ## The modified files are being written to disk. 
+    GIT_STASH_APPLY_PROGRESS_DONE = 7 ## The stash was applied successfully. 
+   
+  git_stash_apply_progress_cb* = proc(progress: git_stash_apply_progress_t, payload: pointer): cint{.cdecl.}
+   
+  git_stash_apply_progress_cbNim* = proc(progress: git_stash_apply_progress_t): cint
+   
+  git_stash_apply_options* {.bycopy, header: "<git2/stash.h>", importc.} = object
+    version*: cuint
+    flags*: uint32 ## See `git_stash_apply_flags`, above. 
+    checkout_options*: git_checkout_options ## Options to use when writing files to the working directory. 
+    progress_cb*: git_stash_apply_progress_cb ## Optional callback to notify the consumer of application progress. 
+    progress_payload*: pointer
+   
+  git_stash_cb* = proc(index: size_t, message: cstring, stash_id: ptr git_oid, payload: pointer): cint{.cdecl.}
+   
+  git_stash_cbNim* = proc(index: size_t, message: cstring, stash_id: ptr git_oid): cint
+   
   git_message_trailer* {.bycopy, header: "<git2/message.h>", importc.} = object
     key*: cstring
     value*: cstring
@@ -976,16 +980,50 @@ type
     id*: git_oid
     exec*: cstring
    
-  git_credential_userpass_payload* {.bycopy,
-                                     header: "<git2/credential_helpers.h>",
-                                     importc.} = object
-    username*: cstring
-    password*: cstring
-   
   git_reset_t* = enum
     GIT_RESET_SOFT = 1
     GIT_RESET_MIXED = 2 ## Move the head to the given commit 
     GIT_RESET_HARD = 3 ## SOFT plus reset index to the commit 
+   
+  git_blame_flag_t* = enum
+    GIT_BLAME_NORMAL = 0 ## Normal blame, the default 
+    GIT_BLAME_TRACK_COPIES_SAME_FILE = 1
+    GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES = 2
+    GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES = 4
+    GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES = 8
+    GIT_BLAME_FIRST_PARENT = 16
+    GIT_BLAME_USE_MAILMAP = 32
+    GIT_BLAME_IGNORE_WHITESPACE = 64 ## Ignore whitespace differences 
+   
+  git_blame_options* {.bycopy, header: "<git2/blame.h>", importc.} = object
+    version*: cuint
+    flags*: uint32 ## A combination of `git_blame_flag_t` 
+    min_match_characters*: uint16
+    newest_commit*: git_oid ## The id of the newest commit to consider. The default is HEAD. 
+    oldest_commit*: git_oid
+    min_line*: size_t
+    max_line*: size_t
+   
+  git_blame_hunk* {.bycopy, header: "<git2/blame.h>", importc.} = object
+    lines_in_hunk*: size_t
+    final_commit_id*: git_oid
+    final_start_line_number*: size_t
+    final_signature*: ptr git_signature
+    orig_commit_id*: git_oid
+    orig_path*: cstring
+    orig_start_line_number*: size_t
+    orig_signature*: ptr git_signature
+    boundary*: char
+   
+  git_filter_mode_t* = enum
+    GIT_FILTER_TO_WORKTREE = 0
+    GIT_FILTER_TO_ODB = 1
+   
+  git_filter_flag_t* = enum
+    GIT_FILTER_DEFAULT = 0
+    GIT_FILTER_ALLOW_UNSAFE = 1 ## Don't error for `safecrlf` violations, allow them to continue. 
+    GIT_FILTER_NO_SYSTEM_ATTRIBUTES = 2 ## Don't load `/etc/gitattributes` (or the system equivalent) 
+    GIT_FILTER_ATTRIBUTES_FROM_HEAD = 4 ## Load attributes from `.gitattributes` in the root of HEAD 
    
   git_repository_open_flag_t* = enum
     GIT_REPOSITORY_OPEN_NO_SEARCH = 1
@@ -1057,15 +1095,14 @@ type
     GIT_REPOSITORY_STATE_APPLY_MAILBOX = 10
     GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE = 11
    
-  git_filter_mode_t* = enum
-    GIT_FILTER_TO_WORKTREE = 0
-    GIT_FILTER_TO_ODB = 1
-   
-  git_filter_flag_t* = enum
-    GIT_FILTER_DEFAULT = 0
-    GIT_FILTER_ALLOW_UNSAFE = 1 ## Don't error for `safecrlf` violations, allow them to continue. 
-    GIT_FILTER_NO_SYSTEM_ATTRIBUTES = 2 ## Don't load `/etc/gitattributes` (or the system equivalent) 
-    GIT_FILTER_ATTRIBUTES_FROM_HEAD = 4 ## Load attributes from `.gitattributes` in the root of HEAD 
+  git_pathspec_flag_t* = enum
+    GIT_PATHSPEC_DEFAULT = 0
+    GIT_PATHSPEC_IGNORE_CASE = 1
+    GIT_PATHSPEC_USE_CASE = 2
+    GIT_PATHSPEC_NO_GLOB = 4
+    GIT_PATHSPEC_NO_MATCH_ERROR = 8
+    GIT_PATHSPEC_FIND_FAILURES = 16
+    GIT_PATHSPEC_FAILURES_ONLY = 32
    
   git_reference_foreach_cb* = proc(reference: ptr git_reference, payload: pointer): cint{.cdecl.}
    
@@ -1225,36 +1262,6 @@ type
     mainline*: cuint ## For merge commits, the "mainline" is treated as the parent. 
     merge_opts*: git_merge_options
     checkout_opts*: git_checkout_options ## Options for the merging 
-   
-  git_blame_flag_t* = enum
-    GIT_BLAME_NORMAL = 0 ## Normal blame, the default 
-    GIT_BLAME_TRACK_COPIES_SAME_FILE = 1
-    GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES = 2
-    GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES = 4
-    GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES = 8
-    GIT_BLAME_FIRST_PARENT = 16
-    GIT_BLAME_USE_MAILMAP = 32
-    GIT_BLAME_IGNORE_WHITESPACE = 64 ## Ignore whitespace differences 
-   
-  git_blame_options* {.bycopy, header: "<git2/blame.h>", importc.} = object
-    version*: cuint
-    flags*: uint32 ## A combination of `git_blame_flag_t` 
-    min_match_characters*: uint16
-    newest_commit*: git_oid ## The id of the newest commit to consider. The default is HEAD. 
-    oldest_commit*: git_oid
-    min_line*: size_t
-    max_line*: size_t
-   
-  git_blame_hunk* {.bycopy, header: "<git2/blame.h>", importc.} = object
-    lines_in_hunk*: size_t
-    final_commit_id*: git_oid
-    final_start_line_number*: size_t
-    final_signature*: ptr git_signature
-    orig_commit_id*: git_oid
-    orig_path*: cstring
-    orig_start_line_number*: size_t
-    orig_signature*: ptr git_signature
-    boundary*: char
    
   git_blob_filter_flag_t* = enum
     GIT_BLOB_FILTER_CHECK_FOR_BINARY = 1 ## When set, filters will not be applied to binary files. 

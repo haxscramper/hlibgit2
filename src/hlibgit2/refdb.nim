@@ -1,9 +1,8 @@
 import
   ./libgit_config
 
-
-
-
+import
+  ./types
 
 proc git_refdb_new*(
     arg_out: ptr ptr git_refdb,

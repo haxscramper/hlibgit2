@@ -1,9 +1,8 @@
 import
   ./libgit_config
 
-
-
-
+import
+  ./types
 
 proc git_ignore_add_rule*(
     repo:  ptr git_repository,

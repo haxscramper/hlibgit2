@@ -7,10 +7,6 @@ import
 import
   ./oid
 
-
-
-
-
 proc git_reflog_read*(
     arg_out: ptr ptr git_reflog,
     repo:    ptr git_repository,

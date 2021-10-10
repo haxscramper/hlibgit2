@@ -2,11 +2,10 @@ import
   ./libgit_config
 
 import
+  ./types
+
+import
   ./oid
-
-
-
-
 
 proc git_annotated_commit_from_ref*(
     arg_out: ptr ptr git_annotated_commit,

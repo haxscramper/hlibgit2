@@ -2,14 +2,13 @@ import
   ./libgit_config
 
 import
+  ./types
+
+import
   ./buffer
 
 import
   ./net
-
-
-
-
 
 proc git_refspec_parse*(
     refspec:  ptr ptr git_refspec,

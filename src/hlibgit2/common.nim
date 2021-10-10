@@ -1,8 +1,6 @@
 import
   ./libgit_config
 
-
-
 type
   git_feature_t* = enum
     GIT_FEATURE_THREADS = 1

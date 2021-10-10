@@ -2,11 +2,10 @@ import
   ./libgit_config
 
 import
+  ./types
+
+import
   ./oid
-
-
-
-
 
 proc git_graph_ahead_behind*(
     ahead:    ptr size_t,

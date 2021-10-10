@@ -10,10 +10,6 @@ import
 import
   ./buffer
 
-
-
-
-
 proc git_object_lookup*(
     arg_object: ptr ptr git_object,
     repo:       ptr git_repository,

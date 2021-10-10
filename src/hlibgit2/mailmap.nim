@@ -4,10 +4,6 @@ import
 import
   ./types
 
-
-
-
-
 proc git_mailmap_new*(
     arg_out: ptr ptr git_mailmap
   ): cint {.dynlib: libgitDl, importc.}
