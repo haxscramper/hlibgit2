@@ -3,10 +3,10 @@ import
 
 import
   compiler/ast,
-  hnimast/hast_common
+  hnimast/[hast_common, pprint]
 
 import
-  hmisc/other/oswrap,
+  hmisc/other/[oswrap, hshell],
   hmisc/core/all,
   hmisc/algo/[hstring_algo]
 
@@ -43,7 +43,7 @@ for file in walkDir(lib, AbsFile):
       resFile.writeFile(reader.getExpanded())
 
 for file in walkDir(outDir, AbsFile, exts = @["nim"]):
-  if file.name() notin ["hcparse_generate", "config"]:
+  if file.name() notin ["hcparse_generate", "libgit_config"]:
     rmFile file
 
 var
@@ -65,7 +65,7 @@ fixConf.onGetBind():
       result = cxxNoBind()
 
   result.imports.add cxxLibImport(
-    fixConf.libName, @["config"])
+    fixConf.libName, @["libgit_config"])
 
 fixConf.libNameStyle = idsSnake
 
@@ -79,7 +79,10 @@ for file in walkDir(tmpDir, AbsFile, exts = @["h"]):
 
 for fix in regroupFiles(resultWrapped):
   let res = outDir / fix.getFile().withExt("nim")
-  res.writeFile($toNNode[PNode](fix, cCodegenConf))
-  echov res
+  res.writeFile(toNNode[PNode](fix, cCodegenConf).toPString())
+
+for file in walkDir(outDir, AbsFile):
+  echov file
+  execShell shellCmd(nim, check, errormax = 3, $file)
 
 echov "done"
