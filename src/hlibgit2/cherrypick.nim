@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./checkout,
+  ./libgit2_config,
+  ./merge,
   ./types
-
-import
-  ./merge
-
-import
-  ./checkout
 
 type
   git_cherrypick_options* {.bycopy, header: "<git2/cherrypick.h>", importc.} = object
@@ -23,7 +17,7 @@ type
 proc git_cherrypick_options_init*(
     opts:    ptr git_cherrypick_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cherrypick_commit*(
@@ -33,13 +27,13 @@ proc git_cherrypick_commit*(
     our_commit:        ptr git_commit,
     mainline:          cuint,
     merge_options:     ptr git_merge_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cherrypick*(
     repo:               ptr git_repository,
     commit:             ptr git_commit,
     cherrypick_options: ptr git_cherrypick_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

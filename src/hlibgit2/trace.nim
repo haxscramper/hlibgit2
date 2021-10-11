@@ -1,7 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
+  ./libgit2_config
 
 type
   git_trace_cb* = proc(level: git_trace_level_t, msg: cstring): void{.cdecl.}
@@ -19,6 +19,6 @@ type
 proc git_trace_set*(
     level: git_trace_level_t,
     cb:    git_trace_cb
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

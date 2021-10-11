@@ -1,94 +1,36 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./stash
-
-import
-  ./libgit_config
-
-import
-  ./types
-
-import
-  ./trace
-
-import
-  ./revert
-
-import
-  ./submodule
-
-import
-  ./config
-
-import
-  ./merge
-
-import
-  ./blame
-
-import
-  ./oid
-
-import
-  ./repository
-
-import
-  ./diff
-
-import
+  ./attr,
+  ./blame,
+  ./buffer,
+  ./checkout,
+  ./cherrypick,
+  ./clone,
+  ./config,
+  ./credential,
+  ./credential_helpers,
+  ./describe,
+  ./diff,
+  ./errors,
+  ./index,
+  ./indexer,
+  ./libgit2_config,
+  ./merge,
+  ./net,
+  ./oid,
+  ./proxy,
+  ./rebase,
+  ./remote,
+  ./repository,
+  ./revert,
+  ./stash,
+  ./status,
+  ./strarray,
+  ./submodule,
+  ./trace,
+  ./types,
   ./worktree
-
-import
-  ./buffer
-
-import
-  ./indexer
-
-import
-  ./describe
-
-import
-  ./clone
-
-import
-  ./rebase
-
-import
-  ./credential
-
-import
-  ./attr
-
-import
-  ./checkout
-
-import
-  ./status
-
-import
-  ./credential_helpers
-
-import
-  ./cherrypick
-
-import
-  ./strarray
-
-import
-  ./errors
-
-import
-  ./index
-
-import
-  ./net
-
-import
-  ./proxy
-
-import
-  ./remote
 
 type
   git_attr_t* = git_attr_value_t
@@ -138,27 +80,27 @@ proc git_blob_create_fromworkdir*(
     id:            ptr git_oid,
     repo:          ptr git_repository,
     relative_path: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blob_create_fromdisk*(
     id:   ptr git_oid,
     repo: ptr git_repository,
     path: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blob_create_fromstream*(
     arg_out:  ptr ptr git_writestream,
     repo:     ptr git_repository,
     hintpath: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blob_create_fromstream_commit*(
     arg_out: ptr git_oid,
     stream:  ptr git_writestream
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blob_create_frombuffer*(
@@ -166,7 +108,7 @@ proc git_blob_create_frombuffer*(
     repo:   ptr git_repository,
     buffer: pointer,
     len:    csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blob_filtered_content*(
@@ -174,25 +116,25 @@ proc git_blob_filtered_content*(
     blob:                  ptr git_blob,
     as_path:               cstring,
     check_for_binary_data: cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_buf_free*(buffer: ptr git_buf): void {.dynlib: libgitDl, importc.}
+proc git_buf_free*(buffer: ptr git_buf): void {.dynlib: libgit2Dl, importc.}
 
 
-proc giterr_last*(a0: void): ptr git_error {.dynlib: libgitDl, importc.}
+proc giterr_last*(a0: void): ptr git_error {.dynlib: libgit2Dl, importc.}
 
 
-proc giterr_clear*(a0: void): void {.dynlib: libgitDl, importc.}
+proc giterr_clear*(a0: void): void {.dynlib: libgit2Dl, importc.}
 
 
 proc giterr_set_str*(
     error_class: cint,
     arg_string:  cstring
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
-proc giterr_set_oom*(a0: void): void {.dynlib: libgitDl, importc.}
+proc giterr_set_oom*(a0: void): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_add_frombuffer*(
@@ -200,12 +142,12 @@ proc git_index_add_frombuffer*(
     entry:  ptr git_index_entry,
     buffer: pointer,
     len:    csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_object_size*(
     arg_type: git_object_t
-  ): csize_t {.dynlib: libgitDl, importc: "git_object__size".}
+  ): csize_t {.dynlib: libgit2Dl, importc: "git_object__size".}
 
 
 proc git_tag_create_frombuffer*(
@@ -213,40 +155,40 @@ proc git_tag_create_frombuffer*(
     repo:   ptr git_repository,
     buffer: cstring,
     force:  cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_free*(
     cred: ptr git_credential
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_has_username*(
     cred: ptr git_credential
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_get_username*(
     cred: ptr git_credential
-  ): cstring {.dynlib: libgitDl, importc.}
+  ): cstring {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_userpass_plaintext_new*(
     arg_out:  ptr ptr git_credential,
     username: cstring,
     password: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_default_new*(
     arg_out: ptr ptr git_credential
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_username_new*(
     arg_out:  ptr ptr git_credential,
     username: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_ssh_key_new*(
@@ -255,7 +197,7 @@ proc git_cred_ssh_key_new*(
     publickey:  cstring,
     privatekey: cstring,
     passphrase: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_ssh_key_memory_new*(
@@ -264,7 +206,7 @@ proc git_cred_ssh_key_memory_new*(
     publickey:  cstring,
     privatekey: cstring,
     passphrase: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_ssh_interactive_new*(
@@ -272,13 +214,13 @@ proc git_cred_ssh_interactive_new*(
     username:        cstring,
     prompt_callback: git_credential_ssh_interactive_cb,
     payload:         pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_ssh_key_from_agent*(
     arg_out:  ptr ptr git_credential,
     username: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_ssh_custom_new*(
@@ -288,7 +230,7 @@ proc git_cred_ssh_custom_new*(
     publickey_len: csize_t,
     sign_callback: git_credential_sign_cb,
     payload:       pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cred_userpass*(
@@ -297,176 +239,176 @@ proc git_cred_userpass*(
     user_from_url: cstring,
     allowed_types: cuint,
     payload:       pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_oid_iszero*(id: ptr git_oid): cint {.dynlib: libgitDl, importc.}
+proc git_oid_iszero*(id: ptr git_oid): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_strarray_copy*(
     tgt: ptr git_strarray,
     src: ptr git_strarray
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_strarray_free*(
     array: ptr git_strarray
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blame_init_options*(
     opts:    ptr git_blame_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_checkout_init_options*(
     opts:    ptr git_checkout_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_cherrypick_init_options*(
     opts:    ptr git_cherrypick_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_clone_init_options*(
     opts:    ptr git_clone_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_describe_init_options*(
     opts:    ptr git_describe_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_describe_init_format_options*(
     opts:    ptr git_describe_format_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_diff_init_options*(
     opts:    ptr git_diff_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_diff_find_init_options*(
     opts:    ptr git_diff_find_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_diff_format_email_init_options*(
     opts:    ptr git_diff_format_email_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_diff_patchid_init_options*(
     opts:    ptr git_diff_patchid_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_fetch_init_options*(
     opts:    ptr git_fetch_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_indexer_init_options*(
     opts:    ptr git_indexer_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_init_options*(
     opts:    ptr git_merge_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_file_init_input*(
     input:   ptr git_merge_file_input,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_file_init_options*(
     opts:    ptr git_merge_file_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_proxy_init_options*(
     opts:    ptr git_proxy_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_push_init_options*(
     opts:    ptr git_push_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_rebase_init_options*(
     opts:    ptr git_rebase_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_remote_create_init_options*(
     opts:    ptr git_remote_create_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_repository_init_init_options*(
     opts:    ptr git_repository_init_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_revert_init_options*(
     opts:    ptr git_revert_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_stash_apply_init_options*(
     opts:    ptr git_stash_apply_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_status_init_options*(
     opts:    ptr git_status_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_submodule_update_init_options*(
     opts:    ptr git_submodule_update_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_add_init_options*(
     opts:    ptr git_worktree_add_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_prune_init_options*(
     opts:    ptr git_worktree_prune_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

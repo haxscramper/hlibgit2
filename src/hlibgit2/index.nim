@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./libgit2_config,
+  ./oid,
+  ./strarray,
   ./types
-
-import
-  ./oid
-
-import
-  ./strarray
 
 type
   git_index_add_option_t* = enum
@@ -68,152 +62,152 @@ type
 proc git_index_open*(
     arg_out:    ptr ptr git_index,
     index_path: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_new*(
     arg_out: ptr ptr git_index
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_index_free*(index: ptr git_index): void {.dynlib: libgitDl, importc.}
+proc git_index_free*(index: ptr git_index): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_owner*(
     index: ptr git_index
-  ): ptr git_repository {.dynlib: libgitDl, importc.}
+  ): ptr git_repository {.dynlib: libgit2Dl, importc.}
 
 
-proc git_index_caps*(index: ptr git_index): cint {.dynlib: libgitDl, importc.}
+proc git_index_caps*(index: ptr git_index): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_set_caps*(
     index: ptr git_index,
     caps:  cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_version*(
     index: ptr git_index
-  ): cuint {.dynlib: libgitDl, importc.}
+  ): cuint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_set_version*(
     index:   ptr git_index,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_read*(
     index: ptr git_index,
     force: cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_index_write*(index: ptr git_index): cint {.dynlib: libgitDl, importc.}
+proc git_index_write*(index: ptr git_index): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_path*(
     index: ptr git_index
-  ): cstring {.dynlib: libgitDl, importc.}
+  ): cstring {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_checksum*(
     index: ptr git_index
-  ): ptr git_oid {.dynlib: libgitDl, importc.}
+  ): ptr git_oid {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_read_tree*(
     index: ptr git_index,
     tree:  ptr git_tree
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_write_tree*(
     arg_out: ptr git_oid,
     index:   ptr git_index
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_write_tree_to*(
     arg_out: ptr git_oid,
     index:   ptr git_index,
     repo:    ptr git_repository
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_entrycount*(
     index: ptr git_index
-  ): csize_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgit2Dl, importc.}
 
 
-proc git_index_clear*(index: ptr git_index): cint {.dynlib: libgitDl, importc.}
+proc git_index_clear*(index: ptr git_index): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_get_byindex*(
     index: ptr git_index,
     n:     csize_t
-  ): ptr git_index_entry {.dynlib: libgitDl, importc.}
+  ): ptr git_index_entry {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_get_bypath*(
     index: ptr git_index,
     path:  cstring,
     stage: cint
-  ): ptr git_index_entry {.dynlib: libgitDl, importc.}
+  ): ptr git_index_entry {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_remove*(
     index: ptr git_index,
     path:  cstring,
     stage: cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_remove_directory*(
     index: ptr git_index,
     dir:   cstring,
     stage: cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_add*(
     index:        ptr git_index,
     source_entry: ptr git_index_entry
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_entry_stage*(
     entry: ptr git_index_entry
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_entry_is_conflict*(
     entry: ptr git_index_entry
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_iterator_new*(
     iterator_out: ptr ptr git_index_iterator,
     index:        ptr git_index
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_iterator_next*(
     arg_out:      ptr ptr git_index_entry,
     arg_iterator: ptr git_index_iterator
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_iterator_free*(
     arg_iterator: ptr git_index_iterator
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_add_bypath*(
     index: ptr git_index,
     path:  cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_add_from_buffer*(
@@ -221,13 +215,13 @@ proc git_index_add_from_buffer*(
     entry:  ptr git_index_entry,
     buffer: pointer,
     len:    csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_remove_bypath*(
     index: ptr git_index,
     path:  cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_add_all*(
@@ -236,7 +230,7 @@ proc git_index_add_all*(
     flags:    cuint,
     callback: git_index_matched_path_cb,
     payload:  pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_remove_all*(
@@ -244,7 +238,7 @@ proc git_index_remove_all*(
     pathspec: ptr git_strarray,
     callback: git_index_matched_path_cb,
     payload:  pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_update_all*(
@@ -252,21 +246,21 @@ proc git_index_update_all*(
     pathspec: ptr git_strarray,
     callback: git_index_matched_path_cb,
     payload:  pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_find*(
     at_pos: ptr csize_t,
     index:  ptr git_index,
     path:   cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_find_prefix*(
     at_pos: ptr csize_t,
     index:  ptr git_index,
     prefix: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_conflict_add*(
@@ -274,7 +268,7 @@ proc git_index_conflict_add*(
     ancestor_entry: ptr git_index_entry,
     our_entry:      ptr git_index_entry,
     their_entry:    ptr git_index_entry
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_conflict_get*(
@@ -283,29 +277,29 @@ proc git_index_conflict_get*(
     their_out:    ptr ptr git_index_entry,
     index:        ptr git_index,
     path:         cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_conflict_remove*(
     index: ptr git_index,
     path:  cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_conflict_cleanup*(
     index: ptr git_index
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_has_conflicts*(
     index: ptr git_index
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_conflict_iterator_new*(
     iterator_out: ptr ptr git_index_conflict_iterator,
     index:        ptr git_index
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_conflict_next*(
@@ -313,11 +307,11 @@ proc git_index_conflict_next*(
     our_out:      ptr ptr git_index_entry,
     their_out:    ptr ptr git_index_entry,
     arg_iterator: ptr git_index_conflict_iterator
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_index_conflict_iterator_free*(
     arg_iterator: ptr git_index_conflict_iterator
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 

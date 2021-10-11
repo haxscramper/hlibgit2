@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./diff,
+  ./libgit2_config,
+  ./strarray,
   ./types
-
-import
-  ./diff
-
-import
-  ./strarray
 
 type
   git_pathspec* {.bycopy, incompleteStruct, importc.} = object
@@ -32,19 +26,19 @@ type
 proc git_pathspec_new*(
     arg_out:  ptr ptr git_pathspec,
     pathspec: ptr git_strarray
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_free*(
     ps: ptr git_pathspec
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_matches_path*(
     ps:    ptr git_pathspec,
     flags: uint32,
     path:  cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_workdir*(
@@ -52,7 +46,7 @@ proc git_pathspec_match_workdir*(
     repo:    ptr git_repository,
     flags:   uint32,
     ps:      ptr git_pathspec
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_index*(
@@ -60,7 +54,7 @@ proc git_pathspec_match_index*(
     index:   ptr git_index,
     flags:   uint32,
     ps:      ptr git_pathspec
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_tree*(
@@ -68,7 +62,7 @@ proc git_pathspec_match_tree*(
     tree:    ptr git_tree,
     flags:   uint32,
     ps:      ptr git_pathspec
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_diff*(
@@ -76,39 +70,39 @@ proc git_pathspec_match_diff*(
     diff:    ptr git_diff,
     flags:   uint32,
     ps:      ptr git_pathspec
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_list_free*(
     m: ptr git_pathspec_match_list
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_list_entrycount*(
     m: ptr git_pathspec_match_list
-  ): csize_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_list_entry*(
     m:   ptr git_pathspec_match_list,
     pos: csize_t
-  ): cstring {.dynlib: libgitDl, importc.}
+  ): cstring {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_list_diff_entry*(
     m:   ptr git_pathspec_match_list,
     pos: csize_t
-  ): ptr git_diff_delta {.dynlib: libgitDl, importc.}
+  ): ptr git_diff_delta {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_list_failed_entrycount*(
     m: ptr git_pathspec_match_list
-  ): csize_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgit2Dl, importc.}
 
 
 proc git_pathspec_match_list_failed_entry*(
     m:   ptr git_pathspec_match_list,
     pos: csize_t
-  ): cstring {.dynlib: libgitDl, importc.}
+  ): cstring {.dynlib: libgit2Dl, importc.}
 
 

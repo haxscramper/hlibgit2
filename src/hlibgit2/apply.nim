@@ -1,13 +1,9 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./diff,
+  ./libgit2_config,
   ./types
-
-import
-  ./diff
 
 type
   git_apply_delta_cb* = proc(delta: ptr git_diff_delta, payload: pointer): cint{.cdecl.}
@@ -38,7 +34,7 @@ type
 proc git_apply_options_init*(
     opts:    ptr git_apply_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_apply_to_tree*(
@@ -47,7 +43,7 @@ proc git_apply_to_tree*(
     preimage: ptr git_tree,
     diff:     ptr git_diff,
     options:  ptr git_apply_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_apply*(
@@ -55,6 +51,6 @@ proc git_apply*(
     diff:     ptr git_diff,
     location: git_apply_location_t,
     options:  ptr git_apply_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

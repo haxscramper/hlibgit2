@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./checkout,
+  ./libgit2_config,
+  ./strarray,
   ./types
-
-import
-  ./checkout
-
-import
-  ./strarray
 
 type
   git_reset_t* = enum
@@ -24,7 +18,7 @@ proc git_reset*(
     target:        ptr git_object,
     reset_type:    git_reset_t,
     checkout_opts: ptr git_checkout_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reset_from_annotated*(
@@ -32,13 +26,13 @@ proc git_reset_from_annotated*(
     commit:        ptr git_annotated_commit,
     reset_type:    git_reset_t,
     checkout_opts: ptr git_checkout_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reset_default*(
     repo:      ptr git_repository,
     target:    ptr git_object,
     pathspecs: ptr git_strarray
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

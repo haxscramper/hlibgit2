@@ -1,13 +1,9 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./buffer,
+  ./libgit2_config,
   ./types
-
-import
-  ./buffer
 
 type
   git_describe_format_options* {.bycopy, header: "<git2/describe.h>", importc.} = object
@@ -36,38 +32,38 @@ type
 proc git_describe_options_init*(
     opts:    ptr git_describe_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_describe_format_options_init*(
     opts:    ptr git_describe_format_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_describe_commit*(
     result:     ptr ptr git_describe_result,
     committish: ptr git_object,
     opts:       ptr git_describe_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_describe_workdir*(
     arg_out: ptr ptr git_describe_result,
     repo:    ptr git_repository,
     opts:    ptr git_describe_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_describe_format*(
     arg_out: ptr git_buf,
     result:  ptr git_describe_result,
     opts:    ptr git_describe_format_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_describe_result_free*(
     result: ptr git_describe_result
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 

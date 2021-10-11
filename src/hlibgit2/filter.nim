@@ -1,13 +1,9 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./buffer,
+  ./libgit2_config,
   ./types
-
-import
-  ./buffer
 
 type
   git_filter* {.bycopy, incompleteStruct, importc.} = object
@@ -34,20 +30,20 @@ proc git_filter_list_load*(
     path:    cstring,
     mode:    git_filter_mode_t,
     flags:   uint32
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_filter_list_contains*(
     filters: ptr git_filter_list,
     name:    cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_filter_list_apply_to_data*(
     arg_out: ptr git_buf,
     filters: ptr git_filter_list,
     arg_in:  ptr git_buf
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_filter_list_apply_to_file*(
@@ -55,21 +51,21 @@ proc git_filter_list_apply_to_file*(
     filters: ptr git_filter_list,
     repo:    ptr git_repository,
     path:    cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_filter_list_apply_to_blob*(
     arg_out: ptr git_buf,
     filters: ptr git_filter_list,
     blob:    ptr git_blob
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_filter_list_stream_data*(
     filters: ptr git_filter_list,
     data:    ptr git_buf,
     target:  ptr git_writestream
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_filter_list_stream_file*(
@@ -77,18 +73,18 @@ proc git_filter_list_stream_file*(
     repo:    ptr git_repository,
     path:    cstring,
     target:  ptr git_writestream
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_filter_list_stream_blob*(
     filters: ptr git_filter_list,
     blob:    ptr git_blob,
     target:  ptr git_writestream
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_filter_list_free*(
     filters: ptr git_filter_list
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 

@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./indexer,
+  ./libgit2_config,
+  ./oid,
   ./types
-
-import
-  ./oid
-
-import
-  ./indexer
 
 type
   git_odb_stream* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
@@ -40,7 +34,7 @@ type
 proc git_odb_backend_pack*(
     arg_out:     ptr ptr git_odb_backend,
     objects_dir: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_odb_backend_loose*(
@@ -50,12 +44,12 @@ proc git_odb_backend_loose*(
     do_fsync:          cint,
     dir_mode:          cuint,
     file_mode:         cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_odb_backend_one_pack*(
     arg_out:    ptr ptr git_odb_backend,
     index_file: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

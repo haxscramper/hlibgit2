@@ -1,13 +1,9 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
-  ./cert
-
-import
-  ./credential
+  ./cert,
+  ./credential,
+  ./libgit2_config
 
 type
   git_proxy_options* {.bycopy, header: "<git2/proxy.h>", importc.} = object
@@ -27,6 +23,6 @@ type
 proc git_proxy_options_init*(
     opts:    ptr git_proxy_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

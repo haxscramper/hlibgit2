@@ -1,9 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./libgit2_config,
   ./oid
 
 type
@@ -15,6 +13,6 @@ type
 
 proc git_oidarray_free*(
     array: ptr git_oidarray
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 

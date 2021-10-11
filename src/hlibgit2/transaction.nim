@@ -1,24 +1,20 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./libgit2_config,
+  ./oid,
   ./types
-
-import
-  ./oid
 
 proc git_transaction_new*(
     arg_out: ptr ptr git_transaction,
     repo:    ptr git_repository
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_transaction_lock_ref*(
     tx:      ptr git_transaction,
     refname: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_transaction_set_target*(
@@ -27,7 +23,7 @@ proc git_transaction_set_target*(
     target:  ptr git_oid,
     sig:     ptr git_signature,
     msg:     cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_transaction_set_symbolic_target*(
@@ -36,29 +32,29 @@ proc git_transaction_set_symbolic_target*(
     target:  cstring,
     sig:     ptr git_signature,
     msg:     cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_transaction_set_reflog*(
     tx:      ptr git_transaction,
     refname: cstring,
     reflog:  ptr git_reflog
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_transaction_remove*(
     tx:      ptr git_transaction,
     refname: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_transaction_commit*(
     tx: ptr git_transaction
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_transaction_free*(
     tx: ptr git_transaction
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 

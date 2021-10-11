@@ -1,13 +1,9 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./libgit2_config,
+  ./oid,
   ./types
-
-import
-  ./oid
 
 type
   git_blame* {.bycopy, incompleteStruct, importc.} = object
@@ -47,24 +43,24 @@ type
 proc git_blame_options_init*(
     opts:    ptr git_blame_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blame_get_hunk_count*(
     blame: ptr git_blame
-  ): uint32 {.dynlib: libgitDl, importc.}
+  ): uint32 {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blame_get_hunk_byindex*(
     blame: ptr git_blame,
     index: uint32
-  ): ptr git_blame_hunk {.dynlib: libgitDl, importc.}
+  ): ptr git_blame_hunk {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blame_get_hunk_byline*(
     blame:  ptr git_blame,
     lineno: csize_t
-  ): ptr git_blame_hunk {.dynlib: libgitDl, importc.}
+  ): ptr git_blame_hunk {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blame_file*(
@@ -72,7 +68,7 @@ proc git_blame_file*(
     repo:    ptr git_repository,
     path:    cstring,
     options: ptr git_blame_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_blame_buffer*(
@@ -80,9 +76,9 @@ proc git_blame_buffer*(
     reference:  ptr git_blame,
     buffer:     cstring,
     buffer_len: csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_blame_free*(blame: ptr git_blame): void {.dynlib: libgitDl, importc.}
+proc git_blame_free*(blame: ptr git_blame): void {.dynlib: libgit2Dl, importc.}
 
 

@@ -1,7 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
+  ./libgit2_config
 
 type
   git_error* {.bycopy, header: "<git2/errors.h>", importc.} = object
@@ -80,18 +80,18 @@ type
     GIT_ERROR_INTERNAL = 35
    
 
-proc git_error_last*(a0: void): ptr git_error {.dynlib: libgitDl, importc.}
+proc git_error_last*(a0: void): ptr git_error {.dynlib: libgit2Dl, importc.}
 
 
-proc git_error_clear*(a0: void): void {.dynlib: libgitDl, importc.}
+proc git_error_clear*(a0: void): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_error_set_str*(
     error_class: cint,
     arg_string:  cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_error_set_oom*(a0: void): void {.dynlib: libgitDl, importc.}
+proc git_error_set_oom*(a0: void): void {.dynlib: libgit2Dl, importc.}
 
 

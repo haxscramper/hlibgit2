@@ -1,25 +1,13 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./checkout,
+  ./diff,
+  ./index,
+  ./libgit2_config,
+  ./oid,
+  ./oidarray,
   ./types
-
-import
-  ./oid
-
-import
-  ./oidarray
-
-import
-  ./diff
-
-import
-  ./checkout
-
-import
-  ./index
 
 type
   git_merge_analysis_t* = enum
@@ -95,19 +83,19 @@ type
 proc git_merge_file_input_init*(
     opts:    ptr git_merge_file_input,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_file_options_init*(
     opts:    ptr git_merge_file_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_options_init*(
     opts:    ptr git_merge_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_analysis*(
@@ -116,7 +104,7 @@ proc git_merge_analysis*(
     repo:            ptr git_repository,
     their_heads:     ptr ptr git_annotated_commit,
     their_heads_len: csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_analysis_for_ref*(
@@ -126,7 +114,7 @@ proc git_merge_analysis_for_ref*(
     our_ref:         ptr git_reference,
     their_heads:     ptr ptr git_annotated_commit,
     their_heads_len: csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_base*(
@@ -134,7 +122,7 @@ proc git_merge_base*(
     repo:    ptr git_repository,
     one:     ptr git_oid,
     two:     ptr git_oid
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_bases*(
@@ -142,7 +130,7 @@ proc git_merge_bases*(
     repo:    ptr git_repository,
     one:     ptr git_oid,
     two:     ptr git_oid
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_base_many*(
@@ -150,7 +138,7 @@ proc git_merge_base_many*(
     repo:        ptr git_repository,
     length:      csize_t,
     input_array: ptr UncheckedArray[git_oid]
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_bases_many*(
@@ -158,7 +146,7 @@ proc git_merge_bases_many*(
     repo:        ptr git_repository,
     length:      csize_t,
     input_array: ptr UncheckedArray[git_oid]
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_base_octopus*(
@@ -166,7 +154,7 @@ proc git_merge_base_octopus*(
     repo:        ptr git_repository,
     length:      csize_t,
     input_array: ptr UncheckedArray[git_oid]
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_file*(
@@ -175,7 +163,7 @@ proc git_merge_file*(
     ours:     ptr git_merge_file_input,
     theirs:   ptr git_merge_file_input,
     opts:     ptr git_merge_file_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_file_from_index*(
@@ -185,12 +173,12 @@ proc git_merge_file_from_index*(
     ours:     ptr git_index_entry,
     theirs:   ptr git_index_entry,
     opts:     ptr git_merge_file_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_file_result_free*(
     result: ptr git_merge_file_result
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_trees*(
@@ -200,7 +188,7 @@ proc git_merge_trees*(
     our_tree:      ptr git_tree,
     their_tree:    ptr git_tree,
     opts:          ptr git_merge_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge_commits*(
@@ -209,7 +197,7 @@ proc git_merge_commits*(
     our_commit:   ptr git_commit,
     their_commit: ptr git_commit,
     opts:         ptr git_merge_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_merge*(
@@ -218,6 +206,6 @@ proc git_merge*(
     their_heads_len: csize_t,
     merge_opts:      ptr git_merge_options,
     checkout_opts:   ptr git_checkout_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

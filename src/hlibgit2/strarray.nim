@@ -1,7 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
+  ./libgit2_config
 
 type
   git_strarray* {.bycopy, header: "<git2/strarray.h>", importc.} = object
@@ -12,12 +12,12 @@ type
 
 proc git_strarray_dispose*(
     array: ptr git_strarray
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_strarray_copy*(
     tgt: ptr git_strarray,
     src: ptr git_strarray
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

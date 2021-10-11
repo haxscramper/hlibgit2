@@ -1,9 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./libgit2_config,
   ./types
 
 type
@@ -20,7 +18,7 @@ type
 
 proc git_attr_value*(
     attr: cstring
-  ): git_attr_value_t {.dynlib: libgitDl, importc.}
+  ): git_attr_value_t {.dynlib: libgit2Dl, importc.}
 
 
 proc git_attr_get*(
@@ -29,7 +27,7 @@ proc git_attr_get*(
     flags:     uint32,
     path:      cstring,
     name:      cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_attr_get_many*(
@@ -39,7 +37,7 @@ proc git_attr_get_many*(
     path:       cstring,
     num_attr:   csize_t,
     names:      ptr cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_attr_foreach*(
@@ -48,18 +46,18 @@ proc git_attr_foreach*(
     path:     cstring,
     callback: git_attr_foreach_cb,
     payload:  pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_attr_cache_flush*(
     repo: ptr git_repository
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_attr_add_macro*(
     repo:   ptr git_repository,
     name:   cstring,
     values: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

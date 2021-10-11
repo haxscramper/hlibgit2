@@ -1,7 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
+  ./libgit2_config
 
 type
   git_annotated_commit* {.bycopy, incompleteStruct, importc.} = object

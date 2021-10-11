@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./buffer,
+  ./libgit2_config,
+  ./strarray,
   ./types
-
-import
-  ./buffer
-
-import
-  ./strarray
 
 type
   git_worktree_add_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
@@ -31,36 +25,36 @@ type
 proc git_worktree_list*(
     arg_out: ptr git_strarray,
     repo:    ptr git_repository
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_lookup*(
     arg_out: ptr ptr git_worktree,
     repo:    ptr git_repository,
     name:    cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_open_from_repository*(
     arg_out: ptr ptr git_worktree,
     repo:    ptr git_repository
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_free*(
     wt: ptr git_worktree
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_validate*(
     wt: ptr git_worktree
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_add_options_init*(
     opts:    ptr git_worktree_add_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_add*(
@@ -69,51 +63,51 @@ proc git_worktree_add*(
     name:    cstring,
     path:    cstring,
     opts:    ptr git_worktree_add_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_lock*(
     wt:     ptr git_worktree,
     reason: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_unlock*(
     wt: ptr git_worktree
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_is_locked*(
     reason: ptr git_buf,
     wt:     ptr git_worktree
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_name*(
     wt: ptr git_worktree
-  ): cstring {.dynlib: libgitDl, importc.}
+  ): cstring {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_path*(
     wt: ptr git_worktree
-  ): cstring {.dynlib: libgitDl, importc.}
+  ): cstring {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_prune_options_init*(
     opts:    ptr git_worktree_prune_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_is_prunable*(
     wt:   ptr git_worktree,
     opts: ptr git_worktree_prune_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_worktree_prune*(
     wt:   ptr git_worktree,
     opts: ptr git_worktree_prune_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

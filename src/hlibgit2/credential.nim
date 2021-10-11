@@ -1,7 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
+  ./libgit2_config
 
 type
   git_credential* {.bycopy, incompleteStruct, importc.} = object
@@ -44,35 +44,35 @@ type
 
 proc git_credential_free*(
     cred: ptr git_credential
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_has_username*(
     cred: ptr git_credential
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_get_username*(
     cred: ptr git_credential
-  ): cstring {.dynlib: libgitDl, importc.}
+  ): cstring {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_userpass_plaintext_new*(
     arg_out:  ptr ptr git_credential,
     username: cstring,
     password: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_default_new*(
     arg_out: ptr ptr git_credential
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_username_new*(
     arg_out:  ptr ptr git_credential,
     username: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_ssh_key_new*(
@@ -81,7 +81,7 @@ proc git_credential_ssh_key_new*(
     publickey:  cstring,
     privatekey: cstring,
     passphrase: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_ssh_key_memory_new*(
@@ -90,7 +90,7 @@ proc git_credential_ssh_key_memory_new*(
     publickey:  cstring,
     privatekey: cstring,
     passphrase: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_ssh_interactive_new*(
@@ -98,13 +98,13 @@ proc git_credential_ssh_interactive_new*(
     username:        cstring,
     prompt_callback: git_credential_ssh_interactive_cb,
     payload:         pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_ssh_key_from_agent*(
     arg_out:  ptr ptr git_credential,
     username: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_credential_ssh_custom_new*(
@@ -114,6 +114,6 @@ proc git_credential_ssh_custom_new*(
     publickey_len: csize_t,
     sign_callback: git_credential_sign_cb,
     payload:       pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

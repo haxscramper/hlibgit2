@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./buffer,
+  ./libgit2_config,
+  ./oid,
   ./types
-
-import
-  ./oid
-
-import
-  ./buffer
 
 type
   git_note_foreach_cb* = proc(blob_id: ptr git_oid, annotated_object_id: ptr git_oid, payload: pointer): cint{.cdecl.}
@@ -24,25 +18,25 @@ proc git_note_iterator_new*(
     arg_out:   ptr ptr git_note_iterator,
     repo:      ptr git_repository,
     notes_ref: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_commit_iterator_new*(
     arg_out:      ptr ptr git_note_iterator,
     notes_commit: ptr git_commit
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_iterator_free*(
     it: ptr git_note_iterator
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_next*(
     note_id:      ptr git_oid,
     annotated_id: ptr git_oid,
     it:           ptr git_note_iterator
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_read*(
@@ -50,7 +44,7 @@ proc git_note_read*(
     repo:      ptr git_repository,
     notes_ref: cstring,
     oid:       ptr git_oid
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_commit_read*(
@@ -58,25 +52,27 @@ proc git_note_commit_read*(
     repo:         ptr git_repository,
     notes_commit: ptr git_commit,
     oid:          ptr git_oid
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_author*(
     note: ptr git_note
-  ): ptr git_signature {.dynlib: libgitDl, importc.}
+  ): ptr git_signature {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_committer*(
     note: ptr git_note
-  ): ptr git_signature {.dynlib: libgitDl, importc.}
+  ): ptr git_signature {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_message*(
     note: ptr git_note
-  ): cstring {.dynlib: libgitDl, importc.}
+  ): cstring {.dynlib: libgit2Dl, importc.}
 
 
-proc git_note_id*(note: ptr git_note): ptr git_oid {.dynlib: libgitDl, importc.}
+proc git_note_id*(
+    note: ptr git_note
+  ): ptr git_oid {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_create*(
@@ -88,7 +84,7 @@ proc git_note_create*(
     oid:       ptr git_oid,
     note:      cstring,
     force:     cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_commit_create*(
@@ -101,7 +97,7 @@ proc git_note_commit_create*(
     oid:                  ptr git_oid,
     note:                 cstring,
     allow_note_overwrite: cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_remove*(
@@ -110,7 +106,7 @@ proc git_note_remove*(
     author:    ptr git_signature,
     committer: ptr git_signature,
     oid:       ptr git_oid
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_commit_remove*(
@@ -120,16 +116,16 @@ proc git_note_commit_remove*(
     author:           ptr git_signature,
     committer:        ptr git_signature,
     oid:              ptr git_oid
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_note_free*(note: ptr git_note): void {.dynlib: libgitDl, importc.}
+proc git_note_free*(note: ptr git_note): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_default_ref*(
     arg_out: ptr git_buf,
     repo:    ptr git_repository
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_note_foreach*(
@@ -137,6 +133,6 @@ proc git_note_foreach*(
     notes_ref: cstring,
     note_cb:   git_note_foreach_cb,
     payload:   pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

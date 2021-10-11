@@ -1,9 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./libgit2_config,
   ./oid
 
 type

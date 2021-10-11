@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./checkout,
+  ./libgit2_config,
+  ./oid,
   ./types
-
-import
-  ./oid
-
-import
-  ./checkout
 
 type
   git_stash_apply_flags* = enum
@@ -55,39 +49,39 @@ proc git_stash_save*(
     stasher: ptr git_signature,
     message: cstring,
     flags:   uint32
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_stash_apply_options_init*(
     opts:    ptr git_stash_apply_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_stash_apply*(
     repo:    ptr git_repository,
     index:   csize_t,
     options: ptr git_stash_apply_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_stash_foreach*(
     repo:     ptr git_repository,
     callback: git_stash_cb,
     payload:  pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_stash_drop*(
     repo:  ptr git_repository,
     index: csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_stash_pop*(
     repo:    ptr git_repository,
     index:   csize_t,
     options: ptr git_stash_apply_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

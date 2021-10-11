@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./buffer,
+  ./diff,
+  ./libgit2_config,
   ./types
-
-import
-  ./diff
-
-import
-  ./buffer
 
 type
   git_patch* {.bycopy, incompleteStruct, importc.} = object
@@ -21,7 +15,7 @@ proc git_patch_from_diff*(
     arg_out: ptr ptr git_patch,
     diff:    ptr git_diff,
     idx:     csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_from_blobs*(
@@ -31,7 +25,7 @@ proc git_patch_from_blobs*(
     new_blob:    ptr git_blob,
     new_as_path: cstring,
     opts:        ptr git_diff_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_from_blob_and_buffer*(
@@ -42,7 +36,7 @@ proc git_patch_from_blob_and_buffer*(
     buffer_len:     csize_t,
     buffer_as_path: cstring,
     opts:           ptr git_diff_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_from_buffers*(
@@ -54,20 +48,20 @@ proc git_patch_from_buffers*(
     new_len:     csize_t,
     new_as_path: cstring,
     opts:        ptr git_diff_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_patch_free*(patch: ptr git_patch): void {.dynlib: libgitDl, importc.}
+proc git_patch_free*(patch: ptr git_patch): void {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_get_delta*(
     patch: ptr git_patch
-  ): ptr git_diff_delta {.dynlib: libgitDl, importc.}
+  ): ptr git_diff_delta {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_num_hunks*(
     patch: ptr git_patch
-  ): csize_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_line_stats*(
@@ -75,7 +69,7 @@ proc git_patch_line_stats*(
     total_additions: ptr csize_t,
     total_deletions: ptr csize_t,
     patch:           ptr git_patch
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_get_hunk*(
@@ -83,13 +77,13 @@ proc git_patch_get_hunk*(
     lines_in_hunk: ptr csize_t,
     patch:         ptr git_patch,
     hunk_idx:      csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_num_lines_in_hunk*(
     patch:    ptr git_patch,
     hunk_idx: csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_get_line_in_hunk*(
@@ -97,7 +91,7 @@ proc git_patch_get_line_in_hunk*(
     patch:        ptr git_patch,
     hunk_idx:     csize_t,
     line_of_hunk: csize_t
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_size*(
@@ -105,19 +99,19 @@ proc git_patch_size*(
     include_context:      cint,
     include_hunk_headers: cint,
     include_file_headers: cint
-  ): csize_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_print*(
     patch:    ptr git_patch,
     print_cb: git_diff_line_cb,
     payload:  pointer
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_patch_to_buf*(
     arg_out: ptr git_buf,
     patch:   ptr git_patch
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

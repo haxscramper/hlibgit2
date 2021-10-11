@@ -1,7 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
+  ./libgit2_config
 
 type
   git_feature_t* = enum
@@ -48,12 +48,12 @@ proc git_libgit2_version*(
     major: ptr cint,
     minor: ptr cint,
     rev:   ptr cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_libgit2_features*(a0: void): cint {.dynlib: libgitDl, importc.}
+proc git_libgit2_features*(a0: void): cint {.dynlib: libgit2Dl, importc.}
 
 
-proc git_libgit2_opts*(option: cint): cint {.dynlib: libgitDl, importc.}
+proc git_libgit2_opts*(option: cint): cint {.dynlib: libgit2Dl, importc.}
 
 

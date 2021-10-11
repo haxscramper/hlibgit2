@@ -1,24 +1,20 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./libgit2_config,
+  ./oid,
   ./types
-
-import
-  ./oid
 
 proc git_reflog_read*(
     arg_out: ptr ptr git_reflog,
     repo:    ptr git_repository,
     name:    cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_write*(
     reflog: ptr git_reflog
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_append*(
@@ -26,62 +22,62 @@ proc git_reflog_append*(
     id:        ptr git_oid,
     committer: ptr git_signature,
     msg:       cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_rename*(
     repo:     ptr git_repository,
     old_name: cstring,
     name:     cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_delete*(
     repo: ptr git_repository,
     name: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_entrycount*(
     reflog: ptr git_reflog
-  ): csize_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_entry_byindex*(
     reflog: ptr git_reflog,
     idx:    csize_t
-  ): ptr git_reflog_entry {.dynlib: libgitDl, importc.}
+  ): ptr git_reflog_entry {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_drop*(
     reflog:                 ptr git_reflog,
     idx:                    csize_t,
     rewrite_previous_entry: cint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_entry_id_old*(
     entry: ptr git_reflog_entry
-  ): ptr git_oid {.dynlib: libgitDl, importc.}
+  ): ptr git_oid {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_entry_id_new*(
     entry: ptr git_reflog_entry
-  ): ptr git_oid {.dynlib: libgitDl, importc.}
+  ): ptr git_oid {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_entry_committer*(
     entry: ptr git_reflog_entry
-  ): ptr git_signature {.dynlib: libgitDl, importc.}
+  ): ptr git_signature {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_entry_message*(
     entry: ptr git_reflog_entry
-  ): cstring {.dynlib: libgitDl, importc.}
+  ): cstring {.dynlib: libgit2Dl, importc.}
 
 
 proc git_reflog_free*(
     reflog: ptr git_reflog
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 

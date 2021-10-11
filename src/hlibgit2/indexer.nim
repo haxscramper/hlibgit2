@@ -1,13 +1,9 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./libgit2_config,
+  ./oid,
   ./types
-
-import
-  ./oid
 
 type
   git_indexer* {.bycopy, incompleteStruct, importc.} = object
@@ -36,7 +32,7 @@ type
 proc git_indexer_options_init*(
     opts:    ptr git_indexer_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_indexer_new*(
@@ -45,7 +41,7 @@ proc git_indexer_new*(
     mode:    cuint,
     odb:     ptr git_odb,
     opts:    ptr git_indexer_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_indexer_append*(
@@ -53,20 +49,22 @@ proc git_indexer_append*(
     data:  pointer,
     size:  csize_t,
     stats: ptr git_indexer_progress
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_indexer_commit*(
     idx:   ptr git_indexer,
     stats: ptr git_indexer_progress
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_indexer_hash*(
     idx: ptr git_indexer
-  ): ptr git_oid {.dynlib: libgitDl, importc.}
+  ): ptr git_oid {.dynlib: libgit2Dl, importc.}
 
 
-proc git_indexer_free*(idx: ptr git_indexer): void {.dynlib: libgitDl, importc.}
+proc git_indexer_free*(
+    idx: ptr git_indexer
+  ): void {.dynlib: libgit2Dl, importc.}
 
 

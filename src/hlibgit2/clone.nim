@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./checkout,
+  ./libgit2_config,
+  ./remote,
   ./types
-
-import
-  ./checkout
-
-import
-  ./remote
 
 type
   git_clone_local_t* = enum
@@ -43,7 +37,7 @@ type
 proc git_clone_options_init*(
     opts:    ptr git_clone_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_clone*(
@@ -51,6 +45,6 @@ proc git_clone*(
     url:        cstring,
     local_path: cstring,
     options:    ptr git_clone_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

@@ -1,7 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
+  ./libgit2_config
 
 type
   git_cert* {.bycopy, header: "<git2/cert.h>", importc.} = object

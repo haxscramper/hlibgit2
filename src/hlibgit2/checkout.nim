@@ -1,16 +1,10 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
+  ./diff,
+  ./libgit2_config,
+  ./strarray,
   ./types
-
-import
-  ./diff
-
-import
-  ./strarray
 
 type
   git_checkout_notify_cb* = proc(why: git_checkout_notify_t, path: cstring, baseline: ptr git_diff_file, target: ptr git_diff_file, workdir: ptr git_diff_file, payload: pointer): cint{.cdecl.}
@@ -93,26 +87,26 @@ type
 proc git_checkout_options_init*(
     opts:    ptr git_checkout_options,
     version: cuint
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_checkout_head*(
     repo: ptr git_repository,
     opts: ptr git_checkout_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_checkout_index*(
     repo:  ptr git_repository,
     index: ptr git_index,
     opts:  ptr git_checkout_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_checkout_tree*(
     repo:    ptr git_repository,
     treeish: ptr git_object,
     opts:    ptr git_checkout_options
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 

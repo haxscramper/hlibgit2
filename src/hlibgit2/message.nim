@@ -1,10 +1,8 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit_config
-
-import
-  ./buffer
+  ./buffer,
+  ./libgit2_config
 
 type
   git_message_trailer* {.bycopy, header: "<git2/message.h>", importc.} = object
@@ -22,17 +20,17 @@ proc git_message_prettify*(
     message:        cstring,
     strip_comments: cint,
     comment_char:   char
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_message_trailers*(
     arr:     ptr git_message_trailer_array,
     message: cstring
-  ): cint {.dynlib: libgitDl, importc.}
+  ): cint {.dynlib: libgit2Dl, importc.}
 
 
 proc git_message_trailer_array_free*(
     arr: ptr git_message_trailer_array
-  ): void {.dynlib: libgitDl, importc.}
+  ): void {.dynlib: libgit2Dl, importc.}
 
 
