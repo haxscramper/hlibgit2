@@ -103,7 +103,11 @@ for fix in group:
 
 for file in resList:
   echov file
-  execShell shellCmd(nim, check, errormax = 3, $file)
-  echov "file ok"
+  try:
+    execShell shellCmd(nim, check, errormax = 3, $file)
+    echov "file ok"
+
+  except ShellError:
+    echov "file fail"
 
 echov "done"

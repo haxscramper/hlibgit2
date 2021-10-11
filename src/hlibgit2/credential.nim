@@ -4,12 +4,6 @@ import
   ./libgit_config
 
 type
-  LIBSSH2_SESSION* = LIBSSH2_SESSION
-   
-  LIBSSH2_USERAUTH_KBDINT_PROMPT* = LIBSSH2_USERAUTH_KBDINT_PROMPT
-   
-  LIBSSH2_USERAUTH_KBDINT_RESPONSE* = LIBSSH2_USERAUTH_KBDINT_RESPONSE
-   
   git_credential* {.bycopy, incompleteStruct, importc.} = object
     
    
