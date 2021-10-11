@@ -3,18 +3,6 @@
 import
   ./libgit_config
 
-import
-  ./cert
-
-import
-  ./odb_backend
-
-import
-  ./net
-
-import
-  ./remote
-
 type
   git_annotated_commit* {.bycopy, incompleteStruct, importc.} = object
     

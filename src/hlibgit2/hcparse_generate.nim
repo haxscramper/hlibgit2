@@ -21,7 +21,7 @@ startHax()
 
 let
   outDir = oswrap.currentSourceDir()
-  tmpDir = getAppTempDir() / "v2"
+  tmpDir = getAppTempDir() / "v3"
 
 mkDir tmpDir
 let lib = AbsDir"/usr/include/git2"
@@ -44,6 +44,7 @@ for file in walkDir(lib, AbsFile):
       ])
 
       resFile.writeFile(reader.getExpanded())
+      echov "ok"
 
 for file in walkDir(outDir, AbsFile, exts = @["nim"]):
   if file.name() notin ["hcparse_generate", "libgit_config"]:
@@ -81,6 +82,11 @@ var nonEmpty: seq[AbsFile]
 
 for file in walkDir(tmpDir, AbsFile, exts = @["h"]):
   let res = wrapViaTs(file, tmpDir, fixConf)
+  # if readFile(file).anyIt(it notin {'\n', ' '}):
+  #   echov file, "vvv"
+  #   echov readFile(file)
+  #   echov file, "^^^"
+
   resultWrapped.add res
 
 var resList: seq[AbsFile]
@@ -98,5 +104,6 @@ for fix in group:
 for file in resList:
   echov file
   execShell shellCmd(nim, check, errormax = 3, $file)
+  echov "file ok"
 
 echov "done"

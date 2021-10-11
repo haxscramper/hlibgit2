@@ -25,6 +25,9 @@ import
   ./merge
 
 import
+  ./blame
+
+import
   ./oid
 
 import
@@ -53,6 +56,9 @@ import
 
 import
   ./credential
+
+import
+  ./attr
 
 import
   ./checkout
