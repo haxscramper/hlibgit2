@@ -1,10 +1,16 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./diff
+
+import
+  ./buffer
 
 type
   git_patch* {.bycopy, incompleteStruct, importc.} = object
@@ -14,7 +20,7 @@ type
 proc git_patch_from_diff*(
     arg_out: ptr ptr git_patch,
     diff:    ptr git_diff,
-    idx:     size_t
+    idx:     csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -33,7 +39,7 @@ proc git_patch_from_blob_and_buffer*(
     old_blob:       ptr git_blob,
     old_as_path:    cstring,
     buffer:         pointer,
-    buffer_len:     size_t,
+    buffer_len:     csize_t,
     buffer_as_path: cstring,
     opts:           ptr git_diff_options
   ): cint {.dynlib: libgitDl, importc.}
@@ -42,10 +48,10 @@ proc git_patch_from_blob_and_buffer*(
 proc git_patch_from_buffers*(
     arg_out:     ptr ptr git_patch,
     old_buffer:  pointer,
-    old_len:     size_t,
+    old_len:     csize_t,
     old_as_path: cstring,
     new_buffer:  pointer,
-    new_len:     size_t,
+    new_len:     csize_t,
     new_as_path: cstring,
     opts:        ptr git_diff_options
   ): cint {.dynlib: libgitDl, importc.}
@@ -61,36 +67,36 @@ proc git_patch_get_delta*(
 
 proc git_patch_num_hunks*(
     patch: ptr git_patch
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_patch_line_stats*(
-    total_context:   ptr size_t,
-    total_additions: ptr size_t,
-    total_deletions: ptr size_t,
+    total_context:   ptr csize_t,
+    total_additions: ptr csize_t,
+    total_deletions: ptr csize_t,
     patch:           ptr git_patch
   ): cint {.dynlib: libgitDl, importc.}
 
 
 proc git_patch_get_hunk*(
     arg_out:       ptr ptr git_diff_hunk,
-    lines_in_hunk: ptr size_t,
+    lines_in_hunk: ptr csize_t,
     patch:         ptr git_patch,
-    hunk_idx:      size_t
+    hunk_idx:      csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
 proc git_patch_num_lines_in_hunk*(
     patch:    ptr git_patch,
-    hunk_idx: size_t
+    hunk_idx: csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
 proc git_patch_get_line_in_hunk*(
     arg_out:      ptr ptr git_diff_line,
     patch:        ptr git_patch,
-    hunk_idx:     size_t,
-    line_of_hunk: size_t
+    hunk_idx:     csize_t,
+    line_of_hunk: csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -99,7 +105,7 @@ proc git_patch_size*(
     include_context:      cint,
     include_hunk_headers: cint,
     include_file_headers: cint
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_patch_print*(

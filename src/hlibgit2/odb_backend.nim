@@ -1,10 +1,41 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
+
+import
+  ./indexer
+
+type
+  git_odb_stream* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
+    backend*: ptr git_odb_backend
+    mode*: cuint
+    hash_ctx*: pointer
+    declared_size*: git_object_size_t
+    received_bytes*: git_object_size_t
+    read*: proc(stream: ptr git_odb_stream, buffer: cstring, len: csize_t): cint{.cdecl.}
+    write*: proc(stream: ptr git_odb_stream, buffer: cstring, len: csize_t): cint{.cdecl.}
+    finalize_write*: proc(stream: ptr git_odb_stream, oid: ptr git_oid): cint{.cdecl.}
+    free*: proc(stream: ptr git_odb_stream): void{.cdecl.}
+   
+  git_odb_stream_t* = enum
+    GIT_STREAM_RDONLY = 2
+    GIT_STREAM_WRONLY = 4
+    GIT_STREAM_RW = 6
+   
+  git_odb_writepack* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
+    ## A stream to write a pack file to the ODB 
+    backend*: ptr git_odb_backend
+    append*: proc(writepack: ptr git_odb_writepack, data: pointer, size: csize_t, stats: ptr git_indexer_progress): cint{.cdecl.}
+    commit*: proc(writepack: ptr git_odb_writepack, stats: ptr git_indexer_progress): cint{.cdecl.}
+    free*: proc(writepack: ptr git_odb_writepack): void{.cdecl.}
+   
 
 proc git_odb_backend_pack*(
     arg_out:     ptr ptr git_odb_backend,

@@ -1,10 +1,40 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
+
+import
+  ./buffer
+
+type
+  git_tree_update* {.bycopy, header: "<git2/tree.h>", importc.} = object
+    action*: git_tree_update_t ## Update action. If it's an removal, only the path is looked at 
+    id*: git_oid ## The entry's id 
+    filemode*: git_filemode_t ## The filemode/kind of object 
+    path*: cstring ## The full path from the root tree 
+   
+  git_tree_update_t* = enum
+    GIT_TREE_UPDATE_UPSERT = 0 ## Update or insert an entry at the specified path 
+    GIT_TREE_UPDATE_REMOVE = 1 ## Remove an entry from the specified path 
+   
+  git_treebuilder_filter_cb* = proc(entry: ptr git_tree_entry, payload: pointer): cint{.cdecl.}
+   
+  git_treebuilder_filter_cbNim* = proc(entry: ptr git_tree_entry): cint
+   
+  git_treewalk_cb* = proc(root: cstring, entry: ptr git_tree_entry, payload: pointer): cint{.cdecl.}
+   
+  git_treewalk_cbNim* = proc(root: cstring, entry: ptr git_tree_entry): cint
+   
+  git_treewalk_mode* = enum
+    GIT_TREEWALK_PRE = 0
+    GIT_TREEWALK_POST = 1 ## Pre-order 
+   
 
 proc git_tree_lookup*(
     arg_out: ptr ptr git_tree,
@@ -17,7 +47,7 @@ proc git_tree_lookup_prefix*(
     arg_out: ptr ptr git_tree,
     repo:    ptr git_repository,
     id:      ptr git_oid,
-    len:     size_t
+    len:     csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -34,7 +64,7 @@ proc git_tree_owner*(
 
 proc git_tree_entrycount*(
     tree: ptr git_tree
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_tree_entry_byname*(
@@ -45,7 +75,7 @@ proc git_tree_entry_byname*(
 
 proc git_tree_entry_byindex*(
     tree: ptr git_tree,
-    idx:  size_t
+    idx:  csize_t
   ): ptr git_tree_entry {.dynlib: libgitDl, importc.}
 
 
@@ -125,7 +155,7 @@ proc git_treebuilder_clear*(
 
 proc git_treebuilder_entrycount*(
     bld: ptr git_treebuilder
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_treebuilder_free*(
@@ -192,7 +222,7 @@ proc git_tree_create_updated*(
     arg_out:  ptr git_oid,
     repo:     ptr git_repository,
     baseline: ptr git_tree,
-    nupdates: size_t,
+    nupdates: csize_t,
     updates:  ptr git_tree_update
   ): cint {.dynlib: libgitDl, importc.}
 

@@ -1,14 +1,36 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
 
 type
   git_indexer* {.bycopy, incompleteStruct, importc.} = object
     
+   
+  git_indexer_options* {.bycopy, header: "<git2/indexer.h>", importc.} = object
+    version*: cuint
+    progress_cb*: git_indexer_progress_cb ## progress_cb function to call with progress information 
+    progress_cb_payload*: pointer ## progress_cb_payload payload for the progress callback 
+    verify*: uint8 ## Do connectivity checks for the received pack 
+   
+  git_indexer_progress* {.bycopy, header: "<git2/indexer.h>", importc.} = object
+    total_objects*: cuint ## number of objects in the packfile being indexed 
+    indexed_objects*: cuint ## received objects that have been hashed 
+    received_objects*: cuint ## received_objects: objects which have been downloaded 
+    local_objects*: cuint
+    total_deltas*: cuint ## number of deltas in the packfile being indexed 
+    indexed_deltas*: cuint ## received deltas that have been indexed 
+    received_bytes*: csize_t ## size of the packfile received up to now 
+   
+  git_indexer_progress_cb* = proc(stats: ptr git_indexer_progress, payload: pointer): cint{.cdecl.}
+   
+  git_indexer_progress_cbNim* = proc(stats: ptr git_indexer_progress): cint
    
 
 proc git_indexer_options_init*(
@@ -29,7 +51,7 @@ proc git_indexer_new*(
 proc git_indexer_append*(
     idx:   ptr git_indexer,
     data:  pointer,
-    size:  size_t,
+    size:  csize_t,
     stats: ptr git_indexer_progress
   ): cint {.dynlib: libgitDl, importc.}
 

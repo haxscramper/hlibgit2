@@ -1,14 +1,49 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./buffer
 
 type
+  git_config_entry* {.bycopy, header: "<git2/config.h>", importc.} = object
+    name*: cstring
+    value*: cstring ## Name of the entry (normalised) 
+    include_depth*: cuint ## String value of the entry 
+    level*: git_config_level_t ## Depth of includes where this variable was found 
+    free*: proc(entry: ptr git_config_entry): void{.cdecl.} ## Which config file this was found in 
+    payload*: pointer ## Free function for this entry 
+   
+  git_config_foreach_cb* = proc(entry: ptr git_config_entry, payload: pointer): cint{.cdecl.}
+   
+  git_config_foreach_cbNim* = proc(entry: ptr git_config_entry): cint
+   
   git_config_iterator* {.bycopy, incompleteStruct, importc.} = object
     
+   
+  git_config_level_t* = enum
+    GIT_CONFIG_HIGHEST_LEVEL = -1
+    GIT_CONFIG_LEVEL_PROGRAMDATA = 1 ## System-wide on Windows, for compatibility with portable git 
+    GIT_CONFIG_LEVEL_SYSTEM = 2 ## System-wide configuration file; /etc/gitconfig on Linux systems 
+    GIT_CONFIG_LEVEL_XDG = 3 ## XDG compatible configuration file; typically ~/.config/git/config 
+    GIT_CONFIG_LEVEL_GLOBAL = 4
+    GIT_CONFIG_LEVEL_LOCAL = 5
+    GIT_CONFIG_LEVEL_APP = 6
+   
+  git_configmap* {.bycopy, header: "<git2/config.h>", importc.} = object
+    type_f* {.importc: "type".}: git_configmap_t
+    str_match*: cstring
+    map_value*: cint
+   
+  git_configmap_t* = enum
+    GIT_CONFIGMAP_FALSE = 0
+    GIT_CONFIGMAP_TRUE = 1
+    GIT_CONFIGMAP_INT32 = 2
+    GIT_CONFIGMAP_STRING = 3
    
 
 proc git_config_entry_free*(
@@ -242,14 +277,14 @@ proc git_config_get_mapped*(
     cfg:     ptr git_config,
     name:    cstring,
     maps:    ptr git_configmap,
-    map_n:   size_t
+    map_n:   csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
 proc git_config_lookup_map_value*(
     arg_out: ptr cint,
     maps:    ptr git_configmap,
-    map_n:   size_t,
+    map_n:   csize_t,
     value:   cstring
   ): cint {.dynlib: libgitDl, importc.}
 

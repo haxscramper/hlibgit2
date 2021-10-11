@@ -1,3 +1,5 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./stash
 
@@ -8,22 +10,19 @@ import
   ./types
 
 import
-  ./revert
+  ./trace
 
 import
-  ./trace
+  ./revert
 
 import
   ./submodule
 
 import
-  ./merge
-
-import
-  ./blame
-
-import
   ./config
+
+import
+  ./merge
 
 import
   ./oid
@@ -56,9 +55,6 @@ import
   ./credential
 
 import
-  ./attr
-
-import
   ./checkout
 
 import
@@ -80,10 +76,10 @@ import
   ./index
 
 import
-  ./proxy
+  ./net
 
 import
-  ./net
+  ./proxy
 
 import
   ./remote
@@ -91,45 +87,45 @@ import
 type
   git_attr_t* = git_attr_value_t
    
-  git_cvar_map* = git_configmap
-   
   git_cred* = git_credential
    
-  git_cred_userpass_plaintext* = git_credential_userpass_plaintext
-   
-  git_cred_username* = git_credential_username
+  git_cred_acquire_cb* = git_credential_acquire_cb
    
   git_cred_default* = git_credential_default
-   
-  git_cred_ssh_key* = git_credential_ssh_key
-   
-  git_cred_ssh_interactive* = git_credential_ssh_interactive
-   
-  git_cred_ssh_custom* = git_credential_ssh_custom
-   
-  git_cred_acquire_cb* = git_credential_acquire_cb
    
   git_cred_sign_callback* = git_credential_sign_cb
    
   git_cred_sign_cb* = git_credential_sign_cb
    
+  git_cred_ssh_custom* = git_credential_ssh_custom
+   
+  git_cred_ssh_interactive* = git_credential_ssh_interactive
+   
   git_cred_ssh_interactive_callback* = git_credential_ssh_interactive_cb
    
   git_cred_ssh_interactive_cb* = git_credential_ssh_interactive_cb
    
+  git_cred_ssh_key* = git_credential_ssh_key
+   
+  git_cred_username* = git_credential_username
+   
   git_cred_userpass_payload* = git_credential_userpass_payload
+   
+  git_cred_userpass_plaintext* = git_credential_userpass_plaintext
+   
+  git_cvar_map* = git_configmap
+   
+  git_headlist_cb* = proc(rhead: ptr git_remote_head, payload: pointer): cint{.cdecl.}
+   
+  git_headlist_cbNim* = proc(rhead: ptr git_remote_head): cint
+   
+  git_push_transfer_progress* = git_push_transfer_progress_cb
    
   git_trace_callback* = git_trace_cb
    
   git_transfer_progress* = git_indexer_progress
    
   git_transfer_progress_cb* = git_indexer_progress_cb
-   
-  git_push_transfer_progress* = git_push_transfer_progress_cb
-   
-  git_headlist_cb* = proc(rhead: ptr git_remote_head, payload: pointer): cint{.cdecl.}
-   
-  git_headlist_cbNim* = proc(rhead: ptr git_remote_head): cint
    
 
 proc git_blob_create_fromworkdir*(
@@ -163,7 +159,7 @@ proc git_blob_create_frombuffer*(
     id:     ptr git_oid,
     repo:   ptr git_repository,
     buffer: pointer,
-    len:    size_t
+    len:    csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -197,13 +193,13 @@ proc git_index_add_frombuffer*(
     index:  ptr git_index,
     entry:  ptr git_index_entry,
     buffer: pointer,
-    len:    size_t
+    len:    csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
 proc git_object_size*(
     arg_type: git_object_t
-  ): size_t {.dynlib: libgitDl, importc: "git_object__size".}
+  ): csize_t {.dynlib: libgitDl, importc: "git_object__size".}
 
 
 proc git_tag_create_frombuffer*(
@@ -283,7 +279,7 @@ proc git_cred_ssh_custom_new*(
     arg_out:       ptr ptr git_credential,
     username:      cstring,
     publickey:     cstring,
-    publickey_len: size_t,
+    publickey_len: csize_t,
     sign_callback: git_credential_sign_cb,
     payload:       pointer
   ): cint {.dynlib: libgitDl, importc.}

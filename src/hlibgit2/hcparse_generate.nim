@@ -1,5 +1,8 @@
 import
-  hcparse
+  hcparse,
+  hcparse/hc_grouping,
+  hmisc/hasts/graphviz_ast,
+  hmisc/types/hgraph
 
 import
   compiler/ast,
@@ -11,14 +14,14 @@ import
   hmisc/algo/[hstring_algo]
 
 import
-  std/tables
+  std/[tables, sequtils]
 
 startHax()
 
 
 let
   outDir = oswrap.currentSourceDir()
-  tmpDir = getAppTempDir()
+  tmpDir = getAppTempDir() / "v2"
 
 mkDir tmpDir
 let lib = AbsDir"/usr/include/git2"
@@ -33,6 +36,7 @@ for file in walkDir(lib, AbsFile):
     expandMap[resFile] = file
 
     if not exists(resFile):
+      echov "expanding", file.name(), "to", resFile
       var reader = newWaveReader(file, cache, @[], @[
         "/usr/include/sys",
         "/usr/include",
@@ -73,15 +77,25 @@ fixConf.onFixName():
 
 fixConf.typeStore = newTypeStore()
 
+var nonEmpty: seq[AbsFile]
+
 for file in walkDir(tmpDir, AbsFile, exts = @["h"]):
   let res = wrapViaTs(file, tmpDir, fixConf)
   resultWrapped.add res
 
-for fix in regroupFiles(resultWrapped):
+var resList: seq[AbsFile]
+let group = regroupFiles(resultWrapped)
+let path = getAppTempFile("graph.png")
+let g = group.buildTypeGraph()
+echov path
+g.dotRepr().toPng(path)
+
+for fix in group:
   let res = outDir / fix.getFile().withExt("nim")
   res.writeFile(toNNode[PNode](fix, cCodegenConf).toPString())
+  resList.add res
 
-for file in walkDir(outDir, AbsFile):
+for file in resList:
   echov file
   execShell shellCmd(nim, check, errormax = 3, $file)
 

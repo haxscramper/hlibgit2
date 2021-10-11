@@ -1,10 +1,44 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./checkout
+
+import
+  ./remote
+
+type
+  git_clone_local_t* = enum
+    GIT_CLONE_LOCAL_AUTO = 0
+    GIT_CLONE_LOCAL = 1
+    GIT_CLONE_NO_LOCAL = 2
+    GIT_CLONE_LOCAL_NO_LINKS = 3
+   
+  git_clone_options* {.bycopy, header: "<git2/clone.h>", importc.} = object
+    version*: cuint
+    checkout_opts*: git_checkout_options
+    fetch_opts*: git_fetch_options
+    bare*: cint
+    local*: git_clone_local_t
+    checkout_branch*: cstring
+    repository_cb*: git_repository_create_cb
+    repository_cb_payload*: pointer
+    remote_cb*: git_remote_create_cb
+    remote_cb_payload*: pointer
+   
+  git_remote_create_cb* = proc(arg_out: ptr ptr git_remote, repo: ptr git_repository, name: cstring, url: cstring, payload: pointer): cint{.cdecl.}
+   
+  git_remote_create_cbNim* = proc(arg_out: ptr ptr git_remote, repo: ptr git_repository, name: cstring, url: cstring): cint
+   
+  git_repository_create_cb* = proc(arg_out: ptr ptr git_repository, path: cstring, bare: cint, payload: pointer): cint{.cdecl.}
+   
+  git_repository_create_cbNim* = proc(arg_out: ptr ptr git_repository, path: cstring, bare: cint): cint
+   
 
 proc git_clone_options_init*(
     opts:    ptr git_clone_options,

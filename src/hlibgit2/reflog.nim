@@ -1,3 +1,5 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
@@ -42,18 +44,18 @@ proc git_reflog_delete*(
 
 proc git_reflog_entrycount*(
     reflog: ptr git_reflog
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_reflog_entry_byindex*(
     reflog: ptr git_reflog,
-    idx:    size_t
+    idx:    csize_t
   ): ptr git_reflog_entry {.dynlib: libgitDl, importc.}
 
 
 proc git_reflog_drop*(
     reflog:                 ptr git_reflog,
-    idx:                    size_t,
+    idx:                    csize_t,
     rewrite_previous_entry: cint
   ): cint {.dynlib: libgitDl, importc.}
 

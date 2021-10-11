@@ -1,14 +1,29 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./diff
+
+import
+  ./strarray
 
 type
   git_pathspec* {.bycopy, incompleteStruct, importc.} = object
     
+   
+  git_pathspec_flag_t* = enum
+    GIT_PATHSPEC_DEFAULT = 0
+    GIT_PATHSPEC_IGNORE_CASE = 1
+    GIT_PATHSPEC_USE_CASE = 2
+    GIT_PATHSPEC_NO_GLOB = 4
+    GIT_PATHSPEC_NO_MATCH_ERROR = 8
+    GIT_PATHSPEC_FIND_FAILURES = 16
+    GIT_PATHSPEC_FAILURES_ONLY = 32
    
   git_pathspec_match_list* {.bycopy, incompleteStruct, importc.} = object
     
@@ -71,29 +86,29 @@ proc git_pathspec_match_list_free*(
 
 proc git_pathspec_match_list_entrycount*(
     m: ptr git_pathspec_match_list
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_pathspec_match_list_entry*(
     m:   ptr git_pathspec_match_list,
-    pos: size_t
+    pos: csize_t
   ): cstring {.dynlib: libgitDl, importc.}
 
 
 proc git_pathspec_match_list_diff_entry*(
     m:   ptr git_pathspec_match_list,
-    pos: size_t
+    pos: csize_t
   ): ptr git_diff_delta {.dynlib: libgitDl, importc.}
 
 
 proc git_pathspec_match_list_failed_entrycount*(
     m: ptr git_pathspec_match_list
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_pathspec_match_list_failed_entry*(
     m:   ptr git_pathspec_match_list,
-    pos: size_t
+    pos: csize_t
   ): cstring {.dynlib: libgitDl, importc.}
 
 

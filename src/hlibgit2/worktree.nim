@@ -1,10 +1,32 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./buffer
+
+import
+  ./strarray
+
+type
+  git_worktree_add_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
+    version*: cuint
+    lock*: cint
+    ref_f* {.importc: "ref".}: ptr git_reference ## lock newly created worktree 
+   
+  git_worktree_prune_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
+    version*: cuint
+    flags*: uint32
+   
+  git_worktree_prune_t* = enum
+    GIT_WORKTREE_PRUNE_VALID = 1 ## Prune working tree even if working tree is valid 
+    GIT_WORKTREE_PRUNE_LOCKED = 2 ## Prune working tree even if it is locked 
+    GIT_WORKTREE_PRUNE_WORKING_TREE = 4 ## Prune checked out working tree 
+   
 
 proc git_worktree_list*(
     arg_out: ptr git_strarray,

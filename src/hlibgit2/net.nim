@@ -1,5 +1,21 @@
-import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+{.push warning[UnusedImport]:off.}
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./libgit_config
+
+import
+  ./oid
+
+type
+  git_direction* = enum
+    GIT_DIRECTION_FETCH = 0
+    GIT_DIRECTION_PUSH = 1
+   
+  git_remote_head* {.bycopy, header: "<git2/net.h>", importc.} = object
+    local*: cint
+    oid*: git_oid ## available locally 
+    loid*: git_oid
+    name*: cstring
+    symref_target*: cstring
+   
 

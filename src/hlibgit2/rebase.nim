@@ -1,10 +1,48 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./merge
+
+import
+  ./oid
+
+import
+  ./checkout
+
+import
+  ./commit
+
+type
+  git_rebase_operation* {.bycopy, header: "<git2/rebase.h>", importc.} = object
+    ## Indicates that a rebase operation is not (yet) in progress. 
+    type_f* {.importc: "type".}: git_rebase_operation_t ## The type of rebase operation. 
+    id*: git_oid
+    exec*: cstring
+   
+  git_rebase_operation_t* = enum
+    GIT_REBASE_OPERATION_PICK = 0
+    GIT_REBASE_OPERATION_REWORD = 1
+    GIT_REBASE_OPERATION_EDIT = 2
+    GIT_REBASE_OPERATION_SQUASH = 3
+    GIT_REBASE_OPERATION_FIXUP = 4
+    GIT_REBASE_OPERATION_EXEC = 5
+   
+  git_rebase_options* {.bycopy, header: "<git2/rebase.h>", importc.} = object
+    version*: cuint
+    quiet*: cint
+    inmemory*: cint
+    rewrite_notes_ref*: cstring
+    merge_options*: git_merge_options
+    checkout_options*: git_checkout_options
+    signing_cb*: git_commit_signing_cb
+    payload*: pointer
+   
 
 proc git_rebase_options_init*(
     opts:    ptr git_rebase_options,
@@ -51,17 +89,17 @@ proc git_rebase_onto_id*(
 
 proc git_rebase_operation_entrycount*(
     rebase: ptr git_rebase
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_rebase_operation_current*(
     rebase: ptr git_rebase
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_rebase_operation_byindex*(
     rebase: ptr git_rebase,
-    idx:    size_t
+    idx:    csize_t
   ): ptr git_rebase_operation {.dynlib: libgitDl, importc.}
 
 

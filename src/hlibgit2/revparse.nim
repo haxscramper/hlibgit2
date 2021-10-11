@@ -1,10 +1,22 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+type
+  git_revparse_mode_t* = enum
+    GIT_REVPARSE_SINGLE = 1 ## The spec targeted a single object. 
+    GIT_REVPARSE_RANGE = 2 ## The spec targeted a range of commits. 
+    GIT_REVPARSE_MERGE_BASE = 4 ## The spec used the '...' operator, which invokes special semantics. 
+   
+  git_revspec* {.bycopy, header: "<git2/revparse.h>", importc.} = object
+    from_f* {.importc: "from".}: ptr git_object ## The left element of the revspec; must be freed by the user 
+    to*: ptr git_object ## The right element of the revspec; must be freed by the user 
+    flags*: cuint ## The intent of the revspec (i.e. `git_revparse_mode_t` flags) 
+   
 
 proc git_revparse_single*(
     arg_out: ptr ptr git_object,

@@ -1,10 +1,32 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
+
+import
+  ./strarray
+
+type
+  git_reference_foreach_cb* = proc(reference: ptr git_reference, payload: pointer): cint{.cdecl.}
+   
+  git_reference_foreach_cbNim* = proc(reference: ptr git_reference): cint
+   
+  git_reference_foreach_name_cb* = proc(name: cstring, payload: pointer): cint{.cdecl.}
+   
+  git_reference_foreach_name_cbNim* = proc(name: cstring): cint
+   
+  git_reference_format_t* = enum
+    GIT_REFERENCE_FORMAT_NORMAL = 0
+    GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL = 1
+    GIT_REFERENCE_FORMAT_REFSPEC_PATTERN = 2
+    GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND = 4
+   
 
 proc git_reference_lookup*(
     arg_out: ptr ptr git_reference,
@@ -250,7 +272,7 @@ proc git_reference_is_note*(
 
 proc git_reference_normalize_name*(
     buffer_out:  cstring,
-    buffer_size: size_t,
+    buffer_size: csize_t,
     name:        cstring,
     flags:       cuint
   ): cint {.dynlib: libgitDl, importc.}

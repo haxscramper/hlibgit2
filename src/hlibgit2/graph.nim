@@ -1,3 +1,5 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
@@ -8,8 +10,8 @@ import
   ./oid
 
 proc git_graph_ahead_behind*(
-    ahead:    ptr size_t,
-    behind:   ptr size_t,
+    ahead:    ptr csize_t,
+    behind:   ptr csize_t,
     repo:     ptr git_repository,
     local:    ptr git_oid,
     upstream: ptr git_oid

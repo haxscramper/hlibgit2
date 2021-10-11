@@ -1,10 +1,50 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
+
+import
+  ./buffer
+
+import
+  ./checkout
+
+import
+  ./remote
+
+type
+  git_submodule_cb* = proc(sm: ptr git_submodule, name: cstring, payload: pointer): cint{.cdecl.}
+   
+  git_submodule_cbNim* = proc(sm: ptr git_submodule, name: cstring): cint
+   
+  git_submodule_status_t* = enum
+    GIT_SUBMODULE_STATUS_IN_HEAD = 1
+    GIT_SUBMODULE_STATUS_IN_INDEX = 2
+    GIT_SUBMODULE_STATUS_IN_CONFIG = 4
+    GIT_SUBMODULE_STATUS_IN_WD = 8
+    GIT_SUBMODULE_STATUS_INDEX_ADDED = 16
+    GIT_SUBMODULE_STATUS_INDEX_DELETED = 32
+    GIT_SUBMODULE_STATUS_INDEX_MODIFIED = 64
+    GIT_SUBMODULE_STATUS_WD_UNINITIALIZED = 128
+    GIT_SUBMODULE_STATUS_WD_ADDED = 256
+    GIT_SUBMODULE_STATUS_WD_DELETED = 512
+    GIT_SUBMODULE_STATUS_WD_MODIFIED = 1024
+    GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED = 2048
+    GIT_SUBMODULE_STATUS_WD_WD_MODIFIED = 4096
+    GIT_SUBMODULE_STATUS_WD_UNTRACKED = 8192
+   
+  git_submodule_update_options* {.bycopy, header: "<git2/submodule.h>", importc.} = object
+    version*: cuint
+    checkout_opts*: git_checkout_options
+    fetch_opts*: git_fetch_options
+    allow_fetch*: cint
+   
 
 proc git_submodule_update_options_init*(
     opts:    ptr git_submodule_update_options,

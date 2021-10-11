@@ -1,3 +1,5 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
@@ -22,7 +24,7 @@ proc git_object_lookup_prefix*(
     object_out: ptr ptr git_object,
     repo:       ptr git_repository,
     id:         ptr git_oid,
-    len:        size_t,
+    len:        csize_t,
     arg_type:   git_object_t
   ): cint {.dynlib: libgitDl, importc.}
 

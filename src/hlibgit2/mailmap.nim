@@ -1,3 +1,5 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
@@ -24,7 +26,7 @@ proc git_mailmap_add_entry*(
 proc git_mailmap_from_buffer*(
     arg_out: ptr ptr git_mailmap,
     buf:     cstring,
-    len:     size_t
+    len:     csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 

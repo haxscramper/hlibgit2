@@ -1,14 +1,36 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./buffer
 
 type
+  git_describe_format_options* {.bycopy, header: "<git2/describe.h>", importc.} = object
+    version*: cuint
+    abbreviated_size*: cuint
+    always_use_long_format*: cint
+    dirty_suffix*: cstring
+   
+  git_describe_options* {.bycopy, header: "<git2/describe.h>", importc.} = object
+    version*: cuint
+    max_candidates_tags*: cuint
+    describe_strategy*: cuint ## default: 10 
+    pattern*: cstring ## default: GIT_DESCRIBE_DEFAULT 
+    only_follow_first_parent*: cint
+    show_commit_oid_as_fallback*: cint
+   
   git_describe_result* {.bycopy, incompleteStruct, importc.} = object
     
+   
+  git_describe_strategy_t* = enum
+    GIT_DESCRIBE_DEFAULT = 0
+    GIT_DESCRIBE_TAGS = 1
+    GIT_DESCRIBE_ALL = 2
    
 
 proc git_describe_options_init*(

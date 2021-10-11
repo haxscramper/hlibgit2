@@ -1,10 +1,96 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
+
+import
+  ./oidarray
+
+import
+  ./diff
+
+import
+  ./checkout
+
+import
+  ./index
+
+type
+  git_merge_analysis_t* = enum
+    GIT_MERGE_ANALYSIS_NONE = 0 ## No merge is possible.  (Unused.) 
+    GIT_MERGE_ANALYSIS_NORMAL = 1
+    GIT_MERGE_ANALYSIS_UP_TO_DATE = 2
+    GIT_MERGE_ANALYSIS_FASTFORWARD = 4
+    GIT_MERGE_ANALYSIS_UNBORN = 8
+   
+  git_merge_file_favor_t* = enum
+    GIT_MERGE_FILE_FAVOR_NORMAL = 0
+    GIT_MERGE_FILE_FAVOR_OURS = 1
+    GIT_MERGE_FILE_FAVOR_THEIRS = 2
+    GIT_MERGE_FILE_FAVOR_UNION = 3
+   
+  git_merge_file_flag_t* = enum
+    GIT_MERGE_FILE_DEFAULT = 0 ## Defaults 
+    GIT_MERGE_FILE_STYLE_MERGE = 1 ## Create standard conflicted merge files 
+    GIT_MERGE_FILE_STYLE_DIFF3 = 2 ## Create diff3-style files 
+    GIT_MERGE_FILE_SIMPLIFY_ALNUM = 4 ## Condense non-alphanumeric regions for simplified diff file 
+    GIT_MERGE_FILE_IGNORE_WHITESPACE = 8 ## Ignore all whitespace 
+    GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE = 16 ## Ignore changes in amount of whitespace 
+    GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL = 32 ## Ignore whitespace at end of line 
+    GIT_MERGE_FILE_DIFF_PATIENCE = 64 ## Use the "patience diff" algorithm 
+    GIT_MERGE_FILE_DIFF_MINIMAL = 128 ## Take extra time to find minimal diff 
+   
+  git_merge_file_input* {.bycopy, header: "<git2/merge.h>", importc.} = object
+    version*: cuint
+    ptr_f* {.importc: "ptr".}: cstring ## Pointer to the contents of the file. 
+    size*: csize_t ## Size of the contents pointed to in `ptr`. 
+    path*: cstring ## File name of the conflicted file, or `NULL` to not merge the path. 
+    mode*: cuint ## File mode of the conflicted file, or `0` to not merge the mode. 
+   
+  git_merge_file_options* {.bycopy, header: "<git2/merge.h>", importc.} = object
+    version*: cuint
+    ancestor_label*: cstring
+    our_label*: cstring
+    their_label*: cstring
+    favor*: git_merge_file_favor_t ## The file to favor in region conflicts. 
+    flags*: uint32 ## see `git_merge_file_flag_t` above 
+    marker_size*: cushort
+   
+  git_merge_file_result* {.bycopy, header: "<git2/merge.h>", importc.} = object
+    automergeable*: cuint
+    path*: cstring
+    mode*: cuint ## The mode that the resultant merge file should use.  
+    ptr_f* {.importc: "ptr".}: cstring ## The contents of the merge. 
+    len*: csize_t ## The length of the merge contents. 
+   
+  git_merge_flag_t* = enum
+    GIT_MERGE_FIND_RENAMES = 1
+    GIT_MERGE_FAIL_ON_CONFLICT = 2
+    GIT_MERGE_SKIP_REUC = 4
+    GIT_MERGE_NO_RECURSIVE = 8
+   
+  git_merge_options* {.bycopy, header: "<git2/merge.h>", importc.} = object
+    version*: cuint
+    flags*: uint32 ## See `git_merge_flag_t` above 
+    rename_threshold*: cuint
+    target_limit*: cuint
+    metric*: ptr git_diff_similarity_metric ## Pluggable similarity metric; pass NULL to use internal metric 
+    recursion_limit*: cuint
+    default_driver*: cstring
+    file_favor*: git_merge_file_favor_t
+    file_flags*: uint32 ## see `git_merge_file_flag_t` above 
+   
+  git_merge_preference_t* = enum
+    GIT_MERGE_PREFERENCE_NONE = 0
+    GIT_MERGE_PREFERENCE_NO_FASTFORWARD = 1
+    GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 2
+   
 
 proc git_merge_file_input_init*(
     opts:    ptr git_merge_file_input,
@@ -29,7 +115,7 @@ proc git_merge_analysis*(
     preference_out:  ptr git_merge_preference_t,
     repo:            ptr git_repository,
     their_heads:     ptr ptr git_annotated_commit,
-    their_heads_len: size_t
+    their_heads_len: csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -39,7 +125,7 @@ proc git_merge_analysis_for_ref*(
     repo:            ptr git_repository,
     our_ref:         ptr git_reference,
     their_heads:     ptr ptr git_annotated_commit,
-    their_heads_len: size_t
+    their_heads_len: csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -62,7 +148,7 @@ proc git_merge_bases*(
 proc git_merge_base_many*(
     arg_out:     ptr git_oid,
     repo:        ptr git_repository,
-    length:      size_t,
+    length:      csize_t,
     input_array: ptr UncheckedArray[git_oid]
   ): cint {.dynlib: libgitDl, importc.}
 
@@ -70,7 +156,7 @@ proc git_merge_base_many*(
 proc git_merge_bases_many*(
     arg_out:     ptr git_oidarray,
     repo:        ptr git_repository,
-    length:      size_t,
+    length:      csize_t,
     input_array: ptr UncheckedArray[git_oid]
   ): cint {.dynlib: libgitDl, importc.}
 
@@ -78,7 +164,7 @@ proc git_merge_bases_many*(
 proc git_merge_base_octopus*(
     arg_out:     ptr git_oid,
     repo:        ptr git_repository,
-    length:      size_t,
+    length:      csize_t,
     input_array: ptr UncheckedArray[git_oid]
   ): cint {.dynlib: libgitDl, importc.}
 
@@ -129,7 +215,7 @@ proc git_merge_commits*(
 proc git_merge*(
     repo:            ptr git_repository,
     their_heads:     ptr ptr git_annotated_commit,
-    their_heads_len: size_t,
+    their_heads_len: csize_t,
     merge_opts:      ptr git_merge_options,
     checkout_opts:   ptr git_checkout_options
   ): cint {.dynlib: libgitDl, importc.}

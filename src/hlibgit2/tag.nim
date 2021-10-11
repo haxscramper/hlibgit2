@@ -1,10 +1,22 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
+
+import
+  ./strarray
+
+type
+  git_tag_foreach_cb* = proc(name: cstring, oid: ptr git_oid, payload: pointer): cint{.cdecl.}
+   
+  git_tag_foreach_cbNim* = proc(name: cstring, oid: ptr git_oid): cint
+   
 
 proc git_tag_lookup*(
     arg_out: ptr ptr git_tag,
@@ -17,7 +29,7 @@ proc git_tag_lookup_prefix*(
     arg_out: ptr ptr git_tag,
     repo:    ptr git_repository,
     id:      ptr git_oid,
-    len:     size_t
+    len:     csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 

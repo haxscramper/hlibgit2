@@ -1,10 +1,33 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
+
+import
+  ./buffer
+
+import
+  ./indexer
+
+type
+  git_packbuilder_foreach_cb* = proc(buf: pointer, size: csize_t, payload: pointer): cint{.cdecl.}
+   
+  git_packbuilder_foreach_cbNim* = proc(buf: pointer, size: csize_t): cint
+   
+  git_packbuilder_progress* = proc(stage: cint, current: uint32, total: uint32, payload: pointer): cint{.cdecl.}
+   
+  git_packbuilder_progressNim* = proc(stage: cint, current: uint32, total: uint32): cint
+   
+  git_packbuilder_stage_t* = enum
+    GIT_PACKBUILDER_ADDING_OBJECTS = 0
+    GIT_PACKBUILDER_DELTAFICATION = 1
+   
 
 proc git_packbuilder_new*(
     arg_out: ptr ptr git_packbuilder,
@@ -79,12 +102,12 @@ proc git_packbuilder_foreach*(
 
 proc git_packbuilder_object_count*(
     pb: ptr git_packbuilder
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_packbuilder_written*(
     pb: ptr git_packbuilder
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_packbuilder_set_callbacks*(

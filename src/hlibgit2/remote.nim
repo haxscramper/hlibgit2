@@ -1,10 +1,124 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
+
+import
+  ./pack
+
+import
+  ./buffer
+
+import
+  ./cert
+
+import
+  ./indexer
+
+import
+  ./credential
+
+import
+  ./strarray
+
+import
+  ./transport
+
+import
+  ./proxy
+
+import
+  ./net
+
+type
+  git_fetch_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    version*: cint
+    callbacks*: git_remote_callbacks
+    prune*: git_fetch_prune_t
+    update_fetchhead*: cint
+    download_tags*: git_remote_autotag_option_t
+    proxy_opts*: git_proxy_options
+    custom_headers*: git_strarray
+   
+  git_fetch_prune_t* = enum
+    GIT_FETCH_PRUNE_UNSPECIFIED = 0
+    GIT_FETCH_PRUNE = 1
+    GIT_FETCH_NO_PRUNE = 2
+   
+  git_push_negotiation* = proc(updates: ptr ptr git_push_update, len: csize_t, payload: pointer): cint{.cdecl.}
+   
+  git_push_negotiationNim* = proc(updates: ptr ptr git_push_update, len: csize_t): cint
+   
+  git_push_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    version*: cuint
+    pb_parallelism*: cuint
+    callbacks*: git_remote_callbacks
+    proxy_opts*: git_proxy_options
+    custom_headers*: git_strarray
+   
+  git_push_transfer_progress_cb* = proc(current: cuint, total: cuint, bytes: csize_t, payload: pointer): cint{.cdecl.}
+   
+  git_push_transfer_progress_cbNim* = proc(current: cuint, total: cuint, bytes: csize_t): cint
+   
+  git_push_update* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    ## Push network progress notification function 
+    src_refname*: cstring
+    dst_refname*: cstring
+    src*: git_oid
+    dst*: git_oid
+   
+  git_push_update_reference_cb* = proc(refname: cstring, status: cstring, data: pointer): cint{.cdecl.}
+   
+  git_push_update_reference_cbNim* = proc(refname: cstring, status: cstring): cint
+   
+  git_remote_autotag_option_t* = enum
+    GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED = 0
+    GIT_REMOTE_DOWNLOAD_TAGS_AUTO = 1
+    GIT_REMOTE_DOWNLOAD_TAGS_NONE = 2
+    GIT_REMOTE_DOWNLOAD_TAGS_ALL = 3
+   
+  git_remote_callbacks* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    version*: cuint
+    sideband_progress*: git_transport_message_cb ## The version 
+    completion*: proc(arg_type: git_remote_completion_t, data: pointer): cint{.cdecl.}
+    credentials*: git_credential_acquire_cb
+    certificate_check*: git_transport_certificate_check_cb
+    transfer_progress*: git_indexer_progress_cb
+    update_tips*: proc(refname: cstring, a: ptr git_oid, b: ptr git_oid, data: pointer): cint{.cdecl.}
+    pack_progress*: git_packbuilder_progress
+    push_transfer_progress*: git_push_transfer_progress_cb
+    push_update_reference*: git_push_update_reference_cb
+    push_negotiation*: git_push_negotiation
+    transport*: git_transport_cb
+    payload*: pointer
+    resolve_url*: git_url_resolve_cb
+   
+  git_remote_completion_t* = enum
+    GIT_REMOTE_COMPLETION_DOWNLOAD = 0
+    GIT_REMOTE_COMPLETION_INDEXING = 1
+    GIT_REMOTE_COMPLETION_ERROR = 2
+   
+  git_remote_create_flags* = enum
+    GIT_REMOTE_CREATE_SKIP_INSTEADOF = 1 ## Ignore the repository apply.insteadOf configuration 
+    GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC = 2 ## Don't build a fetchspec from the name if none is set 
+   
+  git_remote_create_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
+    version*: cuint
+    repository*: ptr git_repository
+    name*: cstring
+    fetchspec*: cstring ## The fetchspec the remote should use. 
+    flags*: cuint ## Additional flags for the remote. See git_remote_create_flags. 
+   
+  git_url_resolve_cb* = proc(url_resolved: ptr git_buf, url: cstring, direction: cint, payload: pointer): cint{.cdecl.}
+   
+  git_url_resolve_cbNim* = proc(url_resolved: ptr git_buf, url: cstring, direction: cint): cint
+   
 
 proc git_remote_create*(
     arg_out: ptr ptr git_remote,
@@ -124,12 +238,12 @@ proc git_remote_get_push_refspecs*(
 
 proc git_remote_refspec_count*(
     remote: ptr git_remote
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_remote_get_refspec*(
     remote: ptr git_remote,
-    n:      size_t
+    n:      csize_t
   ): ptr git_refspec {.dynlib: libgitDl, importc.}
 
 
@@ -144,7 +258,7 @@ proc git_remote_connect*(
 
 proc git_remote_ls*(
     arg_out: ptr ptr ptr git_remote_head,
-    size:    ptr size_t,
+    size:    ptr csize_t,
     remote:  ptr git_remote
   ): cint {.dynlib: libgitDl, importc.}
 

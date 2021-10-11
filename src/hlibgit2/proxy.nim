@@ -1,10 +1,28 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./cert
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./credential
+
+type
+  git_proxy_options* {.bycopy, header: "<git2/proxy.h>", importc.} = object
+    version*: cuint
+    type_f* {.importc: "type".}: git_proxy_t
+    url*: cstring
+    credentials*: git_credential_acquire_cb
+    certificate_check*: git_transport_certificate_check_cb
+    payload*: pointer
+   
+  git_proxy_t* = enum
+    GIT_PROXY_NONE = 0
+    GIT_PROXY_AUTO = 1
+    GIT_PROXY_SPECIFIED = 2
+   
 
 proc git_proxy_options_init*(
     opts:    ptr git_proxy_options,

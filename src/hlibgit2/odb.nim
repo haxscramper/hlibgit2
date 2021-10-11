@@ -1,10 +1,30 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
 import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+  ./types
 
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
+import
+  ./oid
+
+import
+  ./odb_backend
+
+import
+  ./indexer
+
+type
+  git_odb_expand_id* {.bycopy, header: "<git2/odb.h>", importc.} = object
+    id*: git_oid ## The object ID to expand 
+    length*: cushort
+    type_f* {.importc: "type".}: git_object_t
+   
+  git_odb_foreach_cb* = proc(id: ptr git_oid, payload: pointer): cint{.cdecl.}
+   
+  git_odb_foreach_cbNim* = proc(id: ptr git_oid): cint
+   
 
 proc git_odb_new*(arg_out: ptr ptr git_odb): cint {.dynlib: libgitDl, importc.}
 
@@ -35,12 +55,12 @@ proc git_odb_read_prefix*(
     arg_out:  ptr ptr git_odb_object,
     db:       ptr git_odb,
     short_id: ptr git_oid,
-    len:      size_t
+    len:      csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
 proc git_odb_read_header*(
-    len_out:  ptr size_t,
+    len_out:  ptr csize_t,
     type_out: ptr git_object_t,
     db:       ptr git_odb,
     id:       ptr git_oid
@@ -57,14 +77,14 @@ proc git_odb_exists_prefix*(
     arg_out:  ptr git_oid,
     db:       ptr git_odb,
     short_id: ptr git_oid,
-    len:      size_t
+    len:      csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
 proc git_odb_expand_ids*(
     db:    ptr git_odb,
     ids:   ptr git_odb_expand_id,
-    count: size_t
+    count: csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -82,7 +102,7 @@ proc git_odb_write*(
     arg_out: ptr git_oid,
     odb:     ptr git_odb,
     data:    pointer,
-    len:     size_t,
+    len:     csize_t,
     type_f:  git_object_t
   ): cint {.dynlib: libgitDl, importc.}
 
@@ -98,7 +118,7 @@ proc git_odb_open_wstream*(
 proc git_odb_stream_write*(
     stream: ptr git_odb_stream,
     buffer: cstring,
-    len:    size_t
+    len:    csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -111,7 +131,7 @@ proc git_odb_stream_finalize_write*(
 proc git_odb_stream_read*(
     stream: ptr git_odb_stream,
     buffer: cstring,
-    len:    size_t
+    len:    csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -122,7 +142,7 @@ proc git_odb_stream_free*(
 
 proc git_odb_open_rstream*(
     arg_out: ptr ptr git_odb_stream,
-    len:     ptr size_t,
+    len:     ptr csize_t,
     type_f:  ptr git_object_t,
     db:      ptr git_odb,
     oid:     ptr git_oid
@@ -140,7 +160,7 @@ proc git_odb_write_pack*(
 proc git_odb_hash*(
     arg_out: ptr git_oid,
     data:    pointer,
-    len:     size_t,
+    len:     csize_t,
     type_f:  git_object_t
   ): cint {.dynlib: libgitDl, importc.}
 
@@ -175,7 +195,7 @@ proc git_odb_object_data*(
 
 proc git_odb_object_size*(
     arg_object: ptr git_odb_object
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_odb_object_type*(
@@ -199,13 +219,13 @@ proc git_odb_add_alternate*(
 
 proc git_odb_num_backends*(
     odb: ptr git_odb
-  ): size_t {.dynlib: libgitDl, importc.}
+  ): csize_t {.dynlib: libgitDl, importc.}
 
 
 proc git_odb_get_backend*(
     arg_out: ptr ptr git_odb_backend,
     odb:     ptr git_odb,
-    pos:     size_t
+    pos:     csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 

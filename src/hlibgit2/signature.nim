@@ -1,3 +1,5 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 

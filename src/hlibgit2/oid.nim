@@ -1,12 +1,15 @@
+{.push warning[UnusedImport]:off.}
+
 import
   ./libgit_config
 
-import
-  ./apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
-
-export apply_attr_blame_blob_branch_buffer_cert_checkout_cherrypick_clone_commit_config_credential_credential_helpers_describe_diff_errors_filter_index_indexer_merge_message_net_notes_odb_odb_backend_oid_oidarray_pack_patch_pathspec_proxy_rebase_r
-
 type
+  git_oid* {.bycopy, header: "<git2/oid.h>", importc.} = object
+    ## Size (in bytes) of a raw/binary oid 
+    ## Size (in bytes) of a hex formatted oid 
+    ## Unique identity of any object (commit, tree, blob, tag). 
+    id*: ptr UncheckedArray[uint8] ## raw binary formatted id 
+   
   git_oid_shorten* {.bycopy, incompleteStruct, importc.} = object
     
    
@@ -26,13 +29,13 @@ proc git_oid_fromstrp*(
 proc git_oid_fromstrn*(
     arg_out: ptr git_oid,
     str:     cstring,
-    length:  size_t
+    length:  csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
 proc git_oid_fromraw*(
     arg_out: ptr git_oid,
-    raw:     ptr uchar
+    raw:     ptr uint8
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -44,7 +47,7 @@ proc git_oid_fmt*(
 
 proc git_oid_nfmt*(
     arg_out: cstring,
-    n:       size_t,
+    n:       csize_t,
     id:      ptr git_oid
   ): cint {.dynlib: libgitDl, importc.}
 
@@ -60,7 +63,7 @@ proc git_oid_tostr_s*(oid: ptr git_oid): cstring {.dynlib: libgitDl, importc.}
 
 proc git_oid_tostr*(
     arg_out: cstring,
-    n:       size_t,
+    n:       csize_t,
     id:      ptr git_oid
   ): cstring {.dynlib: libgitDl, importc.}
 
@@ -86,7 +89,7 @@ proc git_oid_equal*(
 proc git_oid_ncmp*(
     a:   ptr git_oid,
     b:   ptr git_oid,
-    len: size_t
+    len: csize_t
   ): cint {.dynlib: libgitDl, importc.}
 
 
@@ -106,7 +109,7 @@ proc git_oid_is_zero*(id: ptr git_oid): cint {.dynlib: libgitDl, importc.}
 
 
 proc git_oid_shorten_new*(
-    min_length: size_t
+    min_length: csize_t
   ): ptr git_oid_shorten {.dynlib: libgitDl, importc.}
 
 
