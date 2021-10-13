@@ -8,5 +8,5 @@ srcDir        = "src"
 
 
 # Dependencies
-
+requires "https://github.com/haxscramper/hlibssh2.git >= 0.1.1"
 requires "nim >= 1.4.8"

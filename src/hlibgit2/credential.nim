@@ -1,7 +1,9 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./libgit2_config
+  ./libgit2_config,
+  hlibssh2/libssh2,
+  hlibssh2/libssh2_config
 
 type
   git_credential* {.bycopy, incompleteStruct, importc.} = object
