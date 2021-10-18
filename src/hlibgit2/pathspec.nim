@@ -16,7 +16,7 @@ type
     c_GIT_PATHSPEC_FIND_FAILURES  = 16
     c_GIT_PATHSPEC_FAILURES_ONLY  = 32
    
-  git_pathspec* {.bycopy, incompleteStruct, importc.} = object
+  git_pathspec* {.bycopy, incompleteStruct, header: "<git2/pathspec.h>", importc.} = object
     
    
   git_pathspec_flag_t* = enum
@@ -28,7 +28,8 @@ type
     GIT_PATHSPEC_FIND_FAILURES 
     GIT_PATHSPEC_FAILURES_ONLY 
    
-  git_pathspec_match_list* {.bycopy, incompleteStruct, importc.} = object
+  git_pathspec_match_list* {.bycopy, incompleteStruct,
+                             header: "<git2/pathspec.h>", importc.} = object
     
    
 

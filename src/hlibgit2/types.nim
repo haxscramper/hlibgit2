@@ -52,10 +52,11 @@ type
     c_GIT_SUBMODULE_UPDATE_MERGE    = 3
     c_GIT_SUBMODULE_UPDATE_NONE     = 4
    
-  git_annotated_commit* {.bycopy, incompleteStruct, importc.} = object
+  git_annotated_commit* {.bycopy, incompleteStruct, header: "<git2/types.h>",
+                          importc.} = object
     
    
-  git_blob* {.bycopy, incompleteStruct, importc.} = object
+  git_blob* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
   git_branch_t* = enum
@@ -63,13 +64,14 @@ type
     GIT_BRANCH_REMOTE
     GIT_BRANCH_ALL   
    
-  git_commit* {.bycopy, incompleteStruct, importc.} = object
+  git_commit* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_config* {.bycopy, incompleteStruct, importc.} = object
+  git_config* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_config_backend* {.bycopy, incompleteStruct, importc.} = object
+  git_config_backend* {.bycopy, incompleteStruct, header: "<git2/types.h>",
+                        importc.} = object
     
    
   git_filemode_t* = enum
@@ -80,22 +82,24 @@ type
     GIT_FILEMODE_LINK           
     GIT_FILEMODE_COMMIT         
    
-  git_index* {.bycopy, incompleteStruct, importc.} = object
+  git_index* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_index_conflict_iterator* {.bycopy, incompleteStruct, importc.} = object
+  git_index_conflict_iterator* {.bycopy, incompleteStruct,
+                                 header: "<git2/types.h>", importc.} = object
     
    
-  git_index_iterator* {.bycopy, incompleteStruct, importc.} = object
+  git_index_iterator* {.bycopy, incompleteStruct, header: "<git2/types.h>",
+                        importc.} = object
     
    
-  git_mailmap* {.bycopy, incompleteStruct, importc.} = object
+  git_mailmap* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_note* {.bycopy, incompleteStruct, importc.} = object
+  git_note* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_object* {.bycopy, incompleteStruct, importc.} = object
+  git_object* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
   git_object_size_t* = uint64
@@ -110,36 +114,37 @@ type
     GIT_OBJECT_OFS_DELTA ## An annotated tag object.             
     GIT_OBJECT_REF_DELTA ## A delta, base is given by an offset. 
    
-  git_odb* {.bycopy, incompleteStruct, importc.} = object
+  git_odb* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_odb_backend* {.bycopy, incompleteStruct, importc.} = object
+  git_odb_backend* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_odb_object* {.bycopy, incompleteStruct, importc.} = object
+  git_odb_object* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
   git_off_t* = int64
    
-  git_packbuilder* {.bycopy, incompleteStruct, importc.} = object
+  git_packbuilder* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_push* {.bycopy, incompleteStruct, importc.} = object
+  git_push* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_rebase* {.bycopy, incompleteStruct, importc.} = object
+  git_rebase* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_refdb* {.bycopy, incompleteStruct, importc.} = object
+  git_refdb* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_refdb_backend* {.bycopy, incompleteStruct, importc.} = object
+  git_refdb_backend* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_reference* {.bycopy, incompleteStruct, importc.} = object
+  git_reference* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_reference_iterator* {.bycopy, incompleteStruct, importc.} = object
+  git_reference_iterator* {.bycopy, incompleteStruct, header: "<git2/types.h>",
+                            importc.} = object
     
    
   git_reference_t* = enum
@@ -148,22 +153,22 @@ type
     GIT_REFERENCE_SYMBOLIC ## A reference that points at an object id      
     GIT_REFERENCE_ALL      ## A reference that points at another reference 
    
-  git_reflog* {.bycopy, incompleteStruct, importc.} = object
+  git_reflog* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_reflog_entry* {.bycopy, incompleteStruct, importc.} = object
+  git_reflog_entry* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_refspec* {.bycopy, incompleteStruct, importc.} = object
+  git_refspec* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_remote* {.bycopy, incompleteStruct, importc.} = object
+  git_remote* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_repository* {.bycopy, incompleteStruct, importc.} = object
+  git_repository* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_revwalk* {.bycopy, incompleteStruct, importc.} = object
+  git_revwalk* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
   git_signature* {.bycopy, header: "<git2/types.h>", importc.} = object
@@ -173,10 +178,10 @@ type
     when_f* {.importc: "when".}: git_time ## email of the author 
                                           ## time when the action happened 
    
-  git_status_list* {.bycopy, incompleteStruct, importc.} = object
+  git_status_list* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_submodule* {.bycopy, incompleteStruct, importc.} = object
+  git_submodule* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
   git_submodule_ignore_t* = enum
@@ -198,7 +203,7 @@ type
     GIT_SUBMODULE_UPDATE_MERGE   
     GIT_SUBMODULE_UPDATE_NONE    
    
-  git_tag* {.bycopy, incompleteStruct, importc.} = object
+  git_tag* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
   git_time* {.bycopy, header: "<git2/types.h>", importc.} = object
@@ -210,22 +215,22 @@ type
    
   git_time_t* = int64
    
-  git_transaction* {.bycopy, incompleteStruct, importc.} = object
+  git_transaction* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_transport* {.bycopy, incompleteStruct, importc.} = object
+  git_transport* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_tree* {.bycopy, incompleteStruct, importc.} = object
+  git_tree* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_tree_entry* {.bycopy, incompleteStruct, importc.} = object
+  git_tree_entry* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_treebuilder* {.bycopy, incompleteStruct, importc.} = object
+  git_treebuilder* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
-  git_worktree* {.bycopy, incompleteStruct, importc.} = object
+  git_worktree* {.bycopy, incompleteStruct, header: "<git2/types.h>", importc.} = object
     
    
   git_writestream* {.bycopy, header: "<git2/types.h>", importc.} = object

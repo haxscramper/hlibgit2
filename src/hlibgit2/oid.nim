@@ -10,7 +10,7 @@ type
     ## Unique identity of any object (commit, tree, blob, tag). 
     id*: ptr UncheckedArray[uint8] ## raw binary formatted id 
    
-  git_oid_shorten* {.bycopy, incompleteStruct, importc.} = object
+  git_oid_shorten* {.bycopy, incompleteStruct, header: "<git2/oid.h>", importc.} = object
     
    
 

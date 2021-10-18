@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  git_patch* {.bycopy, incompleteStruct, importc.} = object
+  git_patch* {.bycopy, incompleteStruct, header: "<git2/patch.h>", importc.} = object
     
    
 

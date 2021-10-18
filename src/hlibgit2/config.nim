@@ -34,7 +34,8 @@ type
    
   git_config_foreach_cbNim* = proc(entry: ptr git_config_entry): cint
    
-  git_config_iterator* {.bycopy, incompleteStruct, importc.} = object
+  git_config_iterator* {.bycopy, incompleteStruct, header: "<git2/config.h>",
+                         importc.} = object
     
    
   git_config_level_t* = enum

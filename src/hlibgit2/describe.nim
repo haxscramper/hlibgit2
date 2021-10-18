@@ -25,7 +25,8 @@ type
     only_follow_first_parent*:    cint                                     
     show_commit_oid_as_fallback*: cint                                     
    
-  git_describe_result* {.bycopy, incompleteStruct, importc.} = object
+  git_describe_result* {.bycopy, incompleteStruct, header: "<git2/describe.h>",
+                         importc.} = object
     
    
   git_describe_strategy_t* = enum

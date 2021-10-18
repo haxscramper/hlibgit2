@@ -16,7 +16,7 @@ type
     c_GIT_BLAME_USE_MAILMAP                     = 32                                  
     c_GIT_BLAME_IGNORE_WHITESPACE               = 64 ## Ignore whitespace differences 
    
-  git_blame* {.bycopy, incompleteStruct, importc.} = object
+  git_blame* {.bycopy, incompleteStruct, header: "<git2/blame.h>", importc.} = object
     
    
   git_blame_flag_t* = enum

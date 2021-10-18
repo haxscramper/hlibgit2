@@ -16,7 +16,7 @@ type
     c_GIT_FILTER_TO_WORKTREE = 0
     c_GIT_FILTER_TO_ODB      = 1
    
-  git_filter* {.bycopy, incompleteStruct, importc.} = object
+  git_filter* {.bycopy, incompleteStruct, header: "<git2/filter.h>", importc.} = object
     
    
   git_filter_flag_t* = enum
@@ -25,7 +25,7 @@ type
     GIT_FILTER_NO_SYSTEM_ATTRIBUTES ## Don't load `/etc/gitattributes` (or the system equivalent)     
     GIT_FILTER_ATTRIBUTES_FROM_HEAD ## Load attributes from `.gitattributes` in the root of HEAD      
    
-  git_filter_list* {.bycopy, incompleteStruct, importc.} = object
+  git_filter_list* {.bycopy, incompleteStruct, header: "<git2/filter.h>", importc.} = object
     
    
   git_filter_mode_t* = enum

@@ -115,7 +115,7 @@ type
     GIT_DELTA_UNREADABLE ## type of entry changed between old and new 
     GIT_DELTA_CONFLICTED ## entry is unreadable                       
    
-  git_diff* {.bycopy, incompleteStruct, importc.} = object
+  git_diff* {.bycopy, incompleteStruct, header: "<git2/diff.h>", importc.} = object
     
    
   git_diff_binary* {.bycopy, header: "<git2/diff.h>", importc.} = object
@@ -312,7 +312,7 @@ type
     similarity*:       proc(score: ptr cint, siga: pointer, sigb: pointer, payload: pointer): cint{.cdecl.}                               
     payload*:          pointer                                                                                                            
    
-  git_diff_stats* {.bycopy, incompleteStruct, importc.} = object
+  git_diff_stats* {.bycopy, incompleteStruct, header: "<git2/diff.h>", importc.} = object
     
    
   git_diff_stats_format_t* = enum

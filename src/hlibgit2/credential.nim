@@ -21,7 +21,8 @@ type
     c_GIT_CREDENTIAL_USERNAME           = 32
     c_GIT_CREDENTIAL_SSH_MEMORY         = 64
    
-  git_credential* {.bycopy, incompleteStruct, importc.} = object
+  git_credential* {.bycopy, incompleteStruct, header: "<git2/credential.h>",
+                    importc.} = object
     
    
   git_credential_acquire_cb* = proc(arg_out: ptr ptr git_credential, url: cstring, username_from_url: cstring, allowed_types: cuint, payload: pointer): cint{.cdecl.}
@@ -32,15 +33,18 @@ type
    
   git_credential_sign_cb* = proc(session: ptr LIBSSH2_SESSION1, sig: ptr ptr uint8, sig_len: ptr csize_t, data: ptr uint8, data_len: csize_t, abstract: ptr pointer): cint{.cdecl.}
    
-  git_credential_ssh_custom* {.bycopy, incompleteStruct, importc.} = object
+  git_credential_ssh_custom* {.bycopy, incompleteStruct,
+                               header: "<git2/credential.h>", importc.} = object
     
    
-  git_credential_ssh_interactive* {.bycopy, incompleteStruct, importc.} = object
+  git_credential_ssh_interactive* {.bycopy, incompleteStruct,
+                                    header: "<git2/credential.h>", importc.} = object
     
    
   git_credential_ssh_interactive_cb* = proc(name: cstring, name_len: cint, instruction: cstring, instruction_len: cint, num_prompts: cint, prompts: ptr LIBSSH2_USERAUTH_KBDINT_PROMPT1, responses: ptr LIBSSH2_USERAUTH_KBDINT_RESPONSE1, abstract: ptr pointer): void{.cdecl.}
    
-  git_credential_ssh_key* {.bycopy, incompleteStruct, importc.} = object
+  git_credential_ssh_key* {.bycopy, incompleteStruct,
+                            header: "<git2/credential.h>", importc.} = object
     
    
   git_credential_t* = enum
@@ -52,10 +56,12 @@ type
     GIT_CREDENTIAL_USERNAME          
     GIT_CREDENTIAL_SSH_MEMORY        
    
-  git_credential_username* {.bycopy, incompleteStruct, importc.} = object
+  git_credential_username* {.bycopy, incompleteStruct,
+                             header: "<git2/credential.h>", importc.} = object
     
    
-  git_credential_userpass_plaintext* {.bycopy, incompleteStruct, importc.} = object
+  git_credential_userpass_plaintext* {.bycopy, incompleteStruct,
+                                       header: "<git2/credential.h>", importc.} = object
     
    
 

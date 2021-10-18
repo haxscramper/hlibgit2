@@ -6,7 +6,7 @@ import
   ./types
 
 type
-  git_indexer* {.bycopy, incompleteStruct, importc.} = object
+  git_indexer* {.bycopy, incompleteStruct, header: "<git2/indexer.h>", importc.} = object
     
    
   git_indexer_options* {.bycopy, header: "<git2/indexer.h>", importc.} = object

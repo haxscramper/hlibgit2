@@ -6,7 +6,8 @@ import
   ./types
 
 type
-  git_branch_iterator* {.bycopy, incompleteStruct, importc.} = object
+  git_branch_iterator* {.bycopy, incompleteStruct, header: "<git2/branch.h>",
+                         importc.} = object
     
    
 
