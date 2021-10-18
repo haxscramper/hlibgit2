@@ -26,12 +26,12 @@ type
     c_GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED = 1 shl 15
    
   c_git_status_show_t* = enum
-    c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR = 0      
+    c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR = 0 shl 0
     c_GIT_STATUS_SHOW_INDEX_ONLY        = 1 shl 0
     c_GIT_STATUS_SHOW_WORKDIR_ONLY      = 1 shl 1
    
   c_git_status_t* = enum
-    c_GIT_STATUS_CURRENT          = 0       
+    c_GIT_STATUS_CURRENT          = 0 shl 0 
     c_GIT_STATUS_INDEX_NEW        = 1 shl 0 
     c_GIT_STATUS_INDEX_MODIFIED   = 1 shl 1 
     c_GIT_STATUS_INDEX_DELETED    = 1 shl 2 
@@ -80,12 +80,12 @@ type
     pathspec*: git_strarray                       
     baseline*: ptr git_tree                       
    
-  git_status_show_t* = enum
+  git_status_show_t* {.size: sizeof(cint).} = enum
     GIT_STATUS_SHOW_INDEX_AND_WORKDIR
     GIT_STATUS_SHOW_INDEX_ONLY       
     GIT_STATUS_SHOW_WORKDIR_ONLY     
    
-  git_status_t* = enum
+  git_status_t* {.size: sizeof(cint).} = enum
     GIT_STATUS_CURRENT         
     GIT_STATUS_INDEX_NEW       
     GIT_STATUS_INDEX_MODIFIED  
@@ -167,7 +167,14 @@ converter to_git_status_t*(arg: c_git_status_t): git_status_t =
  
 
 converter toCint*(arg: c_git_status_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_status_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_status_t(arg)))
  
 func `+`*(arg: c_git_status_t, offset: int): c_git_status_t = 
   c_git_status_t(ord(arg) + offset)
@@ -180,6 +187,41 @@ func `-`*(arg: c_git_status_t, offset: int): c_git_status_t =
  
 func `-`*(offset: int, arg: c_git_status_t): c_git_status_t = 
   c_git_status_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_status_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_STATUS_CURRENT:
+        result = result or (0 shl 0)
+      of GIT_STATUS_INDEX_NEW:
+        result = result or (1 shl 0)
+      of GIT_STATUS_INDEX_MODIFIED:
+        result = result or (1 shl 1)
+      of GIT_STATUS_INDEX_DELETED:
+        result = result or (1 shl 2)
+      of GIT_STATUS_INDEX_RENAMED:
+        result = result or (1 shl 3)
+      of GIT_STATUS_INDEX_TYPECHANGE:
+        result = result or (1 shl 4)
+      of GIT_STATUS_WT_NEW:
+        result = result or (1 shl 7)
+      of GIT_STATUS_WT_MODIFIED:
+        result = result or (1 shl 8)
+      of GIT_STATUS_WT_DELETED:
+        result = result or (1 shl 9)
+      of GIT_STATUS_WT_TYPECHANGE:
+        result = result or (1 shl 10)
+      of GIT_STATUS_WT_RENAMED:
+        result = result or (1 shl 11)
+      of GIT_STATUS_WT_UNREADABLE:
+        result = result or (1 shl 12)
+      of GIT_STATUS_IGNORED:
+        result = result or (1 shl 14)
+      of GIT_STATUS_CONFLICTED:
+        result = result or (1 shl 15)
  
 
 proc to_c_git_status_show_t*(arg: git_status_show_t): c_git_status_show_t = 
@@ -203,7 +245,14 @@ converter to_git_status_show_t*(arg: c_git_status_show_t): git_status_show_t =
  
 
 converter toCint*(arg: c_git_status_show_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_status_show_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_status_show_t(arg)))
  
 func `+`*(arg: c_git_status_show_t, offset: int): c_git_status_show_t = 
   c_git_status_show_t(ord(arg) + offset)
@@ -216,6 +265,19 @@ func `-`*(arg: c_git_status_show_t, offset: int): c_git_status_show_t =
  
 func `-`*(offset: int, arg: c_git_status_show_t): c_git_status_show_t = 
   c_git_status_show_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_status_show_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_STATUS_SHOW_INDEX_AND_WORKDIR:
+        result = result or (0 shl 0)
+      of GIT_STATUS_SHOW_INDEX_ONLY:
+        result = result or (1 shl 0)
+      of GIT_STATUS_SHOW_WORKDIR_ONLY:
+        result = result or (1 shl 1)
  
 
 proc to_c_git_status_opt_t*(arg: git_status_opt_t): c_git_status_opt_t = 
@@ -291,7 +353,14 @@ converter to_git_status_opt_t*(arg: c_git_status_opt_t): git_status_opt_t =
  
 
 converter toCint*(arg: c_git_status_opt_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_status_opt_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_status_opt_t(arg)))
  
 func `+`*(arg: c_git_status_opt_t, offset: int): c_git_status_opt_t = 
   c_git_status_opt_t(ord(arg) + offset)
@@ -306,7 +375,9 @@ func `-`*(offset: int, arg: c_git_status_opt_t): c_git_status_opt_t =
   c_git_status_opt_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_status_opt_t]): cint = 
+converter toCint*(args: set[git_status_opt_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 

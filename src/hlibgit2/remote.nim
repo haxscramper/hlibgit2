@@ -16,18 +16,18 @@ import
 
 type
   c_git_fetch_prune_t* = enum
-    c_GIT_FETCH_PRUNE_UNSPECIFIED = 0      
+    c_GIT_FETCH_PRUNE_UNSPECIFIED = 0 shl 0
     c_GIT_FETCH_PRUNE             = 1 shl 0
     c_GIT_FETCH_NO_PRUNE          = 1 shl 1
    
   c_git_remote_autotag_option_t* = enum
-    c_GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED = 0      
-    c_GIT_REMOTE_DOWNLOAD_TAGS_AUTO        = 1 shl 0
-    c_GIT_REMOTE_DOWNLOAD_TAGS_NONE        = 1 shl 1
-    c_GIT_REMOTE_DOWNLOAD_TAGS_ALL         = 3      
+    c_GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED = 0
+    c_GIT_REMOTE_DOWNLOAD_TAGS_AUTO        = 1
+    c_GIT_REMOTE_DOWNLOAD_TAGS_NONE        = 2
+    c_GIT_REMOTE_DOWNLOAD_TAGS_ALL         = 3
    
   c_git_remote_completion_t* = enum
-    c_GIT_REMOTE_COMPLETION_DOWNLOAD = 0      
+    c_GIT_REMOTE_COMPLETION_DOWNLOAD = 0 shl 0
     c_GIT_REMOTE_COMPLETION_INDEXING = 1 shl 0
     c_GIT_REMOTE_COMPLETION_ERROR    = 1 shl 1
    
@@ -44,7 +44,7 @@ type
     proxy_opts*:       git_proxy_options            
     custom_headers*:   git_strarray                 
    
-  git_fetch_prune_t* = enum
+  git_fetch_prune_t* {.size: sizeof(cint).} = enum
     GIT_FETCH_PRUNE_UNSPECIFIED
     GIT_FETCH_PRUNE            
     GIT_FETCH_NO_PRUNE         
@@ -97,7 +97,7 @@ type
     payload*:                pointer                                                                                             
     resolve_url*:            git_url_resolve_cb                                                                                  
    
-  git_remote_completion_t* = enum
+  git_remote_completion_t* {.size: sizeof(cint).} = enum
     GIT_REMOTE_COMPLETION_DOWNLOAD
     GIT_REMOTE_COMPLETION_INDEXING
     GIT_REMOTE_COMPLETION_ERROR   
@@ -148,7 +148,14 @@ converter to_git_remote_create_flags*(
  
 
 converter toCint*(arg: c_git_remote_create_flags): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_remote_create_flags): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_remote_create_flags(arg)))
  
 func `+`*(
     arg:    c_git_remote_create_flags,
@@ -175,7 +182,9 @@ func `-`*(
   c_git_remote_create_flags(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_remote_create_flags]): cint = 
+converter toCint*(args: set[git_remote_create_flags]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 
@@ -377,8 +386,15 @@ converter to_git_remote_completion_t*(
  
 
 converter toCint*(arg: c_git_remote_completion_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
  
+converter toCint*(arg: git_remote_completion_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_remote_completion_t(arg)))
+ 
 func `+`*(
     arg:    c_git_remote_completion_t,
     offset: int
@@ -402,6 +418,19 @@ func `-`*(
     arg:    c_git_remote_completion_t
   ): c_git_remote_completion_t = 
   c_git_remote_completion_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_remote_completion_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_REMOTE_COMPLETION_DOWNLOAD:
+        result = result or (0 shl 0)
+      of GIT_REMOTE_COMPLETION_INDEXING:
+        result = result or (1 shl 0)
+      of GIT_REMOTE_COMPLETION_ERROR:
+        result = result or (1 shl 1)
  
 
 proc git_remote_init_callbacks*(
@@ -432,7 +461,14 @@ converter to_git_fetch_prune_t*(arg: c_git_fetch_prune_t): git_fetch_prune_t =
  
 
 converter toCint*(arg: c_git_fetch_prune_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_fetch_prune_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_fetch_prune_t(arg)))
  
 func `+`*(arg: c_git_fetch_prune_t, offset: int): c_git_fetch_prune_t = 
   c_git_fetch_prune_t(ord(arg) + offset)
@@ -445,6 +481,19 @@ func `-`*(arg: c_git_fetch_prune_t, offset: int): c_git_fetch_prune_t =
  
 func `-`*(offset: int, arg: c_git_fetch_prune_t): c_git_fetch_prune_t = 
   c_git_fetch_prune_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_fetch_prune_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_FETCH_PRUNE_UNSPECIFIED:
+        result = result or (0 shl 0)
+      of GIT_FETCH_PRUNE:
+        result = result or (1 shl 0)
+      of GIT_FETCH_NO_PRUNE:
+        result = result or (1 shl 1)
  
 
 proc to_c_git_remote_autotag_option_t*(
@@ -476,7 +525,14 @@ converter to_git_remote_autotag_option_t*(
  
 
 converter toCint*(arg: c_git_remote_autotag_option_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_remote_autotag_option_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_remote_autotag_option_t(arg)))
  
 func `+`*(
     arg:    c_git_remote_autotag_option_t,

@@ -37,42 +37,42 @@ type
     c_GIT_OK              = 0                                                        
    
   c_git_error_t* = enum
-    c_GIT_ERROR_NONE       = 0      
-    c_GIT_ERROR_NOMEMORY   = 1 shl 0
-    c_GIT_ERROR_OS         = 1 shl 1
-    c_GIT_ERROR_INVALID    = 3      
-    c_GIT_ERROR_REFERENCE  = 1 shl 2
-    c_GIT_ERROR_ZLIB       = 5      
-    c_GIT_ERROR_REPOSITORY = 6      
-    c_GIT_ERROR_CONFIG     = 7      
-    c_GIT_ERROR_REGEX      = 1 shl 3
-    c_GIT_ERROR_ODB        = 9      
-    c_GIT_ERROR_INDEX      = 10     
-    c_GIT_ERROR_OBJECT     = 11     
-    c_GIT_ERROR_NET        = 12     
-    c_GIT_ERROR_TAG        = 13     
-    c_GIT_ERROR_TREE       = 14     
-    c_GIT_ERROR_INDEXER    = 15     
-    c_GIT_ERROR_SSL        = 1 shl 4
-    c_GIT_ERROR_SUBMODULE  = 17     
-    c_GIT_ERROR_THREAD     = 18     
-    c_GIT_ERROR_STASH      = 19     
-    c_GIT_ERROR_CHECKOUT   = 20     
-    c_GIT_ERROR_FETCHHEAD  = 21     
-    c_GIT_ERROR_MERGE      = 22     
-    c_GIT_ERROR_SSH        = 23     
-    c_GIT_ERROR_FILTER     = 24     
-    c_GIT_ERROR_REVERT     = 25     
-    c_GIT_ERROR_CALLBACK   = 26     
-    c_GIT_ERROR_CHERRYPICK = 27     
-    c_GIT_ERROR_DESCRIBE   = 28     
-    c_GIT_ERROR_REBASE     = 29     
-    c_GIT_ERROR_FILESYSTEM = 30     
-    c_GIT_ERROR_PATCH      = 31     
-    c_GIT_ERROR_WORKTREE   = 1 shl 5
-    c_GIT_ERROR_SHA1       = 33     
-    c_GIT_ERROR_HTTP       = 34     
-    c_GIT_ERROR_INTERNAL   = 35     
+    c_GIT_ERROR_NONE       = 0 
+    c_GIT_ERROR_NOMEMORY   = 1 
+    c_GIT_ERROR_OS         = 2 
+    c_GIT_ERROR_INVALID    = 3 
+    c_GIT_ERROR_REFERENCE  = 4 
+    c_GIT_ERROR_ZLIB       = 5 
+    c_GIT_ERROR_REPOSITORY = 6 
+    c_GIT_ERROR_CONFIG     = 7 
+    c_GIT_ERROR_REGEX      = 8 
+    c_GIT_ERROR_ODB        = 9 
+    c_GIT_ERROR_INDEX      = 10
+    c_GIT_ERROR_OBJECT     = 11
+    c_GIT_ERROR_NET        = 12
+    c_GIT_ERROR_TAG        = 13
+    c_GIT_ERROR_TREE       = 14
+    c_GIT_ERROR_INDEXER    = 15
+    c_GIT_ERROR_SSL        = 16
+    c_GIT_ERROR_SUBMODULE  = 17
+    c_GIT_ERROR_THREAD     = 18
+    c_GIT_ERROR_STASH      = 19
+    c_GIT_ERROR_CHECKOUT   = 20
+    c_GIT_ERROR_FETCHHEAD  = 21
+    c_GIT_ERROR_MERGE      = 22
+    c_GIT_ERROR_SSH        = 23
+    c_GIT_ERROR_FILTER     = 24
+    c_GIT_ERROR_REVERT     = 25
+    c_GIT_ERROR_CALLBACK   = 26
+    c_GIT_ERROR_CHERRYPICK = 27
+    c_GIT_ERROR_DESCRIBE   = 28
+    c_GIT_ERROR_REBASE     = 29
+    c_GIT_ERROR_FILESYSTEM = 30
+    c_GIT_ERROR_PATCH      = 31
+    c_GIT_ERROR_WORKTREE   = 32
+    c_GIT_ERROR_SHA1       = 33
+    c_GIT_ERROR_HTTP       = 34
+    c_GIT_ERROR_INTERNAL   = 35
    
   git_error* {.bycopy, header: "<git2/errors.h>", importc.} = object
     ## Patch application failed 
@@ -279,7 +279,14 @@ converter to_git_error_code*(arg: c_git_error_code): git_error_code =
  
 
 converter toCint*(arg: c_git_error_code): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_error_code): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_error_code(arg)))
  
 func `+`*(arg: c_git_error_code, offset: int): c_git_error_code = 
   c_git_error_code(ord(arg) + offset)
@@ -447,7 +454,14 @@ converter to_git_error_t*(arg: c_git_error_t): git_error_t =
  
 
 converter toCint*(arg: c_git_error_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_error_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_error_t(arg)))
  
 func `+`*(arg: c_git_error_t, offset: int): c_git_error_t = 
   c_git_error_t(ord(arg) + offset)

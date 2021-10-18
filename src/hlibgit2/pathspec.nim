@@ -8,7 +8,7 @@ import
 
 type
   c_git_pathspec_flag_t* = enum
-    c_GIT_PATHSPEC_DEFAULT        = 0      
+    c_GIT_PATHSPEC_DEFAULT        = 0 shl 0
     c_GIT_PATHSPEC_IGNORE_CASE    = 1 shl 0
     c_GIT_PATHSPEC_USE_CASE       = 1 shl 1
     c_GIT_PATHSPEC_NO_GLOB        = 1 shl 2
@@ -19,7 +19,7 @@ type
   git_pathspec* {.bycopy, incompleteStruct, header: "<git2/pathspec.h>", importc.} = object
     
    
-  git_pathspec_flag_t* = enum
+  git_pathspec_flag_t* {.size: sizeof(cint).} = enum
     GIT_PATHSPEC_DEFAULT       
     GIT_PATHSPEC_IGNORE_CASE   
     GIT_PATHSPEC_USE_CASE      
@@ -74,7 +74,14 @@ converter to_git_pathspec_flag_t*(
  
 
 converter toCint*(arg: c_git_pathspec_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_pathspec_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_pathspec_flag_t(arg)))
  
 func `+`*(arg: c_git_pathspec_flag_t, offset: int): c_git_pathspec_flag_t = 
   c_git_pathspec_flag_t(ord(arg) + offset)
@@ -87,6 +94,27 @@ func `-`*(arg: c_git_pathspec_flag_t, offset: int): c_git_pathspec_flag_t =
  
 func `-`*(offset: int, arg: c_git_pathspec_flag_t): c_git_pathspec_flag_t = 
   c_git_pathspec_flag_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_pathspec_flag_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_PATHSPEC_DEFAULT:
+        result = result or (0 shl 0)
+      of GIT_PATHSPEC_IGNORE_CASE:
+        result = result or (1 shl 0)
+      of GIT_PATHSPEC_USE_CASE:
+        result = result or (1 shl 1)
+      of GIT_PATHSPEC_NO_GLOB:
+        result = result or (1 shl 2)
+      of GIT_PATHSPEC_NO_MATCH_ERROR:
+        result = result or (1 shl 3)
+      of GIT_PATHSPEC_FIND_FAILURES:
+        result = result or (1 shl 4)
+      of GIT_PATHSPEC_FAILURES_ONLY:
+        result = result or (1 shl 5)
  
 
 proc git_pathspec_new*(

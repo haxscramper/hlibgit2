@@ -121,7 +121,14 @@ converter to_git_submodule_status_t*(
  
 
 converter toCint*(arg: c_git_submodule_status_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_submodule_status_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_submodule_status_t(arg)))
  
 func `+`*(
     arg:    c_git_submodule_status_t,
@@ -148,7 +155,9 @@ func `-`*(
   c_git_submodule_status_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_submodule_status_t]): cint = 
+converter toCint*(args: set[git_submodule_status_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 

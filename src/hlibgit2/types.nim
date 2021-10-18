@@ -5,9 +5,9 @@ import
 
 type
   c_git_branch_t* = enum
-    c_GIT_BRANCH_LOCAL  = 1 shl 0
-    c_GIT_BRANCH_REMOTE = 1 shl 1
-    c_GIT_BRANCH_ALL    = 3      
+    c_GIT_BRANCH_LOCAL  = 1
+    c_GIT_BRANCH_REMOTE = 2
+    c_GIT_BRANCH_ALL    = 3
    
   c_git_filemode_t* = enum
     c_GIT_FILEMODE_UNREADABLE      = 0     
@@ -18,39 +18,39 @@ type
     c_GIT_FILEMODE_COMMIT          = 160000
    
   c_git_object_t* = enum
-    c_GIT_OBJECT_ANY       = -2                                              
-    c_GIT_OBJECT_INVALID   = -1      ## Object can be any of the following   
-    c_GIT_OBJECT_COMMIT    = 1 shl 0 ## Object is invalid.                   
-    c_GIT_OBJECT_TREE      = 1 shl 1 ## A commit object.                     
-    c_GIT_OBJECT_BLOB      = 3       ## A tree (directory listing) object.   
-    c_GIT_OBJECT_TAG       = 1 shl 2 ## A file revision object.              
-    c_GIT_OBJECT_OFS_DELTA = 6       ## An annotated tag object.             
-    c_GIT_OBJECT_REF_DELTA = 7       ## A delta, base is given by an offset. 
+    c_GIT_OBJECT_ANY       = -2                                         
+    c_GIT_OBJECT_INVALID   = -1 ## Object can be any of the following   
+    c_GIT_OBJECT_COMMIT    = 1  ## Object is invalid.                   
+    c_GIT_OBJECT_TREE      = 2  ## A commit object.                     
+    c_GIT_OBJECT_BLOB      = 3  ## A tree (directory listing) object.   
+    c_GIT_OBJECT_TAG       = 4  ## A file revision object.              
+    c_GIT_OBJECT_OFS_DELTA = 6  ## An annotated tag object.             
+    c_GIT_OBJECT_REF_DELTA = 7  ## A delta, base is given by an offset. 
    
   c_git_reference_t* = enum
-    c_GIT_REFERENCE_INVALID  = 0                                                       
-    c_GIT_REFERENCE_DIRECT   = 1 shl 0 ## Invalid reference                            
-    c_GIT_REFERENCE_SYMBOLIC = 1 shl 1 ## A reference that points at an object id      
-    c_GIT_REFERENCE_ALL      = 3       ## A reference that points at another reference 
+    c_GIT_REFERENCE_INVALID  = 0                                                 
+    c_GIT_REFERENCE_DIRECT   = 1 ## Invalid reference                            
+    c_GIT_REFERENCE_SYMBOLIC = 2 ## A reference that points at an object id      
+    c_GIT_REFERENCE_ALL      = 3 ## A reference that points at another reference 
    
   c_git_submodule_ignore_t* = enum
-    c_GIT_SUBMODULE_IGNORE_UNSPECIFIED = -1                                           
-    c_GIT_SUBMODULE_IGNORE_NONE        = 1 shl 0 ## use the submodule's configuration 
-    c_GIT_SUBMODULE_IGNORE_UNTRACKED   = 1 shl 1 ## any change or untracked == dirty  
-    c_GIT_SUBMODULE_IGNORE_DIRTY       = 3       ## dirty if tracked files change     
-    c_GIT_SUBMODULE_IGNORE_ALL         = 1 shl 2 ## only dirty if HEAD moved          
+    c_GIT_SUBMODULE_IGNORE_UNSPECIFIED = -1                                      
+    c_GIT_SUBMODULE_IGNORE_NONE        = 1  ## use the submodule's configuration 
+    c_GIT_SUBMODULE_IGNORE_UNTRACKED   = 2  ## any change or untracked == dirty  
+    c_GIT_SUBMODULE_IGNORE_DIRTY       = 3  ## dirty if tracked files change     
+    c_GIT_SUBMODULE_IGNORE_ALL         = 4  ## only dirty if HEAD moved          
    
   c_git_submodule_recurse_t* = enum
-    c_GIT_SUBMODULE_RECURSE_NO       = 0      
+    c_GIT_SUBMODULE_RECURSE_NO       = 0 shl 0
     c_GIT_SUBMODULE_RECURSE_YES      = 1 shl 0
     c_GIT_SUBMODULE_RECURSE_ONDEMAND = 1 shl 1
    
   c_git_submodule_update_t* = enum
-    c_GIT_SUBMODULE_UPDATE_DEFAULT  = 0      
-    c_GIT_SUBMODULE_UPDATE_CHECKOUT = 1 shl 0
-    c_GIT_SUBMODULE_UPDATE_REBASE   = 1 shl 1
-    c_GIT_SUBMODULE_UPDATE_MERGE    = 3      
-    c_GIT_SUBMODULE_UPDATE_NONE     = 1 shl 2
+    c_GIT_SUBMODULE_UPDATE_DEFAULT  = 0
+    c_GIT_SUBMODULE_UPDATE_CHECKOUT = 1
+    c_GIT_SUBMODULE_UPDATE_REBASE   = 2
+    c_GIT_SUBMODULE_UPDATE_MERGE    = 3
+    c_GIT_SUBMODULE_UPDATE_NONE     = 4
    
   git_annotated_commit* {.bycopy, incompleteStruct, header: "<git2/types.h>",
                           importc.} = object
@@ -191,7 +191,7 @@ type
     GIT_SUBMODULE_IGNORE_DIRTY       ## dirty if tracked files change     
     GIT_SUBMODULE_IGNORE_ALL         ## only dirty if HEAD moved          
    
-  git_submodule_recurse_t* = enum
+  git_submodule_recurse_t* {.size: sizeof(cint).} = enum
     GIT_SUBMODULE_RECURSE_NO      
     GIT_SUBMODULE_RECURSE_YES     
     GIT_SUBMODULE_RECURSE_ONDEMAND
@@ -281,7 +281,14 @@ converter to_git_object_t*(arg: c_git_object_t): git_object_t =
  
 
 converter toCint*(arg: c_git_object_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_object_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_object_t(arg)))
  
 func `+`*(arg: c_git_object_t, offset: int): c_git_object_t = 
   c_git_object_t(ord(arg) + offset)
@@ -321,7 +328,14 @@ converter to_git_reference_t*(arg: c_git_reference_t): git_reference_t =
  
 
 converter toCint*(arg: c_git_reference_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_reference_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_reference_t(arg)))
  
 func `+`*(arg: c_git_reference_t, offset: int): c_git_reference_t = 
   c_git_reference_t(ord(arg) + offset)
@@ -357,7 +371,14 @@ converter to_git_branch_t*(arg: c_git_branch_t): git_branch_t =
  
 
 converter toCint*(arg: c_git_branch_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_branch_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_branch_t(arg)))
  
 func `+`*(arg: c_git_branch_t, offset: int): c_git_branch_t = 
   c_git_branch_t(ord(arg) + offset)
@@ -405,7 +426,14 @@ converter to_git_filemode_t*(arg: c_git_filemode_t): git_filemode_t =
  
 
 converter toCint*(arg: c_git_filemode_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_filemode_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_filemode_t(arg)))
  
 func `+`*(arg: c_git_filemode_t, offset: int): c_git_filemode_t = 
   c_git_filemode_t(ord(arg) + offset)
@@ -453,7 +481,14 @@ converter to_git_submodule_update_t*(
  
 
 converter toCint*(arg: c_git_submodule_update_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_submodule_update_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_submodule_update_t(arg)))
  
 func `+`*(
     arg:    c_git_submodule_update_t,
@@ -513,7 +548,14 @@ converter to_git_submodule_ignore_t*(
  
 
 converter toCint*(arg: c_git_submodule_ignore_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_submodule_ignore_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_submodule_ignore_t(arg)))
  
 func `+`*(
     arg:    c_git_submodule_ignore_t,
@@ -565,8 +607,15 @@ converter to_git_submodule_recurse_t*(
  
 
 converter toCint*(arg: c_git_submodule_recurse_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
  
+converter toCint*(arg: git_submodule_recurse_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_submodule_recurse_t(arg)))
+ 
 func `+`*(
     arg:    c_git_submodule_recurse_t,
     offset: int
@@ -590,5 +639,18 @@ func `-`*(
     arg:    c_git_submodule_recurse_t
   ): c_git_submodule_recurse_t = 
   c_git_submodule_recurse_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_submodule_recurse_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_SUBMODULE_RECURSE_NO:
+        result = result or (0 shl 0)
+      of GIT_SUBMODULE_RECURSE_YES:
+        result = result or (1 shl 0)
+      of GIT_SUBMODULE_RECURSE_ONDEMAND:
+        result = result or (1 shl 1)
  
 

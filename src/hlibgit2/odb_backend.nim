@@ -8,9 +8,9 @@ import
 
 type
   c_git_odb_stream_t* = enum
-    c_GIT_STREAM_RDONLY = 1 shl 1
-    c_GIT_STREAM_WRONLY = 1 shl 2
-    c_GIT_STREAM_RW     = 6      
+    c_GIT_STREAM_RDONLY = 2
+    c_GIT_STREAM_WRONLY = 4
+    c_GIT_STREAM_RW     = 6
    
   git_odb_stream* {.bycopy, header: "<git2/odb_backend.h>", importc.} = object
     backend*:        ptr git_odb_backend                                                           
@@ -82,7 +82,14 @@ converter to_git_odb_stream_t*(arg: c_git_odb_stream_t): git_odb_stream_t =
  
 
 converter toCint*(arg: c_git_odb_stream_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_odb_stream_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_odb_stream_t(arg)))
  
 func `+`*(arg: c_git_odb_stream_t, offset: int): c_git_odb_stream_t = 
   c_git_odb_stream_t(ord(arg) + offset)

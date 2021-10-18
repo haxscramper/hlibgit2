@@ -7,7 +7,7 @@ import
 
 type
   c_git_blame_flag_t* = enum
-    c_GIT_BLAME_NORMAL                          = 0       ## Normal blame, the default     
+    c_GIT_BLAME_NORMAL                          = 0 shl 0 ## Normal blame, the default     
     c_GIT_BLAME_TRACK_COPIES_SAME_FILE          = 1 shl 0                                  
     c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES  = 1 shl 1                                  
     c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES = 1 shl 2                                  
@@ -19,7 +19,7 @@ type
   git_blame* {.bycopy, incompleteStruct, header: "<git2/blame.h>", importc.} = object
     
    
-  git_blame_flag_t* = enum
+  git_blame_flag_t* {.size: sizeof(cint).} = enum
     GIT_BLAME_NORMAL                          ## Normal blame, the default     
     GIT_BLAME_TRACK_COPIES_SAME_FILE                                           
     GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES                                   
@@ -91,7 +91,14 @@ converter to_git_blame_flag_t*(arg: c_git_blame_flag_t): git_blame_flag_t =
  
 
 converter toCint*(arg: c_git_blame_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_blame_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_blame_flag_t(arg)))
  
 func `+`*(arg: c_git_blame_flag_t, offset: int): c_git_blame_flag_t = 
   c_git_blame_flag_t(ord(arg) + offset)
@@ -104,6 +111,29 @@ func `-`*(arg: c_git_blame_flag_t, offset: int): c_git_blame_flag_t =
  
 func `-`*(offset: int, arg: c_git_blame_flag_t): c_git_blame_flag_t = 
   c_git_blame_flag_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_blame_flag_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_BLAME_NORMAL:
+        result = result or (0 shl 0)
+      of GIT_BLAME_TRACK_COPIES_SAME_FILE:
+        result = result or (1 shl 0)
+      of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES:
+        result = result or (1 shl 1)
+      of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES:
+        result = result or (1 shl 2)
+      of GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES:
+        result = result or (1 shl 3)
+      of GIT_BLAME_FIRST_PARENT:
+        result = result or (1 shl 4)
+      of GIT_BLAME_USE_MAILMAP:
+        result = result or (1 shl 5)
+      of GIT_BLAME_IGNORE_WHITESPACE:
+        result = result or (1 shl 6)
  
 
 proc git_blame_options_init*(

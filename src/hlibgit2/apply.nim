@@ -10,7 +10,7 @@ type
     c_GIT_APPLY_CHECK = 1 shl 0
    
   c_git_apply_location_t* = enum
-    c_GIT_APPLY_LOCATION_WORKDIR = 0      
+    c_GIT_APPLY_LOCATION_WORKDIR = 0 shl 0
     c_GIT_APPLY_LOCATION_INDEX   = 1 shl 0
     c_GIT_APPLY_LOCATION_BOTH    = 1 shl 1
    
@@ -25,7 +25,7 @@ type
    
   git_apply_hunk_cbNim* = proc(hunk: ptr git_diff_hunk): cint
    
-  git_apply_location_t* = enum
+  git_apply_location_t* {.size: sizeof(cint).} = enum
     GIT_APPLY_LOCATION_WORKDIR
     GIT_APPLY_LOCATION_INDEX  
     GIT_APPLY_LOCATION_BOTH   
@@ -52,7 +52,14 @@ converter to_git_apply_flags_t*(arg: c_git_apply_flags_t): git_apply_flags_t =
  
 
 converter toCint*(arg: c_git_apply_flags_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_apply_flags_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_apply_flags_t(arg)))
  
 func `+`*(arg: c_git_apply_flags_t, offset: int): c_git_apply_flags_t = 
   c_git_apply_flags_t(ord(arg) + offset)
@@ -67,7 +74,9 @@ func `-`*(offset: int, arg: c_git_apply_flags_t): c_git_apply_flags_t =
   c_git_apply_flags_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_apply_flags_t]): cint = 
+converter toCint*(args: set[git_apply_flags_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 
@@ -113,7 +122,14 @@ converter to_git_apply_location_t*(
  
 
 converter toCint*(arg: c_git_apply_location_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_apply_location_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_apply_location_t(arg)))
  
 func `+`*(arg: c_git_apply_location_t, offset: int): c_git_apply_location_t = 
   c_git_apply_location_t(ord(arg) + offset)
@@ -126,6 +142,19 @@ func `-`*(arg: c_git_apply_location_t, offset: int): c_git_apply_location_t =
  
 func `-`*(offset: int, arg: c_git_apply_location_t): c_git_apply_location_t = 
   c_git_apply_location_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_apply_location_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_APPLY_LOCATION_WORKDIR:
+        result = result or (0 shl 0)
+      of GIT_APPLY_LOCATION_INDEX:
+        result = result or (1 shl 0)
+      of GIT_APPLY_LOCATION_BOTH:
+        result = result or (1 shl 1)
  
 
 proc git_apply*(

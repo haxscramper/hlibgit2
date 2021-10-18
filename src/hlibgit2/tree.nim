@@ -8,11 +8,11 @@ import
 
 type
   c_git_tree_update_t* = enum
-    c_GIT_TREE_UPDATE_UPSERT = 0       ## Update or insert an entry at the specified path 
+    c_GIT_TREE_UPDATE_UPSERT = 0 shl 0 ## Update or insert an entry at the specified path 
     c_GIT_TREE_UPDATE_REMOVE = 1 shl 0 ## Remove an entry from the specified path         
    
   c_git_treewalk_mode* = enum
-    c_GIT_TREEWALK_PRE  = 0                    
+    c_GIT_TREEWALK_PRE  = 0 shl 0              
     c_GIT_TREEWALK_POST = 1 shl 0 ## Pre-order 
    
   git_tree_update* {.bycopy, header: "<git2/tree.h>", importc.} = object
@@ -21,7 +21,7 @@ type
     filemode*: git_filemode_t      ## The filemode/kind of object                                   
     path*:     cstring             ## The full path from the root tree                              
    
-  git_tree_update_t* = enum
+  git_tree_update_t* {.size: sizeof(cint).} = enum
     GIT_TREE_UPDATE_UPSERT ## Update or insert an entry at the specified path 
     GIT_TREE_UPDATE_REMOVE ## Remove an entry from the specified path         
    
@@ -33,7 +33,7 @@ type
    
   git_treewalk_cbNim* = proc(root: cstring, entry: ptr git_tree_entry): cint
    
-  git_treewalk_mode* = enum
+  git_treewalk_mode* {.size: sizeof(cint).} = enum
     GIT_TREEWALK_PRE               
     GIT_TREEWALK_POST ## Pre-order 
    
@@ -246,7 +246,14 @@ converter to_git_treewalk_mode*(arg: c_git_treewalk_mode): git_treewalk_mode =
  
 
 converter toCint*(arg: c_git_treewalk_mode): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_treewalk_mode): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_treewalk_mode(arg)))
  
 func `+`*(arg: c_git_treewalk_mode, offset: int): c_git_treewalk_mode = 
   c_git_treewalk_mode(ord(arg) + offset)
@@ -259,6 +266,17 @@ func `-`*(arg: c_git_treewalk_mode, offset: int): c_git_treewalk_mode =
  
 func `-`*(offset: int, arg: c_git_treewalk_mode): c_git_treewalk_mode = 
   c_git_treewalk_mode(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_treewalk_mode]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_TREEWALK_PRE:
+        result = result or (0 shl 0)
+      of GIT_TREEWALK_POST:
+        result = result or (1 shl 0)
  
 
 proc git_tree_walk*(
@@ -294,7 +312,14 @@ converter to_git_tree_update_t*(arg: c_git_tree_update_t): git_tree_update_t =
  
 
 converter toCint*(arg: c_git_tree_update_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_tree_update_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_tree_update_t(arg)))
  
 func `+`*(arg: c_git_tree_update_t, offset: int): c_git_tree_update_t = 
   c_git_tree_update_t(ord(arg) + offset)
@@ -307,6 +332,17 @@ func `-`*(arg: c_git_tree_update_t, offset: int): c_git_tree_update_t =
  
 func `-`*(offset: int, arg: c_git_tree_update_t): c_git_tree_update_t = 
   c_git_tree_update_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_tree_update_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_TREE_UPDATE_UPSERT:
+        result = result or (0 shl 0)
+      of GIT_TREE_UPDATE_REMOVE:
+        result = result or (1 shl 0)
  
 
 proc git_tree_create_updated*(

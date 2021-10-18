@@ -8,9 +8,9 @@ import
 
 type
   c_git_reset_t* = enum
-    c_GIT_RESET_SOFT  = 1 shl 0                                        
-    c_GIT_RESET_MIXED = 1 shl 1 ## Move the head to the given commit   
-    c_GIT_RESET_HARD  = 3       ## SOFT plus reset index to the commit 
+    c_GIT_RESET_SOFT  = 1                                        
+    c_GIT_RESET_MIXED = 2 ## Move the head to the given commit   
+    c_GIT_RESET_HARD  = 3 ## SOFT plus reset index to the commit 
    
   git_reset_t* = enum
     GIT_RESET_SOFT                                         
@@ -39,7 +39,14 @@ converter to_git_reset_t*(arg: c_git_reset_t): git_reset_t =
  
 
 converter toCint*(arg: c_git_reset_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_reset_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_reset_t(arg)))
  
 func `+`*(arg: c_git_reset_t, offset: int): c_git_reset_t = 
   c_git_reset_t(ord(arg) + offset)

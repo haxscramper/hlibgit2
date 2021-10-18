@@ -8,10 +8,10 @@ import
 
 type
   c_git_clone_local_t* = enum
-    c_GIT_CLONE_LOCAL_AUTO     = 0      
-    c_GIT_CLONE_LOCAL          = 1 shl 0
-    c_GIT_CLONE_NO_LOCAL       = 1 shl 1
-    c_GIT_CLONE_LOCAL_NO_LINKS = 3      
+    c_GIT_CLONE_LOCAL_AUTO     = 0
+    c_GIT_CLONE_LOCAL          = 1
+    c_GIT_CLONE_NO_LOCAL       = 2
+    c_GIT_CLONE_LOCAL_NO_LINKS = 3
    
   git_clone_local_t* = enum
     GIT_CLONE_LOCAL_AUTO    
@@ -65,7 +65,14 @@ converter to_git_clone_local_t*(arg: c_git_clone_local_t): git_clone_local_t =
  
 
 converter toCint*(arg: c_git_clone_local_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_clone_local_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_clone_local_t(arg)))
  
 func `+`*(arg: c_git_clone_local_t, offset: int): c_git_clone_local_t = 
   c_git_clone_local_t(ord(arg) + offset)

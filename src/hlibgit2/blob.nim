@@ -88,7 +88,14 @@ converter to_git_blob_filter_flag_t*(
  
 
 converter toCint*(arg: c_git_blob_filter_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_blob_filter_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_blob_filter_flag_t(arg)))
  
 func `+`*(
     arg:    c_git_blob_filter_flag_t,
@@ -115,7 +122,9 @@ func `-`*(
   c_git_blob_filter_flag_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_blob_filter_flag_t]): cint = 
+converter toCint*(args: set[git_blob_filter_flag_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 

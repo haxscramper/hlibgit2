@@ -102,7 +102,14 @@ converter to_git_credential_t*(arg: c_git_credential_t): git_credential_t =
  
 
 converter toCint*(arg: c_git_credential_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_credential_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_credential_t(arg)))
  
 func `+`*(arg: c_git_credential_t, offset: int): c_git_credential_t = 
   c_git_credential_t(ord(arg) + offset)
@@ -117,7 +124,9 @@ func `-`*(offset: int, arg: c_git_credential_t): c_git_credential_t =
   c_git_credential_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_credential_t]): cint = 
+converter toCint*(args: set[git_credential_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 

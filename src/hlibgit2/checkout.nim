@@ -8,7 +8,7 @@ import
 
 type
   c_git_checkout_notify_t* = enum
-    c_GIT_CHECKOUT_NOTIFY_NONE      = 0      
+    c_GIT_CHECKOUT_NOTIFY_NONE      = 0 shl 0
     c_GIT_CHECKOUT_NOTIFY_CONFLICT  = 1 shl 0
     c_GIT_CHECKOUT_NOTIFY_DIRTY     = 1 shl 1
     c_GIT_CHECKOUT_NOTIFY_UPDATED   = 1 shl 2
@@ -16,7 +16,7 @@ type
     c_GIT_CHECKOUT_NOTIFY_IGNORED   = 1 shl 4
    
   c_git_checkout_strategy_t* = enum
-    c_GIT_CHECKOUT_NONE                         = 0                                                                                         
+    c_GIT_CHECKOUT_NONE                         = 0 shl 0                                                                                   
     c_GIT_CHECKOUT_SAFE                         = 1 shl 0  ## default is a dry run, no actual updates                                       
     c_GIT_CHECKOUT_FORCE                        = 1 shl 1                                                                                   
     c_GIT_CHECKOUT_RECREATE_MISSING             = 1 shl 2  ## Allow checkout to recreate missing files                                      
@@ -43,7 +43,7 @@ type
    
   git_checkout_notify_cbNim* = proc(why: c_git_checkout_notify_t, path: cstring, baseline: ptr git_diff_file, target: ptr git_diff_file, workdir: ptr git_diff_file): cint
    
-  git_checkout_notify_t* = enum
+  git_checkout_notify_t* {.size: sizeof(cint).} = enum
     GIT_CHECKOUT_NOTIFY_NONE     
     GIT_CHECKOUT_NOTIFY_CONFLICT 
     GIT_CHECKOUT_NOTIFY_DIRTY    
@@ -91,7 +91,7 @@ type
    
   git_checkout_progress_cbNim* = proc(path: cstring, completed_steps: csize_t, total_steps: csize_t): void
    
-  git_checkout_strategy_t* = enum
+  git_checkout_strategy_t* {.size: sizeof(cint).} = enum
     GIT_CHECKOUT_NONE                                                                                                          
     GIT_CHECKOUT_SAFE                         ## default is a dry run, no actual updates                                       
     GIT_CHECKOUT_FORCE                                                                                                         
@@ -217,8 +217,15 @@ converter to_git_checkout_strategy_t*(
  
 
 converter toCint*(arg: c_git_checkout_strategy_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
  
+converter toCint*(arg: git_checkout_strategy_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_checkout_strategy_t(arg)))
+ 
 func `+`*(
     arg:    c_git_checkout_strategy_t,
     offset: int
@@ -242,6 +249,57 @@ func `-`*(
     arg:    c_git_checkout_strategy_t
   ): c_git_checkout_strategy_t = 
   c_git_checkout_strategy_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_checkout_strategy_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_CHECKOUT_NONE:
+        result = result or (0 shl 0)
+      of GIT_CHECKOUT_SAFE:
+        result = result or (1 shl 0)
+      of GIT_CHECKOUT_FORCE:
+        result = result or (1 shl 1)
+      of GIT_CHECKOUT_RECREATE_MISSING:
+        result = result or (1 shl 2)
+      of GIT_CHECKOUT_ALLOW_CONFLICTS:
+        result = result or (1 shl 4)
+      of GIT_CHECKOUT_REMOVE_UNTRACKED:
+        result = result or (1 shl 5)
+      of GIT_CHECKOUT_REMOVE_IGNORED:
+        result = result or (1 shl 6)
+      of GIT_CHECKOUT_UPDATE_ONLY:
+        result = result or (1 shl 7)
+      of GIT_CHECKOUT_DONT_UPDATE_INDEX:
+        result = result or (1 shl 8)
+      of GIT_CHECKOUT_NO_REFRESH:
+        result = result or (1 shl 9)
+      of GIT_CHECKOUT_SKIP_UNMERGED:
+        result = result or (1 shl 10)
+      of GIT_CHECKOUT_USE_OURS:
+        result = result or (1 shl 11)
+      of GIT_CHECKOUT_USE_THEIRS:
+        result = result or (1 shl 12)
+      of GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH:
+        result = result or (1 shl 13)
+      of GIT_CHECKOUT_UPDATE_SUBMODULES:
+        result = result or (1 shl 16)
+      of GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED:
+        result = result or (1 shl 17)
+      of GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES:
+        result = result or (1 shl 18)
+      of GIT_CHECKOUT_DONT_OVERWRITE_IGNORED:
+        result = result or (1 shl 19)
+      of GIT_CHECKOUT_CONFLICT_STYLE_MERGE:
+        result = result or (1 shl 20)
+      of GIT_CHECKOUT_CONFLICT_STYLE_DIFF3:
+        result = result or (1 shl 21)
+      of GIT_CHECKOUT_DONT_REMOVE_EXISTING:
+        result = result or (1 shl 22)
+      of GIT_CHECKOUT_DONT_WRITE_INDEX:
+        result = result or (1 shl 23)
  
 
 proc to_c_git_checkout_notify_t*(
@@ -281,7 +339,14 @@ converter to_git_checkout_notify_t*(
  
 
 converter toCint*(arg: c_git_checkout_notify_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_checkout_notify_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_checkout_notify_t(arg)))
  
 func `+`*(arg: c_git_checkout_notify_t, offset: int): c_git_checkout_notify_t = 
   c_git_checkout_notify_t(ord(arg) + offset)
@@ -294,6 +359,25 @@ func `-`*(arg: c_git_checkout_notify_t, offset: int): c_git_checkout_notify_t =
  
 func `-`*(offset: int, arg: c_git_checkout_notify_t): c_git_checkout_notify_t = 
   c_git_checkout_notify_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_checkout_notify_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_CHECKOUT_NOTIFY_NONE:
+        result = result or (0 shl 0)
+      of GIT_CHECKOUT_NOTIFY_CONFLICT:
+        result = result or (1 shl 0)
+      of GIT_CHECKOUT_NOTIFY_DIRTY:
+        result = result or (1 shl 1)
+      of GIT_CHECKOUT_NOTIFY_UPDATED:
+        result = result or (1 shl 2)
+      of GIT_CHECKOUT_NOTIFY_UNTRACKED:
+        result = result or (1 shl 3)
+      of GIT_CHECKOUT_NOTIFY_IGNORED:
+        result = result or (1 shl 4)
  
 
 proc git_checkout_options_init*(

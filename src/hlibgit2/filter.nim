@@ -7,19 +7,19 @@ import
 
 type
   c_git_filter_flag_t* = enum
-    c_GIT_FILTER_DEFAULT              = 0                                                                         
+    c_GIT_FILTER_DEFAULT              = 0 shl 0                                                                   
     c_GIT_FILTER_ALLOW_UNSAFE         = 1 shl 0 ## Don't error for `safecrlf` violations, allow them to continue. 
     c_GIT_FILTER_NO_SYSTEM_ATTRIBUTES = 1 shl 1 ## Don't load `/etc/gitattributes` (or the system equivalent)     
     c_GIT_FILTER_ATTRIBUTES_FROM_HEAD = 1 shl 2 ## Load attributes from `.gitattributes` in the root of HEAD      
    
   c_git_filter_mode_t* = enum
-    c_GIT_FILTER_TO_WORKTREE = 0      
+    c_GIT_FILTER_TO_WORKTREE = 0 shl 0
     c_GIT_FILTER_TO_ODB      = 1 shl 0
    
   git_filter* {.bycopy, incompleteStruct, header: "<git2/filter.h>", importc.} = object
     
    
-  git_filter_flag_t* = enum
+  git_filter_flag_t* {.size: sizeof(cint).} = enum
     GIT_FILTER_DEFAULT                                                                                
     GIT_FILTER_ALLOW_UNSAFE         ## Don't error for `safecrlf` violations, allow them to continue. 
     GIT_FILTER_NO_SYSTEM_ATTRIBUTES ## Don't load `/etc/gitattributes` (or the system equivalent)     
@@ -28,7 +28,7 @@ type
   git_filter_list* {.bycopy, incompleteStruct, header: "<git2/filter.h>", importc.} = object
     
    
-  git_filter_mode_t* = enum
+  git_filter_mode_t* {.size: sizeof(cint).} = enum
     GIT_FILTER_TO_WORKTREE
     GIT_FILTER_TO_ODB     
    
@@ -50,7 +50,14 @@ converter to_git_filter_mode_t*(arg: c_git_filter_mode_t): git_filter_mode_t =
  
 
 converter toCint*(arg: c_git_filter_mode_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_filter_mode_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_filter_mode_t(arg)))
  
 func `+`*(arg: c_git_filter_mode_t, offset: int): c_git_filter_mode_t = 
   c_git_filter_mode_t(ord(arg) + offset)
@@ -63,6 +70,17 @@ func `-`*(arg: c_git_filter_mode_t, offset: int): c_git_filter_mode_t =
  
 func `-`*(offset: int, arg: c_git_filter_mode_t): c_git_filter_mode_t = 
   c_git_filter_mode_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_filter_mode_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_FILTER_TO_WORKTREE:
+        result = result or (0 shl 0)
+      of GIT_FILTER_TO_ODB:
+        result = result or (1 shl 0)
  
 
 proc to_c_git_filter_flag_t*(arg: git_filter_flag_t): c_git_filter_flag_t = 
@@ -90,7 +108,14 @@ converter to_git_filter_flag_t*(arg: c_git_filter_flag_t): git_filter_flag_t =
  
 
 converter toCint*(arg: c_git_filter_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_filter_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_filter_flag_t(arg)))
  
 func `+`*(arg: c_git_filter_flag_t, offset: int): c_git_filter_flag_t = 
   c_git_filter_flag_t(ord(arg) + offset)
@@ -103,6 +128,21 @@ func `-`*(arg: c_git_filter_flag_t, offset: int): c_git_filter_flag_t =
  
 func `-`*(offset: int, arg: c_git_filter_flag_t): c_git_filter_flag_t = 
   c_git_filter_flag_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_filter_flag_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_FILTER_DEFAULT:
+        result = result or (0 shl 0)
+      of GIT_FILTER_ALLOW_UNSAFE:
+        result = result or (1 shl 0)
+      of GIT_FILTER_NO_SYSTEM_ATTRIBUTES:
+        result = result or (1 shl 1)
+      of GIT_FILTER_ATTRIBUTES_FROM_HEAD:
+        result = result or (1 shl 2)
  
 
 proc git_filter_list_load*(

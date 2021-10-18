@@ -63,7 +63,14 @@ converter to_git_revparse_mode_t*(
  
 
 converter toCint*(arg: c_git_revparse_mode_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_revparse_mode_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_revparse_mode_t(arg)))
  
 func `+`*(arg: c_git_revparse_mode_t, offset: int): c_git_revparse_mode_t = 
   c_git_revparse_mode_t(ord(arg) + offset)
@@ -78,7 +85,9 @@ func `-`*(offset: int, arg: c_git_revparse_mode_t): c_git_revparse_mode_t =
   c_git_revparse_mode_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_revparse_mode_t]): cint = 
+converter toCint*(args: set[git_revparse_mode_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 

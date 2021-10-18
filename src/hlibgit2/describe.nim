@@ -7,7 +7,7 @@ import
 
 type
   c_git_describe_strategy_t* = enum
-    c_GIT_DESCRIBE_DEFAULT = 0      
+    c_GIT_DESCRIBE_DEFAULT = 0 shl 0
     c_GIT_DESCRIBE_TAGS    = 1 shl 0
     c_GIT_DESCRIBE_ALL     = 1 shl 1
    
@@ -29,7 +29,7 @@ type
                          importc.} = object
     
    
-  git_describe_strategy_t* = enum
+  git_describe_strategy_t* {.size: sizeof(cint).} = enum
     GIT_DESCRIBE_DEFAULT
     GIT_DESCRIBE_TAGS   
     GIT_DESCRIBE_ALL    
@@ -60,8 +60,15 @@ converter to_git_describe_strategy_t*(
  
 
 converter toCint*(arg: c_git_describe_strategy_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
  
+converter toCint*(arg: git_describe_strategy_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_describe_strategy_t(arg)))
+ 
 func `+`*(
     arg:    c_git_describe_strategy_t,
     offset: int
@@ -85,6 +92,19 @@ func `-`*(
     arg:    c_git_describe_strategy_t
   ): c_git_describe_strategy_t = 
   c_git_describe_strategy_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_describe_strategy_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_DESCRIBE_DEFAULT:
+        result = result or (0 shl 0)
+      of GIT_DESCRIBE_TAGS:
+        result = result or (1 shl 0)
+      of GIT_DESCRIBE_ALL:
+        result = result or (1 shl 1)
  
 
 proc git_describe_options_init*(

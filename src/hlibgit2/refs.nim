@@ -8,7 +8,7 @@ import
 
 type
   c_git_reference_format_t* = enum
-    c_GIT_REFERENCE_FORMAT_NORMAL            = 0      
+    c_GIT_REFERENCE_FORMAT_NORMAL            = 0 shl 0
     c_GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL    = 1 shl 0
     c_GIT_REFERENCE_FORMAT_REFSPEC_PATTERN   = 1 shl 1
     c_GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND = 1 shl 2
@@ -21,7 +21,7 @@ type
    
   git_reference_foreach_name_cbNim* = proc(name: cstring): cint
    
-  git_reference_format_t* = enum
+  git_reference_format_t* {.size: sizeof(cint).} = enum
     GIT_REFERENCE_FORMAT_NORMAL           
     GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL   
     GIT_REFERENCE_FORMAT_REFSPEC_PATTERN  
@@ -334,8 +334,15 @@ converter to_git_reference_format_t*(
  
 
 converter toCint*(arg: c_git_reference_format_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
  
+converter toCint*(arg: git_reference_format_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_reference_format_t(arg)))
+ 
 func `+`*(
     arg:    c_git_reference_format_t,
     offset: int
@@ -359,6 +366,21 @@ func `-`*(
     arg:    c_git_reference_format_t
   ): c_git_reference_format_t = 
   c_git_reference_format_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_reference_format_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_REFERENCE_FORMAT_NORMAL:
+        result = result or (0 shl 0)
+      of GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL:
+        result = result or (1 shl 0)
+      of GIT_REFERENCE_FORMAT_REFSPEC_PATTERN:
+        result = result or (1 shl 1)
+      of GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND:
+        result = result or (1 shl 2)
  
 
 proc git_reference_normalize_name*(

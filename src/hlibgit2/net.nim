@@ -6,10 +6,10 @@ import
 
 type
   c_git_direction* = enum
-    c_GIT_DIRECTION_FETCH = 0      
+    c_GIT_DIRECTION_FETCH = 0 shl 0
     c_GIT_DIRECTION_PUSH  = 1 shl 0
    
-  git_direction* = enum
+  git_direction* {.size: sizeof(cint).} = enum
     GIT_DIRECTION_FETCH
     GIT_DIRECTION_PUSH 
    
@@ -38,7 +38,14 @@ converter to_git_direction*(arg: c_git_direction): git_direction =
  
 
 converter toCint*(arg: c_git_direction): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_direction): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_direction(arg)))
  
 func `+`*(arg: c_git_direction, offset: int): c_git_direction = 
   c_git_direction(ord(arg) + offset)
@@ -51,5 +58,16 @@ func `-`*(arg: c_git_direction, offset: int): c_git_direction =
  
 func `-`*(offset: int, arg: c_git_direction): c_git_direction = 
   c_git_direction(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_direction]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_DIRECTION_FETCH:
+        result = result or (0 shl 0)
+      of GIT_DIRECTION_PUSH:
+        result = result or (1 shl 0)
  
 

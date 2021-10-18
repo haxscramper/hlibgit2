@@ -7,7 +7,7 @@ import
 
 type
   c_git_sort_t* = enum
-    c_GIT_SORT_NONE        = 0      
+    c_GIT_SORT_NONE        = 0 shl 0
     c_GIT_SORT_TOPOLOGICAL = 1 shl 0
     c_GIT_SORT_TIME        = 1 shl 1
     c_GIT_SORT_REVERSE     = 1 shl 2
@@ -16,7 +16,7 @@ type
    
   git_revwalk_hide_cbNim* = proc(commit_id: ptr git_oid): cint
    
-  git_sort_t* = enum
+  git_sort_t* {.size: sizeof(cint).} = enum
     GIT_SORT_NONE       
     GIT_SORT_TOPOLOGICAL
     GIT_SORT_TIME       
@@ -48,7 +48,14 @@ converter to_git_sort_t*(arg: c_git_sort_t): git_sort_t =
  
 
 converter toCint*(arg: c_git_sort_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_sort_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_sort_t(arg)))
  
 func `+`*(arg: c_git_sort_t, offset: int): c_git_sort_t = 
   c_git_sort_t(ord(arg) + offset)
@@ -61,6 +68,21 @@ func `-`*(arg: c_git_sort_t, offset: int): c_git_sort_t =
  
 func `-`*(offset: int, arg: c_git_sort_t): c_git_sort_t = 
   c_git_sort_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_sort_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_SORT_NONE:
+        result = result or (0 shl 0)
+      of GIT_SORT_TOPOLOGICAL:
+        result = result or (1 shl 0)
+      of GIT_SORT_TIME:
+        result = result or (1 shl 1)
+      of GIT_SORT_REVERSE:
+        result = result or (1 shl 2)
  
 
 proc git_revwalk_new*(

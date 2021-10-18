@@ -22,21 +22,21 @@ type
     c_GIT_REPOSITORY_INIT_SHARED_ALL   = 2777
    
   c_git_repository_item_t* = enum
-    c_GIT_REPOSITORY_ITEM_GITDIR      = 0      
-    c_GIT_REPOSITORY_ITEM_WORKDIR     = 1 shl 0
-    c_GIT_REPOSITORY_ITEM_COMMONDIR   = 1 shl 1
-    c_GIT_REPOSITORY_ITEM_INDEX       = 3      
-    c_GIT_REPOSITORY_ITEM_OBJECTS     = 1 shl 2
-    c_GIT_REPOSITORY_ITEM_REFS        = 5      
-    c_GIT_REPOSITORY_ITEM_PACKED_REFS = 6      
-    c_GIT_REPOSITORY_ITEM_REMOTES     = 7      
-    c_GIT_REPOSITORY_ITEM_CONFIG      = 1 shl 3
-    c_GIT_REPOSITORY_ITEM_INFO        = 9      
-    c_GIT_REPOSITORY_ITEM_HOOKS       = 10     
-    c_GIT_REPOSITORY_ITEM_LOGS        = 11     
-    c_GIT_REPOSITORY_ITEM_MODULES     = 12     
-    c_GIT_REPOSITORY_ITEM_WORKTREES   = 13     
-    c_GIT_REPOSITORY_ITEM_LAST        = 14     
+    c_GIT_REPOSITORY_ITEM_GITDIR      = 0 
+    c_GIT_REPOSITORY_ITEM_WORKDIR     = 1 
+    c_GIT_REPOSITORY_ITEM_COMMONDIR   = 2 
+    c_GIT_REPOSITORY_ITEM_INDEX       = 3 
+    c_GIT_REPOSITORY_ITEM_OBJECTS     = 4 
+    c_GIT_REPOSITORY_ITEM_REFS        = 5 
+    c_GIT_REPOSITORY_ITEM_PACKED_REFS = 6 
+    c_GIT_REPOSITORY_ITEM_REMOTES     = 7 
+    c_GIT_REPOSITORY_ITEM_CONFIG      = 8 
+    c_GIT_REPOSITORY_ITEM_INFO        = 9 
+    c_GIT_REPOSITORY_ITEM_HOOKS       = 10
+    c_GIT_REPOSITORY_ITEM_LOGS        = 11
+    c_GIT_REPOSITORY_ITEM_MODULES     = 12
+    c_GIT_REPOSITORY_ITEM_WORKTREES   = 13
+    c_GIT_REPOSITORY_ITEM_LAST        = 14
    
   c_git_repository_open_flag_t* = enum
     c_GIT_REPOSITORY_OPEN_NO_SEARCH = 1 shl 0
@@ -46,18 +46,18 @@ type
     c_GIT_REPOSITORY_OPEN_FROM_ENV  = 1 shl 4
    
   c_git_repository_state_t* = enum
-    c_GIT_REPOSITORY_STATE_NONE                    = 0      
-    c_GIT_REPOSITORY_STATE_MERGE                   = 1 shl 0
-    c_GIT_REPOSITORY_STATE_REVERT                  = 1 shl 1
-    c_GIT_REPOSITORY_STATE_REVERT_SEQUENCE         = 3      
-    c_GIT_REPOSITORY_STATE_CHERRYPICK              = 1 shl 2
-    c_GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE     = 5      
-    c_GIT_REPOSITORY_STATE_BISECT                  = 6      
-    c_GIT_REPOSITORY_STATE_REBASE                  = 7      
-    c_GIT_REPOSITORY_STATE_REBASE_INTERACTIVE      = 1 shl 3
-    c_GIT_REPOSITORY_STATE_REBASE_MERGE            = 9      
-    c_GIT_REPOSITORY_STATE_APPLY_MAILBOX           = 10     
-    c_GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE = 11     
+    c_GIT_REPOSITORY_STATE_NONE                    = 0 
+    c_GIT_REPOSITORY_STATE_MERGE                   = 1 
+    c_GIT_REPOSITORY_STATE_REVERT                  = 2 
+    c_GIT_REPOSITORY_STATE_REVERT_SEQUENCE         = 3 
+    c_GIT_REPOSITORY_STATE_CHERRYPICK              = 4 
+    c_GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE     = 5 
+    c_GIT_REPOSITORY_STATE_BISECT                  = 6 
+    c_GIT_REPOSITORY_STATE_REBASE                  = 7 
+    c_GIT_REPOSITORY_STATE_REBASE_INTERACTIVE      = 8 
+    c_GIT_REPOSITORY_STATE_REBASE_MERGE            = 9 
+    c_GIT_REPOSITORY_STATE_APPLY_MAILBOX           = 10
+    c_GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE = 11
    
   git_repository_fetchhead_foreach_cb* = proc(ref_name: cstring, remote_url: cstring, oid: ptr git_oid, is_merge: cuint, payload: pointer): cint{.cdecl.}
    
@@ -193,7 +193,14 @@ converter to_git_repository_open_flag_t*(
  
 
 converter toCint*(arg: c_git_repository_open_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_repository_open_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_repository_open_flag_t(arg)))
  
 func `+`*(
     arg:    c_git_repository_open_flag_t,
@@ -220,7 +227,9 @@ func `-`*(
   c_git_repository_open_flag_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_repository_open_flag_t]): cint = 
+converter toCint*(args: set[git_repository_open_flag_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 
@@ -293,7 +302,14 @@ converter to_git_repository_init_flag_t*(
  
 
 converter toCint*(arg: c_git_repository_init_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_repository_init_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_repository_init_flag_t(arg)))
  
 func `+`*(
     arg:    c_git_repository_init_flag_t,
@@ -320,7 +336,9 @@ func `-`*(
   c_git_repository_init_flag_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_repository_init_flag_t]): cint = 
+converter toCint*(args: set[git_repository_init_flag_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 
@@ -349,7 +367,14 @@ converter to_git_repository_init_mode_t*(
  
 
 converter toCint*(arg: c_git_repository_init_mode_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_repository_init_mode_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_repository_init_mode_t(arg)))
  
 func `+`*(
     arg:    c_git_repository_init_mode_t,
@@ -504,7 +529,14 @@ converter to_git_repository_item_t*(
  
 
 converter toCint*(arg: c_git_repository_item_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_repository_item_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_repository_item_t(arg)))
  
 func `+`*(arg: c_git_repository_item_t, offset: int): c_git_repository_item_t = 
   c_git_repository_item_t(ord(arg) + offset)
@@ -733,7 +765,14 @@ converter to_git_repository_state_t*(
  
 
 converter toCint*(arg: c_git_repository_state_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_repository_state_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_repository_state_t(arg)))
  
 func `+`*(
     arg:    c_git_repository_state_t,

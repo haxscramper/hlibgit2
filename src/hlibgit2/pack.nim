@@ -9,7 +9,7 @@ import
 
 type
   c_git_packbuilder_stage_t* = enum
-    c_GIT_PACKBUILDER_ADDING_OBJECTS = 0      
+    c_GIT_PACKBUILDER_ADDING_OBJECTS = 0 shl 0
     c_GIT_PACKBUILDER_DELTAFICATION  = 1 shl 0
    
   git_packbuilder_foreach_cb* = proc(buf: pointer, size: csize_t, payload: pointer): cint{.cdecl.}
@@ -20,7 +20,7 @@ type
    
   git_packbuilder_progressNim* = proc(stage: cint, current: uint32, total: uint32): cint
    
-  git_packbuilder_stage_t* = enum
+  git_packbuilder_stage_t* {.size: sizeof(cint).} = enum
     GIT_PACKBUILDER_ADDING_OBJECTS
     GIT_PACKBUILDER_DELTAFICATION 
    
@@ -46,8 +46,15 @@ converter to_git_packbuilder_stage_t*(
  
 
 converter toCint*(arg: c_git_packbuilder_stage_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
  
+converter toCint*(arg: git_packbuilder_stage_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_packbuilder_stage_t(arg)))
+ 
 func `+`*(
     arg:    c_git_packbuilder_stage_t,
     offset: int
@@ -71,6 +78,17 @@ func `-`*(
     arg:    c_git_packbuilder_stage_t
   ): c_git_packbuilder_stage_t = 
   c_git_packbuilder_stage_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_packbuilder_stage_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_PACKBUILDER_ADDING_OBJECTS:
+        result = result or (0 shl 0)
+      of GIT_PACKBUILDER_DELTAFICATION:
+        result = result or (1 shl 0)
  
 
 proc git_packbuilder_new*(

@@ -8,26 +8,26 @@ import
 
 type
   c_git_stash_apply_flags* = enum
-    c_GIT_STASH_APPLY_DEFAULT         = 0      
+    c_GIT_STASH_APPLY_DEFAULT         = 0 shl 0
     c_GIT_STASH_APPLY_REINSTATE_INDEX = 1 shl 0
    
   c_git_stash_apply_progress_t* = enum
-    c_GIT_STASH_APPLY_PROGRESS_NONE               = 0                                                              
-    c_GIT_STASH_APPLY_PROGRESS_LOADING_STASH      = 1 shl 0 ## Loading the stashed data from the object database.  
-    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX      = 1 shl 1 ## The stored index is being analyzed.                 
-    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED   = 3       ## The modified files are being analyzed.              
-    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED  = 1 shl 2 ## The untracked and ignored files are being analyzed. 
-    c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED = 5       ## The untracked files are being written to disk.      
-    c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED  = 6       ## The modified files are being written to disk.       
-    c_GIT_STASH_APPLY_PROGRESS_DONE               = 7       ## The stash was applied successfully.                 
+    c_GIT_STASH_APPLY_PROGRESS_NONE               = 0                                                        
+    c_GIT_STASH_APPLY_PROGRESS_LOADING_STASH      = 1 ## Loading the stashed data from the object database.  
+    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX      = 2 ## The stored index is being analyzed.                 
+    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED   = 3 ## The modified files are being analyzed.              
+    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED  = 4 ## The untracked and ignored files are being analyzed. 
+    c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED = 5 ## The untracked files are being written to disk.      
+    c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED  = 6 ## The modified files are being written to disk.       
+    c_GIT_STASH_APPLY_PROGRESS_DONE               = 7 ## The stash was applied successfully.                 
    
   c_git_stash_flags* = enum
-    c_GIT_STASH_DEFAULT           = 0      
+    c_GIT_STASH_DEFAULT           = 0 shl 0
     c_GIT_STASH_KEEP_INDEX        = 1 shl 0
     c_GIT_STASH_INCLUDE_UNTRACKED = 1 shl 1
     c_GIT_STASH_INCLUDE_IGNORED   = 1 shl 2
    
-  git_stash_apply_flags* = enum
+  git_stash_apply_flags* {.size: sizeof(cint).} = enum
     GIT_STASH_APPLY_DEFAULT        
     GIT_STASH_APPLY_REINSTATE_INDEX
    
@@ -56,7 +56,7 @@ type
    
   git_stash_cbNim* = proc(index: csize_t, message: cstring, stash_id: ptr git_oid): cint
    
-  git_stash_flags* = enum
+  git_stash_flags* {.size: sizeof(cint).} = enum
     GIT_STASH_DEFAULT          
     GIT_STASH_KEEP_INDEX       
     GIT_STASH_INCLUDE_UNTRACKED
@@ -88,7 +88,14 @@ converter to_git_stash_flags*(arg: c_git_stash_flags): git_stash_flags =
  
 
 converter toCint*(arg: c_git_stash_flags): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_stash_flags): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_stash_flags(arg)))
  
 func `+`*(arg: c_git_stash_flags, offset: int): c_git_stash_flags = 
   c_git_stash_flags(ord(arg) + offset)
@@ -101,6 +108,21 @@ func `-`*(arg: c_git_stash_flags, offset: int): c_git_stash_flags =
  
 func `-`*(offset: int, arg: c_git_stash_flags): c_git_stash_flags = 
   c_git_stash_flags(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_stash_flags]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_STASH_DEFAULT:
+        result = result or (0 shl 0)
+      of GIT_STASH_KEEP_INDEX:
+        result = result or (1 shl 0)
+      of GIT_STASH_INCLUDE_UNTRACKED:
+        result = result or (1 shl 1)
+      of GIT_STASH_INCLUDE_IGNORED:
+        result = result or (1 shl 2)
  
 
 proc git_stash_save*(
@@ -134,7 +156,14 @@ converter to_git_stash_apply_flags*(
  
 
 converter toCint*(arg: c_git_stash_apply_flags): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_stash_apply_flags): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_stash_apply_flags(arg)))
  
 func `+`*(arg: c_git_stash_apply_flags, offset: int): c_git_stash_apply_flags = 
   c_git_stash_apply_flags(ord(arg) + offset)
@@ -147,6 +176,17 @@ func `-`*(arg: c_git_stash_apply_flags, offset: int): c_git_stash_apply_flags =
  
 func `-`*(offset: int, arg: c_git_stash_apply_flags): c_git_stash_apply_flags = 
   c_git_stash_apply_flags(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_stash_apply_flags]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_STASH_APPLY_DEFAULT:
+        result = result or (0 shl 0)
+      of GIT_STASH_APPLY_REINSTATE_INDEX:
+        result = result or (1 shl 0)
  
 
 proc to_c_git_stash_apply_progress_t*(
@@ -194,7 +234,14 @@ converter to_git_stash_apply_progress_t*(
  
 
 converter toCint*(arg: c_git_stash_apply_progress_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_stash_apply_progress_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_stash_apply_progress_t(arg)))
  
 func `+`*(
     arg:    c_git_stash_apply_progress_t,

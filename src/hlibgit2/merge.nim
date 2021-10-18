@@ -11,20 +11,20 @@ import
 
 type
   c_git_merge_analysis_t* = enum
-    c_GIT_MERGE_ANALYSIS_NONE        = 0       ## No merge is possible.  (Unused.) 
+    c_GIT_MERGE_ANALYSIS_NONE        = 0 shl 0 ## No merge is possible.  (Unused.) 
     c_GIT_MERGE_ANALYSIS_NORMAL      = 1 shl 0                                     
     c_GIT_MERGE_ANALYSIS_UP_TO_DATE  = 1 shl 1                                     
     c_GIT_MERGE_ANALYSIS_FASTFORWARD = 1 shl 2                                     
     c_GIT_MERGE_ANALYSIS_UNBORN      = 1 shl 3                                     
    
   c_git_merge_file_favor_t* = enum
-    c_GIT_MERGE_FILE_FAVOR_NORMAL = 0      
-    c_GIT_MERGE_FILE_FAVOR_OURS   = 1 shl 0
-    c_GIT_MERGE_FILE_FAVOR_THEIRS = 1 shl 1
-    c_GIT_MERGE_FILE_FAVOR_UNION  = 3      
+    c_GIT_MERGE_FILE_FAVOR_NORMAL = 0
+    c_GIT_MERGE_FILE_FAVOR_OURS   = 1
+    c_GIT_MERGE_FILE_FAVOR_THEIRS = 2
+    c_GIT_MERGE_FILE_FAVOR_UNION  = 3
    
   c_git_merge_file_flag_t* = enum
-    c_GIT_MERGE_FILE_DEFAULT                  = 0       ## Defaults                                                   
+    c_GIT_MERGE_FILE_DEFAULT                  = 0 shl 0 ## Defaults                                                   
     c_GIT_MERGE_FILE_STYLE_MERGE              = 1 shl 0 ## Create standard conflicted merge files                     
     c_GIT_MERGE_FILE_STYLE_DIFF3              = 1 shl 1 ## Create diff3-style files                                   
     c_GIT_MERGE_FILE_SIMPLIFY_ALNUM           = 1 shl 2 ## Condense non-alphanumeric regions for simplified diff file 
@@ -41,11 +41,11 @@ type
     c_GIT_MERGE_NO_RECURSIVE     = 1 shl 3
    
   c_git_merge_preference_t* = enum
-    c_GIT_MERGE_PREFERENCE_NONE             = 0      
+    c_GIT_MERGE_PREFERENCE_NONE             = 0 shl 0
     c_GIT_MERGE_PREFERENCE_NO_FASTFORWARD   = 1 shl 0
     c_GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 1 shl 1
    
-  git_merge_analysis_t* = enum
+  git_merge_analysis_t* {.size: sizeof(cint).} = enum
     GIT_MERGE_ANALYSIS_NONE        ## No merge is possible.  (Unused.) 
     GIT_MERGE_ANALYSIS_NORMAL                                          
     GIT_MERGE_ANALYSIS_UP_TO_DATE                                      
@@ -58,7 +58,7 @@ type
     GIT_MERGE_FILE_FAVOR_THEIRS
     GIT_MERGE_FILE_FAVOR_UNION 
    
-  git_merge_file_flag_t* = enum
+  git_merge_file_flag_t* {.size: sizeof(cint).} = enum
     GIT_MERGE_FILE_DEFAULT                  ## Defaults                                                   
     GIT_MERGE_FILE_STYLE_MERGE              ## Create standard conflicted merge files                     
     GIT_MERGE_FILE_STYLE_DIFF3              ## Create diff3-style files                                   
@@ -109,7 +109,7 @@ type
     file_favor*:       c_git_merge_file_favor_t                                                                        
     file_flags*:       uint32                         ## see `git_merge_file_flag_t` above                             
    
-  git_merge_preference_t* = enum
+  git_merge_preference_t* {.size: sizeof(cint).} = enum
     GIT_MERGE_PREFERENCE_NONE            
     GIT_MERGE_PREFERENCE_NO_FASTFORWARD  
     GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY
@@ -147,7 +147,14 @@ converter to_git_merge_flag_t*(arg: c_git_merge_flag_t): git_merge_flag_t =
  
 
 converter toCint*(arg: c_git_merge_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_merge_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_merge_flag_t(arg)))
  
 func `+`*(arg: c_git_merge_flag_t, offset: int): c_git_merge_flag_t = 
   c_git_merge_flag_t(ord(arg) + offset)
@@ -162,7 +169,9 @@ func `-`*(offset: int, arg: c_git_merge_flag_t): c_git_merge_flag_t =
   c_git_merge_flag_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_merge_flag_t]): cint = 
+converter toCint*(args: set[git_merge_flag_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 
@@ -195,7 +204,14 @@ converter to_git_merge_file_favor_t*(
  
 
 converter toCint*(arg: c_git_merge_file_favor_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_merge_file_favor_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_merge_file_favor_t(arg)))
  
 func `+`*(
     arg:    c_git_merge_file_favor_t,
@@ -271,7 +287,14 @@ converter to_git_merge_file_flag_t*(
  
 
 converter toCint*(arg: c_git_merge_file_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_merge_file_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_merge_file_flag_t(arg)))
  
 func `+`*(arg: c_git_merge_file_flag_t, offset: int): c_git_merge_file_flag_t = 
   c_git_merge_file_flag_t(ord(arg) + offset)
@@ -284,6 +307,31 @@ func `-`*(arg: c_git_merge_file_flag_t, offset: int): c_git_merge_file_flag_t =
  
 func `-`*(offset: int, arg: c_git_merge_file_flag_t): c_git_merge_file_flag_t = 
   c_git_merge_file_flag_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_merge_file_flag_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_MERGE_FILE_DEFAULT:
+        result = result or (0 shl 0)
+      of GIT_MERGE_FILE_STYLE_MERGE:
+        result = result or (1 shl 0)
+      of GIT_MERGE_FILE_STYLE_DIFF3:
+        result = result or (1 shl 1)
+      of GIT_MERGE_FILE_SIMPLIFY_ALNUM:
+        result = result or (1 shl 2)
+      of GIT_MERGE_FILE_IGNORE_WHITESPACE:
+        result = result or (1 shl 3)
+      of GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE:
+        result = result or (1 shl 4)
+      of GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL:
+        result = result or (1 shl 5)
+      of GIT_MERGE_FILE_DIFF_PATIENCE:
+        result = result or (1 shl 6)
+      of GIT_MERGE_FILE_DIFF_MINIMAL:
+        result = result or (1 shl 7)
  
 
 proc git_merge_file_options_init*(
@@ -333,7 +381,14 @@ converter to_git_merge_analysis_t*(
  
 
 converter toCint*(arg: c_git_merge_analysis_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_merge_analysis_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_merge_analysis_t(arg)))
  
 func `+`*(arg: c_git_merge_analysis_t, offset: int): c_git_merge_analysis_t = 
   c_git_merge_analysis_t(ord(arg) + offset)
@@ -346,6 +401,23 @@ func `-`*(arg: c_git_merge_analysis_t, offset: int): c_git_merge_analysis_t =
  
 func `-`*(offset: int, arg: c_git_merge_analysis_t): c_git_merge_analysis_t = 
   c_git_merge_analysis_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_merge_analysis_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_MERGE_ANALYSIS_NONE:
+        result = result or (0 shl 0)
+      of GIT_MERGE_ANALYSIS_NORMAL:
+        result = result or (1 shl 0)
+      of GIT_MERGE_ANALYSIS_UP_TO_DATE:
+        result = result or (1 shl 1)
+      of GIT_MERGE_ANALYSIS_FASTFORWARD:
+        result = result or (1 shl 2)
+      of GIT_MERGE_ANALYSIS_UNBORN:
+        result = result or (1 shl 3)
  
 
 proc to_c_git_merge_preference_t*(
@@ -373,8 +445,15 @@ converter to_git_merge_preference_t*(
  
 
 converter toCint*(arg: c_git_merge_preference_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
  
+converter toCint*(arg: git_merge_preference_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_merge_preference_t(arg)))
+ 
 func `+`*(
     arg:    c_git_merge_preference_t,
     offset: int
@@ -398,6 +477,19 @@ func `-`*(
     arg:    c_git_merge_preference_t
   ): c_git_merge_preference_t = 
   c_git_merge_preference_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_merge_preference_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_MERGE_PREFERENCE_NONE:
+        result = result or (0 shl 0)
+      of GIT_MERGE_PREFERENCE_NO_FASTFORWARD:
+        result = result or (1 shl 0)
+      of GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY:
+        result = result or (1 shl 1)
  
 
 proc git_merge_analysis*(

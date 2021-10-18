@@ -9,38 +9,38 @@ import
 
 type
   c_git_delta_t* = enum
-    c_GIT_DELTA_UNMODIFIED = 0                                                    
-    c_GIT_DELTA_ADDED      = 1 shl 0 ## no changes                                
-    c_GIT_DELTA_DELETED    = 1 shl 1 ## entry does not exist in old version       
-    c_GIT_DELTA_MODIFIED   = 3       ## entry does not exist in new version       
-    c_GIT_DELTA_RENAMED    = 1 shl 2 ## entry content changed between old and new 
-    c_GIT_DELTA_COPIED     = 5       ## entry was renamed between old and new     
-    c_GIT_DELTA_IGNORED    = 6       ## entry was copied from another old entry   
-    c_GIT_DELTA_UNTRACKED  = 7       ## entry is ignored item in workdir          
-    c_GIT_DELTA_TYPECHANGE = 1 shl 3 ## entry is untracked item in workdir        
-    c_GIT_DELTA_UNREADABLE = 9       ## type of entry changed between old and new 
-    c_GIT_DELTA_CONFLICTED = 10      ## entry is unreadable                       
+    c_GIT_DELTA_UNMODIFIED = 0                                               
+    c_GIT_DELTA_ADDED      = 1  ## no changes                                
+    c_GIT_DELTA_DELETED    = 2  ## entry does not exist in old version       
+    c_GIT_DELTA_MODIFIED   = 3  ## entry does not exist in new version       
+    c_GIT_DELTA_RENAMED    = 4  ## entry content changed between old and new 
+    c_GIT_DELTA_COPIED     = 5  ## entry was renamed between old and new     
+    c_GIT_DELTA_IGNORED    = 6  ## entry was copied from another old entry   
+    c_GIT_DELTA_UNTRACKED  = 7  ## entry is ignored item in workdir          
+    c_GIT_DELTA_TYPECHANGE = 8  ## entry is untracked item in workdir        
+    c_GIT_DELTA_UNREADABLE = 9  ## type of entry changed between old and new 
+    c_GIT_DELTA_CONFLICTED = 10 ## entry is unreadable                       
    
   c_git_diff_binary_t* = enum
-    c_GIT_DIFF_BINARY_NONE    = 0       ## There is no binary delta.                                
+    c_GIT_DIFF_BINARY_NONE    = 0 shl 0 ## There is no binary delta.                                
     c_GIT_DIFF_BINARY_LITERAL = 1 shl 0 ## The binary data is the literal contents of the file.     
     c_GIT_DIFF_BINARY_DELTA   = 1 shl 1 ## The binary data is the delta from one side to the other. 
    
   c_git_diff_find_t* = enum
-    c_GIT_DIFF_FIND_BY_CONFIG                  = 0        ## Obey `diff.renames`. Overridden by any other GIT_DIFF_FIND_... flag. 
-    c_GIT_DIFF_FIND_RENAMES                    = 1 shl 0  ## Look for renames? (`--find-renames`)                                 
-    c_GIT_DIFF_FIND_RENAMES_FROM_REWRITES      = 1 shl 1  ## Consider old side of MODIFIED for renames? (`--break-rewrites=N`)    
-    c_GIT_DIFF_FIND_COPIES                     = 1 shl 2  ## Look for copies? (a la `--find-copies`).                             
-    c_GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED     = 1 shl 3                                                                          
-    c_GIT_DIFF_FIND_REWRITES                   = 1 shl 4  ## Mark significant rewrites for split (`--break-rewrites=/M`)          
-    c_GIT_DIFF_BREAK_REWRITES                  = 1 shl 5  ## Actually split large rewrites into delete/add pairs                  
-    c_GIT_DIFF_FIND_AND_BREAK_REWRITES         = 48       ## Mark rewrites for split and break into delete/add pairs              
-    c_GIT_DIFF_FIND_FOR_UNTRACKED              = 1 shl 6                                                                          
-    c_GIT_DIFF_FIND_IGNORE_WHITESPACE          = 1 shl 12 ## Measure similarity ignoring all whitespace                           
-    c_GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE     = 1 shl 13 ## Measure similarity including all data                                
-    c_GIT_DIFF_FIND_EXACT_MATCH_ONLY           = 1 shl 14 ## Measure similarity only by comparing SHAs (fast and cheap)           
-    c_GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY = 1 shl 15                                                                         
-    c_GIT_DIFF_FIND_REMOVE_UNMODIFIED          = 1 shl 16                                                                         
+    c_GIT_DIFF_FIND_BY_CONFIG                  = 0     ## Obey `diff.renames`. Overridden by any other GIT_DIFF_FIND_... flag. 
+    c_GIT_DIFF_FIND_RENAMES                    = 1     ## Look for renames? (`--find-renames`)                                 
+    c_GIT_DIFF_FIND_RENAMES_FROM_REWRITES      = 2     ## Consider old side of MODIFIED for renames? (`--break-rewrites=N`)    
+    c_GIT_DIFF_FIND_COPIES                     = 4     ## Look for copies? (a la `--find-copies`).                             
+    c_GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED     = 8                                                                             
+    c_GIT_DIFF_FIND_REWRITES                   = 16    ## Mark significant rewrites for split (`--break-rewrites=/M`)          
+    c_GIT_DIFF_BREAK_REWRITES                  = 32    ## Actually split large rewrites into delete/add pairs                  
+    c_GIT_DIFF_FIND_AND_BREAK_REWRITES         = 48    ## Mark rewrites for split and break into delete/add pairs              
+    c_GIT_DIFF_FIND_FOR_UNTRACKED              = 64                                                                            
+    c_GIT_DIFF_FIND_IGNORE_WHITESPACE          = 4096  ## Measure similarity ignoring all whitespace                           
+    c_GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE     = 8192  ## Measure similarity including all data                                
+    c_GIT_DIFF_FIND_EXACT_MATCH_ONLY           = 16384 ## Measure similarity only by comparing SHAs (fast and cheap)           
+    c_GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY = 32768                                                                         
+    c_GIT_DIFF_FIND_REMOVE_UNMODIFIED          = 65536                                                                         
    
   c_git_diff_flag_t* = enum
     c_GIT_DIFF_FLAG_BINARY     = 1 shl 0                                   
@@ -49,22 +49,22 @@ type
     c_GIT_DIFF_FLAG_EXISTS     = 1 shl 3 ## `id` value is known correct    
    
   c_git_diff_format_email_flags_t* = enum
-    c_GIT_DIFF_FORMAT_EMAIL_NONE                         = 0       ## Normal patch, the default                   
+    c_GIT_DIFF_FORMAT_EMAIL_NONE                         = 0 shl 0 ## Normal patch, the default                   
     c_GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER = 1 shl 0 ## Don't insert "[PATCH]" in the subject header
    
   c_git_diff_format_t* = enum
-    c_GIT_DIFF_FORMAT_PATCH        = 1 shl 0                                   
-    c_GIT_DIFF_FORMAT_PATCH_HEADER = 1 shl 1 ## full git diff                  
-    c_GIT_DIFF_FORMAT_RAW          = 3       ## just the file headers of patch 
-    c_GIT_DIFF_FORMAT_NAME_ONLY    = 1 shl 2 ## like git diff --raw            
-    c_GIT_DIFF_FORMAT_NAME_STATUS  = 5       ## like git diff --name-only      
-    c_GIT_DIFF_FORMAT_PATCH_ID     = 6       ## like git diff --name-status    
+    c_GIT_DIFF_FORMAT_PATCH        = 1                                   
+    c_GIT_DIFF_FORMAT_PATCH_HEADER = 2 ## full git diff                  
+    c_GIT_DIFF_FORMAT_RAW          = 3 ## just the file headers of patch 
+    c_GIT_DIFF_FORMAT_NAME_ONLY    = 4 ## like git diff --raw            
+    c_GIT_DIFF_FORMAT_NAME_STATUS  = 5 ## like git diff --name-only      
+    c_GIT_DIFF_FORMAT_PATCH_ID     = 6 ## like git diff --name-status    
    
   c_git_diff_line_t* = enum
     c_GIT_DIFF_LINE_CONTEXT = 39 ## These values will be sent to `git_diff_line_cb` along with the line 
    
   c_git_diff_option_t* = enum
-    c_GIT_DIFF_NORMAL                          = 0        ## Normal diff, the default                                         
+    c_GIT_DIFF_NORMAL                          = 0 shl 0  ## Normal diff, the default                                         
     c_GIT_DIFF_REVERSE                         = 1 shl 0  ## Reverse the sides of the diff                                    
     c_GIT_DIFF_INCLUDE_IGNORED                 = 1 shl 1  ## Include ignored files in the diff                                
     c_GIT_DIFF_RECURSE_IGNORED_DIRS            = 1 shl 2                                                                      
@@ -96,7 +96,7 @@ type
     c_GIT_DIFF_SHOW_BINARY                     = 1 shl 30                                                                     
    
   c_git_diff_stats_format_t* = enum
-    c_GIT_DIFF_STATS_NONE            = 0       ## No stats                                                                                           
+    c_GIT_DIFF_STATS_NONE            = 0 shl 0 ## No stats                                                                                           
     c_GIT_DIFF_STATS_FULL            = 1 shl 0 ## Full statistics, equivalent of `--stat`                                                            
     c_GIT_DIFF_STATS_SHORT           = 1 shl 1 ## Short statistics, equivalent of `--shortstat`                                                      
     c_GIT_DIFF_STATS_NUMBER          = 1 shl 2 ## Number statistics, equivalent of `--numstat`                                                       
@@ -135,7 +135,7 @@ type
     datalen*:                    csize_t             ## The length of the binary data.                 
     inflatedlen*:                csize_t             ## The length of the binary data after inflation. 
    
-  git_diff_binary_t* = enum
+  git_diff_binary_t* {.size: sizeof(cint).} = enum
     GIT_DIFF_BINARY_NONE    ## There is no binary delta.                                
     GIT_DIFF_BINARY_LITERAL ## The binary data is the literal contents of the file.     
     GIT_DIFF_BINARY_DELTA   ## The binary data is the delta from one side to the other. 
@@ -193,7 +193,7 @@ type
     GIT_DIFF_FLAG_VALID_ID   ## file(s) treated as text data   
     GIT_DIFF_FLAG_EXISTS     ## `id` value is known correct    
    
-  git_diff_format_email_flags_t* = enum
+  git_diff_format_email_flags_t* {.size: sizeof(cint).} = enum
     GIT_DIFF_FORMAT_EMAIL_NONE                         ## Normal patch, the default                   
     GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER ## Don't insert "[PATCH]" in the subject header
    
@@ -250,7 +250,7 @@ type
    
   git_diff_notify_cbNim* = proc(diff_so_far: ptr git_diff, delta_to_add: ptr git_diff_delta, matched_pathspec: cstring): cint
    
-  git_diff_option_t* = enum
+  git_diff_option_t* {.size: sizeof(cint).} = enum
     GIT_DIFF_NORMAL                          ## Normal diff, the default                                         
     GIT_DIFF_REVERSE                         ## Reverse the sides of the diff                                    
     GIT_DIFF_INCLUDE_IGNORED                 ## Include ignored files in the diff                                
@@ -315,7 +315,7 @@ type
   git_diff_stats* {.bycopy, incompleteStruct, header: "<git2/diff.h>", importc.} = object
     
    
-  git_diff_stats_format_t* = enum
+  git_diff_stats_format_t* {.size: sizeof(cint).} = enum
     GIT_DIFF_STATS_NONE            ## No stats                                                                                           
     GIT_DIFF_STATS_FULL            ## Full statistics, equivalent of `--stat`                                                            
     GIT_DIFF_STATS_SHORT           ## Short statistics, equivalent of `--shortstat`                                                      
@@ -452,7 +452,14 @@ converter to_git_diff_option_t*(arg: c_git_diff_option_t): git_diff_option_t =
  
 
 converter toCint*(arg: c_git_diff_option_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_diff_option_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_diff_option_t(arg)))
  
 func `+`*(arg: c_git_diff_option_t, offset: int): c_git_diff_option_t = 
   c_git_diff_option_t(ord(arg) + offset)
@@ -465,6 +472,73 @@ func `-`*(arg: c_git_diff_option_t, offset: int): c_git_diff_option_t =
  
 func `-`*(offset: int, arg: c_git_diff_option_t): c_git_diff_option_t = 
   c_git_diff_option_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_diff_option_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_DIFF_NORMAL:
+        result = result or (0 shl 0)
+      of GIT_DIFF_REVERSE:
+        result = result or (1 shl 0)
+      of GIT_DIFF_INCLUDE_IGNORED:
+        result = result or (1 shl 1)
+      of GIT_DIFF_RECURSE_IGNORED_DIRS:
+        result = result or (1 shl 2)
+      of GIT_DIFF_INCLUDE_UNTRACKED:
+        result = result or (1 shl 3)
+      of GIT_DIFF_RECURSE_UNTRACKED_DIRS:
+        result = result or (1 shl 4)
+      of GIT_DIFF_INCLUDE_UNMODIFIED:
+        result = result or (1 shl 5)
+      of GIT_DIFF_INCLUDE_TYPECHANGE:
+        result = result or (1 shl 6)
+      of GIT_DIFF_INCLUDE_TYPECHANGE_TREES:
+        result = result or (1 shl 7)
+      of GIT_DIFF_IGNORE_FILEMODE:
+        result = result or (1 shl 8)
+      of GIT_DIFF_IGNORE_SUBMODULES:
+        result = result or (1 shl 9)
+      of GIT_DIFF_IGNORE_CASE:
+        result = result or (1 shl 10)
+      of GIT_DIFF_INCLUDE_CASECHANGE:
+        result = result or (1 shl 11)
+      of GIT_DIFF_DISABLE_PATHSPEC_MATCH:
+        result = result or (1 shl 12)
+      of GIT_DIFF_SKIP_BINARY_CHECK:
+        result = result or (1 shl 13)
+      of GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS:
+        result = result or (1 shl 14)
+      of GIT_DIFF_UPDATE_INDEX:
+        result = result or (1 shl 15)
+      of GIT_DIFF_INCLUDE_UNREADABLE:
+        result = result or (1 shl 16)
+      of GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED:
+        result = result or (1 shl 17)
+      of GIT_DIFF_INDENT_HEURISTIC:
+        result = result or (1 shl 18)
+      of GIT_DIFF_FORCE_TEXT:
+        result = result or (1 shl 20)
+      of GIT_DIFF_FORCE_BINARY:
+        result = result or (1 shl 21)
+      of GIT_DIFF_IGNORE_WHITESPACE:
+        result = result or (1 shl 22)
+      of GIT_DIFF_IGNORE_WHITESPACE_CHANGE:
+        result = result or (1 shl 23)
+      of GIT_DIFF_IGNORE_WHITESPACE_EOL:
+        result = result or (1 shl 24)
+      of GIT_DIFF_SHOW_UNTRACKED_CONTENT:
+        result = result or (1 shl 25)
+      of GIT_DIFF_SHOW_UNMODIFIED:
+        result = result or (1 shl 26)
+      of GIT_DIFF_PATIENCE:
+        result = result or (1 shl 28)
+      of GIT_DIFF_MINIMAL:
+        result = result or (1 shl 29)
+      of GIT_DIFF_SHOW_BINARY:
+        result = result or (1 shl 30)
  
 
 proc to_c_git_diff_flag_t*(arg: git_diff_flag_t): c_git_diff_flag_t = 
@@ -492,7 +566,14 @@ converter to_git_diff_flag_t*(arg: c_git_diff_flag_t): git_diff_flag_t =
  
 
 converter toCint*(arg: c_git_diff_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_diff_flag_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_diff_flag_t(arg)))
  
 func `+`*(arg: c_git_diff_flag_t, offset: int): c_git_diff_flag_t = 
   c_git_diff_flag_t(ord(arg) + offset)
@@ -507,7 +588,9 @@ func `-`*(offset: int, arg: c_git_diff_flag_t): c_git_diff_flag_t =
   c_git_diff_flag_t(ord(arg) - offset)
  
 
-converter toCint*(args: set[c_git_diff_flag_t]): cint = 
+converter toCint*(args: set[git_diff_flag_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
   cast[cint](args)
  
 
@@ -564,7 +647,14 @@ converter to_git_delta_t*(arg: c_git_delta_t): git_delta_t =
  
 
 converter toCint*(arg: c_git_delta_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_delta_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_delta_t(arg)))
  
 func `+`*(arg: c_git_delta_t, offset: int): c_git_delta_t = 
   c_git_delta_t(ord(arg) + offset)
@@ -607,7 +697,14 @@ converter to_git_diff_binary_t*(arg: c_git_diff_binary_t): git_diff_binary_t =
  
 
 converter toCint*(arg: c_git_diff_binary_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_diff_binary_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_diff_binary_t(arg)))
  
 func `+`*(arg: c_git_diff_binary_t, offset: int): c_git_diff_binary_t = 
   c_git_diff_binary_t(ord(arg) + offset)
@@ -620,6 +717,19 @@ func `-`*(arg: c_git_diff_binary_t, offset: int): c_git_diff_binary_t =
  
 func `-`*(offset: int, arg: c_git_diff_binary_t): c_git_diff_binary_t = 
   c_git_diff_binary_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_diff_binary_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_DIFF_BINARY_NONE:
+        result = result or (0 shl 0)
+      of GIT_DIFF_BINARY_LITERAL:
+        result = result or (1 shl 0)
+      of GIT_DIFF_BINARY_DELTA:
+        result = result or (1 shl 1)
  
 
 proc to_c_git_diff_line_t*(arg: git_diff_line_t): c_git_diff_line_t = 
@@ -635,7 +745,14 @@ converter to_git_diff_line_t*(arg: c_git_diff_line_t): git_diff_line_t =
  
 
 converter toCint*(arg: c_git_diff_line_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_diff_line_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_diff_line_t(arg)))
  
 func `+`*(arg: c_git_diff_line_t, offset: int): c_git_diff_line_t = 
   c_git_diff_line_t(ord(arg) + offset)
@@ -715,7 +832,14 @@ converter to_git_diff_find_t*(arg: c_git_diff_find_t): git_diff_find_t =
  
 
 converter toCint*(arg: c_git_diff_find_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_diff_find_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_diff_find_t(arg)))
  
 func `+`*(arg: c_git_diff_find_t, offset: int): c_git_diff_find_t = 
   c_git_diff_find_t(ord(arg) + offset)
@@ -882,7 +1006,14 @@ converter to_git_diff_format_t*(arg: c_git_diff_format_t): git_diff_format_t =
  
 
 converter toCint*(arg: c_git_diff_format_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_diff_format_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_diff_format_t(arg)))
  
 func `+`*(arg: c_git_diff_format_t, offset: int): c_git_diff_format_t = 
   c_git_diff_format_t(ord(arg) + offset)
@@ -1003,8 +1134,15 @@ converter to_git_diff_stats_format_t*(
  
 
 converter toCint*(arg: c_git_diff_stats_format_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
  
+converter toCint*(arg: git_diff_stats_format_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_diff_stats_format_t(arg)))
+ 
 func `+`*(
     arg:    c_git_diff_stats_format_t,
     offset: int
@@ -1028,6 +1166,23 @@ func `-`*(
     arg:    c_git_diff_stats_format_t
   ): c_git_diff_stats_format_t = 
   c_git_diff_stats_format_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_diff_stats_format_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_DIFF_STATS_NONE:
+        result = result or (0 shl 0)
+      of GIT_DIFF_STATS_FULL:
+        result = result or (1 shl 0)
+      of GIT_DIFF_STATS_SHORT:
+        result = result or (1 shl 1)
+      of GIT_DIFF_STATS_NUMBER:
+        result = result or (1 shl 2)
+      of GIT_DIFF_STATS_INCLUDE_SUMMARY:
+        result = result or (1 shl 3)
  
 
 proc git_diff_get_stats*(
@@ -1089,8 +1244,15 @@ converter to_git_diff_format_email_flags_t*(
  
 
 converter toCint*(arg: c_git_diff_format_email_flags_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
  
+converter toCint*(arg: git_diff_format_email_flags_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_diff_format_email_flags_t(arg)))
+ 
 func `+`*(
     arg:    c_git_diff_format_email_flags_t,
     offset: int
@@ -1114,6 +1276,17 @@ func `-`*(
     arg:    c_git_diff_format_email_flags_t
   ): c_git_diff_format_email_flags_t = 
   c_git_diff_format_email_flags_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[git_diff_format_email_flags_t]): cint = 
+  ## Convert set of nim enum values into cint that can be passed
+  ## to wrapped C procs.
+  for value in items(args):
+    case value:
+      of GIT_DIFF_FORMAT_EMAIL_NONE:
+        result = result or (0 shl 0)
+      of GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER:
+        result = result or (1 shl 0)
  
 
 proc git_diff_format_email*(

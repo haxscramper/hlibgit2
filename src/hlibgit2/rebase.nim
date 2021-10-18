@@ -10,12 +10,12 @@ import
 
 type
   c_git_rebase_operation_t* = enum
-    c_GIT_REBASE_OPERATION_PICK   = 0      
-    c_GIT_REBASE_OPERATION_REWORD = 1 shl 0
-    c_GIT_REBASE_OPERATION_EDIT   = 1 shl 1
-    c_GIT_REBASE_OPERATION_SQUASH = 3      
-    c_GIT_REBASE_OPERATION_FIXUP  = 1 shl 2
-    c_GIT_REBASE_OPERATION_EXEC   = 5      
+    c_GIT_REBASE_OPERATION_PICK   = 0
+    c_GIT_REBASE_OPERATION_REWORD = 1
+    c_GIT_REBASE_OPERATION_EDIT   = 2
+    c_GIT_REBASE_OPERATION_SQUASH = 3
+    c_GIT_REBASE_OPERATION_FIXUP  = 4
+    c_GIT_REBASE_OPERATION_EXEC   = 5
    
   git_rebase_operation* {.bycopy, header: "<git2/rebase.h>", importc.} = object
     ## Indicates that a rebase operation is not (yet) in progress. 
@@ -79,7 +79,14 @@ converter to_git_rebase_operation_t*(
  
 
 converter toCint*(arg: c_git_rebase_operation_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
   cint(ord(arg))
+ 
+converter toCint*(arg: git_rebase_operation_t): cint = 
+  ## Convert nim enum value into cint that can be passed to wrapped C
+  ## procs.
+  cint(ord(to_c_git_rebase_operation_t(arg)))
  
 func `+`*(
     arg:    c_git_rebase_operation_t,
