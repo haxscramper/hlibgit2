@@ -7,9 +7,9 @@ import
 
 type
   c_git_describe_strategy_t* = enum
-    c_GIT_DESCRIBE_DEFAULT = 0
-    c_GIT_DESCRIBE_TAGS    = 1
-    c_GIT_DESCRIBE_ALL     = 2
+    c_GIT_DESCRIBE_DEFAULT = 0      
+    c_GIT_DESCRIBE_TAGS    = 1 shl 0
+    c_GIT_DESCRIBE_ALL     = 1 shl 1
    
   git_describe_format_options* {.bycopy, header: "<git2/describe.h>", importc.} = object
     version*:                cuint  

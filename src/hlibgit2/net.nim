@@ -6,8 +6,8 @@ import
 
 type
   c_git_direction* = enum
-    c_GIT_DIRECTION_FETCH = 0
-    c_GIT_DIRECTION_PUSH  = 1
+    c_GIT_DIRECTION_FETCH = 0      
+    c_GIT_DIRECTION_PUSH  = 1 shl 0
    
   git_direction* = enum
     GIT_DIRECTION_FETCH

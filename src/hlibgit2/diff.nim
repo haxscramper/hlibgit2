@@ -9,98 +9,98 @@ import
 
 type
   c_git_delta_t* = enum
-    c_GIT_DELTA_UNMODIFIED = 0                                               
-    c_GIT_DELTA_ADDED      = 1  ## no changes                                
-    c_GIT_DELTA_DELETED    = 2  ## entry does not exist in old version       
-    c_GIT_DELTA_MODIFIED   = 3  ## entry does not exist in new version       
-    c_GIT_DELTA_RENAMED    = 4  ## entry content changed between old and new 
-    c_GIT_DELTA_COPIED     = 5  ## entry was renamed between old and new     
-    c_GIT_DELTA_IGNORED    = 6  ## entry was copied from another old entry   
-    c_GIT_DELTA_UNTRACKED  = 7  ## entry is ignored item in workdir          
-    c_GIT_DELTA_TYPECHANGE = 8  ## entry is untracked item in workdir        
-    c_GIT_DELTA_UNREADABLE = 9  ## type of entry changed between old and new 
-    c_GIT_DELTA_CONFLICTED = 10 ## entry is unreadable                       
+    c_GIT_DELTA_UNMODIFIED = 0                                                    
+    c_GIT_DELTA_ADDED      = 1 shl 0 ## no changes                                
+    c_GIT_DELTA_DELETED    = 1 shl 1 ## entry does not exist in old version       
+    c_GIT_DELTA_MODIFIED   = 3       ## entry does not exist in new version       
+    c_GIT_DELTA_RENAMED    = 1 shl 2 ## entry content changed between old and new 
+    c_GIT_DELTA_COPIED     = 5       ## entry was renamed between old and new     
+    c_GIT_DELTA_IGNORED    = 6       ## entry was copied from another old entry   
+    c_GIT_DELTA_UNTRACKED  = 7       ## entry is ignored item in workdir          
+    c_GIT_DELTA_TYPECHANGE = 1 shl 3 ## entry is untracked item in workdir        
+    c_GIT_DELTA_UNREADABLE = 9       ## type of entry changed between old and new 
+    c_GIT_DELTA_CONFLICTED = 10      ## entry is unreadable                       
    
   c_git_diff_binary_t* = enum
-    c_GIT_DIFF_BINARY_NONE    = 0 ## There is no binary delta.                                
-    c_GIT_DIFF_BINARY_LITERAL = 1 ## The binary data is the literal contents of the file.     
-    c_GIT_DIFF_BINARY_DELTA   = 2 ## The binary data is the delta from one side to the other. 
+    c_GIT_DIFF_BINARY_NONE    = 0       ## There is no binary delta.                                
+    c_GIT_DIFF_BINARY_LITERAL = 1 shl 0 ## The binary data is the literal contents of the file.     
+    c_GIT_DIFF_BINARY_DELTA   = 1 shl 1 ## The binary data is the delta from one side to the other. 
    
   c_git_diff_find_t* = enum
-    c_GIT_DIFF_FIND_BY_CONFIG                  = 0     ## Obey `diff.renames`. Overridden by any other GIT_DIFF_FIND_... flag. 
-    c_GIT_DIFF_FIND_RENAMES                    = 1     ## Look for renames? (`--find-renames`)                                 
-    c_GIT_DIFF_FIND_RENAMES_FROM_REWRITES      = 2     ## Consider old side of MODIFIED for renames? (`--break-rewrites=N`)    
-    c_GIT_DIFF_FIND_COPIES                     = 4     ## Look for copies? (a la `--find-copies`).                             
-    c_GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED     = 8                                                                             
-    c_GIT_DIFF_FIND_REWRITES                   = 16    ## Mark significant rewrites for split (`--break-rewrites=/M`)          
-    c_GIT_DIFF_BREAK_REWRITES                  = 32    ## Actually split large rewrites into delete/add pairs                  
-    c_GIT_DIFF_FIND_AND_BREAK_REWRITES         = 48    ## Mark rewrites for split and break into delete/add pairs              
-    c_GIT_DIFF_FIND_FOR_UNTRACKED              = 64                                                                            
-    c_GIT_DIFF_FIND_IGNORE_WHITESPACE          = 4096  ## Measure similarity ignoring all whitespace                           
-    c_GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE     = 8192  ## Measure similarity including all data                                
-    c_GIT_DIFF_FIND_EXACT_MATCH_ONLY           = 16384 ## Measure similarity only by comparing SHAs (fast and cheap)           
-    c_GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY = 32768                                                                         
-    c_GIT_DIFF_FIND_REMOVE_UNMODIFIED          = 65536                                                                         
+    c_GIT_DIFF_FIND_BY_CONFIG                  = 0        ## Obey `diff.renames`. Overridden by any other GIT_DIFF_FIND_... flag. 
+    c_GIT_DIFF_FIND_RENAMES                    = 1 shl 0  ## Look for renames? (`--find-renames`)                                 
+    c_GIT_DIFF_FIND_RENAMES_FROM_REWRITES      = 1 shl 1  ## Consider old side of MODIFIED for renames? (`--break-rewrites=N`)    
+    c_GIT_DIFF_FIND_COPIES                     = 1 shl 2  ## Look for copies? (a la `--find-copies`).                             
+    c_GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED     = 1 shl 3                                                                          
+    c_GIT_DIFF_FIND_REWRITES                   = 1 shl 4  ## Mark significant rewrites for split (`--break-rewrites=/M`)          
+    c_GIT_DIFF_BREAK_REWRITES                  = 1 shl 5  ## Actually split large rewrites into delete/add pairs                  
+    c_GIT_DIFF_FIND_AND_BREAK_REWRITES         = 48       ## Mark rewrites for split and break into delete/add pairs              
+    c_GIT_DIFF_FIND_FOR_UNTRACKED              = 1 shl 6                                                                          
+    c_GIT_DIFF_FIND_IGNORE_WHITESPACE          = 1 shl 12 ## Measure similarity ignoring all whitespace                           
+    c_GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE     = 1 shl 13 ## Measure similarity including all data                                
+    c_GIT_DIFF_FIND_EXACT_MATCH_ONLY           = 1 shl 14 ## Measure similarity only by comparing SHAs (fast and cheap)           
+    c_GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY = 1 shl 15                                                                         
+    c_GIT_DIFF_FIND_REMOVE_UNMODIFIED          = 1 shl 16                                                                         
    
   c_git_diff_flag_t* = enum
-    c_GIT_DIFF_FLAG_BINARY     = 1                                   
-    c_GIT_DIFF_FLAG_NOT_BINARY = 2 ## file(s) treated as binary data 
-    c_GIT_DIFF_FLAG_VALID_ID   = 4 ## file(s) treated as text data   
-    c_GIT_DIFF_FLAG_EXISTS     = 8 ## `id` value is known correct    
+    c_GIT_DIFF_FLAG_BINARY     = 1 shl 0                                   
+    c_GIT_DIFF_FLAG_NOT_BINARY = 1 shl 1 ## file(s) treated as binary data 
+    c_GIT_DIFF_FLAG_VALID_ID   = 1 shl 2 ## file(s) treated as text data   
+    c_GIT_DIFF_FLAG_EXISTS     = 1 shl 3 ## `id` value is known correct    
    
   c_git_diff_format_email_flags_t* = enum
-    c_GIT_DIFF_FORMAT_EMAIL_NONE                         = 0 ## Normal patch, the default                   
-    c_GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER = 1 ## Don't insert "[PATCH]" in the subject header
+    c_GIT_DIFF_FORMAT_EMAIL_NONE                         = 0       ## Normal patch, the default                   
+    c_GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER = 1 shl 0 ## Don't insert "[PATCH]" in the subject header
    
   c_git_diff_format_t* = enum
-    c_GIT_DIFF_FORMAT_PATCH        = 1                                   
-    c_GIT_DIFF_FORMAT_PATCH_HEADER = 2 ## full git diff                  
-    c_GIT_DIFF_FORMAT_RAW          = 3 ## just the file headers of patch 
-    c_GIT_DIFF_FORMAT_NAME_ONLY    = 4 ## like git diff --raw            
-    c_GIT_DIFF_FORMAT_NAME_STATUS  = 5 ## like git diff --name-only      
-    c_GIT_DIFF_FORMAT_PATCH_ID     = 6 ## like git diff --name-status    
+    c_GIT_DIFF_FORMAT_PATCH        = 1 shl 0                                   
+    c_GIT_DIFF_FORMAT_PATCH_HEADER = 1 shl 1 ## full git diff                  
+    c_GIT_DIFF_FORMAT_RAW          = 3       ## just the file headers of patch 
+    c_GIT_DIFF_FORMAT_NAME_ONLY    = 1 shl 2 ## like git diff --raw            
+    c_GIT_DIFF_FORMAT_NAME_STATUS  = 5       ## like git diff --name-only      
+    c_GIT_DIFF_FORMAT_PATCH_ID     = 6       ## like git diff --name-status    
    
   c_git_diff_line_t* = enum
     c_GIT_DIFF_LINE_CONTEXT = 39 ## These values will be sent to `git_diff_line_cb` along with the line 
    
   c_git_diff_option_t* = enum
-    c_GIT_DIFF_NORMAL                          = 0          ## Normal diff, the default                                         
-    c_GIT_DIFF_REVERSE                         = 1          ## Reverse the sides of the diff                                    
-    c_GIT_DIFF_INCLUDE_IGNORED                 = 2          ## Include ignored files in the diff                                
-    c_GIT_DIFF_RECURSE_IGNORED_DIRS            = 4                                                                              
-    c_GIT_DIFF_INCLUDE_UNTRACKED               = 8          ## Include untracked files in the diff                              
-    c_GIT_DIFF_RECURSE_UNTRACKED_DIRS          = 16                                                                             
-    c_GIT_DIFF_INCLUDE_UNMODIFIED              = 32         ## Include unmodified files in the diff                             
-    c_GIT_DIFF_INCLUDE_TYPECHANGE              = 64                                                                             
-    c_GIT_DIFF_INCLUDE_TYPECHANGE_TREES        = 128                                                                            
-    c_GIT_DIFF_IGNORE_FILEMODE                 = 256        ## Ignore file mode changes                                         
-    c_GIT_DIFF_IGNORE_SUBMODULES               = 512        ## Treat all submodules as unmodified                               
-    c_GIT_DIFF_IGNORE_CASE                     = 1024       ## Use case insensitive filename comparisons                        
-    c_GIT_DIFF_INCLUDE_CASECHANGE              = 2048                                                                           
-    c_GIT_DIFF_DISABLE_PATHSPEC_MATCH          = 4096                                                                           
-    c_GIT_DIFF_SKIP_BINARY_CHECK               = 8192                                                                           
-    c_GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS      = 16384                                                                          
-    c_GIT_DIFF_UPDATE_INDEX                    = 32768                                                                          
-    c_GIT_DIFF_INCLUDE_UNREADABLE              = 65536      ## Include unreadable files in the diff                             
-    c_GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED = 131072     ## Include unreadable files in the diff                             
-    c_GIT_DIFF_INDENT_HEURISTIC                = 262144                                                                         
-    c_GIT_DIFF_FORCE_TEXT                      = 1048576    ## Treat all files as text, disabling binary attributes & detection 
-    c_GIT_DIFF_FORCE_BINARY                    = 2097152    ## Treat all files as binary, disabling text diffs                  
-    c_GIT_DIFF_IGNORE_WHITESPACE               = 4194304    ## Ignore all whitespace                                            
-    c_GIT_DIFF_IGNORE_WHITESPACE_CHANGE        = 8388608    ## Ignore changes in amount of whitespace                           
-    c_GIT_DIFF_IGNORE_WHITESPACE_EOL           = 16777216   ## Ignore whitespace at end of line                                 
-    c_GIT_DIFF_SHOW_UNTRACKED_CONTENT          = 33554432                                                                       
-    c_GIT_DIFF_SHOW_UNMODIFIED                 = 67108864                                                                       
-    c_GIT_DIFF_PATIENCE                        = 268435456  ## Use the "patience diff" algorithm                                
-    c_GIT_DIFF_MINIMAL                         = 536870912  ## Take extra time to find minimal diff                             
-    c_GIT_DIFF_SHOW_BINARY                     = 1073741824                                                                     
+    c_GIT_DIFF_NORMAL                          = 0        ## Normal diff, the default                                         
+    c_GIT_DIFF_REVERSE                         = 1 shl 0  ## Reverse the sides of the diff                                    
+    c_GIT_DIFF_INCLUDE_IGNORED                 = 1 shl 1  ## Include ignored files in the diff                                
+    c_GIT_DIFF_RECURSE_IGNORED_DIRS            = 1 shl 2                                                                      
+    c_GIT_DIFF_INCLUDE_UNTRACKED               = 1 shl 3  ## Include untracked files in the diff                              
+    c_GIT_DIFF_RECURSE_UNTRACKED_DIRS          = 1 shl 4                                                                      
+    c_GIT_DIFF_INCLUDE_UNMODIFIED              = 1 shl 5  ## Include unmodified files in the diff                             
+    c_GIT_DIFF_INCLUDE_TYPECHANGE              = 1 shl 6                                                                      
+    c_GIT_DIFF_INCLUDE_TYPECHANGE_TREES        = 1 shl 7                                                                      
+    c_GIT_DIFF_IGNORE_FILEMODE                 = 1 shl 8  ## Ignore file mode changes                                         
+    c_GIT_DIFF_IGNORE_SUBMODULES               = 1 shl 9  ## Treat all submodules as unmodified                               
+    c_GIT_DIFF_IGNORE_CASE                     = 1 shl 10 ## Use case insensitive filename comparisons                        
+    c_GIT_DIFF_INCLUDE_CASECHANGE              = 1 shl 11                                                                     
+    c_GIT_DIFF_DISABLE_PATHSPEC_MATCH          = 1 shl 12                                                                     
+    c_GIT_DIFF_SKIP_BINARY_CHECK               = 1 shl 13                                                                     
+    c_GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS      = 1 shl 14                                                                     
+    c_GIT_DIFF_UPDATE_INDEX                    = 1 shl 15                                                                     
+    c_GIT_DIFF_INCLUDE_UNREADABLE              = 1 shl 16 ## Include unreadable files in the diff                             
+    c_GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED = 1 shl 17 ## Include unreadable files in the diff                             
+    c_GIT_DIFF_INDENT_HEURISTIC                = 1 shl 18                                                                     
+    c_GIT_DIFF_FORCE_TEXT                      = 1 shl 20 ## Treat all files as text, disabling binary attributes & detection 
+    c_GIT_DIFF_FORCE_BINARY                    = 1 shl 21 ## Treat all files as binary, disabling text diffs                  
+    c_GIT_DIFF_IGNORE_WHITESPACE               = 1 shl 22 ## Ignore all whitespace                                            
+    c_GIT_DIFF_IGNORE_WHITESPACE_CHANGE        = 1 shl 23 ## Ignore changes in amount of whitespace                           
+    c_GIT_DIFF_IGNORE_WHITESPACE_EOL           = 1 shl 24 ## Ignore whitespace at end of line                                 
+    c_GIT_DIFF_SHOW_UNTRACKED_CONTENT          = 1 shl 25                                                                     
+    c_GIT_DIFF_SHOW_UNMODIFIED                 = 1 shl 26                                                                     
+    c_GIT_DIFF_PATIENCE                        = 1 shl 28 ## Use the "patience diff" algorithm                                
+    c_GIT_DIFF_MINIMAL                         = 1 shl 29 ## Take extra time to find minimal diff                             
+    c_GIT_DIFF_SHOW_BINARY                     = 1 shl 30                                                                     
    
   c_git_diff_stats_format_t* = enum
-    c_GIT_DIFF_STATS_NONE            = 0 ## No stats                                                                                           
-    c_GIT_DIFF_STATS_FULL            = 1 ## Full statistics, equivalent of `--stat`                                                            
-    c_GIT_DIFF_STATS_SHORT           = 2 ## Short statistics, equivalent of `--shortstat`                                                      
-    c_GIT_DIFF_STATS_NUMBER          = 4 ## Number statistics, equivalent of `--numstat`                                                       
-    c_GIT_DIFF_STATS_INCLUDE_SUMMARY = 8 ## Extended header information such as creations, renames and mode changes, equivalent of `--summary` 
+    c_GIT_DIFF_STATS_NONE            = 0       ## No stats                                                                                           
+    c_GIT_DIFF_STATS_FULL            = 1 shl 0 ## Full statistics, equivalent of `--stat`                                                            
+    c_GIT_DIFF_STATS_SHORT           = 1 shl 1 ## Short statistics, equivalent of `--shortstat`                                                      
+    c_GIT_DIFF_STATS_NUMBER          = 1 shl 2 ## Number statistics, equivalent of `--numstat`                                                       
+    c_GIT_DIFF_STATS_INCLUDE_SUMMARY = 1 shl 3 ## Extended header information such as creations, renames and mode changes, equivalent of `--summary` 
    
   git_delta_t* = enum
     GIT_DELTA_UNMODIFIED                                              
@@ -187,7 +187,7 @@ type
     GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY                                                                         
     GIT_DIFF_FIND_REMOVE_UNMODIFIED                                                                                  
    
-  git_diff_flag_t* = enum
+  git_diff_flag_t* {.size: sizeof(cint).} = enum
     GIT_DIFF_FLAG_BINARY                                       
     GIT_DIFF_FLAG_NOT_BINARY ## file(s) treated as binary data 
     GIT_DIFF_FLAG_VALID_ID   ## file(s) treated as text data   
@@ -505,6 +505,10 @@ func `-`*(arg: c_git_diff_flag_t, offset: int): c_git_diff_flag_t =
  
 func `-`*(offset: int, arg: c_git_diff_flag_t): c_git_diff_flag_t = 
   c_git_diff_flag_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_diff_flag_t]): cint = 
+  cast[cint](args)
  
 
 proc to_c_git_delta_t*(arg: git_delta_t): c_git_delta_t = 

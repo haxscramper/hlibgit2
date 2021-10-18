@@ -6,11 +6,11 @@ import
 
 type
   c_git_revparse_mode_t* = enum
-    c_GIT_REVPARSE_SINGLE     = 1 ## The spec targeted a single object.                                 
-    c_GIT_REVPARSE_RANGE      = 2 ## The spec targeted a range of commits.                              
-    c_GIT_REVPARSE_MERGE_BASE = 4 ## The spec used the '...' operator, which invokes special semantics. 
+    c_GIT_REVPARSE_SINGLE     = 1 shl 0 ## The spec targeted a single object.                                 
+    c_GIT_REVPARSE_RANGE      = 1 shl 1 ## The spec targeted a range of commits.                              
+    c_GIT_REVPARSE_MERGE_BASE = 1 shl 2 ## The spec used the '...' operator, which invokes special semantics. 
    
-  git_revparse_mode_t* = enum
+  git_revparse_mode_t* {.size: sizeof(cint).} = enum
     GIT_REVPARSE_SINGLE     ## The spec targeted a single object.                                 
     GIT_REVPARSE_RANGE      ## The spec targeted a range of commits.                              
     GIT_REVPARSE_MERGE_BASE ## The spec used the '...' operator, which invokes special semantics. 
@@ -76,6 +76,10 @@ func `-`*(arg: c_git_revparse_mode_t, offset: int): c_git_revparse_mode_t =
  
 func `-`*(offset: int, arg: c_git_revparse_mode_t): c_git_revparse_mode_t = 
   c_git_revparse_mode_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_revparse_mode_t]): cint = 
+  cast[cint](args)
  
 
 proc git_revparse*(

@@ -8,24 +8,24 @@ import
 
 type
   c_git_stash_apply_flags* = enum
-    c_GIT_STASH_APPLY_DEFAULT         = 0
-    c_GIT_STASH_APPLY_REINSTATE_INDEX = 1
+    c_GIT_STASH_APPLY_DEFAULT         = 0      
+    c_GIT_STASH_APPLY_REINSTATE_INDEX = 1 shl 0
    
   c_git_stash_apply_progress_t* = enum
-    c_GIT_STASH_APPLY_PROGRESS_NONE               = 0                                                        
-    c_GIT_STASH_APPLY_PROGRESS_LOADING_STASH      = 1 ## Loading the stashed data from the object database.  
-    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX      = 2 ## The stored index is being analyzed.                 
-    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED   = 3 ## The modified files are being analyzed.              
-    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED  = 4 ## The untracked and ignored files are being analyzed. 
-    c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED = 5 ## The untracked files are being written to disk.      
-    c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED  = 6 ## The modified files are being written to disk.       
-    c_GIT_STASH_APPLY_PROGRESS_DONE               = 7 ## The stash was applied successfully.                 
+    c_GIT_STASH_APPLY_PROGRESS_NONE               = 0                                                              
+    c_GIT_STASH_APPLY_PROGRESS_LOADING_STASH      = 1 shl 0 ## Loading the stashed data from the object database.  
+    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX      = 1 shl 1 ## The stored index is being analyzed.                 
+    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED   = 3       ## The modified files are being analyzed.              
+    c_GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED  = 1 shl 2 ## The untracked and ignored files are being analyzed. 
+    c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED = 5       ## The untracked files are being written to disk.      
+    c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED  = 6       ## The modified files are being written to disk.       
+    c_GIT_STASH_APPLY_PROGRESS_DONE               = 7       ## The stash was applied successfully.                 
    
   c_git_stash_flags* = enum
-    c_GIT_STASH_DEFAULT           = 0
-    c_GIT_STASH_KEEP_INDEX        = 1
-    c_GIT_STASH_INCLUDE_UNTRACKED = 2
-    c_GIT_STASH_INCLUDE_IGNORED   = 4
+    c_GIT_STASH_DEFAULT           = 0      
+    c_GIT_STASH_KEEP_INDEX        = 1 shl 0
+    c_GIT_STASH_INCLUDE_UNTRACKED = 1 shl 1
+    c_GIT_STASH_INCLUDE_IGNORED   = 1 shl 2
    
   git_stash_apply_flags* = enum
     GIT_STASH_APPLY_DEFAULT        

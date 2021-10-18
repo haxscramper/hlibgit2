@@ -8,13 +8,13 @@ import
 
 type
   c_git_pathspec_flag_t* = enum
-    c_GIT_PATHSPEC_DEFAULT        = 0 
-    c_GIT_PATHSPEC_IGNORE_CASE    = 1 
-    c_GIT_PATHSPEC_USE_CASE       = 2 
-    c_GIT_PATHSPEC_NO_GLOB        = 4 
-    c_GIT_PATHSPEC_NO_MATCH_ERROR = 8 
-    c_GIT_PATHSPEC_FIND_FAILURES  = 16
-    c_GIT_PATHSPEC_FAILURES_ONLY  = 32
+    c_GIT_PATHSPEC_DEFAULT        = 0      
+    c_GIT_PATHSPEC_IGNORE_CASE    = 1 shl 0
+    c_GIT_PATHSPEC_USE_CASE       = 1 shl 1
+    c_GIT_PATHSPEC_NO_GLOB        = 1 shl 2
+    c_GIT_PATHSPEC_NO_MATCH_ERROR = 1 shl 3
+    c_GIT_PATHSPEC_FIND_FAILURES  = 1 shl 4
+    c_GIT_PATHSPEC_FAILURES_ONLY  = 1 shl 5
    
   git_pathspec* {.bycopy, incompleteStruct, header: "<git2/pathspec.h>", importc.} = object
     

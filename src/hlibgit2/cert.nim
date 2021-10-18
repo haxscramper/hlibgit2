@@ -5,15 +5,15 @@ import
 
 type
   c_git_cert_ssh_t* = enum
-    c_GIT_CERT_SSH_MD5    = 1 ## MD5 is available     
-    c_GIT_CERT_SSH_SHA1   = 2 ## SHA-1 is available   
-    c_GIT_CERT_SSH_SHA256 = 4 ## SHA-256 is available 
+    c_GIT_CERT_SSH_MD5    = 1 shl 0 ## MD5 is available     
+    c_GIT_CERT_SSH_SHA1   = 1 shl 1 ## SHA-1 is available   
+    c_GIT_CERT_SSH_SHA256 = 1 shl 2 ## SHA-256 is available 
    
   c_git_cert_t* = enum
-    c_GIT_CERT_NONE            = 0
-    c_GIT_CERT_X509            = 1
-    c_GIT_CERT_HOSTKEY_LIBSSH2 = 2
-    c_GIT_CERT_STRARRAY        = 3
+    c_GIT_CERT_NONE            = 0      
+    c_GIT_CERT_X509            = 1 shl 0
+    c_GIT_CERT_HOSTKEY_LIBSSH2 = 1 shl 1
+    c_GIT_CERT_STRARRAY        = 3      
    
   git_cert* {.bycopy, header: "<git2/cert.h>", importc.} = object
     cert_type*: c_git_cert_t
@@ -25,7 +25,7 @@ type
     hash_sha1*:                  ptr UncheckedArray[uint8]                    
     hash_sha256*:                ptr UncheckedArray[uint8]                    
    
-  git_cert_ssh_t* = enum
+  git_cert_ssh_t* {.size: sizeof(cint).} = enum
     GIT_CERT_SSH_MD5    ## MD5 is available     
     GIT_CERT_SSH_SHA1   ## SHA-1 is available   
     GIT_CERT_SSH_SHA256 ## SHA-256 is available 
@@ -120,5 +120,9 @@ func `-`*(arg: c_git_cert_ssh_t, offset: int): c_git_cert_ssh_t =
  
 func `-`*(offset: int, arg: c_git_cert_ssh_t): c_git_cert_ssh_t = 
   c_git_cert_ssh_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_cert_ssh_t]): cint = 
+  cast[cint](args)
  
 

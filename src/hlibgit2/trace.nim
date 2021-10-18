@@ -5,13 +5,13 @@ import
 
 type
   c_git_trace_level_t* = enum
-    c_GIT_TRACE_NONE  = 0 ## No tracing will be performed.                         
-    c_GIT_TRACE_FATAL = 1 ## Severe errors that may impact the program's execution 
-    c_GIT_TRACE_ERROR = 2 ## Errors that do not impact the program's execution     
-    c_GIT_TRACE_WARN  = 3 ## Warnings that suggest abnormal data                   
-    c_GIT_TRACE_INFO  = 4 ## Informational messages about program execution        
-    c_GIT_TRACE_DEBUG = 5 ## Detailed data that allows for debugging               
-    c_GIT_TRACE_TRACE = 6 ## Exceptionally detailed debugging data                 
+    c_GIT_TRACE_NONE  = 0       ## No tracing will be performed.                         
+    c_GIT_TRACE_FATAL = 1 shl 0 ## Severe errors that may impact the program's execution 
+    c_GIT_TRACE_ERROR = 1 shl 1 ## Errors that do not impact the program's execution     
+    c_GIT_TRACE_WARN  = 3       ## Warnings that suggest abnormal data                   
+    c_GIT_TRACE_INFO  = 1 shl 2 ## Informational messages about program execution        
+    c_GIT_TRACE_DEBUG = 5       ## Detailed data that allows for debugging               
+    c_GIT_TRACE_TRACE = 6       ## Exceptionally detailed debugging data                 
    
   git_trace_cb* = proc(level: c_git_trace_level_t, msg: cstring): void{.cdecl.}
    

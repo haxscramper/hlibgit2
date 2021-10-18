@@ -16,24 +16,24 @@ import
 
 type
   c_git_fetch_prune_t* = enum
-    c_GIT_FETCH_PRUNE_UNSPECIFIED = 0
-    c_GIT_FETCH_PRUNE             = 1
-    c_GIT_FETCH_NO_PRUNE          = 2
+    c_GIT_FETCH_PRUNE_UNSPECIFIED = 0      
+    c_GIT_FETCH_PRUNE             = 1 shl 0
+    c_GIT_FETCH_NO_PRUNE          = 1 shl 1
    
   c_git_remote_autotag_option_t* = enum
-    c_GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED = 0
-    c_GIT_REMOTE_DOWNLOAD_TAGS_AUTO        = 1
-    c_GIT_REMOTE_DOWNLOAD_TAGS_NONE        = 2
-    c_GIT_REMOTE_DOWNLOAD_TAGS_ALL         = 3
+    c_GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED = 0      
+    c_GIT_REMOTE_DOWNLOAD_TAGS_AUTO        = 1 shl 0
+    c_GIT_REMOTE_DOWNLOAD_TAGS_NONE        = 1 shl 1
+    c_GIT_REMOTE_DOWNLOAD_TAGS_ALL         = 3      
    
   c_git_remote_completion_t* = enum
-    c_GIT_REMOTE_COMPLETION_DOWNLOAD = 0
-    c_GIT_REMOTE_COMPLETION_INDEXING = 1
-    c_GIT_REMOTE_COMPLETION_ERROR    = 2
+    c_GIT_REMOTE_COMPLETION_DOWNLOAD = 0      
+    c_GIT_REMOTE_COMPLETION_INDEXING = 1 shl 0
+    c_GIT_REMOTE_COMPLETION_ERROR    = 1 shl 1
    
   c_git_remote_create_flags* = enum
-    c_GIT_REMOTE_CREATE_SKIP_INSTEADOF         = 1 ## Ignore the repository apply.insteadOf configuration  
-    c_GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC = 2 ## Don't build a fetchspec from the name if none is set 
+    c_GIT_REMOTE_CREATE_SKIP_INSTEADOF         = 1 shl 0 ## Ignore the repository apply.insteadOf configuration  
+    c_GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC = 1 shl 1 ## Don't build a fetchspec from the name if none is set 
    
   git_fetch_options* {.bycopy, header: "<git2/remote.h>", importc.} = object
     version*:          cint                         
@@ -102,7 +102,7 @@ type
     GIT_REMOTE_COMPLETION_INDEXING
     GIT_REMOTE_COMPLETION_ERROR   
    
-  git_remote_create_flags* = enum
+  git_remote_create_flags* {.size: sizeof(cint).} = enum
     GIT_REMOTE_CREATE_SKIP_INSTEADOF         ## Ignore the repository apply.insteadOf configuration  
     GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC ## Don't build a fetchspec from the name if none is set 
    
@@ -173,6 +173,10 @@ func `-`*(
     arg:    c_git_remote_create_flags
   ): c_git_remote_create_flags = 
   c_git_remote_create_flags(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_remote_create_flags]): cint = 
+  cast[cint](args)
  
 
 proc git_remote_create_options_init*(

@@ -11,39 +11,39 @@ import
 
 type
   c_git_merge_analysis_t* = enum
-    c_GIT_MERGE_ANALYSIS_NONE        = 0 ## No merge is possible.  (Unused.) 
-    c_GIT_MERGE_ANALYSIS_NORMAL      = 1                                     
-    c_GIT_MERGE_ANALYSIS_UP_TO_DATE  = 2                                     
-    c_GIT_MERGE_ANALYSIS_FASTFORWARD = 4                                     
-    c_GIT_MERGE_ANALYSIS_UNBORN      = 8                                     
+    c_GIT_MERGE_ANALYSIS_NONE        = 0       ## No merge is possible.  (Unused.) 
+    c_GIT_MERGE_ANALYSIS_NORMAL      = 1 shl 0                                     
+    c_GIT_MERGE_ANALYSIS_UP_TO_DATE  = 1 shl 1                                     
+    c_GIT_MERGE_ANALYSIS_FASTFORWARD = 1 shl 2                                     
+    c_GIT_MERGE_ANALYSIS_UNBORN      = 1 shl 3                                     
    
   c_git_merge_file_favor_t* = enum
-    c_GIT_MERGE_FILE_FAVOR_NORMAL = 0
-    c_GIT_MERGE_FILE_FAVOR_OURS   = 1
-    c_GIT_MERGE_FILE_FAVOR_THEIRS = 2
-    c_GIT_MERGE_FILE_FAVOR_UNION  = 3
+    c_GIT_MERGE_FILE_FAVOR_NORMAL = 0      
+    c_GIT_MERGE_FILE_FAVOR_OURS   = 1 shl 0
+    c_GIT_MERGE_FILE_FAVOR_THEIRS = 1 shl 1
+    c_GIT_MERGE_FILE_FAVOR_UNION  = 3      
    
   c_git_merge_file_flag_t* = enum
-    c_GIT_MERGE_FILE_DEFAULT                  = 0   ## Defaults                                                   
-    c_GIT_MERGE_FILE_STYLE_MERGE              = 1   ## Create standard conflicted merge files                     
-    c_GIT_MERGE_FILE_STYLE_DIFF3              = 2   ## Create diff3-style files                                   
-    c_GIT_MERGE_FILE_SIMPLIFY_ALNUM           = 4   ## Condense non-alphanumeric regions for simplified diff file 
-    c_GIT_MERGE_FILE_IGNORE_WHITESPACE        = 8   ## Ignore all whitespace                                      
-    c_GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE = 16  ## Ignore changes in amount of whitespace                     
-    c_GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL    = 32  ## Ignore whitespace at end of line                           
-    c_GIT_MERGE_FILE_DIFF_PATIENCE            = 64  ## Use the "patience diff" algorithm                          
-    c_GIT_MERGE_FILE_DIFF_MINIMAL             = 128 ## Take extra time to find minimal diff                       
+    c_GIT_MERGE_FILE_DEFAULT                  = 0       ## Defaults                                                   
+    c_GIT_MERGE_FILE_STYLE_MERGE              = 1 shl 0 ## Create standard conflicted merge files                     
+    c_GIT_MERGE_FILE_STYLE_DIFF3              = 1 shl 1 ## Create diff3-style files                                   
+    c_GIT_MERGE_FILE_SIMPLIFY_ALNUM           = 1 shl 2 ## Condense non-alphanumeric regions for simplified diff file 
+    c_GIT_MERGE_FILE_IGNORE_WHITESPACE        = 1 shl 3 ## Ignore all whitespace                                      
+    c_GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE = 1 shl 4 ## Ignore changes in amount of whitespace                     
+    c_GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL    = 1 shl 5 ## Ignore whitespace at end of line                           
+    c_GIT_MERGE_FILE_DIFF_PATIENCE            = 1 shl 6 ## Use the "patience diff" algorithm                          
+    c_GIT_MERGE_FILE_DIFF_MINIMAL             = 1 shl 7 ## Take extra time to find minimal diff                       
    
   c_git_merge_flag_t* = enum
-    c_GIT_MERGE_FIND_RENAMES     = 1
-    c_GIT_MERGE_FAIL_ON_CONFLICT = 2
-    c_GIT_MERGE_SKIP_REUC        = 4
-    c_GIT_MERGE_NO_RECURSIVE     = 8
+    c_GIT_MERGE_FIND_RENAMES     = 1 shl 0
+    c_GIT_MERGE_FAIL_ON_CONFLICT = 1 shl 1
+    c_GIT_MERGE_SKIP_REUC        = 1 shl 2
+    c_GIT_MERGE_NO_RECURSIVE     = 1 shl 3
    
   c_git_merge_preference_t* = enum
-    c_GIT_MERGE_PREFERENCE_NONE             = 0
-    c_GIT_MERGE_PREFERENCE_NO_FASTFORWARD   = 1
-    c_GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 2
+    c_GIT_MERGE_PREFERENCE_NONE             = 0      
+    c_GIT_MERGE_PREFERENCE_NO_FASTFORWARD   = 1 shl 0
+    c_GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 1 shl 1
    
   git_merge_analysis_t* = enum
     GIT_MERGE_ANALYSIS_NONE        ## No merge is possible.  (Unused.) 
@@ -92,7 +92,7 @@ type
     ptr_f* {.importc: "ptr".}: cstring ## The contents of the merge.                          
     len*:                      csize_t ## The length of the merge contents.                   
    
-  git_merge_flag_t* = enum
+  git_merge_flag_t* {.size: sizeof(cint).} = enum
     GIT_MERGE_FIND_RENAMES    
     GIT_MERGE_FAIL_ON_CONFLICT
     GIT_MERGE_SKIP_REUC       
@@ -160,6 +160,10 @@ func `-`*(arg: c_git_merge_flag_t, offset: int): c_git_merge_flag_t =
  
 func `-`*(offset: int, arg: c_git_merge_flag_t): c_git_merge_flag_t = 
   c_git_merge_flag_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_merge_flag_t]): cint = 
+  cast[cint](args)
  
 
 proc to_c_git_merge_file_favor_t*(

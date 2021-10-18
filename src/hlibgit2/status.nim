@@ -8,43 +8,43 @@ import
 
 type
   c_git_status_opt_t* = enum
-    c_GIT_STATUS_OPT_INCLUDE_UNTRACKED               = 1    
-    c_GIT_STATUS_OPT_INCLUDE_IGNORED                 = 2    
-    c_GIT_STATUS_OPT_INCLUDE_UNMODIFIED              = 4    
-    c_GIT_STATUS_OPT_EXCLUDE_SUBMODULES              = 8    
-    c_GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS          = 16   
-    c_GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH          = 32   
-    c_GIT_STATUS_OPT_RECURSE_IGNORED_DIRS            = 64   
-    c_GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX           = 128  
-    c_GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR        = 256  
-    c_GIT_STATUS_OPT_SORT_CASE_SENSITIVELY           = 512  
-    c_GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY         = 1024 
-    c_GIT_STATUS_OPT_RENAMES_FROM_REWRITES           = 2048 
-    c_GIT_STATUS_OPT_NO_REFRESH                      = 4096 
-    c_GIT_STATUS_OPT_UPDATE_INDEX                    = 8192 
-    c_GIT_STATUS_OPT_INCLUDE_UNREADABLE              = 16384
-    c_GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED = 32768
+    c_GIT_STATUS_OPT_INCLUDE_UNTRACKED               = 1 shl 0 
+    c_GIT_STATUS_OPT_INCLUDE_IGNORED                 = 1 shl 1 
+    c_GIT_STATUS_OPT_INCLUDE_UNMODIFIED              = 1 shl 2 
+    c_GIT_STATUS_OPT_EXCLUDE_SUBMODULES              = 1 shl 3 
+    c_GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS          = 1 shl 4 
+    c_GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH          = 1 shl 5 
+    c_GIT_STATUS_OPT_RECURSE_IGNORED_DIRS            = 1 shl 6 
+    c_GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX           = 1 shl 7 
+    c_GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR        = 1 shl 8 
+    c_GIT_STATUS_OPT_SORT_CASE_SENSITIVELY           = 1 shl 9 
+    c_GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY         = 1 shl 10
+    c_GIT_STATUS_OPT_RENAMES_FROM_REWRITES           = 1 shl 11
+    c_GIT_STATUS_OPT_NO_REFRESH                      = 1 shl 12
+    c_GIT_STATUS_OPT_UPDATE_INDEX                    = 1 shl 13
+    c_GIT_STATUS_OPT_INCLUDE_UNREADABLE              = 1 shl 14
+    c_GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED = 1 shl 15
    
   c_git_status_show_t* = enum
-    c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR = 0
-    c_GIT_STATUS_SHOW_INDEX_ONLY        = 1
-    c_GIT_STATUS_SHOW_WORKDIR_ONLY      = 2
+    c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR = 0      
+    c_GIT_STATUS_SHOW_INDEX_ONLY        = 1 shl 0
+    c_GIT_STATUS_SHOW_WORKDIR_ONLY      = 1 shl 1
    
   c_git_status_t* = enum
-    c_GIT_STATUS_CURRENT          = 0    
-    c_GIT_STATUS_INDEX_NEW        = 1    
-    c_GIT_STATUS_INDEX_MODIFIED   = 2    
-    c_GIT_STATUS_INDEX_DELETED    = 4    
-    c_GIT_STATUS_INDEX_RENAMED    = 8    
-    c_GIT_STATUS_INDEX_TYPECHANGE = 16   
-    c_GIT_STATUS_WT_NEW           = 128  
-    c_GIT_STATUS_WT_MODIFIED      = 256  
-    c_GIT_STATUS_WT_DELETED       = 512  
-    c_GIT_STATUS_WT_TYPECHANGE    = 1024 
-    c_GIT_STATUS_WT_RENAMED       = 2048 
-    c_GIT_STATUS_WT_UNREADABLE    = 4096 
-    c_GIT_STATUS_IGNORED          = 16384
-    c_GIT_STATUS_CONFLICTED       = 32768
+    c_GIT_STATUS_CURRENT          = 0       
+    c_GIT_STATUS_INDEX_NEW        = 1 shl 0 
+    c_GIT_STATUS_INDEX_MODIFIED   = 1 shl 1 
+    c_GIT_STATUS_INDEX_DELETED    = 1 shl 2 
+    c_GIT_STATUS_INDEX_RENAMED    = 1 shl 3 
+    c_GIT_STATUS_INDEX_TYPECHANGE = 1 shl 4 
+    c_GIT_STATUS_WT_NEW           = 1 shl 7 
+    c_GIT_STATUS_WT_MODIFIED      = 1 shl 8 
+    c_GIT_STATUS_WT_DELETED       = 1 shl 9 
+    c_GIT_STATUS_WT_TYPECHANGE    = 1 shl 10
+    c_GIT_STATUS_WT_RENAMED       = 1 shl 11
+    c_GIT_STATUS_WT_UNREADABLE    = 1 shl 12
+    c_GIT_STATUS_IGNORED          = 1 shl 14
+    c_GIT_STATUS_CONFLICTED       = 1 shl 15
    
   git_status_cb* = proc(path: cstring, status_flags: cuint, payload: pointer): cint{.cdecl.}
    
@@ -55,7 +55,7 @@ type
     head_to_index*:    ptr git_diff_delta
     index_to_workdir*: ptr git_diff_delta
    
-  git_status_opt_t* = enum
+  git_status_opt_t* {.size: sizeof(cint).} = enum
     GIT_STATUS_OPT_INCLUDE_UNTRACKED              
     GIT_STATUS_OPT_INCLUDE_IGNORED                
     GIT_STATUS_OPT_INCLUDE_UNMODIFIED             
@@ -304,6 +304,10 @@ func `-`*(arg: c_git_status_opt_t, offset: int): c_git_status_opt_t =
  
 func `-`*(offset: int, arg: c_git_status_opt_t): c_git_status_opt_t = 
   c_git_status_opt_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_status_opt_t]): cint = 
+  cast[cint](args)
  
 
 proc git_status_options_init*(

@@ -8,10 +8,10 @@ import
 
 type
   c_git_reference_format_t* = enum
-    c_GIT_REFERENCE_FORMAT_NORMAL            = 0
-    c_GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL    = 1
-    c_GIT_REFERENCE_FORMAT_REFSPEC_PATTERN   = 2
-    c_GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND = 4
+    c_GIT_REFERENCE_FORMAT_NORMAL            = 0      
+    c_GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL    = 1 shl 0
+    c_GIT_REFERENCE_FORMAT_REFSPEC_PATTERN   = 1 shl 1
+    c_GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND = 1 shl 2
    
   git_reference_foreach_cb* = proc(reference: ptr git_reference, payload: pointer): cint{.cdecl.}
    

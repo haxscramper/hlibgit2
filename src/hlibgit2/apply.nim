@@ -7,18 +7,18 @@ import
 
 type
   c_git_apply_flags_t* = enum
-    c_GIT_APPLY_CHECK = 1
+    c_GIT_APPLY_CHECK = 1 shl 0
    
   c_git_apply_location_t* = enum
-    c_GIT_APPLY_LOCATION_WORKDIR = 0
-    c_GIT_APPLY_LOCATION_INDEX   = 1
-    c_GIT_APPLY_LOCATION_BOTH    = 2
+    c_GIT_APPLY_LOCATION_WORKDIR = 0      
+    c_GIT_APPLY_LOCATION_INDEX   = 1 shl 0
+    c_GIT_APPLY_LOCATION_BOTH    = 1 shl 1
    
   git_apply_delta_cb* = proc(delta: ptr git_diff_delta, payload: pointer): cint{.cdecl.}
    
   git_apply_delta_cbNim* = proc(delta: ptr git_diff_delta): cint
    
-  git_apply_flags_t* = enum
+  git_apply_flags_t* {.size: sizeof(cint).} = enum
     GIT_APPLY_CHECK
    
   git_apply_hunk_cb* = proc(hunk: ptr git_diff_hunk, payload: pointer): cint{.cdecl.}
@@ -65,6 +65,10 @@ func `-`*(arg: c_git_apply_flags_t, offset: int): c_git_apply_flags_t =
  
 func `-`*(offset: int, arg: c_git_apply_flags_t): c_git_apply_flags_t = 
   c_git_apply_flags_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_apply_flags_t]): cint = 
+  cast[cint](args)
  
 
 proc git_apply_options_init*(

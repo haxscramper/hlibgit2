@@ -5,45 +5,45 @@ import
 
 type
   c_git_feature_t* = enum
-    c_GIT_FEATURE_THREADS = 1
-    c_GIT_FEATURE_HTTPS   = 2
-    c_GIT_FEATURE_SSH     = 4
-    c_GIT_FEATURE_NSEC    = 8
+    c_GIT_FEATURE_THREADS = 1 shl 0
+    c_GIT_FEATURE_HTTPS   = 1 shl 1
+    c_GIT_FEATURE_SSH     = 1 shl 2
+    c_GIT_FEATURE_NSEC    = 1 shl 3
    
   c_git_libgit2_opt_t* = enum
-    c_GIT_OPT_GET_MWINDOW_SIZE                    = 0 
-    c_GIT_OPT_SET_MWINDOW_SIZE                    = 1 
-    c_GIT_OPT_GET_MWINDOW_MAPPED_LIMIT            = 2 
-    c_GIT_OPT_SET_MWINDOW_MAPPED_LIMIT            = 3 
-    c_GIT_OPT_GET_SEARCH_PATH                     = 4 
-    c_GIT_OPT_SET_SEARCH_PATH                     = 5 
-    c_GIT_OPT_SET_CACHE_OBJECT_LIMIT              = 6 
-    c_GIT_OPT_SET_CACHE_MAX_SIZE                  = 7 
-    c_GIT_OPT_ENABLE_CACHING                      = 8 
-    c_GIT_OPT_GET_CACHED_MEMORY                   = 9 
-    c_GIT_OPT_GET_TEMPLATE_PATH                   = 10
-    c_GIT_OPT_SET_TEMPLATE_PATH                   = 11
-    c_GIT_OPT_SET_SSL_CERT_LOCATIONS              = 12
-    c_GIT_OPT_SET_USER_AGENT                      = 13
-    c_GIT_OPT_ENABLE_STRICT_OBJECT_CREATION       = 14
-    c_GIT_OPT_ENABLE_STRICT_SYMBOLIC_REF_CREATION = 15
-    c_GIT_OPT_SET_SSL_CIPHERS                     = 16
-    c_GIT_OPT_GET_USER_AGENT                      = 17
-    c_GIT_OPT_ENABLE_OFS_DELTA                    = 18
-    c_GIT_OPT_ENABLE_FSYNC_GITDIR                 = 19
-    c_GIT_OPT_GET_WINDOWS_SHAREMODE               = 20
-    c_GIT_OPT_SET_WINDOWS_SHAREMODE               = 21
-    c_GIT_OPT_ENABLE_STRICT_HASH_VERIFICATION     = 22
-    c_GIT_OPT_SET_ALLOCATOR                       = 23
-    c_GIT_OPT_ENABLE_UNSAVED_INDEX_SAFETY         = 24
-    c_GIT_OPT_GET_PACK_MAX_OBJECTS                = 25
-    c_GIT_OPT_SET_PACK_MAX_OBJECTS                = 26
-    c_GIT_OPT_DISABLE_PACK_KEEP_FILE_CHECKS       = 27
-    c_GIT_OPT_ENABLE_HTTP_EXPECT_CONTINUE         = 28
-    c_GIT_OPT_GET_MWINDOW_FILE_LIMIT              = 29
-    c_GIT_OPT_SET_MWINDOW_FILE_LIMIT              = 30
+    c_GIT_OPT_GET_MWINDOW_SIZE                    = 0      
+    c_GIT_OPT_SET_MWINDOW_SIZE                    = 1 shl 0
+    c_GIT_OPT_GET_MWINDOW_MAPPED_LIMIT            = 1 shl 1
+    c_GIT_OPT_SET_MWINDOW_MAPPED_LIMIT            = 3      
+    c_GIT_OPT_GET_SEARCH_PATH                     = 1 shl 2
+    c_GIT_OPT_SET_SEARCH_PATH                     = 5      
+    c_GIT_OPT_SET_CACHE_OBJECT_LIMIT              = 6      
+    c_GIT_OPT_SET_CACHE_MAX_SIZE                  = 7      
+    c_GIT_OPT_ENABLE_CACHING                      = 1 shl 3
+    c_GIT_OPT_GET_CACHED_MEMORY                   = 9      
+    c_GIT_OPT_GET_TEMPLATE_PATH                   = 10     
+    c_GIT_OPT_SET_TEMPLATE_PATH                   = 11     
+    c_GIT_OPT_SET_SSL_CERT_LOCATIONS              = 12     
+    c_GIT_OPT_SET_USER_AGENT                      = 13     
+    c_GIT_OPT_ENABLE_STRICT_OBJECT_CREATION       = 14     
+    c_GIT_OPT_ENABLE_STRICT_SYMBOLIC_REF_CREATION = 15     
+    c_GIT_OPT_SET_SSL_CIPHERS                     = 1 shl 4
+    c_GIT_OPT_GET_USER_AGENT                      = 17     
+    c_GIT_OPT_ENABLE_OFS_DELTA                    = 18     
+    c_GIT_OPT_ENABLE_FSYNC_GITDIR                 = 19     
+    c_GIT_OPT_GET_WINDOWS_SHAREMODE               = 20     
+    c_GIT_OPT_SET_WINDOWS_SHAREMODE               = 21     
+    c_GIT_OPT_ENABLE_STRICT_HASH_VERIFICATION     = 22     
+    c_GIT_OPT_SET_ALLOCATOR                       = 23     
+    c_GIT_OPT_ENABLE_UNSAVED_INDEX_SAFETY         = 24     
+    c_GIT_OPT_GET_PACK_MAX_OBJECTS                = 25     
+    c_GIT_OPT_SET_PACK_MAX_OBJECTS                = 26     
+    c_GIT_OPT_DISABLE_PACK_KEEP_FILE_CHECKS       = 27     
+    c_GIT_OPT_ENABLE_HTTP_EXPECT_CONTINUE         = 28     
+    c_GIT_OPT_GET_MWINDOW_FILE_LIMIT              = 29     
+    c_GIT_OPT_SET_MWINDOW_FILE_LIMIT              = 30     
    
-  git_feature_t* = enum
+  git_feature_t* {.size: sizeof(cint).} = enum
     GIT_FEATURE_THREADS
     GIT_FEATURE_HTTPS  
     GIT_FEATURE_SSH    
@@ -129,6 +129,10 @@ func `-`*(arg: c_git_feature_t, offset: int): c_git_feature_t =
  
 func `-`*(offset: int, arg: c_git_feature_t): c_git_feature_t = 
   c_git_feature_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_feature_t]): cint = 
+  cast[cint](args)
  
 
 proc git_libgit2_features*(a0: void): cint {.git2Proc, importc.}

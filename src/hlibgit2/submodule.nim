@@ -10,26 +10,26 @@ import
 
 type
   c_git_submodule_status_t* = enum
-    c_GIT_SUBMODULE_STATUS_IN_HEAD           = 1   
-    c_GIT_SUBMODULE_STATUS_IN_INDEX          = 2   
-    c_GIT_SUBMODULE_STATUS_IN_CONFIG         = 4   
-    c_GIT_SUBMODULE_STATUS_IN_WD             = 8   
-    c_GIT_SUBMODULE_STATUS_INDEX_ADDED       = 16  
-    c_GIT_SUBMODULE_STATUS_INDEX_DELETED     = 32  
-    c_GIT_SUBMODULE_STATUS_INDEX_MODIFIED    = 64  
-    c_GIT_SUBMODULE_STATUS_WD_UNINITIALIZED  = 128 
-    c_GIT_SUBMODULE_STATUS_WD_ADDED          = 256 
-    c_GIT_SUBMODULE_STATUS_WD_DELETED        = 512 
-    c_GIT_SUBMODULE_STATUS_WD_MODIFIED       = 1024
-    c_GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED = 2048
-    c_GIT_SUBMODULE_STATUS_WD_WD_MODIFIED    = 4096
-    c_GIT_SUBMODULE_STATUS_WD_UNTRACKED      = 8192
+    c_GIT_SUBMODULE_STATUS_IN_HEAD           = 1 shl 0 
+    c_GIT_SUBMODULE_STATUS_IN_INDEX          = 1 shl 1 
+    c_GIT_SUBMODULE_STATUS_IN_CONFIG         = 1 shl 2 
+    c_GIT_SUBMODULE_STATUS_IN_WD             = 1 shl 3 
+    c_GIT_SUBMODULE_STATUS_INDEX_ADDED       = 1 shl 4 
+    c_GIT_SUBMODULE_STATUS_INDEX_DELETED     = 1 shl 5 
+    c_GIT_SUBMODULE_STATUS_INDEX_MODIFIED    = 1 shl 6 
+    c_GIT_SUBMODULE_STATUS_WD_UNINITIALIZED  = 1 shl 7 
+    c_GIT_SUBMODULE_STATUS_WD_ADDED          = 1 shl 8 
+    c_GIT_SUBMODULE_STATUS_WD_DELETED        = 1 shl 9 
+    c_GIT_SUBMODULE_STATUS_WD_MODIFIED       = 1 shl 10
+    c_GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED = 1 shl 11
+    c_GIT_SUBMODULE_STATUS_WD_WD_MODIFIED    = 1 shl 12
+    c_GIT_SUBMODULE_STATUS_WD_UNTRACKED      = 1 shl 13
    
   git_submodule_cb* = proc(sm: ptr git_submodule, name: cstring, payload: pointer): cint{.cdecl.}
    
   git_submodule_cbNim* = proc(sm: ptr git_submodule, name: cstring): cint
    
-  git_submodule_status_t* = enum
+  git_submodule_status_t* {.size: sizeof(cint).} = enum
     GIT_SUBMODULE_STATUS_IN_HEAD          
     GIT_SUBMODULE_STATUS_IN_INDEX         
     GIT_SUBMODULE_STATUS_IN_CONFIG        
@@ -146,6 +146,10 @@ func `-`*(
     arg:    c_git_submodule_status_t
   ): c_git_submodule_status_t = 
   c_git_submodule_status_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_submodule_status_t]): cint = 
+  cast[cint](args)
  
 
 proc git_submodule_update_options_init*(

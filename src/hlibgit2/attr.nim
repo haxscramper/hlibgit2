@@ -6,10 +6,10 @@ import
 
 type
   c_git_attr_value_t* = enum
-    c_GIT_ATTR_VALUE_UNSPECIFIED = 0                                            
-    c_GIT_ATTR_VALUE_TRUE        = 1 ## The attribute has been left unspecified 
-    c_GIT_ATTR_VALUE_FALSE       = 2 ## The attribute has been set              
-    c_GIT_ATTR_VALUE_STRING      = 3 ## The attribute has been unset            
+    c_GIT_ATTR_VALUE_UNSPECIFIED = 0                                                  
+    c_GIT_ATTR_VALUE_TRUE        = 1 shl 0 ## The attribute has been left unspecified 
+    c_GIT_ATTR_VALUE_FALSE       = 1 shl 1 ## The attribute has been set              
+    c_GIT_ATTR_VALUE_STRING      = 3       ## The attribute has been unset            
    
   git_attr_foreach_cb* = proc(name: cstring, value: cstring, payload: pointer): cint{.cdecl.}
    

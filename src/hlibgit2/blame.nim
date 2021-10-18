@@ -7,14 +7,14 @@ import
 
 type
   c_git_blame_flag_t* = enum
-    c_GIT_BLAME_NORMAL                          = 0  ## Normal blame, the default     
-    c_GIT_BLAME_TRACK_COPIES_SAME_FILE          = 1                                   
-    c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES  = 2                                   
-    c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES = 4                                   
-    c_GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES  = 8                                   
-    c_GIT_BLAME_FIRST_PARENT                    = 16                                  
-    c_GIT_BLAME_USE_MAILMAP                     = 32                                  
-    c_GIT_BLAME_IGNORE_WHITESPACE               = 64 ## Ignore whitespace differences 
+    c_GIT_BLAME_NORMAL                          = 0       ## Normal blame, the default     
+    c_GIT_BLAME_TRACK_COPIES_SAME_FILE          = 1 shl 0                                  
+    c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES  = 1 shl 1                                  
+    c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES = 1 shl 2                                  
+    c_GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES  = 1 shl 3                                  
+    c_GIT_BLAME_FIRST_PARENT                    = 1 shl 4                                  
+    c_GIT_BLAME_USE_MAILMAP                     = 1 shl 5                                  
+    c_GIT_BLAME_IGNORE_WHITESPACE               = 1 shl 6 ## Ignore whitespace differences 
    
   git_blame* {.bycopy, incompleteStruct, header: "<git2/blame.h>", importc.} = object
     

@@ -8,10 +8,10 @@ import
 
 type
   c_git_clone_local_t* = enum
-    c_GIT_CLONE_LOCAL_AUTO     = 0
-    c_GIT_CLONE_LOCAL          = 1
-    c_GIT_CLONE_NO_LOCAL       = 2
-    c_GIT_CLONE_LOCAL_NO_LINKS = 3
+    c_GIT_CLONE_LOCAL_AUTO     = 0      
+    c_GIT_CLONE_LOCAL          = 1 shl 0
+    c_GIT_CLONE_NO_LOCAL       = 1 shl 1
+    c_GIT_CLONE_LOCAL_NO_LINKS = 3      
    
   git_clone_local_t* = enum
     GIT_CLONE_LOCAL_AUTO    

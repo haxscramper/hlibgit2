@@ -9,8 +9,8 @@ import
 
 type
   c_git_packbuilder_stage_t* = enum
-    c_GIT_PACKBUILDER_ADDING_OBJECTS = 0
-    c_GIT_PACKBUILDER_DELTAFICATION  = 1
+    c_GIT_PACKBUILDER_ADDING_OBJECTS = 0      
+    c_GIT_PACKBUILDER_DELTAFICATION  = 1 shl 0
    
   git_packbuilder_foreach_cb* = proc(buf: pointer, size: csize_t, payload: pointer): cint{.cdecl.}
    

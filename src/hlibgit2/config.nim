@@ -7,19 +7,19 @@ import
 
 type
   c_git_config_level_t* = enum
-    c_GIT_CONFIG_HIGHEST_LEVEL     = -1                                                                      
-    c_GIT_CONFIG_LEVEL_PROGRAMDATA = 1  ## System-wide on Windows, for compatibility with portable git       
-    c_GIT_CONFIG_LEVEL_SYSTEM      = 2  ## System-wide configuration file; /etc/gitconfig on Linux systems   
-    c_GIT_CONFIG_LEVEL_XDG         = 3  ## XDG compatible configuration file; typically ~/.config/git/config 
-    c_GIT_CONFIG_LEVEL_GLOBAL      = 4                                                                       
-    c_GIT_CONFIG_LEVEL_LOCAL       = 5                                                                       
-    c_GIT_CONFIG_LEVEL_APP         = 6                                                                       
+    c_GIT_CONFIG_HIGHEST_LEVEL     = -1                                                                           
+    c_GIT_CONFIG_LEVEL_PROGRAMDATA = 1 shl 0 ## System-wide on Windows, for compatibility with portable git       
+    c_GIT_CONFIG_LEVEL_SYSTEM      = 1 shl 1 ## System-wide configuration file; /etc/gitconfig on Linux systems   
+    c_GIT_CONFIG_LEVEL_XDG         = 3       ## XDG compatible configuration file; typically ~/.config/git/config 
+    c_GIT_CONFIG_LEVEL_GLOBAL      = 1 shl 2                                                                      
+    c_GIT_CONFIG_LEVEL_LOCAL       = 5                                                                            
+    c_GIT_CONFIG_LEVEL_APP         = 6                                                                            
    
   c_git_configmap_t* = enum
-    c_GIT_CONFIGMAP_FALSE  = 0
-    c_GIT_CONFIGMAP_TRUE   = 1
-    c_GIT_CONFIGMAP_INT32  = 2
-    c_GIT_CONFIGMAP_STRING = 3
+    c_GIT_CONFIGMAP_FALSE  = 0      
+    c_GIT_CONFIGMAP_TRUE   = 1 shl 0
+    c_GIT_CONFIGMAP_INT32  = 1 shl 1
+    c_GIT_CONFIGMAP_STRING = 3      
    
   git_config_entry* {.bycopy, header: "<git2/config.h>", importc.} = object
     name*:          cstring                                                                                                      

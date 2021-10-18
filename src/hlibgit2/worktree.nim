@@ -8,9 +8,9 @@ import
 
 type
   c_git_worktree_prune_t* = enum
-    c_GIT_WORKTREE_PRUNE_VALID        = 1 ## Prune working tree even if working tree is valid 
-    c_GIT_WORKTREE_PRUNE_LOCKED       = 2 ## Prune working tree even if it is locked          
-    c_GIT_WORKTREE_PRUNE_WORKING_TREE = 4 ## Prune checked out working tree                   
+    c_GIT_WORKTREE_PRUNE_VALID        = 1 shl 0 ## Prune working tree even if working tree is valid 
+    c_GIT_WORKTREE_PRUNE_LOCKED       = 1 shl 1 ## Prune working tree even if it is locked          
+    c_GIT_WORKTREE_PRUNE_WORKING_TREE = 1 shl 2 ## Prune checked out working tree                   
    
   git_worktree_add_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
     version*:                  cuint                                                           
@@ -22,7 +22,7 @@ type
     version*: cuint 
     flags*:   uint32
    
-  git_worktree_prune_t* = enum
+  git_worktree_prune_t* {.size: sizeof(cint).} = enum
     GIT_WORKTREE_PRUNE_VALID        ## Prune working tree even if working tree is valid 
     GIT_WORKTREE_PRUNE_LOCKED       ## Prune working tree even if it is locked          
     GIT_WORKTREE_PRUNE_WORKING_TREE ## Prune checked out working tree                   
@@ -139,6 +139,10 @@ func `-`*(arg: c_git_worktree_prune_t, offset: int): c_git_worktree_prune_t =
  
 func `-`*(offset: int, arg: c_git_worktree_prune_t): c_git_worktree_prune_t = 
   c_git_worktree_prune_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_worktree_prune_t]): cint = 
+  cast[cint](args)
  
 
 proc git_worktree_prune_options_init*(

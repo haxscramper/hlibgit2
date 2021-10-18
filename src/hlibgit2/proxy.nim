@@ -7,9 +7,9 @@ import
 
 type
   c_git_proxy_t* = enum
-    c_GIT_PROXY_NONE      = 0
-    c_GIT_PROXY_AUTO      = 1
-    c_GIT_PROXY_SPECIFIED = 2
+    c_GIT_PROXY_NONE      = 0      
+    c_GIT_PROXY_AUTO      = 1 shl 0
+    c_GIT_PROXY_SPECIFIED = 1 shl 1
    
   git_proxy_options* {.bycopy, header: "<git2/proxy.h>", importc.} = object
     version*:                    cuint                             

@@ -8,32 +8,32 @@ import
 
 type
   c_git_index_add_option_t* = enum
-    c_GIT_INDEX_ADD_DEFAULT                = 0
-    c_GIT_INDEX_ADD_FORCE                  = 1
-    c_GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH = 2
-    c_GIT_INDEX_ADD_CHECK_PATHSPEC         = 4
+    c_GIT_INDEX_ADD_DEFAULT                = 0      
+    c_GIT_INDEX_ADD_FORCE                  = 1 shl 0
+    c_GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH = 1 shl 1
+    c_GIT_INDEX_ADD_CHECK_PATHSPEC         = 1 shl 2
    
   c_git_index_capability_t* = enum
-    c_GIT_INDEX_CAPABILITY_FROM_OWNER  = -1
-    c_GIT_INDEX_CAPABILITY_IGNORE_CASE = 1 
-    c_GIT_INDEX_CAPABILITY_NO_FILEMODE = 2 
-    c_GIT_INDEX_CAPABILITY_NO_SYMLINKS = 4 
+    c_GIT_INDEX_CAPABILITY_FROM_OWNER  = -1     
+    c_GIT_INDEX_CAPABILITY_IGNORE_CASE = 1 shl 0
+    c_GIT_INDEX_CAPABILITY_NO_FILEMODE = 1 shl 1
+    c_GIT_INDEX_CAPABILITY_NO_SYMLINKS = 1 shl 2
    
   c_git_index_entry_extended_flag_t* = enum
-    c_GIT_INDEX_ENTRY_UPTODATE       = 4    
-    c_GIT_INDEX_ENTRY_INTENT_TO_ADD  = 8192 
-    c_GIT_INDEX_ENTRY_SKIP_WORKTREE  = 16384
-    c_GIT_INDEX_ENTRY_EXTENDED_FLAGS = 24576
+    c_GIT_INDEX_ENTRY_UPTODATE       = 1 shl 2 
+    c_GIT_INDEX_ENTRY_INTENT_TO_ADD  = 1 shl 13
+    c_GIT_INDEX_ENTRY_SKIP_WORKTREE  = 1 shl 14
+    c_GIT_INDEX_ENTRY_EXTENDED_FLAGS = 24576   
    
   c_git_index_entry_flag_t* = enum
     c_GIT_INDEX_ENTRY_EXTENDED = 0
    
   c_git_index_stage_t* = enum
-    c_GIT_INDEX_STAGE_ANY      = -1                                       
-    c_GIT_INDEX_STAGE_NORMAL   = 0  ## A normal staged file in the index. 
-    c_GIT_INDEX_STAGE_ANCESTOR = 1  ## The ancestor side of a conflict.   
-    c_GIT_INDEX_STAGE_OURS     = 2  ## The "ours" side of a conflict.     
-    c_GIT_INDEX_STAGE_THEIRS   = 3  ## The "theirs" side of a conflict.   
+    c_GIT_INDEX_STAGE_ANY      = -1                                            
+    c_GIT_INDEX_STAGE_NORMAL   = 0       ## A normal staged file in the index. 
+    c_GIT_INDEX_STAGE_ANCESTOR = 1 shl 0 ## The ancestor side of a conflict.   
+    c_GIT_INDEX_STAGE_OURS     = 1 shl 1 ## The "ours" side of a conflict.     
+    c_GIT_INDEX_STAGE_THEIRS   = 3       ## The "theirs" side of a conflict.   
    
   git_index_add_option_t* = enum
     GIT_INDEX_ADD_DEFAULT               

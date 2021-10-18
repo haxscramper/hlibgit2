@@ -8,36 +8,36 @@ import
 
 type
   c_git_checkout_notify_t* = enum
-    c_GIT_CHECKOUT_NOTIFY_NONE      = 0 
-    c_GIT_CHECKOUT_NOTIFY_CONFLICT  = 1 
-    c_GIT_CHECKOUT_NOTIFY_DIRTY     = 2 
-    c_GIT_CHECKOUT_NOTIFY_UPDATED   = 4 
-    c_GIT_CHECKOUT_NOTIFY_UNTRACKED = 8 
-    c_GIT_CHECKOUT_NOTIFY_IGNORED   = 16
+    c_GIT_CHECKOUT_NOTIFY_NONE      = 0      
+    c_GIT_CHECKOUT_NOTIFY_CONFLICT  = 1 shl 0
+    c_GIT_CHECKOUT_NOTIFY_DIRTY     = 1 shl 1
+    c_GIT_CHECKOUT_NOTIFY_UPDATED   = 1 shl 2
+    c_GIT_CHECKOUT_NOTIFY_UNTRACKED = 1 shl 3
+    c_GIT_CHECKOUT_NOTIFY_IGNORED   = 1 shl 4
    
   c_git_checkout_strategy_t* = enum
-    c_GIT_CHECKOUT_NONE                         = 0                                                                                        
-    c_GIT_CHECKOUT_SAFE                         = 1       ## default is a dry run, no actual updates                                       
-    c_GIT_CHECKOUT_FORCE                        = 2                                                                                        
-    c_GIT_CHECKOUT_RECREATE_MISSING             = 4       ## Allow checkout to recreate missing files                                      
-    c_GIT_CHECKOUT_ALLOW_CONFLICTS              = 16      ## Allow checkout to make safe updates even if conflicts are found               
-    c_GIT_CHECKOUT_REMOVE_UNTRACKED             = 32      ## Remove untracked files not in index (that are not ignored)                    
-    c_GIT_CHECKOUT_REMOVE_IGNORED               = 64      ## Remove ignored files not in index                                             
-    c_GIT_CHECKOUT_UPDATE_ONLY                  = 128     ## Only update existing files, don't create new ones                             
-    c_GIT_CHECKOUT_DONT_UPDATE_INDEX            = 256                                                                                      
-    c_GIT_CHECKOUT_NO_REFRESH                   = 512     ## Don't refresh index/config/etc before doing checkout                          
-    c_GIT_CHECKOUT_SKIP_UNMERGED                = 1024    ## Allow checkout to skip unmerged files                                         
-    c_GIT_CHECKOUT_USE_OURS                     = 2048    ## For unmerged files, checkout stage 2 from index                               
-    c_GIT_CHECKOUT_USE_THEIRS                   = 4096    ## For unmerged files, checkout stage 3 from index                               
-    c_GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH       = 8192    ## Treat pathspec as simple list of exact match file paths                       
-    c_GIT_CHECKOUT_UPDATE_SUBMODULES            = 65536   ## Recursively checkout submodules with same options (NOT IMPLEMENTED)           
-    c_GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED = 131072  ## Recursively checkout submodules if HEAD moved in super repo (NOT IMPLEMENTED) 
-    c_GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES      = 262144  ## Ignore directories in use, they will be left empty                            
-    c_GIT_CHECKOUT_DONT_OVERWRITE_IGNORED       = 524288  ## Don't overwrite ignored files that exist in the checkout target               
-    c_GIT_CHECKOUT_CONFLICT_STYLE_MERGE         = 1048576 ## Write normal merge files for conflicts                                        
-    c_GIT_CHECKOUT_CONFLICT_STYLE_DIFF3         = 2097152 ## Include common ancestor data in diff3 format files for conflicts              
-    c_GIT_CHECKOUT_DONT_REMOVE_EXISTING         = 4194304 ## Don't overwrite existing files or folders                                     
-    c_GIT_CHECKOUT_DONT_WRITE_INDEX             = 8388608 ## Normally checkout writes the index upon completion; this prevents that.       
+    c_GIT_CHECKOUT_NONE                         = 0                                                                                         
+    c_GIT_CHECKOUT_SAFE                         = 1 shl 0  ## default is a dry run, no actual updates                                       
+    c_GIT_CHECKOUT_FORCE                        = 1 shl 1                                                                                   
+    c_GIT_CHECKOUT_RECREATE_MISSING             = 1 shl 2  ## Allow checkout to recreate missing files                                      
+    c_GIT_CHECKOUT_ALLOW_CONFLICTS              = 1 shl 4  ## Allow checkout to make safe updates even if conflicts are found               
+    c_GIT_CHECKOUT_REMOVE_UNTRACKED             = 1 shl 5  ## Remove untracked files not in index (that are not ignored)                    
+    c_GIT_CHECKOUT_REMOVE_IGNORED               = 1 shl 6  ## Remove ignored files not in index                                             
+    c_GIT_CHECKOUT_UPDATE_ONLY                  = 1 shl 7  ## Only update existing files, don't create new ones                             
+    c_GIT_CHECKOUT_DONT_UPDATE_INDEX            = 1 shl 8                                                                                   
+    c_GIT_CHECKOUT_NO_REFRESH                   = 1 shl 9  ## Don't refresh index/config/etc before doing checkout                          
+    c_GIT_CHECKOUT_SKIP_UNMERGED                = 1 shl 10 ## Allow checkout to skip unmerged files                                         
+    c_GIT_CHECKOUT_USE_OURS                     = 1 shl 11 ## For unmerged files, checkout stage 2 from index                               
+    c_GIT_CHECKOUT_USE_THEIRS                   = 1 shl 12 ## For unmerged files, checkout stage 3 from index                               
+    c_GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH       = 1 shl 13 ## Treat pathspec as simple list of exact match file paths                       
+    c_GIT_CHECKOUT_UPDATE_SUBMODULES            = 1 shl 16 ## Recursively checkout submodules with same options (NOT IMPLEMENTED)           
+    c_GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED = 1 shl 17 ## Recursively checkout submodules if HEAD moved in super repo (NOT IMPLEMENTED) 
+    c_GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES      = 1 shl 18 ## Ignore directories in use, they will be left empty                            
+    c_GIT_CHECKOUT_DONT_OVERWRITE_IGNORED       = 1 shl 19 ## Don't overwrite ignored files that exist in the checkout target               
+    c_GIT_CHECKOUT_CONFLICT_STYLE_MERGE         = 1 shl 20 ## Write normal merge files for conflicts                                        
+    c_GIT_CHECKOUT_CONFLICT_STYLE_DIFF3         = 1 shl 21 ## Include common ancestor data in diff3 format files for conflicts              
+    c_GIT_CHECKOUT_DONT_REMOVE_EXISTING         = 1 shl 22 ## Don't overwrite existing files or folders                                     
+    c_GIT_CHECKOUT_DONT_WRITE_INDEX             = 1 shl 23 ## Normally checkout writes the index upon completion; this prevents that.       
    
   git_checkout_notify_cb* = proc(why: c_git_checkout_notify_t, path: cstring, baseline: ptr git_diff_file, target: ptr git_diff_file, workdir: ptr git_diff_file, payload: pointer): cint{.cdecl.}
    

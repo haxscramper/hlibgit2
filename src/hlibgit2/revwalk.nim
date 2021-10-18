@@ -7,10 +7,10 @@ import
 
 type
   c_git_sort_t* = enum
-    c_GIT_SORT_NONE        = 0
-    c_GIT_SORT_TOPOLOGICAL = 1
-    c_GIT_SORT_TIME        = 2
-    c_GIT_SORT_REVERSE     = 4
+    c_GIT_SORT_NONE        = 0      
+    c_GIT_SORT_TOPOLOGICAL = 1 shl 0
+    c_GIT_SORT_TIME        = 1 shl 1
+    c_GIT_SORT_REVERSE     = 1 shl 2
    
   git_revwalk_hide_cb* = proc(commit_id: ptr git_oid, payload: pointer): cint{.cdecl.}
    

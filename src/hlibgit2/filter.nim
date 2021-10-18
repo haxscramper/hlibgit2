@@ -7,14 +7,14 @@ import
 
 type
   c_git_filter_flag_t* = enum
-    c_GIT_FILTER_DEFAULT              = 0                                                                   
-    c_GIT_FILTER_ALLOW_UNSAFE         = 1 ## Don't error for `safecrlf` violations, allow them to continue. 
-    c_GIT_FILTER_NO_SYSTEM_ATTRIBUTES = 2 ## Don't load `/etc/gitattributes` (or the system equivalent)     
-    c_GIT_FILTER_ATTRIBUTES_FROM_HEAD = 4 ## Load attributes from `.gitattributes` in the root of HEAD      
+    c_GIT_FILTER_DEFAULT              = 0                                                                         
+    c_GIT_FILTER_ALLOW_UNSAFE         = 1 shl 0 ## Don't error for `safecrlf` violations, allow them to continue. 
+    c_GIT_FILTER_NO_SYSTEM_ATTRIBUTES = 1 shl 1 ## Don't load `/etc/gitattributes` (or the system equivalent)     
+    c_GIT_FILTER_ATTRIBUTES_FROM_HEAD = 1 shl 2 ## Load attributes from `.gitattributes` in the root of HEAD      
    
   c_git_filter_mode_t* = enum
-    c_GIT_FILTER_TO_WORKTREE = 0
-    c_GIT_FILTER_TO_ODB      = 1
+    c_GIT_FILTER_TO_WORKTREE = 0      
+    c_GIT_FILTER_TO_ODB      = 1 shl 0
    
   git_filter* {.bycopy, incompleteStruct, header: "<git2/filter.h>", importc.} = object
     

@@ -8,11 +8,11 @@ import
 
 type
   c_git_blob_filter_flag_t* = enum
-    c_GIT_BLOB_FILTER_CHECK_FOR_BINARY      = 1 ## When set, filters will not be applied to binary files. 
-    c_GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES  = 2                                                           
-    c_GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD = 4                                                           
+    c_GIT_BLOB_FILTER_CHECK_FOR_BINARY      = 1 shl 0 ## When set, filters will not be applied to binary files. 
+    c_GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES  = 1 shl 1                                                           
+    c_GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD = 1 shl 2                                                           
    
-  git_blob_filter_flag_t* = enum
+  git_blob_filter_flag_t* {.size: sizeof(cint).} = enum
     GIT_BLOB_FILTER_CHECK_FOR_BINARY      ## When set, filters will not be applied to binary files. 
     GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES                                                            
     GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD                                                           
@@ -113,6 +113,10 @@ func `-`*(
     arg:    c_git_blob_filter_flag_t
   ): c_git_blob_filter_flag_t = 
   c_git_blob_filter_flag_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_blob_filter_flag_t]): cint = 
+  cast[cint](args)
  
 
 proc git_blob_filter_options_init*(

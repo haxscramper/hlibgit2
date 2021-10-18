@@ -5,9 +5,9 @@ import
 
 type
   c_git_branch_t* = enum
-    c_GIT_BRANCH_LOCAL  = 1
-    c_GIT_BRANCH_REMOTE = 2
-    c_GIT_BRANCH_ALL    = 3
+    c_GIT_BRANCH_LOCAL  = 1 shl 0
+    c_GIT_BRANCH_REMOTE = 1 shl 1
+    c_GIT_BRANCH_ALL    = 3      
    
   c_git_filemode_t* = enum
     c_GIT_FILEMODE_UNREADABLE      = 0     
@@ -18,39 +18,39 @@ type
     c_GIT_FILEMODE_COMMIT          = 160000
    
   c_git_object_t* = enum
-    c_GIT_OBJECT_ANY       = -2                                         
-    c_GIT_OBJECT_INVALID   = -1 ## Object can be any of the following   
-    c_GIT_OBJECT_COMMIT    = 1  ## Object is invalid.                   
-    c_GIT_OBJECT_TREE      = 2  ## A commit object.                     
-    c_GIT_OBJECT_BLOB      = 3  ## A tree (directory listing) object.   
-    c_GIT_OBJECT_TAG       = 4  ## A file revision object.              
-    c_GIT_OBJECT_OFS_DELTA = 6  ## An annotated tag object.             
-    c_GIT_OBJECT_REF_DELTA = 7  ## A delta, base is given by an offset. 
+    c_GIT_OBJECT_ANY       = -2                                              
+    c_GIT_OBJECT_INVALID   = -1      ## Object can be any of the following   
+    c_GIT_OBJECT_COMMIT    = 1 shl 0 ## Object is invalid.                   
+    c_GIT_OBJECT_TREE      = 1 shl 1 ## A commit object.                     
+    c_GIT_OBJECT_BLOB      = 3       ## A tree (directory listing) object.   
+    c_GIT_OBJECT_TAG       = 1 shl 2 ## A file revision object.              
+    c_GIT_OBJECT_OFS_DELTA = 6       ## An annotated tag object.             
+    c_GIT_OBJECT_REF_DELTA = 7       ## A delta, base is given by an offset. 
    
   c_git_reference_t* = enum
-    c_GIT_REFERENCE_INVALID  = 0                                                 
-    c_GIT_REFERENCE_DIRECT   = 1 ## Invalid reference                            
-    c_GIT_REFERENCE_SYMBOLIC = 2 ## A reference that points at an object id      
-    c_GIT_REFERENCE_ALL      = 3 ## A reference that points at another reference 
+    c_GIT_REFERENCE_INVALID  = 0                                                       
+    c_GIT_REFERENCE_DIRECT   = 1 shl 0 ## Invalid reference                            
+    c_GIT_REFERENCE_SYMBOLIC = 1 shl 1 ## A reference that points at an object id      
+    c_GIT_REFERENCE_ALL      = 3       ## A reference that points at another reference 
    
   c_git_submodule_ignore_t* = enum
-    c_GIT_SUBMODULE_IGNORE_UNSPECIFIED = -1                                      
-    c_GIT_SUBMODULE_IGNORE_NONE        = 1  ## use the submodule's configuration 
-    c_GIT_SUBMODULE_IGNORE_UNTRACKED   = 2  ## any change or untracked == dirty  
-    c_GIT_SUBMODULE_IGNORE_DIRTY       = 3  ## dirty if tracked files change     
-    c_GIT_SUBMODULE_IGNORE_ALL         = 4  ## only dirty if HEAD moved          
+    c_GIT_SUBMODULE_IGNORE_UNSPECIFIED = -1                                           
+    c_GIT_SUBMODULE_IGNORE_NONE        = 1 shl 0 ## use the submodule's configuration 
+    c_GIT_SUBMODULE_IGNORE_UNTRACKED   = 1 shl 1 ## any change or untracked == dirty  
+    c_GIT_SUBMODULE_IGNORE_DIRTY       = 3       ## dirty if tracked files change     
+    c_GIT_SUBMODULE_IGNORE_ALL         = 1 shl 2 ## only dirty if HEAD moved          
    
   c_git_submodule_recurse_t* = enum
-    c_GIT_SUBMODULE_RECURSE_NO       = 0
-    c_GIT_SUBMODULE_RECURSE_YES      = 1
-    c_GIT_SUBMODULE_RECURSE_ONDEMAND = 2
+    c_GIT_SUBMODULE_RECURSE_NO       = 0      
+    c_GIT_SUBMODULE_RECURSE_YES      = 1 shl 0
+    c_GIT_SUBMODULE_RECURSE_ONDEMAND = 1 shl 1
    
   c_git_submodule_update_t* = enum
-    c_GIT_SUBMODULE_UPDATE_DEFAULT  = 0
-    c_GIT_SUBMODULE_UPDATE_CHECKOUT = 1
-    c_GIT_SUBMODULE_UPDATE_REBASE   = 2
-    c_GIT_SUBMODULE_UPDATE_MERGE    = 3
-    c_GIT_SUBMODULE_UPDATE_NONE     = 4
+    c_GIT_SUBMODULE_UPDATE_DEFAULT  = 0      
+    c_GIT_SUBMODULE_UPDATE_CHECKOUT = 1 shl 0
+    c_GIT_SUBMODULE_UPDATE_REBASE   = 1 shl 1
+    c_GIT_SUBMODULE_UPDATE_MERGE    = 3      
+    c_GIT_SUBMODULE_UPDATE_NONE     = 1 shl 2
    
   git_annotated_commit* {.bycopy, incompleteStruct, header: "<git2/types.h>",
                           importc.} = object

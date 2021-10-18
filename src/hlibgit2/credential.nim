@@ -13,13 +13,13 @@ type
   LIBSSH2_USERAUTH_KBDINT_RESPONSE1* = LIBSSH2_USERAUTH_KBDINT_RESPONSE
    
   c_git_credential_t* = enum
-    c_GIT_CREDENTIAL_USERPASS_PLAINTEXT = 1 
-    c_GIT_CREDENTIAL_SSH_KEY            = 2 
-    c_GIT_CREDENTIAL_SSH_CUSTOM         = 4 
-    c_GIT_CREDENTIAL_DEFAULT            = 8 
-    c_GIT_CREDENTIAL_SSH_INTERACTIVE    = 16
-    c_GIT_CREDENTIAL_USERNAME           = 32
-    c_GIT_CREDENTIAL_SSH_MEMORY         = 64
+    c_GIT_CREDENTIAL_USERPASS_PLAINTEXT = 1 shl 0
+    c_GIT_CREDENTIAL_SSH_KEY            = 1 shl 1
+    c_GIT_CREDENTIAL_SSH_CUSTOM         = 1 shl 2
+    c_GIT_CREDENTIAL_DEFAULT            = 1 shl 3
+    c_GIT_CREDENTIAL_SSH_INTERACTIVE    = 1 shl 4
+    c_GIT_CREDENTIAL_USERNAME           = 1 shl 5
+    c_GIT_CREDENTIAL_SSH_MEMORY         = 1 shl 6
    
   git_credential* {.bycopy, incompleteStruct, header: "<git2/credential.h>",
                     importc.} = object
@@ -47,7 +47,7 @@ type
                             header: "<git2/credential.h>", importc.} = object
     
    
-  git_credential_t* = enum
+  git_credential_t* {.size: sizeof(cint).} = enum
     GIT_CREDENTIAL_USERPASS_PLAINTEXT
     GIT_CREDENTIAL_SSH_KEY           
     GIT_CREDENTIAL_SSH_CUSTOM        
@@ -115,6 +115,10 @@ func `-`*(arg: c_git_credential_t, offset: int): c_git_credential_t =
  
 func `-`*(offset: int, arg: c_git_credential_t): c_git_credential_t = 
   c_git_credential_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_credential_t]): cint = 
+  cast[cint](args)
  
 
 proc git_credential_free*(cred: ptr git_credential): void {.git2Proc, importc.}

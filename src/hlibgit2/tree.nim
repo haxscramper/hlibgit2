@@ -8,12 +8,12 @@ import
 
 type
   c_git_tree_update_t* = enum
-    c_GIT_TREE_UPDATE_UPSERT = 0 ## Update or insert an entry at the specified path 
-    c_GIT_TREE_UPDATE_REMOVE = 1 ## Remove an entry from the specified path         
+    c_GIT_TREE_UPDATE_UPSERT = 0       ## Update or insert an entry at the specified path 
+    c_GIT_TREE_UPDATE_REMOVE = 1 shl 0 ## Remove an entry from the specified path         
    
   c_git_treewalk_mode* = enum
-    c_GIT_TREEWALK_PRE  = 0              
-    c_GIT_TREEWALK_POST = 1 ## Pre-order 
+    c_GIT_TREEWALK_PRE  = 0                    
+    c_GIT_TREEWALK_POST = 1 shl 0 ## Pre-order 
    
   git_tree_update* {.bycopy, header: "<git2/tree.h>", importc.} = object
     action*:   c_git_tree_update_t ## Update action. If it's an removal, only the path is looked at 

@@ -8,13 +8,13 @@ import
 
 type
   c_git_repository_init_flag_t* = enum
-    c_GIT_REPOSITORY_INIT_BARE              = 1 
-    c_GIT_REPOSITORY_INIT_NO_REINIT         = 2 
-    c_GIT_REPOSITORY_INIT_NO_DOTGIT_DIR     = 4 
-    c_GIT_REPOSITORY_INIT_MKDIR             = 8 
-    c_GIT_REPOSITORY_INIT_MKPATH            = 16
-    c_GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE = 32
-    c_GIT_REPOSITORY_INIT_RELATIVE_GITLINK  = 64
+    c_GIT_REPOSITORY_INIT_BARE              = 1 shl 0
+    c_GIT_REPOSITORY_INIT_NO_REINIT         = 1 shl 1
+    c_GIT_REPOSITORY_INIT_NO_DOTGIT_DIR     = 1 shl 2
+    c_GIT_REPOSITORY_INIT_MKDIR             = 1 shl 3
+    c_GIT_REPOSITORY_INIT_MKPATH            = 1 shl 4
+    c_GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE = 1 shl 5
+    c_GIT_REPOSITORY_INIT_RELATIVE_GITLINK  = 1 shl 6
    
   c_git_repository_init_mode_t* = enum
     c_GIT_REPOSITORY_INIT_SHARED_UMASK = 0   
@@ -22,48 +22,48 @@ type
     c_GIT_REPOSITORY_INIT_SHARED_ALL   = 2777
    
   c_git_repository_item_t* = enum
-    c_GIT_REPOSITORY_ITEM_GITDIR      = 0 
-    c_GIT_REPOSITORY_ITEM_WORKDIR     = 1 
-    c_GIT_REPOSITORY_ITEM_COMMONDIR   = 2 
-    c_GIT_REPOSITORY_ITEM_INDEX       = 3 
-    c_GIT_REPOSITORY_ITEM_OBJECTS     = 4 
-    c_GIT_REPOSITORY_ITEM_REFS        = 5 
-    c_GIT_REPOSITORY_ITEM_PACKED_REFS = 6 
-    c_GIT_REPOSITORY_ITEM_REMOTES     = 7 
-    c_GIT_REPOSITORY_ITEM_CONFIG      = 8 
-    c_GIT_REPOSITORY_ITEM_INFO        = 9 
-    c_GIT_REPOSITORY_ITEM_HOOKS       = 10
-    c_GIT_REPOSITORY_ITEM_LOGS        = 11
-    c_GIT_REPOSITORY_ITEM_MODULES     = 12
-    c_GIT_REPOSITORY_ITEM_WORKTREES   = 13
-    c_GIT_REPOSITORY_ITEM_LAST        = 14
+    c_GIT_REPOSITORY_ITEM_GITDIR      = 0      
+    c_GIT_REPOSITORY_ITEM_WORKDIR     = 1 shl 0
+    c_GIT_REPOSITORY_ITEM_COMMONDIR   = 1 shl 1
+    c_GIT_REPOSITORY_ITEM_INDEX       = 3      
+    c_GIT_REPOSITORY_ITEM_OBJECTS     = 1 shl 2
+    c_GIT_REPOSITORY_ITEM_REFS        = 5      
+    c_GIT_REPOSITORY_ITEM_PACKED_REFS = 6      
+    c_GIT_REPOSITORY_ITEM_REMOTES     = 7      
+    c_GIT_REPOSITORY_ITEM_CONFIG      = 1 shl 3
+    c_GIT_REPOSITORY_ITEM_INFO        = 9      
+    c_GIT_REPOSITORY_ITEM_HOOKS       = 10     
+    c_GIT_REPOSITORY_ITEM_LOGS        = 11     
+    c_GIT_REPOSITORY_ITEM_MODULES     = 12     
+    c_GIT_REPOSITORY_ITEM_WORKTREES   = 13     
+    c_GIT_REPOSITORY_ITEM_LAST        = 14     
    
   c_git_repository_open_flag_t* = enum
-    c_GIT_REPOSITORY_OPEN_NO_SEARCH = 1 
-    c_GIT_REPOSITORY_OPEN_CROSS_FS  = 2 
-    c_GIT_REPOSITORY_OPEN_BARE      = 4 
-    c_GIT_REPOSITORY_OPEN_NO_DOTGIT = 8 
-    c_GIT_REPOSITORY_OPEN_FROM_ENV  = 16
+    c_GIT_REPOSITORY_OPEN_NO_SEARCH = 1 shl 0
+    c_GIT_REPOSITORY_OPEN_CROSS_FS  = 1 shl 1
+    c_GIT_REPOSITORY_OPEN_BARE      = 1 shl 2
+    c_GIT_REPOSITORY_OPEN_NO_DOTGIT = 1 shl 3
+    c_GIT_REPOSITORY_OPEN_FROM_ENV  = 1 shl 4
    
   c_git_repository_state_t* = enum
-    c_GIT_REPOSITORY_STATE_NONE                    = 0 
-    c_GIT_REPOSITORY_STATE_MERGE                   = 1 
-    c_GIT_REPOSITORY_STATE_REVERT                  = 2 
-    c_GIT_REPOSITORY_STATE_REVERT_SEQUENCE         = 3 
-    c_GIT_REPOSITORY_STATE_CHERRYPICK              = 4 
-    c_GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE     = 5 
-    c_GIT_REPOSITORY_STATE_BISECT                  = 6 
-    c_GIT_REPOSITORY_STATE_REBASE                  = 7 
-    c_GIT_REPOSITORY_STATE_REBASE_INTERACTIVE      = 8 
-    c_GIT_REPOSITORY_STATE_REBASE_MERGE            = 9 
-    c_GIT_REPOSITORY_STATE_APPLY_MAILBOX           = 10
-    c_GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE = 11
+    c_GIT_REPOSITORY_STATE_NONE                    = 0      
+    c_GIT_REPOSITORY_STATE_MERGE                   = 1 shl 0
+    c_GIT_REPOSITORY_STATE_REVERT                  = 1 shl 1
+    c_GIT_REPOSITORY_STATE_REVERT_SEQUENCE         = 3      
+    c_GIT_REPOSITORY_STATE_CHERRYPICK              = 1 shl 2
+    c_GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE     = 5      
+    c_GIT_REPOSITORY_STATE_BISECT                  = 6      
+    c_GIT_REPOSITORY_STATE_REBASE                  = 7      
+    c_GIT_REPOSITORY_STATE_REBASE_INTERACTIVE      = 1 shl 3
+    c_GIT_REPOSITORY_STATE_REBASE_MERGE            = 9      
+    c_GIT_REPOSITORY_STATE_APPLY_MAILBOX           = 10     
+    c_GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE = 11     
    
   git_repository_fetchhead_foreach_cb* = proc(ref_name: cstring, remote_url: cstring, oid: ptr git_oid, is_merge: cuint, payload: pointer): cint{.cdecl.}
    
   git_repository_fetchhead_foreach_cbNim* = proc(ref_name: cstring, remote_url: cstring, oid: ptr git_oid, is_merge: cuint): cint
    
-  git_repository_init_flag_t* = enum
+  git_repository_init_flag_t* {.size: sizeof(cint).} = enum
     GIT_REPOSITORY_INIT_BARE             
     GIT_REPOSITORY_INIT_NO_REINIT        
     GIT_REPOSITORY_INIT_NO_DOTGIT_DIR    
@@ -108,7 +108,7 @@ type
    
   git_repository_mergehead_foreach_cbNim* = proc(oid: ptr git_oid): cint
    
-  git_repository_open_flag_t* = enum
+  git_repository_open_flag_t* {.size: sizeof(cint).} = enum
     GIT_REPOSITORY_OPEN_NO_SEARCH
     GIT_REPOSITORY_OPEN_CROSS_FS 
     GIT_REPOSITORY_OPEN_BARE     
@@ -220,6 +220,10 @@ func `-`*(
   c_git_repository_open_flag_t(ord(arg) - offset)
  
 
+converter toCint*(args: set[c_git_repository_open_flag_t]): cint = 
+  cast[cint](args)
+ 
+
 proc git_repository_open_ext*(
     arg_out:      ptr ptr git_repository,
     path:         cstring,
@@ -314,6 +318,10 @@ func `-`*(
     arg:    c_git_repository_init_flag_t
   ): c_git_repository_init_flag_t = 
   c_git_repository_init_flag_t(ord(arg) - offset)
+ 
+
+converter toCint*(args: set[c_git_repository_init_flag_t]): cint = 
+  cast[cint](args)
  
 
 proc to_c_git_repository_init_mode_t*(
