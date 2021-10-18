@@ -8,6 +8,10 @@ import
   ./types
 
 type
+  c_git_packbuilder_stage_t* = enum
+    c_GIT_PACKBUILDER_ADDING_OBJECTS = 0
+    c_GIT_PACKBUILDER_DELTAFICATION  = 1
+   
   git_packbuilder_foreach_cb* = proc(buf: pointer, size: csize_t, payload: pointer): cint{.cdecl.}
    
   git_packbuilder_foreach_cbNim* = proc(buf: pointer, size: csize_t): cint
@@ -17,59 +21,115 @@ type
   git_packbuilder_progressNim* = proc(stage: cint, current: uint32, total: uint32): cint
    
   git_packbuilder_stage_t* = enum
-    GIT_PACKBUILDER_ADDING_OBJECTS = 0
-    GIT_PACKBUILDER_DELTAFICATION = 1
+    GIT_PACKBUILDER_ADDING_OBJECTS
+    GIT_PACKBUILDER_DELTAFICATION 
    
+
+proc to_c_git_packbuilder_stage_t*(
+    arg: git_packbuilder_stage_t
+  ): c_git_packbuilder_stage_t = 
+  case arg:
+    of GIT_PACKBUILDER_ADDING_OBJECTS:
+      c_GIT_PACKBUILDER_ADDING_OBJECTS
+    of GIT_PACKBUILDER_DELTAFICATION:
+      c_GIT_PACKBUILDER_DELTAFICATION
+ 
+
+converter to_git_packbuilder_stage_t*(
+    arg: c_git_packbuilder_stage_t
+  ): git_packbuilder_stage_t = 
+  case arg:
+    of c_GIT_PACKBUILDER_ADDING_OBJECTS:
+      GIT_PACKBUILDER_ADDING_OBJECTS
+    of c_GIT_PACKBUILDER_DELTAFICATION:
+      GIT_PACKBUILDER_DELTAFICATION
+ 
+
+converter toCint*(arg: c_git_packbuilder_stage_t): cint = 
+  cint(ord(arg))
+ 
+func `+`*(
+    arg:    c_git_packbuilder_stage_t,
+    offset: int
+  ): c_git_packbuilder_stage_t = 
+  c_git_packbuilder_stage_t(ord(arg) + offset)
+ 
+func `+`*(
+    offset: int,
+    arg:    c_git_packbuilder_stage_t
+  ): c_git_packbuilder_stage_t = 
+  c_git_packbuilder_stage_t(ord(arg) + offset)
+ 
+func `-`*(
+    arg:    c_git_packbuilder_stage_t,
+    offset: int
+  ): c_git_packbuilder_stage_t = 
+  c_git_packbuilder_stage_t(ord(arg) - offset)
+ 
+func `-`*(
+    offset: int,
+    arg:    c_git_packbuilder_stage_t
+  ): c_git_packbuilder_stage_t = 
+  c_git_packbuilder_stage_t(ord(arg) - offset)
+ 
 
 proc git_packbuilder_new*(
     arg_out: ptr ptr git_packbuilder,
     repo:    ptr git_repository
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_set_threads*(
     pb: ptr git_packbuilder,
     n:  cuint
-  ): cuint {.dynlib: libgit2Dl, importc.}
-
+  ): cuint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_insert*(
     pb:   ptr git_packbuilder,
     id:   ptr git_oid,
     name: cstring
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_insert_tree*(
     pb: ptr git_packbuilder,
     id: ptr git_oid
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_insert_commit*(
     pb: ptr git_packbuilder,
     id: ptr git_oid
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_insert_walk*(
     pb:   ptr git_packbuilder,
     walk: ptr git_revwalk
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_insert_recur*(
     pb:   ptr git_packbuilder,
     id:   ptr git_oid,
     name: cstring
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_write_buf*(
     buf: ptr git_buf,
     pb:  ptr git_packbuilder
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_write*(
     pb:                  ptr git_packbuilder,
@@ -77,40 +137,45 @@ proc git_packbuilder_write*(
     mode:                cuint,
     progress_cb:         git_indexer_progress_cb,
     progress_cb_payload: pointer
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_hash*(
     pb: ptr git_packbuilder
-  ): ptr git_oid {.dynlib: libgit2Dl, importc.}
-
+  ): ptr git_oid {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_foreach*(
     pb:      ptr git_packbuilder,
     cb:      git_packbuilder_foreach_cb,
     payload: pointer
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_object_count*(
     pb: ptr git_packbuilder
-  ): csize_t {.dynlib: libgit2Dl, importc.}
-
+  ): csize_t {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_written*(
     pb: ptr git_packbuilder
-  ): csize_t {.dynlib: libgit2Dl, importc.}
-
+  ): csize_t {.git2Proc, importc.}
+  
+ 
 
 proc git_packbuilder_set_callbacks*(
     pb:                  ptr git_packbuilder,
     progress_cb:         git_packbuilder_progress,
     progress_cb_payload: pointer
-  ): cint {.dynlib: libgit2Dl, importc.}
+  ): cint {.git2Proc, importc.}
+  
+ 
 
-
-proc git_packbuilder_free*(
-    pb: ptr git_packbuilder
-  ): void {.dynlib: libgit2Dl, importc.}
-
+proc git_packbuilder_free*(pb: ptr git_packbuilder): void {.git2Proc, importc.}
+  
+ 
 

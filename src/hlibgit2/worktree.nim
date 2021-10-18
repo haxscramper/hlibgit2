@@ -7,55 +7,63 @@ import
   ./types
 
 type
+  c_git_worktree_prune_t* = enum
+    c_GIT_WORKTREE_PRUNE_VALID        = 1 ## Prune working tree even if working tree is valid 
+    c_GIT_WORKTREE_PRUNE_LOCKED       = 2 ## Prune working tree even if it is locked          
+    c_GIT_WORKTREE_PRUNE_WORKING_TREE = 4 ## Prune checked out working tree                   
+   
   git_worktree_add_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
-    version*: cuint
-    lock*: cint
+    version*:                  cuint                                                           
+    lock*:                     cint                                                            
     ref_f* {.importc: "ref".}: ptr git_reference ## lock newly created worktree 
+                                                 ## reference to use for the new worktree HEAD 
    
   git_worktree_prune_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
-    version*: cuint
-    flags*: uint32
+    version*: cuint 
+    flags*:   uint32
    
   git_worktree_prune_t* = enum
-    GIT_WORKTREE_PRUNE_VALID = 1 ## Prune working tree even if working tree is valid 
-    GIT_WORKTREE_PRUNE_LOCKED = 2 ## Prune working tree even if it is locked 
-    GIT_WORKTREE_PRUNE_WORKING_TREE = 4 ## Prune checked out working tree 
+    GIT_WORKTREE_PRUNE_VALID        ## Prune working tree even if working tree is valid 
+    GIT_WORKTREE_PRUNE_LOCKED       ## Prune working tree even if it is locked          
+    GIT_WORKTREE_PRUNE_WORKING_TREE ## Prune checked out working tree                   
    
 
 proc git_worktree_list*(
     arg_out: ptr git_strarray,
     repo:    ptr git_repository
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_worktree_lookup*(
     arg_out: ptr ptr git_worktree,
     repo:    ptr git_repository,
     name:    cstring
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_worktree_open_from_repository*(
     arg_out: ptr ptr git_worktree,
     repo:    ptr git_repository
-  ): cint {.dynlib: libgit2Dl, importc.}
+  ): cint {.git2Proc, importc.}
+  
+ 
 
+proc git_worktree_free*(wt: ptr git_worktree): void {.git2Proc, importc.}
+  
+ 
 
-proc git_worktree_free*(
-    wt: ptr git_worktree
-  ): void {.dynlib: libgit2Dl, importc.}
-
-
-proc git_worktree_validate*(
-    wt: ptr git_worktree
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+proc git_worktree_validate*(wt: ptr git_worktree): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_worktree_add_options_init*(
     opts:    ptr git_worktree_add_options,
     version: cuint
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_worktree_add*(
     arg_out: ptr ptr git_worktree,
@@ -63,51 +71,94 @@ proc git_worktree_add*(
     name:    cstring,
     path:    cstring,
     opts:    ptr git_worktree_add_options
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_worktree_lock*(
     wt:     ptr git_worktree,
     reason: cstring
-  ): cint {.dynlib: libgit2Dl, importc.}
+  ): cint {.git2Proc, importc.}
+  
+ 
 
-
-proc git_worktree_unlock*(
-    wt: ptr git_worktree
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+proc git_worktree_unlock*(wt: ptr git_worktree): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_worktree_is_locked*(
     reason: ptr git_buf,
     wt:     ptr git_worktree
-  ): cint {.dynlib: libgit2Dl, importc.}
+  ): cint {.git2Proc, importc.}
+  
+ 
 
+proc git_worktree_name*(wt: ptr git_worktree): cstring {.git2Proc, importc.}
+  
+ 
 
-proc git_worktree_name*(
-    wt: ptr git_worktree
-  ): cstring {.dynlib: libgit2Dl, importc.}
+proc git_worktree_path*(wt: ptr git_worktree): cstring {.git2Proc, importc.}
+  
+ 
 
+proc to_c_git_worktree_prune_t*(
+    arg: git_worktree_prune_t
+  ): c_git_worktree_prune_t = 
+  case arg:
+    of GIT_WORKTREE_PRUNE_VALID:
+      c_GIT_WORKTREE_PRUNE_VALID
+    of GIT_WORKTREE_PRUNE_LOCKED:
+      c_GIT_WORKTREE_PRUNE_LOCKED
+    of GIT_WORKTREE_PRUNE_WORKING_TREE:
+      c_GIT_WORKTREE_PRUNE_WORKING_TREE
+ 
 
-proc git_worktree_path*(
-    wt: ptr git_worktree
-  ): cstring {.dynlib: libgit2Dl, importc.}
+converter to_git_worktree_prune_t*(
+    arg: c_git_worktree_prune_t
+  ): git_worktree_prune_t = 
+  case arg:
+    of c_GIT_WORKTREE_PRUNE_VALID:
+      GIT_WORKTREE_PRUNE_VALID
+    of c_GIT_WORKTREE_PRUNE_LOCKED:
+      GIT_WORKTREE_PRUNE_LOCKED
+    of c_GIT_WORKTREE_PRUNE_WORKING_TREE:
+      GIT_WORKTREE_PRUNE_WORKING_TREE
+ 
 
+converter toCint*(arg: c_git_worktree_prune_t): cint = 
+  cint(ord(arg))
+ 
+func `+`*(arg: c_git_worktree_prune_t, offset: int): c_git_worktree_prune_t = 
+  c_git_worktree_prune_t(ord(arg) + offset)
+ 
+func `+`*(offset: int, arg: c_git_worktree_prune_t): c_git_worktree_prune_t = 
+  c_git_worktree_prune_t(ord(arg) + offset)
+ 
+func `-`*(arg: c_git_worktree_prune_t, offset: int): c_git_worktree_prune_t = 
+  c_git_worktree_prune_t(ord(arg) - offset)
+ 
+func `-`*(offset: int, arg: c_git_worktree_prune_t): c_git_worktree_prune_t = 
+  c_git_worktree_prune_t(ord(arg) - offset)
+ 
 
 proc git_worktree_prune_options_init*(
     opts:    ptr git_worktree_prune_options,
     version: cuint
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_worktree_is_prunable*(
     wt:   ptr git_worktree,
     opts: ptr git_worktree_prune_options
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
 proc git_worktree_prune*(
     wt:   ptr git_worktree,
     opts: ptr git_worktree_prune_options
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 

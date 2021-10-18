@@ -18,6 +18,7 @@ proc git_credential_userpass*(
     user_from_url: cstring,
     allowed_types: cuint,
     payload:       pointer
-  ): cint {.dynlib: libgit2Dl, importc.}
-
+  ): cint {.git2Proc, importc.}
+  
+ 
 
