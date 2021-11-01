@@ -27,22 +27,16 @@ type
 
 proc to_c_git_proxy_t*(arg: git_proxy_t): c_git_proxy_t = 
   case arg:
-    of GIT_PROXY_NONE:
-      c_GIT_PROXY_NONE
-    of GIT_PROXY_AUTO:
-      c_GIT_PROXY_AUTO
-    of GIT_PROXY_SPECIFIED:
-      c_GIT_PROXY_SPECIFIED
+    of GIT_PROXY_NONE:      c_GIT_PROXY_NONE     
+    of GIT_PROXY_AUTO:      c_GIT_PROXY_AUTO     
+    of GIT_PROXY_SPECIFIED: c_GIT_PROXY_SPECIFIED
  
 
 converter to_git_proxy_t*(arg: c_git_proxy_t): git_proxy_t = 
   case arg:
-    of c_GIT_PROXY_NONE:
-      GIT_PROXY_NONE
-    of c_GIT_PROXY_AUTO:
-      GIT_PROXY_AUTO
-    of c_GIT_PROXY_SPECIFIED:
-      GIT_PROXY_SPECIFIED
+    of c_GIT_PROXY_NONE:      GIT_PROXY_NONE     
+    of c_GIT_PROXY_AUTO:      GIT_PROXY_AUTO     
+    of c_GIT_PROXY_SPECIFIED: GIT_PROXY_SPECIFIED
  
 
 converter toCint*(arg: c_git_proxy_t): cint = 
@@ -56,16 +50,16 @@ converter toCint*(arg: git_proxy_t): cint =
   cint(ord(to_c_git_proxy_t(arg)))
  
 func `+`*(arg: c_git_proxy_t, offset: int): c_git_proxy_t = 
-  c_git_proxy_t(ord(arg) + offset)
+  cast[c_git_proxy_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_proxy_t): c_git_proxy_t = 
-  c_git_proxy_t(ord(arg) + offset)
+  cast[c_git_proxy_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_proxy_t, offset: int): c_git_proxy_t = 
-  c_git_proxy_t(ord(arg) - offset)
+  cast[c_git_proxy_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_proxy_t): c_git_proxy_t = 
-  c_git_proxy_t(ord(arg) - offset)
+  cast[c_git_proxy_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_proxy_t]): cint = 
@@ -73,12 +67,9 @@ converter toCint*(args: set[git_proxy_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_PROXY_NONE:
-        result = result or (0 shl 0)
-      of GIT_PROXY_AUTO:
-        result = result or (1 shl 0)
-      of GIT_PROXY_SPECIFIED:
-        result = result or (1 shl 1)
+      of GIT_PROXY_NONE:      result = cint(result or (0 shl 0))
+      of GIT_PROXY_AUTO:      result = cint(result or (1 shl 0))
+      of GIT_PROXY_SPECIFIED: result = cint(result or (1 shl 1))
  
 
 proc git_proxy_options_init*(

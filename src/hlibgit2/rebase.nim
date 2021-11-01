@@ -1,6 +1,7 @@
 {.push warning[UnusedImport]:off.}
 
 import
+  ./buffer,
   ./checkout,
   ./commit,
   ./libgit2_config,
@@ -32,50 +33,39 @@ type
     GIT_REBASE_OPERATION_EXEC  
    
   git_rebase_options* {.bycopy, header: "<git2/rebase.h>", importc.} = object
-    version*:           cuint                
-    quiet*:             cint                 
-    inmemory*:          cint                 
-    rewrite_notes_ref*: cstring              
-    merge_options*:     git_merge_options    
-    checkout_options*:  git_checkout_options 
-    signing_cb*:        git_commit_signing_cb
-    payload*:           pointer              
+    version*:           cuint                                                                          
+    quiet*:             cint                                                                           
+    inmemory*:          cint                                                                           
+    rewrite_notes_ref*: cstring                                                                        
+    merge_options*:     git_merge_options                                                              
+    checkout_options*:  git_checkout_options                                                           
+    commit_create_cb*:  git_commit_create_cb                                                           
+    signing_cb*:        proc(a0: ptr git_buf, a1: ptr git_buf, a2: cstring, a3: pointer): cint{.cdecl.}
+    payload*:           pointer                                                                        
    
 
 proc to_c_git_rebase_operation_t*(
     arg: git_rebase_operation_t
   ): c_git_rebase_operation_t = 
   case arg:
-    of GIT_REBASE_OPERATION_PICK:
-      c_GIT_REBASE_OPERATION_PICK
-    of GIT_REBASE_OPERATION_REWORD:
-      c_GIT_REBASE_OPERATION_REWORD
-    of GIT_REBASE_OPERATION_EDIT:
-      c_GIT_REBASE_OPERATION_EDIT
-    of GIT_REBASE_OPERATION_SQUASH:
-      c_GIT_REBASE_OPERATION_SQUASH
-    of GIT_REBASE_OPERATION_FIXUP:
-      c_GIT_REBASE_OPERATION_FIXUP
-    of GIT_REBASE_OPERATION_EXEC:
-      c_GIT_REBASE_OPERATION_EXEC
+    of GIT_REBASE_OPERATION_PICK:   c_GIT_REBASE_OPERATION_PICK  
+    of GIT_REBASE_OPERATION_REWORD: c_GIT_REBASE_OPERATION_REWORD
+    of GIT_REBASE_OPERATION_EDIT:   c_GIT_REBASE_OPERATION_EDIT  
+    of GIT_REBASE_OPERATION_SQUASH: c_GIT_REBASE_OPERATION_SQUASH
+    of GIT_REBASE_OPERATION_FIXUP:  c_GIT_REBASE_OPERATION_FIXUP 
+    of GIT_REBASE_OPERATION_EXEC:   c_GIT_REBASE_OPERATION_EXEC  
  
 
 converter to_git_rebase_operation_t*(
     arg: c_git_rebase_operation_t
   ): git_rebase_operation_t = 
   case arg:
-    of c_GIT_REBASE_OPERATION_PICK:
-      GIT_REBASE_OPERATION_PICK
-    of c_GIT_REBASE_OPERATION_REWORD:
-      GIT_REBASE_OPERATION_REWORD
-    of c_GIT_REBASE_OPERATION_EDIT:
-      GIT_REBASE_OPERATION_EDIT
-    of c_GIT_REBASE_OPERATION_SQUASH:
-      GIT_REBASE_OPERATION_SQUASH
-    of c_GIT_REBASE_OPERATION_FIXUP:
-      GIT_REBASE_OPERATION_FIXUP
-    of c_GIT_REBASE_OPERATION_EXEC:
-      GIT_REBASE_OPERATION_EXEC
+    of c_GIT_REBASE_OPERATION_PICK:   GIT_REBASE_OPERATION_PICK  
+    of c_GIT_REBASE_OPERATION_REWORD: GIT_REBASE_OPERATION_REWORD
+    of c_GIT_REBASE_OPERATION_EDIT:   GIT_REBASE_OPERATION_EDIT  
+    of c_GIT_REBASE_OPERATION_SQUASH: GIT_REBASE_OPERATION_SQUASH
+    of c_GIT_REBASE_OPERATION_FIXUP:  GIT_REBASE_OPERATION_FIXUP 
+    of c_GIT_REBASE_OPERATION_EXEC:   GIT_REBASE_OPERATION_EXEC  
  
 
 converter toCint*(arg: c_git_rebase_operation_t): cint = 
@@ -92,25 +82,25 @@ func `+`*(
     arg:    c_git_rebase_operation_t,
     offset: int
   ): c_git_rebase_operation_t = 
-  c_git_rebase_operation_t(ord(arg) + offset)
+  cast[c_git_rebase_operation_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_rebase_operation_t
   ): c_git_rebase_operation_t = 
-  c_git_rebase_operation_t(ord(arg) + offset)
+  cast[c_git_rebase_operation_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_rebase_operation_t,
     offset: int
   ): c_git_rebase_operation_t = 
-  c_git_rebase_operation_t(ord(arg) - offset)
+  cast[c_git_rebase_operation_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_rebase_operation_t
   ): c_git_rebase_operation_t = 
-  c_git_rebase_operation_t(ord(arg) - offset)
+  cast[c_git_rebase_operation_t](ord(arg) - offset)
  
 
 proc git_rebase_options_init*(

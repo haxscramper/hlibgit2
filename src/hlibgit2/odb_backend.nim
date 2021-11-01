@@ -63,22 +63,16 @@ proc git_odb_backend_one_pack*(
 
 proc to_c_git_odb_stream_t*(arg: git_odb_stream_t): c_git_odb_stream_t = 
   case arg:
-    of GIT_STREAM_RDONLY:
-      c_GIT_STREAM_RDONLY
-    of GIT_STREAM_WRONLY:
-      c_GIT_STREAM_WRONLY
-    of GIT_STREAM_RW:
-      c_GIT_STREAM_RW
+    of GIT_STREAM_RDONLY: c_GIT_STREAM_RDONLY
+    of GIT_STREAM_WRONLY: c_GIT_STREAM_WRONLY
+    of GIT_STREAM_RW:     c_GIT_STREAM_RW    
  
 
 converter to_git_odb_stream_t*(arg: c_git_odb_stream_t): git_odb_stream_t = 
   case arg:
-    of c_GIT_STREAM_RDONLY:
-      GIT_STREAM_RDONLY
-    of c_GIT_STREAM_WRONLY:
-      GIT_STREAM_WRONLY
-    of c_GIT_STREAM_RW:
-      GIT_STREAM_RW
+    of c_GIT_STREAM_RDONLY: GIT_STREAM_RDONLY
+    of c_GIT_STREAM_WRONLY: GIT_STREAM_WRONLY
+    of c_GIT_STREAM_RW:     GIT_STREAM_RW    
  
 
 converter toCint*(arg: c_git_odb_stream_t): cint = 
@@ -92,15 +86,15 @@ converter toCint*(arg: git_odb_stream_t): cint =
   cint(ord(to_c_git_odb_stream_t(arg)))
  
 func `+`*(arg: c_git_odb_stream_t, offset: int): c_git_odb_stream_t = 
-  c_git_odb_stream_t(ord(arg) + offset)
+  cast[c_git_odb_stream_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_odb_stream_t): c_git_odb_stream_t = 
-  c_git_odb_stream_t(ord(arg) + offset)
+  cast[c_git_odb_stream_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_odb_stream_t, offset: int): c_git_odb_stream_t = 
-  c_git_odb_stream_t(ord(arg) - offset)
+  cast[c_git_odb_stream_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_odb_stream_t): c_git_odb_stream_t = 
-  c_git_odb_stream_t(ord(arg) - offset)
+  cast[c_git_odb_stream_t](ord(arg) - offset)
  
 

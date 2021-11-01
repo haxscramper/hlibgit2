@@ -25,26 +25,18 @@ type
 
 proc to_c_git_sort_t*(arg: git_sort_t): c_git_sort_t = 
   case arg:
-    of GIT_SORT_NONE:
-      c_GIT_SORT_NONE
-    of GIT_SORT_TOPOLOGICAL:
-      c_GIT_SORT_TOPOLOGICAL
-    of GIT_SORT_TIME:
-      c_GIT_SORT_TIME
-    of GIT_SORT_REVERSE:
-      c_GIT_SORT_REVERSE
+    of GIT_SORT_NONE:        c_GIT_SORT_NONE       
+    of GIT_SORT_TOPOLOGICAL: c_GIT_SORT_TOPOLOGICAL
+    of GIT_SORT_TIME:        c_GIT_SORT_TIME       
+    of GIT_SORT_REVERSE:     c_GIT_SORT_REVERSE    
  
 
 converter to_git_sort_t*(arg: c_git_sort_t): git_sort_t = 
   case arg:
-    of c_GIT_SORT_NONE:
-      GIT_SORT_NONE
-    of c_GIT_SORT_TOPOLOGICAL:
-      GIT_SORT_TOPOLOGICAL
-    of c_GIT_SORT_TIME:
-      GIT_SORT_TIME
-    of c_GIT_SORT_REVERSE:
-      GIT_SORT_REVERSE
+    of c_GIT_SORT_NONE:        GIT_SORT_NONE       
+    of c_GIT_SORT_TOPOLOGICAL: GIT_SORT_TOPOLOGICAL
+    of c_GIT_SORT_TIME:        GIT_SORT_TIME       
+    of c_GIT_SORT_REVERSE:     GIT_SORT_REVERSE    
  
 
 converter toCint*(arg: c_git_sort_t): cint = 
@@ -58,16 +50,16 @@ converter toCint*(arg: git_sort_t): cint =
   cint(ord(to_c_git_sort_t(arg)))
  
 func `+`*(arg: c_git_sort_t, offset: int): c_git_sort_t = 
-  c_git_sort_t(ord(arg) + offset)
+  cast[c_git_sort_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_sort_t): c_git_sort_t = 
-  c_git_sort_t(ord(arg) + offset)
+  cast[c_git_sort_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_sort_t, offset: int): c_git_sort_t = 
-  c_git_sort_t(ord(arg) - offset)
+  cast[c_git_sort_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_sort_t): c_git_sort_t = 
-  c_git_sort_t(ord(arg) - offset)
+  cast[c_git_sort_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_sort_t]): cint = 
@@ -75,14 +67,10 @@ converter toCint*(args: set[git_sort_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_SORT_NONE:
-        result = result or (0 shl 0)
-      of GIT_SORT_TOPOLOGICAL:
-        result = result or (1 shl 0)
-      of GIT_SORT_TIME:
-        result = result or (1 shl 1)
-      of GIT_SORT_REVERSE:
-        result = result or (1 shl 2)
+      of GIT_SORT_NONE:        result = cint(result or (0 shl 0))
+      of GIT_SORT_TOPOLOGICAL: result = cint(result or (1 shl 0))
+      of GIT_SORT_TIME:        result = cint(result or (1 shl 1))
+      of GIT_SORT_REVERSE:     result = cint(result or (1 shl 2))
  
 
 proc git_revwalk_new*(
@@ -133,15 +121,15 @@ proc git_revwalk_hide_head*(walk: ptr git_revwalk): cint {.git2Proc, importc.}
  
 
 proc git_revwalk_push_ref*(
-    walk:    ptr git_revwalk,
-    refname: cstring
+    walk:     ptr git_revwalk,
+    refname1: cstring
   ): cint {.git2Proc, importc.}
   
  
 
 proc git_revwalk_hide_ref*(
-    walk:    ptr git_revwalk,
-    refname: cstring
+    walk:     ptr git_revwalk,
+    refname1: cstring
   ): cint {.git2Proc, importc.}
   
  

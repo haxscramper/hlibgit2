@@ -39,24 +39,18 @@ proc to_c_git_describe_strategy_t*(
     arg: git_describe_strategy_t
   ): c_git_describe_strategy_t = 
   case arg:
-    of GIT_DESCRIBE_DEFAULT:
-      c_GIT_DESCRIBE_DEFAULT
-    of GIT_DESCRIBE_TAGS:
-      c_GIT_DESCRIBE_TAGS
-    of GIT_DESCRIBE_ALL:
-      c_GIT_DESCRIBE_ALL
+    of GIT_DESCRIBE_DEFAULT: c_GIT_DESCRIBE_DEFAULT
+    of GIT_DESCRIBE_TAGS:    c_GIT_DESCRIBE_TAGS   
+    of GIT_DESCRIBE_ALL:     c_GIT_DESCRIBE_ALL    
  
 
 converter to_git_describe_strategy_t*(
     arg: c_git_describe_strategy_t
   ): git_describe_strategy_t = 
   case arg:
-    of c_GIT_DESCRIBE_DEFAULT:
-      GIT_DESCRIBE_DEFAULT
-    of c_GIT_DESCRIBE_TAGS:
-      GIT_DESCRIBE_TAGS
-    of c_GIT_DESCRIBE_ALL:
-      GIT_DESCRIBE_ALL
+    of c_GIT_DESCRIBE_DEFAULT: GIT_DESCRIBE_DEFAULT
+    of c_GIT_DESCRIBE_TAGS:    GIT_DESCRIBE_TAGS   
+    of c_GIT_DESCRIBE_ALL:     GIT_DESCRIBE_ALL    
  
 
 converter toCint*(arg: c_git_describe_strategy_t): cint = 
@@ -73,25 +67,25 @@ func `+`*(
     arg:    c_git_describe_strategy_t,
     offset: int
   ): c_git_describe_strategy_t = 
-  c_git_describe_strategy_t(ord(arg) + offset)
+  cast[c_git_describe_strategy_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_describe_strategy_t
   ): c_git_describe_strategy_t = 
-  c_git_describe_strategy_t(ord(arg) + offset)
+  cast[c_git_describe_strategy_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_describe_strategy_t,
     offset: int
   ): c_git_describe_strategy_t = 
-  c_git_describe_strategy_t(ord(arg) - offset)
+  cast[c_git_describe_strategy_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_describe_strategy_t
   ): c_git_describe_strategy_t = 
-  c_git_describe_strategy_t(ord(arg) - offset)
+  cast[c_git_describe_strategy_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_describe_strategy_t]): cint = 
@@ -99,12 +93,9 @@ converter toCint*(args: set[git_describe_strategy_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_DESCRIBE_DEFAULT:
-        result = result or (0 shl 0)
-      of GIT_DESCRIBE_TAGS:
-        result = result or (1 shl 0)
-      of GIT_DESCRIBE_ALL:
-        result = result or (1 shl 1)
+      of GIT_DESCRIBE_DEFAULT: result = cint(result or (0 shl 0))
+      of GIT_DESCRIBE_TAGS:    result = cint(result or (1 shl 0))
+      of GIT_DESCRIBE_ALL:     result = cint(result or (1 shl 1))
  
 
 proc git_describe_options_init*(

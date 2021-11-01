@@ -13,14 +13,14 @@ type
     c_GIT_WORKTREE_PRUNE_WORKING_TREE = 1 shl 2 ## Prune checked out working tree                   
    
   git_worktree_add_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
-    version*:                  cuint                                                           
-    lock*:                     cint                                                            
-    ref_f* {.importc: "ref".}: ptr git_reference ## lock newly created worktree 
-                                                 ## reference to use for the new worktree HEAD 
+    version*:                    cuint                                                           
+    lock*:                       cint                                                            
+    arg_ref* {.importc: "ref".}: ptr git_reference ## lock newly created worktree 
+                                                   ## reference to use for the new worktree HEAD 
    
   git_worktree_prune_options* {.bycopy, header: "<git2/worktree.h>", importc.} = object
-    version*: cuint 
-    flags*:   uint32
+    version*: cuint                                             
+    flags*:   uint32 ## A combination of `git_worktree_prune_t` 
    
   git_worktree_prune_t* {.size: sizeof(cint).} = enum
     GIT_WORKTREE_PRUNE_VALID        ## Prune working tree even if working tree is valid 
@@ -105,24 +105,18 @@ proc to_c_git_worktree_prune_t*(
     arg: git_worktree_prune_t
   ): c_git_worktree_prune_t = 
   case arg:
-    of GIT_WORKTREE_PRUNE_VALID:
-      c_GIT_WORKTREE_PRUNE_VALID
-    of GIT_WORKTREE_PRUNE_LOCKED:
-      c_GIT_WORKTREE_PRUNE_LOCKED
-    of GIT_WORKTREE_PRUNE_WORKING_TREE:
-      c_GIT_WORKTREE_PRUNE_WORKING_TREE
+    of GIT_WORKTREE_PRUNE_VALID:        c_GIT_WORKTREE_PRUNE_VALID       
+    of GIT_WORKTREE_PRUNE_LOCKED:       c_GIT_WORKTREE_PRUNE_LOCKED      
+    of GIT_WORKTREE_PRUNE_WORKING_TREE: c_GIT_WORKTREE_PRUNE_WORKING_TREE
  
 
 converter to_git_worktree_prune_t*(
     arg: c_git_worktree_prune_t
   ): git_worktree_prune_t = 
   case arg:
-    of c_GIT_WORKTREE_PRUNE_VALID:
-      GIT_WORKTREE_PRUNE_VALID
-    of c_GIT_WORKTREE_PRUNE_LOCKED:
-      GIT_WORKTREE_PRUNE_LOCKED
-    of c_GIT_WORKTREE_PRUNE_WORKING_TREE:
-      GIT_WORKTREE_PRUNE_WORKING_TREE
+    of c_GIT_WORKTREE_PRUNE_VALID:        GIT_WORKTREE_PRUNE_VALID       
+    of c_GIT_WORKTREE_PRUNE_LOCKED:       GIT_WORKTREE_PRUNE_LOCKED      
+    of c_GIT_WORKTREE_PRUNE_WORKING_TREE: GIT_WORKTREE_PRUNE_WORKING_TREE
  
 
 converter toCint*(arg: c_git_worktree_prune_t): cint = 
@@ -136,16 +130,16 @@ converter toCint*(arg: git_worktree_prune_t): cint =
   cint(ord(to_c_git_worktree_prune_t(arg)))
  
 func `+`*(arg: c_git_worktree_prune_t, offset: int): c_git_worktree_prune_t = 
-  c_git_worktree_prune_t(ord(arg) + offset)
+  cast[c_git_worktree_prune_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_worktree_prune_t): c_git_worktree_prune_t = 
-  c_git_worktree_prune_t(ord(arg) + offset)
+  cast[c_git_worktree_prune_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_worktree_prune_t, offset: int): c_git_worktree_prune_t = 
-  c_git_worktree_prune_t(ord(arg) - offset)
+  cast[c_git_worktree_prune_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_worktree_prune_t): c_git_worktree_prune_t = 
-  c_git_worktree_prune_t(ord(arg) - offset)
+  cast[c_git_worktree_prune_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_worktree_prune_t]): cint = 

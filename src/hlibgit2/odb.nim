@@ -9,9 +9,9 @@ import
 
 type
   git_odb_expand_id* {.bycopy, header: "<git2/odb.h>", importc.} = object
-    id*:                         git_oid      ## The object ID to expand 
-    length*:                     cushort                                 
-    type_f* {.importc: "type".}: git_object_t                            
+    id*:                         git_oid        ## The object ID to expand 
+    length*:                     cushort                                   
+    type_f* {.importc: "type".}: c_git_object_t                            
    
   git_odb_foreach_cb* = proc(id: ptr git_oid, payload: pointer): cint{.cdecl.}
    
@@ -59,7 +59,7 @@ proc git_odb_read_prefix*(
 
 proc git_odb_read_header*(
     len_out:  ptr csize_t,
-    type_out: ptr git_object_t,
+    type_out: ptr c_git_object_t,
     db:       ptr git_odb,
     id:       ptr git_oid
   ): cint {.git2Proc, importc.}
@@ -107,7 +107,7 @@ proc git_odb_write*(
     odb:     ptr git_odb,
     data:    pointer,
     len:     csize_t,
-    type_f:  git_object_t
+    type_f:  c_git_object_t
   ): cint {.git2Proc, importc.}
   
  
@@ -116,7 +116,7 @@ proc git_odb_open_wstream*(
     arg_out: ptr ptr git_odb_stream,
     db:      ptr git_odb,
     size:    git_object_size_t,
-    type_f:  git_object_t
+    type_f:  c_git_object_t
   ): cint {.git2Proc, importc.}
   
  
@@ -153,7 +153,7 @@ proc git_odb_stream_free*(
 proc git_odb_open_rstream*(
     arg_out: ptr ptr git_odb_stream,
     len:     ptr csize_t,
-    type_f:  ptr git_object_t,
+    type_f:  ptr c_git_object_t,
     db:      ptr git_odb,
     oid:     ptr git_oid
   ): cint {.git2Proc, importc.}
@@ -169,11 +169,17 @@ proc git_odb_write_pack1*(
   
  
 
+proc git_odb_write_multi_pack_index*(
+    db: ptr git_odb
+  ): cint {.git2Proc, importc.}
+  
+ 
+
 proc git_odb_hash*(
     arg_out: ptr git_oid,
     data:    pointer,
     len:     csize_t,
-    type_f:  git_object_t
+    type_f:  c_git_object_t
   ): cint {.git2Proc, importc.}
   
  
@@ -181,7 +187,7 @@ proc git_odb_hash*(
 proc git_odb_hashfile*(
     arg_out: ptr git_oid,
     path:    cstring,
-    type_f:  git_object_t
+    type_f:  c_git_object_t
   ): cint {.git2Proc, importc.}
   
  
@@ -219,7 +225,7 @@ proc git_odb_object_size*(
 
 proc git_odb_object_type*(
     arg_object: ptr git_odb_object
-  ): git_object_t {.git2Proc, importc.}
+  ): c_git_object_t {.git2Proc, importc.}
   
  
 
@@ -247,6 +253,13 @@ proc git_odb_get_backend*(
     arg_out: ptr ptr git_odb_backend,
     odb:     ptr git_odb,
     pos:     csize_t
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_odb_set_commit_graph*(
+    odb:    ptr git_odb,
+    cgraph: ptr git_commit_graph
   ): cint {.git2Proc, importc.}
   
  

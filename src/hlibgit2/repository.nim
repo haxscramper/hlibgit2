@@ -164,32 +164,22 @@ proc to_c_git_repository_open_flag_t*(
     arg: git_repository_open_flag_t
   ): c_git_repository_open_flag_t = 
   case arg:
-    of GIT_REPOSITORY_OPEN_NO_SEARCH:
-      c_GIT_REPOSITORY_OPEN_NO_SEARCH
-    of GIT_REPOSITORY_OPEN_CROSS_FS:
-      c_GIT_REPOSITORY_OPEN_CROSS_FS
-    of GIT_REPOSITORY_OPEN_BARE:
-      c_GIT_REPOSITORY_OPEN_BARE
-    of GIT_REPOSITORY_OPEN_NO_DOTGIT:
-      c_GIT_REPOSITORY_OPEN_NO_DOTGIT
-    of GIT_REPOSITORY_OPEN_FROM_ENV:
-      c_GIT_REPOSITORY_OPEN_FROM_ENV
+    of GIT_REPOSITORY_OPEN_NO_SEARCH: c_GIT_REPOSITORY_OPEN_NO_SEARCH
+    of GIT_REPOSITORY_OPEN_CROSS_FS:  c_GIT_REPOSITORY_OPEN_CROSS_FS 
+    of GIT_REPOSITORY_OPEN_BARE:      c_GIT_REPOSITORY_OPEN_BARE     
+    of GIT_REPOSITORY_OPEN_NO_DOTGIT: c_GIT_REPOSITORY_OPEN_NO_DOTGIT
+    of GIT_REPOSITORY_OPEN_FROM_ENV:  c_GIT_REPOSITORY_OPEN_FROM_ENV 
  
 
 converter to_git_repository_open_flag_t*(
     arg: c_git_repository_open_flag_t
   ): git_repository_open_flag_t = 
   case arg:
-    of c_GIT_REPOSITORY_OPEN_NO_SEARCH:
-      GIT_REPOSITORY_OPEN_NO_SEARCH
-    of c_GIT_REPOSITORY_OPEN_CROSS_FS:
-      GIT_REPOSITORY_OPEN_CROSS_FS
-    of c_GIT_REPOSITORY_OPEN_BARE:
-      GIT_REPOSITORY_OPEN_BARE
-    of c_GIT_REPOSITORY_OPEN_NO_DOTGIT:
-      GIT_REPOSITORY_OPEN_NO_DOTGIT
-    of c_GIT_REPOSITORY_OPEN_FROM_ENV:
-      GIT_REPOSITORY_OPEN_FROM_ENV
+    of c_GIT_REPOSITORY_OPEN_NO_SEARCH: GIT_REPOSITORY_OPEN_NO_SEARCH
+    of c_GIT_REPOSITORY_OPEN_CROSS_FS:  GIT_REPOSITORY_OPEN_CROSS_FS 
+    of c_GIT_REPOSITORY_OPEN_BARE:      GIT_REPOSITORY_OPEN_BARE     
+    of c_GIT_REPOSITORY_OPEN_NO_DOTGIT: GIT_REPOSITORY_OPEN_NO_DOTGIT
+    of c_GIT_REPOSITORY_OPEN_FROM_ENV:  GIT_REPOSITORY_OPEN_FROM_ENV 
  
 
 converter toCint*(arg: c_git_repository_open_flag_t): cint = 
@@ -206,25 +196,25 @@ func `+`*(
     arg:    c_git_repository_open_flag_t,
     offset: int
   ): c_git_repository_open_flag_t = 
-  c_git_repository_open_flag_t(ord(arg) + offset)
+  cast[c_git_repository_open_flag_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_repository_open_flag_t
   ): c_git_repository_open_flag_t = 
-  c_git_repository_open_flag_t(ord(arg) + offset)
+  cast[c_git_repository_open_flag_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_repository_open_flag_t,
     offset: int
   ): c_git_repository_open_flag_t = 
-  c_git_repository_open_flag_t(ord(arg) - offset)
+  cast[c_git_repository_open_flag_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_repository_open_flag_t
   ): c_git_repository_open_flag_t = 
-  c_git_repository_open_flag_t(ord(arg) - offset)
+  cast[c_git_repository_open_flag_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_repository_open_flag_t]): cint = 
@@ -265,40 +255,26 @@ proc to_c_git_repository_init_flag_t*(
     arg: git_repository_init_flag_t
   ): c_git_repository_init_flag_t = 
   case arg:
-    of GIT_REPOSITORY_INIT_BARE:
-      c_GIT_REPOSITORY_INIT_BARE
-    of GIT_REPOSITORY_INIT_NO_REINIT:
-      c_GIT_REPOSITORY_INIT_NO_REINIT
-    of GIT_REPOSITORY_INIT_NO_DOTGIT_DIR:
-      c_GIT_REPOSITORY_INIT_NO_DOTGIT_DIR
-    of GIT_REPOSITORY_INIT_MKDIR:
-      c_GIT_REPOSITORY_INIT_MKDIR
-    of GIT_REPOSITORY_INIT_MKPATH:
-      c_GIT_REPOSITORY_INIT_MKPATH
-    of GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE:
-      c_GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE
-    of GIT_REPOSITORY_INIT_RELATIVE_GITLINK:
-      c_GIT_REPOSITORY_INIT_RELATIVE_GITLINK
+    of GIT_REPOSITORY_INIT_BARE:              c_GIT_REPOSITORY_INIT_BARE             
+    of GIT_REPOSITORY_INIT_NO_REINIT:         c_GIT_REPOSITORY_INIT_NO_REINIT        
+    of GIT_REPOSITORY_INIT_NO_DOTGIT_DIR:     c_GIT_REPOSITORY_INIT_NO_DOTGIT_DIR    
+    of GIT_REPOSITORY_INIT_MKDIR:             c_GIT_REPOSITORY_INIT_MKDIR            
+    of GIT_REPOSITORY_INIT_MKPATH:            c_GIT_REPOSITORY_INIT_MKPATH           
+    of GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE: c_GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE
+    of GIT_REPOSITORY_INIT_RELATIVE_GITLINK:  c_GIT_REPOSITORY_INIT_RELATIVE_GITLINK 
  
 
 converter to_git_repository_init_flag_t*(
     arg: c_git_repository_init_flag_t
   ): git_repository_init_flag_t = 
   case arg:
-    of c_GIT_REPOSITORY_INIT_BARE:
-      GIT_REPOSITORY_INIT_BARE
-    of c_GIT_REPOSITORY_INIT_NO_REINIT:
-      GIT_REPOSITORY_INIT_NO_REINIT
-    of c_GIT_REPOSITORY_INIT_NO_DOTGIT_DIR:
-      GIT_REPOSITORY_INIT_NO_DOTGIT_DIR
-    of c_GIT_REPOSITORY_INIT_MKDIR:
-      GIT_REPOSITORY_INIT_MKDIR
-    of c_GIT_REPOSITORY_INIT_MKPATH:
-      GIT_REPOSITORY_INIT_MKPATH
-    of c_GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE:
-      GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE
-    of c_GIT_REPOSITORY_INIT_RELATIVE_GITLINK:
-      GIT_REPOSITORY_INIT_RELATIVE_GITLINK
+    of c_GIT_REPOSITORY_INIT_BARE:              GIT_REPOSITORY_INIT_BARE             
+    of c_GIT_REPOSITORY_INIT_NO_REINIT:         GIT_REPOSITORY_INIT_NO_REINIT        
+    of c_GIT_REPOSITORY_INIT_NO_DOTGIT_DIR:     GIT_REPOSITORY_INIT_NO_DOTGIT_DIR    
+    of c_GIT_REPOSITORY_INIT_MKDIR:             GIT_REPOSITORY_INIT_MKDIR            
+    of c_GIT_REPOSITORY_INIT_MKPATH:            GIT_REPOSITORY_INIT_MKPATH           
+    of c_GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE: GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE
+    of c_GIT_REPOSITORY_INIT_RELATIVE_GITLINK:  GIT_REPOSITORY_INIT_RELATIVE_GITLINK 
  
 
 converter toCint*(arg: c_git_repository_init_flag_t): cint = 
@@ -315,25 +291,25 @@ func `+`*(
     arg:    c_git_repository_init_flag_t,
     offset: int
   ): c_git_repository_init_flag_t = 
-  c_git_repository_init_flag_t(ord(arg) + offset)
+  cast[c_git_repository_init_flag_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_repository_init_flag_t
   ): c_git_repository_init_flag_t = 
-  c_git_repository_init_flag_t(ord(arg) + offset)
+  cast[c_git_repository_init_flag_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_repository_init_flag_t,
     offset: int
   ): c_git_repository_init_flag_t = 
-  c_git_repository_init_flag_t(ord(arg) - offset)
+  cast[c_git_repository_init_flag_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_repository_init_flag_t
   ): c_git_repository_init_flag_t = 
-  c_git_repository_init_flag_t(ord(arg) - offset)
+  cast[c_git_repository_init_flag_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_repository_init_flag_t]): cint = 
@@ -346,24 +322,18 @@ proc to_c_git_repository_init_mode_t*(
     arg: git_repository_init_mode_t
   ): c_git_repository_init_mode_t = 
   case arg:
-    of GIT_REPOSITORY_INIT_SHARED_UMASK:
-      c_GIT_REPOSITORY_INIT_SHARED_UMASK
-    of GIT_REPOSITORY_INIT_SHARED_GROUP:
-      c_GIT_REPOSITORY_INIT_SHARED_GROUP
-    of GIT_REPOSITORY_INIT_SHARED_ALL:
-      c_GIT_REPOSITORY_INIT_SHARED_ALL
+    of GIT_REPOSITORY_INIT_SHARED_UMASK: c_GIT_REPOSITORY_INIT_SHARED_UMASK
+    of GIT_REPOSITORY_INIT_SHARED_GROUP: c_GIT_REPOSITORY_INIT_SHARED_GROUP
+    of GIT_REPOSITORY_INIT_SHARED_ALL:   c_GIT_REPOSITORY_INIT_SHARED_ALL  
  
 
 converter to_git_repository_init_mode_t*(
     arg: c_git_repository_init_mode_t
   ): git_repository_init_mode_t = 
   case arg:
-    of c_GIT_REPOSITORY_INIT_SHARED_UMASK:
-      GIT_REPOSITORY_INIT_SHARED_UMASK
-    of c_GIT_REPOSITORY_INIT_SHARED_GROUP:
-      GIT_REPOSITORY_INIT_SHARED_GROUP
-    of c_GIT_REPOSITORY_INIT_SHARED_ALL:
-      GIT_REPOSITORY_INIT_SHARED_ALL
+    of c_GIT_REPOSITORY_INIT_SHARED_UMASK: GIT_REPOSITORY_INIT_SHARED_UMASK
+    of c_GIT_REPOSITORY_INIT_SHARED_GROUP: GIT_REPOSITORY_INIT_SHARED_GROUP
+    of c_GIT_REPOSITORY_INIT_SHARED_ALL:   GIT_REPOSITORY_INIT_SHARED_ALL  
  
 
 converter toCint*(arg: c_git_repository_init_mode_t): cint = 
@@ -380,25 +350,25 @@ func `+`*(
     arg:    c_git_repository_init_mode_t,
     offset: int
   ): c_git_repository_init_mode_t = 
-  c_git_repository_init_mode_t(ord(arg) + offset)
+  cast[c_git_repository_init_mode_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_repository_init_mode_t
   ): c_git_repository_init_mode_t = 
-  c_git_repository_init_mode_t(ord(arg) + offset)
+  cast[c_git_repository_init_mode_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_repository_init_mode_t,
     offset: int
   ): c_git_repository_init_mode_t = 
-  c_git_repository_init_mode_t(ord(arg) - offset)
+  cast[c_git_repository_init_mode_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_repository_init_mode_t
   ): c_git_repository_init_mode_t = 
-  c_git_repository_init_mode_t(ord(arg) - offset)
+  cast[c_git_repository_init_mode_t](ord(arg) - offset)
  
 
 proc git_repository_init_options_init*(
@@ -460,72 +430,42 @@ proc to_c_git_repository_item_t*(
     arg: git_repository_item_t
   ): c_git_repository_item_t = 
   case arg:
-    of GIT_REPOSITORY_ITEM_GITDIR:
-      c_GIT_REPOSITORY_ITEM_GITDIR
-    of GIT_REPOSITORY_ITEM_WORKDIR:
-      c_GIT_REPOSITORY_ITEM_WORKDIR
-    of GIT_REPOSITORY_ITEM_COMMONDIR:
-      c_GIT_REPOSITORY_ITEM_COMMONDIR
-    of GIT_REPOSITORY_ITEM_INDEX:
-      c_GIT_REPOSITORY_ITEM_INDEX
-    of GIT_REPOSITORY_ITEM_OBJECTS:
-      c_GIT_REPOSITORY_ITEM_OBJECTS
-    of GIT_REPOSITORY_ITEM_REFS:
-      c_GIT_REPOSITORY_ITEM_REFS
-    of GIT_REPOSITORY_ITEM_PACKED_REFS:
-      c_GIT_REPOSITORY_ITEM_PACKED_REFS
-    of GIT_REPOSITORY_ITEM_REMOTES:
-      c_GIT_REPOSITORY_ITEM_REMOTES
-    of GIT_REPOSITORY_ITEM_CONFIG:
-      c_GIT_REPOSITORY_ITEM_CONFIG
-    of GIT_REPOSITORY_ITEM_INFO:
-      c_GIT_REPOSITORY_ITEM_INFO
-    of GIT_REPOSITORY_ITEM_HOOKS:
-      c_GIT_REPOSITORY_ITEM_HOOKS
-    of GIT_REPOSITORY_ITEM_LOGS:
-      c_GIT_REPOSITORY_ITEM_LOGS
-    of GIT_REPOSITORY_ITEM_MODULES:
-      c_GIT_REPOSITORY_ITEM_MODULES
-    of GIT_REPOSITORY_ITEM_WORKTREES:
-      c_GIT_REPOSITORY_ITEM_WORKTREES
-    of GIT_REPOSITORY_ITEM_LAST:
-      c_GIT_REPOSITORY_ITEM_LAST
+    of GIT_REPOSITORY_ITEM_GITDIR:      c_GIT_REPOSITORY_ITEM_GITDIR     
+    of GIT_REPOSITORY_ITEM_WORKDIR:     c_GIT_REPOSITORY_ITEM_WORKDIR    
+    of GIT_REPOSITORY_ITEM_COMMONDIR:   c_GIT_REPOSITORY_ITEM_COMMONDIR  
+    of GIT_REPOSITORY_ITEM_INDEX:       c_GIT_REPOSITORY_ITEM_INDEX      
+    of GIT_REPOSITORY_ITEM_OBJECTS:     c_GIT_REPOSITORY_ITEM_OBJECTS    
+    of GIT_REPOSITORY_ITEM_REFS:        c_GIT_REPOSITORY_ITEM_REFS       
+    of GIT_REPOSITORY_ITEM_PACKED_REFS: c_GIT_REPOSITORY_ITEM_PACKED_REFS
+    of GIT_REPOSITORY_ITEM_REMOTES:     c_GIT_REPOSITORY_ITEM_REMOTES    
+    of GIT_REPOSITORY_ITEM_CONFIG:      c_GIT_REPOSITORY_ITEM_CONFIG     
+    of GIT_REPOSITORY_ITEM_INFO:        c_GIT_REPOSITORY_ITEM_INFO       
+    of GIT_REPOSITORY_ITEM_HOOKS:       c_GIT_REPOSITORY_ITEM_HOOKS      
+    of GIT_REPOSITORY_ITEM_LOGS:        c_GIT_REPOSITORY_ITEM_LOGS       
+    of GIT_REPOSITORY_ITEM_MODULES:     c_GIT_REPOSITORY_ITEM_MODULES    
+    of GIT_REPOSITORY_ITEM_WORKTREES:   c_GIT_REPOSITORY_ITEM_WORKTREES  
+    of GIT_REPOSITORY_ITEM_LAST:        c_GIT_REPOSITORY_ITEM_LAST       
  
 
 converter to_git_repository_item_t*(
     arg: c_git_repository_item_t
   ): git_repository_item_t = 
   case arg:
-    of c_GIT_REPOSITORY_ITEM_GITDIR:
-      GIT_REPOSITORY_ITEM_GITDIR
-    of c_GIT_REPOSITORY_ITEM_WORKDIR:
-      GIT_REPOSITORY_ITEM_WORKDIR
-    of c_GIT_REPOSITORY_ITEM_COMMONDIR:
-      GIT_REPOSITORY_ITEM_COMMONDIR
-    of c_GIT_REPOSITORY_ITEM_INDEX:
-      GIT_REPOSITORY_ITEM_INDEX
-    of c_GIT_REPOSITORY_ITEM_OBJECTS:
-      GIT_REPOSITORY_ITEM_OBJECTS
-    of c_GIT_REPOSITORY_ITEM_REFS:
-      GIT_REPOSITORY_ITEM_REFS
-    of c_GIT_REPOSITORY_ITEM_PACKED_REFS:
-      GIT_REPOSITORY_ITEM_PACKED_REFS
-    of c_GIT_REPOSITORY_ITEM_REMOTES:
-      GIT_REPOSITORY_ITEM_REMOTES
-    of c_GIT_REPOSITORY_ITEM_CONFIG:
-      GIT_REPOSITORY_ITEM_CONFIG
-    of c_GIT_REPOSITORY_ITEM_INFO:
-      GIT_REPOSITORY_ITEM_INFO
-    of c_GIT_REPOSITORY_ITEM_HOOKS:
-      GIT_REPOSITORY_ITEM_HOOKS
-    of c_GIT_REPOSITORY_ITEM_LOGS:
-      GIT_REPOSITORY_ITEM_LOGS
-    of c_GIT_REPOSITORY_ITEM_MODULES:
-      GIT_REPOSITORY_ITEM_MODULES
-    of c_GIT_REPOSITORY_ITEM_WORKTREES:
-      GIT_REPOSITORY_ITEM_WORKTREES
-    of c_GIT_REPOSITORY_ITEM_LAST:
-      GIT_REPOSITORY_ITEM_LAST
+    of c_GIT_REPOSITORY_ITEM_GITDIR:      GIT_REPOSITORY_ITEM_GITDIR     
+    of c_GIT_REPOSITORY_ITEM_WORKDIR:     GIT_REPOSITORY_ITEM_WORKDIR    
+    of c_GIT_REPOSITORY_ITEM_COMMONDIR:   GIT_REPOSITORY_ITEM_COMMONDIR  
+    of c_GIT_REPOSITORY_ITEM_INDEX:       GIT_REPOSITORY_ITEM_INDEX      
+    of c_GIT_REPOSITORY_ITEM_OBJECTS:     GIT_REPOSITORY_ITEM_OBJECTS    
+    of c_GIT_REPOSITORY_ITEM_REFS:        GIT_REPOSITORY_ITEM_REFS       
+    of c_GIT_REPOSITORY_ITEM_PACKED_REFS: GIT_REPOSITORY_ITEM_PACKED_REFS
+    of c_GIT_REPOSITORY_ITEM_REMOTES:     GIT_REPOSITORY_ITEM_REMOTES    
+    of c_GIT_REPOSITORY_ITEM_CONFIG:      GIT_REPOSITORY_ITEM_CONFIG     
+    of c_GIT_REPOSITORY_ITEM_INFO:        GIT_REPOSITORY_ITEM_INFO       
+    of c_GIT_REPOSITORY_ITEM_HOOKS:       GIT_REPOSITORY_ITEM_HOOKS      
+    of c_GIT_REPOSITORY_ITEM_LOGS:        GIT_REPOSITORY_ITEM_LOGS       
+    of c_GIT_REPOSITORY_ITEM_MODULES:     GIT_REPOSITORY_ITEM_MODULES    
+    of c_GIT_REPOSITORY_ITEM_WORKTREES:   GIT_REPOSITORY_ITEM_WORKTREES  
+    of c_GIT_REPOSITORY_ITEM_LAST:        GIT_REPOSITORY_ITEM_LAST       
  
 
 converter toCint*(arg: c_git_repository_item_t): cint = 
@@ -539,16 +479,16 @@ converter toCint*(arg: git_repository_item_t): cint =
   cint(ord(to_c_git_repository_item_t(arg)))
  
 func `+`*(arg: c_git_repository_item_t, offset: int): c_git_repository_item_t = 
-  c_git_repository_item_t(ord(arg) + offset)
+  cast[c_git_repository_item_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_repository_item_t): c_git_repository_item_t = 
-  c_git_repository_item_t(ord(arg) + offset)
+  cast[c_git_repository_item_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_repository_item_t, offset: int): c_git_repository_item_t = 
-  c_git_repository_item_t(ord(arg) - offset)
+  cast[c_git_repository_item_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_repository_item_t): c_git_repository_item_t = 
-  c_git_repository_item_t(ord(arg) - offset)
+  cast[c_git_repository_item_t](ord(arg) - offset)
  
 
 proc git_repository_item_path*(
@@ -668,11 +608,11 @@ proc git_repository_mergehead_foreach*(
  
 
 proc git_repository_hashfile*(
-    arg_out:  ptr git_oid,
-    repo:     ptr git_repository,
-    path:     cstring,
-    arg_type: git_object_t,
-    as_path:  cstring
+    arg_out: ptr git_oid,
+    repo:    ptr git_repository,
+    path:    cstring,
+    type_f:  c_git_object_t,
+    as_path: cstring
   ): cint {.git2Proc, importc.}
   
  
@@ -708,60 +648,36 @@ proc to_c_git_repository_state_t*(
     arg: git_repository_state_t
   ): c_git_repository_state_t = 
   case arg:
-    of GIT_REPOSITORY_STATE_NONE:
-      c_GIT_REPOSITORY_STATE_NONE
-    of GIT_REPOSITORY_STATE_MERGE:
-      c_GIT_REPOSITORY_STATE_MERGE
-    of GIT_REPOSITORY_STATE_REVERT:
-      c_GIT_REPOSITORY_STATE_REVERT
-    of GIT_REPOSITORY_STATE_REVERT_SEQUENCE:
-      c_GIT_REPOSITORY_STATE_REVERT_SEQUENCE
-    of GIT_REPOSITORY_STATE_CHERRYPICK:
-      c_GIT_REPOSITORY_STATE_CHERRYPICK
-    of GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE:
-      c_GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE
-    of GIT_REPOSITORY_STATE_BISECT:
-      c_GIT_REPOSITORY_STATE_BISECT
-    of GIT_REPOSITORY_STATE_REBASE:
-      c_GIT_REPOSITORY_STATE_REBASE
-    of GIT_REPOSITORY_STATE_REBASE_INTERACTIVE:
-      c_GIT_REPOSITORY_STATE_REBASE_INTERACTIVE
-    of GIT_REPOSITORY_STATE_REBASE_MERGE:
-      c_GIT_REPOSITORY_STATE_REBASE_MERGE
-    of GIT_REPOSITORY_STATE_APPLY_MAILBOX:
-      c_GIT_REPOSITORY_STATE_APPLY_MAILBOX
-    of GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE:
-      c_GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE
+    of GIT_REPOSITORY_STATE_NONE:                    c_GIT_REPOSITORY_STATE_NONE                   
+    of GIT_REPOSITORY_STATE_MERGE:                   c_GIT_REPOSITORY_STATE_MERGE                  
+    of GIT_REPOSITORY_STATE_REVERT:                  c_GIT_REPOSITORY_STATE_REVERT                 
+    of GIT_REPOSITORY_STATE_REVERT_SEQUENCE:         c_GIT_REPOSITORY_STATE_REVERT_SEQUENCE        
+    of GIT_REPOSITORY_STATE_CHERRYPICK:              c_GIT_REPOSITORY_STATE_CHERRYPICK             
+    of GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE:     c_GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE    
+    of GIT_REPOSITORY_STATE_BISECT:                  c_GIT_REPOSITORY_STATE_BISECT                 
+    of GIT_REPOSITORY_STATE_REBASE:                  c_GIT_REPOSITORY_STATE_REBASE                 
+    of GIT_REPOSITORY_STATE_REBASE_INTERACTIVE:      c_GIT_REPOSITORY_STATE_REBASE_INTERACTIVE     
+    of GIT_REPOSITORY_STATE_REBASE_MERGE:            c_GIT_REPOSITORY_STATE_REBASE_MERGE           
+    of GIT_REPOSITORY_STATE_APPLY_MAILBOX:           c_GIT_REPOSITORY_STATE_APPLY_MAILBOX          
+    of GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE: c_GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE
  
 
 converter to_git_repository_state_t*(
     arg: c_git_repository_state_t
   ): git_repository_state_t = 
   case arg:
-    of c_GIT_REPOSITORY_STATE_NONE:
-      GIT_REPOSITORY_STATE_NONE
-    of c_GIT_REPOSITORY_STATE_MERGE:
-      GIT_REPOSITORY_STATE_MERGE
-    of c_GIT_REPOSITORY_STATE_REVERT:
-      GIT_REPOSITORY_STATE_REVERT
-    of c_GIT_REPOSITORY_STATE_REVERT_SEQUENCE:
-      GIT_REPOSITORY_STATE_REVERT_SEQUENCE
-    of c_GIT_REPOSITORY_STATE_CHERRYPICK:
-      GIT_REPOSITORY_STATE_CHERRYPICK
-    of c_GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE:
-      GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE
-    of c_GIT_REPOSITORY_STATE_BISECT:
-      GIT_REPOSITORY_STATE_BISECT
-    of c_GIT_REPOSITORY_STATE_REBASE:
-      GIT_REPOSITORY_STATE_REBASE
-    of c_GIT_REPOSITORY_STATE_REBASE_INTERACTIVE:
-      GIT_REPOSITORY_STATE_REBASE_INTERACTIVE
-    of c_GIT_REPOSITORY_STATE_REBASE_MERGE:
-      GIT_REPOSITORY_STATE_REBASE_MERGE
-    of c_GIT_REPOSITORY_STATE_APPLY_MAILBOX:
-      GIT_REPOSITORY_STATE_APPLY_MAILBOX
-    of c_GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE:
-      GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE
+    of c_GIT_REPOSITORY_STATE_NONE:                    GIT_REPOSITORY_STATE_NONE                   
+    of c_GIT_REPOSITORY_STATE_MERGE:                   GIT_REPOSITORY_STATE_MERGE                  
+    of c_GIT_REPOSITORY_STATE_REVERT:                  GIT_REPOSITORY_STATE_REVERT                 
+    of c_GIT_REPOSITORY_STATE_REVERT_SEQUENCE:         GIT_REPOSITORY_STATE_REVERT_SEQUENCE        
+    of c_GIT_REPOSITORY_STATE_CHERRYPICK:              GIT_REPOSITORY_STATE_CHERRYPICK             
+    of c_GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE:     GIT_REPOSITORY_STATE_CHERRYPICK_SEQUENCE    
+    of c_GIT_REPOSITORY_STATE_BISECT:                  GIT_REPOSITORY_STATE_BISECT                 
+    of c_GIT_REPOSITORY_STATE_REBASE:                  GIT_REPOSITORY_STATE_REBASE                 
+    of c_GIT_REPOSITORY_STATE_REBASE_INTERACTIVE:      GIT_REPOSITORY_STATE_REBASE_INTERACTIVE     
+    of c_GIT_REPOSITORY_STATE_REBASE_MERGE:            GIT_REPOSITORY_STATE_REBASE_MERGE           
+    of c_GIT_REPOSITORY_STATE_APPLY_MAILBOX:           GIT_REPOSITORY_STATE_APPLY_MAILBOX          
+    of c_GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE: GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE
  
 
 converter toCint*(arg: c_git_repository_state_t): cint = 
@@ -778,25 +694,25 @@ func `+`*(
     arg:    c_git_repository_state_t,
     offset: int
   ): c_git_repository_state_t = 
-  c_git_repository_state_t(ord(arg) + offset)
+  cast[c_git_repository_state_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_repository_state_t
   ): c_git_repository_state_t = 
-  c_git_repository_state_t(ord(arg) + offset)
+  cast[c_git_repository_state_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_repository_state_t,
     offset: int
   ): c_git_repository_state_t = 
-  c_git_repository_state_t(ord(arg) - offset)
+  cast[c_git_repository_state_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_repository_state_t
   ): c_git_repository_state_t = 
-  c_git_repository_state_t(ord(arg) - offset)
+  cast[c_git_repository_state_t](ord(arg) - offset)
  
 
 proc git_repository_state*(repo: ptr git_repository): cint {.git2Proc, importc.}

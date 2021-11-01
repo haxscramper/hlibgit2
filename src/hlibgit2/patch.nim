@@ -11,6 +11,12 @@ type
     
    
 
+proc git_patch_owner*(
+    patch: ptr git_patch
+  ): ptr git_repository {.git2Proc, importc.}
+  
+ 
+
 proc git_patch_from_diff*(
     arg_out: ptr ptr git_patch,
     diff:    ptr git_diff,

@@ -27,38 +27,24 @@ type
 
 proc to_c_git_trace_level_t*(arg: git_trace_level_t): c_git_trace_level_t = 
   case arg:
-    of GIT_TRACE_NONE:
-      c_GIT_TRACE_NONE
-    of GIT_TRACE_FATAL:
-      c_GIT_TRACE_FATAL
-    of GIT_TRACE_ERROR:
-      c_GIT_TRACE_ERROR
-    of GIT_TRACE_WARN:
-      c_GIT_TRACE_WARN
-    of GIT_TRACE_INFO:
-      c_GIT_TRACE_INFO
-    of GIT_TRACE_DEBUG:
-      c_GIT_TRACE_DEBUG
-    of GIT_TRACE_TRACE:
-      c_GIT_TRACE_TRACE
+    of GIT_TRACE_NONE:  c_GIT_TRACE_NONE 
+    of GIT_TRACE_FATAL: c_GIT_TRACE_FATAL
+    of GIT_TRACE_ERROR: c_GIT_TRACE_ERROR
+    of GIT_TRACE_WARN:  c_GIT_TRACE_WARN 
+    of GIT_TRACE_INFO:  c_GIT_TRACE_INFO 
+    of GIT_TRACE_DEBUG: c_GIT_TRACE_DEBUG
+    of GIT_TRACE_TRACE: c_GIT_TRACE_TRACE
  
 
 converter to_git_trace_level_t*(arg: c_git_trace_level_t): git_trace_level_t = 
   case arg:
-    of c_GIT_TRACE_NONE:
-      GIT_TRACE_NONE
-    of c_GIT_TRACE_FATAL:
-      GIT_TRACE_FATAL
-    of c_GIT_TRACE_ERROR:
-      GIT_TRACE_ERROR
-    of c_GIT_TRACE_WARN:
-      GIT_TRACE_WARN
-    of c_GIT_TRACE_INFO:
-      GIT_TRACE_INFO
-    of c_GIT_TRACE_DEBUG:
-      GIT_TRACE_DEBUG
-    of c_GIT_TRACE_TRACE:
-      GIT_TRACE_TRACE
+    of c_GIT_TRACE_NONE:  GIT_TRACE_NONE 
+    of c_GIT_TRACE_FATAL: GIT_TRACE_FATAL
+    of c_GIT_TRACE_ERROR: GIT_TRACE_ERROR
+    of c_GIT_TRACE_WARN:  GIT_TRACE_WARN 
+    of c_GIT_TRACE_INFO:  GIT_TRACE_INFO 
+    of c_GIT_TRACE_DEBUG: GIT_TRACE_DEBUG
+    of c_GIT_TRACE_TRACE: GIT_TRACE_TRACE
  
 
 converter toCint*(arg: c_git_trace_level_t): cint = 
@@ -72,16 +58,16 @@ converter toCint*(arg: git_trace_level_t): cint =
   cint(ord(to_c_git_trace_level_t(arg)))
  
 func `+`*(arg: c_git_trace_level_t, offset: int): c_git_trace_level_t = 
-  c_git_trace_level_t(ord(arg) + offset)
+  cast[c_git_trace_level_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_trace_level_t): c_git_trace_level_t = 
-  c_git_trace_level_t(ord(arg) + offset)
+  cast[c_git_trace_level_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_trace_level_t, offset: int): c_git_trace_level_t = 
-  c_git_trace_level_t(ord(arg) - offset)
+  cast[c_git_trace_level_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_trace_level_t): c_git_trace_level_t = 
-  c_git_trace_level_t(ord(arg) - offset)
+  cast[c_git_trace_level_t](ord(arg) - offset)
  
 
 proc git_trace_set*(

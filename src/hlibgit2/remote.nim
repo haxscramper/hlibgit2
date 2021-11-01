@@ -71,9 +71,9 @@ type
     src*:         git_oid
     dst*:         git_oid
    
-  git_push_update_reference_cb* = proc(refname: cstring, status: cstring, data: pointer): cint{.cdecl.}
+  git_push_update_reference_cb* = proc(refname1: cstring, status: cstring, data: pointer): cint{.cdecl.}
    
-  git_push_update_reference_cbNim* = proc(refname: cstring, status: cstring): cint
+  git_push_update_reference_cbNim* = proc(refname1: cstring, status: cstring): cint
    
   git_remote_autotag_option_t* = enum
     GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED
@@ -82,20 +82,21 @@ type
     GIT_REMOTE_DOWNLOAD_TAGS_ALL        
    
   git_remote_callbacks* {.bycopy, header: "<git2/remote.h>", importc.} = object
-    version*:                cuint                                                                                               
-    sideband_progress*:      git_transport_message_cb                                                             ## The version 
-    completion*:             proc(arg_type: c_git_remote_completion_t, data: pointer): cint{.cdecl.}                             
-    credentials*:            git_credential_acquire_cb                                                                           
-    certificate_check*:      git_transport_certificate_check_cb                                                                  
-    transfer_progress*:      git_indexer_progress_cb                                                                             
-    update_tips*:            proc(refname: cstring, a: ptr git_oid, b: ptr git_oid, data: pointer): cint{.cdecl.}                
-    pack_progress*:          git_packbuilder_progress                                                                            
-    push_transfer_progress*: git_push_transfer_progress_cb                                                                       
-    push_update_reference*:  git_push_update_reference_cb                                                                        
-    push_negotiation*:       git_push_negotiation                                                                                
-    transport*:              git_transport_cb                                                                                    
-    payload*:                pointer                                                                                             
-    resolve_url*:            git_url_resolve_cb                                                                                  
+    version*:                cuint                                                                                                
+    sideband_progress*:      git_transport_message_cb                                                              ## The version 
+    completion*:             proc(type_f: c_git_remote_completion_t, data: pointer): cint{.cdecl.}                                
+    credentials*:            git_credential_acquire_cb                                                                            
+    certificate_check*:      git_transport_certificate_check_cb                                                                   
+    transfer_progress*:      git_indexer_progress_cb                                                                              
+    update_tips*:            proc(refname1: cstring, a: ptr git_oid, b: ptr git_oid, data: pointer): cint{.cdecl.}                
+    pack_progress*:          git_packbuilder_progress                                                                             
+    push_transfer_progress*: git_push_transfer_progress_cb                                                                        
+    push_update_reference*:  git_push_update_reference_cb                                                                         
+    push_negotiation*:       git_push_negotiation                                                                                 
+    transport*:              git_transport_cb                                                                                     
+    remote_ready*:           git_remote_ready_cb                                                                                  
+    payload*:                pointer                                                                                              
+    resolve_url*:            git_url_resolve_cb                                                                                   
    
   git_remote_completion_t* {.size: sizeof(cint).} = enum
     GIT_REMOTE_COMPLETION_DOWNLOAD
@@ -112,6 +113,10 @@ type
     name*:       cstring                                                                             
     fetchspec*:  cstring            ## The fetchspec the remote should use.                          
     flags*:      cuint              ## Additional flags for the remote. See git_remote_create_flags. 
+   
+  git_remote_ready_cb* = proc(remote: ptr git_remote, direction: cint, payload: pointer): cint{.cdecl.}
+   
+  git_remote_ready_cbNim* = proc(remote: ptr git_remote, direction: cint): cint
    
   git_url_resolve_cb* = proc(url_resolved: ptr git_buf, url: cstring, direction: cint, payload: pointer): cint{.cdecl.}
    
@@ -131,20 +136,16 @@ proc to_c_git_remote_create_flags*(
     arg: git_remote_create_flags
   ): c_git_remote_create_flags = 
   case arg:
-    of GIT_REMOTE_CREATE_SKIP_INSTEADOF:
-      c_GIT_REMOTE_CREATE_SKIP_INSTEADOF
-    of GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC:
-      c_GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC
+    of GIT_REMOTE_CREATE_SKIP_INSTEADOF:         c_GIT_REMOTE_CREATE_SKIP_INSTEADOF        
+    of GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC: c_GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC
  
 
 converter to_git_remote_create_flags*(
     arg: c_git_remote_create_flags
   ): git_remote_create_flags = 
   case arg:
-    of c_GIT_REMOTE_CREATE_SKIP_INSTEADOF:
-      GIT_REMOTE_CREATE_SKIP_INSTEADOF
-    of c_GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC:
-      GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC
+    of c_GIT_REMOTE_CREATE_SKIP_INSTEADOF:         GIT_REMOTE_CREATE_SKIP_INSTEADOF        
+    of c_GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC: GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC
  
 
 converter toCint*(arg: c_git_remote_create_flags): cint = 
@@ -161,25 +162,25 @@ func `+`*(
     arg:    c_git_remote_create_flags,
     offset: int
   ): c_git_remote_create_flags = 
-  c_git_remote_create_flags(ord(arg) + offset)
+  cast[c_git_remote_create_flags](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_remote_create_flags
   ): c_git_remote_create_flags = 
-  c_git_remote_create_flags(ord(arg) + offset)
+  cast[c_git_remote_create_flags](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_remote_create_flags,
     offset: int
   ): c_git_remote_create_flags = 
-  c_git_remote_create_flags(ord(arg) - offset)
+  cast[c_git_remote_create_flags](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_remote_create_flags
   ): c_git_remote_create_flags = 
-  c_git_remote_create_flags(ord(arg) - offset)
+  cast[c_git_remote_create_flags](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_remote_create_flags]): cint = 
@@ -277,6 +278,20 @@ proc git_remote_set_pushurl*(
   
  
 
+proc git_remote_set_instance_url*(
+    remote: ptr git_remote,
+    url:    cstring
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_remote_set_instance_pushurl*(
+    remote: ptr git_remote,
+    url:    cstring
+  ): cint {.git2Proc, importc.}
+  
+ 
+
 proc git_remote_add_fetch*(
     repo:    ptr git_repository,
     remote:  cstring,
@@ -365,24 +380,18 @@ proc to_c_git_remote_completion_t*(
     arg: git_remote_completion_t
   ): c_git_remote_completion_t = 
   case arg:
-    of GIT_REMOTE_COMPLETION_DOWNLOAD:
-      c_GIT_REMOTE_COMPLETION_DOWNLOAD
-    of GIT_REMOTE_COMPLETION_INDEXING:
-      c_GIT_REMOTE_COMPLETION_INDEXING
-    of GIT_REMOTE_COMPLETION_ERROR:
-      c_GIT_REMOTE_COMPLETION_ERROR
+    of GIT_REMOTE_COMPLETION_DOWNLOAD: c_GIT_REMOTE_COMPLETION_DOWNLOAD
+    of GIT_REMOTE_COMPLETION_INDEXING: c_GIT_REMOTE_COMPLETION_INDEXING
+    of GIT_REMOTE_COMPLETION_ERROR:    c_GIT_REMOTE_COMPLETION_ERROR   
  
 
 converter to_git_remote_completion_t*(
     arg: c_git_remote_completion_t
   ): git_remote_completion_t = 
   case arg:
-    of c_GIT_REMOTE_COMPLETION_DOWNLOAD:
-      GIT_REMOTE_COMPLETION_DOWNLOAD
-    of c_GIT_REMOTE_COMPLETION_INDEXING:
-      GIT_REMOTE_COMPLETION_INDEXING
-    of c_GIT_REMOTE_COMPLETION_ERROR:
-      GIT_REMOTE_COMPLETION_ERROR
+    of c_GIT_REMOTE_COMPLETION_DOWNLOAD: GIT_REMOTE_COMPLETION_DOWNLOAD
+    of c_GIT_REMOTE_COMPLETION_INDEXING: GIT_REMOTE_COMPLETION_INDEXING
+    of c_GIT_REMOTE_COMPLETION_ERROR:    GIT_REMOTE_COMPLETION_ERROR   
  
 
 converter toCint*(arg: c_git_remote_completion_t): cint = 
@@ -399,25 +408,25 @@ func `+`*(
     arg:    c_git_remote_completion_t,
     offset: int
   ): c_git_remote_completion_t = 
-  c_git_remote_completion_t(ord(arg) + offset)
+  cast[c_git_remote_completion_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_remote_completion_t
   ): c_git_remote_completion_t = 
-  c_git_remote_completion_t(ord(arg) + offset)
+  cast[c_git_remote_completion_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_remote_completion_t,
     offset: int
   ): c_git_remote_completion_t = 
-  c_git_remote_completion_t(ord(arg) - offset)
+  cast[c_git_remote_completion_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_remote_completion_t
   ): c_git_remote_completion_t = 
-  c_git_remote_completion_t(ord(arg) - offset)
+  cast[c_git_remote_completion_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_remote_completion_t]): cint = 
@@ -425,12 +434,9 @@ converter toCint*(args: set[git_remote_completion_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_REMOTE_COMPLETION_DOWNLOAD:
-        result = result or (0 shl 0)
-      of GIT_REMOTE_COMPLETION_INDEXING:
-        result = result or (1 shl 0)
-      of GIT_REMOTE_COMPLETION_ERROR:
-        result = result or (1 shl 1)
+      of GIT_REMOTE_COMPLETION_DOWNLOAD: result = cint(result or (0 shl 0))
+      of GIT_REMOTE_COMPLETION_INDEXING: result = cint(result or (1 shl 0))
+      of GIT_REMOTE_COMPLETION_ERROR:    result = cint(result or (1 shl 1))
  
 
 proc git_remote_init_callbacks*(
@@ -442,22 +448,16 @@ proc git_remote_init_callbacks*(
 
 proc to_c_git_fetch_prune_t*(arg: git_fetch_prune_t): c_git_fetch_prune_t = 
   case arg:
-    of GIT_FETCH_PRUNE_UNSPECIFIED:
-      c_GIT_FETCH_PRUNE_UNSPECIFIED
-    of GIT_FETCH_PRUNE:
-      c_GIT_FETCH_PRUNE
-    of GIT_FETCH_NO_PRUNE:
-      c_GIT_FETCH_NO_PRUNE
+    of GIT_FETCH_PRUNE_UNSPECIFIED: c_GIT_FETCH_PRUNE_UNSPECIFIED
+    of GIT_FETCH_PRUNE:             c_GIT_FETCH_PRUNE            
+    of GIT_FETCH_NO_PRUNE:          c_GIT_FETCH_NO_PRUNE         
  
 
 converter to_git_fetch_prune_t*(arg: c_git_fetch_prune_t): git_fetch_prune_t = 
   case arg:
-    of c_GIT_FETCH_PRUNE_UNSPECIFIED:
-      GIT_FETCH_PRUNE_UNSPECIFIED
-    of c_GIT_FETCH_PRUNE:
-      GIT_FETCH_PRUNE
-    of c_GIT_FETCH_NO_PRUNE:
-      GIT_FETCH_NO_PRUNE
+    of c_GIT_FETCH_PRUNE_UNSPECIFIED: GIT_FETCH_PRUNE_UNSPECIFIED
+    of c_GIT_FETCH_PRUNE:             GIT_FETCH_PRUNE            
+    of c_GIT_FETCH_NO_PRUNE:          GIT_FETCH_NO_PRUNE         
  
 
 converter toCint*(arg: c_git_fetch_prune_t): cint = 
@@ -471,16 +471,16 @@ converter toCint*(arg: git_fetch_prune_t): cint =
   cint(ord(to_c_git_fetch_prune_t(arg)))
  
 func `+`*(arg: c_git_fetch_prune_t, offset: int): c_git_fetch_prune_t = 
-  c_git_fetch_prune_t(ord(arg) + offset)
+  cast[c_git_fetch_prune_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_fetch_prune_t): c_git_fetch_prune_t = 
-  c_git_fetch_prune_t(ord(arg) + offset)
+  cast[c_git_fetch_prune_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_fetch_prune_t, offset: int): c_git_fetch_prune_t = 
-  c_git_fetch_prune_t(ord(arg) - offset)
+  cast[c_git_fetch_prune_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_fetch_prune_t): c_git_fetch_prune_t = 
-  c_git_fetch_prune_t(ord(arg) - offset)
+  cast[c_git_fetch_prune_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_fetch_prune_t]): cint = 
@@ -488,40 +488,29 @@ converter toCint*(args: set[git_fetch_prune_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_FETCH_PRUNE_UNSPECIFIED:
-        result = result or (0 shl 0)
-      of GIT_FETCH_PRUNE:
-        result = result or (1 shl 0)
-      of GIT_FETCH_NO_PRUNE:
-        result = result or (1 shl 1)
+      of GIT_FETCH_PRUNE_UNSPECIFIED: result = cint(result or (0 shl 0))
+      of GIT_FETCH_PRUNE:             result = cint(result or (1 shl 0))
+      of GIT_FETCH_NO_PRUNE:          result = cint(result or (1 shl 1))
  
 
 proc to_c_git_remote_autotag_option_t*(
     arg: git_remote_autotag_option_t
   ): c_git_remote_autotag_option_t = 
   case arg:
-    of GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED:
-      c_GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED
-    of GIT_REMOTE_DOWNLOAD_TAGS_AUTO:
-      c_GIT_REMOTE_DOWNLOAD_TAGS_AUTO
-    of GIT_REMOTE_DOWNLOAD_TAGS_NONE:
-      c_GIT_REMOTE_DOWNLOAD_TAGS_NONE
-    of GIT_REMOTE_DOWNLOAD_TAGS_ALL:
-      c_GIT_REMOTE_DOWNLOAD_TAGS_ALL
+    of GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED: c_GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED
+    of GIT_REMOTE_DOWNLOAD_TAGS_AUTO:        c_GIT_REMOTE_DOWNLOAD_TAGS_AUTO       
+    of GIT_REMOTE_DOWNLOAD_TAGS_NONE:        c_GIT_REMOTE_DOWNLOAD_TAGS_NONE       
+    of GIT_REMOTE_DOWNLOAD_TAGS_ALL:         c_GIT_REMOTE_DOWNLOAD_TAGS_ALL        
  
 
 converter to_git_remote_autotag_option_t*(
     arg: c_git_remote_autotag_option_t
   ): git_remote_autotag_option_t = 
   case arg:
-    of c_GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED:
-      GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED
-    of c_GIT_REMOTE_DOWNLOAD_TAGS_AUTO:
-      GIT_REMOTE_DOWNLOAD_TAGS_AUTO
-    of c_GIT_REMOTE_DOWNLOAD_TAGS_NONE:
-      GIT_REMOTE_DOWNLOAD_TAGS_NONE
-    of c_GIT_REMOTE_DOWNLOAD_TAGS_ALL:
-      GIT_REMOTE_DOWNLOAD_TAGS_ALL
+    of c_GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED: GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED
+    of c_GIT_REMOTE_DOWNLOAD_TAGS_AUTO:        GIT_REMOTE_DOWNLOAD_TAGS_AUTO       
+    of c_GIT_REMOTE_DOWNLOAD_TAGS_NONE:        GIT_REMOTE_DOWNLOAD_TAGS_NONE       
+    of c_GIT_REMOTE_DOWNLOAD_TAGS_ALL:         GIT_REMOTE_DOWNLOAD_TAGS_ALL        
  
 
 converter toCint*(arg: c_git_remote_autotag_option_t): cint = 
@@ -538,25 +527,25 @@ func `+`*(
     arg:    c_git_remote_autotag_option_t,
     offset: int
   ): c_git_remote_autotag_option_t = 
-  c_git_remote_autotag_option_t(ord(arg) + offset)
+  cast[c_git_remote_autotag_option_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_remote_autotag_option_t
   ): c_git_remote_autotag_option_t = 
-  c_git_remote_autotag_option_t(ord(arg) + offset)
+  cast[c_git_remote_autotag_option_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_remote_autotag_option_t,
     offset: int
   ): c_git_remote_autotag_option_t = 
-  c_git_remote_autotag_option_t(ord(arg) - offset)
+  cast[c_git_remote_autotag_option_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_remote_autotag_option_t
   ): c_git_remote_autotag_option_t = 
-  c_git_remote_autotag_option_t(ord(arg) - offset)
+  cast[c_git_remote_autotag_option_t](ord(arg) - offset)
  
 
 proc git_fetch_options_init*(
@@ -656,7 +645,10 @@ proc git_remote_rename*(
   
  
 
-proc git_remote_is_valid_name*(remote_name: cstring): cint {.git2Proc, importc.}
+proc git_remote_name_is_valid*(
+    valid:       ptr cint,
+    remote_name: cstring
+  ): cint {.git2Proc, importc.}
   
  
 

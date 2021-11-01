@@ -42,26 +42,18 @@ type
 
 proc to_c_git_clone_local_t*(arg: git_clone_local_t): c_git_clone_local_t = 
   case arg:
-    of GIT_CLONE_LOCAL_AUTO:
-      c_GIT_CLONE_LOCAL_AUTO
-    of GIT_CLONE_LOCAL:
-      c_GIT_CLONE_LOCAL
-    of GIT_CLONE_NO_LOCAL:
-      c_GIT_CLONE_NO_LOCAL
-    of GIT_CLONE_LOCAL_NO_LINKS:
-      c_GIT_CLONE_LOCAL_NO_LINKS
+    of GIT_CLONE_LOCAL_AUTO:     c_GIT_CLONE_LOCAL_AUTO    
+    of GIT_CLONE_LOCAL:          c_GIT_CLONE_LOCAL         
+    of GIT_CLONE_NO_LOCAL:       c_GIT_CLONE_NO_LOCAL      
+    of GIT_CLONE_LOCAL_NO_LINKS: c_GIT_CLONE_LOCAL_NO_LINKS
  
 
 converter to_git_clone_local_t*(arg: c_git_clone_local_t): git_clone_local_t = 
   case arg:
-    of c_GIT_CLONE_LOCAL_AUTO:
-      GIT_CLONE_LOCAL_AUTO
-    of c_GIT_CLONE_LOCAL:
-      GIT_CLONE_LOCAL
-    of c_GIT_CLONE_NO_LOCAL:
-      GIT_CLONE_NO_LOCAL
-    of c_GIT_CLONE_LOCAL_NO_LINKS:
-      GIT_CLONE_LOCAL_NO_LINKS
+    of c_GIT_CLONE_LOCAL_AUTO:     GIT_CLONE_LOCAL_AUTO    
+    of c_GIT_CLONE_LOCAL:          GIT_CLONE_LOCAL         
+    of c_GIT_CLONE_NO_LOCAL:       GIT_CLONE_NO_LOCAL      
+    of c_GIT_CLONE_LOCAL_NO_LINKS: GIT_CLONE_LOCAL_NO_LINKS
  
 
 converter toCint*(arg: c_git_clone_local_t): cint = 
@@ -75,16 +67,16 @@ converter toCint*(arg: git_clone_local_t): cint =
   cint(ord(to_c_git_clone_local_t(arg)))
  
 func `+`*(arg: c_git_clone_local_t, offset: int): c_git_clone_local_t = 
-  c_git_clone_local_t(ord(arg) + offset)
+  cast[c_git_clone_local_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_clone_local_t): c_git_clone_local_t = 
-  c_git_clone_local_t(ord(arg) + offset)
+  cast[c_git_clone_local_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_clone_local_t, offset: int): c_git_clone_local_t = 
-  c_git_clone_local_t(ord(arg) - offset)
+  cast[c_git_clone_local_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_clone_local_t): c_git_clone_local_t = 
-  c_git_clone_local_t(ord(arg) - offset)
+  cast[c_git_clone_local_t](ord(arg) - offset)
  
 
 proc git_clone_options_init*(

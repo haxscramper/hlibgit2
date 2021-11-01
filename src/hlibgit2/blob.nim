@@ -8,18 +8,21 @@ import
 
 type
   c_git_blob_filter_flag_t* = enum
-    c_GIT_BLOB_FILTER_CHECK_FOR_BINARY      = 1 shl 0 ## When set, filters will not be applied to binary files. 
-    c_GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES  = 1 shl 1                                                           
-    c_GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD = 1 shl 2                                                           
+    c_GIT_BLOB_FILTER_CHECK_FOR_BINARY       = 1 shl 0 ## When set, filters will not be applied to binary files. 
+    c_GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES   = 1 shl 1                                                           
+    c_GIT_BLOB_FILTER_ATTRIBUTES_FROM_HEAD   = 1 shl 2                                                           
+    c_GIT_BLOB_FILTER_ATTRIBUTES_FROM_COMMIT = 1 shl 3                                                           
    
   git_blob_filter_flag_t* {.size: sizeof(cint).} = enum
-    GIT_BLOB_FILTER_CHECK_FOR_BINARY      ## When set, filters will not be applied to binary files. 
-    GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES                                                            
-    GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD                                                           
+    GIT_BLOB_FILTER_CHECK_FOR_BINARY       ## When set, filters will not be applied to binary files. 
+    GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES                                                             
+    GIT_BLOB_FILTER_ATTRIBUTES_FROM_HEAD                                                             
+    GIT_BLOB_FILTER_ATTRIBUTES_FROM_COMMIT                                                           
    
   git_blob_filter_options* {.bycopy, header: "<git2/blob.h>", importc.} = object
-    version*: cint                                                                                 
-    flags*:   uint32 ## Flags to control the filtering process, see `git_blob_filter_flag_t` above 
+    version*:   cint                                                                                      
+    flags*:     uint32      ## Flags to control the filtering process, see `git_blob_filter_flag_t` above 
+    commit_id*: ptr git_oid                                                                               
    
 
 proc git_blob_lookup*(
@@ -67,24 +70,20 @@ proc to_c_git_blob_filter_flag_t*(
     arg: git_blob_filter_flag_t
   ): c_git_blob_filter_flag_t = 
   case arg:
-    of GIT_BLOB_FILTER_CHECK_FOR_BINARY:
-      c_GIT_BLOB_FILTER_CHECK_FOR_BINARY
-    of GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES:
-      c_GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES
-    of GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD:
-      c_GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD
+    of GIT_BLOB_FILTER_CHECK_FOR_BINARY:       c_GIT_BLOB_FILTER_CHECK_FOR_BINARY      
+    of GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES:   c_GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES  
+    of GIT_BLOB_FILTER_ATTRIBUTES_FROM_HEAD:   c_GIT_BLOB_FILTER_ATTRIBUTES_FROM_HEAD  
+    of GIT_BLOB_FILTER_ATTRIBUTES_FROM_COMMIT: c_GIT_BLOB_FILTER_ATTRIBUTES_FROM_COMMIT
  
 
 converter to_git_blob_filter_flag_t*(
     arg: c_git_blob_filter_flag_t
   ): git_blob_filter_flag_t = 
   case arg:
-    of c_GIT_BLOB_FILTER_CHECK_FOR_BINARY:
-      GIT_BLOB_FILTER_CHECK_FOR_BINARY
-    of c_GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES:
-      GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES
-    of c_GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD:
-      GIT_BLOB_FILTER_ATTTRIBUTES_FROM_HEAD
+    of c_GIT_BLOB_FILTER_CHECK_FOR_BINARY:       GIT_BLOB_FILTER_CHECK_FOR_BINARY      
+    of c_GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES:   GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES  
+    of c_GIT_BLOB_FILTER_ATTRIBUTES_FROM_HEAD:   GIT_BLOB_FILTER_ATTRIBUTES_FROM_HEAD  
+    of c_GIT_BLOB_FILTER_ATTRIBUTES_FROM_COMMIT: GIT_BLOB_FILTER_ATTRIBUTES_FROM_COMMIT
  
 
 converter toCint*(arg: c_git_blob_filter_flag_t): cint = 
@@ -101,25 +100,25 @@ func `+`*(
     arg:    c_git_blob_filter_flag_t,
     offset: int
   ): c_git_blob_filter_flag_t = 
-  c_git_blob_filter_flag_t(ord(arg) + offset)
+  cast[c_git_blob_filter_flag_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_blob_filter_flag_t
   ): c_git_blob_filter_flag_t = 
-  c_git_blob_filter_flag_t(ord(arg) + offset)
+  cast[c_git_blob_filter_flag_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_blob_filter_flag_t,
     offset: int
   ): c_git_blob_filter_flag_t = 
-  c_git_blob_filter_flag_t(ord(arg) - offset)
+  cast[c_git_blob_filter_flag_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_blob_filter_flag_t
   ): c_git_blob_filter_flag_t = 
-  c_git_blob_filter_flag_t(ord(arg) - offset)
+  cast[c_git_blob_filter_flag_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_blob_filter_flag_t]): cint = 

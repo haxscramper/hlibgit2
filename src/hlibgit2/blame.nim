@@ -52,42 +52,26 @@ type
 
 proc to_c_git_blame_flag_t*(arg: git_blame_flag_t): c_git_blame_flag_t = 
   case arg:
-    of GIT_BLAME_NORMAL:
-      c_GIT_BLAME_NORMAL
-    of GIT_BLAME_TRACK_COPIES_SAME_FILE:
-      c_GIT_BLAME_TRACK_COPIES_SAME_FILE
-    of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES:
-      c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES
-    of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES:
-      c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES
-    of GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES:
-      c_GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES
-    of GIT_BLAME_FIRST_PARENT:
-      c_GIT_BLAME_FIRST_PARENT
-    of GIT_BLAME_USE_MAILMAP:
-      c_GIT_BLAME_USE_MAILMAP
-    of GIT_BLAME_IGNORE_WHITESPACE:
-      c_GIT_BLAME_IGNORE_WHITESPACE
+    of GIT_BLAME_NORMAL:                          c_GIT_BLAME_NORMAL                         
+    of GIT_BLAME_TRACK_COPIES_SAME_FILE:          c_GIT_BLAME_TRACK_COPIES_SAME_FILE         
+    of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES:  c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES 
+    of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES: c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES
+    of GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES:  c_GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES 
+    of GIT_BLAME_FIRST_PARENT:                    c_GIT_BLAME_FIRST_PARENT                   
+    of GIT_BLAME_USE_MAILMAP:                     c_GIT_BLAME_USE_MAILMAP                    
+    of GIT_BLAME_IGNORE_WHITESPACE:               c_GIT_BLAME_IGNORE_WHITESPACE              
  
 
 converter to_git_blame_flag_t*(arg: c_git_blame_flag_t): git_blame_flag_t = 
   case arg:
-    of c_GIT_BLAME_NORMAL:
-      GIT_BLAME_NORMAL
-    of c_GIT_BLAME_TRACK_COPIES_SAME_FILE:
-      GIT_BLAME_TRACK_COPIES_SAME_FILE
-    of c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES:
-      GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES
-    of c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES:
-      GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES
-    of c_GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES:
-      GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES
-    of c_GIT_BLAME_FIRST_PARENT:
-      GIT_BLAME_FIRST_PARENT
-    of c_GIT_BLAME_USE_MAILMAP:
-      GIT_BLAME_USE_MAILMAP
-    of c_GIT_BLAME_IGNORE_WHITESPACE:
-      GIT_BLAME_IGNORE_WHITESPACE
+    of c_GIT_BLAME_NORMAL:                          GIT_BLAME_NORMAL                         
+    of c_GIT_BLAME_TRACK_COPIES_SAME_FILE:          GIT_BLAME_TRACK_COPIES_SAME_FILE         
+    of c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES:  GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES 
+    of c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES: GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES
+    of c_GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES:  GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES 
+    of c_GIT_BLAME_FIRST_PARENT:                    GIT_BLAME_FIRST_PARENT                   
+    of c_GIT_BLAME_USE_MAILMAP:                     GIT_BLAME_USE_MAILMAP                    
+    of c_GIT_BLAME_IGNORE_WHITESPACE:               GIT_BLAME_IGNORE_WHITESPACE              
  
 
 converter toCint*(arg: c_git_blame_flag_t): cint = 
@@ -101,16 +85,16 @@ converter toCint*(arg: git_blame_flag_t): cint =
   cint(ord(to_c_git_blame_flag_t(arg)))
  
 func `+`*(arg: c_git_blame_flag_t, offset: int): c_git_blame_flag_t = 
-  c_git_blame_flag_t(ord(arg) + offset)
+  cast[c_git_blame_flag_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_blame_flag_t): c_git_blame_flag_t = 
-  c_git_blame_flag_t(ord(arg) + offset)
+  cast[c_git_blame_flag_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_blame_flag_t, offset: int): c_git_blame_flag_t = 
-  c_git_blame_flag_t(ord(arg) - offset)
+  cast[c_git_blame_flag_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_blame_flag_t): c_git_blame_flag_t = 
-  c_git_blame_flag_t(ord(arg) - offset)
+  cast[c_git_blame_flag_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_blame_flag_t]): cint = 
@@ -118,22 +102,14 @@ converter toCint*(args: set[git_blame_flag_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_BLAME_NORMAL:
-        result = result or (0 shl 0)
-      of GIT_BLAME_TRACK_COPIES_SAME_FILE:
-        result = result or (1 shl 0)
-      of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES:
-        result = result or (1 shl 1)
-      of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES:
-        result = result or (1 shl 2)
-      of GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES:
-        result = result or (1 shl 3)
-      of GIT_BLAME_FIRST_PARENT:
-        result = result or (1 shl 4)
-      of GIT_BLAME_USE_MAILMAP:
-        result = result or (1 shl 5)
-      of GIT_BLAME_IGNORE_WHITESPACE:
-        result = result or (1 shl 6)
+      of GIT_BLAME_NORMAL:                          result = cint(result or (0 shl 0))
+      of GIT_BLAME_TRACK_COPIES_SAME_FILE:          result = cint(result or (1 shl 0))
+      of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES:  result = cint(result or (1 shl 1))
+      of GIT_BLAME_TRACK_COPIES_SAME_COMMIT_COPIES: result = cint(result or (1 shl 2))
+      of GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES:  result = cint(result or (1 shl 3))
+      of GIT_BLAME_FIRST_PARENT:                    result = cint(result or (1 shl 4))
+      of GIT_BLAME_USE_MAILMAP:                     result = cint(result or (1 shl 5))
+      of GIT_BLAME_IGNORE_WHITESPACE:               result = cint(result or (1 shl 6))
  
 
 proc git_blame_options_init*(

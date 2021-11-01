@@ -43,15 +43,15 @@ proc git_refspec_direction*(
  
 
 proc git_refspec_src_matches*(
-    refspec: ptr git_refspec,
-    refname: cstring
+    refspec:  ptr git_refspec,
+    refname1: cstring
   ): cint {.git2Proc, importc.}
   
  
 
 proc git_refspec_dst_matches*(
-    refspec: ptr git_refspec,
-    refname: cstring
+    refspec:  ptr git_refspec,
+    refname1: cstring
   ): cint {.git2Proc, importc.}
   
  

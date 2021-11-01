@@ -38,6 +38,7 @@ type
     c_GIT_CHECKOUT_CONFLICT_STYLE_DIFF3         = 1 shl 21 ## Include common ancestor data in diff3 format files for conflicts              
     c_GIT_CHECKOUT_DONT_REMOVE_EXISTING         = 1 shl 22 ## Don't overwrite existing files or folders                                     
     c_GIT_CHECKOUT_DONT_WRITE_INDEX             = 1 shl 23 ## Normally checkout writes the index upon completion; this prevents that.       
+    c_GIT_CHECKOUT_DRY_RUN                      = 1 shl 24                                                                                  
    
   git_checkout_notify_cb* = proc(why: c_git_checkout_notify_t, path: cstring, baseline: ptr git_diff_file, target: ptr git_diff_file, workdir: ptr git_diff_file, payload: pointer): cint{.cdecl.}
    
@@ -114,106 +115,65 @@ type
     GIT_CHECKOUT_CONFLICT_STYLE_DIFF3         ## Include common ancestor data in diff3 format files for conflicts              
     GIT_CHECKOUT_DONT_REMOVE_EXISTING         ## Don't overwrite existing files or folders                                     
     GIT_CHECKOUT_DONT_WRITE_INDEX             ## Normally checkout writes the index upon completion; this prevents that.       
+    GIT_CHECKOUT_DRY_RUN                                                                                                       
    
 
 proc to_c_git_checkout_strategy_t*(
     arg: git_checkout_strategy_t
   ): c_git_checkout_strategy_t = 
   case arg:
-    of GIT_CHECKOUT_NONE:
-      c_GIT_CHECKOUT_NONE
-    of GIT_CHECKOUT_SAFE:
-      c_GIT_CHECKOUT_SAFE
-    of GIT_CHECKOUT_FORCE:
-      c_GIT_CHECKOUT_FORCE
-    of GIT_CHECKOUT_RECREATE_MISSING:
-      c_GIT_CHECKOUT_RECREATE_MISSING
-    of GIT_CHECKOUT_ALLOW_CONFLICTS:
-      c_GIT_CHECKOUT_ALLOW_CONFLICTS
-    of GIT_CHECKOUT_REMOVE_UNTRACKED:
-      c_GIT_CHECKOUT_REMOVE_UNTRACKED
-    of GIT_CHECKOUT_REMOVE_IGNORED:
-      c_GIT_CHECKOUT_REMOVE_IGNORED
-    of GIT_CHECKOUT_UPDATE_ONLY:
-      c_GIT_CHECKOUT_UPDATE_ONLY
-    of GIT_CHECKOUT_DONT_UPDATE_INDEX:
-      c_GIT_CHECKOUT_DONT_UPDATE_INDEX
-    of GIT_CHECKOUT_NO_REFRESH:
-      c_GIT_CHECKOUT_NO_REFRESH
-    of GIT_CHECKOUT_SKIP_UNMERGED:
-      c_GIT_CHECKOUT_SKIP_UNMERGED
-    of GIT_CHECKOUT_USE_OURS:
-      c_GIT_CHECKOUT_USE_OURS
-    of GIT_CHECKOUT_USE_THEIRS:
-      c_GIT_CHECKOUT_USE_THEIRS
-    of GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH:
-      c_GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH
-    of GIT_CHECKOUT_UPDATE_SUBMODULES:
-      c_GIT_CHECKOUT_UPDATE_SUBMODULES
-    of GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED:
-      c_GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED
-    of GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES:
-      c_GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES
-    of GIT_CHECKOUT_DONT_OVERWRITE_IGNORED:
-      c_GIT_CHECKOUT_DONT_OVERWRITE_IGNORED
-    of GIT_CHECKOUT_CONFLICT_STYLE_MERGE:
-      c_GIT_CHECKOUT_CONFLICT_STYLE_MERGE
-    of GIT_CHECKOUT_CONFLICT_STYLE_DIFF3:
-      c_GIT_CHECKOUT_CONFLICT_STYLE_DIFF3
-    of GIT_CHECKOUT_DONT_REMOVE_EXISTING:
-      c_GIT_CHECKOUT_DONT_REMOVE_EXISTING
-    of GIT_CHECKOUT_DONT_WRITE_INDEX:
-      c_GIT_CHECKOUT_DONT_WRITE_INDEX
+    of GIT_CHECKOUT_NONE:                         c_GIT_CHECKOUT_NONE                        
+    of GIT_CHECKOUT_SAFE:                         c_GIT_CHECKOUT_SAFE                        
+    of GIT_CHECKOUT_FORCE:                        c_GIT_CHECKOUT_FORCE                       
+    of GIT_CHECKOUT_RECREATE_MISSING:             c_GIT_CHECKOUT_RECREATE_MISSING            
+    of GIT_CHECKOUT_ALLOW_CONFLICTS:              c_GIT_CHECKOUT_ALLOW_CONFLICTS             
+    of GIT_CHECKOUT_REMOVE_UNTRACKED:             c_GIT_CHECKOUT_REMOVE_UNTRACKED            
+    of GIT_CHECKOUT_REMOVE_IGNORED:               c_GIT_CHECKOUT_REMOVE_IGNORED              
+    of GIT_CHECKOUT_UPDATE_ONLY:                  c_GIT_CHECKOUT_UPDATE_ONLY                 
+    of GIT_CHECKOUT_DONT_UPDATE_INDEX:            c_GIT_CHECKOUT_DONT_UPDATE_INDEX           
+    of GIT_CHECKOUT_NO_REFRESH:                   c_GIT_CHECKOUT_NO_REFRESH                  
+    of GIT_CHECKOUT_SKIP_UNMERGED:                c_GIT_CHECKOUT_SKIP_UNMERGED               
+    of GIT_CHECKOUT_USE_OURS:                     c_GIT_CHECKOUT_USE_OURS                    
+    of GIT_CHECKOUT_USE_THEIRS:                   c_GIT_CHECKOUT_USE_THEIRS                  
+    of GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH:       c_GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH      
+    of GIT_CHECKOUT_UPDATE_SUBMODULES:            c_GIT_CHECKOUT_UPDATE_SUBMODULES           
+    of GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED: c_GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED
+    of GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES:      c_GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES     
+    of GIT_CHECKOUT_DONT_OVERWRITE_IGNORED:       c_GIT_CHECKOUT_DONT_OVERWRITE_IGNORED      
+    of GIT_CHECKOUT_CONFLICT_STYLE_MERGE:         c_GIT_CHECKOUT_CONFLICT_STYLE_MERGE        
+    of GIT_CHECKOUT_CONFLICT_STYLE_DIFF3:         c_GIT_CHECKOUT_CONFLICT_STYLE_DIFF3        
+    of GIT_CHECKOUT_DONT_REMOVE_EXISTING:         c_GIT_CHECKOUT_DONT_REMOVE_EXISTING        
+    of GIT_CHECKOUT_DONT_WRITE_INDEX:             c_GIT_CHECKOUT_DONT_WRITE_INDEX            
+    of GIT_CHECKOUT_DRY_RUN:                      c_GIT_CHECKOUT_DRY_RUN                     
  
 
 converter to_git_checkout_strategy_t*(
     arg: c_git_checkout_strategy_t
   ): git_checkout_strategy_t = 
   case arg:
-    of c_GIT_CHECKOUT_NONE:
-      GIT_CHECKOUT_NONE
-    of c_GIT_CHECKOUT_SAFE:
-      GIT_CHECKOUT_SAFE
-    of c_GIT_CHECKOUT_FORCE:
-      GIT_CHECKOUT_FORCE
-    of c_GIT_CHECKOUT_RECREATE_MISSING:
-      GIT_CHECKOUT_RECREATE_MISSING
-    of c_GIT_CHECKOUT_ALLOW_CONFLICTS:
-      GIT_CHECKOUT_ALLOW_CONFLICTS
-    of c_GIT_CHECKOUT_REMOVE_UNTRACKED:
-      GIT_CHECKOUT_REMOVE_UNTRACKED
-    of c_GIT_CHECKOUT_REMOVE_IGNORED:
-      GIT_CHECKOUT_REMOVE_IGNORED
-    of c_GIT_CHECKOUT_UPDATE_ONLY:
-      GIT_CHECKOUT_UPDATE_ONLY
-    of c_GIT_CHECKOUT_DONT_UPDATE_INDEX:
-      GIT_CHECKOUT_DONT_UPDATE_INDEX
-    of c_GIT_CHECKOUT_NO_REFRESH:
-      GIT_CHECKOUT_NO_REFRESH
-    of c_GIT_CHECKOUT_SKIP_UNMERGED:
-      GIT_CHECKOUT_SKIP_UNMERGED
-    of c_GIT_CHECKOUT_USE_OURS:
-      GIT_CHECKOUT_USE_OURS
-    of c_GIT_CHECKOUT_USE_THEIRS:
-      GIT_CHECKOUT_USE_THEIRS
-    of c_GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH:
-      GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH
-    of c_GIT_CHECKOUT_UPDATE_SUBMODULES:
-      GIT_CHECKOUT_UPDATE_SUBMODULES
-    of c_GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED:
-      GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED
-    of c_GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES:
-      GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES
-    of c_GIT_CHECKOUT_DONT_OVERWRITE_IGNORED:
-      GIT_CHECKOUT_DONT_OVERWRITE_IGNORED
-    of c_GIT_CHECKOUT_CONFLICT_STYLE_MERGE:
-      GIT_CHECKOUT_CONFLICT_STYLE_MERGE
-    of c_GIT_CHECKOUT_CONFLICT_STYLE_DIFF3:
-      GIT_CHECKOUT_CONFLICT_STYLE_DIFF3
-    of c_GIT_CHECKOUT_DONT_REMOVE_EXISTING:
-      GIT_CHECKOUT_DONT_REMOVE_EXISTING
-    of c_GIT_CHECKOUT_DONT_WRITE_INDEX:
-      GIT_CHECKOUT_DONT_WRITE_INDEX
+    of c_GIT_CHECKOUT_NONE:                         GIT_CHECKOUT_NONE                        
+    of c_GIT_CHECKOUT_SAFE:                         GIT_CHECKOUT_SAFE                        
+    of c_GIT_CHECKOUT_FORCE:                        GIT_CHECKOUT_FORCE                       
+    of c_GIT_CHECKOUT_RECREATE_MISSING:             GIT_CHECKOUT_RECREATE_MISSING            
+    of c_GIT_CHECKOUT_ALLOW_CONFLICTS:              GIT_CHECKOUT_ALLOW_CONFLICTS             
+    of c_GIT_CHECKOUT_REMOVE_UNTRACKED:             GIT_CHECKOUT_REMOVE_UNTRACKED            
+    of c_GIT_CHECKOUT_REMOVE_IGNORED:               GIT_CHECKOUT_REMOVE_IGNORED              
+    of c_GIT_CHECKOUT_UPDATE_ONLY:                  GIT_CHECKOUT_UPDATE_ONLY                 
+    of c_GIT_CHECKOUT_DONT_UPDATE_INDEX:            GIT_CHECKOUT_DONT_UPDATE_INDEX           
+    of c_GIT_CHECKOUT_NO_REFRESH:                   GIT_CHECKOUT_NO_REFRESH                  
+    of c_GIT_CHECKOUT_SKIP_UNMERGED:                GIT_CHECKOUT_SKIP_UNMERGED               
+    of c_GIT_CHECKOUT_USE_OURS:                     GIT_CHECKOUT_USE_OURS                    
+    of c_GIT_CHECKOUT_USE_THEIRS:                   GIT_CHECKOUT_USE_THEIRS                  
+    of c_GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH:       GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH      
+    of c_GIT_CHECKOUT_UPDATE_SUBMODULES:            GIT_CHECKOUT_UPDATE_SUBMODULES           
+    of c_GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED: GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED
+    of c_GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES:      GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES     
+    of c_GIT_CHECKOUT_DONT_OVERWRITE_IGNORED:       GIT_CHECKOUT_DONT_OVERWRITE_IGNORED      
+    of c_GIT_CHECKOUT_CONFLICT_STYLE_MERGE:         GIT_CHECKOUT_CONFLICT_STYLE_MERGE        
+    of c_GIT_CHECKOUT_CONFLICT_STYLE_DIFF3:         GIT_CHECKOUT_CONFLICT_STYLE_DIFF3        
+    of c_GIT_CHECKOUT_DONT_REMOVE_EXISTING:         GIT_CHECKOUT_DONT_REMOVE_EXISTING        
+    of c_GIT_CHECKOUT_DONT_WRITE_INDEX:             GIT_CHECKOUT_DONT_WRITE_INDEX            
+    of c_GIT_CHECKOUT_DRY_RUN:                      GIT_CHECKOUT_DRY_RUN                     
  
 
 converter toCint*(arg: c_git_checkout_strategy_t): cint = 
@@ -230,25 +190,25 @@ func `+`*(
     arg:    c_git_checkout_strategy_t,
     offset: int
   ): c_git_checkout_strategy_t = 
-  c_git_checkout_strategy_t(ord(arg) + offset)
+  cast[c_git_checkout_strategy_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_checkout_strategy_t
   ): c_git_checkout_strategy_t = 
-  c_git_checkout_strategy_t(ord(arg) + offset)
+  cast[c_git_checkout_strategy_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_checkout_strategy_t,
     offset: int
   ): c_git_checkout_strategy_t = 
-  c_git_checkout_strategy_t(ord(arg) - offset)
+  cast[c_git_checkout_strategy_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_checkout_strategy_t
   ): c_git_checkout_strategy_t = 
-  c_git_checkout_strategy_t(ord(arg) - offset)
+  cast[c_git_checkout_strategy_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_checkout_strategy_t]): cint = 
@@ -256,86 +216,53 @@ converter toCint*(args: set[git_checkout_strategy_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_CHECKOUT_NONE:
-        result = result or (0 shl 0)
-      of GIT_CHECKOUT_SAFE:
-        result = result or (1 shl 0)
-      of GIT_CHECKOUT_FORCE:
-        result = result or (1 shl 1)
-      of GIT_CHECKOUT_RECREATE_MISSING:
-        result = result or (1 shl 2)
-      of GIT_CHECKOUT_ALLOW_CONFLICTS:
-        result = result or (1 shl 4)
-      of GIT_CHECKOUT_REMOVE_UNTRACKED:
-        result = result or (1 shl 5)
-      of GIT_CHECKOUT_REMOVE_IGNORED:
-        result = result or (1 shl 6)
-      of GIT_CHECKOUT_UPDATE_ONLY:
-        result = result or (1 shl 7)
-      of GIT_CHECKOUT_DONT_UPDATE_INDEX:
-        result = result or (1 shl 8)
-      of GIT_CHECKOUT_NO_REFRESH:
-        result = result or (1 shl 9)
-      of GIT_CHECKOUT_SKIP_UNMERGED:
-        result = result or (1 shl 10)
-      of GIT_CHECKOUT_USE_OURS:
-        result = result or (1 shl 11)
-      of GIT_CHECKOUT_USE_THEIRS:
-        result = result or (1 shl 12)
-      of GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH:
-        result = result or (1 shl 13)
-      of GIT_CHECKOUT_UPDATE_SUBMODULES:
-        result = result or (1 shl 16)
-      of GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED:
-        result = result or (1 shl 17)
-      of GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES:
-        result = result or (1 shl 18)
-      of GIT_CHECKOUT_DONT_OVERWRITE_IGNORED:
-        result = result or (1 shl 19)
-      of GIT_CHECKOUT_CONFLICT_STYLE_MERGE:
-        result = result or (1 shl 20)
-      of GIT_CHECKOUT_CONFLICT_STYLE_DIFF3:
-        result = result or (1 shl 21)
-      of GIT_CHECKOUT_DONT_REMOVE_EXISTING:
-        result = result or (1 shl 22)
-      of GIT_CHECKOUT_DONT_WRITE_INDEX:
-        result = result or (1 shl 23)
+      of GIT_CHECKOUT_NONE:                         result = cint(result or (0 shl 0)) 
+      of GIT_CHECKOUT_SAFE:                         result = cint(result or (1 shl 0)) 
+      of GIT_CHECKOUT_FORCE:                        result = cint(result or (1 shl 1)) 
+      of GIT_CHECKOUT_RECREATE_MISSING:             result = cint(result or (1 shl 2)) 
+      of GIT_CHECKOUT_ALLOW_CONFLICTS:              result = cint(result or (1 shl 4)) 
+      of GIT_CHECKOUT_REMOVE_UNTRACKED:             result = cint(result or (1 shl 5)) 
+      of GIT_CHECKOUT_REMOVE_IGNORED:               result = cint(result or (1 shl 6)) 
+      of GIT_CHECKOUT_UPDATE_ONLY:                  result = cint(result or (1 shl 7)) 
+      of GIT_CHECKOUT_DONT_UPDATE_INDEX:            result = cint(result or (1 shl 8)) 
+      of GIT_CHECKOUT_NO_REFRESH:                   result = cint(result or (1 shl 9)) 
+      of GIT_CHECKOUT_SKIP_UNMERGED:                result = cint(result or (1 shl 10))
+      of GIT_CHECKOUT_USE_OURS:                     result = cint(result or (1 shl 11))
+      of GIT_CHECKOUT_USE_THEIRS:                   result = cint(result or (1 shl 12))
+      of GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH:       result = cint(result or (1 shl 13))
+      of GIT_CHECKOUT_UPDATE_SUBMODULES:            result = cint(result or (1 shl 16))
+      of GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED: result = cint(result or (1 shl 17))
+      of GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES:      result = cint(result or (1 shl 18))
+      of GIT_CHECKOUT_DONT_OVERWRITE_IGNORED:       result = cint(result or (1 shl 19))
+      of GIT_CHECKOUT_CONFLICT_STYLE_MERGE:         result = cint(result or (1 shl 20))
+      of GIT_CHECKOUT_CONFLICT_STYLE_DIFF3:         result = cint(result or (1 shl 21))
+      of GIT_CHECKOUT_DONT_REMOVE_EXISTING:         result = cint(result or (1 shl 22))
+      of GIT_CHECKOUT_DONT_WRITE_INDEX:             result = cint(result or (1 shl 23))
+      of GIT_CHECKOUT_DRY_RUN:                      result = cint(result or (1 shl 24))
  
 
 proc to_c_git_checkout_notify_t*(
     arg: git_checkout_notify_t
   ): c_git_checkout_notify_t = 
   case arg:
-    of GIT_CHECKOUT_NOTIFY_NONE:
-      c_GIT_CHECKOUT_NOTIFY_NONE
-    of GIT_CHECKOUT_NOTIFY_CONFLICT:
-      c_GIT_CHECKOUT_NOTIFY_CONFLICT
-    of GIT_CHECKOUT_NOTIFY_DIRTY:
-      c_GIT_CHECKOUT_NOTIFY_DIRTY
-    of GIT_CHECKOUT_NOTIFY_UPDATED:
-      c_GIT_CHECKOUT_NOTIFY_UPDATED
-    of GIT_CHECKOUT_NOTIFY_UNTRACKED:
-      c_GIT_CHECKOUT_NOTIFY_UNTRACKED
-    of GIT_CHECKOUT_NOTIFY_IGNORED:
-      c_GIT_CHECKOUT_NOTIFY_IGNORED
+    of GIT_CHECKOUT_NOTIFY_NONE:      c_GIT_CHECKOUT_NOTIFY_NONE     
+    of GIT_CHECKOUT_NOTIFY_CONFLICT:  c_GIT_CHECKOUT_NOTIFY_CONFLICT 
+    of GIT_CHECKOUT_NOTIFY_DIRTY:     c_GIT_CHECKOUT_NOTIFY_DIRTY    
+    of GIT_CHECKOUT_NOTIFY_UPDATED:   c_GIT_CHECKOUT_NOTIFY_UPDATED  
+    of GIT_CHECKOUT_NOTIFY_UNTRACKED: c_GIT_CHECKOUT_NOTIFY_UNTRACKED
+    of GIT_CHECKOUT_NOTIFY_IGNORED:   c_GIT_CHECKOUT_NOTIFY_IGNORED  
  
 
 converter to_git_checkout_notify_t*(
     arg: c_git_checkout_notify_t
   ): git_checkout_notify_t = 
   case arg:
-    of c_GIT_CHECKOUT_NOTIFY_NONE:
-      GIT_CHECKOUT_NOTIFY_NONE
-    of c_GIT_CHECKOUT_NOTIFY_CONFLICT:
-      GIT_CHECKOUT_NOTIFY_CONFLICT
-    of c_GIT_CHECKOUT_NOTIFY_DIRTY:
-      GIT_CHECKOUT_NOTIFY_DIRTY
-    of c_GIT_CHECKOUT_NOTIFY_UPDATED:
-      GIT_CHECKOUT_NOTIFY_UPDATED
-    of c_GIT_CHECKOUT_NOTIFY_UNTRACKED:
-      GIT_CHECKOUT_NOTIFY_UNTRACKED
-    of c_GIT_CHECKOUT_NOTIFY_IGNORED:
-      GIT_CHECKOUT_NOTIFY_IGNORED
+    of c_GIT_CHECKOUT_NOTIFY_NONE:      GIT_CHECKOUT_NOTIFY_NONE     
+    of c_GIT_CHECKOUT_NOTIFY_CONFLICT:  GIT_CHECKOUT_NOTIFY_CONFLICT 
+    of c_GIT_CHECKOUT_NOTIFY_DIRTY:     GIT_CHECKOUT_NOTIFY_DIRTY    
+    of c_GIT_CHECKOUT_NOTIFY_UPDATED:   GIT_CHECKOUT_NOTIFY_UPDATED  
+    of c_GIT_CHECKOUT_NOTIFY_UNTRACKED: GIT_CHECKOUT_NOTIFY_UNTRACKED
+    of c_GIT_CHECKOUT_NOTIFY_IGNORED:   GIT_CHECKOUT_NOTIFY_IGNORED  
  
 
 converter toCint*(arg: c_git_checkout_notify_t): cint = 
@@ -349,16 +276,16 @@ converter toCint*(arg: git_checkout_notify_t): cint =
   cint(ord(to_c_git_checkout_notify_t(arg)))
  
 func `+`*(arg: c_git_checkout_notify_t, offset: int): c_git_checkout_notify_t = 
-  c_git_checkout_notify_t(ord(arg) + offset)
+  cast[c_git_checkout_notify_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_checkout_notify_t): c_git_checkout_notify_t = 
-  c_git_checkout_notify_t(ord(arg) + offset)
+  cast[c_git_checkout_notify_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_checkout_notify_t, offset: int): c_git_checkout_notify_t = 
-  c_git_checkout_notify_t(ord(arg) - offset)
+  cast[c_git_checkout_notify_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_checkout_notify_t): c_git_checkout_notify_t = 
-  c_git_checkout_notify_t(ord(arg) - offset)
+  cast[c_git_checkout_notify_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_checkout_notify_t]): cint = 
@@ -366,18 +293,12 @@ converter toCint*(args: set[git_checkout_notify_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_CHECKOUT_NOTIFY_NONE:
-        result = result or (0 shl 0)
-      of GIT_CHECKOUT_NOTIFY_CONFLICT:
-        result = result or (1 shl 0)
-      of GIT_CHECKOUT_NOTIFY_DIRTY:
-        result = result or (1 shl 1)
-      of GIT_CHECKOUT_NOTIFY_UPDATED:
-        result = result or (1 shl 2)
-      of GIT_CHECKOUT_NOTIFY_UNTRACKED:
-        result = result or (1 shl 3)
-      of GIT_CHECKOUT_NOTIFY_IGNORED:
-        result = result or (1 shl 4)
+      of GIT_CHECKOUT_NOTIFY_NONE:      result = cint(result or (0 shl 0))
+      of GIT_CHECKOUT_NOTIFY_CONFLICT:  result = cint(result or (1 shl 0))
+      of GIT_CHECKOUT_NOTIFY_DIRTY:     result = cint(result or (1 shl 1))
+      of GIT_CHECKOUT_NOTIFY_UPDATED:   result = cint(result or (1 shl 2))
+      of GIT_CHECKOUT_NOTIFY_UNTRACKED: result = cint(result or (1 shl 3))
+      of GIT_CHECKOUT_NOTIFY_IGNORED:   result = cint(result or (1 shl 4))
  
 
 proc git_checkout_options_init*(

@@ -41,14 +41,12 @@ type
 
 proc to_c_git_apply_flags_t*(arg: git_apply_flags_t): c_git_apply_flags_t = 
   case arg:
-    of GIT_APPLY_CHECK:
-      c_GIT_APPLY_CHECK
+    of GIT_APPLY_CHECK: c_GIT_APPLY_CHECK
  
 
 converter to_git_apply_flags_t*(arg: c_git_apply_flags_t): git_apply_flags_t = 
   case arg:
-    of c_GIT_APPLY_CHECK:
-      GIT_APPLY_CHECK
+    of c_GIT_APPLY_CHECK: GIT_APPLY_CHECK
  
 
 converter toCint*(arg: c_git_apply_flags_t): cint = 
@@ -62,16 +60,16 @@ converter toCint*(arg: git_apply_flags_t): cint =
   cint(ord(to_c_git_apply_flags_t(arg)))
  
 func `+`*(arg: c_git_apply_flags_t, offset: int): c_git_apply_flags_t = 
-  c_git_apply_flags_t(ord(arg) + offset)
+  cast[c_git_apply_flags_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_apply_flags_t): c_git_apply_flags_t = 
-  c_git_apply_flags_t(ord(arg) + offset)
+  cast[c_git_apply_flags_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_apply_flags_t, offset: int): c_git_apply_flags_t = 
-  c_git_apply_flags_t(ord(arg) - offset)
+  cast[c_git_apply_flags_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_apply_flags_t): c_git_apply_flags_t = 
-  c_git_apply_flags_t(ord(arg) - offset)
+  cast[c_git_apply_flags_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_apply_flags_t]): cint = 
@@ -101,24 +99,18 @@ proc to_c_git_apply_location_t*(
     arg: git_apply_location_t
   ): c_git_apply_location_t = 
   case arg:
-    of GIT_APPLY_LOCATION_WORKDIR:
-      c_GIT_APPLY_LOCATION_WORKDIR
-    of GIT_APPLY_LOCATION_INDEX:
-      c_GIT_APPLY_LOCATION_INDEX
-    of GIT_APPLY_LOCATION_BOTH:
-      c_GIT_APPLY_LOCATION_BOTH
+    of GIT_APPLY_LOCATION_WORKDIR: c_GIT_APPLY_LOCATION_WORKDIR
+    of GIT_APPLY_LOCATION_INDEX:   c_GIT_APPLY_LOCATION_INDEX  
+    of GIT_APPLY_LOCATION_BOTH:    c_GIT_APPLY_LOCATION_BOTH   
  
 
 converter to_git_apply_location_t*(
     arg: c_git_apply_location_t
   ): git_apply_location_t = 
   case arg:
-    of c_GIT_APPLY_LOCATION_WORKDIR:
-      GIT_APPLY_LOCATION_WORKDIR
-    of c_GIT_APPLY_LOCATION_INDEX:
-      GIT_APPLY_LOCATION_INDEX
-    of c_GIT_APPLY_LOCATION_BOTH:
-      GIT_APPLY_LOCATION_BOTH
+    of c_GIT_APPLY_LOCATION_WORKDIR: GIT_APPLY_LOCATION_WORKDIR
+    of c_GIT_APPLY_LOCATION_INDEX:   GIT_APPLY_LOCATION_INDEX  
+    of c_GIT_APPLY_LOCATION_BOTH:    GIT_APPLY_LOCATION_BOTH   
  
 
 converter toCint*(arg: c_git_apply_location_t): cint = 
@@ -132,16 +124,16 @@ converter toCint*(arg: git_apply_location_t): cint =
   cint(ord(to_c_git_apply_location_t(arg)))
  
 func `+`*(arg: c_git_apply_location_t, offset: int): c_git_apply_location_t = 
-  c_git_apply_location_t(ord(arg) + offset)
+  cast[c_git_apply_location_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_apply_location_t): c_git_apply_location_t = 
-  c_git_apply_location_t(ord(arg) + offset)
+  cast[c_git_apply_location_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_apply_location_t, offset: int): c_git_apply_location_t = 
-  c_git_apply_location_t(ord(arg) - offset)
+  cast[c_git_apply_location_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_apply_location_t): c_git_apply_location_t = 
-  c_git_apply_location_t(ord(arg) - offset)
+  cast[c_git_apply_location_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_apply_location_t]): cint = 
@@ -149,12 +141,9 @@ converter toCint*(args: set[git_apply_location_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_APPLY_LOCATION_WORKDIR:
-        result = result or (0 shl 0)
-      of GIT_APPLY_LOCATION_INDEX:
-        result = result or (1 shl 0)
-      of GIT_APPLY_LOCATION_BOTH:
-        result = result or (1 shl 1)
+      of GIT_APPLY_LOCATION_WORKDIR: result = cint(result or (0 shl 0))
+      of GIT_APPLY_LOCATION_INDEX:   result = cint(result or (1 shl 0))
+      of GIT_APPLY_LOCATION_BOTH:    result = cint(result or (1 shl 1))
  
 
 proc git_apply*(

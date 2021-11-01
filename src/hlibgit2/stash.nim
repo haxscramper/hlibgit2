@@ -65,26 +65,18 @@ type
 
 proc to_c_git_stash_flags*(arg: git_stash_flags): c_git_stash_flags = 
   case arg:
-    of GIT_STASH_DEFAULT:
-      c_GIT_STASH_DEFAULT
-    of GIT_STASH_KEEP_INDEX:
-      c_GIT_STASH_KEEP_INDEX
-    of GIT_STASH_INCLUDE_UNTRACKED:
-      c_GIT_STASH_INCLUDE_UNTRACKED
-    of GIT_STASH_INCLUDE_IGNORED:
-      c_GIT_STASH_INCLUDE_IGNORED
+    of GIT_STASH_DEFAULT:           c_GIT_STASH_DEFAULT          
+    of GIT_STASH_KEEP_INDEX:        c_GIT_STASH_KEEP_INDEX       
+    of GIT_STASH_INCLUDE_UNTRACKED: c_GIT_STASH_INCLUDE_UNTRACKED
+    of GIT_STASH_INCLUDE_IGNORED:   c_GIT_STASH_INCLUDE_IGNORED  
  
 
 converter to_git_stash_flags*(arg: c_git_stash_flags): git_stash_flags = 
   case arg:
-    of c_GIT_STASH_DEFAULT:
-      GIT_STASH_DEFAULT
-    of c_GIT_STASH_KEEP_INDEX:
-      GIT_STASH_KEEP_INDEX
-    of c_GIT_STASH_INCLUDE_UNTRACKED:
-      GIT_STASH_INCLUDE_UNTRACKED
-    of c_GIT_STASH_INCLUDE_IGNORED:
-      GIT_STASH_INCLUDE_IGNORED
+    of c_GIT_STASH_DEFAULT:           GIT_STASH_DEFAULT          
+    of c_GIT_STASH_KEEP_INDEX:        GIT_STASH_KEEP_INDEX       
+    of c_GIT_STASH_INCLUDE_UNTRACKED: GIT_STASH_INCLUDE_UNTRACKED
+    of c_GIT_STASH_INCLUDE_IGNORED:   GIT_STASH_INCLUDE_IGNORED  
  
 
 converter toCint*(arg: c_git_stash_flags): cint = 
@@ -98,16 +90,16 @@ converter toCint*(arg: git_stash_flags): cint =
   cint(ord(to_c_git_stash_flags(arg)))
  
 func `+`*(arg: c_git_stash_flags, offset: int): c_git_stash_flags = 
-  c_git_stash_flags(ord(arg) + offset)
+  cast[c_git_stash_flags](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_stash_flags): c_git_stash_flags = 
-  c_git_stash_flags(ord(arg) + offset)
+  cast[c_git_stash_flags](ord(arg) + offset)
  
 func `-`*(arg: c_git_stash_flags, offset: int): c_git_stash_flags = 
-  c_git_stash_flags(ord(arg) - offset)
+  cast[c_git_stash_flags](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_stash_flags): c_git_stash_flags = 
-  c_git_stash_flags(ord(arg) - offset)
+  cast[c_git_stash_flags](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_stash_flags]): cint = 
@@ -115,14 +107,10 @@ converter toCint*(args: set[git_stash_flags]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_STASH_DEFAULT:
-        result = result or (0 shl 0)
-      of GIT_STASH_KEEP_INDEX:
-        result = result or (1 shl 0)
-      of GIT_STASH_INCLUDE_UNTRACKED:
-        result = result or (1 shl 1)
-      of GIT_STASH_INCLUDE_IGNORED:
-        result = result or (1 shl 2)
+      of GIT_STASH_DEFAULT:           result = cint(result or (0 shl 0))
+      of GIT_STASH_KEEP_INDEX:        result = cint(result or (1 shl 0))
+      of GIT_STASH_INCLUDE_UNTRACKED: result = cint(result or (1 shl 1))
+      of GIT_STASH_INCLUDE_IGNORED:   result = cint(result or (1 shl 2))
  
 
 proc git_stash_save*(
@@ -139,20 +127,16 @@ proc to_c_git_stash_apply_flags*(
     arg: git_stash_apply_flags
   ): c_git_stash_apply_flags = 
   case arg:
-    of GIT_STASH_APPLY_DEFAULT:
-      c_GIT_STASH_APPLY_DEFAULT
-    of GIT_STASH_APPLY_REINSTATE_INDEX:
-      c_GIT_STASH_APPLY_REINSTATE_INDEX
+    of GIT_STASH_APPLY_DEFAULT:         c_GIT_STASH_APPLY_DEFAULT        
+    of GIT_STASH_APPLY_REINSTATE_INDEX: c_GIT_STASH_APPLY_REINSTATE_INDEX
  
 
 converter to_git_stash_apply_flags*(
     arg: c_git_stash_apply_flags
   ): git_stash_apply_flags = 
   case arg:
-    of c_GIT_STASH_APPLY_DEFAULT:
-      GIT_STASH_APPLY_DEFAULT
-    of c_GIT_STASH_APPLY_REINSTATE_INDEX:
-      GIT_STASH_APPLY_REINSTATE_INDEX
+    of c_GIT_STASH_APPLY_DEFAULT:         GIT_STASH_APPLY_DEFAULT        
+    of c_GIT_STASH_APPLY_REINSTATE_INDEX: GIT_STASH_APPLY_REINSTATE_INDEX
  
 
 converter toCint*(arg: c_git_stash_apply_flags): cint = 
@@ -166,16 +150,16 @@ converter toCint*(arg: git_stash_apply_flags): cint =
   cint(ord(to_c_git_stash_apply_flags(arg)))
  
 func `+`*(arg: c_git_stash_apply_flags, offset: int): c_git_stash_apply_flags = 
-  c_git_stash_apply_flags(ord(arg) + offset)
+  cast[c_git_stash_apply_flags](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_stash_apply_flags): c_git_stash_apply_flags = 
-  c_git_stash_apply_flags(ord(arg) + offset)
+  cast[c_git_stash_apply_flags](ord(arg) + offset)
  
 func `-`*(arg: c_git_stash_apply_flags, offset: int): c_git_stash_apply_flags = 
-  c_git_stash_apply_flags(ord(arg) - offset)
+  cast[c_git_stash_apply_flags](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_stash_apply_flags): c_git_stash_apply_flags = 
-  c_git_stash_apply_flags(ord(arg) - offset)
+  cast[c_git_stash_apply_flags](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_stash_apply_flags]): cint = 
@@ -183,54 +167,36 @@ converter toCint*(args: set[git_stash_apply_flags]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_STASH_APPLY_DEFAULT:
-        result = result or (0 shl 0)
-      of GIT_STASH_APPLY_REINSTATE_INDEX:
-        result = result or (1 shl 0)
+      of GIT_STASH_APPLY_DEFAULT:         result = cint(result or (0 shl 0))
+      of GIT_STASH_APPLY_REINSTATE_INDEX: result = cint(result or (1 shl 0))
  
 
 proc to_c_git_stash_apply_progress_t*(
     arg: git_stash_apply_progress_t
   ): c_git_stash_apply_progress_t = 
   case arg:
-    of GIT_STASH_APPLY_PROGRESS_NONE:
-      c_GIT_STASH_APPLY_PROGRESS_NONE
-    of GIT_STASH_APPLY_PROGRESS_LOADING_STASH:
-      c_GIT_STASH_APPLY_PROGRESS_LOADING_STASH
-    of GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX:
-      c_GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX
-    of GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED:
-      c_GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED
-    of GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED:
-      c_GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED
-    of GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED:
-      c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED
-    of GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED:
-      c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED
-    of GIT_STASH_APPLY_PROGRESS_DONE:
-      c_GIT_STASH_APPLY_PROGRESS_DONE
+    of GIT_STASH_APPLY_PROGRESS_NONE:               c_GIT_STASH_APPLY_PROGRESS_NONE              
+    of GIT_STASH_APPLY_PROGRESS_LOADING_STASH:      c_GIT_STASH_APPLY_PROGRESS_LOADING_STASH     
+    of GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX:      c_GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX     
+    of GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED:   c_GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED  
+    of GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED:  c_GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED 
+    of GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED: c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED
+    of GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED:  c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED 
+    of GIT_STASH_APPLY_PROGRESS_DONE:               c_GIT_STASH_APPLY_PROGRESS_DONE              
  
 
 converter to_git_stash_apply_progress_t*(
     arg: c_git_stash_apply_progress_t
   ): git_stash_apply_progress_t = 
   case arg:
-    of c_GIT_STASH_APPLY_PROGRESS_NONE:
-      GIT_STASH_APPLY_PROGRESS_NONE
-    of c_GIT_STASH_APPLY_PROGRESS_LOADING_STASH:
-      GIT_STASH_APPLY_PROGRESS_LOADING_STASH
-    of c_GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX:
-      GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX
-    of c_GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED:
-      GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED
-    of c_GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED:
-      GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED
-    of c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED:
-      GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED
-    of c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED:
-      GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED
-    of c_GIT_STASH_APPLY_PROGRESS_DONE:
-      GIT_STASH_APPLY_PROGRESS_DONE
+    of c_GIT_STASH_APPLY_PROGRESS_NONE:               GIT_STASH_APPLY_PROGRESS_NONE              
+    of c_GIT_STASH_APPLY_PROGRESS_LOADING_STASH:      GIT_STASH_APPLY_PROGRESS_LOADING_STASH     
+    of c_GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX:      GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX     
+    of c_GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED:   GIT_STASH_APPLY_PROGRESS_ANALYZE_MODIFIED  
+    of c_GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED:  GIT_STASH_APPLY_PROGRESS_ANALYZE_UNTRACKED 
+    of c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED: GIT_STASH_APPLY_PROGRESS_CHECKOUT_UNTRACKED
+    of c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED:  GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED 
+    of c_GIT_STASH_APPLY_PROGRESS_DONE:               GIT_STASH_APPLY_PROGRESS_DONE              
  
 
 converter toCint*(arg: c_git_stash_apply_progress_t): cint = 
@@ -247,25 +213,25 @@ func `+`*(
     arg:    c_git_stash_apply_progress_t,
     offset: int
   ): c_git_stash_apply_progress_t = 
-  c_git_stash_apply_progress_t(ord(arg) + offset)
+  cast[c_git_stash_apply_progress_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_stash_apply_progress_t
   ): c_git_stash_apply_progress_t = 
-  c_git_stash_apply_progress_t(ord(arg) + offset)
+  cast[c_git_stash_apply_progress_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_stash_apply_progress_t,
     offset: int
   ): c_git_stash_apply_progress_t = 
-  c_git_stash_apply_progress_t(ord(arg) - offset)
+  cast[c_git_stash_apply_progress_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_stash_apply_progress_t
   ): c_git_stash_apply_progress_t = 
-  c_git_stash_apply_progress_t(ord(arg) - offset)
+  cast[c_git_stash_apply_progress_t](ord(arg) - offset)
  
 
 proc git_stash_apply_options_init*(

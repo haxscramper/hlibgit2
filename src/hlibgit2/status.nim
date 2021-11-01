@@ -74,11 +74,11 @@ type
     GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED
    
   git_status_options* {.bycopy, header: "<git2/status.h>", importc.} = object
-    version*:  cuint                              
-    show*:     c_git_status_show_t ## The version 
-    flags*:    cuint                              
-    pathspec*: git_strarray                       
-    baseline*: ptr git_tree                       
+    version*:  cuint              
+    show*:     c_git_status_show_t
+    flags*:    cuint              
+    pathspec*: git_strarray       
+    baseline*: ptr git_tree       
    
   git_status_show_t* {.size: sizeof(cint).} = enum
     GIT_STATUS_SHOW_INDEX_AND_WORKDIR
@@ -104,66 +104,38 @@ type
 
 proc to_c_git_status_t*(arg: git_status_t): c_git_status_t = 
   case arg:
-    of GIT_STATUS_CURRENT:
-      c_GIT_STATUS_CURRENT
-    of GIT_STATUS_INDEX_NEW:
-      c_GIT_STATUS_INDEX_NEW
-    of GIT_STATUS_INDEX_MODIFIED:
-      c_GIT_STATUS_INDEX_MODIFIED
-    of GIT_STATUS_INDEX_DELETED:
-      c_GIT_STATUS_INDEX_DELETED
-    of GIT_STATUS_INDEX_RENAMED:
-      c_GIT_STATUS_INDEX_RENAMED
-    of GIT_STATUS_INDEX_TYPECHANGE:
-      c_GIT_STATUS_INDEX_TYPECHANGE
-    of GIT_STATUS_WT_NEW:
-      c_GIT_STATUS_WT_NEW
-    of GIT_STATUS_WT_MODIFIED:
-      c_GIT_STATUS_WT_MODIFIED
-    of GIT_STATUS_WT_DELETED:
-      c_GIT_STATUS_WT_DELETED
-    of GIT_STATUS_WT_TYPECHANGE:
-      c_GIT_STATUS_WT_TYPECHANGE
-    of GIT_STATUS_WT_RENAMED:
-      c_GIT_STATUS_WT_RENAMED
-    of GIT_STATUS_WT_UNREADABLE:
-      c_GIT_STATUS_WT_UNREADABLE
-    of GIT_STATUS_IGNORED:
-      c_GIT_STATUS_IGNORED
-    of GIT_STATUS_CONFLICTED:
-      c_GIT_STATUS_CONFLICTED
+    of GIT_STATUS_CURRENT:          c_GIT_STATUS_CURRENT         
+    of GIT_STATUS_INDEX_NEW:        c_GIT_STATUS_INDEX_NEW       
+    of GIT_STATUS_INDEX_MODIFIED:   c_GIT_STATUS_INDEX_MODIFIED  
+    of GIT_STATUS_INDEX_DELETED:    c_GIT_STATUS_INDEX_DELETED   
+    of GIT_STATUS_INDEX_RENAMED:    c_GIT_STATUS_INDEX_RENAMED   
+    of GIT_STATUS_INDEX_TYPECHANGE: c_GIT_STATUS_INDEX_TYPECHANGE
+    of GIT_STATUS_WT_NEW:           c_GIT_STATUS_WT_NEW          
+    of GIT_STATUS_WT_MODIFIED:      c_GIT_STATUS_WT_MODIFIED     
+    of GIT_STATUS_WT_DELETED:       c_GIT_STATUS_WT_DELETED      
+    of GIT_STATUS_WT_TYPECHANGE:    c_GIT_STATUS_WT_TYPECHANGE   
+    of GIT_STATUS_WT_RENAMED:       c_GIT_STATUS_WT_RENAMED      
+    of GIT_STATUS_WT_UNREADABLE:    c_GIT_STATUS_WT_UNREADABLE   
+    of GIT_STATUS_IGNORED:          c_GIT_STATUS_IGNORED         
+    of GIT_STATUS_CONFLICTED:       c_GIT_STATUS_CONFLICTED      
  
 
 converter to_git_status_t*(arg: c_git_status_t): git_status_t = 
   case arg:
-    of c_GIT_STATUS_CURRENT:
-      GIT_STATUS_CURRENT
-    of c_GIT_STATUS_INDEX_NEW:
-      GIT_STATUS_INDEX_NEW
-    of c_GIT_STATUS_INDEX_MODIFIED:
-      GIT_STATUS_INDEX_MODIFIED
-    of c_GIT_STATUS_INDEX_DELETED:
-      GIT_STATUS_INDEX_DELETED
-    of c_GIT_STATUS_INDEX_RENAMED:
-      GIT_STATUS_INDEX_RENAMED
-    of c_GIT_STATUS_INDEX_TYPECHANGE:
-      GIT_STATUS_INDEX_TYPECHANGE
-    of c_GIT_STATUS_WT_NEW:
-      GIT_STATUS_WT_NEW
-    of c_GIT_STATUS_WT_MODIFIED:
-      GIT_STATUS_WT_MODIFIED
-    of c_GIT_STATUS_WT_DELETED:
-      GIT_STATUS_WT_DELETED
-    of c_GIT_STATUS_WT_TYPECHANGE:
-      GIT_STATUS_WT_TYPECHANGE
-    of c_GIT_STATUS_WT_RENAMED:
-      GIT_STATUS_WT_RENAMED
-    of c_GIT_STATUS_WT_UNREADABLE:
-      GIT_STATUS_WT_UNREADABLE
-    of c_GIT_STATUS_IGNORED:
-      GIT_STATUS_IGNORED
-    of c_GIT_STATUS_CONFLICTED:
-      GIT_STATUS_CONFLICTED
+    of c_GIT_STATUS_CURRENT:          GIT_STATUS_CURRENT         
+    of c_GIT_STATUS_INDEX_NEW:        GIT_STATUS_INDEX_NEW       
+    of c_GIT_STATUS_INDEX_MODIFIED:   GIT_STATUS_INDEX_MODIFIED  
+    of c_GIT_STATUS_INDEX_DELETED:    GIT_STATUS_INDEX_DELETED   
+    of c_GIT_STATUS_INDEX_RENAMED:    GIT_STATUS_INDEX_RENAMED   
+    of c_GIT_STATUS_INDEX_TYPECHANGE: GIT_STATUS_INDEX_TYPECHANGE
+    of c_GIT_STATUS_WT_NEW:           GIT_STATUS_WT_NEW          
+    of c_GIT_STATUS_WT_MODIFIED:      GIT_STATUS_WT_MODIFIED     
+    of c_GIT_STATUS_WT_DELETED:       GIT_STATUS_WT_DELETED      
+    of c_GIT_STATUS_WT_TYPECHANGE:    GIT_STATUS_WT_TYPECHANGE   
+    of c_GIT_STATUS_WT_RENAMED:       GIT_STATUS_WT_RENAMED      
+    of c_GIT_STATUS_WT_UNREADABLE:    GIT_STATUS_WT_UNREADABLE   
+    of c_GIT_STATUS_IGNORED:          GIT_STATUS_IGNORED         
+    of c_GIT_STATUS_CONFLICTED:       GIT_STATUS_CONFLICTED      
  
 
 converter toCint*(arg: c_git_status_t): cint = 
@@ -177,16 +149,16 @@ converter toCint*(arg: git_status_t): cint =
   cint(ord(to_c_git_status_t(arg)))
  
 func `+`*(arg: c_git_status_t, offset: int): c_git_status_t = 
-  c_git_status_t(ord(arg) + offset)
+  cast[c_git_status_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_status_t): c_git_status_t = 
-  c_git_status_t(ord(arg) + offset)
+  cast[c_git_status_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_status_t, offset: int): c_git_status_t = 
-  c_git_status_t(ord(arg) - offset)
+  cast[c_git_status_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_status_t): c_git_status_t = 
-  c_git_status_t(ord(arg) - offset)
+  cast[c_git_status_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_status_t]): cint = 
@@ -194,54 +166,34 @@ converter toCint*(args: set[git_status_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_STATUS_CURRENT:
-        result = result or (0 shl 0)
-      of GIT_STATUS_INDEX_NEW:
-        result = result or (1 shl 0)
-      of GIT_STATUS_INDEX_MODIFIED:
-        result = result or (1 shl 1)
-      of GIT_STATUS_INDEX_DELETED:
-        result = result or (1 shl 2)
-      of GIT_STATUS_INDEX_RENAMED:
-        result = result or (1 shl 3)
-      of GIT_STATUS_INDEX_TYPECHANGE:
-        result = result or (1 shl 4)
-      of GIT_STATUS_WT_NEW:
-        result = result or (1 shl 7)
-      of GIT_STATUS_WT_MODIFIED:
-        result = result or (1 shl 8)
-      of GIT_STATUS_WT_DELETED:
-        result = result or (1 shl 9)
-      of GIT_STATUS_WT_TYPECHANGE:
-        result = result or (1 shl 10)
-      of GIT_STATUS_WT_RENAMED:
-        result = result or (1 shl 11)
-      of GIT_STATUS_WT_UNREADABLE:
-        result = result or (1 shl 12)
-      of GIT_STATUS_IGNORED:
-        result = result or (1 shl 14)
-      of GIT_STATUS_CONFLICTED:
-        result = result or (1 shl 15)
+      of GIT_STATUS_CURRENT:          result = cint(result or (0 shl 0)) 
+      of GIT_STATUS_INDEX_NEW:        result = cint(result or (1 shl 0)) 
+      of GIT_STATUS_INDEX_MODIFIED:   result = cint(result or (1 shl 1)) 
+      of GIT_STATUS_INDEX_DELETED:    result = cint(result or (1 shl 2)) 
+      of GIT_STATUS_INDEX_RENAMED:    result = cint(result or (1 shl 3)) 
+      of GIT_STATUS_INDEX_TYPECHANGE: result = cint(result or (1 shl 4)) 
+      of GIT_STATUS_WT_NEW:           result = cint(result or (1 shl 7)) 
+      of GIT_STATUS_WT_MODIFIED:      result = cint(result or (1 shl 8)) 
+      of GIT_STATUS_WT_DELETED:       result = cint(result or (1 shl 9)) 
+      of GIT_STATUS_WT_TYPECHANGE:    result = cint(result or (1 shl 10))
+      of GIT_STATUS_WT_RENAMED:       result = cint(result or (1 shl 11))
+      of GIT_STATUS_WT_UNREADABLE:    result = cint(result or (1 shl 12))
+      of GIT_STATUS_IGNORED:          result = cint(result or (1 shl 14))
+      of GIT_STATUS_CONFLICTED:       result = cint(result or (1 shl 15))
  
 
 proc to_c_git_status_show_t*(arg: git_status_show_t): c_git_status_show_t = 
   case arg:
-    of GIT_STATUS_SHOW_INDEX_AND_WORKDIR:
-      c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR
-    of GIT_STATUS_SHOW_INDEX_ONLY:
-      c_GIT_STATUS_SHOW_INDEX_ONLY
-    of GIT_STATUS_SHOW_WORKDIR_ONLY:
-      c_GIT_STATUS_SHOW_WORKDIR_ONLY
+    of GIT_STATUS_SHOW_INDEX_AND_WORKDIR: c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR
+    of GIT_STATUS_SHOW_INDEX_ONLY:        c_GIT_STATUS_SHOW_INDEX_ONLY       
+    of GIT_STATUS_SHOW_WORKDIR_ONLY:      c_GIT_STATUS_SHOW_WORKDIR_ONLY     
  
 
 converter to_git_status_show_t*(arg: c_git_status_show_t): git_status_show_t = 
   case arg:
-    of c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR:
-      GIT_STATUS_SHOW_INDEX_AND_WORKDIR
-    of c_GIT_STATUS_SHOW_INDEX_ONLY:
-      GIT_STATUS_SHOW_INDEX_ONLY
-    of c_GIT_STATUS_SHOW_WORKDIR_ONLY:
-      GIT_STATUS_SHOW_WORKDIR_ONLY
+    of c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR: GIT_STATUS_SHOW_INDEX_AND_WORKDIR
+    of c_GIT_STATUS_SHOW_INDEX_ONLY:        GIT_STATUS_SHOW_INDEX_ONLY       
+    of c_GIT_STATUS_SHOW_WORKDIR_ONLY:      GIT_STATUS_SHOW_WORKDIR_ONLY     
  
 
 converter toCint*(arg: c_git_status_show_t): cint = 
@@ -255,16 +207,16 @@ converter toCint*(arg: git_status_show_t): cint =
   cint(ord(to_c_git_status_show_t(arg)))
  
 func `+`*(arg: c_git_status_show_t, offset: int): c_git_status_show_t = 
-  c_git_status_show_t(ord(arg) + offset)
+  cast[c_git_status_show_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_status_show_t): c_git_status_show_t = 
-  c_git_status_show_t(ord(arg) + offset)
+  cast[c_git_status_show_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_status_show_t, offset: int): c_git_status_show_t = 
-  c_git_status_show_t(ord(arg) - offset)
+  cast[c_git_status_show_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_status_show_t): c_git_status_show_t = 
-  c_git_status_show_t(ord(arg) - offset)
+  cast[c_git_status_show_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_status_show_t]): cint = 
@@ -272,84 +224,49 @@ converter toCint*(args: set[git_status_show_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_STATUS_SHOW_INDEX_AND_WORKDIR:
-        result = result or (0 shl 0)
-      of GIT_STATUS_SHOW_INDEX_ONLY:
-        result = result or (1 shl 0)
-      of GIT_STATUS_SHOW_WORKDIR_ONLY:
-        result = result or (1 shl 1)
+      of GIT_STATUS_SHOW_INDEX_AND_WORKDIR: result = cint(result or (0 shl 0))
+      of GIT_STATUS_SHOW_INDEX_ONLY:        result = cint(result or (1 shl 0))
+      of GIT_STATUS_SHOW_WORKDIR_ONLY:      result = cint(result or (1 shl 1))
  
 
 proc to_c_git_status_opt_t*(arg: git_status_opt_t): c_git_status_opt_t = 
   case arg:
-    of GIT_STATUS_OPT_INCLUDE_UNTRACKED:
-      c_GIT_STATUS_OPT_INCLUDE_UNTRACKED
-    of GIT_STATUS_OPT_INCLUDE_IGNORED:
-      c_GIT_STATUS_OPT_INCLUDE_IGNORED
-    of GIT_STATUS_OPT_INCLUDE_UNMODIFIED:
-      c_GIT_STATUS_OPT_INCLUDE_UNMODIFIED
-    of GIT_STATUS_OPT_EXCLUDE_SUBMODULES:
-      c_GIT_STATUS_OPT_EXCLUDE_SUBMODULES
-    of GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS:
-      c_GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS
-    of GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH:
-      c_GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH
-    of GIT_STATUS_OPT_RECURSE_IGNORED_DIRS:
-      c_GIT_STATUS_OPT_RECURSE_IGNORED_DIRS
-    of GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX:
-      c_GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX
-    of GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR:
-      c_GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR
-    of GIT_STATUS_OPT_SORT_CASE_SENSITIVELY:
-      c_GIT_STATUS_OPT_SORT_CASE_SENSITIVELY
-    of GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY:
-      c_GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY
-    of GIT_STATUS_OPT_RENAMES_FROM_REWRITES:
-      c_GIT_STATUS_OPT_RENAMES_FROM_REWRITES
-    of GIT_STATUS_OPT_NO_REFRESH:
-      c_GIT_STATUS_OPT_NO_REFRESH
-    of GIT_STATUS_OPT_UPDATE_INDEX:
-      c_GIT_STATUS_OPT_UPDATE_INDEX
-    of GIT_STATUS_OPT_INCLUDE_UNREADABLE:
-      c_GIT_STATUS_OPT_INCLUDE_UNREADABLE
-    of GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED:
-      c_GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED
+    of GIT_STATUS_OPT_INCLUDE_UNTRACKED:               c_GIT_STATUS_OPT_INCLUDE_UNTRACKED              
+    of GIT_STATUS_OPT_INCLUDE_IGNORED:                 c_GIT_STATUS_OPT_INCLUDE_IGNORED                
+    of GIT_STATUS_OPT_INCLUDE_UNMODIFIED:              c_GIT_STATUS_OPT_INCLUDE_UNMODIFIED             
+    of GIT_STATUS_OPT_EXCLUDE_SUBMODULES:              c_GIT_STATUS_OPT_EXCLUDE_SUBMODULES             
+    of GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS:          c_GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS         
+    of GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH:          c_GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH         
+    of GIT_STATUS_OPT_RECURSE_IGNORED_DIRS:            c_GIT_STATUS_OPT_RECURSE_IGNORED_DIRS           
+    of GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX:           c_GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX          
+    of GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR:        c_GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR       
+    of GIT_STATUS_OPT_SORT_CASE_SENSITIVELY:           c_GIT_STATUS_OPT_SORT_CASE_SENSITIVELY          
+    of GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY:         c_GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY        
+    of GIT_STATUS_OPT_RENAMES_FROM_REWRITES:           c_GIT_STATUS_OPT_RENAMES_FROM_REWRITES          
+    of GIT_STATUS_OPT_NO_REFRESH:                      c_GIT_STATUS_OPT_NO_REFRESH                     
+    of GIT_STATUS_OPT_UPDATE_INDEX:                    c_GIT_STATUS_OPT_UPDATE_INDEX                   
+    of GIT_STATUS_OPT_INCLUDE_UNREADABLE:              c_GIT_STATUS_OPT_INCLUDE_UNREADABLE             
+    of GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED: c_GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED
  
 
 converter to_git_status_opt_t*(arg: c_git_status_opt_t): git_status_opt_t = 
   case arg:
-    of c_GIT_STATUS_OPT_INCLUDE_UNTRACKED:
-      GIT_STATUS_OPT_INCLUDE_UNTRACKED
-    of c_GIT_STATUS_OPT_INCLUDE_IGNORED:
-      GIT_STATUS_OPT_INCLUDE_IGNORED
-    of c_GIT_STATUS_OPT_INCLUDE_UNMODIFIED:
-      GIT_STATUS_OPT_INCLUDE_UNMODIFIED
-    of c_GIT_STATUS_OPT_EXCLUDE_SUBMODULES:
-      GIT_STATUS_OPT_EXCLUDE_SUBMODULES
-    of c_GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS:
-      GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS
-    of c_GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH:
-      GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH
-    of c_GIT_STATUS_OPT_RECURSE_IGNORED_DIRS:
-      GIT_STATUS_OPT_RECURSE_IGNORED_DIRS
-    of c_GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX:
-      GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX
-    of c_GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR:
-      GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR
-    of c_GIT_STATUS_OPT_SORT_CASE_SENSITIVELY:
-      GIT_STATUS_OPT_SORT_CASE_SENSITIVELY
-    of c_GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY:
-      GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY
-    of c_GIT_STATUS_OPT_RENAMES_FROM_REWRITES:
-      GIT_STATUS_OPT_RENAMES_FROM_REWRITES
-    of c_GIT_STATUS_OPT_NO_REFRESH:
-      GIT_STATUS_OPT_NO_REFRESH
-    of c_GIT_STATUS_OPT_UPDATE_INDEX:
-      GIT_STATUS_OPT_UPDATE_INDEX
-    of c_GIT_STATUS_OPT_INCLUDE_UNREADABLE:
-      GIT_STATUS_OPT_INCLUDE_UNREADABLE
-    of c_GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED:
-      GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED
+    of c_GIT_STATUS_OPT_INCLUDE_UNTRACKED:               GIT_STATUS_OPT_INCLUDE_UNTRACKED              
+    of c_GIT_STATUS_OPT_INCLUDE_IGNORED:                 GIT_STATUS_OPT_INCLUDE_IGNORED                
+    of c_GIT_STATUS_OPT_INCLUDE_UNMODIFIED:              GIT_STATUS_OPT_INCLUDE_UNMODIFIED             
+    of c_GIT_STATUS_OPT_EXCLUDE_SUBMODULES:              GIT_STATUS_OPT_EXCLUDE_SUBMODULES             
+    of c_GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS:          GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS         
+    of c_GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH:          GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH         
+    of c_GIT_STATUS_OPT_RECURSE_IGNORED_DIRS:            GIT_STATUS_OPT_RECURSE_IGNORED_DIRS           
+    of c_GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX:           GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX          
+    of c_GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR:        GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR       
+    of c_GIT_STATUS_OPT_SORT_CASE_SENSITIVELY:           GIT_STATUS_OPT_SORT_CASE_SENSITIVELY          
+    of c_GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY:         GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY        
+    of c_GIT_STATUS_OPT_RENAMES_FROM_REWRITES:           GIT_STATUS_OPT_RENAMES_FROM_REWRITES          
+    of c_GIT_STATUS_OPT_NO_REFRESH:                      GIT_STATUS_OPT_NO_REFRESH                     
+    of c_GIT_STATUS_OPT_UPDATE_INDEX:                    GIT_STATUS_OPT_UPDATE_INDEX                   
+    of c_GIT_STATUS_OPT_INCLUDE_UNREADABLE:              GIT_STATUS_OPT_INCLUDE_UNREADABLE             
+    of c_GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED: GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED
  
 
 converter toCint*(arg: c_git_status_opt_t): cint = 
@@ -363,16 +280,16 @@ converter toCint*(arg: git_status_opt_t): cint =
   cint(ord(to_c_git_status_opt_t(arg)))
  
 func `+`*(arg: c_git_status_opt_t, offset: int): c_git_status_opt_t = 
-  c_git_status_opt_t(ord(arg) + offset)
+  cast[c_git_status_opt_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_status_opt_t): c_git_status_opt_t = 
-  c_git_status_opt_t(ord(arg) + offset)
+  cast[c_git_status_opt_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_status_opt_t, offset: int): c_git_status_opt_t = 
-  c_git_status_opt_t(ord(arg) - offset)
+  cast[c_git_status_opt_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_status_opt_t): c_git_status_opt_t = 
-  c_git_status_opt_t(ord(arg) - offset)
+  cast[c_git_status_opt_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_status_opt_t]): cint = 

@@ -29,20 +29,16 @@ proc to_c_git_packbuilder_stage_t*(
     arg: git_packbuilder_stage_t
   ): c_git_packbuilder_stage_t = 
   case arg:
-    of GIT_PACKBUILDER_ADDING_OBJECTS:
-      c_GIT_PACKBUILDER_ADDING_OBJECTS
-    of GIT_PACKBUILDER_DELTAFICATION:
-      c_GIT_PACKBUILDER_DELTAFICATION
+    of GIT_PACKBUILDER_ADDING_OBJECTS: c_GIT_PACKBUILDER_ADDING_OBJECTS
+    of GIT_PACKBUILDER_DELTAFICATION:  c_GIT_PACKBUILDER_DELTAFICATION 
  
 
 converter to_git_packbuilder_stage_t*(
     arg: c_git_packbuilder_stage_t
   ): git_packbuilder_stage_t = 
   case arg:
-    of c_GIT_PACKBUILDER_ADDING_OBJECTS:
-      GIT_PACKBUILDER_ADDING_OBJECTS
-    of c_GIT_PACKBUILDER_DELTAFICATION:
-      GIT_PACKBUILDER_DELTAFICATION
+    of c_GIT_PACKBUILDER_ADDING_OBJECTS: GIT_PACKBUILDER_ADDING_OBJECTS
+    of c_GIT_PACKBUILDER_DELTAFICATION:  GIT_PACKBUILDER_DELTAFICATION 
  
 
 converter toCint*(arg: c_git_packbuilder_stage_t): cint = 
@@ -59,25 +55,25 @@ func `+`*(
     arg:    c_git_packbuilder_stage_t,
     offset: int
   ): c_git_packbuilder_stage_t = 
-  c_git_packbuilder_stage_t(ord(arg) + offset)
+  cast[c_git_packbuilder_stage_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_packbuilder_stage_t
   ): c_git_packbuilder_stage_t = 
-  c_git_packbuilder_stage_t(ord(arg) + offset)
+  cast[c_git_packbuilder_stage_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_packbuilder_stage_t,
     offset: int
   ): c_git_packbuilder_stage_t = 
-  c_git_packbuilder_stage_t(ord(arg) - offset)
+  cast[c_git_packbuilder_stage_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_packbuilder_stage_t
   ): c_git_packbuilder_stage_t = 
-  c_git_packbuilder_stage_t(ord(arg) - offset)
+  cast[c_git_packbuilder_stage_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_packbuilder_stage_t]): cint = 
@@ -85,10 +81,8 @@ converter toCint*(args: set[git_packbuilder_stage_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_PACKBUILDER_ADDING_OBJECTS:
-        result = result or (0 shl 0)
-      of GIT_PACKBUILDER_DELTAFICATION:
-        result = result or (1 shl 0)
+      of GIT_PACKBUILDER_ADDING_OBJECTS: result = cint(result or (0 shl 0))
+      of GIT_PACKBUILDER_DELTAFICATION:  result = cint(result or (1 shl 0))
  
 
 proc git_packbuilder_new*(

@@ -91,16 +91,14 @@ proc to_c_git_index_entry_flag_t*(
     arg: git_index_entry_flag_t
   ): c_git_index_entry_flag_t = 
   case arg:
-    of GIT_INDEX_ENTRY_EXTENDED:
-      c_GIT_INDEX_ENTRY_EXTENDED
+    of GIT_INDEX_ENTRY_EXTENDED: c_GIT_INDEX_ENTRY_EXTENDED
  
 
 converter to_git_index_entry_flag_t*(
     arg: c_git_index_entry_flag_t
   ): git_index_entry_flag_t = 
   case arg:
-    of c_GIT_INDEX_ENTRY_EXTENDED:
-      GIT_INDEX_ENTRY_EXTENDED
+    of c_GIT_INDEX_ENTRY_EXTENDED: GIT_INDEX_ENTRY_EXTENDED
  
 
 converter toCint*(arg: c_git_index_entry_flag_t): cint = 
@@ -117,25 +115,25 @@ func `+`*(
     arg:    c_git_index_entry_flag_t,
     offset: int
   ): c_git_index_entry_flag_t = 
-  c_git_index_entry_flag_t(ord(arg) + offset)
+  cast[c_git_index_entry_flag_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_index_entry_flag_t
   ): c_git_index_entry_flag_t = 
-  c_git_index_entry_flag_t(ord(arg) + offset)
+  cast[c_git_index_entry_flag_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_index_entry_flag_t,
     offset: int
   ): c_git_index_entry_flag_t = 
-  c_git_index_entry_flag_t(ord(arg) - offset)
+  cast[c_git_index_entry_flag_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_index_entry_flag_t
   ): c_git_index_entry_flag_t = 
-  c_git_index_entry_flag_t(ord(arg) - offset)
+  cast[c_git_index_entry_flag_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_index_entry_flag_t]): cint = 
@@ -143,36 +141,27 @@ converter toCint*(args: set[git_index_entry_flag_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_INDEX_ENTRY_EXTENDED:
-        result = result or (0 shl 0)
+      of GIT_INDEX_ENTRY_EXTENDED: result = cint(result or (0 shl 0))
  
 
 proc to_c_git_index_entry_extended_flag_t*(
     arg: git_index_entry_extended_flag_t
   ): c_git_index_entry_extended_flag_t = 
   case arg:
-    of GIT_INDEX_ENTRY_UPTODATE:
-      c_GIT_INDEX_ENTRY_UPTODATE
-    of GIT_INDEX_ENTRY_INTENT_TO_ADD:
-      c_GIT_INDEX_ENTRY_INTENT_TO_ADD
-    of GIT_INDEX_ENTRY_SKIP_WORKTREE:
-      c_GIT_INDEX_ENTRY_SKIP_WORKTREE
-    of GIT_INDEX_ENTRY_EXTENDED_FLAGS:
-      c_GIT_INDEX_ENTRY_EXTENDED_FLAGS
+    of GIT_INDEX_ENTRY_UPTODATE:       c_GIT_INDEX_ENTRY_UPTODATE      
+    of GIT_INDEX_ENTRY_INTENT_TO_ADD:  c_GIT_INDEX_ENTRY_INTENT_TO_ADD 
+    of GIT_INDEX_ENTRY_SKIP_WORKTREE:  c_GIT_INDEX_ENTRY_SKIP_WORKTREE 
+    of GIT_INDEX_ENTRY_EXTENDED_FLAGS: c_GIT_INDEX_ENTRY_EXTENDED_FLAGS
  
 
 converter to_git_index_entry_extended_flag_t*(
     arg: c_git_index_entry_extended_flag_t
   ): git_index_entry_extended_flag_t = 
   case arg:
-    of c_GIT_INDEX_ENTRY_UPTODATE:
-      GIT_INDEX_ENTRY_UPTODATE
-    of c_GIT_INDEX_ENTRY_INTENT_TO_ADD:
-      GIT_INDEX_ENTRY_INTENT_TO_ADD
-    of c_GIT_INDEX_ENTRY_SKIP_WORKTREE:
-      GIT_INDEX_ENTRY_SKIP_WORKTREE
-    of c_GIT_INDEX_ENTRY_EXTENDED_FLAGS:
-      GIT_INDEX_ENTRY_EXTENDED_FLAGS
+    of c_GIT_INDEX_ENTRY_UPTODATE:       GIT_INDEX_ENTRY_UPTODATE      
+    of c_GIT_INDEX_ENTRY_INTENT_TO_ADD:  GIT_INDEX_ENTRY_INTENT_TO_ADD 
+    of c_GIT_INDEX_ENTRY_SKIP_WORKTREE:  GIT_INDEX_ENTRY_SKIP_WORKTREE 
+    of c_GIT_INDEX_ENTRY_EXTENDED_FLAGS: GIT_INDEX_ENTRY_EXTENDED_FLAGS
  
 
 converter toCint*(arg: c_git_index_entry_extended_flag_t): cint = 
@@ -189,53 +178,45 @@ func `+`*(
     arg:    c_git_index_entry_extended_flag_t,
     offset: int
   ): c_git_index_entry_extended_flag_t = 
-  c_git_index_entry_extended_flag_t(ord(arg) + offset)
+  cast[c_git_index_entry_extended_flag_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_index_entry_extended_flag_t
   ): c_git_index_entry_extended_flag_t = 
-  c_git_index_entry_extended_flag_t(ord(arg) + offset)
+  cast[c_git_index_entry_extended_flag_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_index_entry_extended_flag_t,
     offset: int
   ): c_git_index_entry_extended_flag_t = 
-  c_git_index_entry_extended_flag_t(ord(arg) - offset)
+  cast[c_git_index_entry_extended_flag_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_index_entry_extended_flag_t
   ): c_git_index_entry_extended_flag_t = 
-  c_git_index_entry_extended_flag_t(ord(arg) - offset)
+  cast[c_git_index_entry_extended_flag_t](ord(arg) - offset)
  
 
 proc to_c_git_index_capability_t*(
     arg: git_index_capability_t
   ): c_git_index_capability_t = 
   case arg:
-    of GIT_INDEX_CAPABILITY_FROM_OWNER:
-      c_GIT_INDEX_CAPABILITY_FROM_OWNER
-    of GIT_INDEX_CAPABILITY_IGNORE_CASE:
-      c_GIT_INDEX_CAPABILITY_IGNORE_CASE
-    of GIT_INDEX_CAPABILITY_NO_FILEMODE:
-      c_GIT_INDEX_CAPABILITY_NO_FILEMODE
-    of GIT_INDEX_CAPABILITY_NO_SYMLINKS:
-      c_GIT_INDEX_CAPABILITY_NO_SYMLINKS
+    of GIT_INDEX_CAPABILITY_FROM_OWNER:  c_GIT_INDEX_CAPABILITY_FROM_OWNER 
+    of GIT_INDEX_CAPABILITY_IGNORE_CASE: c_GIT_INDEX_CAPABILITY_IGNORE_CASE
+    of GIT_INDEX_CAPABILITY_NO_FILEMODE: c_GIT_INDEX_CAPABILITY_NO_FILEMODE
+    of GIT_INDEX_CAPABILITY_NO_SYMLINKS: c_GIT_INDEX_CAPABILITY_NO_SYMLINKS
  
 
 converter to_git_index_capability_t*(
     arg: c_git_index_capability_t
   ): git_index_capability_t = 
   case arg:
-    of c_GIT_INDEX_CAPABILITY_FROM_OWNER:
-      GIT_INDEX_CAPABILITY_FROM_OWNER
-    of c_GIT_INDEX_CAPABILITY_IGNORE_CASE:
-      GIT_INDEX_CAPABILITY_IGNORE_CASE
-    of c_GIT_INDEX_CAPABILITY_NO_FILEMODE:
-      GIT_INDEX_CAPABILITY_NO_FILEMODE
-    of c_GIT_INDEX_CAPABILITY_NO_SYMLINKS:
-      GIT_INDEX_CAPABILITY_NO_SYMLINKS
+    of c_GIT_INDEX_CAPABILITY_FROM_OWNER:  GIT_INDEX_CAPABILITY_FROM_OWNER 
+    of c_GIT_INDEX_CAPABILITY_IGNORE_CASE: GIT_INDEX_CAPABILITY_IGNORE_CASE
+    of c_GIT_INDEX_CAPABILITY_NO_FILEMODE: GIT_INDEX_CAPABILITY_NO_FILEMODE
+    of c_GIT_INDEX_CAPABILITY_NO_SYMLINKS: GIT_INDEX_CAPABILITY_NO_SYMLINKS
  
 
 converter toCint*(arg: c_git_index_capability_t): cint = 
@@ -252,53 +233,45 @@ func `+`*(
     arg:    c_git_index_capability_t,
     offset: int
   ): c_git_index_capability_t = 
-  c_git_index_capability_t(ord(arg) + offset)
+  cast[c_git_index_capability_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_index_capability_t
   ): c_git_index_capability_t = 
-  c_git_index_capability_t(ord(arg) + offset)
+  cast[c_git_index_capability_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_index_capability_t,
     offset: int
   ): c_git_index_capability_t = 
-  c_git_index_capability_t(ord(arg) - offset)
+  cast[c_git_index_capability_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_index_capability_t
   ): c_git_index_capability_t = 
-  c_git_index_capability_t(ord(arg) - offset)
+  cast[c_git_index_capability_t](ord(arg) - offset)
  
 
 proc to_c_git_index_add_option_t*(
     arg: git_index_add_option_t
   ): c_git_index_add_option_t = 
   case arg:
-    of GIT_INDEX_ADD_DEFAULT:
-      c_GIT_INDEX_ADD_DEFAULT
-    of GIT_INDEX_ADD_FORCE:
-      c_GIT_INDEX_ADD_FORCE
-    of GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH:
-      c_GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH
-    of GIT_INDEX_ADD_CHECK_PATHSPEC:
-      c_GIT_INDEX_ADD_CHECK_PATHSPEC
+    of GIT_INDEX_ADD_DEFAULT:                c_GIT_INDEX_ADD_DEFAULT               
+    of GIT_INDEX_ADD_FORCE:                  c_GIT_INDEX_ADD_FORCE                 
+    of GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH: c_GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH
+    of GIT_INDEX_ADD_CHECK_PATHSPEC:         c_GIT_INDEX_ADD_CHECK_PATHSPEC        
  
 
 converter to_git_index_add_option_t*(
     arg: c_git_index_add_option_t
   ): git_index_add_option_t = 
   case arg:
-    of c_GIT_INDEX_ADD_DEFAULT:
-      GIT_INDEX_ADD_DEFAULT
-    of c_GIT_INDEX_ADD_FORCE:
-      GIT_INDEX_ADD_FORCE
-    of c_GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH:
-      GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH
-    of c_GIT_INDEX_ADD_CHECK_PATHSPEC:
-      GIT_INDEX_ADD_CHECK_PATHSPEC
+    of c_GIT_INDEX_ADD_DEFAULT:                GIT_INDEX_ADD_DEFAULT               
+    of c_GIT_INDEX_ADD_FORCE:                  GIT_INDEX_ADD_FORCE                 
+    of c_GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH: GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH
+    of c_GIT_INDEX_ADD_CHECK_PATHSPEC:         GIT_INDEX_ADD_CHECK_PATHSPEC        
  
 
 converter toCint*(arg: c_git_index_add_option_t): cint = 
@@ -315,25 +288,25 @@ func `+`*(
     arg:    c_git_index_add_option_t,
     offset: int
   ): c_git_index_add_option_t = 
-  c_git_index_add_option_t(ord(arg) + offset)
+  cast[c_git_index_add_option_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_index_add_option_t
   ): c_git_index_add_option_t = 
-  c_git_index_add_option_t(ord(arg) + offset)
+  cast[c_git_index_add_option_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_index_add_option_t,
     offset: int
   ): c_git_index_add_option_t = 
-  c_git_index_add_option_t(ord(arg) - offset)
+  cast[c_git_index_add_option_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_index_add_option_t
   ): c_git_index_add_option_t = 
-  c_git_index_add_option_t(ord(arg) - offset)
+  cast[c_git_index_add_option_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_index_add_option_t]): cint = 
@@ -341,42 +314,28 @@ converter toCint*(args: set[git_index_add_option_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_INDEX_ADD_DEFAULT:
-        result = result or (0 shl 0)
-      of GIT_INDEX_ADD_FORCE:
-        result = result or (1 shl 0)
-      of GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH:
-        result = result or (1 shl 1)
-      of GIT_INDEX_ADD_CHECK_PATHSPEC:
-        result = result or (1 shl 2)
+      of GIT_INDEX_ADD_DEFAULT:                result = cint(result or (0 shl 0))
+      of GIT_INDEX_ADD_FORCE:                  result = cint(result or (1 shl 0))
+      of GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH: result = cint(result or (1 shl 1))
+      of GIT_INDEX_ADD_CHECK_PATHSPEC:         result = cint(result or (1 shl 2))
  
 
 proc to_c_git_index_stage_t*(arg: git_index_stage_t): c_git_index_stage_t = 
   case arg:
-    of GIT_INDEX_STAGE_ANY:
-      c_GIT_INDEX_STAGE_ANY
-    of GIT_INDEX_STAGE_NORMAL:
-      c_GIT_INDEX_STAGE_NORMAL
-    of GIT_INDEX_STAGE_ANCESTOR:
-      c_GIT_INDEX_STAGE_ANCESTOR
-    of GIT_INDEX_STAGE_OURS:
-      c_GIT_INDEX_STAGE_OURS
-    of GIT_INDEX_STAGE_THEIRS:
-      c_GIT_INDEX_STAGE_THEIRS
+    of GIT_INDEX_STAGE_ANY:      c_GIT_INDEX_STAGE_ANY     
+    of GIT_INDEX_STAGE_NORMAL:   c_GIT_INDEX_STAGE_NORMAL  
+    of GIT_INDEX_STAGE_ANCESTOR: c_GIT_INDEX_STAGE_ANCESTOR
+    of GIT_INDEX_STAGE_OURS:     c_GIT_INDEX_STAGE_OURS    
+    of GIT_INDEX_STAGE_THEIRS:   c_GIT_INDEX_STAGE_THEIRS  
  
 
 converter to_git_index_stage_t*(arg: c_git_index_stage_t): git_index_stage_t = 
   case arg:
-    of c_GIT_INDEX_STAGE_ANY:
-      GIT_INDEX_STAGE_ANY
-    of c_GIT_INDEX_STAGE_NORMAL:
-      GIT_INDEX_STAGE_NORMAL
-    of c_GIT_INDEX_STAGE_ANCESTOR:
-      GIT_INDEX_STAGE_ANCESTOR
-    of c_GIT_INDEX_STAGE_OURS:
-      GIT_INDEX_STAGE_OURS
-    of c_GIT_INDEX_STAGE_THEIRS:
-      GIT_INDEX_STAGE_THEIRS
+    of c_GIT_INDEX_STAGE_ANY:      GIT_INDEX_STAGE_ANY     
+    of c_GIT_INDEX_STAGE_NORMAL:   GIT_INDEX_STAGE_NORMAL  
+    of c_GIT_INDEX_STAGE_ANCESTOR: GIT_INDEX_STAGE_ANCESTOR
+    of c_GIT_INDEX_STAGE_OURS:     GIT_INDEX_STAGE_OURS    
+    of c_GIT_INDEX_STAGE_THEIRS:   GIT_INDEX_STAGE_THEIRS  
  
 
 converter toCint*(arg: c_git_index_stage_t): cint = 
@@ -390,16 +349,16 @@ converter toCint*(arg: git_index_stage_t): cint =
   cint(ord(to_c_git_index_stage_t(arg)))
  
 func `+`*(arg: c_git_index_stage_t, offset: int): c_git_index_stage_t = 
-  c_git_index_stage_t(ord(arg) + offset)
+  cast[c_git_index_stage_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_index_stage_t): c_git_index_stage_t = 
-  c_git_index_stage_t(ord(arg) + offset)
+  cast[c_git_index_stage_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_index_stage_t, offset: int): c_git_index_stage_t = 
-  c_git_index_stage_t(ord(arg) - offset)
+  cast[c_git_index_stage_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_index_stage_t): c_git_index_stage_t = 
-  c_git_index_stage_t(ord(arg) - offset)
+  cast[c_git_index_stage_t](ord(arg) - offset)
  
 
 proc git_index_open*(

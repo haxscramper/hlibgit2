@@ -52,7 +52,9 @@ proc git_tag_target_id*(tag: ptr git_tag): ptr git_oid {.git2Proc, importc.}
   
  
 
-proc git_tag_target_type*(tag: ptr git_tag): git_object_t {.git2Proc, importc.}
+proc git_tag_target_type*(
+    tag: ptr git_tag
+  ): c_git_object_t {.git2Proc, importc.}
   
  
 
@@ -150,6 +152,13 @@ proc git_tag_peel*(
 proc git_tag_dup*(
     arg_out: ptr ptr git_tag,
     source:  ptr git_tag
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_tag_name_is_valid*(
+    valid: ptr cint,
+    name:  cstring
   ): cint {.git2Proc, importc.}
   
  

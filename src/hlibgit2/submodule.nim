@@ -56,68 +56,40 @@ proc to_c_git_submodule_status_t*(
     arg: git_submodule_status_t
   ): c_git_submodule_status_t = 
   case arg:
-    of GIT_SUBMODULE_STATUS_IN_HEAD:
-      c_GIT_SUBMODULE_STATUS_IN_HEAD
-    of GIT_SUBMODULE_STATUS_IN_INDEX:
-      c_GIT_SUBMODULE_STATUS_IN_INDEX
-    of GIT_SUBMODULE_STATUS_IN_CONFIG:
-      c_GIT_SUBMODULE_STATUS_IN_CONFIG
-    of GIT_SUBMODULE_STATUS_IN_WD:
-      c_GIT_SUBMODULE_STATUS_IN_WD
-    of GIT_SUBMODULE_STATUS_INDEX_ADDED:
-      c_GIT_SUBMODULE_STATUS_INDEX_ADDED
-    of GIT_SUBMODULE_STATUS_INDEX_DELETED:
-      c_GIT_SUBMODULE_STATUS_INDEX_DELETED
-    of GIT_SUBMODULE_STATUS_INDEX_MODIFIED:
-      c_GIT_SUBMODULE_STATUS_INDEX_MODIFIED
-    of GIT_SUBMODULE_STATUS_WD_UNINITIALIZED:
-      c_GIT_SUBMODULE_STATUS_WD_UNINITIALIZED
-    of GIT_SUBMODULE_STATUS_WD_ADDED:
-      c_GIT_SUBMODULE_STATUS_WD_ADDED
-    of GIT_SUBMODULE_STATUS_WD_DELETED:
-      c_GIT_SUBMODULE_STATUS_WD_DELETED
-    of GIT_SUBMODULE_STATUS_WD_MODIFIED:
-      c_GIT_SUBMODULE_STATUS_WD_MODIFIED
-    of GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED:
-      c_GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED
-    of GIT_SUBMODULE_STATUS_WD_WD_MODIFIED:
-      c_GIT_SUBMODULE_STATUS_WD_WD_MODIFIED
-    of GIT_SUBMODULE_STATUS_WD_UNTRACKED:
-      c_GIT_SUBMODULE_STATUS_WD_UNTRACKED
+    of GIT_SUBMODULE_STATUS_IN_HEAD:           c_GIT_SUBMODULE_STATUS_IN_HEAD          
+    of GIT_SUBMODULE_STATUS_IN_INDEX:          c_GIT_SUBMODULE_STATUS_IN_INDEX         
+    of GIT_SUBMODULE_STATUS_IN_CONFIG:         c_GIT_SUBMODULE_STATUS_IN_CONFIG        
+    of GIT_SUBMODULE_STATUS_IN_WD:             c_GIT_SUBMODULE_STATUS_IN_WD            
+    of GIT_SUBMODULE_STATUS_INDEX_ADDED:       c_GIT_SUBMODULE_STATUS_INDEX_ADDED      
+    of GIT_SUBMODULE_STATUS_INDEX_DELETED:     c_GIT_SUBMODULE_STATUS_INDEX_DELETED    
+    of GIT_SUBMODULE_STATUS_INDEX_MODIFIED:    c_GIT_SUBMODULE_STATUS_INDEX_MODIFIED   
+    of GIT_SUBMODULE_STATUS_WD_UNINITIALIZED:  c_GIT_SUBMODULE_STATUS_WD_UNINITIALIZED 
+    of GIT_SUBMODULE_STATUS_WD_ADDED:          c_GIT_SUBMODULE_STATUS_WD_ADDED         
+    of GIT_SUBMODULE_STATUS_WD_DELETED:        c_GIT_SUBMODULE_STATUS_WD_DELETED       
+    of GIT_SUBMODULE_STATUS_WD_MODIFIED:       c_GIT_SUBMODULE_STATUS_WD_MODIFIED      
+    of GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED: c_GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED
+    of GIT_SUBMODULE_STATUS_WD_WD_MODIFIED:    c_GIT_SUBMODULE_STATUS_WD_WD_MODIFIED   
+    of GIT_SUBMODULE_STATUS_WD_UNTRACKED:      c_GIT_SUBMODULE_STATUS_WD_UNTRACKED     
  
 
 converter to_git_submodule_status_t*(
     arg: c_git_submodule_status_t
   ): git_submodule_status_t = 
   case arg:
-    of c_GIT_SUBMODULE_STATUS_IN_HEAD:
-      GIT_SUBMODULE_STATUS_IN_HEAD
-    of c_GIT_SUBMODULE_STATUS_IN_INDEX:
-      GIT_SUBMODULE_STATUS_IN_INDEX
-    of c_GIT_SUBMODULE_STATUS_IN_CONFIG:
-      GIT_SUBMODULE_STATUS_IN_CONFIG
-    of c_GIT_SUBMODULE_STATUS_IN_WD:
-      GIT_SUBMODULE_STATUS_IN_WD
-    of c_GIT_SUBMODULE_STATUS_INDEX_ADDED:
-      GIT_SUBMODULE_STATUS_INDEX_ADDED
-    of c_GIT_SUBMODULE_STATUS_INDEX_DELETED:
-      GIT_SUBMODULE_STATUS_INDEX_DELETED
-    of c_GIT_SUBMODULE_STATUS_INDEX_MODIFIED:
-      GIT_SUBMODULE_STATUS_INDEX_MODIFIED
-    of c_GIT_SUBMODULE_STATUS_WD_UNINITIALIZED:
-      GIT_SUBMODULE_STATUS_WD_UNINITIALIZED
-    of c_GIT_SUBMODULE_STATUS_WD_ADDED:
-      GIT_SUBMODULE_STATUS_WD_ADDED
-    of c_GIT_SUBMODULE_STATUS_WD_DELETED:
-      GIT_SUBMODULE_STATUS_WD_DELETED
-    of c_GIT_SUBMODULE_STATUS_WD_MODIFIED:
-      GIT_SUBMODULE_STATUS_WD_MODIFIED
-    of c_GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED:
-      GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED
-    of c_GIT_SUBMODULE_STATUS_WD_WD_MODIFIED:
-      GIT_SUBMODULE_STATUS_WD_WD_MODIFIED
-    of c_GIT_SUBMODULE_STATUS_WD_UNTRACKED:
-      GIT_SUBMODULE_STATUS_WD_UNTRACKED
+    of c_GIT_SUBMODULE_STATUS_IN_HEAD:           GIT_SUBMODULE_STATUS_IN_HEAD          
+    of c_GIT_SUBMODULE_STATUS_IN_INDEX:          GIT_SUBMODULE_STATUS_IN_INDEX         
+    of c_GIT_SUBMODULE_STATUS_IN_CONFIG:         GIT_SUBMODULE_STATUS_IN_CONFIG        
+    of c_GIT_SUBMODULE_STATUS_IN_WD:             GIT_SUBMODULE_STATUS_IN_WD            
+    of c_GIT_SUBMODULE_STATUS_INDEX_ADDED:       GIT_SUBMODULE_STATUS_INDEX_ADDED      
+    of c_GIT_SUBMODULE_STATUS_INDEX_DELETED:     GIT_SUBMODULE_STATUS_INDEX_DELETED    
+    of c_GIT_SUBMODULE_STATUS_INDEX_MODIFIED:    GIT_SUBMODULE_STATUS_INDEX_MODIFIED   
+    of c_GIT_SUBMODULE_STATUS_WD_UNINITIALIZED:  GIT_SUBMODULE_STATUS_WD_UNINITIALIZED 
+    of c_GIT_SUBMODULE_STATUS_WD_ADDED:          GIT_SUBMODULE_STATUS_WD_ADDED         
+    of c_GIT_SUBMODULE_STATUS_WD_DELETED:        GIT_SUBMODULE_STATUS_WD_DELETED       
+    of c_GIT_SUBMODULE_STATUS_WD_MODIFIED:       GIT_SUBMODULE_STATUS_WD_MODIFIED      
+    of c_GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED: GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED
+    of c_GIT_SUBMODULE_STATUS_WD_WD_MODIFIED:    GIT_SUBMODULE_STATUS_WD_WD_MODIFIED   
+    of c_GIT_SUBMODULE_STATUS_WD_UNTRACKED:      GIT_SUBMODULE_STATUS_WD_UNTRACKED     
  
 
 converter toCint*(arg: c_git_submodule_status_t): cint = 
@@ -134,25 +106,25 @@ func `+`*(
     arg:    c_git_submodule_status_t,
     offset: int
   ): c_git_submodule_status_t = 
-  c_git_submodule_status_t(ord(arg) + offset)
+  cast[c_git_submodule_status_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_submodule_status_t
   ): c_git_submodule_status_t = 
-  c_git_submodule_status_t(ord(arg) + offset)
+  cast[c_git_submodule_status_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_submodule_status_t,
     offset: int
   ): c_git_submodule_status_t = 
-  c_git_submodule_status_t(ord(arg) - offset)
+  cast[c_git_submodule_status_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_submodule_status_t
   ): c_git_submodule_status_t = 
-  c_git_submodule_status_t(ord(arg) - offset)
+  cast[c_git_submodule_status_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_submodule_status_t]): cint = 
@@ -180,6 +152,13 @@ proc git_submodule_lookup*(
     arg_out: ptr ptr git_submodule,
     repo:    ptr git_repository,
     name:    cstring
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_submodule_dup*(
+    arg_out: ptr ptr git_submodule,
+    source:  ptr git_submodule
   ): cint {.git2Proc, importc.}
   
  

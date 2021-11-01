@@ -20,22 +20,16 @@ type
 
 proc to_c_git_reset_t*(arg: git_reset_t): c_git_reset_t = 
   case arg:
-    of GIT_RESET_SOFT:
-      c_GIT_RESET_SOFT
-    of GIT_RESET_MIXED:
-      c_GIT_RESET_MIXED
-    of GIT_RESET_HARD:
-      c_GIT_RESET_HARD
+    of GIT_RESET_SOFT:  c_GIT_RESET_SOFT 
+    of GIT_RESET_MIXED: c_GIT_RESET_MIXED
+    of GIT_RESET_HARD:  c_GIT_RESET_HARD 
  
 
 converter to_git_reset_t*(arg: c_git_reset_t): git_reset_t = 
   case arg:
-    of c_GIT_RESET_SOFT:
-      GIT_RESET_SOFT
-    of c_GIT_RESET_MIXED:
-      GIT_RESET_MIXED
-    of c_GIT_RESET_HARD:
-      GIT_RESET_HARD
+    of c_GIT_RESET_SOFT:  GIT_RESET_SOFT 
+    of c_GIT_RESET_MIXED: GIT_RESET_MIXED
+    of c_GIT_RESET_HARD:  GIT_RESET_HARD 
  
 
 converter toCint*(arg: c_git_reset_t): cint = 
@@ -49,16 +43,16 @@ converter toCint*(arg: git_reset_t): cint =
   cint(ord(to_c_git_reset_t(arg)))
  
 func `+`*(arg: c_git_reset_t, offset: int): c_git_reset_t = 
-  c_git_reset_t(ord(arg) + offset)
+  cast[c_git_reset_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_reset_t): c_git_reset_t = 
-  c_git_reset_t(ord(arg) + offset)
+  cast[c_git_reset_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_reset_t, offset: int): c_git_reset_t = 
-  c_git_reset_t(ord(arg) - offset)
+  cast[c_git_reset_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_reset_t): c_git_reset_t = 
-  c_git_reset_t(ord(arg) - offset)
+  cast[c_git_reset_t](ord(arg) - offset)
  
 
 proc git_reset*(

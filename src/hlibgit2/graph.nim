@@ -23,3 +23,12 @@ proc git_graph_descendant_of*(
   
  
 
+proc git_graph_reachable_from_any*(
+    repo:             ptr git_repository,
+    commit:           ptr git_oid,
+    descendant_array: ptr UncheckedArray[git_oid],
+    length:           csize_t
+  ): cint {.git2Proc, importc.}
+  
+ 
+

@@ -1,7 +1,6 @@
 {.push warning[UnusedImport]:off.}
 
 import
-  ./buffer,
   ./libgit2_config,
   ./oid,
   ./types
@@ -16,10 +15,10 @@ type
     c_GIT_TREEWALK_POST = 1 shl 0 ## Pre-order 
    
   git_tree_update* {.bycopy, header: "<git2/tree.h>", importc.} = object
-    action*:   c_git_tree_update_t ## Update action. If it's an removal, only the path is looked at 
-    id*:       git_oid             ## The entry's id                                                
-    filemode*: git_filemode_t      ## The filemode/kind of object                                   
-    path*:     cstring             ## The full path from the root tree                              
+    action*:                            c_git_tree_update_t ## Update action. If it's an removal, only the path is looked at 
+    id*:                                git_oid             ## The entry's id                                                
+    filemode1* {.importc: "filemode".}: c_git_filemode_t    ## The filemode/kind of object                                   
+    path*:                              cstring             ## The full path from the root tree                              
    
   git_tree_update_t* {.size: sizeof(cint).} = enum
     GIT_TREE_UPDATE_UPSERT ## Update or insert an entry at the specified path 
@@ -127,19 +126,19 @@ proc git_tree_entry_id*(
 
 proc git_tree_entry_type*(
     entry: ptr git_tree_entry
-  ): git_object_t {.git2Proc, importc.}
+  ): c_git_object_t {.git2Proc, importc.}
   
  
 
 proc git_tree_entry_filemode*(
     entry: ptr git_tree_entry
-  ): git_filemode_t {.git2Proc, importc.}
+  ): c_git_filemode_t {.git2Proc, importc.}
   
  
 
 proc git_tree_entry_filemode_raw*(
     entry: ptr git_tree_entry
-  ): git_filemode_t {.git2Proc, importc.}
+  ): c_git_filemode_t {.git2Proc, importc.}
   
  
 
@@ -190,11 +189,11 @@ proc git_treebuilder_get*(
  
 
 proc git_treebuilder_insert*(
-    arg_out:  ptr ptr git_tree_entry,
-    bld:      ptr git_treebuilder,
-    filename: cstring,
-    id:       ptr git_oid,
-    filemode: git_filemode_t
+    arg_out:   ptr ptr git_tree_entry,
+    bld:       ptr git_treebuilder,
+    filename:  cstring,
+    id:        ptr git_oid,
+    filemode1: c_git_filemode_t
   ): cint {.git2Proc, importc.}
   
  
@@ -221,28 +220,16 @@ proc git_treebuilder_write*(
   
  
 
-proc git_treebuilder_write_with_buffer*(
-    oid:  ptr git_oid,
-    bld:  ptr git_treebuilder,
-    tree: ptr git_buf
-  ): cint {.git2Proc, importc.}
-  
- 
-
 proc to_c_git_treewalk_mode*(arg: git_treewalk_mode): c_git_treewalk_mode = 
   case arg:
-    of GIT_TREEWALK_PRE:
-      c_GIT_TREEWALK_PRE
-    of GIT_TREEWALK_POST:
-      c_GIT_TREEWALK_POST
+    of GIT_TREEWALK_PRE:  c_GIT_TREEWALK_PRE 
+    of GIT_TREEWALK_POST: c_GIT_TREEWALK_POST
  
 
 converter to_git_treewalk_mode*(arg: c_git_treewalk_mode): git_treewalk_mode = 
   case arg:
-    of c_GIT_TREEWALK_PRE:
-      GIT_TREEWALK_PRE
-    of c_GIT_TREEWALK_POST:
-      GIT_TREEWALK_POST
+    of c_GIT_TREEWALK_PRE:  GIT_TREEWALK_PRE 
+    of c_GIT_TREEWALK_POST: GIT_TREEWALK_POST
  
 
 converter toCint*(arg: c_git_treewalk_mode): cint = 
@@ -256,16 +243,16 @@ converter toCint*(arg: git_treewalk_mode): cint =
   cint(ord(to_c_git_treewalk_mode(arg)))
  
 func `+`*(arg: c_git_treewalk_mode, offset: int): c_git_treewalk_mode = 
-  c_git_treewalk_mode(ord(arg) + offset)
+  cast[c_git_treewalk_mode](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_treewalk_mode): c_git_treewalk_mode = 
-  c_git_treewalk_mode(ord(arg) + offset)
+  cast[c_git_treewalk_mode](ord(arg) + offset)
  
 func `-`*(arg: c_git_treewalk_mode, offset: int): c_git_treewalk_mode = 
-  c_git_treewalk_mode(ord(arg) - offset)
+  cast[c_git_treewalk_mode](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_treewalk_mode): c_git_treewalk_mode = 
-  c_git_treewalk_mode(ord(arg) - offset)
+  cast[c_git_treewalk_mode](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_treewalk_mode]): cint = 
@@ -273,10 +260,8 @@ converter toCint*(args: set[git_treewalk_mode]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_TREEWALK_PRE:
-        result = result or (0 shl 0)
-      of GIT_TREEWALK_POST:
-        result = result or (1 shl 0)
+      of GIT_TREEWALK_PRE:  result = cint(result or (0 shl 0))
+      of GIT_TREEWALK_POST: result = cint(result or (1 shl 0))
  
 
 proc git_tree_walk*(
@@ -297,18 +282,14 @@ proc git_tree_dup*(
 
 proc to_c_git_tree_update_t*(arg: git_tree_update_t): c_git_tree_update_t = 
   case arg:
-    of GIT_TREE_UPDATE_UPSERT:
-      c_GIT_TREE_UPDATE_UPSERT
-    of GIT_TREE_UPDATE_REMOVE:
-      c_GIT_TREE_UPDATE_REMOVE
+    of GIT_TREE_UPDATE_UPSERT: c_GIT_TREE_UPDATE_UPSERT
+    of GIT_TREE_UPDATE_REMOVE: c_GIT_TREE_UPDATE_REMOVE
  
 
 converter to_git_tree_update_t*(arg: c_git_tree_update_t): git_tree_update_t = 
   case arg:
-    of c_GIT_TREE_UPDATE_UPSERT:
-      GIT_TREE_UPDATE_UPSERT
-    of c_GIT_TREE_UPDATE_REMOVE:
-      GIT_TREE_UPDATE_REMOVE
+    of c_GIT_TREE_UPDATE_UPSERT: GIT_TREE_UPDATE_UPSERT
+    of c_GIT_TREE_UPDATE_REMOVE: GIT_TREE_UPDATE_REMOVE
  
 
 converter toCint*(arg: c_git_tree_update_t): cint = 
@@ -322,16 +303,16 @@ converter toCint*(arg: git_tree_update_t): cint =
   cint(ord(to_c_git_tree_update_t(arg)))
  
 func `+`*(arg: c_git_tree_update_t, offset: int): c_git_tree_update_t = 
-  c_git_tree_update_t(ord(arg) + offset)
+  cast[c_git_tree_update_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_tree_update_t): c_git_tree_update_t = 
-  c_git_tree_update_t(ord(arg) + offset)
+  cast[c_git_tree_update_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_tree_update_t, offset: int): c_git_tree_update_t = 
-  c_git_tree_update_t(ord(arg) - offset)
+  cast[c_git_tree_update_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_tree_update_t): c_git_tree_update_t = 
-  c_git_tree_update_t(ord(arg) - offset)
+  cast[c_git_tree_update_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_tree_update_t]): cint = 
@@ -339,10 +320,8 @@ converter toCint*(args: set[git_tree_update_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_TREE_UPDATE_UPSERT:
-        result = result or (0 shl 0)
-      of GIT_TREE_UPDATE_REMOVE:
-        result = result or (1 shl 0)
+      of GIT_TREE_UPDATE_UPSERT: result = cint(result or (0 shl 0))
+      of GIT_TREE_UPDATE_REMOVE: result = cint(result or (1 shl 0))
  
 
 proc git_tree_create_updated*(

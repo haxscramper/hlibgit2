@@ -118,7 +118,7 @@ proc git_reference_symbolic_target*(
 
 proc git_reference_type*(
     arg_ref: ptr git_reference
-  ): git_reference_t {.git2Proc, importc.}
+  ): c_git_reference_t {.git2Proc, importc.}
   
  
 
@@ -268,15 +268,15 @@ proc git_reference_foreach_glob*(
  
 
 proc git_reference_has_log*(
-    repo:    ptr git_repository,
-    refname: cstring
+    repo:     ptr git_repository,
+    refname1: cstring
   ): cint {.git2Proc, importc.}
   
  
 
 proc git_reference_ensure_log*(
-    repo:    ptr git_repository,
-    refname: cstring
+    repo:     ptr git_repository,
+    refname1: cstring
   ): cint {.git2Proc, importc.}
   
  
@@ -309,28 +309,20 @@ proc to_c_git_reference_format_t*(
     arg: git_reference_format_t
   ): c_git_reference_format_t = 
   case arg:
-    of GIT_REFERENCE_FORMAT_NORMAL:
-      c_GIT_REFERENCE_FORMAT_NORMAL
-    of GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL:
-      c_GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL
-    of GIT_REFERENCE_FORMAT_REFSPEC_PATTERN:
-      c_GIT_REFERENCE_FORMAT_REFSPEC_PATTERN
-    of GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND:
-      c_GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND
+    of GIT_REFERENCE_FORMAT_NORMAL:            c_GIT_REFERENCE_FORMAT_NORMAL           
+    of GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL:    c_GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL   
+    of GIT_REFERENCE_FORMAT_REFSPEC_PATTERN:   c_GIT_REFERENCE_FORMAT_REFSPEC_PATTERN  
+    of GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND: c_GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND
  
 
 converter to_git_reference_format_t*(
     arg: c_git_reference_format_t
   ): git_reference_format_t = 
   case arg:
-    of c_GIT_REFERENCE_FORMAT_NORMAL:
-      GIT_REFERENCE_FORMAT_NORMAL
-    of c_GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL:
-      GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL
-    of c_GIT_REFERENCE_FORMAT_REFSPEC_PATTERN:
-      GIT_REFERENCE_FORMAT_REFSPEC_PATTERN
-    of c_GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND:
-      GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND
+    of c_GIT_REFERENCE_FORMAT_NORMAL:            GIT_REFERENCE_FORMAT_NORMAL           
+    of c_GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL:    GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL   
+    of c_GIT_REFERENCE_FORMAT_REFSPEC_PATTERN:   GIT_REFERENCE_FORMAT_REFSPEC_PATTERN  
+    of c_GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND: GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND
  
 
 converter toCint*(arg: c_git_reference_format_t): cint = 
@@ -347,25 +339,25 @@ func `+`*(
     arg:    c_git_reference_format_t,
     offset: int
   ): c_git_reference_format_t = 
-  c_git_reference_format_t(ord(arg) + offset)
+  cast[c_git_reference_format_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_reference_format_t
   ): c_git_reference_format_t = 
-  c_git_reference_format_t(ord(arg) + offset)
+  cast[c_git_reference_format_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_reference_format_t,
     offset: int
   ): c_git_reference_format_t = 
-  c_git_reference_format_t(ord(arg) - offset)
+  cast[c_git_reference_format_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_reference_format_t
   ): c_git_reference_format_t = 
-  c_git_reference_format_t(ord(arg) - offset)
+  cast[c_git_reference_format_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_reference_format_t]): cint = 
@@ -373,14 +365,10 @@ converter toCint*(args: set[git_reference_format_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_REFERENCE_FORMAT_NORMAL:
-        result = result or (0 shl 0)
-      of GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL:
-        result = result or (1 shl 0)
-      of GIT_REFERENCE_FORMAT_REFSPEC_PATTERN:
-        result = result or (1 shl 1)
-      of GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND:
-        result = result or (1 shl 2)
+      of GIT_REFERENCE_FORMAT_NORMAL:            result = cint(result or (0 shl 0))
+      of GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL:    result = cint(result or (1 shl 0))
+      of GIT_REFERENCE_FORMAT_REFSPEC_PATTERN:   result = cint(result or (1 shl 1))
+      of GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND: result = cint(result or (1 shl 2))
  
 
 proc git_reference_normalize_name*(
@@ -393,14 +381,17 @@ proc git_reference_normalize_name*(
  
 
 proc git_reference_peel*(
-    arg_out:  ptr ptr git_object,
-    arg_ref:  ptr git_reference,
-    arg_type: git_object_t
+    arg_out: ptr ptr git_object,
+    arg_ref: ptr git_reference,
+    type_f:  c_git_object_t
   ): cint {.git2Proc, importc.}
   
  
 
-proc git_reference_is_valid_name*(refname: cstring): cint {.git2Proc, importc.}
+proc git_reference_name_is_valid*(
+    valid:    ptr cint,
+    refname1: cstring
+  ): cint {.git2Proc, importc.}
   
  
 

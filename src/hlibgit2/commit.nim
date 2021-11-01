@@ -7,9 +7,9 @@ import
   ./types
 
 type
-  git_commit_signing_cb* = proc(signature: ptr git_buf, signature_field: ptr git_buf, commit_content: cstring, payload: pointer): cint{.cdecl.}
+  git_commit_create_cb* = proc(arg_out: ptr git_oid, author: ptr git_signature, committer: ptr git_signature, message_encoding: cstring, message: cstring, tree: ptr git_tree, parent_count: csize_t, parents: ptr UncheckedArray[ptr git_commit], payload: pointer): cint{.cdecl.}
    
-  git_commit_signing_cbNim* = proc(signature: ptr git_buf, signature_field: ptr git_buf, commit_content: cstring): cint
+  git_commit_create_cbNim* = proc(arg_out: ptr git_oid, author: ptr git_signature, committer: ptr git_signature, message_encoding: cstring, message: cstring, tree: ptr git_tree, parent_count: csize_t, parents: ptr UncheckedArray[ptr git_commit]): cint
    
 
 proc git_commit_lookup*(

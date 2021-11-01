@@ -13,6 +13,7 @@ import
   ./describe,
   ./diff,
   ./errors,
+  ./filter,
   ./index,
   ./indexer,
   ./libgit2_config,
@@ -24,6 +25,7 @@ import
   ./remote,
   ./repository,
   ./revert,
+  ./revparse,
   ./stash,
   ./status,
   ./strarray,
@@ -34,6 +36,10 @@ import
 
 type
   git_attr_t* = c_git_attr_value_t
+   
+  git_commit_signing_cb* = proc(signature: ptr git_buf, signature_field: ptr git_buf, commit_content: cstring, payload: pointer): cint{.cdecl.}
+   
+  git_commit_signing_cbNim* = proc(signature: ptr git_buf, signature_field: ptr git_buf, commit_content: cstring): cint
    
   git_cred* = git_credential
    
@@ -69,6 +75,8 @@ type
    
   git_push_transfer_progress* = git_push_transfer_progress_cb
    
+  git_revparse_mode_t* = c_git_revspec_t
+   
   git_trace_callback* = git_trace_cb
    
   git_transfer_progress* = git_indexer_progress
@@ -76,43 +84,43 @@ type
   git_transfer_progress_cb* = git_indexer_progress_cb
    
 
-proc git_blob_create_fromworkdir*(
+proc git_blob_create_fromworkdir1*(
     id:            ptr git_oid,
     repo:          ptr git_repository,
     relative_path: cstring
-  ): cint {.git2Proc, importc.}
+  ): cint {.git2Proc, importc: "git_blob_create_fromworkdir".}
   
  
 
-proc git_blob_create_fromdisk*(
+proc git_blob_create_fromdisk1*(
     id:   ptr git_oid,
     repo: ptr git_repository,
     path: cstring
-  ): cint {.git2Proc, importc.}
+  ): cint {.git2Proc, importc: "git_blob_create_fromdisk".}
   
  
 
-proc git_blob_create_fromstream*(
+proc git_blob_create_fromstream1*(
     arg_out:  ptr ptr git_writestream,
     repo:     ptr git_repository,
     hintpath: cstring
-  ): cint {.git2Proc, importc.}
+  ): cint {.git2Proc, importc: "git_blob_create_fromstream".}
   
  
 
-proc git_blob_create_fromstream_commit*(
+proc git_blob_create_fromstream_commit1*(
     arg_out: ptr git_oid,
     stream:  ptr git_writestream
-  ): cint {.git2Proc, importc.}
+  ): cint {.git2Proc, importc: "git_blob_create_fromstream_commit".}
   
  
 
-proc git_blob_create_frombuffer*(
+proc git_blob_create_frombuffer1*(
     id:     ptr git_oid,
     repo:   ptr git_repository,
     buffer: pointer,
     len:    csize_t
-  ): cint {.git2Proc, importc.}
+  ): cint {.git2Proc, importc: "git_blob_create_frombuffer".}
   
  
 
@@ -122,6 +130,53 @@ proc git_blob_filtered_content*(
     as_path:               cstring,
     check_for_binary_data: cint
   ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_filter_list_stream_data*(
+    filters: ptr git_filter_list,
+    data:    ptr git_buf,
+    target:  ptr git_writestream
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_filter_list_apply_to_data*(
+    arg_out: ptr git_buf,
+    filters: ptr git_filter_list,
+    arg_in:  ptr git_buf
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_treebuilder_write_with_buffer*(
+    oid:  ptr git_oid,
+    bld:  ptr git_treebuilder,
+    tree: ptr git_buf
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_buf_grow*(
+    buffer:      ptr git_buf,
+    target_size: csize_t
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_buf_set*(
+    buffer:  ptr git_buf,
+    data:    pointer,
+    datalen: csize_t
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_buf_is_binary*(buf: ptr git_buf): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_buf_contains_nul*(buf: ptr git_buf): cint {.git2Proc, importc.}
   
  
 
@@ -148,27 +203,35 @@ proc giterr_set_oom*(a0: void): void {.git2Proc, importc.}
   
  
 
-proc git_index_add_frombuffer*(
+proc git_index_add_frombuffer1*(
     index:  ptr git_index,
     entry:  ptr git_index_entry,
     buffer: pointer,
     len:    csize_t
-  ): cint {.git2Proc, importc.}
+  ): cint {.git2Proc, importc: "git_index_add_frombuffer".}
   
  
 
 proc git_object_size*(
-    arg_type: c_git_object_t
+    type_f: c_git_object_t
   ): csize_t {.git2Proc, importc: "git_object__size".}
   
  
 
-proc git_tag_create_frombuffer*(
+proc git_remote_is_valid_name*(remote_name: cstring): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_reference_is_valid_name*(refname1: cstring): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_tag_create_frombuffer1*(
     oid:    ptr git_oid,
     repo:   ptr git_repository,
     buffer: cstring,
     force:  cint
-  ): cint {.git2Proc, importc.}
+  ): cint {.git2Proc, importc: "git_tag_create_frombuffer".}
   
  
 
@@ -266,7 +329,9 @@ proc git_cred_userpass*(
   
  
 
-proc git_oid_iszero*(id: ptr git_oid): cint {.git2Proc, importc.}
+proc git_oid_iszero1*(
+    id: ptr git_oid
+  ): cint {.git2Proc, importc: "git_oid_iszero".}
   
  
 

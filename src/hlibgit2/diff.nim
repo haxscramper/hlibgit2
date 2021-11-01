@@ -94,6 +94,7 @@ type
     c_GIT_DIFF_PATIENCE                        = 1 shl 28 ## Use the "patience diff" algorithm                                
     c_GIT_DIFF_MINIMAL                         = 1 shl 29 ## Take extra time to find minimal diff                             
     c_GIT_DIFF_SHOW_BINARY                     = 1 shl 30                                                                     
+    c_GIT_DIFF_IGNORE_BLANK_LINES              = 1 shl 31 ## Ignore blank lines                                               
    
   c_git_diff_stats_format_t* = enum
     c_GIT_DIFF_STATS_NONE            = 0 shl 0 ## No stats                                                                                           
@@ -281,22 +282,23 @@ type
     GIT_DIFF_PATIENCE                        ## Use the "patience diff" algorithm                                
     GIT_DIFF_MINIMAL                         ## Take extra time to find minimal diff                             
     GIT_DIFF_SHOW_BINARY                                                                                         
+    GIT_DIFF_IGNORE_BLANK_LINES              ## Ignore blank lines                                               
    
   git_diff_options* {.bycopy, header: "<git2/diff.h>", importc.} = object
-    version*:           cuint                                                                                            
-    flags*:             uint32                 ## version for the struct                                                 
-    ignore_submodules*: git_submodule_ignore_t ## options controlling which files are in the diff 
-                                               ## Overrides the submodule ignore setting for all submodules in the diff. 
-    pathspec*:          git_strarray                                                                                     
-    notify_cb*:         git_diff_notify_cb                                                                               
-    progress_cb*:       git_diff_progress_cb                                                                             
-    payload*:           pointer                ## The payload to pass to the callback functions.                         
-    context_lines*:     uint32                 ## options controlling how to diff text is generated                      
-    interhunk_lines*:   uint32                                                                                           
-    id_abbrev*:         uint16                                                                                           
-    max_size*:          git_off_t                                                                                        
-    old_prefix*:        cstring                                                                                          
-    new_prefix*:        cstring                                                                                          
+    version*:           cuint                                                                                              
+    flags*:             uint32                   ## version for the struct                                                 
+    ignore_submodules*: c_git_submodule_ignore_t ## options controlling which files are in the diff 
+                                                 ## Overrides the submodule ignore setting for all submodules in the diff. 
+    pathspec*:          git_strarray                                                                                       
+    notify_cb*:         git_diff_notify_cb                                                                                 
+    progress_cb*:       git_diff_progress_cb                                                                               
+    payload*:           pointer                  ## The payload to pass to the callback functions.                         
+    context_lines*:     uint32                   ## options controlling how to diff text is generated                      
+    interhunk_lines*:   uint32                                                                                             
+    id_abbrev*:         uint16                                                                                             
+    max_size*:          git_off_t                                                                                          
+    old_prefix*:        cstring                                                                                            
+    new_prefix*:        cstring                                                                                            
    
   git_diff_patchid_options* {.bycopy, header: "<git2/diff.h>", importc.} = object
     version*: cuint
@@ -325,130 +327,72 @@ type
 
 proc to_c_git_diff_option_t*(arg: git_diff_option_t): c_git_diff_option_t = 
   case arg:
-    of GIT_DIFF_NORMAL:
-      c_GIT_DIFF_NORMAL
-    of GIT_DIFF_REVERSE:
-      c_GIT_DIFF_REVERSE
-    of GIT_DIFF_INCLUDE_IGNORED:
-      c_GIT_DIFF_INCLUDE_IGNORED
-    of GIT_DIFF_RECURSE_IGNORED_DIRS:
-      c_GIT_DIFF_RECURSE_IGNORED_DIRS
-    of GIT_DIFF_INCLUDE_UNTRACKED:
-      c_GIT_DIFF_INCLUDE_UNTRACKED
-    of GIT_DIFF_RECURSE_UNTRACKED_DIRS:
-      c_GIT_DIFF_RECURSE_UNTRACKED_DIRS
-    of GIT_DIFF_INCLUDE_UNMODIFIED:
-      c_GIT_DIFF_INCLUDE_UNMODIFIED
-    of GIT_DIFF_INCLUDE_TYPECHANGE:
-      c_GIT_DIFF_INCLUDE_TYPECHANGE
-    of GIT_DIFF_INCLUDE_TYPECHANGE_TREES:
-      c_GIT_DIFF_INCLUDE_TYPECHANGE_TREES
-    of GIT_DIFF_IGNORE_FILEMODE:
-      c_GIT_DIFF_IGNORE_FILEMODE
-    of GIT_DIFF_IGNORE_SUBMODULES:
-      c_GIT_DIFF_IGNORE_SUBMODULES
-    of GIT_DIFF_IGNORE_CASE:
-      c_GIT_DIFF_IGNORE_CASE
-    of GIT_DIFF_INCLUDE_CASECHANGE:
-      c_GIT_DIFF_INCLUDE_CASECHANGE
-    of GIT_DIFF_DISABLE_PATHSPEC_MATCH:
-      c_GIT_DIFF_DISABLE_PATHSPEC_MATCH
-    of GIT_DIFF_SKIP_BINARY_CHECK:
-      c_GIT_DIFF_SKIP_BINARY_CHECK
-    of GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS:
-      c_GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS
-    of GIT_DIFF_UPDATE_INDEX:
-      c_GIT_DIFF_UPDATE_INDEX
-    of GIT_DIFF_INCLUDE_UNREADABLE:
-      c_GIT_DIFF_INCLUDE_UNREADABLE
-    of GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED:
-      c_GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED
-    of GIT_DIFF_INDENT_HEURISTIC:
-      c_GIT_DIFF_INDENT_HEURISTIC
-    of GIT_DIFF_FORCE_TEXT:
-      c_GIT_DIFF_FORCE_TEXT
-    of GIT_DIFF_FORCE_BINARY:
-      c_GIT_DIFF_FORCE_BINARY
-    of GIT_DIFF_IGNORE_WHITESPACE:
-      c_GIT_DIFF_IGNORE_WHITESPACE
-    of GIT_DIFF_IGNORE_WHITESPACE_CHANGE:
-      c_GIT_DIFF_IGNORE_WHITESPACE_CHANGE
-    of GIT_DIFF_IGNORE_WHITESPACE_EOL:
-      c_GIT_DIFF_IGNORE_WHITESPACE_EOL
-    of GIT_DIFF_SHOW_UNTRACKED_CONTENT:
-      c_GIT_DIFF_SHOW_UNTRACKED_CONTENT
-    of GIT_DIFF_SHOW_UNMODIFIED:
-      c_GIT_DIFF_SHOW_UNMODIFIED
-    of GIT_DIFF_PATIENCE:
-      c_GIT_DIFF_PATIENCE
-    of GIT_DIFF_MINIMAL:
-      c_GIT_DIFF_MINIMAL
-    of GIT_DIFF_SHOW_BINARY:
-      c_GIT_DIFF_SHOW_BINARY
+    of GIT_DIFF_NORMAL:                          c_GIT_DIFF_NORMAL                         
+    of GIT_DIFF_REVERSE:                         c_GIT_DIFF_REVERSE                        
+    of GIT_DIFF_INCLUDE_IGNORED:                 c_GIT_DIFF_INCLUDE_IGNORED                
+    of GIT_DIFF_RECURSE_IGNORED_DIRS:            c_GIT_DIFF_RECURSE_IGNORED_DIRS           
+    of GIT_DIFF_INCLUDE_UNTRACKED:               c_GIT_DIFF_INCLUDE_UNTRACKED              
+    of GIT_DIFF_RECURSE_UNTRACKED_DIRS:          c_GIT_DIFF_RECURSE_UNTRACKED_DIRS         
+    of GIT_DIFF_INCLUDE_UNMODIFIED:              c_GIT_DIFF_INCLUDE_UNMODIFIED             
+    of GIT_DIFF_INCLUDE_TYPECHANGE:              c_GIT_DIFF_INCLUDE_TYPECHANGE             
+    of GIT_DIFF_INCLUDE_TYPECHANGE_TREES:        c_GIT_DIFF_INCLUDE_TYPECHANGE_TREES       
+    of GIT_DIFF_IGNORE_FILEMODE:                 c_GIT_DIFF_IGNORE_FILEMODE                
+    of GIT_DIFF_IGNORE_SUBMODULES:               c_GIT_DIFF_IGNORE_SUBMODULES              
+    of GIT_DIFF_IGNORE_CASE:                     c_GIT_DIFF_IGNORE_CASE                    
+    of GIT_DIFF_INCLUDE_CASECHANGE:              c_GIT_DIFF_INCLUDE_CASECHANGE             
+    of GIT_DIFF_DISABLE_PATHSPEC_MATCH:          c_GIT_DIFF_DISABLE_PATHSPEC_MATCH         
+    of GIT_DIFF_SKIP_BINARY_CHECK:               c_GIT_DIFF_SKIP_BINARY_CHECK              
+    of GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS:      c_GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS     
+    of GIT_DIFF_UPDATE_INDEX:                    c_GIT_DIFF_UPDATE_INDEX                   
+    of GIT_DIFF_INCLUDE_UNREADABLE:              c_GIT_DIFF_INCLUDE_UNREADABLE             
+    of GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED: c_GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED
+    of GIT_DIFF_INDENT_HEURISTIC:                c_GIT_DIFF_INDENT_HEURISTIC               
+    of GIT_DIFF_FORCE_TEXT:                      c_GIT_DIFF_FORCE_TEXT                     
+    of GIT_DIFF_FORCE_BINARY:                    c_GIT_DIFF_FORCE_BINARY                   
+    of GIT_DIFF_IGNORE_WHITESPACE:               c_GIT_DIFF_IGNORE_WHITESPACE              
+    of GIT_DIFF_IGNORE_WHITESPACE_CHANGE:        c_GIT_DIFF_IGNORE_WHITESPACE_CHANGE       
+    of GIT_DIFF_IGNORE_WHITESPACE_EOL:           c_GIT_DIFF_IGNORE_WHITESPACE_EOL          
+    of GIT_DIFF_SHOW_UNTRACKED_CONTENT:          c_GIT_DIFF_SHOW_UNTRACKED_CONTENT         
+    of GIT_DIFF_SHOW_UNMODIFIED:                 c_GIT_DIFF_SHOW_UNMODIFIED                
+    of GIT_DIFF_PATIENCE:                        c_GIT_DIFF_PATIENCE                       
+    of GIT_DIFF_MINIMAL:                         c_GIT_DIFF_MINIMAL                        
+    of GIT_DIFF_SHOW_BINARY:                     c_GIT_DIFF_SHOW_BINARY                    
+    of GIT_DIFF_IGNORE_BLANK_LINES:              c_GIT_DIFF_IGNORE_BLANK_LINES             
  
 
 converter to_git_diff_option_t*(arg: c_git_diff_option_t): git_diff_option_t = 
   case arg:
-    of c_GIT_DIFF_NORMAL:
-      GIT_DIFF_NORMAL
-    of c_GIT_DIFF_REVERSE:
-      GIT_DIFF_REVERSE
-    of c_GIT_DIFF_INCLUDE_IGNORED:
-      GIT_DIFF_INCLUDE_IGNORED
-    of c_GIT_DIFF_RECURSE_IGNORED_DIRS:
-      GIT_DIFF_RECURSE_IGNORED_DIRS
-    of c_GIT_DIFF_INCLUDE_UNTRACKED:
-      GIT_DIFF_INCLUDE_UNTRACKED
-    of c_GIT_DIFF_RECURSE_UNTRACKED_DIRS:
-      GIT_DIFF_RECURSE_UNTRACKED_DIRS
-    of c_GIT_DIFF_INCLUDE_UNMODIFIED:
-      GIT_DIFF_INCLUDE_UNMODIFIED
-    of c_GIT_DIFF_INCLUDE_TYPECHANGE:
-      GIT_DIFF_INCLUDE_TYPECHANGE
-    of c_GIT_DIFF_INCLUDE_TYPECHANGE_TREES:
-      GIT_DIFF_INCLUDE_TYPECHANGE_TREES
-    of c_GIT_DIFF_IGNORE_FILEMODE:
-      GIT_DIFF_IGNORE_FILEMODE
-    of c_GIT_DIFF_IGNORE_SUBMODULES:
-      GIT_DIFF_IGNORE_SUBMODULES
-    of c_GIT_DIFF_IGNORE_CASE:
-      GIT_DIFF_IGNORE_CASE
-    of c_GIT_DIFF_INCLUDE_CASECHANGE:
-      GIT_DIFF_INCLUDE_CASECHANGE
-    of c_GIT_DIFF_DISABLE_PATHSPEC_MATCH:
-      GIT_DIFF_DISABLE_PATHSPEC_MATCH
-    of c_GIT_DIFF_SKIP_BINARY_CHECK:
-      GIT_DIFF_SKIP_BINARY_CHECK
-    of c_GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS:
-      GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS
-    of c_GIT_DIFF_UPDATE_INDEX:
-      GIT_DIFF_UPDATE_INDEX
-    of c_GIT_DIFF_INCLUDE_UNREADABLE:
-      GIT_DIFF_INCLUDE_UNREADABLE
-    of c_GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED:
-      GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED
-    of c_GIT_DIFF_INDENT_HEURISTIC:
-      GIT_DIFF_INDENT_HEURISTIC
-    of c_GIT_DIFF_FORCE_TEXT:
-      GIT_DIFF_FORCE_TEXT
-    of c_GIT_DIFF_FORCE_BINARY:
-      GIT_DIFF_FORCE_BINARY
-    of c_GIT_DIFF_IGNORE_WHITESPACE:
-      GIT_DIFF_IGNORE_WHITESPACE
-    of c_GIT_DIFF_IGNORE_WHITESPACE_CHANGE:
-      GIT_DIFF_IGNORE_WHITESPACE_CHANGE
-    of c_GIT_DIFF_IGNORE_WHITESPACE_EOL:
-      GIT_DIFF_IGNORE_WHITESPACE_EOL
-    of c_GIT_DIFF_SHOW_UNTRACKED_CONTENT:
-      GIT_DIFF_SHOW_UNTRACKED_CONTENT
-    of c_GIT_DIFF_SHOW_UNMODIFIED:
-      GIT_DIFF_SHOW_UNMODIFIED
-    of c_GIT_DIFF_PATIENCE:
-      GIT_DIFF_PATIENCE
-    of c_GIT_DIFF_MINIMAL:
-      GIT_DIFF_MINIMAL
-    of c_GIT_DIFF_SHOW_BINARY:
-      GIT_DIFF_SHOW_BINARY
+    of c_GIT_DIFF_NORMAL:                          GIT_DIFF_NORMAL                         
+    of c_GIT_DIFF_REVERSE:                         GIT_DIFF_REVERSE                        
+    of c_GIT_DIFF_INCLUDE_IGNORED:                 GIT_DIFF_INCLUDE_IGNORED                
+    of c_GIT_DIFF_RECURSE_IGNORED_DIRS:            GIT_DIFF_RECURSE_IGNORED_DIRS           
+    of c_GIT_DIFF_INCLUDE_UNTRACKED:               GIT_DIFF_INCLUDE_UNTRACKED              
+    of c_GIT_DIFF_RECURSE_UNTRACKED_DIRS:          GIT_DIFF_RECURSE_UNTRACKED_DIRS         
+    of c_GIT_DIFF_INCLUDE_UNMODIFIED:              GIT_DIFF_INCLUDE_UNMODIFIED             
+    of c_GIT_DIFF_INCLUDE_TYPECHANGE:              GIT_DIFF_INCLUDE_TYPECHANGE             
+    of c_GIT_DIFF_INCLUDE_TYPECHANGE_TREES:        GIT_DIFF_INCLUDE_TYPECHANGE_TREES       
+    of c_GIT_DIFF_IGNORE_FILEMODE:                 GIT_DIFF_IGNORE_FILEMODE                
+    of c_GIT_DIFF_IGNORE_SUBMODULES:               GIT_DIFF_IGNORE_SUBMODULES              
+    of c_GIT_DIFF_IGNORE_CASE:                     GIT_DIFF_IGNORE_CASE                    
+    of c_GIT_DIFF_INCLUDE_CASECHANGE:              GIT_DIFF_INCLUDE_CASECHANGE             
+    of c_GIT_DIFF_DISABLE_PATHSPEC_MATCH:          GIT_DIFF_DISABLE_PATHSPEC_MATCH         
+    of c_GIT_DIFF_SKIP_BINARY_CHECK:               GIT_DIFF_SKIP_BINARY_CHECK              
+    of c_GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS:      GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS     
+    of c_GIT_DIFF_UPDATE_INDEX:                    GIT_DIFF_UPDATE_INDEX                   
+    of c_GIT_DIFF_INCLUDE_UNREADABLE:              GIT_DIFF_INCLUDE_UNREADABLE             
+    of c_GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED: GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED
+    of c_GIT_DIFF_INDENT_HEURISTIC:                GIT_DIFF_INDENT_HEURISTIC               
+    of c_GIT_DIFF_FORCE_TEXT:                      GIT_DIFF_FORCE_TEXT                     
+    of c_GIT_DIFF_FORCE_BINARY:                    GIT_DIFF_FORCE_BINARY                   
+    of c_GIT_DIFF_IGNORE_WHITESPACE:               GIT_DIFF_IGNORE_WHITESPACE              
+    of c_GIT_DIFF_IGNORE_WHITESPACE_CHANGE:        GIT_DIFF_IGNORE_WHITESPACE_CHANGE       
+    of c_GIT_DIFF_IGNORE_WHITESPACE_EOL:           GIT_DIFF_IGNORE_WHITESPACE_EOL          
+    of c_GIT_DIFF_SHOW_UNTRACKED_CONTENT:          GIT_DIFF_SHOW_UNTRACKED_CONTENT         
+    of c_GIT_DIFF_SHOW_UNMODIFIED:                 GIT_DIFF_SHOW_UNMODIFIED                
+    of c_GIT_DIFF_PATIENCE:                        GIT_DIFF_PATIENCE                       
+    of c_GIT_DIFF_MINIMAL:                         GIT_DIFF_MINIMAL                        
+    of c_GIT_DIFF_SHOW_BINARY:                     GIT_DIFF_SHOW_BINARY                    
+    of c_GIT_DIFF_IGNORE_BLANK_LINES:              GIT_DIFF_IGNORE_BLANK_LINES             
  
 
 converter toCint*(arg: c_git_diff_option_t): cint = 
@@ -462,16 +406,16 @@ converter toCint*(arg: git_diff_option_t): cint =
   cint(ord(to_c_git_diff_option_t(arg)))
  
 func `+`*(arg: c_git_diff_option_t, offset: int): c_git_diff_option_t = 
-  c_git_diff_option_t(ord(arg) + offset)
+  cast[c_git_diff_option_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_diff_option_t): c_git_diff_option_t = 
-  c_git_diff_option_t(ord(arg) + offset)
+  cast[c_git_diff_option_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_diff_option_t, offset: int): c_git_diff_option_t = 
-  c_git_diff_option_t(ord(arg) - offset)
+  cast[c_git_diff_option_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_diff_option_t): c_git_diff_option_t = 
-  c_git_diff_option_t(ord(arg) - offset)
+  cast[c_git_diff_option_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_diff_option_t]): cint = 
@@ -479,90 +423,53 @@ converter toCint*(args: set[git_diff_option_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_DIFF_NORMAL:
-        result = result or (0 shl 0)
-      of GIT_DIFF_REVERSE:
-        result = result or (1 shl 0)
-      of GIT_DIFF_INCLUDE_IGNORED:
-        result = result or (1 shl 1)
-      of GIT_DIFF_RECURSE_IGNORED_DIRS:
-        result = result or (1 shl 2)
-      of GIT_DIFF_INCLUDE_UNTRACKED:
-        result = result or (1 shl 3)
-      of GIT_DIFF_RECURSE_UNTRACKED_DIRS:
-        result = result or (1 shl 4)
-      of GIT_DIFF_INCLUDE_UNMODIFIED:
-        result = result or (1 shl 5)
-      of GIT_DIFF_INCLUDE_TYPECHANGE:
-        result = result or (1 shl 6)
-      of GIT_DIFF_INCLUDE_TYPECHANGE_TREES:
-        result = result or (1 shl 7)
-      of GIT_DIFF_IGNORE_FILEMODE:
-        result = result or (1 shl 8)
-      of GIT_DIFF_IGNORE_SUBMODULES:
-        result = result or (1 shl 9)
-      of GIT_DIFF_IGNORE_CASE:
-        result = result or (1 shl 10)
-      of GIT_DIFF_INCLUDE_CASECHANGE:
-        result = result or (1 shl 11)
-      of GIT_DIFF_DISABLE_PATHSPEC_MATCH:
-        result = result or (1 shl 12)
-      of GIT_DIFF_SKIP_BINARY_CHECK:
-        result = result or (1 shl 13)
-      of GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS:
-        result = result or (1 shl 14)
-      of GIT_DIFF_UPDATE_INDEX:
-        result = result or (1 shl 15)
-      of GIT_DIFF_INCLUDE_UNREADABLE:
-        result = result or (1 shl 16)
-      of GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED:
-        result = result or (1 shl 17)
-      of GIT_DIFF_INDENT_HEURISTIC:
-        result = result or (1 shl 18)
-      of GIT_DIFF_FORCE_TEXT:
-        result = result or (1 shl 20)
-      of GIT_DIFF_FORCE_BINARY:
-        result = result or (1 shl 21)
-      of GIT_DIFF_IGNORE_WHITESPACE:
-        result = result or (1 shl 22)
-      of GIT_DIFF_IGNORE_WHITESPACE_CHANGE:
-        result = result or (1 shl 23)
-      of GIT_DIFF_IGNORE_WHITESPACE_EOL:
-        result = result or (1 shl 24)
-      of GIT_DIFF_SHOW_UNTRACKED_CONTENT:
-        result = result or (1 shl 25)
-      of GIT_DIFF_SHOW_UNMODIFIED:
-        result = result or (1 shl 26)
-      of GIT_DIFF_PATIENCE:
-        result = result or (1 shl 28)
-      of GIT_DIFF_MINIMAL:
-        result = result or (1 shl 29)
-      of GIT_DIFF_SHOW_BINARY:
-        result = result or (1 shl 30)
+      of GIT_DIFF_NORMAL:                          result = cint(result or (0 shl 0)) 
+      of GIT_DIFF_REVERSE:                         result = cint(result or (1 shl 0)) 
+      of GIT_DIFF_INCLUDE_IGNORED:                 result = cint(result or (1 shl 1)) 
+      of GIT_DIFF_RECURSE_IGNORED_DIRS:            result = cint(result or (1 shl 2)) 
+      of GIT_DIFF_INCLUDE_UNTRACKED:               result = cint(result or (1 shl 3)) 
+      of GIT_DIFF_RECURSE_UNTRACKED_DIRS:          result = cint(result or (1 shl 4)) 
+      of GIT_DIFF_INCLUDE_UNMODIFIED:              result = cint(result or (1 shl 5)) 
+      of GIT_DIFF_INCLUDE_TYPECHANGE:              result = cint(result or (1 shl 6)) 
+      of GIT_DIFF_INCLUDE_TYPECHANGE_TREES:        result = cint(result or (1 shl 7)) 
+      of GIT_DIFF_IGNORE_FILEMODE:                 result = cint(result or (1 shl 8)) 
+      of GIT_DIFF_IGNORE_SUBMODULES:               result = cint(result or (1 shl 9)) 
+      of GIT_DIFF_IGNORE_CASE:                     result = cint(result or (1 shl 10))
+      of GIT_DIFF_INCLUDE_CASECHANGE:              result = cint(result or (1 shl 11))
+      of GIT_DIFF_DISABLE_PATHSPEC_MATCH:          result = cint(result or (1 shl 12))
+      of GIT_DIFF_SKIP_BINARY_CHECK:               result = cint(result or (1 shl 13))
+      of GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS:      result = cint(result or (1 shl 14))
+      of GIT_DIFF_UPDATE_INDEX:                    result = cint(result or (1 shl 15))
+      of GIT_DIFF_INCLUDE_UNREADABLE:              result = cint(result or (1 shl 16))
+      of GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED: result = cint(result or (1 shl 17))
+      of GIT_DIFF_INDENT_HEURISTIC:                result = cint(result or (1 shl 18))
+      of GIT_DIFF_FORCE_TEXT:                      result = cint(result or (1 shl 20))
+      of GIT_DIFF_FORCE_BINARY:                    result = cint(result or (1 shl 21))
+      of GIT_DIFF_IGNORE_WHITESPACE:               result = cint(result or (1 shl 22))
+      of GIT_DIFF_IGNORE_WHITESPACE_CHANGE:        result = cint(result or (1 shl 23))
+      of GIT_DIFF_IGNORE_WHITESPACE_EOL:           result = cint(result or (1 shl 24))
+      of GIT_DIFF_SHOW_UNTRACKED_CONTENT:          result = cint(result or (1 shl 25))
+      of GIT_DIFF_SHOW_UNMODIFIED:                 result = cint(result or (1 shl 26))
+      of GIT_DIFF_PATIENCE:                        result = cint(result or (1 shl 28))
+      of GIT_DIFF_MINIMAL:                         result = cint(result or (1 shl 29))
+      of GIT_DIFF_SHOW_BINARY:                     result = cint(result or (1 shl 30))
+      of GIT_DIFF_IGNORE_BLANK_LINES:              result = cint(result or (1 shl 31))
  
 
 proc to_c_git_diff_flag_t*(arg: git_diff_flag_t): c_git_diff_flag_t = 
   case arg:
-    of GIT_DIFF_FLAG_BINARY:
-      c_GIT_DIFF_FLAG_BINARY
-    of GIT_DIFF_FLAG_NOT_BINARY:
-      c_GIT_DIFF_FLAG_NOT_BINARY
-    of GIT_DIFF_FLAG_VALID_ID:
-      c_GIT_DIFF_FLAG_VALID_ID
-    of GIT_DIFF_FLAG_EXISTS:
-      c_GIT_DIFF_FLAG_EXISTS
+    of GIT_DIFF_FLAG_BINARY:     c_GIT_DIFF_FLAG_BINARY    
+    of GIT_DIFF_FLAG_NOT_BINARY: c_GIT_DIFF_FLAG_NOT_BINARY
+    of GIT_DIFF_FLAG_VALID_ID:   c_GIT_DIFF_FLAG_VALID_ID  
+    of GIT_DIFF_FLAG_EXISTS:     c_GIT_DIFF_FLAG_EXISTS    
  
 
 converter to_git_diff_flag_t*(arg: c_git_diff_flag_t): git_diff_flag_t = 
   case arg:
-    of c_GIT_DIFF_FLAG_BINARY:
-      GIT_DIFF_FLAG_BINARY
-    of c_GIT_DIFF_FLAG_NOT_BINARY:
-      GIT_DIFF_FLAG_NOT_BINARY
-    of c_GIT_DIFF_FLAG_VALID_ID:
-      GIT_DIFF_FLAG_VALID_ID
-    of c_GIT_DIFF_FLAG_EXISTS:
-      GIT_DIFF_FLAG_EXISTS
+    of c_GIT_DIFF_FLAG_BINARY:     GIT_DIFF_FLAG_BINARY    
+    of c_GIT_DIFF_FLAG_NOT_BINARY: GIT_DIFF_FLAG_NOT_BINARY
+    of c_GIT_DIFF_FLAG_VALID_ID:   GIT_DIFF_FLAG_VALID_ID  
+    of c_GIT_DIFF_FLAG_EXISTS:     GIT_DIFF_FLAG_EXISTS    
  
 
 converter toCint*(arg: c_git_diff_flag_t): cint = 
@@ -576,16 +483,16 @@ converter toCint*(arg: git_diff_flag_t): cint =
   cint(ord(to_c_git_diff_flag_t(arg)))
  
 func `+`*(arg: c_git_diff_flag_t, offset: int): c_git_diff_flag_t = 
-  c_git_diff_flag_t(ord(arg) + offset)
+  cast[c_git_diff_flag_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_diff_flag_t): c_git_diff_flag_t = 
-  c_git_diff_flag_t(ord(arg) + offset)
+  cast[c_git_diff_flag_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_diff_flag_t, offset: int): c_git_diff_flag_t = 
-  c_git_diff_flag_t(ord(arg) - offset)
+  cast[c_git_diff_flag_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_diff_flag_t): c_git_diff_flag_t = 
-  c_git_diff_flag_t(ord(arg) - offset)
+  cast[c_git_diff_flag_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_diff_flag_t]): cint = 
@@ -596,54 +503,32 @@ converter toCint*(args: set[git_diff_flag_t]): cint =
 
 proc to_c_git_delta_t*(arg: git_delta_t): c_git_delta_t = 
   case arg:
-    of GIT_DELTA_UNMODIFIED:
-      c_GIT_DELTA_UNMODIFIED
-    of GIT_DELTA_ADDED:
-      c_GIT_DELTA_ADDED
-    of GIT_DELTA_DELETED:
-      c_GIT_DELTA_DELETED
-    of GIT_DELTA_MODIFIED:
-      c_GIT_DELTA_MODIFIED
-    of GIT_DELTA_RENAMED:
-      c_GIT_DELTA_RENAMED
-    of GIT_DELTA_COPIED:
-      c_GIT_DELTA_COPIED
-    of GIT_DELTA_IGNORED:
-      c_GIT_DELTA_IGNORED
-    of GIT_DELTA_UNTRACKED:
-      c_GIT_DELTA_UNTRACKED
-    of GIT_DELTA_TYPECHANGE:
-      c_GIT_DELTA_TYPECHANGE
-    of GIT_DELTA_UNREADABLE:
-      c_GIT_DELTA_UNREADABLE
-    of GIT_DELTA_CONFLICTED:
-      c_GIT_DELTA_CONFLICTED
+    of GIT_DELTA_UNMODIFIED: c_GIT_DELTA_UNMODIFIED
+    of GIT_DELTA_ADDED:      c_GIT_DELTA_ADDED     
+    of GIT_DELTA_DELETED:    c_GIT_DELTA_DELETED   
+    of GIT_DELTA_MODIFIED:   c_GIT_DELTA_MODIFIED  
+    of GIT_DELTA_RENAMED:    c_GIT_DELTA_RENAMED   
+    of GIT_DELTA_COPIED:     c_GIT_DELTA_COPIED    
+    of GIT_DELTA_IGNORED:    c_GIT_DELTA_IGNORED   
+    of GIT_DELTA_UNTRACKED:  c_GIT_DELTA_UNTRACKED 
+    of GIT_DELTA_TYPECHANGE: c_GIT_DELTA_TYPECHANGE
+    of GIT_DELTA_UNREADABLE: c_GIT_DELTA_UNREADABLE
+    of GIT_DELTA_CONFLICTED: c_GIT_DELTA_CONFLICTED
  
 
 converter to_git_delta_t*(arg: c_git_delta_t): git_delta_t = 
   case arg:
-    of c_GIT_DELTA_UNMODIFIED:
-      GIT_DELTA_UNMODIFIED
-    of c_GIT_DELTA_ADDED:
-      GIT_DELTA_ADDED
-    of c_GIT_DELTA_DELETED:
-      GIT_DELTA_DELETED
-    of c_GIT_DELTA_MODIFIED:
-      GIT_DELTA_MODIFIED
-    of c_GIT_DELTA_RENAMED:
-      GIT_DELTA_RENAMED
-    of c_GIT_DELTA_COPIED:
-      GIT_DELTA_COPIED
-    of c_GIT_DELTA_IGNORED:
-      GIT_DELTA_IGNORED
-    of c_GIT_DELTA_UNTRACKED:
-      GIT_DELTA_UNTRACKED
-    of c_GIT_DELTA_TYPECHANGE:
-      GIT_DELTA_TYPECHANGE
-    of c_GIT_DELTA_UNREADABLE:
-      GIT_DELTA_UNREADABLE
-    of c_GIT_DELTA_CONFLICTED:
-      GIT_DELTA_CONFLICTED
+    of c_GIT_DELTA_UNMODIFIED: GIT_DELTA_UNMODIFIED
+    of c_GIT_DELTA_ADDED:      GIT_DELTA_ADDED     
+    of c_GIT_DELTA_DELETED:    GIT_DELTA_DELETED   
+    of c_GIT_DELTA_MODIFIED:   GIT_DELTA_MODIFIED  
+    of c_GIT_DELTA_RENAMED:    GIT_DELTA_RENAMED   
+    of c_GIT_DELTA_COPIED:     GIT_DELTA_COPIED    
+    of c_GIT_DELTA_IGNORED:    GIT_DELTA_IGNORED   
+    of c_GIT_DELTA_UNTRACKED:  GIT_DELTA_UNTRACKED 
+    of c_GIT_DELTA_TYPECHANGE: GIT_DELTA_TYPECHANGE
+    of c_GIT_DELTA_UNREADABLE: GIT_DELTA_UNREADABLE
+    of c_GIT_DELTA_CONFLICTED: GIT_DELTA_CONFLICTED
  
 
 converter toCint*(arg: c_git_delta_t): cint = 
@@ -657,16 +542,16 @@ converter toCint*(arg: git_delta_t): cint =
   cint(ord(to_c_git_delta_t(arg)))
  
 func `+`*(arg: c_git_delta_t, offset: int): c_git_delta_t = 
-  c_git_delta_t(ord(arg) + offset)
+  cast[c_git_delta_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_delta_t): c_git_delta_t = 
-  c_git_delta_t(ord(arg) + offset)
+  cast[c_git_delta_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_delta_t, offset: int): c_git_delta_t = 
-  c_git_delta_t(ord(arg) - offset)
+  cast[c_git_delta_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_delta_t): c_git_delta_t = 
-  c_git_delta_t(ord(arg) - offset)
+  cast[c_git_delta_t](ord(arg) - offset)
  
 
 proc git_diff_options_init*(
@@ -678,22 +563,16 @@ proc git_diff_options_init*(
 
 proc to_c_git_diff_binary_t*(arg: git_diff_binary_t): c_git_diff_binary_t = 
   case arg:
-    of GIT_DIFF_BINARY_NONE:
-      c_GIT_DIFF_BINARY_NONE
-    of GIT_DIFF_BINARY_LITERAL:
-      c_GIT_DIFF_BINARY_LITERAL
-    of GIT_DIFF_BINARY_DELTA:
-      c_GIT_DIFF_BINARY_DELTA
+    of GIT_DIFF_BINARY_NONE:    c_GIT_DIFF_BINARY_NONE   
+    of GIT_DIFF_BINARY_LITERAL: c_GIT_DIFF_BINARY_LITERAL
+    of GIT_DIFF_BINARY_DELTA:   c_GIT_DIFF_BINARY_DELTA  
  
 
 converter to_git_diff_binary_t*(arg: c_git_diff_binary_t): git_diff_binary_t = 
   case arg:
-    of c_GIT_DIFF_BINARY_NONE:
-      GIT_DIFF_BINARY_NONE
-    of c_GIT_DIFF_BINARY_LITERAL:
-      GIT_DIFF_BINARY_LITERAL
-    of c_GIT_DIFF_BINARY_DELTA:
-      GIT_DIFF_BINARY_DELTA
+    of c_GIT_DIFF_BINARY_NONE:    GIT_DIFF_BINARY_NONE   
+    of c_GIT_DIFF_BINARY_LITERAL: GIT_DIFF_BINARY_LITERAL
+    of c_GIT_DIFF_BINARY_DELTA:   GIT_DIFF_BINARY_DELTA  
  
 
 converter toCint*(arg: c_git_diff_binary_t): cint = 
@@ -707,16 +586,16 @@ converter toCint*(arg: git_diff_binary_t): cint =
   cint(ord(to_c_git_diff_binary_t(arg)))
  
 func `+`*(arg: c_git_diff_binary_t, offset: int): c_git_diff_binary_t = 
-  c_git_diff_binary_t(ord(arg) + offset)
+  cast[c_git_diff_binary_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_diff_binary_t): c_git_diff_binary_t = 
-  c_git_diff_binary_t(ord(arg) + offset)
+  cast[c_git_diff_binary_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_diff_binary_t, offset: int): c_git_diff_binary_t = 
-  c_git_diff_binary_t(ord(arg) - offset)
+  cast[c_git_diff_binary_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_diff_binary_t): c_git_diff_binary_t = 
-  c_git_diff_binary_t(ord(arg) - offset)
+  cast[c_git_diff_binary_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_diff_binary_t]): cint = 
@@ -724,24 +603,19 @@ converter toCint*(args: set[git_diff_binary_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_DIFF_BINARY_NONE:
-        result = result or (0 shl 0)
-      of GIT_DIFF_BINARY_LITERAL:
-        result = result or (1 shl 0)
-      of GIT_DIFF_BINARY_DELTA:
-        result = result or (1 shl 1)
+      of GIT_DIFF_BINARY_NONE:    result = cint(result or (0 shl 0))
+      of GIT_DIFF_BINARY_LITERAL: result = cint(result or (1 shl 0))
+      of GIT_DIFF_BINARY_DELTA:   result = cint(result or (1 shl 1))
  
 
 proc to_c_git_diff_line_t*(arg: git_diff_line_t): c_git_diff_line_t = 
   case arg:
-    of GIT_DIFF_LINE_CONTEXT:
-      c_GIT_DIFF_LINE_CONTEXT
+    of GIT_DIFF_LINE_CONTEXT: c_GIT_DIFF_LINE_CONTEXT
  
 
 converter to_git_diff_line_t*(arg: c_git_diff_line_t): git_diff_line_t = 
   case arg:
-    of c_GIT_DIFF_LINE_CONTEXT:
-      GIT_DIFF_LINE_CONTEXT
+    of c_GIT_DIFF_LINE_CONTEXT: GIT_DIFF_LINE_CONTEXT
  
 
 converter toCint*(arg: c_git_diff_line_t): cint = 
@@ -755,80 +629,52 @@ converter toCint*(arg: git_diff_line_t): cint =
   cint(ord(to_c_git_diff_line_t(arg)))
  
 func `+`*(arg: c_git_diff_line_t, offset: int): c_git_diff_line_t = 
-  c_git_diff_line_t(ord(arg) + offset)
+  cast[c_git_diff_line_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_diff_line_t): c_git_diff_line_t = 
-  c_git_diff_line_t(ord(arg) + offset)
+  cast[c_git_diff_line_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_diff_line_t, offset: int): c_git_diff_line_t = 
-  c_git_diff_line_t(ord(arg) - offset)
+  cast[c_git_diff_line_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_diff_line_t): c_git_diff_line_t = 
-  c_git_diff_line_t(ord(arg) - offset)
+  cast[c_git_diff_line_t](ord(arg) - offset)
  
 
 proc to_c_git_diff_find_t*(arg: git_diff_find_t): c_git_diff_find_t = 
   case arg:
-    of GIT_DIFF_FIND_BY_CONFIG:
-      c_GIT_DIFF_FIND_BY_CONFIG
-    of GIT_DIFF_FIND_RENAMES:
-      c_GIT_DIFF_FIND_RENAMES
-    of GIT_DIFF_FIND_RENAMES_FROM_REWRITES:
-      c_GIT_DIFF_FIND_RENAMES_FROM_REWRITES
-    of GIT_DIFF_FIND_COPIES:
-      c_GIT_DIFF_FIND_COPIES
-    of GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED:
-      c_GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED
-    of GIT_DIFF_FIND_REWRITES:
-      c_GIT_DIFF_FIND_REWRITES
-    of GIT_DIFF_BREAK_REWRITES:
-      c_GIT_DIFF_BREAK_REWRITES
-    of GIT_DIFF_FIND_AND_BREAK_REWRITES:
-      c_GIT_DIFF_FIND_AND_BREAK_REWRITES
-    of GIT_DIFF_FIND_FOR_UNTRACKED:
-      c_GIT_DIFF_FIND_FOR_UNTRACKED
-    of GIT_DIFF_FIND_IGNORE_WHITESPACE:
-      c_GIT_DIFF_FIND_IGNORE_WHITESPACE
-    of GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE:
-      c_GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE
-    of GIT_DIFF_FIND_EXACT_MATCH_ONLY:
-      c_GIT_DIFF_FIND_EXACT_MATCH_ONLY
-    of GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY:
-      c_GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY
-    of GIT_DIFF_FIND_REMOVE_UNMODIFIED:
-      c_GIT_DIFF_FIND_REMOVE_UNMODIFIED
+    of GIT_DIFF_FIND_BY_CONFIG:                  c_GIT_DIFF_FIND_BY_CONFIG                 
+    of GIT_DIFF_FIND_RENAMES:                    c_GIT_DIFF_FIND_RENAMES                   
+    of GIT_DIFF_FIND_RENAMES_FROM_REWRITES:      c_GIT_DIFF_FIND_RENAMES_FROM_REWRITES     
+    of GIT_DIFF_FIND_COPIES:                     c_GIT_DIFF_FIND_COPIES                    
+    of GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED:     c_GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED    
+    of GIT_DIFF_FIND_REWRITES:                   c_GIT_DIFF_FIND_REWRITES                  
+    of GIT_DIFF_BREAK_REWRITES:                  c_GIT_DIFF_BREAK_REWRITES                 
+    of GIT_DIFF_FIND_AND_BREAK_REWRITES:         c_GIT_DIFF_FIND_AND_BREAK_REWRITES        
+    of GIT_DIFF_FIND_FOR_UNTRACKED:              c_GIT_DIFF_FIND_FOR_UNTRACKED             
+    of GIT_DIFF_FIND_IGNORE_WHITESPACE:          c_GIT_DIFF_FIND_IGNORE_WHITESPACE         
+    of GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE:     c_GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE    
+    of GIT_DIFF_FIND_EXACT_MATCH_ONLY:           c_GIT_DIFF_FIND_EXACT_MATCH_ONLY          
+    of GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY: c_GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY
+    of GIT_DIFF_FIND_REMOVE_UNMODIFIED:          c_GIT_DIFF_FIND_REMOVE_UNMODIFIED         
  
 
 converter to_git_diff_find_t*(arg: c_git_diff_find_t): git_diff_find_t = 
   case arg:
-    of c_GIT_DIFF_FIND_BY_CONFIG:
-      GIT_DIFF_FIND_BY_CONFIG
-    of c_GIT_DIFF_FIND_RENAMES:
-      GIT_DIFF_FIND_RENAMES
-    of c_GIT_DIFF_FIND_RENAMES_FROM_REWRITES:
-      GIT_DIFF_FIND_RENAMES_FROM_REWRITES
-    of c_GIT_DIFF_FIND_COPIES:
-      GIT_DIFF_FIND_COPIES
-    of c_GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED:
-      GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED
-    of c_GIT_DIFF_FIND_REWRITES:
-      GIT_DIFF_FIND_REWRITES
-    of c_GIT_DIFF_BREAK_REWRITES:
-      GIT_DIFF_BREAK_REWRITES
-    of c_GIT_DIFF_FIND_AND_BREAK_REWRITES:
-      GIT_DIFF_FIND_AND_BREAK_REWRITES
-    of c_GIT_DIFF_FIND_FOR_UNTRACKED:
-      GIT_DIFF_FIND_FOR_UNTRACKED
-    of c_GIT_DIFF_FIND_IGNORE_WHITESPACE:
-      GIT_DIFF_FIND_IGNORE_WHITESPACE
-    of c_GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE:
-      GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE
-    of c_GIT_DIFF_FIND_EXACT_MATCH_ONLY:
-      GIT_DIFF_FIND_EXACT_MATCH_ONLY
-    of c_GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY:
-      GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY
-    of c_GIT_DIFF_FIND_REMOVE_UNMODIFIED:
-      GIT_DIFF_FIND_REMOVE_UNMODIFIED
+    of c_GIT_DIFF_FIND_BY_CONFIG:                  GIT_DIFF_FIND_BY_CONFIG                 
+    of c_GIT_DIFF_FIND_RENAMES:                    GIT_DIFF_FIND_RENAMES                   
+    of c_GIT_DIFF_FIND_RENAMES_FROM_REWRITES:      GIT_DIFF_FIND_RENAMES_FROM_REWRITES     
+    of c_GIT_DIFF_FIND_COPIES:                     GIT_DIFF_FIND_COPIES                    
+    of c_GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED:     GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED    
+    of c_GIT_DIFF_FIND_REWRITES:                   GIT_DIFF_FIND_REWRITES                  
+    of c_GIT_DIFF_BREAK_REWRITES:                  GIT_DIFF_BREAK_REWRITES                 
+    of c_GIT_DIFF_FIND_AND_BREAK_REWRITES:         GIT_DIFF_FIND_AND_BREAK_REWRITES        
+    of c_GIT_DIFF_FIND_FOR_UNTRACKED:              GIT_DIFF_FIND_FOR_UNTRACKED             
+    of c_GIT_DIFF_FIND_IGNORE_WHITESPACE:          GIT_DIFF_FIND_IGNORE_WHITESPACE         
+    of c_GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE:     GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE    
+    of c_GIT_DIFF_FIND_EXACT_MATCH_ONLY:           GIT_DIFF_FIND_EXACT_MATCH_ONLY          
+    of c_GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY: GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY
+    of c_GIT_DIFF_FIND_REMOVE_UNMODIFIED:          GIT_DIFF_FIND_REMOVE_UNMODIFIED         
  
 
 converter toCint*(arg: c_git_diff_find_t): cint = 
@@ -842,16 +688,16 @@ converter toCint*(arg: git_diff_find_t): cint =
   cint(ord(to_c_git_diff_find_t(arg)))
  
 func `+`*(arg: c_git_diff_find_t, offset: int): c_git_diff_find_t = 
-  c_git_diff_find_t(ord(arg) + offset)
+  cast[c_git_diff_find_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_diff_find_t): c_git_diff_find_t = 
-  c_git_diff_find_t(ord(arg) + offset)
+  cast[c_git_diff_find_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_diff_find_t, offset: int): c_git_diff_find_t = 
-  c_git_diff_find_t(ord(arg) - offset)
+  cast[c_git_diff_find_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_diff_find_t): c_git_diff_find_t = 
-  c_git_diff_find_t(ord(arg) - offset)
+  cast[c_git_diff_find_t](ord(arg) - offset)
  
 
 proc git_diff_find_options_init*(
@@ -975,34 +821,22 @@ proc git_diff_status_char*(status: c_git_delta_t): char {.git2Proc, importc.}
 
 proc to_c_git_diff_format_t*(arg: git_diff_format_t): c_git_diff_format_t = 
   case arg:
-    of GIT_DIFF_FORMAT_PATCH:
-      c_GIT_DIFF_FORMAT_PATCH
-    of GIT_DIFF_FORMAT_PATCH_HEADER:
-      c_GIT_DIFF_FORMAT_PATCH_HEADER
-    of GIT_DIFF_FORMAT_RAW:
-      c_GIT_DIFF_FORMAT_RAW
-    of GIT_DIFF_FORMAT_NAME_ONLY:
-      c_GIT_DIFF_FORMAT_NAME_ONLY
-    of GIT_DIFF_FORMAT_NAME_STATUS:
-      c_GIT_DIFF_FORMAT_NAME_STATUS
-    of GIT_DIFF_FORMAT_PATCH_ID:
-      c_GIT_DIFF_FORMAT_PATCH_ID
+    of GIT_DIFF_FORMAT_PATCH:        c_GIT_DIFF_FORMAT_PATCH       
+    of GIT_DIFF_FORMAT_PATCH_HEADER: c_GIT_DIFF_FORMAT_PATCH_HEADER
+    of GIT_DIFF_FORMAT_RAW:          c_GIT_DIFF_FORMAT_RAW         
+    of GIT_DIFF_FORMAT_NAME_ONLY:    c_GIT_DIFF_FORMAT_NAME_ONLY   
+    of GIT_DIFF_FORMAT_NAME_STATUS:  c_GIT_DIFF_FORMAT_NAME_STATUS 
+    of GIT_DIFF_FORMAT_PATCH_ID:     c_GIT_DIFF_FORMAT_PATCH_ID    
  
 
 converter to_git_diff_format_t*(arg: c_git_diff_format_t): git_diff_format_t = 
   case arg:
-    of c_GIT_DIFF_FORMAT_PATCH:
-      GIT_DIFF_FORMAT_PATCH
-    of c_GIT_DIFF_FORMAT_PATCH_HEADER:
-      GIT_DIFF_FORMAT_PATCH_HEADER
-    of c_GIT_DIFF_FORMAT_RAW:
-      GIT_DIFF_FORMAT_RAW
-    of c_GIT_DIFF_FORMAT_NAME_ONLY:
-      GIT_DIFF_FORMAT_NAME_ONLY
-    of c_GIT_DIFF_FORMAT_NAME_STATUS:
-      GIT_DIFF_FORMAT_NAME_STATUS
-    of c_GIT_DIFF_FORMAT_PATCH_ID:
-      GIT_DIFF_FORMAT_PATCH_ID
+    of c_GIT_DIFF_FORMAT_PATCH:        GIT_DIFF_FORMAT_PATCH       
+    of c_GIT_DIFF_FORMAT_PATCH_HEADER: GIT_DIFF_FORMAT_PATCH_HEADER
+    of c_GIT_DIFF_FORMAT_RAW:          GIT_DIFF_FORMAT_RAW         
+    of c_GIT_DIFF_FORMAT_NAME_ONLY:    GIT_DIFF_FORMAT_NAME_ONLY   
+    of c_GIT_DIFF_FORMAT_NAME_STATUS:  GIT_DIFF_FORMAT_NAME_STATUS 
+    of c_GIT_DIFF_FORMAT_PATCH_ID:     GIT_DIFF_FORMAT_PATCH_ID    
  
 
 converter toCint*(arg: c_git_diff_format_t): cint = 
@@ -1016,16 +850,16 @@ converter toCint*(arg: git_diff_format_t): cint =
   cint(ord(to_c_git_diff_format_t(arg)))
  
 func `+`*(arg: c_git_diff_format_t, offset: int): c_git_diff_format_t = 
-  c_git_diff_format_t(ord(arg) + offset)
+  cast[c_git_diff_format_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_diff_format_t): c_git_diff_format_t = 
-  c_git_diff_format_t(ord(arg) + offset)
+  cast[c_git_diff_format_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_diff_format_t, offset: int): c_git_diff_format_t = 
-  c_git_diff_format_t(ord(arg) - offset)
+  cast[c_git_diff_format_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_diff_format_t): c_git_diff_format_t = 
-  c_git_diff_format_t(ord(arg) - offset)
+  cast[c_git_diff_format_t](ord(arg) - offset)
  
 
 proc git_diff_print*(
@@ -1105,32 +939,22 @@ proc to_c_git_diff_stats_format_t*(
     arg: git_diff_stats_format_t
   ): c_git_diff_stats_format_t = 
   case arg:
-    of GIT_DIFF_STATS_NONE:
-      c_GIT_DIFF_STATS_NONE
-    of GIT_DIFF_STATS_FULL:
-      c_GIT_DIFF_STATS_FULL
-    of GIT_DIFF_STATS_SHORT:
-      c_GIT_DIFF_STATS_SHORT
-    of GIT_DIFF_STATS_NUMBER:
-      c_GIT_DIFF_STATS_NUMBER
-    of GIT_DIFF_STATS_INCLUDE_SUMMARY:
-      c_GIT_DIFF_STATS_INCLUDE_SUMMARY
+    of GIT_DIFF_STATS_NONE:            c_GIT_DIFF_STATS_NONE           
+    of GIT_DIFF_STATS_FULL:            c_GIT_DIFF_STATS_FULL           
+    of GIT_DIFF_STATS_SHORT:           c_GIT_DIFF_STATS_SHORT          
+    of GIT_DIFF_STATS_NUMBER:          c_GIT_DIFF_STATS_NUMBER         
+    of GIT_DIFF_STATS_INCLUDE_SUMMARY: c_GIT_DIFF_STATS_INCLUDE_SUMMARY
  
 
 converter to_git_diff_stats_format_t*(
     arg: c_git_diff_stats_format_t
   ): git_diff_stats_format_t = 
   case arg:
-    of c_GIT_DIFF_STATS_NONE:
-      GIT_DIFF_STATS_NONE
-    of c_GIT_DIFF_STATS_FULL:
-      GIT_DIFF_STATS_FULL
-    of c_GIT_DIFF_STATS_SHORT:
-      GIT_DIFF_STATS_SHORT
-    of c_GIT_DIFF_STATS_NUMBER:
-      GIT_DIFF_STATS_NUMBER
-    of c_GIT_DIFF_STATS_INCLUDE_SUMMARY:
-      GIT_DIFF_STATS_INCLUDE_SUMMARY
+    of c_GIT_DIFF_STATS_NONE:            GIT_DIFF_STATS_NONE           
+    of c_GIT_DIFF_STATS_FULL:            GIT_DIFF_STATS_FULL           
+    of c_GIT_DIFF_STATS_SHORT:           GIT_DIFF_STATS_SHORT          
+    of c_GIT_DIFF_STATS_NUMBER:          GIT_DIFF_STATS_NUMBER         
+    of c_GIT_DIFF_STATS_INCLUDE_SUMMARY: GIT_DIFF_STATS_INCLUDE_SUMMARY
  
 
 converter toCint*(arg: c_git_diff_stats_format_t): cint = 
@@ -1147,25 +971,25 @@ func `+`*(
     arg:    c_git_diff_stats_format_t,
     offset: int
   ): c_git_diff_stats_format_t = 
-  c_git_diff_stats_format_t(ord(arg) + offset)
+  cast[c_git_diff_stats_format_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_diff_stats_format_t
   ): c_git_diff_stats_format_t = 
-  c_git_diff_stats_format_t(ord(arg) + offset)
+  cast[c_git_diff_stats_format_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_diff_stats_format_t,
     offset: int
   ): c_git_diff_stats_format_t = 
-  c_git_diff_stats_format_t(ord(arg) - offset)
+  cast[c_git_diff_stats_format_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_diff_stats_format_t
   ): c_git_diff_stats_format_t = 
-  c_git_diff_stats_format_t(ord(arg) - offset)
+  cast[c_git_diff_stats_format_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_diff_stats_format_t]): cint = 
@@ -1173,16 +997,11 @@ converter toCint*(args: set[git_diff_stats_format_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_DIFF_STATS_NONE:
-        result = result or (0 shl 0)
-      of GIT_DIFF_STATS_FULL:
-        result = result or (1 shl 0)
-      of GIT_DIFF_STATS_SHORT:
-        result = result or (1 shl 1)
-      of GIT_DIFF_STATS_NUMBER:
-        result = result or (1 shl 2)
-      of GIT_DIFF_STATS_INCLUDE_SUMMARY:
-        result = result or (1 shl 3)
+      of GIT_DIFF_STATS_NONE:            result = cint(result or (0 shl 0))
+      of GIT_DIFF_STATS_FULL:            result = cint(result or (1 shl 0))
+      of GIT_DIFF_STATS_SHORT:           result = cint(result or (1 shl 1))
+      of GIT_DIFF_STATS_NUMBER:          result = cint(result or (1 shl 2))
+      of GIT_DIFF_STATS_INCLUDE_SUMMARY: result = cint(result or (1 shl 3))
  
 
 proc git_diff_get_stats*(
@@ -1227,20 +1046,16 @@ proc to_c_git_diff_format_email_flags_t*(
     arg: git_diff_format_email_flags_t
   ): c_git_diff_format_email_flags_t = 
   case arg:
-    of GIT_DIFF_FORMAT_EMAIL_NONE:
-      c_GIT_DIFF_FORMAT_EMAIL_NONE
-    of GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER:
-      c_GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER
+    of GIT_DIFF_FORMAT_EMAIL_NONE:                         c_GIT_DIFF_FORMAT_EMAIL_NONE                        
+    of GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER: c_GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER
  
 
 converter to_git_diff_format_email_flags_t*(
     arg: c_git_diff_format_email_flags_t
   ): git_diff_format_email_flags_t = 
   case arg:
-    of c_GIT_DIFF_FORMAT_EMAIL_NONE:
-      GIT_DIFF_FORMAT_EMAIL_NONE
-    of c_GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER:
-      GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER
+    of c_GIT_DIFF_FORMAT_EMAIL_NONE:                         GIT_DIFF_FORMAT_EMAIL_NONE                        
+    of c_GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER: GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER
  
 
 converter toCint*(arg: c_git_diff_format_email_flags_t): cint = 
@@ -1257,25 +1072,25 @@ func `+`*(
     arg:    c_git_diff_format_email_flags_t,
     offset: int
   ): c_git_diff_format_email_flags_t = 
-  c_git_diff_format_email_flags_t(ord(arg) + offset)
+  cast[c_git_diff_format_email_flags_t](ord(arg) + offset)
  
 func `+`*(
     offset: int,
     arg:    c_git_diff_format_email_flags_t
   ): c_git_diff_format_email_flags_t = 
-  c_git_diff_format_email_flags_t(ord(arg) + offset)
+  cast[c_git_diff_format_email_flags_t](ord(arg) + offset)
  
 func `-`*(
     arg:    c_git_diff_format_email_flags_t,
     offset: int
   ): c_git_diff_format_email_flags_t = 
-  c_git_diff_format_email_flags_t(ord(arg) - offset)
+  cast[c_git_diff_format_email_flags_t](ord(arg) - offset)
  
 func `-`*(
     offset: int,
     arg:    c_git_diff_format_email_flags_t
   ): c_git_diff_format_email_flags_t = 
-  c_git_diff_format_email_flags_t(ord(arg) - offset)
+  cast[c_git_diff_format_email_flags_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_diff_format_email_flags_t]): cint = 
@@ -1283,10 +1098,8 @@ converter toCint*(args: set[git_diff_format_email_flags_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_DIFF_FORMAT_EMAIL_NONE:
-        result = result or (0 shl 0)
-      of GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER:
-        result = result or (1 shl 0)
+      of GIT_DIFF_FORMAT_EMAIL_NONE:                         result = cint(result or (0 shl 0))
+      of GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER: result = cint(result or (1 shl 0))
  
 
 proc git_diff_format_email*(

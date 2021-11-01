@@ -38,14 +38,14 @@ proc git_branch_delete*(branch: ptr git_reference): cint {.git2Proc, importc.}
 proc git_branch_iterator_new*(
     arg_out:    ptr ptr git_branch_iterator,
     repo:       ptr git_repository,
-    list_flags: git_branch_t
+    list_flags: c_git_branch_t
   ): cint {.git2Proc, importc.}
   
  
 
 proc git_branch_next*(
     arg_out:  ptr ptr git_reference,
-    out_type: ptr git_branch_t,
+    out_type: ptr c_git_branch_t,
     iter:     ptr git_branch_iterator
   ): cint {.git2Proc, importc.}
   
@@ -70,7 +70,7 @@ proc git_branch_lookup*(
     arg_out:     ptr ptr git_reference,
     repo:        ptr git_repository,
     branch_name: cstring,
-    branch_type: git_branch_t
+    branch_type: c_git_branch_t
   ): cint {.git2Proc, importc.}
   
  
@@ -97,9 +97,9 @@ proc git_branch_set_upstream*(
  
 
 proc git_branch_upstream_name*(
-    arg_out: ptr git_buf,
-    repo:    ptr git_repository,
-    refname: cstring
+    arg_out:  ptr git_buf,
+    repo:     ptr git_repository,
+    refname1: cstring
   ): cint {.git2Proc, importc.}
   
  
@@ -115,17 +115,32 @@ proc git_branch_is_checked_out*(
  
 
 proc git_branch_remote_name*(
-    arg_out: ptr git_buf,
-    repo:    ptr git_repository,
-    refname: cstring
+    arg_out:  ptr git_buf,
+    repo:     ptr git_repository,
+    refname1: cstring
   ): cint {.git2Proc, importc.}
   
  
 
 proc git_branch_upstream_remote*(
-    buf:     ptr git_buf,
-    repo:    ptr git_repository,
-    refname: cstring
+    buf:      ptr git_buf,
+    repo:     ptr git_repository,
+    refname1: cstring
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_branch_upstream_merge*(
+    buf:      ptr git_buf,
+    repo:     ptr git_repository,
+    refname1: cstring
+  ): cint {.git2Proc, importc.}
+  
+ 
+
+proc git_branch_name_is_valid*(
+    valid: ptr cint,
+    name:  cstring
   ): cint {.git2Proc, importc.}
   
  

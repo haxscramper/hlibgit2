@@ -23,18 +23,14 @@ type
 
 proc to_c_git_direction*(arg: git_direction): c_git_direction = 
   case arg:
-    of GIT_DIRECTION_FETCH:
-      c_GIT_DIRECTION_FETCH
-    of GIT_DIRECTION_PUSH:
-      c_GIT_DIRECTION_PUSH
+    of GIT_DIRECTION_FETCH: c_GIT_DIRECTION_FETCH
+    of GIT_DIRECTION_PUSH:  c_GIT_DIRECTION_PUSH 
  
 
 converter to_git_direction*(arg: c_git_direction): git_direction = 
   case arg:
-    of c_GIT_DIRECTION_FETCH:
-      GIT_DIRECTION_FETCH
-    of c_GIT_DIRECTION_PUSH:
-      GIT_DIRECTION_PUSH
+    of c_GIT_DIRECTION_FETCH: GIT_DIRECTION_FETCH
+    of c_GIT_DIRECTION_PUSH:  GIT_DIRECTION_PUSH 
  
 
 converter toCint*(arg: c_git_direction): cint = 
@@ -48,16 +44,16 @@ converter toCint*(arg: git_direction): cint =
   cint(ord(to_c_git_direction(arg)))
  
 func `+`*(arg: c_git_direction, offset: int): c_git_direction = 
-  c_git_direction(ord(arg) + offset)
+  cast[c_git_direction](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_direction): c_git_direction = 
-  c_git_direction(ord(arg) + offset)
+  cast[c_git_direction](ord(arg) + offset)
  
 func `-`*(arg: c_git_direction, offset: int): c_git_direction = 
-  c_git_direction(ord(arg) - offset)
+  cast[c_git_direction](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_direction): c_git_direction = 
-  c_git_direction(ord(arg) - offset)
+  cast[c_git_direction](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_direction]): cint = 
@@ -65,9 +61,7 @@ converter toCint*(args: set[git_direction]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_DIRECTION_FETCH:
-        result = result or (0 shl 0)
-      of GIT_DIRECTION_PUSH:
-        result = result or (1 shl 0)
+      of GIT_DIRECTION_FETCH: result = cint(result or (0 shl 0))
+      of GIT_DIRECTION_PUSH:  result = cint(result or (1 shl 0))
  
 

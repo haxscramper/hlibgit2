@@ -37,40 +37,26 @@ proc to_c_git_pathspec_flag_t*(
     arg: git_pathspec_flag_t
   ): c_git_pathspec_flag_t = 
   case arg:
-    of GIT_PATHSPEC_DEFAULT:
-      c_GIT_PATHSPEC_DEFAULT
-    of GIT_PATHSPEC_IGNORE_CASE:
-      c_GIT_PATHSPEC_IGNORE_CASE
-    of GIT_PATHSPEC_USE_CASE:
-      c_GIT_PATHSPEC_USE_CASE
-    of GIT_PATHSPEC_NO_GLOB:
-      c_GIT_PATHSPEC_NO_GLOB
-    of GIT_PATHSPEC_NO_MATCH_ERROR:
-      c_GIT_PATHSPEC_NO_MATCH_ERROR
-    of GIT_PATHSPEC_FIND_FAILURES:
-      c_GIT_PATHSPEC_FIND_FAILURES
-    of GIT_PATHSPEC_FAILURES_ONLY:
-      c_GIT_PATHSPEC_FAILURES_ONLY
+    of GIT_PATHSPEC_DEFAULT:        c_GIT_PATHSPEC_DEFAULT       
+    of GIT_PATHSPEC_IGNORE_CASE:    c_GIT_PATHSPEC_IGNORE_CASE   
+    of GIT_PATHSPEC_USE_CASE:       c_GIT_PATHSPEC_USE_CASE      
+    of GIT_PATHSPEC_NO_GLOB:        c_GIT_PATHSPEC_NO_GLOB       
+    of GIT_PATHSPEC_NO_MATCH_ERROR: c_GIT_PATHSPEC_NO_MATCH_ERROR
+    of GIT_PATHSPEC_FIND_FAILURES:  c_GIT_PATHSPEC_FIND_FAILURES 
+    of GIT_PATHSPEC_FAILURES_ONLY:  c_GIT_PATHSPEC_FAILURES_ONLY 
  
 
 converter to_git_pathspec_flag_t*(
     arg: c_git_pathspec_flag_t
   ): git_pathspec_flag_t = 
   case arg:
-    of c_GIT_PATHSPEC_DEFAULT:
-      GIT_PATHSPEC_DEFAULT
-    of c_GIT_PATHSPEC_IGNORE_CASE:
-      GIT_PATHSPEC_IGNORE_CASE
-    of c_GIT_PATHSPEC_USE_CASE:
-      GIT_PATHSPEC_USE_CASE
-    of c_GIT_PATHSPEC_NO_GLOB:
-      GIT_PATHSPEC_NO_GLOB
-    of c_GIT_PATHSPEC_NO_MATCH_ERROR:
-      GIT_PATHSPEC_NO_MATCH_ERROR
-    of c_GIT_PATHSPEC_FIND_FAILURES:
-      GIT_PATHSPEC_FIND_FAILURES
-    of c_GIT_PATHSPEC_FAILURES_ONLY:
-      GIT_PATHSPEC_FAILURES_ONLY
+    of c_GIT_PATHSPEC_DEFAULT:        GIT_PATHSPEC_DEFAULT       
+    of c_GIT_PATHSPEC_IGNORE_CASE:    GIT_PATHSPEC_IGNORE_CASE   
+    of c_GIT_PATHSPEC_USE_CASE:       GIT_PATHSPEC_USE_CASE      
+    of c_GIT_PATHSPEC_NO_GLOB:        GIT_PATHSPEC_NO_GLOB       
+    of c_GIT_PATHSPEC_NO_MATCH_ERROR: GIT_PATHSPEC_NO_MATCH_ERROR
+    of c_GIT_PATHSPEC_FIND_FAILURES:  GIT_PATHSPEC_FIND_FAILURES 
+    of c_GIT_PATHSPEC_FAILURES_ONLY:  GIT_PATHSPEC_FAILURES_ONLY 
  
 
 converter toCint*(arg: c_git_pathspec_flag_t): cint = 
@@ -84,16 +70,16 @@ converter toCint*(arg: git_pathspec_flag_t): cint =
   cint(ord(to_c_git_pathspec_flag_t(arg)))
  
 func `+`*(arg: c_git_pathspec_flag_t, offset: int): c_git_pathspec_flag_t = 
-  c_git_pathspec_flag_t(ord(arg) + offset)
+  cast[c_git_pathspec_flag_t](ord(arg) + offset)
  
 func `+`*(offset: int, arg: c_git_pathspec_flag_t): c_git_pathspec_flag_t = 
-  c_git_pathspec_flag_t(ord(arg) + offset)
+  cast[c_git_pathspec_flag_t](ord(arg) + offset)
  
 func `-`*(arg: c_git_pathspec_flag_t, offset: int): c_git_pathspec_flag_t = 
-  c_git_pathspec_flag_t(ord(arg) - offset)
+  cast[c_git_pathspec_flag_t](ord(arg) - offset)
  
 func `-`*(offset: int, arg: c_git_pathspec_flag_t): c_git_pathspec_flag_t = 
-  c_git_pathspec_flag_t(ord(arg) - offset)
+  cast[c_git_pathspec_flag_t](ord(arg) - offset)
  
 
 converter toCint*(args: set[git_pathspec_flag_t]): cint = 
@@ -101,20 +87,13 @@ converter toCint*(args: set[git_pathspec_flag_t]): cint =
   ## to wrapped C procs.
   for value in items(args):
     case value:
-      of GIT_PATHSPEC_DEFAULT:
-        result = result or (0 shl 0)
-      of GIT_PATHSPEC_IGNORE_CASE:
-        result = result or (1 shl 0)
-      of GIT_PATHSPEC_USE_CASE:
-        result = result or (1 shl 1)
-      of GIT_PATHSPEC_NO_GLOB:
-        result = result or (1 shl 2)
-      of GIT_PATHSPEC_NO_MATCH_ERROR:
-        result = result or (1 shl 3)
-      of GIT_PATHSPEC_FIND_FAILURES:
-        result = result or (1 shl 4)
-      of GIT_PATHSPEC_FAILURES_ONLY:
-        result = result or (1 shl 5)
+      of GIT_PATHSPEC_DEFAULT:        result = cint(result or (0 shl 0))
+      of GIT_PATHSPEC_IGNORE_CASE:    result = cint(result or (1 shl 0))
+      of GIT_PATHSPEC_USE_CASE:       result = cint(result or (1 shl 1))
+      of GIT_PATHSPEC_NO_GLOB:        result = cint(result or (1 shl 2))
+      of GIT_PATHSPEC_NO_MATCH_ERROR: result = cint(result or (1 shl 3))
+      of GIT_PATHSPEC_FIND_FAILURES:  result = cint(result or (1 shl 4))
+      of GIT_PATHSPEC_FAILURES_ONLY:  result = cint(result or (1 shl 5))
  
 
 proc git_pathspec_new*(
