@@ -73,6 +73,8 @@ import hlibgit2/[
 
 assert git_libgit2_init() == 1
 
+echo "libgit test ok"
+
 if false:
   block:
     var a: git_strarray

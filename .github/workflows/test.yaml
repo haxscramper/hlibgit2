@@ -13,11 +13,20 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt-get install libgit2-dev
-      - run: ls -R /usr/include/git2
       - uses: actions/checkout@v2
       - uses: alaviss/setup-nim@master
         with:
           path: '../nim'
           version: ${{ matrix.nim }}
-      - run: "nimble -y test"
+      - run: |
+          pwd
+          git clone https://github.com/libgit2/libgit2.git
+          cd libgit2
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build . -- --quiet
+          realpath libgit2.so
+          cd ../..
+          nimble -y develop
+          nim c -r -d:libgit2DynLib="$(pwd)/libgit2/build/libgit2.so" --passc:"-I$(pwd)/libgit2/include" tests/test1.nim
