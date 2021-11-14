@@ -7,6 +7,5 @@ license       = "Apache-2.0"
 srcDir        = "src"
 
 
-# Dependencies
-requires "https://github.com/haxscramper/hlibssh2.git >= 0.1.1"
-requires "nim >= 1.4.8"
+requires "https://github.com/haxscramper/hlibssh2.git >= 0.1.3"
+requires "nim >= 1.2.0"
