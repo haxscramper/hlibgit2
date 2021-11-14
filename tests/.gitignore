@@ -1,2 +1,3 @@
 t*
-t*.nim
+!t*.nim
+cache
