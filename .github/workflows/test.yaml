@@ -29,4 +29,4 @@ jobs:
           realpath libgit2.so
           cd ../..
           nimble -y develop
-          nim c -r -d:libgit2DynLib="$(pwd)/libgit2/build/libgit2.so" --passc:"-I$(pwd)/libgit2/include" tests/test1.nim
+          nim c -r -d:libgit2Lib="$(pwd)/libgit2/build/libgit2.so" --passc:"-I$(pwd)/libgit2/include" tests/test1.nim
