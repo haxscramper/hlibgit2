@@ -19,14 +19,12 @@ jobs:
           path: '../nim'
           version: ${{ matrix.nim }}
       - run: |
-          pwd
-          git clone https://github.com/libgit2/libgit2.git
-          cd libgit2
-          mkdir build
-          cd build
-          cmake ..
-          cmake --build . -- --quiet
-          realpath libgit2.so
-          cd ../..
+          pip install conan
+          conan install . --build=missing
           nimble -y develop
-          nim c -r -d:libgit2Lib="$(pwd)/libgit2/build/libgit2.so" --passc:"-I$(pwd)/libgit2/include" tests/test1.nim
+          nim c -r \
+            --passL:"@$(pwd)/conanbuildinfo.gcc" \
+            --passC:"@$(pwd)/conanbuildinfo.gcc" \
+            -d:libgit2LinkMode=dlink \
+            -d:libssh2LinkMode=dlink \
+            tests/test1.nim
