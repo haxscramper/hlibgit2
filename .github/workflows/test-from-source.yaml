@@ -1,0 +1,38 @@
+name:
+  "Test via conan + dynamic linker"
+on:
+  push
+jobs:
+  test:
+    if: |
+      !contains(github.event.head_commit.message, 'WIP')
+
+    strategy:
+      matrix:
+        nim: ['version-1-6']
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: alaviss/setup-nim@master
+        with:
+          path: '../nim'
+          version: ${{ matrix.nim }}
+      - run: |
+          nimble --accept develop
+
+          git clone \
+            --depth 1 \
+            --branch v1.3.0 \
+            https://github.com/libgit2/libgit2.git
+
+          cd libgit2
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build . -- --quiet
+          cd ../..
+          nim c -r \
+            -d:libgit2Lib="$(pwd)/libgit2/build/libgit2.so" \
+            --passc:"-I$(pwd)/libgit2/include" \
+            tests/test1.nim

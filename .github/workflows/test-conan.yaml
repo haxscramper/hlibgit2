@@ -1,5 +1,5 @@
 name:
-  test
+  "Test via conan + dynamic linker"
 on:
   push
 jobs:
