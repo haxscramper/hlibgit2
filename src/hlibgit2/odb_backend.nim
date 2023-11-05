@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_odb_stream_t* = enum
+  c_git_odb_stream_t* {.size: sizeof(cint).} = enum
     c_GIT_STREAM_RDONLY = 2
     c_GIT_STREAM_WRONLY = 4
     c_GIT_STREAM_RW     = 6

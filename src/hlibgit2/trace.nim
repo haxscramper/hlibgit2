@@ -4,7 +4,7 @@ import
   ./libgit2_config
 
 type
-  c_git_trace_level_t* = enum
+  c_git_trace_level_t* {.size: sizeof(cint).} = enum
     c_GIT_TRACE_NONE  = 0 ## No tracing will be performed.
     c_GIT_TRACE_FATAL = 1 ## Severe errors that may impact the program's execution
     c_GIT_TRACE_ERROR = 2 ## Errors that do not impact the program's execution

@@ -6,7 +6,7 @@ import
   ./types
 
 type
-  c_git_describe_strategy_t* = enum
+  c_git_describe_strategy_t* {.size: sizeof(cint).} = enum
     c_GIT_DESCRIBE_DEFAULT = 0 shl 0
     c_GIT_DESCRIBE_TAGS    = 1 shl 0
     c_GIT_DESCRIBE_ALL     = 1 shl 1

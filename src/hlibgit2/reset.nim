@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_reset_t* = enum
+  c_git_reset_t* {.size: sizeof(cint).} = enum
     c_GIT_RESET_SOFT  = 1
     c_GIT_RESET_MIXED = 2 ## Move the head to the given commit
     c_GIT_RESET_HARD  = 3 ## SOFT plus reset index to the commit

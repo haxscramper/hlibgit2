@@ -4,13 +4,13 @@ import
   ./libgit2_config
 
 type
-  c_git_feature_t* = enum
+  c_git_feature_t* {.size: sizeof(cint).} = enum
     c_GIT_FEATURE_THREADS = 1 shl 0
     c_GIT_FEATURE_HTTPS   = 1 shl 1
     c_GIT_FEATURE_SSH     = 1 shl 2
     c_GIT_FEATURE_NSEC    = 1 shl 3
 
-  c_git_libgit2_opt_t* = enum
+  c_git_libgit2_opt_t* {.size: sizeof(cint).} = enum
     c_GIT_OPT_GET_MWINDOW_SIZE                    = 0
     c_GIT_OPT_SET_MWINDOW_SIZE                    = 1
     c_GIT_OPT_GET_MWINDOW_MAPPED_LIMIT            = 2

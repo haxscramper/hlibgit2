@@ -6,7 +6,7 @@ import
   ./libgit2_config
 
 type
-  c_git_proxy_t* = enum
+  c_git_proxy_t* {.size: sizeof(cint).} = enum
     c_GIT_PROXY_NONE      = 0 shl 0
     c_GIT_PROXY_AUTO      = 1 shl 0
     c_GIT_PROXY_SPECIFIED = 1 shl 1

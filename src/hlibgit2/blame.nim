@@ -6,7 +6,7 @@ import
   ./types
 
 type
-  c_git_blame_flag_t* = enum
+  c_git_blame_flag_t* {.size: sizeof(cint).} = enum
     c_GIT_BLAME_NORMAL                          = 0 shl 0 ## Normal blame, the default
     c_GIT_BLAME_TRACK_COPIES_SAME_FILE          = 1 shl 0
     c_GIT_BLAME_TRACK_COPIES_SAME_COMMIT_MOVES  = 1 shl 1

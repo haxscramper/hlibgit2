@@ -7,11 +7,11 @@ import
   ./types
 
 type
-  c_git_stash_apply_flags* = enum
+  c_git_stash_apply_flags* {.size: sizeof(cint).} = enum
     c_GIT_STASH_APPLY_DEFAULT         = 0 shl 0
     c_GIT_STASH_APPLY_REINSTATE_INDEX = 1 shl 0
 
-  c_git_stash_apply_progress_t* = enum
+  c_git_stash_apply_progress_t* {.size: sizeof(cint).} = enum
     c_GIT_STASH_APPLY_PROGRESS_NONE               = 0
     c_GIT_STASH_APPLY_PROGRESS_LOADING_STASH      = 1 ## Loading the stashed data from the object database.
     c_GIT_STASH_APPLY_PROGRESS_ANALYZE_INDEX      = 2 ## The stored index is being analyzed.
@@ -21,7 +21,7 @@ type
     c_GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED  = 6 ## The modified files are being written to disk.
     c_GIT_STASH_APPLY_PROGRESS_DONE               = 7 ## The stash was applied successfully.
 
-  c_git_stash_flags* = enum
+  c_git_stash_flags* {.size: sizeof(cint).} = enum
     c_GIT_STASH_DEFAULT           = 0 shl 0
     c_GIT_STASH_KEEP_INDEX        = 1 shl 0
     c_GIT_STASH_INCLUDE_UNTRACKED = 1 shl 1

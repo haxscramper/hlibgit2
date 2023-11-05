@@ -5,7 +5,7 @@ import
   ./oid
 
 type
-  c_git_direction* = enum
+  c_git_direction* {.size: sizeof(cint).} = enum
     c_GIT_DIRECTION_FETCH = 0 shl 0
     c_GIT_DIRECTION_PUSH  = 1 shl 0
 

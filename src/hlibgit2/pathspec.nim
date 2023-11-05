@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_pathspec_flag_t* = enum
+  c_git_pathspec_flag_t* {.size: sizeof(cint).} = enum
     c_GIT_PATHSPEC_DEFAULT        = 0 shl 0
     c_GIT_PATHSPEC_IGNORE_CASE    = 1 shl 0
     c_GIT_PATHSPEC_USE_CASE       = 1 shl 1

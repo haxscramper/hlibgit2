@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_reference_format_t* = enum
+  c_git_reference_format_t* {.size: sizeof(cint).} = enum
     c_GIT_REFERENCE_FORMAT_NORMAL            = 0 shl 0
     c_GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL    = 1 shl 0
     c_GIT_REFERENCE_FORMAT_REFSPEC_PATTERN   = 1 shl 1

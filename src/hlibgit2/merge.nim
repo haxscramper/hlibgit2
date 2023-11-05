@@ -10,20 +10,20 @@ import
   ./types
 
 type
-  c_git_merge_analysis_t* = enum
+  c_git_merge_analysis_t* {.size: sizeof(cint).} = enum
     c_GIT_MERGE_ANALYSIS_NONE        = 0 shl 0 ## No merge is possible.  (Unused.)
     c_GIT_MERGE_ANALYSIS_NORMAL      = 1 shl 0
     c_GIT_MERGE_ANALYSIS_UP_TO_DATE  = 1 shl 1
     c_GIT_MERGE_ANALYSIS_FASTFORWARD = 1 shl 2
     c_GIT_MERGE_ANALYSIS_UNBORN      = 1 shl 3
 
-  c_git_merge_file_favor_t* = enum
+  c_git_merge_file_favor_t* {.size: sizeof(cint).} = enum
     c_GIT_MERGE_FILE_FAVOR_NORMAL = 0
     c_GIT_MERGE_FILE_FAVOR_OURS   = 1
     c_GIT_MERGE_FILE_FAVOR_THEIRS = 2
     c_GIT_MERGE_FILE_FAVOR_UNION  = 3
 
-  c_git_merge_file_flag_t* = enum
+  c_git_merge_file_flag_t* {.size: sizeof(cint).} = enum
     c_GIT_MERGE_FILE_DEFAULT                  = 0 shl 0 ## Defaults
     c_GIT_MERGE_FILE_STYLE_MERGE              = 1 shl 0 ## Create standard conflicted merge files
     c_GIT_MERGE_FILE_STYLE_DIFF3              = 1 shl 1 ## Create diff3-style files
@@ -34,13 +34,13 @@ type
     c_GIT_MERGE_FILE_DIFF_PATIENCE            = 1 shl 6 ## Use the "patience diff" algorithm
     c_GIT_MERGE_FILE_DIFF_MINIMAL             = 1 shl 7 ## Take extra time to find minimal diff
 
-  c_git_merge_flag_t* = enum
+  c_git_merge_flag_t* {.size: sizeof(cint).} = enum
     c_GIT_MERGE_FIND_RENAMES     = 1 shl 0
     c_GIT_MERGE_FAIL_ON_CONFLICT = 1 shl 1
     c_GIT_MERGE_SKIP_REUC        = 1 shl 2
     c_GIT_MERGE_NO_RECURSIVE     = 1 shl 3
 
-  c_git_merge_preference_t* = enum
+  c_git_merge_preference_t* {.size: sizeof(cint).} = enum
     c_GIT_MERGE_PREFERENCE_NONE             = 0 shl 0
     c_GIT_MERGE_PREFERENCE_NO_FASTFORWARD   = 1 shl 0
     c_GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 1 shl 1

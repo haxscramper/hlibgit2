@@ -12,7 +12,7 @@ type
 
   LIBSSH2_USERAUTH_KBDINT_RESPONSE1* = LIBSSH2_USERAUTH_KBDINT_RESPONSE
 
-  c_git_credential_t* = enum
+  c_git_credential_t* {.size: sizeof(cint).} = enum
     c_GIT_CREDENTIAL_USERPASS_PLAINTEXT = 1 shl 0
     c_GIT_CREDENTIAL_SSH_KEY            = 1 shl 1
     c_GIT_CREDENTIAL_SSH_CUSTOM         = 1 shl 2

@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_worktree_prune_t* = enum
+  c_git_worktree_prune_t* {.size: sizeof(cint).} = enum
     c_GIT_WORKTREE_PRUNE_VALID        = 1 shl 0 ## Prune working tree even if working tree is valid
     c_GIT_WORKTREE_PRUNE_LOCKED       = 1 shl 1 ## Prune working tree even if it is locked
     c_GIT_WORKTREE_PRUNE_WORKING_TREE = 1 shl 2 ## Prune checked out working tree

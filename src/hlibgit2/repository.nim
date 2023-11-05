@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_repository_init_flag_t* = enum
+  c_git_repository_init_flag_t* {.size: sizeof(cint).} = enum
     c_GIT_REPOSITORY_INIT_BARE              = 1 shl 0
     c_GIT_REPOSITORY_INIT_NO_REINIT         = 1 shl 1
     c_GIT_REPOSITORY_INIT_NO_DOTGIT_DIR     = 1 shl 2
@@ -16,12 +16,12 @@ type
     c_GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE = 1 shl 5
     c_GIT_REPOSITORY_INIT_RELATIVE_GITLINK  = 1 shl 6
 
-  c_git_repository_init_mode_t* = enum
+  c_git_repository_init_mode_t* {.size: sizeof(cint).} = enum
     c_GIT_REPOSITORY_INIT_SHARED_UMASK = 0
     c_GIT_REPOSITORY_INIT_SHARED_GROUP = 2775
     c_GIT_REPOSITORY_INIT_SHARED_ALL   = 2777
 
-  c_git_repository_item_t* = enum
+  c_git_repository_item_t* {.size: sizeof(cint).} = enum
     c_GIT_REPOSITORY_ITEM_GITDIR      = 0
     c_GIT_REPOSITORY_ITEM_WORKDIR     = 1
     c_GIT_REPOSITORY_ITEM_COMMONDIR   = 2
@@ -38,14 +38,14 @@ type
     c_GIT_REPOSITORY_ITEM_WORKTREES   = 13
     c_GIT_REPOSITORY_ITEM_LAST        = 14
 
-  c_git_repository_open_flag_t* = enum
+  c_git_repository_open_flag_t* {.size: sizeof(cint).} = enum
     c_GIT_REPOSITORY_OPEN_NO_SEARCH = 1 shl 0
     c_GIT_REPOSITORY_OPEN_CROSS_FS  = 1 shl 1
     c_GIT_REPOSITORY_OPEN_BARE      = 1 shl 2
     c_GIT_REPOSITORY_OPEN_NO_DOTGIT = 1 shl 3
     c_GIT_REPOSITORY_OPEN_FROM_ENV  = 1 shl 4
 
-  c_git_repository_state_t* = enum
+  c_git_repository_state_t* {.size: sizeof(cint).} = enum
     c_GIT_REPOSITORY_STATE_NONE                    = 0
     c_GIT_REPOSITORY_STATE_MERGE                   = 1
     c_GIT_REPOSITORY_STATE_REVERT                  = 2

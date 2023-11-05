@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_status_opt_t* = enum
+  c_git_status_opt_t* {.size: sizeof(cint).} = enum
     c_GIT_STATUS_OPT_INCLUDE_UNTRACKED               = 1 shl 0
     c_GIT_STATUS_OPT_INCLUDE_IGNORED                 = 1 shl 1
     c_GIT_STATUS_OPT_INCLUDE_UNMODIFIED              = 1 shl 2
@@ -25,12 +25,12 @@ type
     c_GIT_STATUS_OPT_INCLUDE_UNREADABLE              = 1 shl 14
     c_GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED = 1 shl 15
 
-  c_git_status_show_t* = enum
+  c_git_status_show_t* {.size: sizeof(cint).} = enum
     c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR = 0 shl 0
     c_GIT_STATUS_SHOW_INDEX_ONLY        = 1 shl 0
     c_GIT_STATUS_SHOW_WORKDIR_ONLY      = 1 shl 1
 
-  c_git_status_t* = enum
+  c_git_status_t* {.size: sizeof(cint).} = enum
     c_GIT_STATUS_CURRENT          = 0 shl 0
     c_GIT_STATUS_INDEX_NEW        = 1 shl 0
     c_GIT_STATUS_INDEX_MODIFIED   = 1 shl 1

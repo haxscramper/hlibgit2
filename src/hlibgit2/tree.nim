@@ -6,11 +6,11 @@ import
   ./types
 
 type
-  c_git_tree_update_t* = enum
+  c_git_tree_update_t* {.size: sizeof(cint).} = enum
     c_GIT_TREE_UPDATE_UPSERT = 0 shl 0 ## Update or insert an entry at the specified path
     c_GIT_TREE_UPDATE_REMOVE = 1 shl 0 ## Remove an entry from the specified path
 
-  c_git_treewalk_mode* = enum
+  c_git_treewalk_mode* {.size: sizeof(cint).} = enum
     c_GIT_TREEWALK_PRE  = 0 shl 0
     c_GIT_TREEWALK_POST = 1 shl 0 ## Pre-order
 

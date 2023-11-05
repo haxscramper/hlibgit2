@@ -4,7 +4,7 @@ import
   ./libgit2_config
 
 type
-  c_git_error_code* = enum
+  c_git_error_code* {.size: sizeof(cint).} = enum
     c_GIT_EAPPLYFAIL      = -35 ## Unsaved changes in the index would be overwritten
     c_GIT_EINDEXDIRTY     = -34 ## Hashsum mismatch in object
     c_GIT_EMISMATCH       = -33 ## Internal only
@@ -36,7 +36,7 @@ type
     c_GIT_ERROR           = -1  ## No error
     c_GIT_OK              = 0
 
-  c_git_error_t* = enum
+  c_git_error_t* {.size: sizeof(cint).} = enum
     c_GIT_ERROR_NONE       = 0
     c_GIT_ERROR_NOMEMORY   = 1
     c_GIT_ERROR_OS         = 2

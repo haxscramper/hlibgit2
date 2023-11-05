@@ -4,12 +4,12 @@ import
   ./libgit2_config
 
 type
-  c_git_branch_t* = enum
+  c_git_branch_t* {.size: sizeof(cint).} = enum
     c_GIT_BRANCH_LOCAL  = 1
     c_GIT_BRANCH_REMOTE = 2
     c_GIT_BRANCH_ALL    = 3
 
-  c_git_filemode_t* = enum
+  c_git_filemode_t* {.size: sizeof(cint).} = enum
     c_GIT_FILEMODE_UNREADABLE      = 0
     c_GIT_FILEMODE_TREE            = 40000
     c_GIT_FILEMODE_BLOB            = 100644
@@ -17,7 +17,7 @@ type
     c_GIT_FILEMODE_LINK            = 120000
     c_GIT_FILEMODE_COMMIT          = 160000
 
-  c_git_object_t* = enum
+  c_git_object_t* {.size: sizeof(cint).} = enum
     c_GIT_OBJECT_ANY       = -2
     c_GIT_OBJECT_INVALID   = -1 ## Object can be any of the following
     c_GIT_OBJECT_COMMIT    = 1  ## Object is invalid.
@@ -27,25 +27,25 @@ type
     c_GIT_OBJECT_OFS_DELTA = 6  ## An annotated tag object.
     c_GIT_OBJECT_REF_DELTA = 7  ## A delta, base is given by an offset.
 
-  c_git_reference_t* = enum
+  c_git_reference_t* {.size: sizeof(cint).} = enum
     c_GIT_REFERENCE_INVALID  = 0
     c_GIT_REFERENCE_DIRECT   = 1 ## Invalid reference
     c_GIT_REFERENCE_SYMBOLIC = 2 ## A reference that points at an object id
     c_GIT_REFERENCE_ALL      = 3 ## A reference that points at another reference
 
-  c_git_submodule_ignore_t* = enum
+  c_git_submodule_ignore_t* {.size: sizeof(cint).} = enum
     c_GIT_SUBMODULE_IGNORE_UNSPECIFIED = -1
     c_GIT_SUBMODULE_IGNORE_NONE        = 1  ## use the submodule's configuration
     c_GIT_SUBMODULE_IGNORE_UNTRACKED   = 2  ## any change or untracked == dirty
     c_GIT_SUBMODULE_IGNORE_DIRTY       = 3  ## dirty if tracked files change
     c_GIT_SUBMODULE_IGNORE_ALL         = 4  ## only dirty if HEAD moved
 
-  c_git_submodule_recurse_t* = enum
+  c_git_submodule_recurse_t* {.size: sizeof(cint).} = enum
     c_GIT_SUBMODULE_RECURSE_NO       = 0 shl 0
     c_GIT_SUBMODULE_RECURSE_YES      = 1 shl 0
     c_GIT_SUBMODULE_RECURSE_ONDEMAND = 1 shl 1
 
-  c_git_submodule_update_t* = enum
+  c_git_submodule_update_t* {.size: sizeof(cint).} = enum
     c_GIT_SUBMODULE_UPDATE_DEFAULT  = 0
     c_GIT_SUBMODULE_UPDATE_CHECKOUT = 1
     c_GIT_SUBMODULE_UPDATE_REBASE   = 2
