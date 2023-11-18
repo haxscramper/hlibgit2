@@ -4,7 +4,8 @@
       "name": {
         "name": "git_merge_driver",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -54,7 +55,8 @@
       "name": {
         "name": "git_merge_driver_source",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -64,7 +66,8 @@
       "recordDefName": {
         "name": "git_merge_driver_source",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {

@@ -4,7 +4,8 @@
       "name": {
         "name": "git_branch_iterator",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/branch.h:90:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -14,7 +15,8 @@
       "recordDefName": {
         "name": "git_branch_iterator",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     }
   ],
   "functions": [

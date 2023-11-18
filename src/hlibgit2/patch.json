@@ -4,7 +4,8 @@
       "name": {
         "name": "git_patch",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/patch.h:29:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -14,7 +15,8 @@
       "recordDefName": {
         "name": "git_patch",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     }
   ],
   "functions": [

@@ -152,7 +152,8 @@
       "name": {
         "name": "git_config_iterator",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/config.h:92:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -162,7 +163,8 @@
       "recordDefName": {
         "name": "git_config_iterator",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {

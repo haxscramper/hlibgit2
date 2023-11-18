@@ -4,7 +4,8 @@
       "name": {
         "name": "git_odb",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:85:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -14,13 +15,15 @@
       "recordDefName": {
         "name": "git_odb",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_odb_backend",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:88:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -30,13 +33,15 @@
       "recordDefName": {
         "name": "git_odb_backend",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_odb_object",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:91:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -46,13 +51,15 @@
       "recordDefName": {
         "name": "git_odb_object",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_odb_stream",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:94:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -62,13 +69,15 @@
       "recordDefName": {
         "name": "git_odb_stream",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_odb_writepack",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:97:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -78,13 +87,15 @@
       "recordDefName": {
         "name": "git_odb_writepack",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_midx_writer",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:100:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -94,13 +105,15 @@
       "recordDefName": {
         "name": "git_midx_writer",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_refdb",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:103:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -110,13 +123,15 @@
       "recordDefName": {
         "name": "git_refdb",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_refdb_backend",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:106:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -126,13 +141,15 @@
       "recordDefName": {
         "name": "git_refdb_backend",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_commit_graph",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:109:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -142,13 +159,15 @@
       "recordDefName": {
         "name": "git_commit_graph",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_commit_graph_writer",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:112:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -158,13 +177,15 @@
       "recordDefName": {
         "name": "git_commit_graph_writer",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_repository",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:118:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -174,13 +195,15 @@
       "recordDefName": {
         "name": "git_repository",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_worktree",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:121:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -190,13 +213,15 @@
       "recordDefName": {
         "name": "git_worktree",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_object",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:124:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -206,13 +231,15 @@
       "recordDefName": {
         "name": "git_object",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_revwalk",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:127:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -222,13 +249,15 @@
       "recordDefName": {
         "name": "git_revwalk",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_tag",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:130:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -238,13 +267,15 @@
       "recordDefName": {
         "name": "git_tag",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_blob",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:133:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -254,13 +285,15 @@
       "recordDefName": {
         "name": "git_blob",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_commit",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:136:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -270,13 +303,15 @@
       "recordDefName": {
         "name": "git_commit",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_tree_entry",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:139:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -286,13 +321,15 @@
       "recordDefName": {
         "name": "git_tree_entry",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_tree",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:142:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -302,13 +339,15 @@
       "recordDefName": {
         "name": "git_tree",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_treebuilder",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:145:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -318,13 +357,15 @@
       "recordDefName": {
         "name": "git_treebuilder",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_index",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:148:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -334,13 +375,15 @@
       "recordDefName": {
         "name": "git_index",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_index_iterator",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:151:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -350,13 +393,15 @@
       "recordDefName": {
         "name": "git_index_iterator",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_index_conflict_iterator",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:154:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -366,13 +411,15 @@
       "recordDefName": {
         "name": "git_index_conflict_iterator",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_config",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:157:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -382,13 +429,15 @@
       "recordDefName": {
         "name": "git_config",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_config_backend",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:160:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -398,13 +447,15 @@
       "recordDefName": {
         "name": "git_config_backend",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_reflog_entry",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:163:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -414,13 +465,15 @@
       "recordDefName": {
         "name": "git_reflog_entry",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_reflog",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:166:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -430,13 +483,15 @@
       "recordDefName": {
         "name": "git_reflog",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_note",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:169:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -446,13 +501,15 @@
       "recordDefName": {
         "name": "git_note",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_packbuilder",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:172:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -462,7 +519,8 @@
       "recordDefName": {
         "name": "git_packbuilder",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -608,7 +666,8 @@
       "name": {
         "name": "git_reference",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:189:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -618,13 +677,15 @@
       "recordDefName": {
         "name": "git_reference",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_reference_iterator",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:192:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -634,13 +695,15 @@
       "recordDefName": {
         "name": "git_reference_iterator",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_transaction",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:195:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -650,13 +713,15 @@
       "recordDefName": {
         "name": "git_transaction",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_annotated_commit",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:198:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -666,13 +731,15 @@
       "recordDefName": {
         "name": "git_annotated_commit",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_status_list",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:201:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -682,13 +749,15 @@
       "recordDefName": {
         "name": "git_status_list",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_rebase",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:204:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -698,13 +767,15 @@
       "recordDefName": {
         "name": "git_rebase",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_refspec",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:235:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -714,13 +785,15 @@
       "recordDefName": {
         "name": "git_refspec",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_remote",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:241:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -730,13 +803,15 @@
       "recordDefName": {
         "name": "git_remote",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_transport",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:247:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -746,13 +821,15 @@
       "recordDefName": {
         "name": "git_transport",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_push",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:253:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -762,13 +839,15 @@
       "recordDefName": {
         "name": "git_push",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_remote_head",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:256:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -778,13 +857,15 @@
       "recordDefName": {
         "name": "git_remote_head",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_remote_callbacks",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:257:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -794,13 +875,15 @@
       "recordDefName": {
         "name": "git_remote_callbacks",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_cert",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:262:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -810,13 +893,15 @@
       "recordDefName": {
         "name": "git_cert",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_submodule",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:267:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -826,13 +911,15 @@
       "recordDefName": {
         "name": "git_submodule",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_writestream",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:356:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -992,7 +1079,8 @@
       "name": {
         "name": "git_mailmap",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:366:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -1002,7 +1090,8 @@
       "recordDefName": {
         "name": "git_mailmap",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     }
   ],
   "enums": [

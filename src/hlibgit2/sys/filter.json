@@ -82,7 +82,8 @@
       "name": {
         "name": "git_filter_source",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -92,7 +93,8 @@
       "recordDefName": {
         "name": "git_filter_source",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {

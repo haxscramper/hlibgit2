@@ -1,8 +1,9 @@
-type
 
+type
   git_error* {.importc, bycopy.} = object
     message *: ptr char
     klass   *: cint
+
   c_git_error_code {.size: sizeof(cint).} = enum
     c_GIT_OK              = 0 shl 0
     c_GIT_ERROR           = -1
@@ -36,6 +37,7 @@ type
     c_GIT_EAPPLYFAIL      = -35
     c_GIT_EOWNER          = -36
     c_GIT_TIMEOUT         = -37
+
   git_error_code = enum
     GIT_OK
     GIT_ERROR
@@ -69,6 +71,7 @@ type
     GIT_EAPPLYFAIL
     GIT_EOWNER
     GIT_TIMEOUT
+
   c_git_error_t {.size: sizeof(cint).} = enum
     c_GIT_ERROR_NONE       = 0 shl 0
     c_GIT_ERROR_NOMEMORY   = 1 shl 0
@@ -107,6 +110,7 @@ type
     c_GIT_ERROR_HTTP       = 34
     c_GIT_ERROR_INTERNAL   = 35
     c_GIT_ERROR_GRAFTS     = 36
+
   git_error_t = enum
     GIT_ERROR_NONE
     GIT_ERROR_NOMEMORY
@@ -153,38 +157,38 @@ converter toCInt*(arg: c_git_error_code): cint = cint(ord(arg))
 converter toCInt*(args: set(git_error_code)): cint =
   for value in items(args):
     case value:
-      of GIT_OK: result = cint(result or 0)
-      of GIT_ERROR: result = cint(result or -1)
-      of GIT_ENOTFOUND: result = cint(result or -3)
-      of GIT_EEXISTS: result = cint(result or -4)
-      of GIT_EAMBIGUOUS: result = cint(result or -5)
-      of GIT_EBUFS: result = cint(result or -6)
-      of GIT_EUSER: result = cint(result or -7)
-      of GIT_EBAREREPO: result = cint(result or -8)
-      of GIT_EUNBORNBRANCH: result = cint(result or -9)
-      of GIT_EUNMERGED: result = cint(result or -10)
+      of GIT_OK             : result = cint(result or 0)
+      of GIT_ERROR          : result = cint(result or -1)
+      of GIT_ENOTFOUND      : result = cint(result or -3)
+      of GIT_EEXISTS        : result = cint(result or -4)
+      of GIT_EAMBIGUOUS     : result = cint(result or -5)
+      of GIT_EBUFS          : result = cint(result or -6)
+      of GIT_EUSER          : result = cint(result or -7)
+      of GIT_EBAREREPO      : result = cint(result or -8)
+      of GIT_EUNBORNBRANCH  : result = cint(result or -9)
+      of GIT_EUNMERGED      : result = cint(result or -10)
       of GIT_ENONFASTFORWARD: result = cint(result or -11)
-      of GIT_EINVALIDSPEC: result = cint(result or -12)
-      of GIT_ECONFLICT: result = cint(result or -13)
-      of GIT_ELOCKED: result = cint(result or -14)
-      of GIT_EMODIFIED: result = cint(result or -15)
-      of GIT_EAUTH: result = cint(result or -16)
-      of GIT_ECERTIFICATE: result = cint(result or -17)
-      of GIT_EAPPLIED: result = cint(result or -18)
-      of GIT_EPEEL: result = cint(result or -19)
-      of GIT_EEOF: result = cint(result or -20)
-      of GIT_EINVALID: result = cint(result or -21)
-      of GIT_EUNCOMMITTED: result = cint(result or -22)
-      of GIT_EDIRECTORY: result = cint(result or -23)
-      of GIT_EMERGECONFLICT: result = cint(result or -24)
-      of GIT_PASSTHROUGH: result = cint(result or -30)
-      of GIT_ITEROVER: result = cint(result or -31)
-      of GIT_RETRY: result = cint(result or -32)
-      of GIT_EMISMATCH: result = cint(result or -33)
-      of GIT_EINDEXDIRTY: result = cint(result or -34)
-      of GIT_EAPPLYFAIL: result = cint(result or -35)
-      of GIT_EOWNER: result = cint(result or -36)
-      of GIT_TIMEOUT: result = cint(result or -37)
+      of GIT_EINVALIDSPEC   : result = cint(result or -12)
+      of GIT_ECONFLICT      : result = cint(result or -13)
+      of GIT_ELOCKED        : result = cint(result or -14)
+      of GIT_EMODIFIED      : result = cint(result or -15)
+      of GIT_EAUTH          : result = cint(result or -16)
+      of GIT_ECERTIFICATE   : result = cint(result or -17)
+      of GIT_EAPPLIED       : result = cint(result or -18)
+      of GIT_EPEEL          : result = cint(result or -19)
+      of GIT_EEOF           : result = cint(result or -20)
+      of GIT_EINVALID       : result = cint(result or -21)
+      of GIT_EUNCOMMITTED   : result = cint(result or -22)
+      of GIT_EDIRECTORY     : result = cint(result or -23)
+      of GIT_EMERGECONFLICT : result = cint(result or -24)
+      of GIT_PASSTHROUGH    : result = cint(result or -30)
+      of GIT_ITEROVER       : result = cint(result or -31)
+      of GIT_RETRY          : result = cint(result or -32)
+      of GIT_EMISMATCH      : result = cint(result or -33)
+      of GIT_EINDEXDIRTY    : result = cint(result or -34)
+      of GIT_EAPPLYFAIL     : result = cint(result or -35)
+      of GIT_EOWNER         : result = cint(result or -36)
+      of GIT_TIMEOUT        : result = cint(result or -37)
 
 func `-`*(arg: c_git_error_code, offset: int): cint = cast[c_git_error_code](ord(arg) - offset)
 
@@ -199,43 +203,43 @@ converter toCInt*(arg: c_git_error_t): cint = cint(ord(arg))
 converter toCInt*(args: set(git_error_t)): cint =
   for value in items(args):
     case value:
-      of GIT_ERROR_NONE: result = cint(result or 0)
-      of GIT_ERROR_NOMEMORY: result = cint(result or 1)
-      of GIT_ERROR_OS: result = cint(result or 2)
-      of GIT_ERROR_INVALID: result = cint(result or 3)
-      of GIT_ERROR_REFERENCE: result = cint(result or 4)
-      of GIT_ERROR_ZLIB: result = cint(result or 5)
+      of GIT_ERROR_NONE      : result = cint(result or 0)
+      of GIT_ERROR_NOMEMORY  : result = cint(result or 1)
+      of GIT_ERROR_OS        : result = cint(result or 2)
+      of GIT_ERROR_INVALID   : result = cint(result or 3)
+      of GIT_ERROR_REFERENCE : result = cint(result or 4)
+      of GIT_ERROR_ZLIB      : result = cint(result or 5)
       of GIT_ERROR_REPOSITORY: result = cint(result or 6)
-      of GIT_ERROR_CONFIG: result = cint(result or 7)
-      of GIT_ERROR_REGEX: result = cint(result or 8)
-      of GIT_ERROR_ODB: result = cint(result or 9)
-      of GIT_ERROR_INDEX: result = cint(result or 10)
-      of GIT_ERROR_OBJECT: result = cint(result or 11)
-      of GIT_ERROR_NET: result = cint(result or 12)
-      of GIT_ERROR_TAG: result = cint(result or 13)
-      of GIT_ERROR_TREE: result = cint(result or 14)
-      of GIT_ERROR_INDEXER: result = cint(result or 15)
-      of GIT_ERROR_SSL: result = cint(result or 16)
-      of GIT_ERROR_SUBMODULE: result = cint(result or 17)
-      of GIT_ERROR_THREAD: result = cint(result or 18)
-      of GIT_ERROR_STASH: result = cint(result or 19)
-      of GIT_ERROR_CHECKOUT: result = cint(result or 20)
-      of GIT_ERROR_FETCHHEAD: result = cint(result or 21)
-      of GIT_ERROR_MERGE: result = cint(result or 22)
-      of GIT_ERROR_SSH: result = cint(result or 23)
-      of GIT_ERROR_FILTER: result = cint(result or 24)
-      of GIT_ERROR_REVERT: result = cint(result or 25)
-      of GIT_ERROR_CALLBACK: result = cint(result or 26)
+      of GIT_ERROR_CONFIG    : result = cint(result or 7)
+      of GIT_ERROR_REGEX     : result = cint(result or 8)
+      of GIT_ERROR_ODB       : result = cint(result or 9)
+      of GIT_ERROR_INDEX     : result = cint(result or 10)
+      of GIT_ERROR_OBJECT    : result = cint(result or 11)
+      of GIT_ERROR_NET       : result = cint(result or 12)
+      of GIT_ERROR_TAG       : result = cint(result or 13)
+      of GIT_ERROR_TREE      : result = cint(result or 14)
+      of GIT_ERROR_INDEXER   : result = cint(result or 15)
+      of GIT_ERROR_SSL       : result = cint(result or 16)
+      of GIT_ERROR_SUBMODULE : result = cint(result or 17)
+      of GIT_ERROR_THREAD    : result = cint(result or 18)
+      of GIT_ERROR_STASH     : result = cint(result or 19)
+      of GIT_ERROR_CHECKOUT  : result = cint(result or 20)
+      of GIT_ERROR_FETCHHEAD : result = cint(result or 21)
+      of GIT_ERROR_MERGE     : result = cint(result or 22)
+      of GIT_ERROR_SSH       : result = cint(result or 23)
+      of GIT_ERROR_FILTER    : result = cint(result or 24)
+      of GIT_ERROR_REVERT    : result = cint(result or 25)
+      of GIT_ERROR_CALLBACK  : result = cint(result or 26)
       of GIT_ERROR_CHERRYPICK: result = cint(result or 27)
-      of GIT_ERROR_DESCRIBE: result = cint(result or 28)
-      of GIT_ERROR_REBASE: result = cint(result or 29)
+      of GIT_ERROR_DESCRIBE  : result = cint(result or 28)
+      of GIT_ERROR_REBASE    : result = cint(result or 29)
       of GIT_ERROR_FILESYSTEM: result = cint(result or 30)
-      of GIT_ERROR_PATCH: result = cint(result or 31)
-      of GIT_ERROR_WORKTREE: result = cint(result or 32)
-      of GIT_ERROR_SHA: result = cint(result or 33)
-      of GIT_ERROR_HTTP: result = cint(result or 34)
-      of GIT_ERROR_INTERNAL: result = cint(result or 35)
-      of GIT_ERROR_GRAFTS: result = cint(result or 36)
+      of GIT_ERROR_PATCH     : result = cint(result or 31)
+      of GIT_ERROR_WORKTREE  : result = cint(result or 32)
+      of GIT_ERROR_SHA       : result = cint(result or 33)
+      of GIT_ERROR_HTTP      : result = cint(result or 34)
+      of GIT_ERROR_INTERNAL  : result = cint(result or 35)
+      of GIT_ERROR_GRAFTS    : result = cint(result or 36)
 
 func `-`*(arg: c_git_error_t, offset: int): cint = cast[c_git_error_t](ord(arg) - offset)
 
@@ -245,12 +249,12 @@ func `+`*(arg: c_git_error_t, offset: int): cint = cast[c_git_error_t](ord(arg) 
 
 func `+`*(offset: int, arg: c_git_error_t): cint = cast[c_git_error_t](ord(arg) + offset)
 
-proc `git_error_last`*(): ptr git_error {.git2Proc, importc.}
+proc git_error_last*(): ptr git_error {.git2Proc, importc.}
 
-proc `git_error_clear`*(): void {.git2Proc, importc.}
+proc git_error_clear*(): void {.git2Proc, importc.}
 
-proc `git_error_set`*(error_class: cint, fmt: cstring): void {.git2Proc, importc.}
+proc git_error_set*(error_class: cint, fmt: cstring): void {.git2Proc, importc.}
 
-proc `git_error_set_str`*(error_class: cint, string: cstring): cint {.git2Proc, importc.}
+proc git_error_set_str*(error_class: cint, string: cstring): cint {.git2Proc, importc.}
 
-proc `git_error_set_oom`*(): void {.git2Proc, importc.}
+proc git_error_set_oom*(): void {.git2Proc, importc.}

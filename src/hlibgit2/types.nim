@@ -1,5 +1,5 @@
-type
 
+type
   c_git_object_t {.size: sizeof(cint).} = enum
     c_GIT_OBJECT_ANY       = -2
     c_GIT_OBJECT_INVALID   = -1
@@ -9,6 +9,7 @@ type
     c_GIT_OBJECT_TAG       = 1 shl 2
     c_GIT_OBJECT_OFS_DELTA = 6
     c_GIT_OBJECT_REF_DELTA = 7
+
   git_object_t = enum
     GIT_OBJECT_ANY
     GIT_OBJECT_INVALID
@@ -18,139 +19,151 @@ type
     GIT_OBJECT_TAG
     GIT_OBJECT_OFS_DELTA
     GIT_OBJECT_REF_DELTA
-  git_odb_stream* {.importc, bycopy.} = object
-    backend        *: ptr git_odb_backend
-    mode           *: cuint
-    hash_ctx       *: ptr void
-    declared_size  *: git_object_size_t
-    received_bytes *: git_object_size_t
-    read           *: proc (a0: ptr git_odb_stream, a1: ptr char, a2: csize_t): cint
-    write          *: proc (a0: ptr git_odb_stream, a1: cstring, a2: csize_t): cint
-    finalize_write *: proc (a0: ptr git_odb_stream, a1: ptr git_oid): cint
-    free           *: proc (a0: ptr git_odb_stream): void
-  git_odb_backend* {.importc, bycopy.} = object
 
   git_object_size_t = uint64
-  git_odb_writepack* {.importc, bycopy.} = object
-    backend *: ptr git_odb_backend
-    append  *: proc (a0: ptr git_odb_writepack, a1: ptr const void, a2: csize_t, a3: ptr git_indexer_progress): cint
-    commit  *: proc (a0: ptr git_odb_writepack, a1: ptr git_indexer_progress): cint
-    free    *: proc (a0: ptr git_odb_writepack): void
+
   git_odb* {.importc, bycopy.} = object
+
 
   git_odb_object* {.importc, bycopy.} = object
 
+
   git_midx_writer* {.importc, bycopy.} = object
+
 
   git_refdb* {.importc, bycopy.} = object
 
-  git_refdb_backend* {.importc, bycopy.} = object
 
   git_commit_graph* {.importc, bycopy.} = object
 
+
   git_commit_graph_writer* {.importc, bycopy.} = object
+
 
   git_repository* {.importc, bycopy.} = object
 
+
   git_worktree* {.importc, bycopy.} = object
+
 
   git_object* {.importc, bycopy.} = object
 
+
   git_revwalk* {.importc, bycopy.} = object
+
 
   git_tag* {.importc, bycopy.} = object
 
+
   git_blob* {.importc, bycopy.} = object
+
 
   git_commit* {.importc, bycopy.} = object
 
+
   git_tree_entry* {.importc, bycopy.} = object
+
 
   git_tree* {.importc, bycopy.} = object
 
+
   git_treebuilder* {.importc, bycopy.} = object
+
 
   git_index* {.importc, bycopy.} = object
 
+
   git_index_iterator* {.importc, bycopy.} = object
+
 
   git_index_conflict_iterator* {.importc, bycopy.} = object
 
+
   git_config* {.importc, bycopy.} = object
 
-  git_config_backend* {.importc, bycopy.} = object
 
   git_reflog_entry* {.importc, bycopy.} = object
 
+
   git_reflog* {.importc, bycopy.} = object
+
 
   git_note* {.importc, bycopy.} = object
 
+
   git_packbuilder* {.importc, bycopy.} = object
+
 
   git_time* {.importc, bycopy.} = object
     time   *: git_time_t
     offset *: cint
     sign   *: char
+
   git_time_t = int64
+
   git_signature* {.importc, bycopy.} = object
     name  *: ptr char
     email *: ptr char
     when  *: git_time
+
   git_reference* {.importc, bycopy.} = object
 
-  git_reference_iterator* {.importc, bycopy.} = object
 
   git_transaction* {.importc, bycopy.} = object
 
+
   git_annotated_commit* {.importc, bycopy.} = object
+
 
   git_status_list* {.importc, bycopy.} = object
 
+
   git_rebase* {.importc, bycopy.} = object
+
 
   git_refspec* {.importc, bycopy.} = object
 
+
   git_remote* {.importc, bycopy.} = object
 
-  git_transport* {.importc, bycopy.} = object
 
   git_push* {.importc, bycopy.} = object
 
-  git_remote_head* {.importc, bycopy.} = object
-    local         *: cint
-    oid           *: git_oid
-    loid          *: git_oid
-    name          *: ptr char
-    symref_target *: ptr char
+
   git_remote_callbacks* {.importc, bycopy.} = object
+
 
   git_cert* {.importc, bycopy.} = object
 
+
   git_submodule* {.importc, bycopy.} = object
 
-  git_writestream* {.importc, bycopy.} = object
 
   git_mailmap* {.importc, bycopy.} = object
+
 
   c_git_reference_t {.size: sizeof(cint).} = enum
     c_GIT_REFERENCE_INVALID  = 0 shl 0
     c_GIT_REFERENCE_DIRECT   = 1 shl 0
     c_GIT_REFERENCE_SYMBOLIC = 1 shl 1
     c_GIT_REFERENCE_ALL      = 3
+
   git_reference_t = enum
     GIT_REFERENCE_INVALID
     GIT_REFERENCE_DIRECT
     GIT_REFERENCE_SYMBOLIC
     GIT_REFERENCE_ALL
+
   c_git_branch_t {.size: sizeof(cint).} = enum
     c_GIT_BRANCH_LOCAL  = 1 shl 0
     c_GIT_BRANCH_REMOTE = 1 shl 1
     c_GIT_BRANCH_ALL    = 3
+
   git_branch_t = enum
     GIT_BRANCH_LOCAL
     GIT_BRANCH_REMOTE
     GIT_BRANCH_ALL
+
   c_git_filemode_t {.size: sizeof(cint).} = enum
     c_GIT_FILEMODE_UNREADABLE      = 0 shl 0
     c_GIT_FILEMODE_TREE            = 1 shl 14
@@ -158,6 +171,7 @@ type
     c_GIT_FILEMODE_BLOB_EXECUTABLE = 33261
     c_GIT_FILEMODE_LINK            = 40960
     c_GIT_FILEMODE_COMMIT          = 57344
+
   git_filemode_t = enum
     GIT_FILEMODE_UNREADABLE
     GIT_FILEMODE_TREE
@@ -165,38 +179,45 @@ type
     GIT_FILEMODE_BLOB_EXECUTABLE
     GIT_FILEMODE_LINK
     GIT_FILEMODE_COMMIT
+
   c_git_submodule_update_t {.size: sizeof(cint).} = enum
     c_GIT_SUBMODULE_UPDATE_CHECKOUT = 1 shl 0
     c_GIT_SUBMODULE_UPDATE_REBASE   = 1 shl 1
     c_GIT_SUBMODULE_UPDATE_MERGE    = 3
     c_GIT_SUBMODULE_UPDATE_NONE     = 1 shl 2
     c_GIT_SUBMODULE_UPDATE_DEFAULT  = 0 shl 0
+
   git_submodule_update_t = enum
     GIT_SUBMODULE_UPDATE_CHECKOUT
     GIT_SUBMODULE_UPDATE_REBASE
     GIT_SUBMODULE_UPDATE_MERGE
     GIT_SUBMODULE_UPDATE_NONE
     GIT_SUBMODULE_UPDATE_DEFAULT
+
   c_git_submodule_ignore_t {.size: sizeof(cint).} = enum
     c_GIT_SUBMODULE_IGNORE_UNSPECIFIED = -1
     c_GIT_SUBMODULE_IGNORE_NONE        = 1 shl 0
     c_GIT_SUBMODULE_IGNORE_UNTRACKED   = 1 shl 1
     c_GIT_SUBMODULE_IGNORE_DIRTY       = 3
     c_GIT_SUBMODULE_IGNORE_ALL         = 1 shl 2
+
   git_submodule_ignore_t = enum
     GIT_SUBMODULE_IGNORE_UNSPECIFIED
     GIT_SUBMODULE_IGNORE_NONE
     GIT_SUBMODULE_IGNORE_UNTRACKED
     GIT_SUBMODULE_IGNORE_DIRTY
     GIT_SUBMODULE_IGNORE_ALL
+
   c_git_submodule_recurse_t {.size: sizeof(cint).} = enum
     c_GIT_SUBMODULE_RECURSE_NO       = 0 shl 0
     c_GIT_SUBMODULE_RECURSE_YES      = 1 shl 0
     c_GIT_SUBMODULE_RECURSE_ONDEMAND = 1 shl 1
+
   git_submodule_recurse_t = enum
     GIT_SUBMODULE_RECURSE_NO
     GIT_SUBMODULE_RECURSE_YES
     GIT_SUBMODULE_RECURSE_ONDEMAND
+
   git_off_t = int64
 
 
@@ -206,12 +227,12 @@ converter toCInt*(arg: c_git_object_t): cint = cint(ord(arg))
 converter toCInt*(args: set(git_object_t)): cint =
   for value in items(args):
     case value:
-      of GIT_OBJECT_ANY: result = cint(result or -2)
-      of GIT_OBJECT_INVALID: result = cint(result or -1)
-      of GIT_OBJECT_COMMIT: result = cint(result or 1)
-      of GIT_OBJECT_TREE: result = cint(result or 2)
-      of GIT_OBJECT_BLOB: result = cint(result or 3)
-      of GIT_OBJECT_TAG: result = cint(result or 4)
+      of GIT_OBJECT_ANY      : result = cint(result or -2)
+      of GIT_OBJECT_INVALID  : result = cint(result or -1)
+      of GIT_OBJECT_COMMIT   : result = cint(result or 1)
+      of GIT_OBJECT_TREE     : result = cint(result or 2)
+      of GIT_OBJECT_BLOB     : result = cint(result or 3)
+      of GIT_OBJECT_TAG      : result = cint(result or 4)
       of GIT_OBJECT_OFS_DELTA: result = cint(result or 6)
       of GIT_OBJECT_REF_DELTA: result = cint(result or 7)
 
@@ -228,10 +249,10 @@ converter toCInt*(arg: c_git_reference_t): cint = cint(ord(arg))
 converter toCInt*(args: set(git_reference_t)): cint =
   for value in items(args):
     case value:
-      of GIT_REFERENCE_INVALID: result = cint(result or 0)
-      of GIT_REFERENCE_DIRECT: result = cint(result or 1)
+      of GIT_REFERENCE_INVALID : result = cint(result or 0)
+      of GIT_REFERENCE_DIRECT  : result = cint(result or 1)
       of GIT_REFERENCE_SYMBOLIC: result = cint(result or 2)
-      of GIT_REFERENCE_ALL: result = cint(result or 3)
+      of GIT_REFERENCE_ALL     : result = cint(result or 3)
 
 func `-`*(arg: c_git_reference_t, offset: int): cint = cast[c_git_reference_t](ord(arg) - offset)
 
@@ -246,9 +267,9 @@ converter toCInt*(arg: c_git_branch_t): cint = cint(ord(arg))
 converter toCInt*(args: set(git_branch_t)): cint =
   for value in items(args):
     case value:
-      of GIT_BRANCH_LOCAL: result = cint(result or 1)
+      of GIT_BRANCH_LOCAL : result = cint(result or 1)
       of GIT_BRANCH_REMOTE: result = cint(result or 2)
-      of GIT_BRANCH_ALL: result = cint(result or 3)
+      of GIT_BRANCH_ALL   : result = cint(result or 3)
 
 func `-`*(arg: c_git_branch_t, offset: int): cint = cast[c_git_branch_t](ord(arg) - offset)
 
@@ -263,12 +284,12 @@ converter toCInt*(arg: c_git_filemode_t): cint = cint(ord(arg))
 converter toCInt*(args: set(git_filemode_t)): cint =
   for value in items(args):
     case value:
-      of GIT_FILEMODE_UNREADABLE: result = cint(result or 0)
-      of GIT_FILEMODE_TREE: result = cint(result or 16384)
-      of GIT_FILEMODE_BLOB: result = cint(result or 33188)
+      of GIT_FILEMODE_UNREADABLE     : result = cint(result or 0)
+      of GIT_FILEMODE_TREE           : result = cint(result or 16384)
+      of GIT_FILEMODE_BLOB           : result = cint(result or 33188)
       of GIT_FILEMODE_BLOB_EXECUTABLE: result = cint(result or 33261)
-      of GIT_FILEMODE_LINK: result = cint(result or 40960)
-      of GIT_FILEMODE_COMMIT: result = cint(result or 57344)
+      of GIT_FILEMODE_LINK           : result = cint(result or 40960)
+      of GIT_FILEMODE_COMMIT         : result = cint(result or 57344)
 
 func `-`*(arg: c_git_filemode_t, offset: int): cint = cast[c_git_filemode_t](ord(arg) - offset)
 
@@ -284,10 +305,10 @@ converter toCInt*(args: set(git_submodule_update_t)): cint =
   for value in items(args):
     case value:
       of GIT_SUBMODULE_UPDATE_CHECKOUT: result = cint(result or 1)
-      of GIT_SUBMODULE_UPDATE_REBASE: result = cint(result or 2)
-      of GIT_SUBMODULE_UPDATE_MERGE: result = cint(result or 3)
-      of GIT_SUBMODULE_UPDATE_NONE: result = cint(result or 4)
-      of GIT_SUBMODULE_UPDATE_DEFAULT: result = cint(result or 0)
+      of GIT_SUBMODULE_UPDATE_REBASE  : result = cint(result or 2)
+      of GIT_SUBMODULE_UPDATE_MERGE   : result = cint(result or 3)
+      of GIT_SUBMODULE_UPDATE_NONE    : result = cint(result or 4)
+      of GIT_SUBMODULE_UPDATE_DEFAULT : result = cint(result or 0)
 
 func `-`*(arg: c_git_submodule_update_t, offset: int): cint = cast[c_git_submodule_update_t](ord(arg) - offset)
 
@@ -303,10 +324,10 @@ converter toCInt*(args: set(git_submodule_ignore_t)): cint =
   for value in items(args):
     case value:
       of GIT_SUBMODULE_IGNORE_UNSPECIFIED: result = cint(result or -1)
-      of GIT_SUBMODULE_IGNORE_NONE: result = cint(result or 1)
-      of GIT_SUBMODULE_IGNORE_UNTRACKED: result = cint(result or 2)
-      of GIT_SUBMODULE_IGNORE_DIRTY: result = cint(result or 3)
-      of GIT_SUBMODULE_IGNORE_ALL: result = cint(result or 4)
+      of GIT_SUBMODULE_IGNORE_NONE       : result = cint(result or 1)
+      of GIT_SUBMODULE_IGNORE_UNTRACKED  : result = cint(result or 2)
+      of GIT_SUBMODULE_IGNORE_DIRTY      : result = cint(result or 3)
+      of GIT_SUBMODULE_IGNORE_ALL        : result = cint(result or 4)
 
 func `-`*(arg: c_git_submodule_ignore_t, offset: int): cint = cast[c_git_submodule_ignore_t](ord(arg) - offset)
 
@@ -321,8 +342,8 @@ converter toCInt*(arg: c_git_submodule_recurse_t): cint = cint(ord(arg))
 converter toCInt*(args: set(git_submodule_recurse_t)): cint =
   for value in items(args):
     case value:
-      of GIT_SUBMODULE_RECURSE_NO: result = cint(result or 0)
-      of GIT_SUBMODULE_RECURSE_YES: result = cint(result or 1)
+      of GIT_SUBMODULE_RECURSE_NO      : result = cint(result or 0)
+      of GIT_SUBMODULE_RECURSE_YES     : result = cint(result or 1)
       of GIT_SUBMODULE_RECURSE_ONDEMAND: result = cint(result or 2)
 
 func `-`*(arg: c_git_submodule_recurse_t, offset: int): cint = cast[c_git_submodule_recurse_t](ord(arg) - offset)

@@ -4,7 +4,8 @@
       "name": {
         "name": "git_pathspec",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -14,13 +15,15 @@
       "recordDefName": {
         "name": "git_pathspec",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_pathspec_match_list",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -30,7 +33,8 @@
       "recordDefName": {
         "name": "git_pathspec_match_list",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     }
   ],
   "enums": [

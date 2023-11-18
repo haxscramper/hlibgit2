@@ -1,1 +1,1 @@
-proc `git_openssl_set_locking`*(): cint {.git2Proc, importc.}
+proc git_openssl_set_locking*(): cint {.git2Proc, importc.}

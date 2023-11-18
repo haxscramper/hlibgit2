@@ -4,7 +4,8 @@
       "name": {
         "name": "git_diff",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/diff.h:196:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -14,7 +15,8 @@
       "recordDefName": {
         "name": "git_diff",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -703,7 +705,8 @@
       "name": {
         "name": "git_diff_stats",
         "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/diff.h:1341:16"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
@@ -713,7 +716,8 @@
       "recordDefName": {
         "name": "git_diff_stats",
         "tag": "TypeTagStruct"
-      }
+      },
+      "isForwardDecl": true
     },
     {
       "name": {
