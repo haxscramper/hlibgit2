@@ -1,0 +1,162 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_hashsig",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_hashsig",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+      },
+      "recordDefName": {
+        "name": "git_hashsig",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_HASHSIG_NORMAL"
+        },
+        {
+          "name": "GIT_HASHSIG_IGNORE_WHITESPACE",
+          "value": "1"
+        },
+        {
+          "name": "GIT_HASHSIG_SMART_WHITESPACE",
+          "value": "2"
+        },
+        {
+          "name": "GIT_HASHSIG_ALLOW_SMALL_FILES",
+          "value": "4"
+        }
+      ],
+      "name": {
+        "name": "git_hashsig_option_t",
+        "dbgOrigin": "enum typedef typedef:git_hashsig_option_tname:/mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:45:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_hashsig_create",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_hashsig",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "buf"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "buflen"
+        },
+        {
+          "type": {
+            "name": "git_hashsig_option_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:45:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_hashsig_create_fromfile",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_hashsig",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "path"
+        },
+        {
+          "type": {
+            "name": "git_hashsig_option_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:45:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_hashsig_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_hashsig",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+          },
+          "name": "sig"
+        }
+      ]
+    },
+    {
+      "name": "git_hashsig_compare",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_hashsig",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+          },
+          "name": "a"
+        },
+        {
+          "type": {
+            "name": "git_hashsig",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+          },
+          "name": "b"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_SORT_NONE"
+        },
+        {
+          "name": "GIT_SORT_TOPOLOGICAL",
+          "value": "1"
+        },
+        {
+          "name": "GIT_SORT_TIME",
+          "value": "2"
+        },
+        {
+          "name": "GIT_SORT_REVERSE",
+          "value": "4"
+        }
+      ],
+      "name": {
+        "name": "git_sort_t",
+        "dbgOrigin": "enum typedef typedef:git_sort_tname:/mnt/workspace/repos/libgit2/include/git2/revwalk.h:53:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_revwalk_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_reset",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walker"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_push",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_push_glob",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "glob"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_push_head",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_hide",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "commit_id"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_hide_glob",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "glob"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_hide_head",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_push_ref",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "refname"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_hide_ref",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "refname"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_next",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_sorting",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "sort_mode"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_push_range",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "range"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_simplify_first_parent",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_repository",
+      "resultTy": {
+        "name": "git_repository",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        }
+      ]
+    },
+    {
+      "name": "git_revwalk_add_hide_cb",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        },
+        {
+          "type": {
+            "name": "git_revwalk_hide_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revwalk.h:283:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/revwalk.h:283:26>"
+          },
+          "name": "hide_cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_revwalk_hide_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/revwalk.h:283:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/revwalk.h:283:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

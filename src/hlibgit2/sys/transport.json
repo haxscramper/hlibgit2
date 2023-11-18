@@ -1,0 +1,1627 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_transport",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< The struct version */"
+        },
+        {
+          "name": "connect",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_remote_connect_options",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:877:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "set_connect_opts",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "git_remote_connect_options",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:877:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "capabilities",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "unsigned int",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "ls",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_remote_head",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:256:32"
+              },
+              {
+                "name": "size_t",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "push",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "git_push",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:253:25"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "negotiate_fetch",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "git_repository",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+              },
+              {
+                "name": "git_fetch_negotiation",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:35:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "shallow_roots",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_oidarray",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oidarray.h:19:3"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "download_pack",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "git_repository",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+              },
+              {
+                "name": "git_indexer_progress",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "is_connected",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "cancel",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "close",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_transport",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_fetch_negotiation",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:35:3"
+      },
+      "fields": [
+        {
+          "name": "refs",
+          "type": {
+            "name": "git_remote_head",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:256:32"
+          }
+        },
+        {
+          "name": "refs_len",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          }
+        },
+        {
+          "name": "shallow_roots",
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          }
+        },
+        {
+          "name": "shallow_roots_len",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          }
+        },
+        {
+          "name": "depth",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_transport",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:37:8"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< The struct version */"
+        },
+        {
+          "name": "connect",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_remote_connect_options",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:877:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "set_connect_opts",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "git_remote_connect_options",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:877:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "capabilities",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "unsigned int",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "ls",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_remote_head",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:256:32"
+              },
+              {
+                "name": "size_t",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "push",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "git_push",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:253:25"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "negotiate_fetch",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "git_repository",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+              },
+              {
+                "name": "git_fetch_negotiation",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:35:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "shallow_roots",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_oidarray",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oidarray.h:19:3"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "download_pack",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              },
+              {
+                "name": "git_repository",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+              },
+              {
+                "name": "git_indexer_progress",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "is_connected",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "cancel",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "close",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_transport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_smart_subtransport",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_smart_subtransport",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+      },
+      "fields": [
+        {
+          "name": "action",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+              },
+              {
+                "name": "git_smart_subtransport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "git_smart_service_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:318:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "close",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_smart_subtransport",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_smart_subtransport_stream",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_smart_subtransport_stream",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+      },
+      "fields": [
+        {
+          "name": "subtransport",
+          "type": {
+            "name": "git_smart_subtransport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+          },
+          "doc": "/**< The owning subtransport */"
+        },
+        {
+          "name": "read",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+              },
+              {
+                "name": "char",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              },
+              {
+                "name": "size_t",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "write",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_smart_subtransport_stream",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_smart_subtransport_stream",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:330:8"
+      },
+      "fields": [
+        {
+          "name": "subtransport",
+          "type": {
+            "name": "git_smart_subtransport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+          },
+          "doc": "/**< The owning subtransport */"
+        },
+        {
+          "name": "read",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+              },
+              {
+                "name": "char",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              },
+              {
+                "name": "size_t",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "write",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_smart_subtransport",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:363:8"
+      },
+      "fields": [
+        {
+          "name": "action",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+              },
+              {
+                "name": "git_smart_subtransport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "git_smart_service_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:318:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "close",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_smart_subtransport",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_smart_subtransport_definition",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:409:16"
+      },
+      "fields": [
+        {
+          "name": "callback",
+          "type": {
+            "name": "git_smart_subtransport_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:390:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/transport.h:390:26>"
+          },
+          "doc": "/** The function to use to create the git_smart_subtransport */"
+        },
+        {
+          "name": "rpc",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**\n\t * True if the protocol is stateless; false otherwise. For example,\n\t * http:// is stateless, but git:// is not.\n\t */"
+        },
+        {
+          "name": "param",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "doc": "/** User-specified parameter passed to the callback */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_smart_subtransport_definition",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:421:3"
+      },
+      "fields": [
+        {
+          "name": "callback",
+          "type": {
+            "name": "git_smart_subtransport_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:390:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/transport.h:390:26>"
+          },
+          "doc": "/** The function to use to create the git_smart_subtransport */"
+        },
+        {
+          "name": "rpc",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**\n\t * True if the protocol is stateless; false otherwise. For example,\n\t * http:// is stateless, but git:// is not.\n\t */"
+        },
+        {
+          "name": "param",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "doc": "/** User-specified parameter passed to the callback */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_smart_subtransport_definition",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_SERVICE_UPLOADPACK_LS",
+          "value": "1"
+        },
+        {
+          "name": "GIT_SERVICE_UPLOADPACK",
+          "value": "2"
+        },
+        {
+          "name": "GIT_SERVICE_RECEIVEPACK_LS",
+          "value": "3"
+        },
+        {
+          "name": "GIT_SERVICE_RECEIVEPACK",
+          "value": "4"
+        }
+      ],
+      "name": {
+        "name": "git_smart_service_t",
+        "dbgOrigin": "enum typedef typedef:git_smart_service_tname:/mnt/workspace/repos/libgit2/include/git2/sys/transport.h:318:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_transport_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_remote",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:241:27"
+          },
+          "name": "owner"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "url"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_ssh_with_paths",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_remote",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:241:27"
+          },
+          "name": "owner"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_register",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "prefix"
+        },
+        {
+          "type": {
+            "name": "git_transport_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/transport.h:37:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/transport.h:37:26>"
+          },
+          "name": "cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "param"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_unregister",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "prefix"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_dummy",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_remote",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:241:27"
+          },
+          "name": "owner"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_local",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_remote",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:241:27"
+          },
+          "name": "owner"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_smart",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_remote",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:241:27"
+          },
+          "name": "owner"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_smart_certificate_check",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "transport"
+        },
+        {
+          "type": {
+            "name": "git_cert",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:262:25"
+          },
+          "name": "cert"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "valid"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "hostname"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_smart_credentials",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_credential",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/credential.h:84:31"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "transport"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "user"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "methods"
+        }
+      ]
+    },
+    {
+      "name": "git_transport_remote_connect_options",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_remote_connect_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:877:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "transport"
+        }
+      ]
+    },
+    {
+      "name": "git_smart_subtransport_http",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_smart_subtransport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "owner"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "param"
+        }
+      ]
+    },
+    {
+      "name": "git_smart_subtransport_git",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_smart_subtransport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "owner"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "param"
+        }
+      ]
+    },
+    {
+      "name": "git_smart_subtransport_ssh",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_smart_subtransport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          "name": "owner"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "param"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_smart_subtransport_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/transport.h:390:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/transport.h:390:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_smart_subtransport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
+          },
+          {
+            "name": "git_transport",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

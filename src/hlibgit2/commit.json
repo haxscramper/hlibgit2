@@ -1,0 +1,1087 @@
+{
+  "functions": [
+    {
+      "name": "git_commit_lookup",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_lookup_prefix",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "len"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_id",
+      "resultTy": {
+        "name": "git_oid",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_owner",
+      "resultTy": {
+        "name": "git_repository",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_message_encoding",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_message",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_message_raw",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_summary",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_body",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_time",
+      "resultTy": {
+        "name": "git_time_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:62:17"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_time_offset",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_committer",
+      "resultTy": {
+        "name": "git_signature",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_author",
+      "resultTy": {
+        "name": "git_signature",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_committer_with_mailmap",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        },
+        {
+          "type": {
+            "name": "git_mailmap",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+          },
+          "name": "mailmap"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_author_with_mailmap",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        },
+        {
+          "type": {
+            "name": "git_mailmap",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+          },
+          "name": "mailmap"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_raw_header",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_tree",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "tree_out"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_tree_id",
+      "resultTy": {
+        "name": "git_oid",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_parentcount",
+      "resultTy": {
+        "name": "unsigned int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_parent",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "n"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_parent_id",
+      "resultTy": {
+        "name": "git_oid",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "n"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_nth_gen_ancestor",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "ancestor"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "n"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_header_field",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "field"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_extract_signature",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "signature"
+        },
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "signed_data"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "commit_id"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "field"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_create",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "update_ref"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "author"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "committer"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message_encoding"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "tree"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "parent_count"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "parents"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_create_v",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "update_ref"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "author"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "committer"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message_encoding"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "tree"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "parent_count"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_amend",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit_to_amend"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "update_ref"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "author"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "committer"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message_encoding"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "tree"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_create_buffer",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "author"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          "name": "committer"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message_encoding"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "tree"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "parent_count"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "parents"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_create_with_signature",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "commit_content"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "signature"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "signature_field"
+        }
+      ]
+    },
+    {
+      "name": "git_commit_dup",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "source"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_commit_create_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/commit.h:533:15"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          {
+            "name": "git_signature",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

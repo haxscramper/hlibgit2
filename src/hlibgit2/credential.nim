@@ -1,18 +1,32 @@
-{.push warning[UnusedImport]:off.}
-
-import
-  ./libgit2_config,
-  hlibssh2/libssh2,
-  hlibssh2/libssh2_config
-
 type
-  LIBSSH2_SESSION1* = LIBSSH2_SESSION
 
-  LIBSSH2_USERAUTH_KBDINT_PROMPT1* = LIBSSH2_USERAUTH_KBDINT_PROMPT
+  git_credential* {.importc, bycopy.} = object
 
-  LIBSSH2_USERAUTH_KBDINT_RESPONSE1* = LIBSSH2_USERAUTH_KBDINT_RESPONSE
+  git_credential_userpass_plaintext* {.importc, bycopy.} = object
 
-  c_git_credential_t* = enum
+  git_credential_username* {.importc, bycopy.} = object
+
+  git_credential_default* {.importc, bycopy.} = object
+
+  git_credential_ssh_key* {.importc, bycopy.} = object
+
+  git_credential_ssh_interactive* {.importc, bycopy.} = object
+
+  git_credential_ssh_custom* {.importc, bycopy.} = object
+
+  _LIBSSH2_SESSION* {.importc, bycopy.} = object
+
+  LIBSSH2_SESSION* {.importc, bycopy.} = object
+
+  _LIBSSH2_USERAUTH_KBDINT_PROMPT* {.importc, bycopy.} = object
+
+  LIBSSH2_USERAUTH_KBDINT_PROMPT* {.importc, bycopy.} = object
+
+  _LIBSSH2_USERAUTH_KBDINT_RESPONSE* {.importc, bycopy.} = object
+
+  LIBSSH2_USERAUTH_KBDINT_RESPONSE* {.importc, bycopy.} = object
+
+  c_git_credential_t {.size: sizeof(cint).} = enum
     c_GIT_CREDENTIAL_USERPASS_PLAINTEXT = 1 shl 0
     c_GIT_CREDENTIAL_SSH_KEY            = 1 shl 1
     c_GIT_CREDENTIAL_SSH_CUSTOM         = 1 shl 2
@@ -20,44 +34,7 @@ type
     c_GIT_CREDENTIAL_SSH_INTERACTIVE    = 1 shl 4
     c_GIT_CREDENTIAL_USERNAME           = 1 shl 5
     c_GIT_CREDENTIAL_SSH_MEMORY         = 1 shl 6
-
-  git_credential* {.bycopy, incompleteStruct, header: "<git2/credential.h>", importc.} = object
-
-
-  git_credential_acquire_cb* = proc(arg_out:           ptr ptr git_credential,
-                                    url:               cstring,
-                                    username_from_url: cstring,
-                                    allowed_types:     cuint,
-                                    payload:           pointer): cint{.cdecl.}
-
-  git_credential_default* = git_credential
-
-  git_credential_sign_cb* = proc(session:  ptr LIBSSH2_SESSION1,
-                                 sig:      ptr ptr uint8,
-                                 sig_len:  ptr csize_t,
-                                 data:     ptr uint8,
-                                 data_len: csize_t,
-                                 abstract: ptr pointer): cint{.cdecl.}
-
-  git_credential_ssh_custom* {.bycopy, incompleteStruct, header: "<git2/credential.h>", importc.} = object
-
-
-  git_credential_ssh_interactive* {.bycopy, incompleteStruct, header: "<git2/credential.h>", importc.} = object
-
-
-  git_credential_ssh_interactive_cb* = proc(name:            cstring,
-                                            name_len:        cint,
-                                            instruction:     cstring,
-                                            instruction_len: cint,
-                                            num_prompts:     cint,
-                                            prompts:         ptr LIBSSH2_USERAUTH_KBDINT_PROMPT1,
-                                            responses:       ptr LIBSSH2_USERAUTH_KBDINT_RESPONSE1,
-                                            abstract:        ptr pointer): void{.cdecl.}
-
-  git_credential_ssh_key* {.bycopy, incompleteStruct, header: "<git2/credential.h>", importc.} = object
-
-
-  git_credential_t* {.size: sizeof(cint).} = enum
+  git_credential_t = enum
     GIT_CREDENTIAL_USERPASS_PLAINTEXT
     GIT_CREDENTIAL_SSH_KEY
     GIT_CREDENTIAL_SSH_CUSTOM
@@ -65,146 +42,51 @@ type
     GIT_CREDENTIAL_SSH_INTERACTIVE
     GIT_CREDENTIAL_USERNAME
     GIT_CREDENTIAL_SSH_MEMORY
-
-  git_credential_username* {.bycopy, incompleteStruct, header: "<git2/credential.h>", importc.} = object
-
-
-  git_credential_userpass_plaintext* {.bycopy, incompleteStruct, header: "<git2/credential.h>", importc.} = object
+  git_credential_ssh_interactive_cb = proc (a0: cstring, a1: cint, a2: cstring, a3: cint, a4: cint, a5: ptr LIBSSH2_USERAUTH_KBDINT_PROMPT, a6: ptr LIBSSH2_USERAUTH_KBDINT_RESPONSE, a7: ptr void): void
+  git_credential_sign_cb = proc (a0: ptr LIBSSH2_SESSION, a1: ptr char, a2: ptr csize_t, a3: cstring, a4: csize_t, a5: ptr void): cint
+  git_credential_acquire_cb = proc (a0: ptr git_credential, a1: cstring, a2: cstring, a3: cuint, a4: ptr void): cint
 
 
 
-proc to_c_git_credential_t*(arg: git_credential_t): c_git_credential_t =
-  case arg:
-    of GIT_CREDENTIAL_USERPASS_PLAINTEXT: c_GIT_CREDENTIAL_USERPASS_PLAINTEXT
-    of GIT_CREDENTIAL_SSH_KEY:            c_GIT_CREDENTIAL_SSH_KEY
-    of GIT_CREDENTIAL_SSH_CUSTOM:         c_GIT_CREDENTIAL_SSH_CUSTOM
-    of GIT_CREDENTIAL_DEFAULT:            c_GIT_CREDENTIAL_DEFAULT
-    of GIT_CREDENTIAL_SSH_INTERACTIVE:    c_GIT_CREDENTIAL_SSH_INTERACTIVE
-    of GIT_CREDENTIAL_USERNAME:           c_GIT_CREDENTIAL_USERNAME
-    of GIT_CREDENTIAL_SSH_MEMORY:         c_GIT_CREDENTIAL_SSH_MEMORY
+converter toCInt*(arg: c_git_credential_t): cint = cint(ord(arg))
 
+converter toCInt*(args: set(git_credential_t)): cint =
+  for value in items(args):
+    case value:
+      of GIT_CREDENTIAL_USERPASS_PLAINTEXT: result = cint(result or 1)
+      of GIT_CREDENTIAL_SSH_KEY: result = cint(result or 2)
+      of GIT_CREDENTIAL_SSH_CUSTOM: result = cint(result or 4)
+      of GIT_CREDENTIAL_DEFAULT: result = cint(result or 8)
+      of GIT_CREDENTIAL_SSH_INTERACTIVE: result = cint(result or 16)
+      of GIT_CREDENTIAL_USERNAME: result = cint(result or 32)
+      of GIT_CREDENTIAL_SSH_MEMORY: result = cint(result or 64)
 
-converter to_git_credential_t*(arg: c_git_credential_t): git_credential_t =
-  case arg:
-    of c_GIT_CREDENTIAL_USERPASS_PLAINTEXT: GIT_CREDENTIAL_USERPASS_PLAINTEXT
-    of c_GIT_CREDENTIAL_SSH_KEY:            GIT_CREDENTIAL_SSH_KEY
-    of c_GIT_CREDENTIAL_SSH_CUSTOM:         GIT_CREDENTIAL_SSH_CUSTOM
-    of c_GIT_CREDENTIAL_DEFAULT:            GIT_CREDENTIAL_DEFAULT
-    of c_GIT_CREDENTIAL_SSH_INTERACTIVE:    GIT_CREDENTIAL_SSH_INTERACTIVE
-    of c_GIT_CREDENTIAL_USERNAME:           GIT_CREDENTIAL_USERNAME
-    of c_GIT_CREDENTIAL_SSH_MEMORY:         GIT_CREDENTIAL_SSH_MEMORY
+func `-`*(arg: c_git_credential_t, offset: int): cint = cast[c_git_credential_t](ord(arg) - offset)
 
+func `-`*(offset: int, arg: c_git_credential_t): cint = cast[c_git_credential_t](ord(arg) - offset)
 
-converter toCint*(arg: c_git_credential_t): cint =
-  ## Convert nim enum value into cint that can be passed to wrapped C
-  ## procs.
-  cint(ord(arg))
+func `+`*(arg: c_git_credential_t, offset: int): cint = cast[c_git_credential_t](ord(arg) + offset)
 
-converter toCint*(arg: git_credential_t): cint =
-  ## Convert nim enum value into cint that can be passed to wrapped C
-  ## procs.
-  cint(ord(to_c_git_credential_t(arg)))
+func `+`*(offset: int, arg: c_git_credential_t): cint = cast[c_git_credential_t](ord(arg) + offset)
 
-func `+`*(arg: c_git_credential_t, offset: int): c_git_credential_t =
-  cast[c_git_credential_t](ord(arg) + offset)
+proc `git_credential_free`*(cred: ptr git_credential): void {.git2Proc, importc.}
 
-func `+`*(offset: int, arg: c_git_credential_t): c_git_credential_t =
-  cast[c_git_credential_t](ord(arg) + offset)
+proc `git_credential_has_username`*(cred: ptr git_credential): cint {.git2Proc, importc.}
 
-func `-`*(arg: c_git_credential_t, offset: int): c_git_credential_t =
-  cast[c_git_credential_t](ord(arg) - offset)
+proc `git_credential_get_username`*(cred: ptr git_credential): cstring {.git2Proc, importc.}
 
-func `-`*(offset: int, arg: c_git_credential_t): c_git_credential_t =
-  cast[c_git_credential_t](ord(arg) - offset)
+proc `git_credential_userpass_plaintext_new`*(out: ptr git_credential, username: cstring, password: cstring): cint {.git2Proc, importc.}
 
+proc `git_credential_default_new`*(out: ptr git_credential): cint {.git2Proc, importc.}
 
-converter toCint*(args: set[git_credential_t]): cint =
-  ## Convert set of nim enum values into cint that can be passed
-  ## to wrapped C procs.
-  cast[cint](args)
+proc `git_credential_username_new`*(out: ptr git_credential, username: cstring): cint {.git2Proc, importc.}
 
+proc `git_credential_ssh_key_new`*(out: ptr git_credential, username: cstring, publickey: cstring, privatekey: cstring, passphrase: cstring): cint {.git2Proc, importc.}
 
-proc git_credential_free*(cred: ptr git_credential): void {.git2Proc, importc.}
+proc `git_credential_ssh_key_memory_new`*(out: ptr git_credential, username: cstring, publickey: cstring, privatekey: cstring, passphrase: cstring): cint {.git2Proc, importc.}
 
+proc `git_credential_ssh_interactive_new`*(out: ptr git_credential, username: cstring, prompt_callback: git_credential_ssh_interactive_cb, payload: ptr void): cint {.git2Proc, importc.}
 
+proc `git_credential_ssh_key_from_agent`*(out: ptr git_credential, username: cstring): cint {.git2Proc, importc.}
 
-proc git_credential_has_username*(
-    cred: ptr git_credential
-  ): cint {.git2Proc, importc.}
-
-
-
-proc git_credential_get_username*(
-    cred: ptr git_credential
-  ): cstring {.git2Proc, importc.}
-
-
-
-proc git_credential_userpass_plaintext_new*(
-    arg_out:  ptr ptr git_credential,
-    username: cstring,
-    password: cstring
-  ): cint {.git2Proc, importc.}
-
-
-
-proc git_credential_default_new*(
-    arg_out: ptr ptr git_credential
-  ): cint {.git2Proc, importc.}
-
-
-
-proc git_credential_username_new*(
-    arg_out:  ptr ptr git_credential,
-    username: cstring
-  ): cint {.git2Proc, importc.}
-
-
-
-proc git_credential_ssh_key_new*(
-    arg_out:    ptr ptr git_credential,
-    username:   cstring,
-    publickey:  cstring,
-    privatekey: cstring,
-    passphrase: cstring
-  ): cint {.git2Proc, importc.}
-
-
-
-proc git_credential_ssh_key_memory_new*(
-    arg_out:    ptr ptr git_credential,
-    username:   cstring,
-    publickey:  cstring,
-    privatekey: cstring,
-    passphrase: cstring
-  ): cint {.git2Proc, importc.}
-
-
-
-proc git_credential_ssh_interactive_new*(
-    arg_out:         ptr ptr git_credential,
-    username:        cstring,
-    prompt_callback: git_credential_ssh_interactive_cb,
-    payload:         pointer
-  ): cint {.git2Proc, importc.}
-
-
-
-proc git_credential_ssh_key_from_agent*(
-    arg_out:  ptr ptr git_credential,
-    username: cstring
-  ): cint {.git2Proc, importc.}
-
-
-
-proc git_credential_ssh_custom_new*(
-    arg_out:       ptr ptr git_credential,
-    username:      cstring,
-    publickey:     cstring,
-    publickey_len: csize_t,
-    sign_callback: git_credential_sign_cb,
-    payload:       pointer
-  ): cint {.git2Proc, importc.}
-
-
-
+proc `git_credential_ssh_custom_new`*(out: ptr git_credential, username: cstring, publickey: cstring, publickey_len: csize_t, sign_callback: git_credential_sign_cb, payload: ptr void): cint {.git2Proc, importc.}

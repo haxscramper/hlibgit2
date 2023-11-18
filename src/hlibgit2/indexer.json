@@ -1,0 +1,460 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_indexer",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_indexer",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+      },
+      "recordDefName": {
+        "name": "git_indexer",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_indexer_progress",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/indexer.h:24:16"
+      },
+      "fields": [
+        {
+          "name": "total_objects",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** number of objects in the packfile being indexed */"
+        },
+        {
+          "name": "indexed_objects",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** received objects that have been hashed */"
+        },
+        {
+          "name": "received_objects",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** received_objects: objects which have been downloaded */"
+        },
+        {
+          "name": "local_objects",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**\n\t * locally-available objects that have been injected in order\n\t * to fix a thin pack\n\t */"
+        },
+        {
+          "name": "total_deltas",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** number of deltas in the packfile being indexed */"
+        },
+        {
+          "name": "indexed_deltas",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** received deltas that have been indexed */"
+        },
+        {
+          "name": "received_bytes",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/** size of the packfile received up to now */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_indexer_progress",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+      },
+      "fields": [
+        {
+          "name": "total_objects",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** number of objects in the packfile being indexed */"
+        },
+        {
+          "name": "indexed_objects",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** received objects that have been hashed */"
+        },
+        {
+          "name": "received_objects",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** received_objects: objects which have been downloaded */"
+        },
+        {
+          "name": "local_objects",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**\n\t * locally-available objects that have been injected in order\n\t * to fix a thin pack\n\t */"
+        },
+        {
+          "name": "total_deltas",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** number of deltas in the packfile being indexed */"
+        },
+        {
+          "name": "indexed_deltas",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** received deltas that have been indexed */"
+        },
+        {
+          "name": "received_bytes",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/** size of the packfile received up to now */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_indexer_progress",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_indexer_options",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/indexer.h:62:16"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          }
+        },
+        {
+          "name": "progress_cb",
+          "type": {
+            "name": "git_indexer_progress_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:57:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/indexer.h:57:26>"
+          },
+          "doc": "/** progress_cb function to call with progress information */"
+        },
+        {
+          "name": "progress_cb_payload",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "doc": "/** progress_cb_payload payload for the progress callback */"
+        },
+        {
+          "name": "verify",
+          "type": {
+            "name": "char",
+            "dbgOrigin": " >char"
+          },
+          "doc": "/** Do connectivity checks for the received pack */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_indexer_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:86:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          }
+        },
+        {
+          "name": "progress_cb",
+          "type": {
+            "name": "git_indexer_progress_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:57:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/indexer.h:57:26>"
+          },
+          "doc": "/** progress_cb function to call with progress information */"
+        },
+        {
+          "name": "progress_cb_payload",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "doc": "/** progress_cb_payload payload for the progress callback */"
+        },
+        {
+          "name": "verify",
+          "type": {
+            "name": "char",
+            "dbgOrigin": " >char"
+          },
+          "doc": "/** Do connectivity checks for the received pack */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_indexer_options",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_indexer_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_indexer_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:86:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_indexer_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_indexer",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "path"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "mode"
+        },
+        {
+          "type": {
+            "name": "git_odb",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+          },
+          "name": "odb"
+        },
+        {
+          "type": {
+            "name": "git_indexer_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:86:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_indexer_append",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_indexer",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+          },
+          "name": "idx"
+        },
+        {
+          "type": {
+            "name": "const void",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+          },
+          "name": "data"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "size"
+        },
+        {
+          "type": {
+            "name": "git_indexer_progress",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+          },
+          "name": "stats"
+        }
+      ]
+    },
+    {
+      "name": "git_indexer_commit",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_indexer",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+          },
+          "name": "idx"
+        },
+        {
+          "type": {
+            "name": "git_indexer_progress",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+          },
+          "name": "stats"
+        }
+      ]
+    },
+    {
+      "name": "git_indexer_hash",
+      "resultTy": {
+        "name": "git_oid",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_indexer",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+          },
+          "name": "idx"
+        }
+      ]
+    },
+    {
+      "name": "git_indexer_name",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_indexer",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+          },
+          "name": "idx"
+        }
+      ]
+    },
+    {
+      "name": "git_indexer_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_indexer",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+          },
+          "name": "idx"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_indexer_progress_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/indexer.h:57:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/indexer.h:57:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_indexer_progress",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

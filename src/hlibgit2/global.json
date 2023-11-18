@@ -1,0 +1,18 @@
+{
+  "functions": [
+    {
+      "name": "git_libgit2_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      }
+    },
+    {
+      "name": "git_libgit2_shutdown",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      }
+    }
+  ]
+}

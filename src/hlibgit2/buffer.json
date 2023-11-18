@@ -1,0 +1,56 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_buf",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+      },
+      "fields": [
+        {
+          "name": "ptr",
+          "type": {
+            "name": "char",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >char"
+          },
+          "doc": "/**\n\t * The buffer contents.  `ptr` points to the start of the buffer\n\t * being returned.  The buffer's length (in bytes) is specified\n\t * by the `size` member of the structure, and contains a NUL\n\t * terminator at position `(size + 1)`.\n\t */"
+        },
+        {
+          "name": "reserved",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/**\n\t * This field is reserved and unused.\n\t */"
+        },
+        {
+          "name": "size",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/**\n\t * The length (in bytes) of the buffer pointed to by `ptr`,\n\t * not including a NUL terminator.\n\t */"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_buf_dispose",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "buffer"
+        }
+      ]
+    }
+  ]
+}

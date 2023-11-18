@@ -1,0 +1,274 @@
+{
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_FEATURE_THREADS",
+          "value": "1"
+        },
+        {
+          "name": "GIT_FEATURE_HTTPS",
+          "value": "2"
+        },
+        {
+          "name": "GIT_FEATURE_SSH",
+          "value": "4"
+        },
+        {
+          "name": "GIT_FEATURE_NSEC",
+          "value": "8"
+        }
+      ],
+      "name": {
+        "name": "git_feature_t",
+        "dbgOrigin": "enum typedef typedef:git_feature_tname:/mnt/workspace/repos/libgit2/include/git2/common.h:157:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_OPT_GET_MWINDOW_SIZE"
+        },
+        {
+          "name": "GIT_OPT_SET_MWINDOW_SIZE",
+          "value": "1"
+        },
+        {
+          "name": "GIT_OPT_GET_MWINDOW_MAPPED_LIMIT",
+          "value": "2"
+        },
+        {
+          "name": "GIT_OPT_SET_MWINDOW_MAPPED_LIMIT",
+          "value": "3"
+        },
+        {
+          "name": "GIT_OPT_GET_SEARCH_PATH",
+          "value": "4"
+        },
+        {
+          "name": "GIT_OPT_SET_SEARCH_PATH",
+          "value": "5"
+        },
+        {
+          "name": "GIT_OPT_SET_CACHE_OBJECT_LIMIT",
+          "value": "6"
+        },
+        {
+          "name": "GIT_OPT_SET_CACHE_MAX_SIZE",
+          "value": "7"
+        },
+        {
+          "name": "GIT_OPT_ENABLE_CACHING",
+          "value": "8"
+        },
+        {
+          "name": "GIT_OPT_GET_CACHED_MEMORY",
+          "value": "9"
+        },
+        {
+          "name": "GIT_OPT_GET_TEMPLATE_PATH",
+          "value": "10"
+        },
+        {
+          "name": "GIT_OPT_SET_TEMPLATE_PATH",
+          "value": "11"
+        },
+        {
+          "name": "GIT_OPT_SET_SSL_CERT_LOCATIONS",
+          "value": "12"
+        },
+        {
+          "name": "GIT_OPT_SET_USER_AGENT",
+          "value": "13"
+        },
+        {
+          "name": "GIT_OPT_ENABLE_STRICT_OBJECT_CREATION",
+          "value": "14"
+        },
+        {
+          "name": "GIT_OPT_ENABLE_STRICT_SYMBOLIC_REF_CREATION",
+          "value": "15"
+        },
+        {
+          "name": "GIT_OPT_SET_SSL_CIPHERS",
+          "value": "16"
+        },
+        {
+          "name": "GIT_OPT_GET_USER_AGENT",
+          "value": "17"
+        },
+        {
+          "name": "GIT_OPT_ENABLE_OFS_DELTA",
+          "value": "18"
+        },
+        {
+          "name": "GIT_OPT_ENABLE_FSYNC_GITDIR",
+          "value": "19"
+        },
+        {
+          "name": "GIT_OPT_GET_WINDOWS_SHAREMODE",
+          "value": "20"
+        },
+        {
+          "name": "GIT_OPT_SET_WINDOWS_SHAREMODE",
+          "value": "21"
+        },
+        {
+          "name": "GIT_OPT_ENABLE_STRICT_HASH_VERIFICATION",
+          "value": "22"
+        },
+        {
+          "name": "GIT_OPT_SET_ALLOCATOR",
+          "value": "23"
+        },
+        {
+          "name": "GIT_OPT_ENABLE_UNSAVED_INDEX_SAFETY",
+          "value": "24"
+        },
+        {
+          "name": "GIT_OPT_GET_PACK_MAX_OBJECTS",
+          "value": "25"
+        },
+        {
+          "name": "GIT_OPT_SET_PACK_MAX_OBJECTS",
+          "value": "26"
+        },
+        {
+          "name": "GIT_OPT_DISABLE_PACK_KEEP_FILE_CHECKS",
+          "value": "27"
+        },
+        {
+          "name": "GIT_OPT_ENABLE_HTTP_EXPECT_CONTINUE",
+          "value": "28"
+        },
+        {
+          "name": "GIT_OPT_GET_MWINDOW_FILE_LIMIT",
+          "value": "29"
+        },
+        {
+          "name": "GIT_OPT_SET_MWINDOW_FILE_LIMIT",
+          "value": "30"
+        },
+        {
+          "name": "GIT_OPT_SET_ODB_PACKED_PRIORITY",
+          "value": "31"
+        },
+        {
+          "name": "GIT_OPT_SET_ODB_LOOSE_PRIORITY",
+          "value": "32"
+        },
+        {
+          "name": "GIT_OPT_GET_EXTENSIONS",
+          "value": "33"
+        },
+        {
+          "name": "GIT_OPT_SET_EXTENSIONS",
+          "value": "34"
+        },
+        {
+          "name": "GIT_OPT_GET_OWNER_VALIDATION",
+          "value": "35"
+        },
+        {
+          "name": "GIT_OPT_SET_OWNER_VALIDATION",
+          "value": "36"
+        },
+        {
+          "name": "GIT_OPT_GET_HOMEDIR",
+          "value": "37"
+        },
+        {
+          "name": "GIT_OPT_SET_HOMEDIR",
+          "value": "38"
+        },
+        {
+          "name": "GIT_OPT_SET_SERVER_CONNECT_TIMEOUT",
+          "value": "39"
+        },
+        {
+          "name": "GIT_OPT_GET_SERVER_CONNECT_TIMEOUT",
+          "value": "40"
+        },
+        {
+          "name": "GIT_OPT_SET_SERVER_TIMEOUT",
+          "value": "41"
+        },
+        {
+          "name": "GIT_OPT_GET_SERVER_TIMEOUT",
+          "value": "42"
+        }
+      ],
+      "name": {
+        "name": "git_libgit2_opt_t",
+        "dbgOrigin": "enum typedef typedef:git_libgit2_opt_tname:/mnt/workspace/repos/libgit2/include/git2/common.h:232:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_libgit2_version",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "major"
+        },
+        {
+          "type": {
+            "name": "int",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "minor"
+        },
+        {
+          "type": {
+            "name": "int",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "rev"
+        }
+      ]
+    },
+    {
+      "name": "git_libgit2_prerelease",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      }
+    },
+    {
+      "name": "git_libgit2_features",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      }
+    },
+    {
+      "name": "git_libgit2_opts",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "option"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_REMOTE_CAPABILITY_TIP_OID",
+          "value": "1"
+        },
+        {
+          "name": "GIT_REMOTE_CAPABILITY_REACHABLE_OID",
+          "value": "2"
+        }
+      ],
+      "name": {
+        "name": "git_remote_capability_t",
+        "dbgOrigin": "enum typedef typedef:git_remote_capability_tname:/mnt/workspace/repos/libgit2/include/git2/sys/remote.h:29:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_remote_connect_options_dispose",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_remote_connect_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:877:3"
+          },
+          "name": "opts"
+        }
+      ]
+    }
+  ]
+}

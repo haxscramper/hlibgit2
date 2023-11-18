@@ -1,0 +1,93 @@
+{
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_TRACE_NONE"
+        },
+        {
+          "name": "GIT_TRACE_FATAL",
+          "value": "1"
+        },
+        {
+          "name": "GIT_TRACE_ERROR",
+          "value": "2"
+        },
+        {
+          "name": "GIT_TRACE_WARN",
+          "value": "3"
+        },
+        {
+          "name": "GIT_TRACE_INFO",
+          "value": "4"
+        },
+        {
+          "name": "GIT_TRACE_DEBUG",
+          "value": "5"
+        },
+        {
+          "name": "GIT_TRACE_TRACE",
+          "value": "6"
+        }
+      ],
+      "name": {
+        "name": "git_trace_level_t",
+        "dbgOrigin": "enum typedef typedef:git_trace_level_tname:/mnt/workspace/repos/libgit2/include/git2/trace.h:47:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_trace_set",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_trace_level_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/trace.h:47:3"
+          },
+          "name": "level"
+        },
+        {
+          "type": {
+            "name": "git_trace_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/trace.h:52:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/trace.h:52:27>"
+          },
+          "name": "cb"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_trace_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/trace.h:52:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/trace.h:52:27>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "void",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_trace_level_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/trace.h:47:3"
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

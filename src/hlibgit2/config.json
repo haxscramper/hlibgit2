@@ -1,0 +1,1588 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_config_entry",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/config.h:64:16"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "doc": "/**< Name of the entry (normalised) */"
+        },
+        {
+          "name": "value",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "doc": "/**< String value of the entry */"
+        },
+        {
+          "name": "include_depth",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< Depth of includes where this variable was found */"
+        },
+        {
+          "name": "level",
+          "type": {
+            "name": "git_config_level_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:59:3"
+          },
+          "doc": "/**< Which config file this was found in */"
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_config_entry",
+                "isPointer": true,
+                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/config.h:69:7 <Spelling=/mnt/workspace/repos/libgit2/include/git2/config.h:69:20>"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "doc": "/**< Opaque value for the free function. Do not read or write */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_config_entry",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "doc": "/**< Name of the entry (normalised) */"
+        },
+        {
+          "name": "value",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "doc": "/**< String value of the entry */"
+        },
+        {
+          "name": "include_depth",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< Depth of includes where this variable was found */"
+        },
+        {
+          "name": "level",
+          "type": {
+            "name": "git_config_level_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:59:3"
+          },
+          "doc": "/**< Which config file this was found in */"
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_config_entry",
+                "isPointer": true,
+                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/config.h:69:7 <Spelling=/mnt/workspace/repos/libgit2/include/git2/config.h:69:20>"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "doc": "/**< Opaque value for the free function. Do not read or write */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_config_entry",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_config_iterator",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/config.h:92:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_config_iterator",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+      },
+      "recordDefName": {
+        "name": "git_config_iterator",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_configmap",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:111:3"
+      },
+      "fields": [
+        {
+          "name": "type",
+          "type": {
+            "name": "git_configmap_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:102:3"
+          }
+        },
+        {
+          "name": "str_match",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          }
+        },
+        {
+          "name": "map_value",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          }
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_CONFIG_LEVEL_PROGRAMDATA",
+          "value": "1"
+        },
+        {
+          "name": "GIT_CONFIG_LEVEL_SYSTEM",
+          "value": "2"
+        },
+        {
+          "name": "GIT_CONFIG_LEVEL_XDG",
+          "value": "3"
+        },
+        {
+          "name": "GIT_CONFIG_LEVEL_GLOBAL",
+          "value": "4"
+        },
+        {
+          "name": "GIT_CONFIG_LEVEL_LOCAL",
+          "value": "5"
+        },
+        {
+          "name": "GIT_CONFIG_LEVEL_APP",
+          "value": "6"
+        },
+        {
+          "name": "GIT_CONFIG_HIGHEST_LEVEL",
+          "value": "-1"
+        }
+      ],
+      "name": {
+        "name": "git_config_level_t",
+        "dbgOrigin": "enum typedef typedef:git_config_level_tname:/mnt/workspace/repos/libgit2/include/git2/config.h:59:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_CONFIGMAP_FALSE"
+        },
+        {
+          "name": "GIT_CONFIGMAP_TRUE",
+          "value": "1"
+        },
+        {
+          "name": "GIT_CONFIGMAP_INT32",
+          "value": "2"
+        },
+        {
+          "name": "GIT_CONFIGMAP_STRING",
+          "value": "3"
+        }
+      ],
+      "name": {
+        "name": "git_configmap_t",
+        "dbgOrigin": "enum typedef typedef:git_configmap_tname:/mnt/workspace/repos/libgit2/include/git2/config.h:102:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_config_entry_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config_entry",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
+          },
+          "name": "entry"
+        }
+      ]
+    },
+    {
+      "name": "git_config_find_global",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        }
+      ]
+    },
+    {
+      "name": "git_config_find_xdg",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        }
+      ]
+    },
+    {
+      "name": "git_config_find_system",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        }
+      ]
+    },
+    {
+      "name": "git_config_find_programdata",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        }
+      ]
+    },
+    {
+      "name": "git_config_open_default",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "out"
+        }
+      ]
+    },
+    {
+      "name": "git_config_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "out"
+        }
+      ]
+    },
+    {
+      "name": "git_config_add_file_ondisk",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "path"
+        },
+        {
+          "type": {
+            "name": "git_config_level_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:59:3"
+          },
+          "name": "level"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "force"
+        }
+      ]
+    },
+    {
+      "name": "git_config_open_ondisk",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "path"
+        }
+      ]
+    },
+    {
+      "name": "git_config_open_level",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "parent"
+        },
+        {
+          "type": {
+            "name": "git_config_level_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:59:3"
+          },
+          "name": "level"
+        }
+      ]
+    },
+    {
+      "name": "git_config_open_global",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "config"
+        }
+      ]
+    },
+    {
+      "name": "git_config_snapshot",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "config"
+        }
+      ]
+    },
+    {
+      "name": "git_config_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        }
+      ]
+    },
+    {
+      "name": "git_config_get_entry",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config_entry",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_config_get_int32",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int32_t",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /include/bits/stdint-intn.h:26:19"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_config_get_int64",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int64_t",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /include/bits/stdint-intn.h:27:19"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_config_get_bool",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_config_get_path",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_config_get_string",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr T-const >char"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_config_get_string_buf",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_config_get_multivar_foreach",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "regexp"
+        },
+        {
+          "type": {
+            "name": "git_config_foreach_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:87:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/config.h:87:26>"
+          },
+          "name": "callback"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_config_multivar_iterator_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config_iterator",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "regexp"
+        }
+      ]
+    },
+    {
+      "name": "git_config_next",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config_entry",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
+          },
+          "name": "entry"
+        },
+        {
+          "type": {
+            "name": "git_config_iterator",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+          },
+          "name": "iter"
+        }
+      ]
+    },
+    {
+      "name": "git_config_iterator_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config_iterator",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+          },
+          "name": "iter"
+        }
+      ]
+    },
+    {
+      "name": "git_config_set_int32",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "int32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-intn.h:26:19"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_set_int64",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "int64_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-intn.h:27:19"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_set_bool",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_set_string",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_set_multivar",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "regexp"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_delete_entry",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_config_delete_multivar",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "regexp"
+        }
+      ]
+    },
+    {
+      "name": "git_config_foreach",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "git_config_foreach_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:87:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/config.h:87:26>"
+          },
+          "name": "callback"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_config_iterator_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config_iterator",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        }
+      ]
+    },
+    {
+      "name": "git_config_iterator_glob_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config_iterator",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "regexp"
+        }
+      ]
+    },
+    {
+      "name": "git_config_foreach_match",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "regexp"
+        },
+        {
+          "type": {
+            "name": "git_config_foreach_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:87:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/config.h:87:26>"
+          },
+          "name": "callback"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_config_get_mapped",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "git_configmap",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:111:3"
+          },
+          "name": "maps"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "map_n"
+        }
+      ]
+    },
+    {
+      "name": "git_config_lookup_map_value",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_configmap",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:111:3"
+          },
+          "name": "maps"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "map_n"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_parse_bool",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_parse_int32",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int32_t",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /include/bits/stdint-intn.h:26:19"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_parse_int64",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int64_t",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /include/bits/stdint-intn.h:27:19"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_parse_path",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "name": "git_config_backend_foreach_match",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_config_backend",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
+          },
+          "name": "backend"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "regexp"
+        },
+        {
+          "type": {
+            "name": "git_config_foreach_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:87:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/config.h:87:26>"
+          },
+          "name": "callback"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_config_lock",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_transaction",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+          },
+          "name": "tx"
+        },
+        {
+          "type": {
+            "name": "git_config",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+          },
+          "name": "cfg"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_config_foreach_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/config.h:87:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/config.h:87:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_config_entry",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

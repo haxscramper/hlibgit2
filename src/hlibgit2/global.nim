@@ -1,13 +1,3 @@
-{.push warning[UnusedImport]:off.}
+proc `git_libgit2_init`*(): cint {.git2Proc, importc.}
 
-import
-  ./libgit2_config
-
-proc git_libgit2_init*(a0: void): cint {.git2Proc, importc.}
-
-
-
-proc git_libgit2_shutdown*(a0: void): cint {.git2Proc, importc.}
-
-
-
+proc `git_libgit2_shutdown`*(): cint {.git2Proc, importc.}

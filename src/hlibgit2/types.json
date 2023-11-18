@@ -1,0 +1,1230 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_odb",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:85:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+      },
+      "recordDefName": {
+        "name": "git_odb",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_backend",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:88:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_backend",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+      },
+      "recordDefName": {
+        "name": "git_odb_backend",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_object",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:91:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_object",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+      },
+      "recordDefName": {
+        "name": "git_odb_object",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_stream",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:94:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_stream",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+      },
+      "recordDefName": {
+        "name": "git_odb_stream",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_writepack",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:97:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_writepack",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
+      },
+      "recordDefName": {
+        "name": "git_odb_writepack",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_midx_writer",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:100:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_midx_writer",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:100:32"
+      },
+      "recordDefName": {
+        "name": "git_midx_writer",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_refdb",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:103:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_refdb",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:103:26"
+      },
+      "recordDefName": {
+        "name": "git_refdb",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_refdb_backend",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:106:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_refdb_backend",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:106:34"
+      },
+      "recordDefName": {
+        "name": "git_refdb_backend",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_commit_graph",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:109:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_commit_graph",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:109:33"
+      },
+      "recordDefName": {
+        "name": "git_commit_graph",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_commit_graph_writer",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:112:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_commit_graph_writer",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:112:40"
+      },
+      "recordDefName": {
+        "name": "git_commit_graph_writer",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_repository",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:118:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_repository",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+      },
+      "recordDefName": {
+        "name": "git_repository",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_worktree",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:121:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_worktree",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+      },
+      "recordDefName": {
+        "name": "git_worktree",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_object",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:124:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_object",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+      },
+      "recordDefName": {
+        "name": "git_object",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_revwalk",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:127:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_revwalk",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+      },
+      "recordDefName": {
+        "name": "git_revwalk",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_tag",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:130:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_tag",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:130:24"
+      },
+      "recordDefName": {
+        "name": "git_tag",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_blob",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:133:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_blob",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:133:25"
+      },
+      "recordDefName": {
+        "name": "git_blob",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_commit",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:136:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_commit",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+      },
+      "recordDefName": {
+        "name": "git_commit",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_tree_entry",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:139:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_tree_entry",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:139:31"
+      },
+      "recordDefName": {
+        "name": "git_tree_entry",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_tree",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:142:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_tree",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+      },
+      "recordDefName": {
+        "name": "git_tree",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_treebuilder",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:145:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_treebuilder",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:145:32"
+      },
+      "recordDefName": {
+        "name": "git_treebuilder",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_index",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:148:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_index",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+      },
+      "recordDefName": {
+        "name": "git_index",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_index_iterator",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:151:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_index_iterator",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:151:35"
+      },
+      "recordDefName": {
+        "name": "git_index_iterator",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_index_conflict_iterator",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:154:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_index_conflict_iterator",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:154:44"
+      },
+      "recordDefName": {
+        "name": "git_index_conflict_iterator",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_config",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:157:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_config",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+      },
+      "recordDefName": {
+        "name": "git_config",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_config_backend",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:160:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_config_backend",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
+      },
+      "recordDefName": {
+        "name": "git_config_backend",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_reflog_entry",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:163:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_reflog_entry",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:163:33"
+      },
+      "recordDefName": {
+        "name": "git_reflog_entry",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_reflog",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:166:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_reflog",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:166:27"
+      },
+      "recordDefName": {
+        "name": "git_reflog",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_note",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:169:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_note",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:169:25"
+      },
+      "recordDefName": {
+        "name": "git_note",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_packbuilder",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:172:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_packbuilder",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+      },
+      "recordDefName": {
+        "name": "git_packbuilder",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_time",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:175:16"
+      },
+      "fields": [
+        {
+          "name": "time",
+          "type": {
+            "name": "git_time_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:62:17"
+          },
+          "doc": "/**< time in seconds from epoch */"
+        },
+        {
+          "name": "offset",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< timezone offset, in minutes */"
+        },
+        {
+          "name": "sign",
+          "type": {
+            "name": "char",
+            "dbgOrigin": " >char"
+          },
+          "doc": "/**< indicator for questionable '-0000' offsets in signature */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_time",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:179:3"
+      },
+      "fields": [
+        {
+          "name": "time",
+          "type": {
+            "name": "git_time_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:62:17"
+          },
+          "doc": "/**< time in seconds from epoch */"
+        },
+        {
+          "name": "offset",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< timezone offset, in minutes */"
+        },
+        {
+          "name": "sign",
+          "type": {
+            "name": "char",
+            "dbgOrigin": " >char"
+          },
+          "doc": "/**< indicator for questionable '-0000' offsets in signature */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_time",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_signature",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:182:16"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": {
+            "name": "char",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >char"
+          },
+          "doc": "/**< full name of the author */"
+        },
+        {
+          "name": "email",
+          "type": {
+            "name": "char",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >char"
+          },
+          "doc": "/**< email of the author */"
+        },
+        {
+          "name": "when",
+          "type": {
+            "name": "git_time",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:179:3"
+          },
+          "doc": "/**< time when the action happened */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_signature",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": {
+            "name": "char",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >char"
+          },
+          "doc": "/**< full name of the author */"
+        },
+        {
+          "name": "email",
+          "type": {
+            "name": "char",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >char"
+          },
+          "doc": "/**< email of the author */"
+        },
+        {
+          "name": "when",
+          "type": {
+            "name": "git_time",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:179:3"
+          },
+          "doc": "/**< time when the action happened */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_signature",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_reference",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:189:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_reference",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:189:30"
+      },
+      "recordDefName": {
+        "name": "git_reference",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_reference_iterator",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:192:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_reference_iterator",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:192:40"
+      },
+      "recordDefName": {
+        "name": "git_reference_iterator",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_transaction",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:195:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_transaction",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+      },
+      "recordDefName": {
+        "name": "git_transaction",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_annotated_commit",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:198:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_annotated_commit",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:198:37"
+      },
+      "recordDefName": {
+        "name": "git_annotated_commit",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_status_list",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:201:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_status_list",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:201:32"
+      },
+      "recordDefName": {
+        "name": "git_status_list",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_rebase",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:204:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_rebase",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:204:27"
+      },
+      "recordDefName": {
+        "name": "git_rebase",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_refspec",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:235:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_refspec",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:235:28"
+      },
+      "recordDefName": {
+        "name": "git_refspec",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_remote",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:241:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_remote",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:241:27"
+      },
+      "recordDefName": {
+        "name": "git_remote",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_transport",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:247:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_transport",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+      },
+      "recordDefName": {
+        "name": "git_transport",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_push",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:253:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_push",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:253:25"
+      },
+      "recordDefName": {
+        "name": "git_push",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_remote_head",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:256:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_remote_head",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:256:32"
+      },
+      "recordDefName": {
+        "name": "git_remote_head",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_remote_callbacks",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:257:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_remote_callbacks",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:257:37"
+      },
+      "recordDefName": {
+        "name": "git_remote_callbacks",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_cert",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:262:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_cert",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:262:25"
+      },
+      "recordDefName": {
+        "name": "git_cert",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_submodule",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:267:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_submodule",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:267:30"
+      },
+      "recordDefName": {
+        "name": "git_submodule",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_writestream",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:356:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_writestream",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+      },
+      "fields": [
+        {
+          "name": "write",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_writestream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "close",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_writestream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_writestream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_writestream",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_writestream",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:359:8"
+      },
+      "fields": [
+        {
+          "name": "write",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_writestream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "close",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_writestream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_writestream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_mailmap",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:366:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_mailmap",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+      },
+      "recordDefName": {
+        "name": "git_mailmap",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_OBJECT_ANY",
+          "value": "-2"
+        },
+        {
+          "name": "GIT_OBJECT_INVALID",
+          "value": "-1"
+        },
+        {
+          "name": "GIT_OBJECT_COMMIT",
+          "value": "1"
+        },
+        {
+          "name": "GIT_OBJECT_TREE",
+          "value": "2"
+        },
+        {
+          "name": "GIT_OBJECT_BLOB",
+          "value": "3"
+        },
+        {
+          "name": "GIT_OBJECT_TAG",
+          "value": "4"
+        },
+        {
+          "name": "GIT_OBJECT_OFS_DELTA",
+          "value": "6"
+        },
+        {
+          "name": "GIT_OBJECT_REF_DELTA",
+          "value": "7"
+        }
+      ],
+      "name": {
+        "name": "git_object_t",
+        "dbgOrigin": "enum typedef typedef:git_object_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_REFERENCE_INVALID"
+        },
+        {
+          "name": "GIT_REFERENCE_DIRECT",
+          "value": "1"
+        },
+        {
+          "name": "GIT_REFERENCE_SYMBOLIC",
+          "value": "2"
+        },
+        {
+          "name": "GIT_REFERENCE_ALL",
+          "value": "3"
+        }
+      ],
+      "name": {
+        "name": "git_reference_t",
+        "dbgOrigin": "enum typedef typedef:git_reference_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:212:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_BRANCH_LOCAL",
+          "value": "1"
+        },
+        {
+          "name": "GIT_BRANCH_REMOTE",
+          "value": "2"
+        },
+        {
+          "name": "GIT_BRANCH_ALL",
+          "value": "3"
+        }
+      ],
+      "name": {
+        "name": "git_branch_t",
+        "dbgOrigin": "enum typedef typedef:git_branch_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:219:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_FILEMODE_UNREADABLE"
+        },
+        {
+          "name": "GIT_FILEMODE_TREE",
+          "value": "16384"
+        },
+        {
+          "name": "GIT_FILEMODE_BLOB",
+          "value": "33188"
+        },
+        {
+          "name": "GIT_FILEMODE_BLOB_EXECUTABLE",
+          "value": "33261"
+        },
+        {
+          "name": "GIT_FILEMODE_LINK",
+          "value": "40960"
+        },
+        {
+          "name": "GIT_FILEMODE_COMMIT",
+          "value": "57344"
+        }
+      ],
+      "name": {
+        "name": "git_filemode_t",
+        "dbgOrigin": "enum typedef typedef:git_filemode_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:229:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_SUBMODULE_UPDATE_CHECKOUT",
+          "value": "1"
+        },
+        {
+          "name": "GIT_SUBMODULE_UPDATE_REBASE",
+          "value": "2"
+        },
+        {
+          "name": "GIT_SUBMODULE_UPDATE_MERGE",
+          "value": "3"
+        },
+        {
+          "name": "GIT_SUBMODULE_UPDATE_NONE",
+          "value": "4"
+        },
+        {
+          "name": "GIT_SUBMODULE_UPDATE_DEFAULT"
+        }
+      ],
+      "name": {
+        "name": "git_submodule_update_t",
+        "dbgOrigin": "enum typedef typedef:git_submodule_update_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:302:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_SUBMODULE_IGNORE_UNSPECIFIED",
+          "value": "-1"
+        },
+        {
+          "name": "GIT_SUBMODULE_IGNORE_NONE",
+          "value": "1"
+        },
+        {
+          "name": "GIT_SUBMODULE_IGNORE_UNTRACKED",
+          "value": "2"
+        },
+        {
+          "name": "GIT_SUBMODULE_IGNORE_DIRTY",
+          "value": "3"
+        },
+        {
+          "name": "GIT_SUBMODULE_IGNORE_ALL",
+          "value": "4"
+        }
+      ],
+      "name": {
+        "name": "git_submodule_ignore_t",
+        "dbgOrigin": "enum typedef typedef:git_submodule_ignore_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:338:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_SUBMODULE_RECURSE_NO"
+        },
+        {
+          "name": "GIT_SUBMODULE_RECURSE_YES",
+          "value": "1"
+        },
+        {
+          "name": "GIT_SUBMODULE_RECURSE_ONDEMAND",
+          "value": "2"
+        }
+      ],
+      "name": {
+        "name": "git_submodule_recurse_t",
+        "dbgOrigin": "enum typedef typedef:git_submodule_recurse_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:354:3"
+      }
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_off_t",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/types.h:61:17"
+      },
+      "baseType": {
+        "name": "int64_t",
+        "dbgOrigin": "typedef type /include/bits/stdint-intn.h:27:19"
+      }
+    },
+    {
+      "name": {
+        "name": "git_time_t",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/types.h:62:17"
+      },
+      "baseType": {
+        "name": "int64_t",
+        "dbgOrigin": "typedef type /include/bits/stdint-intn.h:27:19"
+      }
+    },
+    {
+      "name": {
+        "name": "git_object_size_t",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/types.h:67:18"
+      },
+      "baseType": {
+        "name": "uint64_t",
+        "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:27:20"
+      }
+    }
+  ]
+}

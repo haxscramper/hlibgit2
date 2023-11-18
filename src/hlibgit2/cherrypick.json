@@ -1,0 +1,158 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_cherrypick_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/cherrypick.h:34:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          }
+        },
+        {
+          "name": "mainline",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** For merge commits, the \"mainline\" is treated as the parent. */"
+        },
+        {
+          "name": "merge_opts",
+          "type": {
+            "name": "git_merge_options",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:313:3"
+          },
+          "doc": "/**< Options for the merging */"
+        },
+        {
+          "name": "checkout_opts",
+          "type": {
+            "name": "git_checkout_options",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
+          },
+          "doc": "/**< Options for the checkout */"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_cherrypick_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_cherrypick_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/cherrypick.h:34:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_cherrypick_commit",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_index",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "cherrypick_commit"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "our_commit"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "mainline"
+        },
+        {
+          "type": {
+            "name": "git_merge_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:313:3"
+          },
+          "name": "merge_options"
+        }
+      ]
+    },
+    {
+      "name": "git_cherrypick",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+          },
+          "name": "commit"
+        },
+        {
+          "type": {
+            "name": "git_cherrypick_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/cherrypick.h:34:3"
+          },
+          "name": "cherrypick_options"
+        }
+      ]
+    }
+  ]
+}

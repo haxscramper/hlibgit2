@@ -1,0 +1,257 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_apply_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< The version */"
+        },
+        {
+          "name": "delta_cb",
+          "type": {
+            "name": "git_apply_delta_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:38:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/apply.h:38:26>"
+          },
+          "doc": "/** When applying a patch, callback that will be made per delta (file). */"
+        },
+        {
+          "name": "hunk_cb",
+          "type": {
+            "name": "git_apply_hunk_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:56:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/apply.h:56:26>"
+          },
+          "doc": "/** When applying a patch, callback that will be made per hunk. */"
+        },
+        {
+          "name": "payload",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "doc": "/** Payload passed to both delta_cb & hunk_cb. */"
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** Bitmask of git_apply_flags_t */"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_APPLY_CHECK",
+          "value": "1"
+        }
+      ],
+      "name": {
+        "name": "git_apply_flags_t",
+        "dbgOrigin": "enum typedef typedef:git_apply_flags_tname:/mnt/workspace/repos/libgit2/include/git2/apply.h:67:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_APPLY_LOCATION_WORKDIR"
+        },
+        {
+          "name": "GIT_APPLY_LOCATION_INDEX",
+          "value": "1"
+        },
+        {
+          "name": "GIT_APPLY_LOCATION_BOTH",
+          "value": "2"
+        }
+      ],
+      "name": {
+        "name": "git_apply_location_t",
+        "dbgOrigin": "enum typedef typedef:git_apply_location_tname:/mnt/workspace/repos/libgit2/include/git2/apply.h:145:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_apply_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_apply_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_apply_to_tree",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_index",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "preimage"
+        },
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_apply_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3"
+          },
+          "name": "options"
+        }
+      ]
+    },
+    {
+      "name": "git_apply",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_apply_location_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:145:3"
+          },
+          "name": "location"
+        },
+        {
+          "type": {
+            "name": "git_apply_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3"
+          },
+          "name": "options"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_apply_delta_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/apply.h:38:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/apply.h:38:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_diff_delta",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_apply_hunk_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/apply.h:56:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/apply.h:56:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_diff_hunk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:583:3"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

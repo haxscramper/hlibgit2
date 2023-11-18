@@ -1,0 +1,710 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_odb_stream",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+      },
+      "fields": [
+        {
+          "name": "backend",
+          "type": {
+            "name": "git_odb_backend",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          }
+        },
+        {
+          "name": "hash_ctx",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        },
+        {
+          "name": "declared_size",
+          "type": {
+            "name": "git_object_size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:67:18"
+          }
+        },
+        {
+          "name": "received_bytes",
+          "type": {
+            "name": "git_object_size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:67:18"
+          }
+        },
+        {
+          "name": "read",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+              },
+              {
+                "name": "char",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "write",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "finalize_write",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+              },
+              {
+                "name": "git_oid",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_odb_stream",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_writepack",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
+      },
+      "fields": [
+        {
+          "name": "backend",
+          "type": {
+            "name": "git_odb_backend",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+          }
+        },
+        {
+          "name": "append",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_writepack",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
+              },
+              {
+                "name": "const void",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              },
+              {
+                "name": "git_indexer_progress",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "commit",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_writepack",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
+              },
+              {
+                "name": "git_indexer_progress",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_writepack",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_odb_writepack",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_odb_backend_pack_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb_backend.h:36:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< version for the struct */"
+        },
+        {
+          "name": "oid_type",
+          "type": {
+            "name": "git_oid_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:33:3"
+          },
+          "doc": "/**\n\t * Type of object IDs to use for this object database, or\n\t * 0 for default (currently SHA1).\n\t */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_odb_backend_loose_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb_backend.h:119:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< version for the struct */"
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "doc": "/** A combination of the `git_odb_backend_loose_flag_t` types. */"
+        },
+        {
+          "name": "compression_level",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**\n\t * zlib compression level to use (0-9), where 1 is the fastest\n\t * at the expense of larger files, and 9 produces the best\n\t * compression at the expense of speed.  0 indicates that no\n\t * compression should be performed.  -1 is the default (currently\n\t * optimizing for speed).\n\t */"
+        },
+        {
+          "name": "dir_mode",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** Permissions to use creating a directory or 0 for defaults */"
+        },
+        {
+          "name": "file_mode",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** Permissions to use creating a file or 0 for defaults */"
+        },
+        {
+          "name": "oid_type",
+          "type": {
+            "name": "git_oid_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:33:3"
+          },
+          "doc": "/**\n\t * Type of object IDs to use for this object database, or\n\t * 0 for default (currently SHA1).\n\t */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_odb_stream",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/odb_backend.h:169:8"
+      },
+      "fields": [
+        {
+          "name": "backend",
+          "type": {
+            "name": "git_odb_backend",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          }
+        },
+        {
+          "name": "hash_ctx",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        },
+        {
+          "name": "declared_size",
+          "type": {
+            "name": "git_object_size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:67:18"
+          }
+        },
+        {
+          "name": "received_bytes",
+          "type": {
+            "name": "git_object_size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:67:18"
+          }
+        },
+        {
+          "name": "read",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+              },
+              {
+                "name": "char",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "write",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "finalize_write",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+              },
+              {
+                "name": "git_oid",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_stream",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_odb_writepack",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/odb_backend.h:213:8"
+      },
+      "fields": [
+        {
+          "name": "backend",
+          "type": {
+            "name": "git_odb_backend",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+          }
+        },
+        {
+          "name": "append",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_writepack",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
+              },
+              {
+                "name": "const void",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              },
+              {
+                "name": "git_indexer_progress",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "commit",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_writepack",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
+              },
+              {
+                "name": "git_indexer_progress",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "git_odb_writepack",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_ODB_BACKEND_LOOSE_FSYNC",
+          "value": "1"
+        }
+      ],
+      "name": {
+        "name": "git_odb_backend_loose_flag_t",
+        "dbgOrigin": "enum typedef typedef:git_odb_backend_loose_flag_tname:/mnt/workspace/repos/libgit2/include/git2/odb_backend.h:90:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_STREAM_RDONLY",
+          "value": "2"
+        },
+        {
+          "name": "GIT_STREAM_WRONLY",
+          "value": "4"
+        },
+        {
+          "name": "GIT_STREAM_RW",
+          "value": "6"
+        }
+      ],
+      "name": {
+        "name": "git_odb_stream_t",
+        "dbgOrigin": "enum typedef typedef:git_odb_stream_tname:/mnt/workspace/repos/libgit2/include/git2/odb_backend.h:159:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_odb_backend_pack",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_odb_backend",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "objects_dir"
+        }
+      ]
+    },
+    {
+      "name": "git_odb_backend_one_pack",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_odb_backend",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "index_file"
+        }
+      ]
+    },
+    {
+      "name": "git_odb_backend_loose",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_odb_backend",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "objects_dir"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "compression_level"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "do_fsync"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "dir_mode"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "file_mode"
+        }
+      ]
+    }
+  ]
+}

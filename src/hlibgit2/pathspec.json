@@ -1,0 +1,438 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_pathspec",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_pathspec",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+      },
+      "recordDefName": {
+        "name": "git_pathspec",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_pathspec_match_list",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_pathspec_match_list",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+      },
+      "recordDefName": {
+        "name": "git_pathspec_match_list",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_PATHSPEC_DEFAULT"
+        },
+        {
+          "name": "GIT_PATHSPEC_IGNORE_CASE",
+          "value": "1"
+        },
+        {
+          "name": "GIT_PATHSPEC_USE_CASE",
+          "value": "2"
+        },
+        {
+          "name": "GIT_PATHSPEC_NO_GLOB",
+          "value": "4"
+        },
+        {
+          "name": "GIT_PATHSPEC_NO_MATCH_ERROR",
+          "value": "8"
+        },
+        {
+          "name": "GIT_PATHSPEC_FIND_FAILURES",
+          "value": "16"
+        },
+        {
+          "name": "GIT_PATHSPEC_FAILURES_ONLY",
+          "value": "32"
+        }
+      ],
+      "name": {
+        "name": "git_pathspec_flag_t",
+        "dbgOrigin": "enum typedef typedef:git_pathspec_flag_tname:/mnt/workspace/repos/libgit2/include/git2/pathspec.h:73:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_pathspec_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_strarray",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
+          },
+          "name": "pathspec"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+          },
+          "name": "ps"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_matches_path",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+          },
+          "name": "ps"
+        },
+        {
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "name": "flags"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "path"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_workdir",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "name": "flags"
+        },
+        {
+          "type": {
+            "name": "git_pathspec",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+          },
+          "name": "ps"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_index",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_index",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+          },
+          "name": "index"
+        },
+        {
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "name": "flags"
+        },
+        {
+          "type": {
+            "name": "git_pathspec",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+          },
+          "name": "ps"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_tree",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "tree"
+        },
+        {
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "name": "flags"
+        },
+        {
+          "type": {
+            "name": "git_pathspec",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+          },
+          "name": "ps"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_diff",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "name": "flags"
+        },
+        {
+          "type": {
+            "name": "git_pathspec",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+          },
+          "name": "ps"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_list_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "m"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_list_entrycount",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "m"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_list_entry",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "m"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "pos"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_list_diff_entry",
+      "resultTy": {
+        "name": "git_diff_delta",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "m"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "pos"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_list_failed_entrycount",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "m"
+        }
+      ]
+    },
+    {
+      "name": "git_pathspec_match_list_failed_entry",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_pathspec_match_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+          },
+          "name": "m"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "pos"
+        }
+      ]
+    }
+  ]
+}

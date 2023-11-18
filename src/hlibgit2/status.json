@@ -1,0 +1,540 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_status_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:262:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**\n\t * The struct version; pass `GIT_STATUS_OPTIONS_VERSION`.\n\t */"
+        },
+        {
+          "name": "show",
+          "type": {
+            "name": "git_status_show_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:91:3"
+          },
+          "doc": "/**\n\t * The `show` value is one of the `git_status_show_t` constants that\n\t * control which files to scan and in what order. The default is\n\t * `GIT_STATUS_SHOW_INDEX_AND_WORKDIR`.\n\t */"
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**\n\t * The `flags` value is an OR'ed combination of the\n\t * `git_status_opt_t` values above. The default is\n\t * `GIT_STATUS_OPT_DEFAULTS`, which matches git's default\n\t * behavior.\n\t */"
+        },
+        {
+          "name": "pathspec",
+          "type": {
+            "name": "git_strarray",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
+          },
+          "doc": "/**\n\t * The `pathspec` is an array of path patterns to match (using\n\t * fnmatch-style matching), or just an array of paths to match\n\t * exactly if `GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH` is specified\n\t * in the flags.\n\t */"
+        },
+        {
+          "name": "baseline",
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "doc": "/**\n\t * The `baseline` is the tree to be used for comparison to the\n\t * working directory and index; defaults to HEAD.\n\t */"
+        },
+        {
+          "name": "rename_threshold",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**\n\t * Threshold above which similar files will be considered renames.\n\t * This is equivalent to the -M option. Defaults to 50.\n\t */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_status_entry",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:299:3"
+      },
+      "fields": [
+        {
+          "name": "status",
+          "type": {
+            "name": "git_status_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:52:3"
+          }
+        },
+        {
+          "name": "head_to_index",
+          "type": {
+            "name": "git_diff_delta",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+          }
+        },
+        {
+          "name": "index_to_workdir",
+          "type": {
+            "name": "git_diff_delta",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+          }
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_STATUS_CURRENT"
+        },
+        {
+          "name": "GIT_STATUS_INDEX_NEW",
+          "value": "1"
+        },
+        {
+          "name": "GIT_STATUS_INDEX_MODIFIED",
+          "value": "2"
+        },
+        {
+          "name": "GIT_STATUS_INDEX_DELETED",
+          "value": "4"
+        },
+        {
+          "name": "GIT_STATUS_INDEX_RENAMED",
+          "value": "8"
+        },
+        {
+          "name": "GIT_STATUS_INDEX_TYPECHANGE",
+          "value": "16"
+        },
+        {
+          "name": "GIT_STATUS_WT_NEW",
+          "value": "128"
+        },
+        {
+          "name": "GIT_STATUS_WT_MODIFIED",
+          "value": "256"
+        },
+        {
+          "name": "GIT_STATUS_WT_DELETED",
+          "value": "512"
+        },
+        {
+          "name": "GIT_STATUS_WT_TYPECHANGE",
+          "value": "1024"
+        },
+        {
+          "name": "GIT_STATUS_WT_RENAMED",
+          "value": "2048"
+        },
+        {
+          "name": "GIT_STATUS_WT_UNREADABLE",
+          "value": "4096"
+        },
+        {
+          "name": "GIT_STATUS_IGNORED",
+          "value": "16384"
+        },
+        {
+          "name": "GIT_STATUS_CONFLICTED",
+          "value": "32768"
+        }
+      ],
+      "name": {
+        "name": "git_status_t",
+        "dbgOrigin": "enum typedef typedef:git_status_tname:/mnt/workspace/repos/libgit2/include/git2/status.h:52:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_STATUS_SHOW_INDEX_AND_WORKDIR"
+        },
+        {
+          "name": "GIT_STATUS_SHOW_INDEX_ONLY",
+          "value": "1"
+        },
+        {
+          "name": "GIT_STATUS_SHOW_WORKDIR_ONLY",
+          "value": "2"
+        }
+      ],
+      "name": {
+        "name": "git_status_show_t",
+        "dbgOrigin": "enum typedef typedef:git_status_show_tname:/mnt/workspace/repos/libgit2/include/git2/status.h:91:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_STATUS_OPT_INCLUDE_UNTRACKED",
+          "value": "1"
+        },
+        {
+          "name": "GIT_STATUS_OPT_INCLUDE_IGNORED",
+          "value": "2"
+        },
+        {
+          "name": "GIT_STATUS_OPT_INCLUDE_UNMODIFIED",
+          "value": "4"
+        },
+        {
+          "name": "GIT_STATUS_OPT_EXCLUDE_SUBMODULES",
+          "value": "8"
+        },
+        {
+          "name": "GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS",
+          "value": "16"
+        },
+        {
+          "name": "GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH",
+          "value": "32"
+        },
+        {
+          "name": "GIT_STATUS_OPT_RECURSE_IGNORED_DIRS",
+          "value": "64"
+        },
+        {
+          "name": "GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX",
+          "value": "128"
+        },
+        {
+          "name": "GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR",
+          "value": "256"
+        },
+        {
+          "name": "GIT_STATUS_OPT_SORT_CASE_SENSITIVELY",
+          "value": "512"
+        },
+        {
+          "name": "GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY",
+          "value": "1024"
+        },
+        {
+          "name": "GIT_STATUS_OPT_RENAMES_FROM_REWRITES",
+          "value": "2048"
+        },
+        {
+          "name": "GIT_STATUS_OPT_NO_REFRESH",
+          "value": "4096"
+        },
+        {
+          "name": "GIT_STATUS_OPT_UPDATE_INDEX",
+          "value": "8192"
+        },
+        {
+          "name": "GIT_STATUS_OPT_INCLUDE_UNREADABLE",
+          "value": "16384"
+        },
+        {
+          "name": "GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED",
+          "value": "32768"
+        }
+      ],
+      "name": {
+        "name": "git_status_opt_t",
+        "dbgOrigin": "enum typedef typedef:git_status_opt_tname:/mnt/workspace/repos/libgit2/include/git2/status.h:208:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_status_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_status_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:262:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_status_foreach",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_status_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:63:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/status.h:63:26>"
+          },
+          "name": "callback"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_status_foreach_ext",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_status_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:262:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "git_status_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:63:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/status.h:63:26>"
+          },
+          "name": "callback"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_status_file",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "unsigned int",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "status_flags"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "path"
+        }
+      ]
+    },
+    {
+      "name": "git_status_list_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_status_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:201:32"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_status_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:262:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_status_list_entrycount",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_status_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:201:32"
+          },
+          "name": "statuslist"
+        }
+      ]
+    },
+    {
+      "name": "git_status_byindex",
+      "resultTy": {
+        "name": "git_status_entry",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:299:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_status_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:201:32"
+          },
+          "name": "statuslist"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "idx"
+        }
+      ]
+    },
+    {
+      "name": "git_status_list_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_status_list",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:201:32"
+          },
+          "name": "statuslist"
+        }
+      ]
+    },
+    {
+      "name": "git_status_should_ignore",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "ignored"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "path"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_status_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/status.h:63:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/status.h:63:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

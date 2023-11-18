@@ -1,0 +1,393 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_error",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/errors.h:74:3"
+      },
+      "fields": [
+        {
+          "name": "message",
+          "type": {
+            "name": "char",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >char"
+          }
+        },
+        {
+          "name": "klass",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          }
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_OK"
+        },
+        {
+          "name": "GIT_ERROR",
+          "value": "-1"
+        },
+        {
+          "name": "GIT_ENOTFOUND",
+          "value": "-3"
+        },
+        {
+          "name": "GIT_EEXISTS",
+          "value": "-4"
+        },
+        {
+          "name": "GIT_EAMBIGUOUS",
+          "value": "-5"
+        },
+        {
+          "name": "GIT_EBUFS",
+          "value": "-6"
+        },
+        {
+          "name": "GIT_EUSER",
+          "value": "-7"
+        },
+        {
+          "name": "GIT_EBAREREPO",
+          "value": "-8"
+        },
+        {
+          "name": "GIT_EUNBORNBRANCH",
+          "value": "-9"
+        },
+        {
+          "name": "GIT_EUNMERGED",
+          "value": "-10"
+        },
+        {
+          "name": "GIT_ENONFASTFORWARD",
+          "value": "-11"
+        },
+        {
+          "name": "GIT_EINVALIDSPEC",
+          "value": "-12"
+        },
+        {
+          "name": "GIT_ECONFLICT",
+          "value": "-13"
+        },
+        {
+          "name": "GIT_ELOCKED",
+          "value": "-14"
+        },
+        {
+          "name": "GIT_EMODIFIED",
+          "value": "-15"
+        },
+        {
+          "name": "GIT_EAUTH",
+          "value": "-16"
+        },
+        {
+          "name": "GIT_ECERTIFICATE",
+          "value": "-17"
+        },
+        {
+          "name": "GIT_EAPPLIED",
+          "value": "-18"
+        },
+        {
+          "name": "GIT_EPEEL",
+          "value": "-19"
+        },
+        {
+          "name": "GIT_EEOF",
+          "value": "-20"
+        },
+        {
+          "name": "GIT_EINVALID",
+          "value": "-21"
+        },
+        {
+          "name": "GIT_EUNCOMMITTED",
+          "value": "-22"
+        },
+        {
+          "name": "GIT_EDIRECTORY",
+          "value": "-23"
+        },
+        {
+          "name": "GIT_EMERGECONFLICT",
+          "value": "-24"
+        },
+        {
+          "name": "GIT_PASSTHROUGH",
+          "value": "-30"
+        },
+        {
+          "name": "GIT_ITEROVER",
+          "value": "-31"
+        },
+        {
+          "name": "GIT_RETRY",
+          "value": "-32"
+        },
+        {
+          "name": "GIT_EMISMATCH",
+          "value": "-33"
+        },
+        {
+          "name": "GIT_EINDEXDIRTY",
+          "value": "-34"
+        },
+        {
+          "name": "GIT_EAPPLYFAIL",
+          "value": "-35"
+        },
+        {
+          "name": "GIT_EOWNER",
+          "value": "-36"
+        },
+        {
+          "name": "GIT_TIMEOUT",
+          "value": "-37"
+        }
+      ],
+      "name": {
+        "name": "git_error_code",
+        "dbgOrigin": "enum typedef typedef:git_error_codename:/mnt/workspace/repos/libgit2/include/git2/errors.h:63:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_ERROR_NONE"
+        },
+        {
+          "name": "GIT_ERROR_NOMEMORY",
+          "value": "1"
+        },
+        {
+          "name": "GIT_ERROR_OS",
+          "value": "2"
+        },
+        {
+          "name": "GIT_ERROR_INVALID",
+          "value": "3"
+        },
+        {
+          "name": "GIT_ERROR_REFERENCE",
+          "value": "4"
+        },
+        {
+          "name": "GIT_ERROR_ZLIB",
+          "value": "5"
+        },
+        {
+          "name": "GIT_ERROR_REPOSITORY",
+          "value": "6"
+        },
+        {
+          "name": "GIT_ERROR_CONFIG",
+          "value": "7"
+        },
+        {
+          "name": "GIT_ERROR_REGEX",
+          "value": "8"
+        },
+        {
+          "name": "GIT_ERROR_ODB",
+          "value": "9"
+        },
+        {
+          "name": "GIT_ERROR_INDEX",
+          "value": "10"
+        },
+        {
+          "name": "GIT_ERROR_OBJECT",
+          "value": "11"
+        },
+        {
+          "name": "GIT_ERROR_NET",
+          "value": "12"
+        },
+        {
+          "name": "GIT_ERROR_TAG",
+          "value": "13"
+        },
+        {
+          "name": "GIT_ERROR_TREE",
+          "value": "14"
+        },
+        {
+          "name": "GIT_ERROR_INDEXER",
+          "value": "15"
+        },
+        {
+          "name": "GIT_ERROR_SSL",
+          "value": "16"
+        },
+        {
+          "name": "GIT_ERROR_SUBMODULE",
+          "value": "17"
+        },
+        {
+          "name": "GIT_ERROR_THREAD",
+          "value": "18"
+        },
+        {
+          "name": "GIT_ERROR_STASH",
+          "value": "19"
+        },
+        {
+          "name": "GIT_ERROR_CHECKOUT",
+          "value": "20"
+        },
+        {
+          "name": "GIT_ERROR_FETCHHEAD",
+          "value": "21"
+        },
+        {
+          "name": "GIT_ERROR_MERGE",
+          "value": "22"
+        },
+        {
+          "name": "GIT_ERROR_SSH",
+          "value": "23"
+        },
+        {
+          "name": "GIT_ERROR_FILTER",
+          "value": "24"
+        },
+        {
+          "name": "GIT_ERROR_REVERT",
+          "value": "25"
+        },
+        {
+          "name": "GIT_ERROR_CALLBACK",
+          "value": "26"
+        },
+        {
+          "name": "GIT_ERROR_CHERRYPICK",
+          "value": "27"
+        },
+        {
+          "name": "GIT_ERROR_DESCRIBE",
+          "value": "28"
+        },
+        {
+          "name": "GIT_ERROR_REBASE",
+          "value": "29"
+        },
+        {
+          "name": "GIT_ERROR_FILESYSTEM",
+          "value": "30"
+        },
+        {
+          "name": "GIT_ERROR_PATCH",
+          "value": "31"
+        },
+        {
+          "name": "GIT_ERROR_WORKTREE",
+          "value": "32"
+        },
+        {
+          "name": "GIT_ERROR_SHA",
+          "value": "33"
+        },
+        {
+          "name": "GIT_ERROR_HTTP",
+          "value": "34"
+        },
+        {
+          "name": "GIT_ERROR_INTERNAL",
+          "value": "35"
+        },
+        {
+          "name": "GIT_ERROR_GRAFTS",
+          "value": "36"
+        }
+      ],
+      "name": {
+        "name": "git_error_t",
+        "dbgOrigin": "enum typedef typedef:git_error_tname:/mnt/workspace/repos/libgit2/include/git2/errors.h:115:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_error_last",
+      "resultTy": {
+        "name": "git_error",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/errors.h:74:3"
+      }
+    },
+    {
+      "name": "git_error_clear",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      }
+    },
+    {
+      "name": "git_error_set",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "error_class"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "fmt"
+        }
+      ]
+    },
+    {
+      "name": "git_error_set_str",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "error_class"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "string"
+        }
+      ]
+    },
+    {
+      "name": "git_error_set_oom",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      }
+    }
+  ]
+}

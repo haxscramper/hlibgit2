@@ -1,0 +1,73 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_oidarray",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/oidarray.h:16:16"
+      },
+      "fields": [
+        {
+          "name": "ids",
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          }
+        },
+        {
+          "name": "count",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_oidarray",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oidarray.h:19:3"
+      },
+      "fields": [
+        {
+          "name": "ids",
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          }
+        },
+        {
+          "name": "count",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_oidarray",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_oidarray_dispose",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oidarray",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oidarray.h:19:3"
+          },
+          "name": "array"
+        }
+      ]
+    }
+  ]
+}

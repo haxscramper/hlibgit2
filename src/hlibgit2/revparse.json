@@ -1,0 +1,172 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_revspec",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revparse.h:90:3"
+      },
+      "fields": [
+        {
+          "name": "from",
+          "type": {
+            "name": "git_object",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+          },
+          "doc": "/** The left element of the revspec; must be freed by the user */"
+        },
+        {
+          "name": "to",
+          "type": {
+            "name": "git_object",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+          },
+          "doc": "/** The right element of the revspec; must be freed by the user */"
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** The intent of the revspec (i.e. `git_revspec_mode_t` flags) */"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_REVSPEC_SINGLE",
+          "value": "1"
+        },
+        {
+          "name": "GIT_REVSPEC_RANGE",
+          "value": "2"
+        },
+        {
+          "name": "GIT_REVSPEC_MERGE_BASE",
+          "value": "4"
+        }
+      ],
+      "name": {
+        "name": "git_revspec_t",
+        "dbgOrigin": "enum typedef typedef:git_revspec_tname:/mnt/workspace/repos/libgit2/include/git2/revparse.h:78:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_revparse_single",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_object",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "spec"
+        }
+      ]
+    },
+    {
+      "name": "git_revparse_ext",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_object",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+          },
+          "name": "object_out"
+        },
+        {
+          "type": {
+            "name": "git_reference",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:189:30"
+          },
+          "name": "reference_out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "spec"
+        }
+      ]
+    },
+    {
+      "name": "git_revparse",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_revspec",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revparse.h:90:3"
+          },
+          "name": "revspec"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "spec"
+        }
+      ]
+    }
+  ]
+}

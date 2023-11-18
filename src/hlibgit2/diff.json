@@ -1,0 +1,2485 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_diff",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/diff.h:196:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_diff",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+      },
+      "recordDefName": {
+        "name": "git_diff",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_diff_file",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:282:3"
+      },
+      "fields": [
+        {
+          "name": "id",
+          "type": {
+            "name": "git_oid",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "doc": "/**\n\t * The `git_oid` of the item.  If the entry represents an\n\t * absent side of a diff (e.g. the `old_file` of a `GIT_DELTA_ADDED` delta),\n\t * then the oid will be zeroes.\n\t */"
+        },
+        {
+          "name": "path",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "doc": "/**\n\t * The NUL-terminated path to the entry relative to the working\n\t * directory of the repository.\n\t */"
+        },
+        {
+          "name": "size",
+          "type": {
+            "name": "git_object_size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:67:18"
+          },
+          "doc": "/**\n\t * The size of the entry in bytes.\n\t */"
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "doc": "/**\n\t * A combination of the `git_diff_flag_t` types\n\t */"
+        },
+        {
+          "name": "mode",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**\n\t * Roughly, the stat() `st_mode` value for the item.  This will\n\t * be restricted to one of the `git_filemode_t` values.\n\t */"
+        },
+        {
+          "name": "id_abbrev",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**\n\t * Represents the known length of the `id` field, when\n\t * converted to a hex string.  It is generally `GIT_OID_SHA1_HEXSIZE`, unless this\n\t * delta was created from reading a patch file, in which case it may be\n\t * abbreviated to something reasonable, like 7 characters.\n\t */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_delta",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+      },
+      "fields": [
+        {
+          "name": "status",
+          "type": {
+            "name": "git_delta_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:236:3"
+          }
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "doc": "/**< git_diff_flag_t values */"
+        },
+        {
+          "name": "similarity",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**< for RENAMED and COPIED, value 0-100 */"
+        },
+        {
+          "name": "nfiles",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**< number of files in this delta */"
+        },
+        {
+          "name": "old_file",
+          "type": {
+            "name": "git_diff_file",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:282:3"
+          }
+        },
+        {
+          "name": "new_file",
+          "type": {
+            "name": "git_diff_file",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:282:3"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< version for the struct */"
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "doc": "/**\n\t * A combination of `git_diff_option_t` values above.\n\t * Defaults to GIT_DIFF_NORMAL\n\t */"
+        },
+        {
+          "name": "ignore_submodules",
+          "type": {
+            "name": "git_submodule_ignore_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:338:3"
+          },
+          "doc": "/** Overrides the submodule ignore setting for all submodules in the diff. */"
+        },
+        {
+          "name": "pathspec",
+          "type": {
+            "name": "git_strarray",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
+          },
+          "doc": "/**\n\t * An array of paths / fnmatch patterns to constrain diff.\n\t * All paths are included by default.\n\t */"
+        },
+        {
+          "name": "notify_cb",
+          "type": {
+            "name": "git_diff_notify_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:346:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:346:26>"
+          },
+          "doc": "/**\n\t * An optional callback function, notifying the consumer of changes to\n\t * the diff as new deltas are added.\n\t */"
+        },
+        {
+          "name": "progress_cb",
+          "type": {
+            "name": "git_diff_progress_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:362:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:362:26>"
+          },
+          "doc": "/**\n\t * An optional callback function, notifying the consumer of which files\n\t * are being examined as the diff is generated.\n\t */"
+        },
+        {
+          "name": "payload",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "doc": "/** The payload to pass to the callback functions. */"
+        },
+        {
+          "name": "context_lines",
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "doc": "/**\n\t * The number of unchanged lines that define the boundary of a hunk\n\t * (and to display before and after). Defaults to 3.\n\t */"
+        },
+        {
+          "name": "interhunk_lines",
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "doc": "/**\n\t * The maximum number of unchanged lines between hunk boundaries before\n\t * the hunks will be merged into one. Defaults to 0.\n\t */"
+        },
+        {
+          "name": "oid_type",
+          "type": {
+            "name": "git_oid_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:33:3"
+          },
+          "doc": "/**\n\t * The object ID type to emit in diffs; this is used by functions\n\t * that operate without a repository - namely `git_diff_buffers`,\n\t * or `git_diff_blobs` and `git_diff_blob_to_buffer` when one blob\n\t * is `NULL`.\n\t *\n\t * This may be omitted (set to `0`). If a repository is available,\n\t * the object ID format of the repository will be used. If no\n\t * repository is available then the default is `GIT_OID_SHA`.\n\t *\n\t * If this is specified and a repository is available, then the\n\t * specified `oid_type` must match the repository's object ID\n\t * format.\n\t */"
+        },
+        {
+          "name": "id_abbrev",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**\n\t * The abbreviation length to use when formatting object ids.\n\t * Defaults to the value of 'core.abbrev' from the config, or 7 if unset.\n\t */"
+        },
+        {
+          "name": "max_size",
+          "type": {
+            "name": "git_off_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:61:17"
+          },
+          "doc": "/**\n\t * A size (in bytes) above which a blob will be marked as binary\n\t * automatically; pass a negative value to disable.\n\t * Defaults to 512MB.\n\t */"
+        },
+        {
+          "name": "old_prefix",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "doc": "/**\n\t * The virtual \"directory\" prefix for old file names in hunk headers.\n\t * Default is \"a\".\n\t */"
+        },
+        {
+          "name": "new_prefix",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "doc": "/**\n\t * The virtual \"directory\" prefix for new file names in hunk headers.\n\t * Defaults to \"b\".\n\t */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_binary_file",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:533:3"
+      },
+      "fields": [
+        {
+          "name": "type",
+          "type": {
+            "name": "git_diff_binary_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:518:3"
+          },
+          "doc": "/** The type of binary data for this file. */"
+        },
+        {
+          "name": "data",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "doc": "/** The binary data, deflated. */"
+        },
+        {
+          "name": "datalen",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/** The length of the binary data. */"
+        },
+        {
+          "name": "inflatedlen",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/** The length of the binary data after inflation. */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_binary",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:556:3"
+      },
+      "fields": [
+        {
+          "name": "contains_data",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**\n\t * Whether there is data in this binary structure or not.\n\t *\n\t * If this is `1`, then this was produced and included binary content.\n\t * If this is `0` then this was generated knowing only that a binary\n\t * file changed but without providing the data, probably from a patch\n\t * that said `Binary files a/file.txt and b/file.txt differ`.\n\t */"
+        },
+        {
+          "name": "old_file",
+          "type": {
+            "name": "git_diff_binary_file",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:533:3"
+          },
+          "doc": "/**< The contents of the old file. */"
+        },
+        {
+          "name": "new_file",
+          "type": {
+            "name": "git_diff_binary_file",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:533:3"
+          },
+          "doc": "/**< The contents of the new file. */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_hunk",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:583:3"
+      },
+      "fields": [
+        {
+          "name": "old_start",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< Starting line number in old_file */"
+        },
+        {
+          "name": "old_lines",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< Number of lines in old_file */"
+        },
+        {
+          "name": "new_start",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< Starting line number in new_file */"
+        },
+        {
+          "name": "new_lines",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< Number of lines in new_file */"
+        },
+        {
+          "name": "header_len",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/**< Number of bytes in header text */"
+        },
+        {
+          "name": "header",
+          "type": {
+            "parameters": [
+              {
+                "name": "char",
+                "dbgOrigin": " >char"
+              },
+              {
+                "kind": "TypeExpr"
+              }
+            ],
+            "kind": "Array",
+            "dbgOrigin": " >constarray"
+          },
+          "doc": "/**< Header text, NUL-byte terminated */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_line",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:639:3"
+      },
+      "fields": [
+        {
+          "name": "origin",
+          "type": {
+            "name": "char",
+            "dbgOrigin": " >char"
+          },
+          "doc": "/**< A git_diff_line_t value */"
+        },
+        {
+          "name": "old_lineno",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< Line number in old file or -1 for added line */"
+        },
+        {
+          "name": "new_lineno",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< Line number in new file or -1 for deleted line */"
+        },
+        {
+          "name": "num_lines",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/**< Number of newline characters in content */"
+        },
+        {
+          "name": "content_len",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/**< Number of bytes of data */"
+        },
+        {
+          "name": "content_offset",
+          "type": {
+            "name": "git_off_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:61:17"
+          },
+          "doc": "/**< Offset in the original file to the content */"
+        },
+        {
+          "name": "content",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "doc": "/**< Pointer to diff text, not NUL-byte terminated */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_similarity_metric",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:742:3"
+      },
+      "fields": [
+        {
+          "name": "file_signature",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "git_diff_file",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:282:3"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "buffer_signature",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "git_diff_file",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:282:3"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free_signature",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "similarity",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "int",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_find_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:803:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          }
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "doc": "/**\n\t * Combination of git_diff_find_t values (default GIT_DIFF_FIND_BY_CONFIG).\n\t * NOTE: if you don't explicitly set this, `diff.renames` could be set\n\t * to false, resulting in `git_diff_find_similar` doing nothing.\n\t */"
+        },
+        {
+          "name": "rename_threshold",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**\n\t * Threshold above which similar files will be considered renames.\n\t * This is equivalent to the -M option. Defaults to 50.\n\t */"
+        },
+        {
+          "name": "rename_from_rewrite_threshold",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**\n\t * Threshold below which similar files will be eligible to be a rename source.\n\t * This is equivalent to the first part of the -B option. Defaults to 50.\n\t */"
+        },
+        {
+          "name": "copy_threshold",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**\n\t * Threshold above which similar files will be considered copies.\n\t * This is equivalent to the -C option. Defaults to 50.\n\t */"
+        },
+        {
+          "name": "break_rewrite_threshold",
+          "type": {
+            "name": "uint16_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+          },
+          "doc": "/**\n\t * Threshold below which similar files will be split into a delete/add pair.\n\t * This is equivalent to the last part of the -B option. Defaults to 60.\n\t */"
+        },
+        {
+          "name": "rename_limit",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/**\n\t * Maximum number of matches to consider for a particular file.\n\t *\n\t * This is a little different from the `-l` option from Git because we\n\t * will still process up to this many matches before abandoning the search.\n\t * Defaults to 1000.\n\t */"
+        },
+        {
+          "name": "metric",
+          "type": {
+            "name": "git_diff_similarity_metric",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:742:3"
+          },
+          "doc": "/**\n\t * The `metric` option allows you to plug in a custom similarity metric.\n\t *\n\t * Set it to NULL to use the default internal metric.\n\t *\n\t * The default metric is based on sampling hashes of ranges of data in\n\t * the file, which is a pretty good similarity approximation that should\n\t * work fairly well for both text and binary data while still being\n\t * pretty fast with a fixed memory overhead.\n\t */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_parse_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1297:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          }
+        },
+        {
+          "name": "oid_type",
+          "type": {
+            "name": "git_oid_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:33:3"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_stats",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/diff.h:1341:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_diff_stats",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1341:31"
+      },
+      "recordDefName": {
+        "name": "git_diff_stats",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_diff_patchid_options",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/diff.h:1431:16"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_diff_patchid_options",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1433:3"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_diff_patchid_options",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_DIFF_NORMAL"
+        },
+        {
+          "name": "GIT_DIFF_REVERSE",
+          "value": "1"
+        },
+        {
+          "name": "GIT_DIFF_INCLUDE_IGNORED",
+          "value": "2"
+        },
+        {
+          "name": "GIT_DIFF_RECURSE_IGNORED_DIRS",
+          "value": "4"
+        },
+        {
+          "name": "GIT_DIFF_INCLUDE_UNTRACKED",
+          "value": "8"
+        },
+        {
+          "name": "GIT_DIFF_RECURSE_UNTRACKED_DIRS",
+          "value": "16"
+        },
+        {
+          "name": "GIT_DIFF_INCLUDE_UNMODIFIED",
+          "value": "32"
+        },
+        {
+          "name": "GIT_DIFF_INCLUDE_TYPECHANGE",
+          "value": "64"
+        },
+        {
+          "name": "GIT_DIFF_INCLUDE_TYPECHANGE_TREES",
+          "value": "128"
+        },
+        {
+          "name": "GIT_DIFF_IGNORE_FILEMODE",
+          "value": "256"
+        },
+        {
+          "name": "GIT_DIFF_IGNORE_SUBMODULES",
+          "value": "512"
+        },
+        {
+          "name": "GIT_DIFF_IGNORE_CASE",
+          "value": "1024"
+        },
+        {
+          "name": "GIT_DIFF_INCLUDE_CASECHANGE",
+          "value": "2048"
+        },
+        {
+          "name": "GIT_DIFF_DISABLE_PATHSPEC_MATCH",
+          "value": "4096"
+        },
+        {
+          "name": "GIT_DIFF_SKIP_BINARY_CHECK",
+          "value": "8192"
+        },
+        {
+          "name": "GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS",
+          "value": "16384"
+        },
+        {
+          "name": "GIT_DIFF_UPDATE_INDEX",
+          "value": "32768"
+        },
+        {
+          "name": "GIT_DIFF_INCLUDE_UNREADABLE",
+          "value": "65536"
+        },
+        {
+          "name": "GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED",
+          "value": "131072"
+        },
+        {
+          "name": "GIT_DIFF_INDENT_HEURISTIC",
+          "value": "262144"
+        },
+        {
+          "name": "GIT_DIFF_IGNORE_BLANK_LINES",
+          "value": "524288"
+        },
+        {
+          "name": "GIT_DIFF_FORCE_TEXT",
+          "value": "1048576"
+        },
+        {
+          "name": "GIT_DIFF_FORCE_BINARY",
+          "value": "2097152"
+        },
+        {
+          "name": "GIT_DIFF_IGNORE_WHITESPACE",
+          "value": "4194304"
+        },
+        {
+          "name": "GIT_DIFF_IGNORE_WHITESPACE_CHANGE",
+          "value": "8388608"
+        },
+        {
+          "name": "GIT_DIFF_IGNORE_WHITESPACE_EOL",
+          "value": "16777216"
+        },
+        {
+          "name": "GIT_DIFF_SHOW_UNTRACKED_CONTENT",
+          "value": "33554432"
+        },
+        {
+          "name": "GIT_DIFF_SHOW_UNMODIFIED",
+          "value": "67108864"
+        },
+        {
+          "name": "GIT_DIFF_PATIENCE",
+          "value": "268435456"
+        },
+        {
+          "name": "GIT_DIFF_MINIMAL",
+          "value": "536870912"
+        },
+        {
+          "name": "GIT_DIFF_SHOW_BINARY",
+          "value": "1073741824"
+        }
+      ],
+      "name": {
+        "name": "git_diff_option_t",
+        "dbgOrigin": "enum typedef typedef:git_diff_option_tname:/mnt/workspace/repos/libgit2/include/git2/diff.h:174:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_DIFF_FLAG_BINARY",
+          "value": "1"
+        },
+        {
+          "name": "GIT_DIFF_FLAG_NOT_BINARY",
+          "value": "2"
+        },
+        {
+          "name": "GIT_DIFF_FLAG_VALID_ID",
+          "value": "4"
+        },
+        {
+          "name": "GIT_DIFF_FLAG_EXISTS",
+          "value": "8"
+        },
+        {
+          "name": "GIT_DIFF_FLAG_VALID_SIZE",
+          "value": "16"
+        }
+      ],
+      "name": {
+        "name": "git_diff_flag_t",
+        "dbgOrigin": "enum typedef typedef:git_diff_flag_tname:/mnt/workspace/repos/libgit2/include/git2/diff.h:212:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_DELTA_UNMODIFIED"
+        },
+        {
+          "name": "GIT_DELTA_ADDED",
+          "value": "1"
+        },
+        {
+          "name": "GIT_DELTA_DELETED",
+          "value": "2"
+        },
+        {
+          "name": "GIT_DELTA_MODIFIED",
+          "value": "3"
+        },
+        {
+          "name": "GIT_DELTA_RENAMED",
+          "value": "4"
+        },
+        {
+          "name": "GIT_DELTA_COPIED",
+          "value": "5"
+        },
+        {
+          "name": "GIT_DELTA_IGNORED",
+          "value": "6"
+        },
+        {
+          "name": "GIT_DELTA_UNTRACKED",
+          "value": "7"
+        },
+        {
+          "name": "GIT_DELTA_TYPECHANGE",
+          "value": "8"
+        },
+        {
+          "name": "GIT_DELTA_UNREADABLE",
+          "value": "9"
+        },
+        {
+          "name": "GIT_DELTA_CONFLICTED",
+          "value": "10"
+        }
+      ],
+      "name": {
+        "name": "git_delta_t",
+        "dbgOrigin": "enum typedef typedef:git_delta_tname:/mnt/workspace/repos/libgit2/include/git2/diff.h:236:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_DIFF_BINARY_NONE"
+        },
+        {
+          "name": "GIT_DIFF_BINARY_LITERAL",
+          "value": "1"
+        },
+        {
+          "name": "GIT_DIFF_BINARY_DELTA",
+          "value": "2"
+        }
+      ],
+      "name": {
+        "name": "git_diff_binary_t",
+        "dbgOrigin": "enum typedef typedef:git_diff_binary_tname:/mnt/workspace/repos/libgit2/include/git2/diff.h:518:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_DIFF_LINE_CONTEXT",
+          "value": "32"
+        },
+        {
+          "name": "GIT_DIFF_LINE_ADDITION",
+          "value": "43"
+        },
+        {
+          "name": "GIT_DIFF_LINE_DELETION",
+          "value": "45"
+        },
+        {
+          "name": "GIT_DIFF_LINE_CONTEXT_EOFNL",
+          "value": "61"
+        },
+        {
+          "name": "GIT_DIFF_LINE_ADD_EOFNL",
+          "value": "62"
+        },
+        {
+          "name": "GIT_DIFF_LINE_DEL_EOFNL",
+          "value": "60"
+        },
+        {
+          "name": "GIT_DIFF_LINE_FILE_HDR",
+          "value": "70"
+        },
+        {
+          "name": "GIT_DIFF_LINE_HUNK_HDR",
+          "value": "72"
+        },
+        {
+          "name": "GIT_DIFF_LINE_BINARY",
+          "value": "66"
+        }
+      ],
+      "name": {
+        "name": "git_diff_line_t",
+        "dbgOrigin": "enum typedef typedef:git_diff_line_tname:/mnt/workspace/repos/libgit2/include/git2/diff.h:618:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_DIFF_FIND_BY_CONFIG"
+        },
+        {
+          "name": "GIT_DIFF_FIND_RENAMES",
+          "value": "1"
+        },
+        {
+          "name": "GIT_DIFF_FIND_RENAMES_FROM_REWRITES",
+          "value": "2"
+        },
+        {
+          "name": "GIT_DIFF_FIND_COPIES",
+          "value": "4"
+        },
+        {
+          "name": "GIT_DIFF_FIND_COPIES_FROM_UNMODIFIED",
+          "value": "8"
+        },
+        {
+          "name": "GIT_DIFF_FIND_REWRITES",
+          "value": "16"
+        },
+        {
+          "name": "GIT_DIFF_BREAK_REWRITES",
+          "value": "32"
+        },
+        {
+          "name": "GIT_DIFF_FIND_AND_BREAK_REWRITES",
+          "value": "48"
+        },
+        {
+          "name": "GIT_DIFF_FIND_FOR_UNTRACKED",
+          "value": "64"
+        },
+        {
+          "name": "GIT_DIFF_FIND_ALL",
+          "value": "255"
+        },
+        {
+          "name": "GIT_DIFF_FIND_IGNORE_LEADING_WHITESPACE"
+        },
+        {
+          "name": "GIT_DIFF_FIND_IGNORE_WHITESPACE",
+          "value": "4096"
+        },
+        {
+          "name": "GIT_DIFF_FIND_DONT_IGNORE_WHITESPACE",
+          "value": "8192"
+        },
+        {
+          "name": "GIT_DIFF_FIND_EXACT_MATCH_ONLY",
+          "value": "16384"
+        },
+        {
+          "name": "GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY",
+          "value": "32768"
+        },
+        {
+          "name": "GIT_DIFF_FIND_REMOVE_UNMODIFIED",
+          "value": "65536"
+        }
+      ],
+      "name": {
+        "name": "git_diff_find_t",
+        "dbgOrigin": "enum typedef typedef:git_diff_find_tname:/mnt/workspace/repos/libgit2/include/git2/diff.h:727:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_DIFF_FORMAT_PATCH",
+          "value": "1"
+        },
+        {
+          "name": "GIT_DIFF_FORMAT_PATCH_HEADER",
+          "value": "2"
+        },
+        {
+          "name": "GIT_DIFF_FORMAT_RAW",
+          "value": "3"
+        },
+        {
+          "name": "GIT_DIFF_FORMAT_NAME_ONLY",
+          "value": "4"
+        },
+        {
+          "name": "GIT_DIFF_FORMAT_NAME_STATUS",
+          "value": "5"
+        },
+        {
+          "name": "GIT_DIFF_FORMAT_PATCH_ID",
+          "value": "6"
+        }
+      ],
+      "name": {
+        "name": "git_diff_format_t",
+        "dbgOrigin": "enum typedef typedef:git_diff_format_tname:/mnt/workspace/repos/libgit2/include/git2/diff.h:1135:3"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_DIFF_STATS_NONE"
+        },
+        {
+          "name": "GIT_DIFF_STATS_FULL",
+          "value": "1"
+        },
+        {
+          "name": "GIT_DIFF_STATS_SHORT",
+          "value": "2"
+        },
+        {
+          "name": "GIT_DIFF_STATS_NUMBER",
+          "value": "4"
+        },
+        {
+          "name": "GIT_DIFF_STATS_INCLUDE_SUMMARY",
+          "value": "8"
+        }
+      ],
+      "name": {
+        "name": "git_diff_stats_format_t",
+        "dbgOrigin": "enum typedef typedef:git_diff_stats_format_tname:/mnt/workspace/repos/libgit2/include/git2/diff.h:1361:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_diff_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_find_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff_find_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:803:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_tree_to_tree",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "old_tree"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "new_tree"
+        },
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_tree_to_index",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "old_tree"
+        },
+        {
+          "type": {
+            "name": "git_index",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+          },
+          "name": "index"
+        },
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_index_to_workdir",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_index",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+          },
+          "name": "index"
+        },
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_tree_to_workdir",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "old_tree"
+        },
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_tree_to_workdir_with_index",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_tree",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+          },
+          "name": "old_tree"
+        },
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_index_to_index",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_index",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+          },
+          "name": "old_index"
+        },
+        {
+          "type": {
+            "name": "git_index",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+          },
+          "name": "new_index"
+        },
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_merge",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "onto"
+        },
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "from"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_find_similar",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_diff_find_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:803:3"
+          },
+          "name": "options"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_num_deltas",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_num_deltas_of_type",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_delta_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:236:3"
+          },
+          "name": "type"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_get_delta",
+      "resultTy": {
+        "name": "git_diff_delta",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "idx"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_is_sorted_icase",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_foreach",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_diff_file_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:496:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:496:26>"
+          },
+          "name": "file_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_binary_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:562:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:562:26>"
+          },
+          "name": "binary_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_hunk_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:588:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:588:26>"
+          },
+          "name": "hunk_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_line_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:649:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:649:26>"
+          },
+          "name": "line_cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_status_char",
+      "resultTy": {
+        "name": "char",
+        "dbgOrigin": " >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_delta_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:236:3"
+          },
+          "name": "status"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_print",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_diff_format_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1135:3"
+          },
+          "name": "format"
+        },
+        {
+          "type": {
+            "name": "git_diff_line_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:649:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:649:26>"
+          },
+          "name": "print_cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_to_buf",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_diff_format_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1135:3"
+          },
+          "name": "format"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_blobs",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_blob",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:133:25"
+          },
+          "name": "old_blob"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "old_as_path"
+        },
+        {
+          "type": {
+            "name": "git_blob",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:133:25"
+          },
+          "name": "new_blob"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "new_as_path"
+        },
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "options"
+        },
+        {
+          "type": {
+            "name": "git_diff_file_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:496:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:496:26>"
+          },
+          "name": "file_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_binary_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:562:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:562:26>"
+          },
+          "name": "binary_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_hunk_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:588:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:588:26>"
+          },
+          "name": "hunk_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_line_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:649:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:649:26>"
+          },
+          "name": "line_cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_blob_to_buffer",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_blob",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:133:25"
+          },
+          "name": "old_blob"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "old_as_path"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "buffer"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "buffer_len"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "buffer_as_path"
+        },
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "options"
+        },
+        {
+          "type": {
+            "name": "git_diff_file_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:496:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:496:26>"
+          },
+          "name": "file_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_binary_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:562:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:562:26>"
+          },
+          "name": "binary_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_hunk_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:588:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:588:26>"
+          },
+          "name": "hunk_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_line_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:649:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:649:26>"
+          },
+          "name": "line_cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_buffers",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "const void",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+          },
+          "name": "old_buffer"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "old_len"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "old_as_path"
+        },
+        {
+          "type": {
+            "name": "const void",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+          },
+          "name": "new_buffer"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "new_len"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "new_as_path"
+        },
+        {
+          "type": {
+            "name": "git_diff_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:464:3"
+          },
+          "name": "options"
+        },
+        {
+          "type": {
+            "name": "git_diff_file_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:496:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:496:26>"
+          },
+          "name": "file_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_binary_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:562:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:562:26>"
+          },
+          "name": "binary_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_hunk_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:588:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:588:26>"
+          },
+          "name": "hunk_cb"
+        },
+        {
+          "type": {
+            "name": "git_diff_line_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:649:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:649:26>"
+          },
+          "name": "line_cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_from_buffer",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "content"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "content_len"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_get_stats",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff_stats",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1341:31"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_stats_files_changed",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff_stats",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1341:31"
+          },
+          "name": "stats"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_stats_insertions",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff_stats",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1341:31"
+          },
+          "name": "stats"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_stats_deletions",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff_stats",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1341:31"
+          },
+          "name": "stats"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_stats_to_buf",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_diff_stats",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1341:31"
+          },
+          "name": "stats"
+        },
+        {
+          "type": {
+            "name": "git_diff_stats_format_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1361:3"
+          },
+          "name": "format"
+        },
+        {
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "name": "width"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_stats_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff_stats",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1341:31"
+          },
+          "name": "stats"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_patchid_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_diff_patchid_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1433:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_diff_patchid",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          "name": "diff"
+        },
+        {
+          "type": {
+            "name": "git_diff_patchid_options",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:1433:3"
+          },
+          "name": "opts"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_diff_notify_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/diff.h:346:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:346:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          {
+            "name": "git_diff_delta",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_diff_progress_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/diff.h:362:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:362:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_diff",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_diff_file_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/diff.h:496:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:496:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_diff_delta",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+          },
+          {
+            "name": "float",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_diff_binary_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/diff.h:562:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:562:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_diff_delta",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+          },
+          {
+            "name": "git_diff_binary",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:556:3"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_diff_hunk_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/diff.h:588:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:588:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_diff_delta",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+          },
+          {
+            "name": "git_diff_hunk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:583:3"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_diff_line_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/diff.h:649:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/diff.h:649:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_diff_delta",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+          },
+          {
+            "name": "git_diff_hunk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:583:3"
+          },
+          {
+            "name": "git_diff_line",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:639:3"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

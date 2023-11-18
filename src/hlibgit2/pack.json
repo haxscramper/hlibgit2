@@ -1,0 +1,505 @@
+{
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_PACKBUILDER_ADDING_OBJECTS"
+        },
+        {
+          "name": "GIT_PACKBUILDER_DELTAFICATION",
+          "value": "1"
+        }
+      ],
+      "name": {
+        "name": "git_packbuilder_stage_t",
+        "dbgOrigin": "enum typedef typedef:git_packbuilder_stage_tname:/mnt/workspace/repos/libgit2/include/git2/pack.h:55:3"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_packbuilder_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_set_threads",
+      "resultTy": {
+        "name": "unsigned int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "n"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_insert",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_insert_tree",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_insert_commit",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_insert_walk",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        },
+        {
+          "type": {
+            "name": "git_revwalk",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+          },
+          "name": "walk"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_insert_recur",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_write_buf",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "buf"
+        },
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_write",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "path"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "mode"
+        },
+        {
+          "type": {
+            "name": "git_indexer_progress_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:57:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/indexer.h:57:26>"
+          },
+          "name": "progress_cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "progress_cb_payload"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_hash",
+      "resultTy": {
+        "name": "git_oid",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_name",
+      "resultTy": {
+        "name": "char",
+        "isConst": true,
+        "isPointer": true,
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_foreach",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        },
+        {
+          "type": {
+            "name": "git_packbuilder_foreach_cb",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pack.h:208:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/pack.h:208:26>"
+          },
+          "name": "cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_object_count",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_written",
+      "resultTy": {
+        "name": "size_t",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_set_callbacks",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        },
+        {
+          "type": {
+            "name": "git_packbuilder_progress",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pack.h:237:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/pack.h:237:26>"
+          },
+          "name": "progress_cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          "name": "progress_cb_payload"
+        }
+      ]
+    },
+    {
+      "name": "git_packbuilder_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_packbuilder",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32"
+          },
+          "name": "pb"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_packbuilder_foreach_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/pack.h:208:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/pack.h:208:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          },
+          {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_packbuilder_progress",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/pack.h:237:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/pack.h:237:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          {
+            "name": "uint32_t",
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

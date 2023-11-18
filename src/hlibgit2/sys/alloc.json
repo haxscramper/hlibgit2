@@ -1,0 +1,130 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_allocator",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/alloc.h:39:3"
+      },
+      "fields": [
+        {
+          "name": "gmalloc",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "grealloc",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+              },
+              {
+                "name": "char",
+                "isConst": true,
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+              },
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "gfree",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin"
+              },
+              {
+                "name": "void",
+                "isPointer": true,
+                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_stdalloc_init_allocator",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_allocator",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/alloc.h:39:3"
+          },
+          "name": "allocator"
+        }
+      ]
+    },
+    {
+      "name": "git_win32_crtdbg_init_allocator",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_allocator",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/alloc.h:39:3"
+          },
+          "name": "allocator"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_message_trailer",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:46:3"
+      },
+      "fields": [
+        {
+          "name": "key",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_message_trailer_array",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:60:3"
+      },
+      "fields": [
+        {
+          "name": "trailers",
+          "type": {
+            "name": "git_message_trailer",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:46:3"
+          }
+        },
+        {
+          "name": "count",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          }
+        },
+        {
+          "name": "_trailer_block",
+          "type": {
+            "name": "char",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >char"
+          }
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_message_prettify",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          "name": "strip_comments"
+        },
+        {
+          "type": {
+            "name": "char",
+            "dbgOrigin": " >char"
+          },
+          "name": "comment_char"
+        }
+      ]
+    },
+    {
+      "name": "git_message_trailers",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_message_trailer_array",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:60:3"
+          },
+          "name": "arr"
+        },
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "message"
+        }
+      ]
+    },
+    {
+      "name": "git_message_trailer_array_free",
+      "resultTy": {
+        "name": "void",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_message_trailer_array",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:60:3"
+          },
+          "name": "arr"
+        }
+      ]
+    }
+  ]
+}

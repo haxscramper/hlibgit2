@@ -1,0 +1,360 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_merge_driver",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_merge_driver",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** The `version` should be set to `GIT_MERGE_DRIVER_VERSION`. */"
+        },
+        {
+          "name": "initialize",
+          "type": {
+            "name": "git_merge_driver_init_fn",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:26>"
+          },
+          "doc": "/** Called when the merge driver is first used for any file. */"
+        },
+        {
+          "name": "shutdown",
+          "type": {
+            "name": "git_merge_driver_shutdown_fn",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:27>"
+          },
+          "doc": "/** Called when the merge driver is unregistered from the system. */"
+        },
+        {
+          "name": "apply",
+          "type": {
+            "name": "git_merge_driver_apply_fn",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:26>"
+          },
+          "doc": "/**\n\t * Called to merge the contents of a conflict.  If this function\n\t * returns `GIT_PASSTHROUGH` then the default (`text`) merge driver\n\t * will instead be invoked.  If this function returns\n\t * `GIT_EMERGECONFLICT` then the file will remain conflicted.\n\t */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_merge_driver",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_merge_driver_source",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:16"
+      }
+    },
+    {
+      "name": {
+        "name": "git_merge_driver_source",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+      },
+      "recordDefName": {
+        "name": "git_merge_driver_source",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_merge_driver",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:123:8"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin"
+          },
+          "doc": "/** The `version` should be set to `GIT_MERGE_DRIVER_VERSION`. */"
+        },
+        {
+          "name": "initialize",
+          "type": {
+            "name": "git_merge_driver_init_fn",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:26>"
+          },
+          "doc": "/** Called when the merge driver is first used for any file. */"
+        },
+        {
+          "name": "shutdown",
+          "type": {
+            "name": "git_merge_driver_shutdown_fn",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:27>"
+          },
+          "doc": "/** Called when the merge driver is unregistered from the system. */"
+        },
+        {
+          "name": "apply",
+          "type": {
+            "name": "git_merge_driver_apply_fn",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:26>"
+          },
+          "doc": "/**\n\t * Called to merge the contents of a conflict.  If this function\n\t * returns `GIT_PASSTHROUGH` then the default (`text`) merge driver\n\t * will instead be invoked.  If this function returns\n\t * `GIT_EMERGECONFLICT` then the file will remain conflicted.\n\t */"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_merge_driver_lookup",
+      "resultTy": {
+        "name": "git_merge_driver",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_merge_driver_source_repo",
+      "resultTy": {
+        "name": "git_repository",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_merge_driver_source",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+          },
+          "name": "src"
+        }
+      ]
+    },
+    {
+      "name": "git_merge_driver_source_ancestor",
+      "resultTy": {
+        "name": "git_index_entry",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/index.h:70:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_merge_driver_source",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+          },
+          "name": "src"
+        }
+      ]
+    },
+    {
+      "name": "git_merge_driver_source_ours",
+      "resultTy": {
+        "name": "git_index_entry",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/index.h:70:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_merge_driver_source",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+          },
+          "name": "src"
+        }
+      ]
+    },
+    {
+      "name": "git_merge_driver_source_theirs",
+      "resultTy": {
+        "name": "git_index_entry",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/index.h:70:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_merge_driver_source",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+          },
+          "name": "src"
+        }
+      ]
+    },
+    {
+      "name": "git_merge_driver_source_file_options",
+      "resultTy": {
+        "name": "git_merge_file_options",
+        "isPointer": true,
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:218:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_merge_driver_source",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+          },
+          "name": "src"
+        }
+      ]
+    },
+    {
+      "name": "git_merge_driver_register",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "git_merge_driver",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+          },
+          "name": "driver"
+        }
+      ]
+    },
+    {
+      "name": "git_merge_driver_unregister",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          "name": "name"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_merge_driver_init_fn",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_merge_driver",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_merge_driver_shutdown_fn",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:27>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "void",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_merge_driver",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_merge_driver_apply_fn",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin"
+          },
+          {
+            "name": "git_merge_driver",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr T-const >char"
+          },
+          {
+            "name": "uint32_t",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          {
+            "name": "git_buf",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+          },
+          {
+            "name": "git_merge_driver_source",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}
