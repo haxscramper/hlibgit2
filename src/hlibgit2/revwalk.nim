@@ -6,7 +6,7 @@ import
   ./types
 
 type
-  c_git_sort_t* = enum
+  c_git_sort_t* {.size: sizeof(cint).} = enum
     c_GIT_SORT_NONE        = 0 shl 0
     c_GIT_SORT_TOPOLOGICAL = 1 shl 0
     c_GIT_SORT_TIME        = 1 shl 1

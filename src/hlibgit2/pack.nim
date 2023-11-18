@@ -8,7 +8,7 @@ import
   ./types
 
 type
-  c_git_packbuilder_stage_t* = enum
+  c_git_packbuilder_stage_t* {.size: sizeof(cint).} = enum
     c_GIT_PACKBUILDER_ADDING_OBJECTS = 0 shl 0
     c_GIT_PACKBUILDER_DELTAFICATION  = 1 shl 0
 

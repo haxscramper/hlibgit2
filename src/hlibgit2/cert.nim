@@ -4,7 +4,7 @@ import
   ./libgit2_config
 
 type
-  c_git_cert_ssh_raw_type_t* = enum
+  c_git_cert_ssh_raw_type_t* {.size: sizeof(cint).} = enum
     c_GIT_CERT_SSH_RAW_TYPE_UNKNOWN       = 0 ## The raw key is of an unknown type.
     c_GIT_CERT_SSH_RAW_TYPE_RSA           = 1 ## The raw key is an RSA key.
     c_GIT_CERT_SSH_RAW_TYPE_DSS           = 2 ## The raw key is a DSS key.
@@ -13,13 +13,13 @@ type
     c_GIT_CERT_SSH_RAW_TYPE_KEY_ECDSA_521 = 5 ## The raw key is a ECDSA 521 key.
     c_GIT_CERT_SSH_RAW_TYPE_KEY_ED25519   = 6 ## The raw key is a ED25519 key.
 
-  c_git_cert_ssh_t* = enum
+  c_git_cert_ssh_t* {.size: sizeof(cint).} = enum
     c_GIT_CERT_SSH_MD5    = 1 shl 0 ## MD5 is available
     c_GIT_CERT_SSH_SHA1   = 1 shl 1 ## SHA-1 is available
     c_GIT_CERT_SSH_SHA256 = 1 shl 2 ## SHA-256 is available
     c_GIT_CERT_SSH_RAW    = 1 shl 3 ## Raw hostkey is available
 
-  c_git_cert_t* = enum
+  c_git_cert_t* {.size: sizeof(cint).} = enum
     c_GIT_CERT_NONE            = 0
     c_GIT_CERT_X509            = 1
     c_GIT_CERT_HOSTKEY_LIBSSH2 = 2

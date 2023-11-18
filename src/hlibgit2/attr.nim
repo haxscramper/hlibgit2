@@ -6,7 +6,7 @@ import
   ./types
 
 type
-  c_git_attr_value_t* = enum
+  c_git_attr_value_t* {.size: sizeof(cint).} = enum
     c_GIT_ATTR_VALUE_UNSPECIFIED = 0
     c_GIT_ATTR_VALUE_TRUE        = 1 ## The attribute has been left unspecified
     c_GIT_ATTR_VALUE_FALSE       = 2 ## The attribute has been set

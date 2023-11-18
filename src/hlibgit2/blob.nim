@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_blob_filter_flag_t* = enum
+  c_git_blob_filter_flag_t* {.size: sizeof(cint).} = enum
     c_GIT_BLOB_FILTER_CHECK_FOR_BINARY       = 1 shl 0 ## When set, filters will not be applied to binary files.
     c_GIT_BLOB_FILTER_NO_SYSTEM_ATTRIBUTES   = 1 shl 1
     c_GIT_BLOB_FILTER_ATTRIBUTES_FROM_HEAD   = 1 shl 2

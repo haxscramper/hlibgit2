@@ -8,7 +8,7 @@ import
   ./types
 
 type
-  c_git_delta_t* = enum
+  c_git_delta_t* {.size: sizeof(cint).} = enum
     c_GIT_DELTA_UNMODIFIED = 0
     c_GIT_DELTA_ADDED      = 1  ## no changes
     c_GIT_DELTA_DELETED    = 2  ## entry does not exist in old version
@@ -21,12 +21,12 @@ type
     c_GIT_DELTA_UNREADABLE = 9  ## type of entry changed between old and new
     c_GIT_DELTA_CONFLICTED = 10 ## entry is unreadable
 
-  c_git_diff_binary_t* = enum
+  c_git_diff_binary_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_BINARY_NONE    = 0 shl 0 ## There is no binary delta.
     c_GIT_DIFF_BINARY_LITERAL = 1 shl 0 ## The binary data is the literal contents of the file.
     c_GIT_DIFF_BINARY_DELTA   = 1 shl 1 ## The binary data is the delta from one side to the other.
 
-  c_git_diff_find_t* = enum
+  c_git_diff_find_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_FIND_BY_CONFIG                  = 0     ## Obey `diff.renames`. Overridden by any other GIT_DIFF_FIND_... flag.
     c_GIT_DIFF_FIND_RENAMES                    = 1     ## Look for renames? (`--find-renames`)
     c_GIT_DIFF_FIND_RENAMES_FROM_REWRITES      = 2     ## Consider old side of MODIFIED for renames? (`--break-rewrites=N`)
@@ -42,17 +42,17 @@ type
     c_GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY = 32768
     c_GIT_DIFF_FIND_REMOVE_UNMODIFIED          = 65536
 
-  c_git_diff_flag_t* = enum
+  c_git_diff_flag_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_FLAG_BINARY     = 1 shl 0
     c_GIT_DIFF_FLAG_NOT_BINARY = 1 shl 1 ## file(s) treated as binary data
     c_GIT_DIFF_FLAG_VALID_ID   = 1 shl 2 ## file(s) treated as text data
     c_GIT_DIFF_FLAG_EXISTS     = 1 shl 3 ## `id` value is known correct
 
-  c_git_diff_format_email_flags_t* = enum
+  c_git_diff_format_email_flags_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_FORMAT_EMAIL_NONE                         = 0 shl 0 ## Normal patch, the default
     c_GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER = 1 shl 0 ## Don't insert "[PATCH]" in the subject header
 
-  c_git_diff_format_t* = enum
+  c_git_diff_format_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_FORMAT_PATCH        = 1
     c_GIT_DIFF_FORMAT_PATCH_HEADER = 2 ## full git diff
     c_GIT_DIFF_FORMAT_RAW          = 3 ## just the file headers of patch
@@ -60,10 +60,10 @@ type
     c_GIT_DIFF_FORMAT_NAME_STATUS  = 5 ## like git diff --name-only
     c_GIT_DIFF_FORMAT_PATCH_ID     = 6 ## like git diff --name-status
 
-  c_git_diff_line_t* = enum
+  c_git_diff_line_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_LINE_CONTEXT = 39 ## These values will be sent to `git_diff_line_cb` along with the line
 
-  c_git_diff_option_t* = enum
+  c_git_diff_option_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_NORMAL                          = 0 shl 0  ## Normal diff, the default
     c_GIT_DIFF_REVERSE                         = 1 shl 0  ## Reverse the sides of the diff
     c_GIT_DIFF_INCLUDE_IGNORED                 = 1 shl 1  ## Include ignored files in the diff
@@ -96,7 +96,7 @@ type
     c_GIT_DIFF_SHOW_BINARY                     = 1 shl 30
     c_GIT_DIFF_IGNORE_BLANK_LINES              = 1 shl 31 ## Ignore blank lines
 
-  c_git_diff_stats_format_t* = enum
+  c_git_diff_stats_format_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_STATS_NONE            = 0 shl 0 ## No stats
     c_GIT_DIFF_STATS_FULL            = 1 shl 0 ## Full statistics, equivalent of `--stat`
     c_GIT_DIFF_STATS_SHORT           = 1 shl 1 ## Short statistics, equivalent of `--shortstat`

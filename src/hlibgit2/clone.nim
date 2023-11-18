@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_clone_local_t* = enum
+  c_git_clone_local_t* {.size: sizeof(cint).} = enum
     c_GIT_CLONE_LOCAL_AUTO     = 0
     c_GIT_CLONE_LOCAL          = 1
     c_GIT_CLONE_NO_LOCAL       = 2

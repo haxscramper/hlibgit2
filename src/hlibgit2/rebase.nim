@@ -10,7 +10,7 @@ import
   ./types
 
 type
-  c_git_rebase_operation_t* = enum
+  c_git_rebase_operation_t* {.size: sizeof(cint).} = enum
     c_GIT_REBASE_OPERATION_PICK   = 0
     c_GIT_REBASE_OPERATION_REWORD = 1
     c_GIT_REBASE_OPERATION_EDIT   = 2

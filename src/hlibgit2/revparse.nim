@@ -5,7 +5,7 @@ import
   ./types
 
 type
-  c_git_revspec_t* = enum
+  c_git_revspec_t* {.size: sizeof(cint).} = enum
     c_GIT_REVSPEC_SINGLE     = 1 shl 0 ## The spec targeted a single object.
     c_GIT_REVSPEC_RANGE      = 1 shl 1 ## The spec targeted a range of commits.
     c_GIT_REVSPEC_MERGE_BASE = 1 shl 2 ## The spec used the '...' operator, which invokes special semantics.

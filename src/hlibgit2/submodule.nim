@@ -9,7 +9,7 @@ import
   ./types
 
 type
-  c_git_submodule_status_t* = enum
+  c_git_submodule_status_t* {.size: sizeof(cint).} = enum
     c_GIT_SUBMODULE_STATUS_IN_HEAD           = 1 shl 0
     c_GIT_SUBMODULE_STATUS_IN_INDEX          = 1 shl 1
     c_GIT_SUBMODULE_STATUS_IN_CONFIG         = 1 shl 2

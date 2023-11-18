@@ -7,7 +7,7 @@ import
   ./types
 
 type
-  c_git_checkout_notify_t* = enum
+  c_git_checkout_notify_t* {.size: sizeof(cint).} = enum
     c_GIT_CHECKOUT_NOTIFY_NONE      = 0 shl 0
     c_GIT_CHECKOUT_NOTIFY_CONFLICT  = 1 shl 0
     c_GIT_CHECKOUT_NOTIFY_DIRTY     = 1 shl 1
@@ -15,7 +15,7 @@ type
     c_GIT_CHECKOUT_NOTIFY_UNTRACKED = 1 shl 3
     c_GIT_CHECKOUT_NOTIFY_IGNORED   = 1 shl 4
 
-  c_git_checkout_strategy_t* = enum
+  c_git_checkout_strategy_t* {.size: sizeof(cint).} = enum
     c_GIT_CHECKOUT_NONE                         = 0 shl 0
     c_GIT_CHECKOUT_SAFE                         = 1 shl 0  ## default is a dry run, no actual updates
     c_GIT_CHECKOUT_FORCE                        = 1 shl 1
