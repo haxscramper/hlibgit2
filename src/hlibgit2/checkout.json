@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_checkout_perfdata",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:252:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:252:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -32,14 +32,15 @@
     {
       "name": {
         "name": "git_checkout_options",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/checkout.h:282:16"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< The version */"
         },
@@ -47,7 +48,8 @@
           "name": "checkout_strategy",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< default will be a safe checkout */"
         },
@@ -55,7 +57,8 @@
           "name": "disable_filters",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< don't apply filters like CRLF conversion */"
         },
@@ -63,7 +66,8 @@
           "name": "dir_mode",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< default is 0755 */"
         },
@@ -71,7 +75,8 @@
           "name": "file_mode",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< default is 0644 or 0755 as dictated by blob */"
         },
@@ -79,7 +84,8 @@
           "name": "file_open_flags",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< default is O_CREAT | O_TRUNC | O_WRONLY */"
         },
@@ -87,7 +93,8 @@
           "name": "notify_flags",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< see `git_checkout_notify_t` above */"
         },
@@ -104,7 +111,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "doc": "/** Payload passed to notify_cb */"
         },
@@ -121,7 +129,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "doc": "/** Payload passed to progress_cb */"
         },
@@ -157,7 +166,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**< alternative checkout path to workdir */"
         },
@@ -167,7 +177,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**< the name of the common ancestor side of conflicts */"
         },
@@ -177,7 +188,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**< the name of the \"our\" side of conflicts */"
         },
@@ -187,7 +199,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**< the name of the \"their\" side of conflicts */"
         },
@@ -204,188 +217,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
-          },
-          "doc": "/** Payload passed to perfdata_cb */"
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_checkout_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
-      },
-      "fields": [
-        {
-          "name": "version",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**< The version */"
-        },
-        {
-          "name": "checkout_strategy",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**< default will be a safe checkout */"
-        },
-        {
-          "name": "disable_filters",
-          "type": {
-            "name": "int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**< don't apply filters like CRLF conversion */"
-        },
-        {
-          "name": "dir_mode",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**< default is 0755 */"
-        },
-        {
-          "name": "file_mode",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**< default is 0644 or 0755 as dictated by blob */"
-        },
-        {
-          "name": "file_open_flags",
-          "type": {
-            "name": "int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**< default is O_CREAT | O_TRUNC | O_WRONLY */"
-        },
-        {
-          "name": "notify_flags",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**< see `git_checkout_notify_t` above */"
-        },
-        {
-          "name": "notify_cb",
-          "type": {
-            "name": "git_checkout_notify_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:255:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/checkout.h:255:26>"
-          },
-          "doc": "/**\n\t * Optional callback to get notifications on specific file states.\n\t * @see git_checkout_notify_t\n\t */"
-        },
-        {
-          "name": "notify_payload",
-          "type": {
-            "name": "void",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
-          },
-          "doc": "/** Payload passed to notify_cb */"
-        },
-        {
-          "name": "progress_cb",
-          "type": {
-            "name": "git_checkout_progress_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:264:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/checkout.h:264:27>"
-          },
-          "doc": "/** Optional callback to notify the consumer of checkout progress. */"
-        },
-        {
-          "name": "progress_payload",
-          "type": {
-            "name": "void",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
-          },
-          "doc": "/** Payload passed to progress_cb */"
-        },
-        {
-          "name": "paths",
-          "type": {
-            "name": "git_strarray",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
-          },
-          "doc": "/**\n\t * A list of wildmatch patterns or paths.\n\t *\n\t * By default, all paths are processed. If you pass an array of wildmatch\n\t * patterns, those will be used to filter which paths should be taken into\n\t * account.\n\t *\n\t * Use GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH to treat as a simple list.\n\t */"
-        },
-        {
-          "name": "baseline",
-          "type": {
-            "name": "git_tree",
-            "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
-          },
-          "doc": "/**\n\t * The expected content of the working directory; defaults to HEAD.\n\t *\n\t * If the working directory does not match this baseline information,\n\t * that will produce a checkout conflict.\n\t */"
-        },
-        {
-          "name": "baseline_index",
-          "type": {
-            "name": "git_index",
-            "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
-          },
-          "doc": "/**\n\t * Like `baseline` above, though expressed as an index.  This\n\t * option overrides `baseline`.\n\t */"
-        },
-        {
-          "name": "target_directory",
-          "type": {
-            "name": "char",
-            "isConst": true,
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-          },
-          "doc": "/**< alternative checkout path to workdir */"
-        },
-        {
-          "name": "ancestor_label",
-          "type": {
-            "name": "char",
-            "isConst": true,
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-          },
-          "doc": "/**< the name of the common ancestor side of conflicts */"
-        },
-        {
-          "name": "our_label",
-          "type": {
-            "name": "char",
-            "isConst": true,
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-          },
-          "doc": "/**< the name of the \"our\" side of conflicts */"
-        },
-        {
-          "name": "their_label",
-          "type": {
-            "name": "char",
-            "isConst": true,
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-          },
-          "doc": "/**< the name of the \"their\" side of conflicts */"
-        },
-        {
-          "name": "perfdata_cb",
-          "type": {
-            "name": "git_checkout_perfdata_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:271:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/checkout.h:271:27>"
-          },
-          "doc": "/** Optional callback to notify the consumer of performance data. */"
-        },
-        {
-          "name": "perfdata_payload",
-          "type": {
-            "name": "void",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "doc": "/** Payload passed to perfdata_cb */"
         }
@@ -497,7 +330,7 @@
       ],
       "name": {
         "name": "git_checkout_strategy_t",
-        "dbgOrigin": "enum typedef typedef:git_checkout_strategy_tname:/mnt/workspace/repos/libgit2/include/git2/checkout.h:198:3"
+        "dbgOrigin": "enum typedef typedef:git_checkout_strategy_tname:/mnt/workspace/repos/libgit2/include/git2/checkout.h:106:9"
       }
     },
     {
@@ -532,7 +365,7 @@
       ],
       "name": {
         "name": "git_checkout_notify_t",
-        "dbgOrigin": "enum typedef typedef:git_checkout_notify_tname:/mnt/workspace/repos/libgit2/include/git2/checkout.h:245:3"
+        "dbgOrigin": "enum typedef typedef:git_checkout_notify_tname:/mnt/workspace/repos/libgit2/include/git2/checkout.h:214:9"
       }
     }
   ],
@@ -541,7 +374,8 @@
       "name": "git_checkout_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -555,7 +389,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -565,7 +400,8 @@
       "name": "git_checkout_head",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -590,7 +426,8 @@
       "name": "git_checkout_index",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -623,7 +460,8 @@
       "name": "git_checkout_tree",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -663,7 +501,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_checkout_notify_t",
@@ -673,7 +512,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           {
             "name": "git_diff_file",
@@ -693,7 +533,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,
@@ -710,13 +551,15 @@
         "parameters": [
           {
             "name": "void",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           {
             "name": "size_t",
@@ -729,7 +572,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,
@@ -746,7 +590,8 @@
         "parameters": [
           {
             "name": "void",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_checkout_perfdata",
@@ -756,7 +601,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,

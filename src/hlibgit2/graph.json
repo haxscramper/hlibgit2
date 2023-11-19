@@ -4,7 +4,8 @@
       "name": "git_graph_ahead_behind",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -53,7 +54,8 @@
       "name": "git_graph_descendant_of",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -86,7 +88,8 @@
       "name": "git_graph_reachable_from_any",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

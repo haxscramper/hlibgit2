@@ -17,7 +17,7 @@
       ],
       "name": {
         "name": "git_reset_t",
-        "dbgOrigin": "enum typedef typedef:git_reset_tname:/mnt/workspace/repos/libgit2/include/git2/reset.h:30:3"
+        "dbgOrigin": "enum typedef typedef:git_reset_tname:/mnt/workspace/repos/libgit2/include/git2/reset.h:26:9"
       }
     }
   ],
@@ -26,7 +26,8 @@
       "name": "git_reset",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -66,7 +67,8 @@
       "name": "git_reset_from_annotated",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -106,7 +108,8 @@
       "name": "git_reset_default",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

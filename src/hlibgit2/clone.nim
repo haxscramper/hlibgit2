@@ -1,4 +1,5 @@
 import "../checkout.nim"
+import "../remote.nim"
 import "../types.nim"
 
 type

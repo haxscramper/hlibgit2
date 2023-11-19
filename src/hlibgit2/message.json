@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_message_trailer",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:46:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:46:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -12,7 +12,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           }
         },
         {
@@ -21,7 +22,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           }
         }
       ]
@@ -29,7 +31,7 @@
     {
       "name": {
         "name": "git_message_trailer_array",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:60:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:60:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -52,7 +54,8 @@
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           }
         }
       ]
@@ -63,7 +66,8 @@
       "name": "git_message_prettify",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -79,21 +83,24 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "message"
         },
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "strip_comments"
         },
         {
           "type": {
             "name": "char",
-            "dbgOrigin": " >char"
+            "dbgOrigin": " >char",
+            "isBuiltin": true
           },
           "name": "comment_char"
         }
@@ -103,7 +110,8 @@
       "name": "git_message_trailers",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -119,7 +127,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "message"
         }
@@ -129,7 +138,8 @@
       "name": "git_message_trailer_array_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

@@ -3,14 +3,15 @@
     {
       "name": {
         "name": "git_odb_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb.h:50:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb.h:50:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< version for the struct */"
         },
@@ -27,7 +28,7 @@
     {
       "name": {
         "name": "git_odb_expand_id",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/odb.h:230:16"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb.h:245:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -42,39 +43,8 @@
           "name": "length",
           "type": {
             "name": "unsigned short",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**\n\t * The length of the object ID (in nibbles, or packets of 4 bits; the\n\t * number of hex characters)\n\t * */"
-        },
-        {
-          "name": "type",
-          "type": {
-            "name": "git_object_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
-          },
-          "doc": "/**\n\t * The (optional) type of the object to search for; leave as `0` or set\n\t * to `GIT_OBJECT_ANY` to query for any object matching the ID.\n\t */"
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_odb_expand_id",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb.h:245:3"
-      },
-      "fields": [
-        {
-          "name": "id",
-          "type": {
-            "name": "git_oid",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
-          },
-          "doc": "/** The object ID to expand */"
-        },
-        {
-          "name": "length",
-          "type": {
-            "name": "unsigned short",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * The length of the object ID (in nibbles, or packets of 4 bits; the\n\t * number of hex characters)\n\t * */"
         },
@@ -103,7 +73,7 @@
       ],
       "name": {
         "name": "git_odb_lookup_flags_t",
-        "dbgOrigin": "enum typedef typedef:git_odb_lookup_flags_tname:/mnt/workspace/repos/libgit2/include/git2/odb.h:34:3"
+        "dbgOrigin": "enum typedef typedef:git_odb_lookup_flags_tname:/mnt/workspace/repos/libgit2/include/git2/odb.h:26:9"
       }
     }
   ],
@@ -112,7 +82,8 @@
       "name": "git_odb_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -129,7 +100,8 @@
       "name": "git_odb_open",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -145,7 +117,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "objects_dir"
         }
@@ -155,7 +128,8 @@
       "name": "git_odb_add_disk_alternate",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -171,7 +145,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         }
@@ -181,7 +156,8 @@
       "name": "git_odb_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -198,7 +174,8 @@
       "name": "git_odb_read",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -231,7 +208,8 @@
       "name": "git_odb_read_prefix",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -271,7 +249,8 @@
       "name": "git_odb_read_header",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -312,7 +291,8 @@
       "name": "git_odb_exists",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -337,7 +317,8 @@
       "name": "git_odb_exists_ext",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -359,7 +340,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "flags"
         }
@@ -369,7 +351,8 @@
       "name": "git_odb_exists_prefix",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -409,7 +392,8 @@
       "name": "git_odb_expand_ids",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -441,7 +425,8 @@
       "name": "git_odb_refresh",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -458,7 +443,8 @@
       "name": "git_odb_foreach",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -480,7 +466,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -490,7 +477,8 @@
       "name": "git_odb_write",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -514,7 +502,8 @@
             "name": "const void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "isBuiltin": true
           },
           "name": "data"
         },
@@ -538,7 +527,8 @@
       "name": "git_odb_open_wstream",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -577,7 +567,8 @@
       "name": "git_odb_stream_write",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -593,7 +584,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "buffer"
         },
@@ -610,7 +602,8 @@
       "name": "git_odb_stream_finalize_write",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -635,7 +628,8 @@
       "name": "git_odb_stream_read",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -650,7 +644,8 @@
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           },
           "name": "buffer"
         },
@@ -667,7 +662,8 @@
       "name": "git_odb_stream_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -684,7 +680,8 @@
       "name": "git_odb_open_rstream",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -733,7 +730,8 @@
       "name": "git_odb_write_pack",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -763,7 +761,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "progress_payload"
         }
@@ -773,7 +772,8 @@
       "name": "git_odb_write_multi_pack_index",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -790,7 +790,8 @@
       "name": "git_odb_hash",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -806,7 +807,8 @@
             "name": "const void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "isBuiltin": true
           },
           "name": "data"
         },
@@ -830,7 +832,8 @@
       "name": "git_odb_hashfile",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -846,7 +849,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         },
@@ -863,7 +867,8 @@
       "name": "git_odb_object_dup",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -888,7 +893,8 @@
       "name": "git_odb_object_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -925,7 +931,8 @@
         "name": "const void",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -976,7 +983,8 @@
       "name": "git_odb_add_backend",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -998,7 +1006,8 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "priority"
         }
@@ -1008,7 +1017,8 @@
       "name": "git_odb_add_alternate",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1030,7 +1040,8 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "priority"
         }
@@ -1057,7 +1068,8 @@
       "name": "git_odb_get_backend",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1089,7 +1101,8 @@
       "name": "git_odb_set_commit_graph",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1121,7 +1134,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_oid",
@@ -1131,7 +1145,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,

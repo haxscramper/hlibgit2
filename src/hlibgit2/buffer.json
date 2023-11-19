@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_buf",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -11,7 +11,8 @@
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * The buffer contents.  `ptr` points to the start of the buffer\n\t * being returned.  The buffer's length (in bytes) is specified\n\t * by the `size` member of the structure, and contains a NUL\n\t * terminator at position `(size + 1)`.\n\t */"
         },
@@ -39,7 +40,8 @@
       "name": "git_buf_dispose",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

@@ -20,7 +20,7 @@
       ],
       "name": {
         "name": "git_sort_t",
-        "dbgOrigin": "enum typedef typedef:git_sort_tname:/mnt/workspace/repos/libgit2/include/git2/revwalk.h:53:3"
+        "dbgOrigin": "enum typedef typedef:git_sort_tname:/mnt/workspace/repos/libgit2/include/git2/revwalk.h:26:9"
       }
     }
   ],
@@ -29,7 +29,8 @@
       "name": "git_revwalk_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -54,7 +55,8 @@
       "name": "git_revwalk_reset",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -71,7 +73,8 @@
       "name": "git_revwalk_push",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -96,7 +99,8 @@
       "name": "git_revwalk_push_glob",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -112,7 +116,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "glob"
         }
@@ -122,7 +127,8 @@
       "name": "git_revwalk_push_head",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -139,7 +145,8 @@
       "name": "git_revwalk_hide",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -164,7 +171,8 @@
       "name": "git_revwalk_hide_glob",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -180,7 +188,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "glob"
         }
@@ -190,7 +199,8 @@
       "name": "git_revwalk_hide_head",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -207,7 +217,8 @@
       "name": "git_revwalk_push_ref",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -223,7 +234,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "refname"
         }
@@ -233,7 +245,8 @@
       "name": "git_revwalk_hide_ref",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -249,7 +262,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "refname"
         }
@@ -259,7 +273,8 @@
       "name": "git_revwalk_next",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -284,7 +299,8 @@
       "name": "git_revwalk_sorting",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -298,7 +314,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "sort_mode"
         }
@@ -308,7 +325,8 @@
       "name": "git_revwalk_push_range",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -324,7 +342,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "range"
         }
@@ -334,7 +353,8 @@
       "name": "git_revwalk_simplify_first_parent",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -351,7 +371,8 @@
       "name": "git_revwalk_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -386,7 +407,8 @@
       "name": "git_revwalk_add_hide_cb",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -408,7 +430,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -425,7 +448,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_oid",
@@ -435,7 +459,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,

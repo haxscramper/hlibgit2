@@ -3,14 +3,15 @@
     {
       "name": {
         "name": "git_diff_perfdata",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/diff.h:71:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/diff.h:71:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         },
         {
@@ -37,7 +38,8 @@
       "name": "git_diff_print_callback__to_buf",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -68,7 +70,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -78,7 +81,8 @@
       "name": "git_diff_print_callback__to_file_handle",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -109,7 +113,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -119,7 +124,8 @@
       "name": "git_diff_get_perfdata",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -144,7 +150,8 @@
       "name": "git_status_list_get_perfdata",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

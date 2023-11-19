@@ -3,14 +3,15 @@
     {
       "name": {
         "name": "git_clone_options",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/clone.h:103:16"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/clone.h:164:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         },
         {
@@ -33,7 +34,8 @@
           "name": "bare",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Set to zero (false) to create a standard repo, or non-zero\n\t * for a bare repo\n\t */"
         },
@@ -51,7 +53,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * The name of the branch to checkout. NULL means use the\n\t * remote's default branch.\n\t */"
         },
@@ -68,7 +71,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * An opaque payload to pass to the git_repository creation callback.\n\t * This parameter is ignored unless repository_cb is non-NULL.\n\t */"
         },
@@ -85,98 +89,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
-          },
-          "doc": "/**\n\t * An opaque payload to pass to the git_remote creation callback.\n\t * This parameter is ignored unless remote_cb is non-NULL.\n\t */"
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_clone_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/clone.h:164:3"
-      },
-      "fields": [
-        {
-          "name": "version",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          }
-        },
-        {
-          "name": "checkout_opts",
-          "type": {
-            "name": "git_checkout_options",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
-          },
-          "doc": "/**\n\t * These options are passed to the checkout step. To disable\n\t * checkout, set the `checkout_strategy` to\n\t * `GIT_CHECKOUT_NONE`.\n\t */"
-        },
-        {
-          "name": "fetch_opts",
-          "type": {
-            "name": "git_fetch_options",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:775:3"
-          },
-          "doc": "/**\n\t * Options which control the fetch, including callbacks.\n\t *\n\t * The callbacks are used for reporting fetch progress, and for acquiring\n\t * credentials in the event they are needed.\n\t */"
-        },
-        {
-          "name": "bare",
-          "type": {
-            "name": "int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**\n\t * Set to zero (false) to create a standard repo, or non-zero\n\t * for a bare repo\n\t */"
-        },
-        {
-          "name": "local",
-          "type": {
-            "name": "git_clone_local_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/clone.h:53:3"
-          },
-          "doc": "/**\n\t * Whether to use a fetch or copy the object database.\n\t */"
-        },
-        {
-          "name": "checkout_branch",
-          "type": {
-            "name": "char",
-            "isConst": true,
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-          },
-          "doc": "/**\n\t * The name of the branch to checkout. NULL means use the\n\t * remote's default branch.\n\t */"
-        },
-        {
-          "name": "repository_cb",
-          "type": {
-            "name": "git_repository_create_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/clone.h:90:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/clone.h:90:26>"
-          },
-          "doc": "/**\n\t * A callback used to create the new repository into which to\n\t * clone. If NULL, the 'bare' field will be used to determine\n\t * whether to create a bare repository.\n\t */"
-        },
-        {
-          "name": "repository_cb_payload",
-          "type": {
-            "name": "void",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
-          },
-          "doc": "/**\n\t * An opaque payload to pass to the git_repository creation callback.\n\t * This parameter is ignored unless repository_cb is non-NULL.\n\t */"
-        },
-        {
-          "name": "remote_cb",
-          "type": {
-            "name": "git_remote_create_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/clone.h:69:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/clone.h:69:26>"
-          },
-          "doc": "/**\n\t * A callback used to create the git_remote, prior to its being\n\t * used to perform the clone operation. See the documentation for\n\t * git_remote_create_cb for details. This parameter may be NULL,\n\t * indicating that git_clone should provide default behavior.\n\t */"
-        },
-        {
-          "name": "remote_cb_payload",
-          "type": {
-            "name": "void",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * An opaque payload to pass to the git_remote creation callback.\n\t * This parameter is ignored unless remote_cb is non-NULL.\n\t */"
         }
@@ -208,7 +122,7 @@
       ],
       "name": {
         "name": "git_clone_local_t",
-        "dbgOrigin": "enum typedef typedef:git_clone_local_tname:/mnt/workspace/repos/libgit2/include/git2/clone.h:53:3"
+        "dbgOrigin": "enum typedef typedef:git_clone_local_tname:/mnt/workspace/repos/libgit2/include/git2/clone.h:33:9"
       }
     }
   ],
@@ -217,7 +131,8 @@
       "name": "git_clone_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -231,7 +146,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -241,7 +157,8 @@
       "name": "git_clone",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -257,7 +174,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "url"
         },
@@ -266,7 +184,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "local_path"
         },
@@ -291,7 +210,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_remote",
@@ -307,18 +227,21 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           {
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,
@@ -335,7 +258,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_repository",
@@ -346,16 +270,19 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,

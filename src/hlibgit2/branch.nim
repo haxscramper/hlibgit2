@@ -7,22 +7,6 @@ type
 
 
 
-proc git_branch_set_upstream*(branch: ptr git_reference, branch_name: cstring): cint {.git2Proc, importc.}
-
-proc git_branch_upstream_name*(out: ptr git_buf, repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
-
-proc git_branch_is_head*(branch: ptr git_reference): cint {.git2Proc, importc.}
-
-proc git_branch_is_checked_out*(branch: ptr git_reference): cint {.git2Proc, importc.}
-
-proc git_branch_remote_name*(out: ptr git_buf, repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
-
-proc git_branch_upstream_remote*(buf: ptr git_buf, repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
-
-proc git_branch_upstream_merge*(buf: ptr git_buf, repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
-
-proc git_branch_name_is_valid*(valid: ptr cint, name: cstring): cint {.git2Proc, importc.}
-
 proc git_branch_create*(out: ptr git_reference, repo: ptr git_repository, branch_name: cstring, target: ptr git_commit, force: cint): cint {.git2Proc, importc.}
 
 proc git_branch_create_from_annotated*(ref_out: ptr git_reference, repository: ptr git_repository, branch_name: cstring, commit: ptr git_annotated_commit, force: cint): cint {.git2Proc, importc.}
@@ -42,3 +26,19 @@ proc git_branch_lookup*(out: ptr git_reference, repo: ptr git_repository, branch
 proc git_branch_name*(out: cstring, ref: ptr git_reference): cint {.git2Proc, importc.}
 
 proc git_branch_upstream*(out: ptr git_reference, branch: ptr git_reference): cint {.git2Proc, importc.}
+
+proc git_branch_set_upstream*(branch: ptr git_reference, branch_name: cstring): cint {.git2Proc, importc.}
+
+proc git_branch_upstream_name*(out: ptr git_buf, repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
+
+proc git_branch_is_head*(branch: ptr git_reference): cint {.git2Proc, importc.}
+
+proc git_branch_is_checked_out*(branch: ptr git_reference): cint {.git2Proc, importc.}
+
+proc git_branch_remote_name*(out: ptr git_buf, repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
+
+proc git_branch_upstream_remote*(buf: ptr git_buf, repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
+
+proc git_branch_upstream_merge*(buf: ptr git_buf, repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
+
+proc git_branch_name_is_valid*(valid: ptr cint, name: cstring): cint {.git2Proc, importc.}

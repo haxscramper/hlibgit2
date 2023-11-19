@@ -4,7 +4,8 @@
       "name": "git_refspec_parse",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -20,14 +21,16 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "input"
         },
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "is_fetch"
         }
@@ -37,7 +40,8 @@
       "name": "git_refspec_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -56,7 +60,8 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -75,7 +80,8 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -94,7 +100,8 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -111,7 +118,8 @@
       "name": "git_refspec_force",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -145,7 +153,8 @@
       "name": "git_refspec_src_matches",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -161,7 +170,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "refname"
         }
@@ -171,7 +181,8 @@
       "name": "git_refspec_dst_matches",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -187,7 +198,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "refname"
         }
@@ -197,7 +209,8 @@
       "name": "git_refspec_transform",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -221,7 +234,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "name"
         }
@@ -231,7 +245,8 @@
       "name": "git_refspec_rtransform",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -255,7 +270,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "name"
         }

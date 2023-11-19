@@ -3,14 +3,15 @@
     {
       "name": {
         "name": "git_merge_file_input",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:46:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:46:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         },
         {
@@ -19,7 +20,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/** Pointer to the contents of the file. */"
         },
@@ -37,7 +39,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/** File name of the conflicted file, or `NULL` to not merge the path. */"
         },
@@ -45,7 +48,8 @@
           "name": "mode",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/** File mode of the conflicted file, or `0` to not merge the mode. */"
         }
@@ -54,14 +58,15 @@
     {
       "name": {
         "name": "git_merge_file_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:218:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:218:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         },
         {
@@ -70,7 +75,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Label for the ancestor file side of the conflict which will be prepended\n\t * to labels in diff3-format merge files.\n\t */"
         },
@@ -80,7 +86,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Label for our file side of the conflict which will be prepended\n\t * to labels in merge files.\n\t */"
         },
@@ -90,7 +97,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Label for their file side of the conflict which will be prepended\n\t * to labels in merge files.\n\t */"
         },
@@ -114,7 +122,8 @@
           "name": "marker_size",
           "type": {
             "name": "unsigned short",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/** The size of conflict markers (eg, \"<<<<<<<\").  Default is\n\t * GIT_MERGE_CONFLICT_MARKER_SIZE. */"
         }
@@ -123,14 +132,15 @@
     {
       "name": {
         "name": "git_merge_file_result",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:259:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:259:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "automergeable",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * True if the output was automerged, false if the output contains\n\t * conflict markers.\n\t */"
         },
@@ -140,7 +150,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * The path that the resultant merge file should use, or NULL if a\n\t * filename conflict would occur.\n\t */"
         },
@@ -148,7 +159,8 @@
           "name": "mode",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/** The mode that the resultant merge file should use.  */"
         },
@@ -158,7 +170,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/** The contents of the merge. */"
         },
@@ -175,14 +188,15 @@
     {
       "name": {
         "name": "git_merge_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:313:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:313:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         },
         {
@@ -197,7 +211,8 @@
           "name": "rename_threshold",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Similarity to consider a file renamed (default 50).  If\n\t * `GIT_MERGE_FIND_RENAMES` is enabled, added files will be compared\n\t * with deleted files to determine their similarity.  Files that are\n\t * more similar than the rename threshold (percentage-wise) will be\n\t * treated as a rename.\n\t */"
         },
@@ -205,7 +220,8 @@
           "name": "target_limit",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Maximum similarity sources to examine for renames (default 200).\n\t * If the number of rename candidates (add / delete pairs) is greater\n\t * than this value, inexact rename detection is aborted.\n\t *\n\t * This setting overrides the `merge.renameLimit` configuration value.\n\t */"
         },
@@ -222,7 +238,8 @@
           "name": "recursion_limit",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Maximum number of times to merge common ancestors to build a\n\t * virtual merge base when faced with criss-cross merges.  When this\n\t * limit is reached, the next ancestor will simply be used instead of\n\t * attempting to merge it.  The default is unlimited.\n\t */"
         },
@@ -232,7 +249,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Default merge driver to be used when both sides of a merge have\n\t * changed.  The default is the `text` driver.\n\t */"
         },
@@ -281,7 +299,7 @@
       ],
       "name": {
         "name": "git_merge_flag_t",
-        "dbgOrigin": "enum typedef typedef:git_merge_flag_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:103:3"
+        "dbgOrigin": "enum typedef typedef:git_merge_flag_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:68:9"
       }
     },
     {
@@ -304,7 +322,7 @@
       ],
       "name": {
         "name": "git_merge_file_favor_t",
-        "dbgOrigin": "enum typedef typedef:git_merge_file_favor_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:139:3"
+        "dbgOrigin": "enum typedef typedef:git_merge_file_favor_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:109:9"
       }
     },
     {
@@ -355,7 +373,7 @@
       ],
       "name": {
         "name": "git_merge_file_flag_t",
-        "dbgOrigin": "enum typedef typedef:git_merge_file_flag_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:181:3"
+        "dbgOrigin": "enum typedef typedef:git_merge_file_flag_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:144:9"
       }
     },
     {
@@ -382,7 +400,7 @@
       ],
       "name": {
         "name": "git_merge_analysis_t",
-        "dbgOrigin": "enum typedef typedef:git_merge_analysis_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:363:3"
+        "dbgOrigin": "enum typedef typedef:git_merge_analysis_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:334:9"
       }
     },
     {
@@ -401,7 +419,7 @@
       ],
       "name": {
         "name": "git_merge_preference_t",
-        "dbgOrigin": "enum typedef typedef:git_merge_preference_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:386:3"
+        "dbgOrigin": "enum typedef typedef:git_merge_preference_tname:/mnt/workspace/repos/libgit2/include/git2/merge.h:368:9"
       }
     }
   ],
@@ -410,7 +428,8 @@
       "name": "git_merge_file_input_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -424,7 +443,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -434,7 +454,8 @@
       "name": "git_merge_file_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -448,7 +469,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -458,7 +480,8 @@
       "name": "git_merge_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -472,7 +495,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -482,7 +506,8 @@
       "name": "git_merge_analysis",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -530,7 +555,8 @@
       "name": "git_merge_analysis_for_ref",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -586,7 +612,8 @@
       "name": "git_merge_base",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -627,7 +654,8 @@
       "name": "git_merge_bases",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -668,7 +696,8 @@
       "name": "git_merge_base_many",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -708,7 +737,8 @@
       "name": "git_merge_bases_many",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -748,7 +778,8 @@
       "name": "git_merge_base_octopus",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -788,7 +819,8 @@
       "name": "git_merge_file",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -837,7 +869,8 @@
       "name": "git_merge_file_from_index",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -894,7 +927,8 @@
       "name": "git_merge_file_result_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -911,7 +945,8 @@
       "name": "git_merge_trees",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -968,7 +1003,8 @@
       "name": "git_merge_commits",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1017,7 +1053,8 @@
       "name": "git_merge",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

@@ -4,7 +4,8 @@
       "name": "git_annotated_commit_from_ref",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -37,7 +38,8 @@
       "name": "git_annotated_commit_from_fetchhead",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -61,7 +63,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "branch_name"
         },
@@ -70,7 +73,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "remote_url"
         },
@@ -88,7 +92,8 @@
       "name": "git_annotated_commit_lookup",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -121,7 +126,8 @@
       "name": "git_annotated_commit_from_revspec",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -145,7 +151,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "revspec"
         }
@@ -175,7 +182,8 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -192,7 +200,8 @@
       "name": "git_annotated_commit_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

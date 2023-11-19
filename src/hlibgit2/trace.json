@@ -32,7 +32,7 @@
       ],
       "name": {
         "name": "git_trace_level_t",
-        "dbgOrigin": "enum typedef typedef:git_trace_level_tname:/mnt/workspace/repos/libgit2/include/git2/trace.h:47:3"
+        "dbgOrigin": "enum typedef typedef:git_trace_level_tname:/mnt/workspace/repos/libgit2/include/git2/trace.h:26:9"
       }
     }
   ],
@@ -41,7 +41,8 @@
       "name": "git_trace_set",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -71,7 +72,8 @@
         "parameters": [
           {
             "name": "void",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_trace_level_t",
@@ -81,7 +83,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,

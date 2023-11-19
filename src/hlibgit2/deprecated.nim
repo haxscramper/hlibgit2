@@ -1,3 +1,4 @@
+import "../blame.nim"
 import "../buffer.nim"
 import "../checkout.nim"
 import "../cherrypick.nim"
@@ -14,6 +15,7 @@ import "../oid.nim"
 import "../oidarray.nim"
 import "../proxy.nim"
 import "../rebase.nim"
+import "../remote.nim"
 import "../repository.nim"
 import "../revert.nim"
 import "../stash.nim"
@@ -22,6 +24,7 @@ import "../strarray.nim"
 import "../submodule.nim"
 import "../trace.nim"
 import "../types.nim"
+import "../worktree.nim"
 
 type
   git_diff_format_email_options* {.importc, bycopy.} = object

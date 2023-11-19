@@ -3,14 +3,15 @@
     {
       "name": {
         "name": "git_blob_filter_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blob.h:149:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blob.h:149:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         },
         {
@@ -62,7 +63,7 @@
       ],
       "name": {
         "name": "git_blob_filter_flag_t",
-        "dbgOrigin": "enum typedef typedef:git_blob_filter_flag_tname:/mnt/workspace/repos/libgit2/include/git2/blob.h:123:3"
+        "dbgOrigin": "enum typedef typedef:git_blob_filter_flag_tname:/mnt/workspace/repos/libgit2/include/git2/blob.h:102:9"
       }
     }
   ],
@@ -71,7 +72,8 @@
       "name": "git_blob_lookup",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -104,7 +106,8 @@
       "name": "git_blob_lookup_prefix",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -144,7 +147,8 @@
       "name": "git_blob_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -199,7 +203,8 @@
         "name": "const void",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -233,7 +238,8 @@
       "name": "git_blob_filter_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -247,7 +253,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -257,7 +264,8 @@
       "name": "git_blob_filter",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -281,7 +289,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "as_path"
         },
@@ -299,7 +308,8 @@
       "name": "git_blob_create_from_workdir",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -323,7 +333,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "relative_path"
         }
@@ -333,7 +344,8 @@
       "name": "git_blob_create_from_disk",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -357,7 +369,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         }
@@ -367,7 +380,8 @@
       "name": "git_blob_create_from_stream",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -391,7 +405,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "hintpath"
         }
@@ -401,7 +416,8 @@
       "name": "git_blob_create_from_stream_commit",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -426,7 +442,8 @@
       "name": "git_blob_create_from_buffer",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -450,7 +467,8 @@
             "name": "const void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "isBuiltin": true
           },
           "name": "buffer"
         },
@@ -467,7 +485,8 @@
       "name": "git_blob_is_binary",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -484,7 +503,8 @@
       "name": "git_blob_data_is_binary",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -492,7 +512,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "data"
         },
@@ -509,7 +530,8 @@
       "name": "git_blob_dup",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

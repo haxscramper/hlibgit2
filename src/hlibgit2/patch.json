@@ -3,14 +3,7 @@
     {
       "name": {
         "name": "git_patch",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/patch.h:29:16"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_patch",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/patch.h:29:26"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/patch.h:29:26 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_patch",
@@ -42,7 +35,8 @@
       "name": "git_patch_from_diff",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -74,7 +68,8 @@
       "name": "git_patch_from_blobs",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -98,7 +93,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "old_as_path"
         },
@@ -115,7 +111,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "new_as_path"
         },
@@ -133,7 +130,8 @@
       "name": "git_patch_from_blob_and_buffer",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -157,7 +155,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "old_as_path"
         },
@@ -166,7 +165,8 @@
             "name": "const void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "isBuiltin": true
           },
           "name": "buffer"
         },
@@ -182,7 +182,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "buffer_as_path"
         },
@@ -200,7 +201,8 @@
       "name": "git_patch_from_buffers",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -216,7 +218,8 @@
             "name": "const void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "isBuiltin": true
           },
           "name": "old_buffer"
         },
@@ -232,7 +235,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "old_as_path"
         },
@@ -241,7 +245,8 @@
             "name": "const void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "isBuiltin": true
           },
           "name": "new_buffer"
         },
@@ -257,7 +262,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "new_as_path"
         },
@@ -275,7 +281,8 @@
       "name": "git_patch_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -327,7 +334,8 @@
       "name": "git_patch_line_stats",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -368,7 +376,8 @@
       "name": "git_patch_get_hunk",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -408,7 +417,8 @@
       "name": "git_patch_num_lines_in_hunk",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -432,7 +442,8 @@
       "name": "git_patch_get_line_in_hunk",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -485,21 +496,24 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "include_context"
         },
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "include_hunk_headers"
         },
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "include_file_headers"
         }
@@ -509,7 +523,8 @@
       "name": "git_patch_print",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -531,7 +546,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -541,7 +557,8 @@
       "name": "git_patch_to_buf",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

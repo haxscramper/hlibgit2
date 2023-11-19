@@ -1,3 +1,4 @@
+import "../cert.nim"
 import "../credential.nim"
 
 type
@@ -21,8 +22,6 @@ type
 
 
 
-proc git_proxy_options_init*(opts: ptr git_proxy_options, version: cuint): cint {.git2Proc, importc.}
-
 converter toCInt*(arg: c_git_proxy_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set(git_proxy_t)): cint =
@@ -39,3 +38,5 @@ func `-`*(offset: int, arg: c_git_proxy_t): cint = cast[c_git_proxy_t](ord(arg) 
 func `+`*(arg: c_git_proxy_t, offset: int): cint = cast[c_git_proxy_t](ord(arg) + offset)
 
 func `+`*(offset: int, arg: c_git_proxy_t): cint = cast[c_git_proxy_t](ord(arg) + offset)
+
+proc git_proxy_options_init*(opts: ptr git_proxy_options, version: cuint): cint {.git2Proc, importc.}

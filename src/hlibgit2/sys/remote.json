@@ -13,7 +13,7 @@
       ],
       "name": {
         "name": "git_remote_capability_t",
-        "dbgOrigin": "enum typedef typedef:git_remote_capability_tname:/mnt/workspace/repos/libgit2/include/git2/sys/remote.h:29:3"
+        "dbgOrigin": "enum typedef typedef:git_remote_capability_tname:/mnt/workspace/repos/libgit2/include/git2/sys/remote.h:23:9"
       }
     }
   ],
@@ -22,7 +22,8 @@
       "name": "git_remote_connect_options_dispose",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

@@ -123,6 +123,60 @@ type
 
 
 
+proc git_repository_workdir*(repo: ptr git_repository): cstring {.git2Proc, importc.}
+
+proc git_repository_commondir*(repo: ptr git_repository): cstring {.git2Proc, importc.}
+
+proc git_repository_set_workdir*(repo: ptr git_repository, workdir: cstring, update_gitlink: cint): cint {.git2Proc, importc.}
+
+proc git_repository_is_bare*(repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_is_worktree*(repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_config*(out: ptr git_config, repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_config_snapshot*(out: ptr git_config, repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_odb*(out: ptr git_odb, repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_refdb*(out: ptr git_refdb, repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_index*(out: ptr git_index, repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_message*(out: ptr git_buf, repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_message_remove*(repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_state_cleanup*(repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_fetchhead_foreach*(repo: ptr git_repository, callback: git_repository_fetchhead_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+proc git_repository_mergehead_foreach*(repo: ptr git_repository, callback: git_repository_mergehead_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+proc git_repository_hashfile*(out: ptr git_oid, repo: ptr git_repository, path: cstring, type: git_object_t, as_path: cstring): cint {.git2Proc, importc.}
+
+proc git_repository_set_head*(repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
+
+proc git_repository_set_head_detached*(repo: ptr git_repository, committish: ptr git_oid): cint {.git2Proc, importc.}
+
+proc git_repository_set_head_detached_from_annotated*(repo: ptr git_repository, committish: ptr git_annotated_commit): cint {.git2Proc, importc.}
+
+proc git_repository_detach_head*(repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_state*(repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_set_namespace*(repo: ptr git_repository, nmspace: cstring): cint {.git2Proc, importc.}
+
+proc git_repository_get_namespace*(repo: ptr git_repository): cstring {.git2Proc, importc.}
+
+proc git_repository_is_shallow*(repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_ident*(name: cstring, email: cstring, repo: ptr git_repository): cint {.git2Proc, importc.}
+
+proc git_repository_set_ident*(repo: ptr git_repository, name: cstring, email: cstring): cint {.git2Proc, importc.}
+
+proc git_repository_oid_type*(repo: ptr git_repository): git_oid_t {.git2Proc, importc.}
+
 converter toCInt*(arg: c_git_repository_open_flag_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set(git_repository_open_flag_t)): cint =
@@ -270,57 +324,3 @@ proc git_repository_is_empty*(repo: ptr git_repository): cint {.git2Proc, import
 proc git_repository_item_path*(out: ptr git_buf, repo: ptr git_repository, item: git_repository_item_t): cint {.git2Proc, importc.}
 
 proc git_repository_path*(repo: ptr git_repository): cstring {.git2Proc, importc.}
-
-proc git_repository_workdir*(repo: ptr git_repository): cstring {.git2Proc, importc.}
-
-proc git_repository_commondir*(repo: ptr git_repository): cstring {.git2Proc, importc.}
-
-proc git_repository_set_workdir*(repo: ptr git_repository, workdir: cstring, update_gitlink: cint): cint {.git2Proc, importc.}
-
-proc git_repository_is_bare*(repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_is_worktree*(repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_config*(out: ptr git_config, repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_config_snapshot*(out: ptr git_config, repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_odb*(out: ptr git_odb, repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_refdb*(out: ptr git_refdb, repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_index*(out: ptr git_index, repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_message*(out: ptr git_buf, repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_message_remove*(repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_state_cleanup*(repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_fetchhead_foreach*(repo: ptr git_repository, callback: git_repository_fetchhead_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_repository_mergehead_foreach*(repo: ptr git_repository, callback: git_repository_mergehead_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_repository_hashfile*(out: ptr git_oid, repo: ptr git_repository, path: cstring, type: git_object_t, as_path: cstring): cint {.git2Proc, importc.}
-
-proc git_repository_set_head*(repo: ptr git_repository, refname: cstring): cint {.git2Proc, importc.}
-
-proc git_repository_set_head_detached*(repo: ptr git_repository, committish: ptr git_oid): cint {.git2Proc, importc.}
-
-proc git_repository_set_head_detached_from_annotated*(repo: ptr git_repository, committish: ptr git_annotated_commit): cint {.git2Proc, importc.}
-
-proc git_repository_detach_head*(repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_state*(repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_set_namespace*(repo: ptr git_repository, nmspace: cstring): cint {.git2Proc, importc.}
-
-proc git_repository_get_namespace*(repo: ptr git_repository): cstring {.git2Proc, importc.}
-
-proc git_repository_is_shallow*(repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_ident*(name: cstring, email: cstring, repo: ptr git_repository): cint {.git2Proc, importc.}
-
-proc git_repository_set_ident*(repo: ptr git_repository, name: cstring, email: cstring): cint {.git2Proc, importc.}
-
-proc git_repository_oid_type*(repo: ptr git_repository): git_oid_t {.git2Proc, importc.}

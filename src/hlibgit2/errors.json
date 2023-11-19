@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_error",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/errors.h:74:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/errors.h:74:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -11,14 +11,16 @@
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           }
         },
         {
           "name": "klass",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         }
       ]
@@ -157,7 +159,7 @@
       ],
       "name": {
         "name": "git_error_code",
-        "dbgOrigin": "enum typedef typedef:git_error_codename:/mnt/workspace/repos/libgit2/include/git2/errors.h:63:3"
+        "dbgOrigin": "enum typedef typedef:git_error_codename:/mnt/workspace/repos/libgit2/include/git2/errors.h:21:9"
       }
     },
     {
@@ -312,7 +314,7 @@
       ],
       "name": {
         "name": "git_error_t",
-        "dbgOrigin": "enum typedef typedef:git_error_tname:/mnt/workspace/repos/libgit2/include/git2/errors.h:115:3"
+        "dbgOrigin": "enum typedef typedef:git_error_tname:/mnt/workspace/repos/libgit2/include/git2/errors.h:77:9"
       }
     }
   ],
@@ -329,20 +331,23 @@
       "name": "git_error_clear",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       }
     },
     {
       "name": "git_error_set",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "error_class"
         },
@@ -351,7 +356,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "fmt"
         }
@@ -361,13 +367,15 @@
       "name": "git_error_set_str",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "error_class"
         },
@@ -376,7 +384,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "string"
         }
@@ -386,7 +395,8 @@
       "name": "git_error_set_oom",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       }
     }
   ]

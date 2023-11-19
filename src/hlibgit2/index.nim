@@ -83,38 +83,6 @@ type
 
 
 
-proc git_index_add_bypath*(index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
-
-proc git_index_add_from_buffer*(index: ptr git_index, entry: ptr git_index_entry, buffer: ptr const void, len: csize_t): cint {.git2Proc, importc.}
-
-proc git_index_remove_bypath*(index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
-
-proc git_index_add_all*(index: ptr git_index, pathspec: ptr git_strarray, flags: cuint, callback: git_index_matched_path_cb, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_index_remove_all*(index: ptr git_index, pathspec: ptr git_strarray, callback: git_index_matched_path_cb, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_index_update_all*(index: ptr git_index, pathspec: ptr git_strarray, callback: git_index_matched_path_cb, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_index_find*(at_pos: ptr csize_t, index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
-
-proc git_index_find_prefix*(at_pos: ptr csize_t, index: ptr git_index, prefix: cstring): cint {.git2Proc, importc.}
-
-proc git_index_conflict_add*(index: ptr git_index, ancestor_entry: ptr git_index_entry, our_entry: ptr git_index_entry, their_entry: ptr git_index_entry): cint {.git2Proc, importc.}
-
-proc git_index_conflict_get*(ancestor_out: ptr git_index_entry, our_out: ptr git_index_entry, their_out: ptr git_index_entry, index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
-
-proc git_index_conflict_remove*(index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
-
-proc git_index_conflict_cleanup*(index: ptr git_index): cint {.git2Proc, importc.}
-
-proc git_index_has_conflicts*(index: ptr git_index): cint {.git2Proc, importc.}
-
-proc git_index_conflict_iterator_new*(iterator_out: ptr git_index_conflict_iterator, index: ptr git_index): cint {.git2Proc, importc.}
-
-proc git_index_conflict_next*(ancestor_out: ptr git_index_entry, our_out: ptr git_index_entry, their_out: ptr git_index_entry, iterator: ptr git_index_conflict_iterator): cint {.git2Proc, importc.}
-
-proc git_index_conflict_iterator_free*(iterator: ptr git_index_conflict_iterator): void {.git2Proc, importc.}
-
 converter toCInt*(arg: c_git_index_entry_flag_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set(git_index_entry_flag_t)): cint =
@@ -257,3 +225,35 @@ proc git_index_iterator_new*(iterator_out: ptr git_index_iterator, index: ptr gi
 proc git_index_iterator_next*(out: ptr git_index_entry, iterator: ptr git_index_iterator): cint {.git2Proc, importc.}
 
 proc git_index_iterator_free*(iterator: ptr git_index_iterator): void {.git2Proc, importc.}
+
+proc git_index_add_bypath*(index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
+
+proc git_index_add_from_buffer*(index: ptr git_index, entry: ptr git_index_entry, buffer: ptr const void, len: csize_t): cint {.git2Proc, importc.}
+
+proc git_index_remove_bypath*(index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
+
+proc git_index_add_all*(index: ptr git_index, pathspec: ptr git_strarray, flags: cuint, callback: git_index_matched_path_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+proc git_index_remove_all*(index: ptr git_index, pathspec: ptr git_strarray, callback: git_index_matched_path_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+proc git_index_update_all*(index: ptr git_index, pathspec: ptr git_strarray, callback: git_index_matched_path_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+proc git_index_find*(at_pos: ptr csize_t, index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
+
+proc git_index_find_prefix*(at_pos: ptr csize_t, index: ptr git_index, prefix: cstring): cint {.git2Proc, importc.}
+
+proc git_index_conflict_add*(index: ptr git_index, ancestor_entry: ptr git_index_entry, our_entry: ptr git_index_entry, their_entry: ptr git_index_entry): cint {.git2Proc, importc.}
+
+proc git_index_conflict_get*(ancestor_out: ptr git_index_entry, our_out: ptr git_index_entry, their_out: ptr git_index_entry, index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
+
+proc git_index_conflict_remove*(index: ptr git_index, path: cstring): cint {.git2Proc, importc.}
+
+proc git_index_conflict_cleanup*(index: ptr git_index): cint {.git2Proc, importc.}
+
+proc git_index_has_conflicts*(index: ptr git_index): cint {.git2Proc, importc.}
+
+proc git_index_conflict_iterator_new*(iterator_out: ptr git_index_conflict_iterator, index: ptr git_index): cint {.git2Proc, importc.}
+
+proc git_index_conflict_next*(ancestor_out: ptr git_index_entry, our_out: ptr git_index_entry, their_out: ptr git_index_entry, iterator: ptr git_index_conflict_iterator): cint {.git2Proc, importc.}
+
+proc git_index_conflict_iterator_free*(iterator: ptr git_index_conflict_iterator): void {.git2Proc, importc.}

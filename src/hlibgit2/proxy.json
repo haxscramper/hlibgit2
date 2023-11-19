@@ -3,14 +3,15 @@
     {
       "name": {
         "name": "git_proxy_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/proxy.h:79:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/proxy.h:79:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         },
         {
@@ -27,7 +28,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * The URL of the proxy.\n\t */"
         },
@@ -52,7 +54,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Payload to be provided to the credentials and certificate\n\t * check callbacks.\n\t */"
         }
@@ -76,7 +79,7 @@
       ],
       "name": {
         "name": "git_proxy_t",
-        "dbgOrigin": "enum typedef typedef:git_proxy_tname:/mnt/workspace/repos/libgit2/include/git2/proxy.h:36:3"
+        "dbgOrigin": "enum typedef typedef:git_proxy_tname:/mnt/workspace/repos/libgit2/include/git2/proxy.h:20:9"
       }
     }
   ],
@@ -85,7 +88,8 @@
       "name": "git_proxy_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -99,7 +103,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }

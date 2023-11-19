@@ -2,6 +2,8 @@ import "../oid.nim"
 import "../types.nim"
 
 type
+  git_indexer_progress_cb = proc (a0: ptr git_indexer_progress, a1: ptr void): cint
+
   git_indexer* {.importc, bycopy.} = object
 
 
@@ -19,8 +21,6 @@ type
     progress_cb         *: git_indexer_progress_cb
     progress_cb_payload *: ptr void
     verify              *: char
-
-  git_indexer_progress_cb = proc (a0: ptr git_indexer_progress, a1: ptr void): cint
 
 
 

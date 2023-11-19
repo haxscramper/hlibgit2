@@ -1,6 +1,12 @@
 import "../buffer.nim"
 import "../oid.nim"
 import "../types.nim"
+proc git_object_peel*(peeled: ptr git_object, object: ptr git_object, target_type: git_object_t): cint {.git2Proc, importc.}
+
+proc git_object_dup*(dest: ptr git_object, source: ptr git_object): cint {.git2Proc, importc.}
+
+proc git_object_rawcontent_is_valid*(valid: ptr cint, buf: cstring, len: csize_t, object_type: git_object_t): cint {.git2Proc, importc.}
+
 proc git_object_lookup*(object: ptr git_object, repo: ptr git_repository, id: ptr git_oid, type: git_object_t): cint {.git2Proc, importc.}
 
 proc git_object_lookup_prefix*(object_out: ptr git_object, repo: ptr git_repository, id: ptr git_oid, len: csize_t, type: git_object_t): cint {.git2Proc, importc.}
@@ -22,9 +28,3 @@ proc git_object_type2string*(type: git_object_t): cstring {.git2Proc, importc.}
 proc git_object_string2type*(str: cstring): git_object_t {.git2Proc, importc.}
 
 proc git_object_typeisloose*(type: git_object_t): cint {.git2Proc, importc.}
-
-proc git_object_peel*(peeled: ptr git_object, object: ptr git_object, target_type: git_object_t): cint {.git2Proc, importc.}
-
-proc git_object_dup*(dest: ptr git_object, source: ptr git_object): cint {.git2Proc, importc.}
-
-proc git_object_rawcontent_is_valid*(valid: ptr cint, buf: cstring, len: csize_t, object_type: git_object_t): cint {.git2Proc, importc.}

@@ -3,9 +3,6 @@ import "../oid.nim"
 import "../types.nim"
 
 type
-  git_iterator* {.importc, bycopy.} = object
-
-
   git_note_iterator* {.importc, bycopy.} = object
 
 

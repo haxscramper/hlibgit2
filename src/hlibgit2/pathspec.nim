@@ -29,6 +29,16 @@ type
 
 
 
+proc git_pathspec_match_list_entrycount*(m: ptr git_pathspec_match_list): csize_t {.git2Proc, importc.}
+
+proc git_pathspec_match_list_entry*(m: ptr git_pathspec_match_list, pos: csize_t): cstring {.git2Proc, importc.}
+
+proc git_pathspec_match_list_diff_entry*(m: ptr git_pathspec_match_list, pos: csize_t): ptr git_diff_delta {.git2Proc, importc.}
+
+proc git_pathspec_match_list_failed_entrycount*(m: ptr git_pathspec_match_list): csize_t {.git2Proc, importc.}
+
+proc git_pathspec_match_list_failed_entry*(m: ptr git_pathspec_match_list, pos: csize_t): cstring {.git2Proc, importc.}
+
 converter toCInt*(arg: c_git_pathspec_flag_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set(git_pathspec_flag_t)): cint =
@@ -65,13 +75,3 @@ proc git_pathspec_match_tree*(out: ptr git_pathspec_match_list, tree: ptr git_tr
 proc git_pathspec_match_diff*(out: ptr git_pathspec_match_list, diff: ptr git_diff, flags: uint32, ps: ptr git_pathspec): cint {.git2Proc, importc.}
 
 proc git_pathspec_match_list_free*(m: ptr git_pathspec_match_list): void {.git2Proc, importc.}
-
-proc git_pathspec_match_list_entrycount*(m: ptr git_pathspec_match_list): csize_t {.git2Proc, importc.}
-
-proc git_pathspec_match_list_entry*(m: ptr git_pathspec_match_list, pos: csize_t): cstring {.git2Proc, importc.}
-
-proc git_pathspec_match_list_diff_entry*(m: ptr git_pathspec_match_list, pos: csize_t): ptr git_diff_delta {.git2Proc, importc.}
-
-proc git_pathspec_match_list_failed_entrycount*(m: ptr git_pathspec_match_list): csize_t {.git2Proc, importc.}
-
-proc git_pathspec_match_list_failed_entry*(m: ptr git_pathspec_match_list, pos: csize_t): cstring {.git2Proc, importc.}

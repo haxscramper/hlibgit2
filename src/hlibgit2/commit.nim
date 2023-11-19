@@ -7,26 +7,6 @@ type
 
 
 
-proc git_commit_lookup*(commit: ptr git_commit, repo: ptr git_repository, id: ptr git_oid): cint {.git2Proc, importc.}
-
-proc git_commit_lookup_prefix*(commit: ptr git_commit, repo: ptr git_repository, id: ptr git_oid, len: csize_t): cint {.git2Proc, importc.}
-
-proc git_commit_free*(commit: ptr git_commit): void {.git2Proc, importc.}
-
-proc git_commit_id*(commit: ptr git_commit): ptr git_oid {.git2Proc, importc.}
-
-proc git_commit_owner*(commit: ptr git_commit): ptr git_repository {.git2Proc, importc.}
-
-proc git_commit_message_encoding*(commit: ptr git_commit): cstring {.git2Proc, importc.}
-
-proc git_commit_message*(commit: ptr git_commit): cstring {.git2Proc, importc.}
-
-proc git_commit_message_raw*(commit: ptr git_commit): cstring {.git2Proc, importc.}
-
-proc git_commit_summary*(commit: ptr git_commit): cstring {.git2Proc, importc.}
-
-proc git_commit_body*(commit: ptr git_commit): cstring {.git2Proc, importc.}
-
 proc git_commit_time*(commit: ptr git_commit): git_time_t {.git2Proc, importc.}
 
 proc git_commit_time_offset*(commit: ptr git_commit): cint {.git2Proc, importc.}
@@ -68,3 +48,23 @@ proc git_commit_create_buffer*(out: ptr git_buf, repo: ptr git_repository, autho
 proc git_commit_create_with_signature*(out: ptr git_oid, repo: ptr git_repository, commit_content: cstring, signature: cstring, signature_field: cstring): cint {.git2Proc, importc.}
 
 proc git_commit_dup*(out: ptr git_commit, source: ptr git_commit): cint {.git2Proc, importc.}
+
+proc git_commit_lookup*(commit: ptr git_commit, repo: ptr git_repository, id: ptr git_oid): cint {.git2Proc, importc.}
+
+proc git_commit_lookup_prefix*(commit: ptr git_commit, repo: ptr git_repository, id: ptr git_oid, len: csize_t): cint {.git2Proc, importc.}
+
+proc git_commit_free*(commit: ptr git_commit): void {.git2Proc, importc.}
+
+proc git_commit_id*(commit: ptr git_commit): ptr git_oid {.git2Proc, importc.}
+
+proc git_commit_owner*(commit: ptr git_commit): ptr git_repository {.git2Proc, importc.}
+
+proc git_commit_message_encoding*(commit: ptr git_commit): cstring {.git2Proc, importc.}
+
+proc git_commit_message*(commit: ptr git_commit): cstring {.git2Proc, importc.}
+
+proc git_commit_message_raw*(commit: ptr git_commit): cstring {.git2Proc, importc.}
+
+proc git_commit_summary*(commit: ptr git_commit): cstring {.git2Proc, importc.}
+
+proc git_commit_body*(commit: ptr git_commit): cstring {.git2Proc, importc.}

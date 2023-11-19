@@ -8,6 +8,14 @@ type
 
 
 
+proc git_patch_get_line_in_hunk*(out: ptr git_diff_line, patch: ptr git_patch, hunk_idx: csize_t, line_of_hunk: csize_t): cint {.git2Proc, importc.}
+
+proc git_patch_size*(patch: ptr git_patch, include_context: cint, include_hunk_headers: cint, include_file_headers: cint): csize_t {.git2Proc, importc.}
+
+proc git_patch_print*(patch: ptr git_patch, print_cb: git_diff_line_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+proc git_patch_to_buf*(out: ptr git_buf, patch: ptr git_patch): cint {.git2Proc, importc.}
+
 proc git_patch_owner*(patch: ptr git_patch): ptr git_repository {.git2Proc, importc.}
 
 proc git_patch_from_diff*(out: ptr git_patch, diff: ptr git_diff, idx: csize_t): cint {.git2Proc, importc.}
@@ -29,11 +37,3 @@ proc git_patch_line_stats*(total_context: ptr csize_t, total_additions: ptr csiz
 proc git_patch_get_hunk*(out: ptr git_diff_hunk, lines_in_hunk: ptr csize_t, patch: ptr git_patch, hunk_idx: csize_t): cint {.git2Proc, importc.}
 
 proc git_patch_num_lines_in_hunk*(patch: ptr git_patch, hunk_idx: csize_t): cint {.git2Proc, importc.}
-
-proc git_patch_get_line_in_hunk*(out: ptr git_diff_line, patch: ptr git_patch, hunk_idx: csize_t, line_of_hunk: csize_t): cint {.git2Proc, importc.}
-
-proc git_patch_size*(patch: ptr git_patch, include_context: cint, include_hunk_headers: cint, include_file_headers: cint): csize_t {.git2Proc, importc.}
-
-proc git_patch_print*(patch: ptr git_patch, print_cb: git_diff_line_cb, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_patch_to_buf*(out: ptr git_buf, patch: ptr git_patch): cint {.git2Proc, importc.}

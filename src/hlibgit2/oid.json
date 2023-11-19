@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_oid",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/oid.h:99:16"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -12,32 +12,8 @@
             "parameters": [
               {
                 "name": "char",
-                "dbgOrigin": " >char"
-              },
-              {
-                "kind": "TypeExpr"
-              }
-            ],
-            "kind": "Array",
-            "dbgOrigin": " >constarray"
-          },
-          "doc": "/** raw binary formatted id */"
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_oid",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
-      },
-      "fields": [
-        {
-          "name": "id",
-          "type": {
-            "parameters": [
-              {
-                "name": "char",
-                "dbgOrigin": " >char"
+                "dbgOrigin": " >char",
+                "isBuiltin": true
               },
               {
                 "kind": "TypeExpr"
@@ -57,14 +33,7 @@
     {
       "name": {
         "name": "git_oid_shorten",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/oid.h:320:16"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_oid_shorten",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:320:32"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:320:32 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_oid_shorten",
@@ -83,7 +52,7 @@
       ],
       "name": {
         "name": "git_oid_t",
-        "dbgOrigin": "enum typedef typedef:git_oid_tname:/mnt/workspace/repos/libgit2/include/git2/oid.h:33:3"
+        "dbgOrigin": "enum typedef typedef:git_oid_tname:/mnt/workspace/repos/libgit2/include/git2/oid.h:24:9"
       }
     }
   ],
@@ -92,7 +61,8 @@
       "name": "git_oid_fromstr",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -108,7 +78,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "str"
         }
@@ -118,7 +89,8 @@
       "name": "git_oid_fromstrp",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -134,7 +106,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "str"
         }
@@ -144,7 +117,8 @@
       "name": "git_oid_fromstrn",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -160,7 +134,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "str"
         },
@@ -177,7 +152,8 @@
       "name": "git_oid_fromraw",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -193,7 +169,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "raw"
         }
@@ -203,14 +180,16 @@
       "name": "git_oid_fmt",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           },
           "name": "out"
         },
@@ -228,14 +207,16 @@
       "name": "git_oid_nfmt",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           },
           "name": "out"
         },
@@ -260,14 +241,16 @@
       "name": "git_oid_pathfmt",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           },
           "name": "out"
         },
@@ -286,7 +269,8 @@
       "resultTy": {
         "name": "char",
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr >char"
+        "dbgOrigin": " T-pointer >ref/ptr >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -304,14 +288,16 @@
       "resultTy": {
         "name": "char",
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr >char"
+        "dbgOrigin": " T-pointer >ref/ptr >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           },
           "name": "out"
         },
@@ -336,7 +322,8 @@
       "name": "git_oid_cpy",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -361,7 +348,8 @@
       "name": "git_oid_cmp",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -386,7 +374,8 @@
       "name": "git_oid_equal",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -411,7 +400,8 @@
       "name": "git_oid_ncmp",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -443,7 +433,8 @@
       "name": "git_oid_streq",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -459,7 +450,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "str"
         }
@@ -469,7 +461,8 @@
       "name": "git_oid_strcmp",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -485,7 +478,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "str"
         }
@@ -495,7 +489,8 @@
       "name": "git_oid_is_zero",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -529,7 +524,8 @@
       "name": "git_oid_shorten_add",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -545,7 +541,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "text_id"
         }
@@ -555,7 +552,8 @@
       "name": "git_oid_shorten_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

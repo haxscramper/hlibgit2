@@ -1,5 +1,7 @@
+import "../../cert.nim"
 import "../../net.nim"
 import "../../oid.nim"
+import "../../remote.nim"
 import "../../transport.nim"
 import "../../types.nim"
 
@@ -31,6 +33,18 @@ type
     GIT_SERVICE_RECEIVEPACK
 
 
+
+proc git_transport_smart_certificate_check*(transport: ptr git_transport, cert: ptr git_cert, valid: cint, hostname: cstring): cint {.git2Proc, importc.}
+
+proc git_transport_smart_credentials*(out: ptr git_credential, transport: ptr git_transport, user: cstring, methods: cint): cint {.git2Proc, importc.}
+
+proc git_transport_remote_connect_options*(out: ptr git_remote_connect_options, transport: ptr git_transport): cint {.git2Proc, importc.}
+
+proc git_smart_subtransport_http*(out: ptr git_smart_subtransport, owner: ptr git_transport, param: ptr void): cint {.git2Proc, importc.}
+
+proc git_smart_subtransport_git*(out: ptr git_smart_subtransport, owner: ptr git_transport, param: ptr void): cint {.git2Proc, importc.}
+
+proc git_smart_subtransport_ssh*(out: ptr git_smart_subtransport, owner: ptr git_transport, param: ptr void): cint {.git2Proc, importc.}
 
 converter toCInt*(arg: c_git_smart_service_t): cint = cint(ord(arg))
 
@@ -65,15 +79,3 @@ proc git_transport_dummy*(out: ptr git_transport, owner: ptr git_remote, payload
 proc git_transport_local*(out: ptr git_transport, owner: ptr git_remote, payload: ptr void): cint {.git2Proc, importc.}
 
 proc git_transport_smart*(out: ptr git_transport, owner: ptr git_remote, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_transport_smart_certificate_check*(transport: ptr git_transport, cert: ptr git_cert, valid: cint, hostname: cstring): cint {.git2Proc, importc.}
-
-proc git_transport_smart_credentials*(out: ptr git_credential, transport: ptr git_transport, user: cstring, methods: cint): cint {.git2Proc, importc.}
-
-proc git_transport_remote_connect_options*(out: ptr git_remote_connect_options, transport: ptr git_transport): cint {.git2Proc, importc.}
-
-proc git_smart_subtransport_http*(out: ptr git_smart_subtransport, owner: ptr git_transport, param: ptr void): cint {.git2Proc, importc.}
-
-proc git_smart_subtransport_git*(out: ptr git_smart_subtransport, owner: ptr git_transport, param: ptr void): cint {.git2Proc, importc.}
-
-proc git_smart_subtransport_ssh*(out: ptr git_smart_subtransport, owner: ptr git_transport, param: ptr void): cint {.git2Proc, importc.}

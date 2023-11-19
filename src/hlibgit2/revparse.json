@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_revspec",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revparse.h:90:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revparse.h:90:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -28,7 +28,8 @@
           "name": "flags",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/** The intent of the revspec (i.e. `git_revspec_mode_t` flags) */"
         }
@@ -53,7 +54,7 @@
       ],
       "name": {
         "name": "git_revspec_t",
-        "dbgOrigin": "enum typedef typedef:git_revspec_tname:/mnt/workspace/repos/libgit2/include/git2/revparse.h:78:3"
+        "dbgOrigin": "enum typedef typedef:git_revspec_tname:/mnt/workspace/repos/libgit2/include/git2/revparse.h:71:9"
       }
     }
   ],
@@ -62,7 +63,8 @@
       "name": "git_revparse_single",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -86,7 +88,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "spec"
         }
@@ -96,7 +99,8 @@
       "name": "git_revparse_ext",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -128,7 +132,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "spec"
         }
@@ -138,7 +143,8 @@
       "name": "git_revparse",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -162,7 +168,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "spec"
         }

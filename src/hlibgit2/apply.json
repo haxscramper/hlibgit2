@@ -3,14 +3,15 @@
     {
       "name": {
         "name": "git_apply_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< The version */"
         },
@@ -35,7 +36,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "doc": "/** Payload passed to both delta_cb & hunk_cb. */"
         },
@@ -43,7 +45,8 @@
           "name": "flags",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/** Bitmask of git_apply_flags_t */"
         }
@@ -60,7 +63,7 @@
       ],
       "name": {
         "name": "git_apply_flags_t",
-        "dbgOrigin": "enum typedef typedef:git_apply_flags_tname:/mnt/workspace/repos/libgit2/include/git2/apply.h:67:3"
+        "dbgOrigin": "enum typedef typedef:git_apply_flags_tname:/mnt/workspace/repos/libgit2/include/git2/apply.h:61:9"
       }
     },
     {
@@ -79,7 +82,7 @@
       ],
       "name": {
         "name": "git_apply_location_t",
-        "dbgOrigin": "enum typedef typedef:git_apply_location_tname:/mnt/workspace/repos/libgit2/include/git2/apply.h:145:3"
+        "dbgOrigin": "enum typedef typedef:git_apply_location_tname:/mnt/workspace/repos/libgit2/include/git2/apply.h:127:9"
       }
     }
   ],
@@ -88,7 +91,8 @@
       "name": "git_apply_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -102,7 +106,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -112,7 +117,8 @@
       "name": "git_apply_to_tree",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -161,7 +167,8 @@
       "name": "git_apply",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -208,7 +215,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_diff_delta",
@@ -218,7 +226,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,
@@ -235,7 +244,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_diff_hunk",
@@ -245,7 +255,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,

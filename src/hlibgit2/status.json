@@ -3,14 +3,15 @@
     {
       "name": {
         "name": "git_status_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:262:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:262:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * The struct version; pass `GIT_STATUS_OPTIONS_VERSION`.\n\t */"
         },
@@ -26,7 +27,8 @@
           "name": "flags",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * The `flags` value is an OR'ed combination of the\n\t * `git_status_opt_t` values above. The default is\n\t * `GIT_STATUS_OPT_DEFAULTS`, which matches git's default\n\t * behavior.\n\t */"
         },
@@ -60,7 +62,7 @@
     {
       "name": {
         "name": "git_status_entry",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:299:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/status.h:299:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -150,7 +152,7 @@
       ],
       "name": {
         "name": "git_status_t",
-        "dbgOrigin": "enum typedef typedef:git_status_tname:/mnt/workspace/repos/libgit2/include/git2/status.h:52:3"
+        "dbgOrigin": "enum typedef typedef:git_status_tname:/mnt/workspace/repos/libgit2/include/git2/status.h:34:9"
       }
     },
     {
@@ -169,7 +171,7 @@
       ],
       "name": {
         "name": "git_status_show_t",
-        "dbgOrigin": "enum typedef typedef:git_status_show_tname:/mnt/workspace/repos/libgit2/include/git2/status.h:91:3"
+        "dbgOrigin": "enum typedef typedef:git_status_show_tname:/mnt/workspace/repos/libgit2/include/git2/status.h:73:9"
       }
     },
     {
@@ -241,7 +243,7 @@
       ],
       "name": {
         "name": "git_status_opt_t",
-        "dbgOrigin": "enum typedef typedef:git_status_opt_tname:/mnt/workspace/repos/libgit2/include/git2/status.h:208:3"
+        "dbgOrigin": "enum typedef typedef:git_status_opt_tname:/mnt/workspace/repos/libgit2/include/git2/status.h:101:9"
       }
     }
   ],
@@ -250,7 +252,8 @@
       "name": "git_status_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -264,7 +267,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -274,7 +278,8 @@
       "name": "git_status_foreach",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -296,7 +301,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -306,7 +312,8 @@
       "name": "git_status_foreach_ext",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -336,7 +343,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -346,14 +354,16 @@
       "name": "git_status_file",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "unsigned int",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "status_flags"
         },
@@ -370,7 +380,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         }
@@ -380,7 +391,8 @@
       "name": "git_status_list_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -455,7 +467,8 @@
       "name": "git_status_list_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -472,14 +485,16 @@
       "name": "git_status_should_ignore",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "int",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "ignored"
         },
@@ -496,7 +511,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         }
@@ -513,22 +529,26 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,

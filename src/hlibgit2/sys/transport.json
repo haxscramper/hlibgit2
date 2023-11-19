@@ -2,321 +2,8 @@
   "records": [
     {
       "name": {
-        "name": "git_transport",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-      },
-      "fields": [
-        {
-          "name": "version",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**< The struct version */"
-        },
-        {
-          "name": "connect",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              },
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_remote_connect_options",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:877:3"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "set_connect_opts",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              },
-              {
-                "name": "git_remote_connect_options",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:877:3"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "capabilities",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "unsigned int",
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "ls",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_remote_head",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:256:32"
-              },
-              {
-                "name": "size_t",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "push",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              },
-              {
-                "name": "git_push",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:253:25"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "negotiate_fetch",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              },
-              {
-                "name": "git_repository",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
-              },
-              {
-                "name": "git_fetch_negotiation",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:35:3"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "shallow_roots",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_oidarray",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oidarray.h:19:3"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "download_pack",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              },
-              {
-                "name": "git_repository",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
-              },
-              {
-                "name": "git_indexer_progress",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "is_connected",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "cancel",
-          "type": {
-            "parameters": [
-              {
-                "name": "void",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "close",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "free",
-          "type": {
-            "parameters": [
-              {
-                "name": "void",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_transport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        }
-      ],
-      "recordDefName": {
-        "name": "git_transport",
-        "tag": "TypeTagStruct"
-      }
-    },
-    {
-      "name": {
         "name": "git_fetch_negotiation",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:35:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:35:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -354,7 +41,8 @@
           "name": "depth",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         }
       ]
@@ -362,14 +50,15 @@
     {
       "name": {
         "name": "git_transport",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:37:8"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**< The struct version */"
         },
@@ -379,7 +68,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
@@ -390,11 +80,13 @@
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               },
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_remote_connect_options",
@@ -413,7 +105,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
@@ -437,12 +130,14 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "unsigned int",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
@@ -461,7 +156,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_remote_head",
@@ -490,7 +186,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
@@ -514,7 +211,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
@@ -543,7 +241,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_oidarray",
@@ -567,7 +266,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
@@ -596,7 +296,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
@@ -615,7 +316,8 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
@@ -634,7 +336,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
@@ -653,99 +356,13 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_transport",
                 "isPointer": true,
                 "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_smart_subtransport",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:16"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_smart_subtransport",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
-      },
-      "fields": [
-        {
-          "name": "action",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_smart_subtransport_stream",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
-              },
-              {
-                "name": "git_smart_subtransport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              },
-              {
-                "name": "git_smart_service_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:318:3"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "close",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_smart_subtransport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "free",
-          "type": {
-            "parameters": [
-              {
-                "name": "void",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_smart_subtransport",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
               }
             ],
             "isPointer": true,
@@ -755,21 +372,28 @@
         }
       ],
       "recordDefName": {
-        "name": "git_smart_subtransport",
+        "name": "git_transport",
         "tag": "TypeTagStruct"
       }
     },
     {
       "name": {
-        "name": "git_smart_subtransport_stream",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:16"
+        "name": "git_smart_subtransport",
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:16 > typedef==nullptr > struct"
       },
       "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_smart_subtransport_stream",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:16 > typedef==nullptr > struct"
+      },
+      "isForwardDecl": true
+    },
+    {
+      "name": {
+        "name": "git_smart_subtransport_stream",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -787,7 +411,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_smart_subtransport_stream",
@@ -797,7 +422,8 @@
               {
                 "name": "char",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >char"
+                "dbgOrigin": " T-pointer >ref/ptr >char",
+                "isBuiltin": true
               },
               {
                 "name": "size_t",
@@ -820,7 +446,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_smart_subtransport_stream",
@@ -831,7 +458,8 @@
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               },
               {
                 "name": "size_t",
@@ -849,7 +477,8 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_smart_subtransport_stream",
@@ -870,106 +499,8 @@
     },
     {
       "name": {
-        "name": "git_smart_subtransport_stream",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:330:8"
-      },
-      "fields": [
-        {
-          "name": "subtransport",
-          "type": {
-            "name": "git_smart_subtransport",
-            "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39"
-          },
-          "doc": "/**< The owning subtransport */"
-        },
-        {
-          "name": "read",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_smart_subtransport_stream",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
-              },
-              {
-                "name": "char",
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >char"
-              },
-              {
-                "name": "size_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
-              },
-              {
-                "name": "size_t",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "write",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_smart_subtransport_stream",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              },
-              {
-                "name": "size_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "free",
-          "type": {
-            "parameters": [
-              {
-                "name": "void",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_smart_subtransport_stream",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:321:46"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        }
-      ]
-    },
-    {
-      "name": {
         "name": "git_smart_subtransport",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:363:8"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:320:39 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -978,7 +509,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_smart_subtransport_stream",
@@ -994,7 +526,8 @@
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               },
               {
                 "name": "git_smart_service_t",
@@ -1012,7 +545,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_smart_subtransport",
@@ -1031,7 +565,8 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_smart_subtransport",
@@ -1044,12 +579,16 @@
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
         }
-      ]
+      ],
+      "recordDefName": {
+        "name": "git_smart_subtransport",
+        "tag": "TypeTagStruct"
+      }
     },
     {
       "name": {
         "name": "git_smart_subtransport_definition",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:409:16"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:421:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -1064,7 +603,8 @@
           "name": "rpc",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * True if the protocol is stateless; false otherwise. For example,\n\t * http:// is stateless, but git:// is not.\n\t */"
         },
@@ -1073,40 +613,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
-          },
-          "doc": "/** User-specified parameter passed to the callback */"
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_smart_subtransport_definition",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:421:3"
-      },
-      "fields": [
-        {
-          "name": "callback",
-          "type": {
-            "name": "git_smart_subtransport_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/transport.h:390:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/transport.h:390:26>"
-          },
-          "doc": "/** The function to use to create the git_smart_subtransport */"
-        },
-        {
-          "name": "rpc",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/**\n\t * True if the protocol is stateless; false otherwise. For example,\n\t * http:// is stateless, but git:// is not.\n\t */"
-        },
-        {
-          "name": "param",
-          "type": {
-            "name": "void",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "doc": "/** User-specified parameter passed to the callback */"
         }
@@ -1139,7 +647,7 @@
       ],
       "name": {
         "name": "git_smart_service_t",
-        "dbgOrigin": "enum typedef typedef:git_smart_service_tname:/mnt/workspace/repos/libgit2/include/git2/sys/transport.h:318:3"
+        "dbgOrigin": "enum typedef typedef:git_smart_service_tname:/mnt/workspace/repos/libgit2/include/git2/sys/transport.h:313:9"
       }
     }
   ],
@@ -1148,7 +656,8 @@
       "name": "git_transport_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1162,7 +671,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -1172,7 +682,8 @@
       "name": "git_transport_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1196,7 +707,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "url"
         }
@@ -1206,7 +718,8 @@
       "name": "git_transport_ssh_with_paths",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1229,7 +742,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -1239,7 +753,8 @@
       "name": "git_transport_register",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1247,7 +762,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "prefix"
         },
@@ -1262,7 +778,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "param"
         }
@@ -1272,7 +789,8 @@
       "name": "git_transport_unregister",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1280,7 +798,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "prefix"
         }
@@ -1290,7 +809,8 @@
       "name": "git_transport_dummy",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1313,7 +833,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -1323,7 +844,8 @@
       "name": "git_transport_local",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1346,7 +868,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -1356,7 +879,8 @@
       "name": "git_transport_smart",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1379,7 +903,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -1389,7 +914,8 @@
       "name": "git_transport_smart_certificate_check",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1411,7 +937,8 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "valid"
         },
@@ -1420,7 +947,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "hostname"
         }
@@ -1430,7 +958,8 @@
       "name": "git_transport_smart_credentials",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1454,14 +983,16 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "user"
         },
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "methods"
         }
@@ -1471,7 +1002,8 @@
       "name": "git_transport_remote_connect_options",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1496,7 +1028,8 @@
       "name": "git_smart_subtransport_http",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1519,7 +1052,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "param"
         }
@@ -1529,7 +1063,8 @@
       "name": "git_smart_subtransport_git",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1552,7 +1087,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "param"
         }
@@ -1562,7 +1098,8 @@
       "name": "git_smart_subtransport_ssh",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -1585,7 +1122,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "param"
         }
@@ -1602,7 +1140,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_smart_subtransport",
@@ -1617,7 +1156,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,

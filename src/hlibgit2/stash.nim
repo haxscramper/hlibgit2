@@ -66,6 +66,14 @@ type
 
 
 
+proc git_stash_apply*(repo: ptr git_repository, index: csize_t, options: ptr git_stash_apply_options): cint {.git2Proc, importc.}
+
+proc git_stash_foreach*(repo: ptr git_repository, callback: git_stash_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+proc git_stash_drop*(repo: ptr git_repository, index: csize_t): cint {.git2Proc, importc.}
+
+proc git_stash_pop*(repo: ptr git_repository, index: csize_t, options: ptr git_stash_apply_options): cint {.git2Proc, importc.}
+
 converter toCInt*(arg: c_git_stash_flags): cint = cint(ord(arg))
 
 converter toCInt*(args: set(git_stash_flags)): cint =
@@ -130,11 +138,3 @@ proc git_stash_save_options_init*(opts: ptr git_stash_save_options, version: cui
 proc git_stash_save_with_opts*(out: ptr git_oid, repo: ptr git_repository, opts: ptr git_stash_save_options): cint {.git2Proc, importc.}
 
 proc git_stash_apply_options_init*(opts: ptr git_stash_apply_options, version: cuint): cint {.git2Proc, importc.}
-
-proc git_stash_apply*(repo: ptr git_repository, index: csize_t, options: ptr git_stash_apply_options): cint {.git2Proc, importc.}
-
-proc git_stash_foreach*(repo: ptr git_repository, callback: git_stash_cb, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_stash_drop*(repo: ptr git_repository, index: csize_t): cint {.git2Proc, importc.}
-
-proc git_stash_pop*(repo: ptr git_repository, index: csize_t, options: ptr git_stash_apply_options): cint {.git2Proc, importc.}

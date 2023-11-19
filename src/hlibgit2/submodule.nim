@@ -1,6 +1,7 @@
 import "../buffer.nim"
 import "../checkout.nim"
 import "../oid.nim"
+import "../remote.nim"
 import "../types.nim"
 
 type
@@ -45,24 +46,6 @@ type
   git_submodule_cb = proc (a0: ptr git_submodule, a1: cstring, a2: ptr void): cint
 
 
-
-proc git_submodule_fetch_recurse_submodules*(submodule: ptr git_submodule): git_submodule_recurse_t {.git2Proc, importc.}
-
-proc git_submodule_set_fetch_recurse_submodules*(repo: ptr git_repository, name: cstring, fetch_recurse_submodules: git_submodule_recurse_t): cint {.git2Proc, importc.}
-
-proc git_submodule_init*(submodule: ptr git_submodule, overwrite: cint): cint {.git2Proc, importc.}
-
-proc git_submodule_repo_init*(out: ptr git_repository, sm: ptr git_submodule, use_gitlink: cint): cint {.git2Proc, importc.}
-
-proc git_submodule_sync*(submodule: ptr git_submodule): cint {.git2Proc, importc.}
-
-proc git_submodule_open*(repo: ptr git_repository, submodule: ptr git_submodule): cint {.git2Proc, importc.}
-
-proc git_submodule_reload*(submodule: ptr git_submodule, force: cint): cint {.git2Proc, importc.}
-
-proc git_submodule_status*(status: ptr cuint, repo: ptr git_repository, name: cstring, ignore: git_submodule_ignore_t): cint {.git2Proc, importc.}
-
-proc git_submodule_location*(location_status: ptr cuint, submodule: ptr git_submodule): cint {.git2Proc, importc.}
 
 converter toCInt*(arg: c_git_submodule_status_t): cint = cint(ord(arg))
 
@@ -141,3 +124,21 @@ proc git_submodule_set_ignore*(repo: ptr git_repository, name: cstring, ignore: 
 proc git_submodule_update_strategy*(submodule: ptr git_submodule): git_submodule_update_t {.git2Proc, importc.}
 
 proc git_submodule_set_update*(repo: ptr git_repository, name: cstring, update: git_submodule_update_t): cint {.git2Proc, importc.}
+
+proc git_submodule_fetch_recurse_submodules*(submodule: ptr git_submodule): git_submodule_recurse_t {.git2Proc, importc.}
+
+proc git_submodule_set_fetch_recurse_submodules*(repo: ptr git_repository, name: cstring, fetch_recurse_submodules: git_submodule_recurse_t): cint {.git2Proc, importc.}
+
+proc git_submodule_init*(submodule: ptr git_submodule, overwrite: cint): cint {.git2Proc, importc.}
+
+proc git_submodule_repo_init*(out: ptr git_repository, sm: ptr git_submodule, use_gitlink: cint): cint {.git2Proc, importc.}
+
+proc git_submodule_sync*(submodule: ptr git_submodule): cint {.git2Proc, importc.}
+
+proc git_submodule_open*(repo: ptr git_repository, submodule: ptr git_submodule): cint {.git2Proc, importc.}
+
+proc git_submodule_reload*(submodule: ptr git_submodule, force: cint): cint {.git2Proc, importc.}
+
+proc git_submodule_status*(status: ptr cuint, repo: ptr git_repository, name: cstring, ignore: git_submodule_ignore_t): cint {.git2Proc, importc.}
+
+proc git_submodule_location*(location_status: ptr cuint, submodule: ptr git_submodule): cint {.git2Proc, importc.}

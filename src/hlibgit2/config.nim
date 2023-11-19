@@ -49,44 +49,6 @@ type
 
 
 
-proc git_config_next*(entry: ptr git_config_entry, iter: ptr git_config_iterator): cint {.git2Proc, importc.}
-
-proc git_config_iterator_free*(iter: ptr git_config_iterator): void {.git2Proc, importc.}
-
-proc git_config_set_int32*(cfg: ptr git_config, name: cstring, value: int32): cint {.git2Proc, importc.}
-
-proc git_config_set_int64*(cfg: ptr git_config, name: cstring, value: int64): cint {.git2Proc, importc.}
-
-proc git_config_set_bool*(cfg: ptr git_config, name: cstring, value: cint): cint {.git2Proc, importc.}
-
-proc git_config_set_string*(cfg: ptr git_config, name: cstring, value: cstring): cint {.git2Proc, importc.}
-
-proc git_config_set_multivar*(cfg: ptr git_config, name: cstring, regexp: cstring, value: cstring): cint {.git2Proc, importc.}
-
-proc git_config_delete_entry*(cfg: ptr git_config, name: cstring): cint {.git2Proc, importc.}
-
-proc git_config_delete_multivar*(cfg: ptr git_config, name: cstring, regexp: cstring): cint {.git2Proc, importc.}
-
-proc git_config_foreach*(cfg: ptr git_config, callback: git_config_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_config_iterator_new*(out: ptr git_config_iterator, cfg: ptr git_config): cint {.git2Proc, importc.}
-
-proc git_config_iterator_glob_new*(out: ptr git_config_iterator, cfg: ptr git_config, regexp: cstring): cint {.git2Proc, importc.}
-
-proc git_config_foreach_match*(cfg: ptr git_config, regexp: cstring, callback: git_config_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
-
-proc git_config_get_mapped*(out: ptr cint, cfg: ptr git_config, name: cstring, maps: ptr git_configmap, map_n: csize_t): cint {.git2Proc, importc.}
-
-proc git_config_lookup_map_value*(out: ptr cint, maps: ptr git_configmap, map_n: csize_t, value: cstring): cint {.git2Proc, importc.}
-
-proc git_config_parse_bool*(out: ptr cint, value: cstring): cint {.git2Proc, importc.}
-
-proc git_config_parse_int32*(out: ptr int32, value: cstring): cint {.git2Proc, importc.}
-
-proc git_config_parse_int64*(out: ptr int64, value: cstring): cint {.git2Proc, importc.}
-
-proc git_config_parse_path*(out: ptr git_buf, value: cstring): cint {.git2Proc, importc.}
-
 proc git_config_backend_foreach_match*(backend: ptr git_config_backend, regexp: cstring, callback: git_config_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
 
 proc git_config_lock*(tx: ptr git_transaction, cfg: ptr git_config): cint {.git2Proc, importc.}
@@ -173,3 +135,41 @@ proc git_config_get_string_buf*(out: ptr git_buf, cfg: ptr git_config, name: cst
 proc git_config_get_multivar_foreach*(cfg: ptr git_config, name: cstring, regexp: cstring, callback: git_config_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
 
 proc git_config_multivar_iterator_new*(out: ptr git_config_iterator, cfg: ptr git_config, name: cstring, regexp: cstring): cint {.git2Proc, importc.}
+
+proc git_config_next*(entry: ptr git_config_entry, iter: ptr git_config_iterator): cint {.git2Proc, importc.}
+
+proc git_config_iterator_free*(iter: ptr git_config_iterator): void {.git2Proc, importc.}
+
+proc git_config_set_int32*(cfg: ptr git_config, name: cstring, value: int32): cint {.git2Proc, importc.}
+
+proc git_config_set_int64*(cfg: ptr git_config, name: cstring, value: int64): cint {.git2Proc, importc.}
+
+proc git_config_set_bool*(cfg: ptr git_config, name: cstring, value: cint): cint {.git2Proc, importc.}
+
+proc git_config_set_string*(cfg: ptr git_config, name: cstring, value: cstring): cint {.git2Proc, importc.}
+
+proc git_config_set_multivar*(cfg: ptr git_config, name: cstring, regexp: cstring, value: cstring): cint {.git2Proc, importc.}
+
+proc git_config_delete_entry*(cfg: ptr git_config, name: cstring): cint {.git2Proc, importc.}
+
+proc git_config_delete_multivar*(cfg: ptr git_config, name: cstring, regexp: cstring): cint {.git2Proc, importc.}
+
+proc git_config_foreach*(cfg: ptr git_config, callback: git_config_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+proc git_config_iterator_new*(out: ptr git_config_iterator, cfg: ptr git_config): cint {.git2Proc, importc.}
+
+proc git_config_iterator_glob_new*(out: ptr git_config_iterator, cfg: ptr git_config, regexp: cstring): cint {.git2Proc, importc.}
+
+proc git_config_foreach_match*(cfg: ptr git_config, regexp: cstring, callback: git_config_foreach_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+proc git_config_get_mapped*(out: ptr cint, cfg: ptr git_config, name: cstring, maps: ptr git_configmap, map_n: csize_t): cint {.git2Proc, importc.}
+
+proc git_config_lookup_map_value*(out: ptr cint, maps: ptr git_configmap, map_n: csize_t, value: cstring): cint {.git2Proc, importc.}
+
+proc git_config_parse_bool*(out: ptr cint, value: cstring): cint {.git2Proc, importc.}
+
+proc git_config_parse_int32*(out: ptr int32, value: cstring): cint {.git2Proc, importc.}
+
+proc git_config_parse_int64*(out: ptr int64, value: cstring): cint {.git2Proc, importc.}
+
+proc git_config_parse_path*(out: ptr git_buf, value: cstring): cint {.git2Proc, importc.}

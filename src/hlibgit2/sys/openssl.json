@@ -4,7 +4,8 @@
       "name": "git_openssl_set_locking",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       }
     }
   ]

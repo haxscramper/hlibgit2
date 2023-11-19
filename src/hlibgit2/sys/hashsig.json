@@ -3,14 +3,7 @@
     {
       "name": {
         "name": "git_hashsig",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:16"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_hashsig",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_hashsig",
@@ -40,7 +33,7 @@
       ],
       "name": {
         "name": "git_hashsig_option_t",
-        "dbgOrigin": "enum typedef typedef:git_hashsig_option_tname:/mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:45:3"
+        "dbgOrigin": "enum typedef typedef:git_hashsig_option_tname:/mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:25:9"
       }
     }
   ],
@@ -49,7 +42,8 @@
       "name": "git_hashsig_create",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -65,7 +59,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "buf"
         },
@@ -89,7 +84,8 @@
       "name": "git_hashsig_create_fromfile",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -105,7 +101,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         },
@@ -122,7 +119,8 @@
       "name": "git_hashsig_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -139,7 +137,8 @@
       "name": "git_hashsig_compare",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

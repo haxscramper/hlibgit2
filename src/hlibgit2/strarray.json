@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_strarray",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/strarray.h:22:16"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -11,30 +11,8 @@
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >char"
-          }
-        },
-        {
-          "name": "count",
-          "type": {
-            "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
-          }
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_strarray",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
-      },
-      "fields": [
-        {
-          "name": "strings",
-          "type": {
-            "name": "char",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >char",
+            "isBuiltin": true
           }
         },
         {
@@ -56,7 +34,8 @@
       "name": "git_strarray_dispose",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

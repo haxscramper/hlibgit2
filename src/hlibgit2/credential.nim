@@ -1,18 +1,15 @@
 
 type
-  _LIBSSH2_SESSION* {.importc, bycopy.} = object
+  git_credential_ssh_interactive_cb = proc (a0: cstring, a1: cint, a2: cstring, a3: cint, a4: cint, a5: ptr LIBSSH2_USERAUTH_KBDINT_PROMPT, a6: ptr LIBSSH2_USERAUTH_KBDINT_RESPONSE, a7: ptr void): void
 
+  git_credential_sign_cb = proc (a0: ptr LIBSSH2_SESSION, a1: ptr char, a2: ptr csize_t, a3: cstring, a4: csize_t, a5: ptr void): cint
+
+  git_credential_acquire_cb = proc (a0: ptr git_credential, a1: cstring, a2: cstring, a3: cuint, a4: ptr void): cint
 
   LIBSSH2_SESSION* {.importc, bycopy.} = object
 
 
-  _LIBSSH2_USERAUTH_KBDINT_PROMPT* {.importc, bycopy.} = object
-
-
   LIBSSH2_USERAUTH_KBDINT_PROMPT* {.importc, bycopy.} = object
-
-
-  _LIBSSH2_USERAUTH_KBDINT_RESPONSE* {.importc, bycopy.} = object
 
 
   LIBSSH2_USERAUTH_KBDINT_RESPONSE* {.importc, bycopy.} = object
@@ -36,34 +33,7 @@ type
     GIT_CREDENTIAL_USERNAME
     GIT_CREDENTIAL_SSH_MEMORY
 
-  git_credential_ssh_interactive_cb = proc (a0: cstring, a1: cint, a2: cstring, a3: cint, a4: cint, a5: ptr LIBSSH2_USERAUTH_KBDINT_PROMPT, a6: ptr LIBSSH2_USERAUTH_KBDINT_RESPONSE, a7: ptr void): void
 
-  git_credential_sign_cb = proc (a0: ptr LIBSSH2_SESSION, a1: ptr char, a2: ptr csize_t, a3: cstring, a4: csize_t, a5: ptr void): cint
-
-  git_credential_acquire_cb = proc (a0: ptr git_credential, a1: cstring, a2: cstring, a3: cuint, a4: ptr void): cint
-
-
-
-converter toCInt*(arg: c_git_credential_t): cint = cint(ord(arg))
-
-converter toCInt*(args: set(git_credential_t)): cint =
-  for value in items(args):
-    case value:
-      of GIT_CREDENTIAL_USERPASS_PLAINTEXT: result = cint(result or 1)
-      of GIT_CREDENTIAL_SSH_KEY           : result = cint(result or 2)
-      of GIT_CREDENTIAL_SSH_CUSTOM        : result = cint(result or 4)
-      of GIT_CREDENTIAL_DEFAULT           : result = cint(result or 8)
-      of GIT_CREDENTIAL_SSH_INTERACTIVE   : result = cint(result or 16)
-      of GIT_CREDENTIAL_USERNAME          : result = cint(result or 32)
-      of GIT_CREDENTIAL_SSH_MEMORY        : result = cint(result or 64)
-
-func `-`*(arg: c_git_credential_t, offset: int): cint = cast[c_git_credential_t](ord(arg) - offset)
-
-func `-`*(offset: int, arg: c_git_credential_t): cint = cast[c_git_credential_t](ord(arg) - offset)
-
-func `+`*(arg: c_git_credential_t, offset: int): cint = cast[c_git_credential_t](ord(arg) + offset)
-
-func `+`*(offset: int, arg: c_git_credential_t): cint = cast[c_git_credential_t](ord(arg) + offset)
 
 proc git_credential_free*(cred: ptr git_credential): void {.git2Proc, importc.}
 
@@ -86,3 +56,24 @@ proc git_credential_ssh_interactive_new*(out: ptr git_credential, username: cstr
 proc git_credential_ssh_key_from_agent*(out: ptr git_credential, username: cstring): cint {.git2Proc, importc.}
 
 proc git_credential_ssh_custom_new*(out: ptr git_credential, username: cstring, publickey: cstring, publickey_len: csize_t, sign_callback: git_credential_sign_cb, payload: ptr void): cint {.git2Proc, importc.}
+
+converter toCInt*(arg: c_git_credential_t): cint = cint(ord(arg))
+
+converter toCInt*(args: set(git_credential_t)): cint =
+  for value in items(args):
+    case value:
+      of GIT_CREDENTIAL_USERPASS_PLAINTEXT: result = cint(result or 1)
+      of GIT_CREDENTIAL_SSH_KEY           : result = cint(result or 2)
+      of GIT_CREDENTIAL_SSH_CUSTOM        : result = cint(result or 4)
+      of GIT_CREDENTIAL_DEFAULT           : result = cint(result or 8)
+      of GIT_CREDENTIAL_SSH_INTERACTIVE   : result = cint(result or 16)
+      of GIT_CREDENTIAL_USERNAME          : result = cint(result or 32)
+      of GIT_CREDENTIAL_SSH_MEMORY        : result = cint(result or 64)
+
+func `-`*(arg: c_git_credential_t, offset: int): cint = cast[c_git_credential_t](ord(arg) - offset)
+
+func `-`*(offset: int, arg: c_git_credential_t): cint = cast[c_git_credential_t](ord(arg) - offset)
+
+func `+`*(arg: c_git_credential_t, offset: int): cint = cast[c_git_credential_t](ord(arg) + offset)
+
+func `+`*(offset: int, arg: c_git_credential_t): cint = cast[c_git_credential_t](ord(arg) + offset)

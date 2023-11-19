@@ -3,6 +3,9 @@ import "../../oid.nim"
 import "../../types.nim"
 
 type
+  git_filter_source* {.importc, bycopy.} = object
+
+
   git_filter_init_fn = proc (a0: ptr git_filter): cint
 
   git_filter_shutdown_fn = proc (a0: ptr git_filter): void
@@ -14,9 +17,6 @@ type
   git_filter_stream_fn = proc (a0: ptr git_writestream, a1: ptr git_filter, a2: ptr void, a3: ptr git_filter_source, a4: ptr git_writestream): cint
 
   git_filter_cleanup_fn = proc (a0: ptr git_filter, a1: ptr void): void
-
-  git_filter_source* {.importc, bycopy.} = object
-
 
 
 

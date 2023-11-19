@@ -3,21 +3,23 @@
     {
       "name": {
         "name": "git_rebase_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/rebase.h:115:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/rebase.h:115:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         },
         {
           "name": "quiet",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Used by `git_rebase_init`, this will instruct other clients working\n\t * on this rebase that you want a quiet rebase experience, which they\n\t * may choose to provide in an application-specific manner.  This has no\n\t * effect upon libgit2 directly, but is provided for interoperability\n\t * between Git tools.\n\t */"
         },
@@ -25,7 +27,8 @@
           "name": "inmemory",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Used by `git_rebase_init`, this will begin an in-memory rebase,\n\t * which will allow callers to step through the rebase operations and\n\t * commit the rebased changes, but will not rewind HEAD or update the\n\t * repository to be in a rebasing state.  This will not interfere with\n\t * the working directory (if there is one).\n\t */"
         },
@@ -35,7 +38,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * Used by `git_rebase_finish`, this is the name of the notes reference\n\t * used to rewrite notes for rebased commits when finishing the rebase;\n\t * if NULL, the contents of the configuration option `notes.rewriteRef`\n\t * is examined, unless the configuration option `notes.rewrite.rebase`\n\t * is set to false.  If `notes.rewriteRef` is also NULL, notes will\n\t * not be rewritten.\n\t */"
         },
@@ -69,7 +73,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_buf",
@@ -85,12 +90,14 @@
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               },
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin"
+                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "isBuiltin": true
               }
             ],
             "isPointer": true,
@@ -104,7 +111,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * This will be passed to each of the callbacks in this struct\n\t * as the last parameter.\n\t */"
         }
@@ -113,7 +121,7 @@
     {
       "name": {
         "name": "git_rebase_operation",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/rebase.h:187:3"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/rebase.h:187:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -138,7 +146,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * The executable the user has requested be run.  This will only\n\t * be populated for operations of type `GIT_REBASE_OPERATION_EXEC`.\n\t */"
         }
@@ -174,7 +183,7 @@
       ],
       "name": {
         "name": "git_rebase_operation_t",
-        "dbgOrigin": "enum typedef typedef:git_rebase_operation_tname:/mnt/workspace/repos/libgit2/include/git2/rebase.h:156:3"
+        "dbgOrigin": "enum typedef typedef:git_rebase_operation_tname:/mnt/workspace/repos/libgit2/include/git2/rebase.h:120:9"
       }
     }
   ],
@@ -183,7 +192,8 @@
       "name": "git_rebase_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -197,7 +207,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -207,7 +218,8 @@
       "name": "git_rebase_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -264,7 +276,8 @@
       "name": "git_rebase_open",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -299,7 +312,8 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -336,7 +350,8 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -430,7 +445,8 @@
       "name": "git_rebase_next",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -455,7 +471,8 @@
       "name": "git_rebase_inmemory_index",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -480,7 +497,8 @@
       "name": "git_rebase_commit",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -520,7 +538,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "message_encoding"
         },
@@ -529,7 +548,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "message"
         }
@@ -539,7 +559,8 @@
       "name": "git_rebase_abort",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -556,7 +577,8 @@
       "name": "git_rebase_finish",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -581,7 +603,8 @@
       "name": "git_rebase_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

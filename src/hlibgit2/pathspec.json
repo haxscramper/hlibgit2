@@ -3,14 +3,7 @@
     {
       "name": {
         "name": "git_pathspec",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:16"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_pathspec",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_pathspec",
@@ -21,14 +14,7 @@
     {
       "name": {
         "name": "git_pathspec_match_list",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:16"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_pathspec_match_list",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_pathspec_match_list",
@@ -70,7 +56,7 @@
       ],
       "name": {
         "name": "git_pathspec_flag_t",
-        "dbgOrigin": "enum typedef typedef:git_pathspec_flag_tname:/mnt/workspace/repos/libgit2/include/git2/pathspec.h:73:3"
+        "dbgOrigin": "enum typedef typedef:git_pathspec_flag_tname:/mnt/workspace/repos/libgit2/include/git2/pathspec.h:30:9"
       }
     }
   ],
@@ -79,7 +65,8 @@
       "name": "git_pathspec_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -104,7 +91,8 @@
       "name": "git_pathspec_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -121,7 +109,8 @@
       "name": "git_pathspec_matches_path",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -144,7 +133,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         }
@@ -154,7 +144,8 @@
       "name": "git_pathspec_match_workdir",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -194,7 +185,8 @@
       "name": "git_pathspec_match_index",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -234,7 +226,8 @@
       "name": "git_pathspec_match_tree",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -274,7 +267,8 @@
       "name": "git_pathspec_match_diff",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -314,7 +308,8 @@
       "name": "git_pathspec_match_list_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -350,7 +345,8 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -418,7 +414,8 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       },
       "arguments": [
         {

@@ -21,7 +21,7 @@
       ],
       "name": {
         "name": "git_feature_t",
-        "dbgOrigin": "enum typedef typedef:git_feature_tname:/mnt/workspace/repos/libgit2/include/git2/common.h:157:3"
+        "dbgOrigin": "enum typedef typedef:git_feature_tname:/mnt/workspace/repos/libgit2/include/git2/common.h:134:9"
       }
     },
     {
@@ -200,7 +200,7 @@
       ],
       "name": {
         "name": "git_libgit2_opt_t",
-        "dbgOrigin": "enum typedef typedef:git_libgit2_opt_tname:/mnt/workspace/repos/libgit2/include/git2/common.h:232:3"
+        "dbgOrigin": "enum typedef typedef:git_libgit2_opt_tname:/mnt/workspace/repos/libgit2/include/git2/common.h:188:9"
       }
     }
   ],
@@ -209,14 +209,16 @@
       "name": "git_libgit2_version",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "int",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "major"
         },
@@ -224,7 +226,8 @@
           "type": {
             "name": "int",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "minor"
         },
@@ -232,7 +235,8 @@
           "type": {
             "name": "int",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "rev"
         }
@@ -244,27 +248,31 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       }
     },
     {
       "name": "git_libgit2_features",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       }
     },
     {
       "name": "git_libgit2_opts",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "option"
         }

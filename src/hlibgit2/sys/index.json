@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_index_name_entry",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/index.h:23:16"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/index.h:27:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -11,7 +11,8 @@
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           }
         },
         {
@@ -19,7 +20,8 @@
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           }
         },
         {
@@ -27,39 +29,8 @@
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
-          }
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_index_name_entry",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/index.h:27:3"
-      },
-      "fields": [
-        {
-          "name": "ancestor",
-          "type": {
-            "name": "char",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
-          }
-        },
-        {
-          "name": "ours",
-          "type": {
-            "name": "char",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
-          }
-        },
-        {
-          "name": "theirs",
-          "type": {
-            "name": "char",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           }
         }
       ],
@@ -71,7 +42,7 @@
     {
       "name": {
         "name": "git_index_reuc_entry",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/index.h:30:16"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/index.h:34:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -111,55 +82,8 @@
           "type": {
             "name": "char",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
-          }
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_index_reuc_entry",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/index.h:34:3"
-      },
-      "fields": [
-        {
-          "name": "mode",
-          "type": {
-            "parameters": [
-              {
-                "name": "uint32_t",
-                "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
-              },
-              {
-                "kind": "TypeExpr"
-              }
-            ],
-            "kind": "Array",
-            "dbgOrigin": " >constarray"
-          }
-        },
-        {
-          "name": "oid",
-          "type": {
-            "parameters": [
-              {
-                "name": "git_oid",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
-              },
-              {
-                "kind": "TypeExpr"
-              }
-            ],
-            "kind": "Array",
-            "dbgOrigin": " >constarray"
-          }
-        },
-        {
-          "name": "path",
-          "type": {
-            "name": "char",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >char"
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
           }
         }
       ],
@@ -216,7 +140,8 @@
       "name": "git_index_name_add",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -232,7 +157,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "ancestor"
         },
@@ -241,7 +167,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "ours"
         },
@@ -250,7 +177,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "theirs"
         }
@@ -260,7 +188,8 @@
       "name": "git_index_name_clear",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -294,7 +223,8 @@
       "name": "git_index_reuc_find",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -318,7 +248,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         }
@@ -345,7 +276,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         }
@@ -380,7 +312,8 @@
       "name": "git_index_reuc_add",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -396,14 +329,16 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         },
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "ancestor_mode"
         },
@@ -418,7 +353,8 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "our_mode"
         },
@@ -433,7 +369,8 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "their_mode"
         },
@@ -451,7 +388,8 @@
       "name": "git_index_reuc_remove",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -475,7 +413,8 @@
       "name": "git_index_reuc_clear",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {

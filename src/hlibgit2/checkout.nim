@@ -9,9 +9,29 @@ type
 
   git_checkout_notify_cb = proc (a0: git_checkout_notify_t, a1: cstring, a2: ptr git_diff_file, a3: ptr git_diff_file, a4: ptr git_diff_file, a5: ptr void): cint
 
-  git_checkout_progress_cb = proc (a0: cstring, a1: csize_t, a2: csize_t, a3: ptr void): void
+  git_checkout_options* {.importc, bycopy.} = object
+    version           *: cuint
+    checkout_strategy *: cuint
+    disable_filters   *: cint
+    dir_mode          *: cuint
+    file_mode         *: cuint
+    file_open_flags   *: cint
+    notify_flags      *: cuint
+    notify_cb         *: git_checkout_notify_cb
+    notify_payload    *: ptr void
+    progress_cb       *: git_checkout_progress_cb
+    progress_payload  *: ptr void
+    paths             *: git_strarray
+    baseline          *: ptr git_tree
+    baseline_index    *: ptr git_index
+    target_directory  *: cstring
+    ancestor_label    *: cstring
+    our_label         *: cstring
+    their_label       *: cstring
+    perfdata_cb       *: git_checkout_perfdata_cb
+    perfdata_payload  *: ptr void
 
-  git_checkout_perfdata_cb = proc (a0: ptr git_checkout_perfdata, a1: ptr void): void
+  git_checkout_progress_cb = proc (a0: cstring, a1: csize_t, a2: csize_t, a3: ptr void): void
 
   c_git_checkout_strategy_t {.size: sizeof(cint).} = enum
     c_GIT_CHECKOUT_NONE                         = 0 shl 0
@@ -83,27 +103,7 @@ type
     GIT_CHECKOUT_NOTIFY_IGNORED
     GIT_CHECKOUT_NOTIFY_ALL
 
-  git_checkout_options* {.importc, bycopy.} = object
-    version           *: cuint
-    checkout_strategy *: cuint
-    disable_filters   *: cint
-    dir_mode          *: cuint
-    file_mode         *: cuint
-    file_open_flags   *: cint
-    notify_flags      *: cuint
-    notify_cb         *: git_checkout_notify_cb
-    notify_payload    *: ptr void
-    progress_cb       *: git_checkout_progress_cb
-    progress_payload  *: ptr void
-    paths             *: git_strarray
-    baseline          *: ptr git_tree
-    baseline_index    *: ptr git_index
-    target_directory  *: cstring
-    ancestor_label    *: cstring
-    our_label         *: cstring
-    their_label       *: cstring
-    perfdata_cb       *: git_checkout_perfdata_cb
-    perfdata_payload  *: ptr void
+  git_checkout_perfdata_cb = proc (a0: ptr git_checkout_perfdata, a1: ptr void): void
 
 
 

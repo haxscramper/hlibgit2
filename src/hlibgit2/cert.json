@@ -1,0 +1,295 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_cert",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:262:25 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "cert_type",
+          "type": {
+            "name": "git_cert_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/cert.h:48:3"
+          },
+          "doc": "/**\n\t * Type of certificate. A `GIT_CERT_` value.\n\t */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_cert",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_cert_hostkey",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/cert.h:151:3 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "parent",
+          "type": {
+            "name": "git_cert",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:262:25"
+          },
+          "doc": "/**< The parent cert */"
+        },
+        {
+          "name": "type",
+          "type": {
+            "name": "git_cert_ssh_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/cert.h:86:3"
+          },
+          "doc": "/**\n\t * A bitmask containing the available fields.\n\t */"
+        },
+        {
+          "name": "hash_md5",
+          "type": {
+            "parameters": [
+              {
+                "name": "char",
+                "dbgOrigin": " >char",
+                "isBuiltin": true
+              },
+              {
+                "kind": "TypeExpr"
+              }
+            ],
+            "kind": "Array",
+            "dbgOrigin": " >constarray"
+          },
+          "doc": "/**\n\t * Hostkey hash. If `type` has `GIT_CERT_SSH_MD5` set, this will\n\t * have the MD5 hash of the hostkey.\n\t */"
+        },
+        {
+          "name": "hash_sha1",
+          "type": {
+            "parameters": [
+              {
+                "name": "char",
+                "dbgOrigin": " >char",
+                "isBuiltin": true
+              },
+              {
+                "kind": "TypeExpr"
+              }
+            ],
+            "kind": "Array",
+            "dbgOrigin": " >constarray"
+          },
+          "doc": "/**\n\t * Hostkey hash. If `type` has `GIT_CERT_SSH_SHA1` set, this will\n\t * have the SHA-1 hash of the hostkey.\n\t */"
+        },
+        {
+          "name": "hash_sha256",
+          "type": {
+            "parameters": [
+              {
+                "name": "char",
+                "dbgOrigin": " >char",
+                "isBuiltin": true
+              },
+              {
+                "kind": "TypeExpr"
+              }
+            ],
+            "kind": "Array",
+            "dbgOrigin": " >constarray"
+          },
+          "doc": "/**\n\t * Hostkey hash. If `type` has `GIT_CERT_SSH_SHA256` set, this will\n\t * have the SHA-256 hash of the hostkey.\n\t */"
+        },
+        {
+          "name": "raw_type",
+          "type": {
+            "name": "git_cert_ssh_raw_type_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/cert.h:103:3"
+          },
+          "doc": "/**\n\t * Raw hostkey type. If `type` has `GIT_CERT_SSH_RAW` set, this will\n\t * have the type of the raw hostkey.\n\t */"
+        },
+        {
+          "name": "hostkey",
+          "type": {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "doc": "/**\n\t * Pointer to the raw hostkey. If `type` has `GIT_CERT_SSH_RAW` set,\n\t * this will have the raw contents of the hostkey.\n\t */"
+        },
+        {
+          "name": "hostkey_len",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/**\n\t * Raw hostkey length. If `type` has `GIT_CERT_SSH_RAW` set, this will\n\t * have the length of the raw contents of the hostkey.\n\t */"
+        }
+      ]
+    },
+    {
+      "name": {
+        "name": "git_cert_x509",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/cert.h:168:3 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "parent",
+          "type": {
+            "name": "git_cert",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:262:25"
+          },
+          "doc": "/**< The parent cert */"
+        },
+        {
+          "name": "data",
+          "type": {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
+          },
+          "doc": "/**\n\t * Pointer to the X.509 certificate data\n\t */"
+        },
+        {
+          "name": "len",
+          "type": {
+            "name": "size_t",
+            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+          },
+          "doc": "/**\n\t * Length of the memory block pointed to by `data`.\n\t */"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_CERT_NONE"
+        },
+        {
+          "name": "GIT_CERT_X509",
+          "value": "1"
+        },
+        {
+          "name": "GIT_CERT_HOSTKEY_LIBSSH2",
+          "value": "2"
+        },
+        {
+          "name": "GIT_CERT_STRARRAY",
+          "value": "3"
+        }
+      ],
+      "name": {
+        "name": "git_cert_t",
+        "dbgOrigin": "enum typedef typedef:git_cert_tname:git_cert_t/mnt/workspace/repos/libgit2/include/git2/cert.h:25:14"
+      },
+      "enumDefName": {
+        "name": "git_cert_t",
+        "dbgOrigin": "enum direct typedef:git_cert_tname:git_cert_t/mnt/workspace/repos/libgit2/include/git2/cert.h:25:14",
+        "tag": "TypeTagEnum"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_CERT_SSH_MD5",
+          "value": "1"
+        },
+        {
+          "name": "GIT_CERT_SSH_SHA1",
+          "value": "2"
+        },
+        {
+          "name": "GIT_CERT_SSH_SHA256",
+          "value": "4"
+        },
+        {
+          "name": "GIT_CERT_SSH_RAW",
+          "value": "8"
+        }
+      ],
+      "name": {
+        "name": "git_cert_ssh_t",
+        "dbgOrigin": "enum typedef typedef:git_cert_ssh_tname:/mnt/workspace/repos/libgit2/include/git2/cert.h:77:9"
+      }
+    },
+    {
+      "fields": [
+        {
+          "name": "GIT_CERT_SSH_RAW_TYPE_UNKNOWN"
+        },
+        {
+          "name": "GIT_CERT_SSH_RAW_TYPE_RSA",
+          "value": "1"
+        },
+        {
+          "name": "GIT_CERT_SSH_RAW_TYPE_DSS",
+          "value": "2"
+        },
+        {
+          "name": "GIT_CERT_SSH_RAW_TYPE_KEY_ECDSA_256",
+          "value": "3"
+        },
+        {
+          "name": "GIT_CERT_SSH_RAW_TYPE_KEY_ECDSA_384",
+          "value": "4"
+        },
+        {
+          "name": "GIT_CERT_SSH_RAW_TYPE_KEY_ECDSA_521",
+          "value": "5"
+        },
+        {
+          "name": "GIT_CERT_SSH_RAW_TYPE_KEY_ED25519",
+          "value": "6"
+        }
+      ],
+      "name": {
+        "name": "git_cert_ssh_raw_type_t",
+        "dbgOrigin": "enum typedef typedef:git_cert_ssh_raw_type_tname:/mnt/workspace/repos/libgit2/include/git2/cert.h:88:9"
+      }
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_transport_certificate_check_cb",
+        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/cert.h:72:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/cert.h:72:26>"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
+          },
+          {
+            "name": "git_cert",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:262:25"
+          },
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
+          },
+          {
+            "name": "char",
+            "isConst": true,
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          {
+            "name": "void",
+            "isPointer": true,
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
+          }
+        ],
+        "isPointer": true,
+        "kind": "FunctionPtr",
+        "dbgOrigin": " T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

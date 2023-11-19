@@ -1,3 +1,4 @@
+import "../../remote.nim"
 
 type
   c_git_remote_capability_t {.size: sizeof(cint).} = enum

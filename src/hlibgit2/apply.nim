@@ -2,17 +2,6 @@ import "../diff.nim"
 import "../types.nim"
 
 type
-  git_apply_options* {.importc, bycopy.} = object
-    version  *: cuint
-    delta_cb *: git_apply_delta_cb
-    hunk_cb  *: git_apply_hunk_cb
-    payload  *: ptr void
-    flags    *: cuint
-
-  git_apply_delta_cb = proc (a0: ptr git_diff_delta, a1: ptr void): cint
-
-  git_apply_hunk_cb = proc (a0: ptr git_diff_hunk, a1: ptr void): cint
-
   c_git_apply_flags_t {.size: sizeof(cint).} = enum
     c_GIT_APPLY_CHECK = 1 shl 0
 
@@ -28,6 +17,17 @@ type
     GIT_APPLY_LOCATION_WORKDIR
     GIT_APPLY_LOCATION_INDEX
     GIT_APPLY_LOCATION_BOTH
+
+  git_apply_options* {.importc, bycopy.} = object
+    version  *: cuint
+    delta_cb *: git_apply_delta_cb
+    hunk_cb  *: git_apply_hunk_cb
+    payload  *: ptr void
+    flags    *: cuint
+
+  git_apply_delta_cb = proc (a0: ptr git_diff_delta, a1: ptr void): cint
+
+  git_apply_hunk_cb = proc (a0: ptr git_diff_hunk, a1: ptr void): cint
 
 
 

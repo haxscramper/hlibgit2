@@ -3,21 +3,33 @@
     {
       "name": {
         "name": "git_merge_driver",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:16"
+        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:16 > typedef==nullptr > struct"
+      },
+      "isForwardDecl": true
+    },
+    {
+      "name": {
+        "name": "git_merge_driver_source",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40 > typedef!=nullptr > struct"
+      },
+      "recordDefName": {
+        "name": "git_merge_driver_source",
+        "tag": "TypeTagStruct"
       },
       "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_merge_driver",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/** The `version` should be set to `GIT_MERGE_DRIVER_VERSION`. */"
         },
@@ -50,64 +62,6 @@
         "name": "git_merge_driver",
         "tag": "TypeTagStruct"
       }
-    },
-    {
-      "name": {
-        "name": "git_merge_driver_source",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:16"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_merge_driver_source",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
-      },
-      "recordDefName": {
-        "name": "git_merge_driver_source",
-        "tag": "TypeTagStruct"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_merge_driver",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:123:8"
-      },
-      "fields": [
-        {
-          "name": "version",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/** The `version` should be set to `GIT_MERGE_DRIVER_VERSION`. */"
-        },
-        {
-          "name": "initialize",
-          "type": {
-            "name": "git_merge_driver_init_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:26>"
-          },
-          "doc": "/** Called when the merge driver is first used for any file. */"
-        },
-        {
-          "name": "shutdown",
-          "type": {
-            "name": "git_merge_driver_shutdown_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:27>"
-          },
-          "doc": "/** Called when the merge driver is unregistered from the system. */"
-        },
-        {
-          "name": "apply",
-          "type": {
-            "name": "git_merge_driver_apply_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:26>"
-          },
-          "doc": "/**\n\t * Called to merge the contents of a conflict.  If this function\n\t * returns `GIT_PASSTHROUGH` then the default (`text`) merge driver\n\t * will instead be invoked.  If this function returns\n\t * `GIT_EMERGECONFLICT` then the file will remain conflicted.\n\t */"
-        }
-      ]
     }
   ],
   "functions": [
@@ -124,7 +78,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "name"
         }
@@ -224,7 +179,8 @@
       "name": "git_merge_driver_register",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -232,7 +188,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "name"
         },
@@ -250,7 +207,8 @@
       "name": "git_merge_driver_unregister",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -258,7 +216,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "name"
         }
@@ -275,7 +234,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_merge_driver",
@@ -297,7 +257,8 @@
         "parameters": [
           {
             "name": "void",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_merge_driver",
@@ -319,7 +280,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_merge_driver",
@@ -330,7 +292,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           {
             "name": "uint32_t",
@@ -346,7 +309,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           {
             "name": "git_merge_driver_source",

@@ -16,7 +16,7 @@
       ],
       "name": {
         "name": "git_path_gitfile",
-        "dbgOrigin": "enum typedef typedef:git_path_gitfilename:/mnt/workspace/repos/libgit2/include/git2/sys/path.h:28:3"
+        "dbgOrigin": "enum typedef typedef:git_path_gitfilename:/mnt/workspace/repos/libgit2/include/git2/sys/path.h:21:9"
       }
     },
     {
@@ -35,7 +35,7 @@
       ],
       "name": {
         "name": "git_path_fs",
-        "dbgOrigin": "enum typedef typedef:git_path_fsname:/mnt/workspace/repos/libgit2/include/git2/sys/path.h:41:3"
+        "dbgOrigin": "enum typedef typedef:git_path_fsname:/mnt/workspace/repos/libgit2/include/git2/sys/path.h:34:9"
       }
     }
   ],
@@ -44,7 +44,8 @@
       "name": "git_path_is_gitfile",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -52,7 +53,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "path"
         },

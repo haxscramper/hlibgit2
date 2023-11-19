@@ -2,22 +2,97 @@
   "records": [
     {
       "name": {
+        "name": "git_config_iterator",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "backend",
+          "type": {
+            "name": "git_config_backend",
+            "isPointer": true,
+            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
+          }
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
+          }
+        },
+        {
+          "name": "next",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
+              },
+              {
+                "name": "git_config_entry",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
+              },
+              {
+                "name": "git_config_iterator",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
+              },
+              {
+                "name": "git_config_iterator",
+                "isPointer": true,
+                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+              }
+            ],
+            "isPointer": true,
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_config_iterator",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
         "name": "git_config_backend",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           }
         },
         {
           "name": "readonly",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/** True if this backend is for a snapshot */"
         },
@@ -35,7 +110,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -63,7 +139,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -74,7 +151,8 @@
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_entry",
@@ -93,7 +171,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -104,13 +183,15 @@
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               },
               {
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               }
             ],
             "isPointer": true,
@@ -124,7 +205,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -135,19 +217,22 @@
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               },
               {
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               },
               {
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               }
             ],
             "isPointer": true,
@@ -161,7 +246,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -172,7 +258,8 @@
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               }
             ],
             "isPointer": true,
@@ -186,7 +273,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -197,13 +285,15 @@
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               },
               {
                 "name": "char",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
               }
             ],
             "isPointer": true,
@@ -217,7 +307,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_iterator",
@@ -241,7 +332,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -265,7 +357,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -284,7 +377,8 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -293,7 +387,8 @@
               },
               {
                 "name": "int",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               }
             ],
             "isPointer": true,
@@ -307,7 +402,8 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin"
+                "dbgOrigin": " >builtin",
+                "isBuiltin": true
               },
               {
                 "name": "git_config_backend",
@@ -325,464 +421,6 @@
         "name": "git_config_backend",
         "tag": "TypeTagStruct"
       }
-    },
-    {
-      "name": {
-        "name": "git_config_iterator",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
-      },
-      "fields": [
-        {
-          "name": "backend",
-          "type": {
-            "name": "git_config_backend",
-            "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
-          }
-        },
-        {
-          "name": "flags",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          }
-        },
-        {
-          "name": "next",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_entry",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
-              },
-              {
-                "name": "git_config_iterator",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "free",
-          "type": {
-            "parameters": [
-              {
-                "name": "void",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_iterator",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        }
-      ],
-      "recordDefName": {
-        "name": "git_config_iterator",
-        "tag": "TypeTagStruct"
-      }
-    },
-    {
-      "name": {
-        "name": "git_config_iterator",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:34:8"
-      },
-      "fields": [
-        {
-          "name": "backend",
-          "type": {
-            "name": "git_config_backend",
-            "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
-          }
-        },
-        {
-          "name": "flags",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          }
-        },
-        {
-          "name": "next",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_entry",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
-              },
-              {
-                "name": "git_config_iterator",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "free",
-          "type": {
-            "parameters": [
-              {
-                "name": "void",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_iterator",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        }
-      ]
-    },
-    {
-      "name": {
-        "name": "git_config_backend",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:54:8"
-      },
-      "fields": [
-        {
-          "name": "version",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          }
-        },
-        {
-          "name": "readonly",
-          "type": {
-            "name": "int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/** True if this backend is for a snapshot */"
-        },
-        {
-          "name": "cfg",
-          "type": {
-            "name": "git_config",
-            "isPointer": true,
-            "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:58:21"
-          }
-        },
-        {
-          "name": "open",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:61:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:61:19>"
-              },
-              {
-                "name": "git_config_level_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:59:3"
-              },
-              {
-                "name": "git_repository",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "get",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:62:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:62:19>"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              },
-              {
-                "name": "git_config_entry",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "set",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:63:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:63:19>"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "set_multivar",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "del",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:65:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:65:19>"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "del_multivar",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:66:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:66:19>"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              },
-              {
-                "name": "char",
-                "isConst": true,
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "iterator",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_iterator",
-                "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:67:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:67:19>"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "snapshot",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:69:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:69:19>"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:69:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:69:19>"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "lock",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:77:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:77:19>"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "unlock",
-          "type": {
-            "parameters": [
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:83:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:83:19>"
-              },
-              {
-                "name": "int",
-                "dbgOrigin": " >builtin"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        },
-        {
-          "name": "free",
-          "type": {
-            "parameters": [
-              {
-                "name": "void",
-                "dbgOrigin": " >builtin"
-              },
-              {
-                "name": "git_config_backend",
-                "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:84:7 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:84:20>"
-              }
-            ],
-            "isPointer": true,
-            "kind": "FunctionPtr",
-            "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
-        }
-      ]
     }
   ],
   "functions": [
@@ -790,7 +428,8 @@
       "name": "git_config_init_backend",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -804,7 +443,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -814,7 +454,8 @@
       "name": "git_config_add_backend",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -851,7 +492,8 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "force"
         }

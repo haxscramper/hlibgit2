@@ -15,6 +15,10 @@ type
 
 
 
+proc git_reset_from_annotated*(repo: ptr git_repository, commit: ptr git_annotated_commit, reset_type: git_reset_t, checkout_opts: ptr git_checkout_options): cint {.git2Proc, importc.}
+
+proc git_reset_default*(repo: ptr git_repository, target: ptr git_object, pathspecs: ptr git_strarray): cint {.git2Proc, importc.}
+
 converter toCInt*(arg: c_git_reset_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set(git_reset_t)): cint =
@@ -33,7 +37,3 @@ func `+`*(arg: c_git_reset_t, offset: int): cint = cast[c_git_reset_t](ord(arg) 
 func `+`*(offset: int, arg: c_git_reset_t): cint = cast[c_git_reset_t](ord(arg) + offset)
 
 proc git_reset*(repo: ptr git_repository, target: ptr git_object, reset_type: git_reset_t, checkout_opts: ptr git_checkout_options): cint {.git2Proc, importc.}
-
-proc git_reset_from_annotated*(repo: ptr git_repository, commit: ptr git_annotated_commit, reset_type: git_reset_t, checkout_opts: ptr git_checkout_options): cint {.git2Proc, importc.}
-
-proc git_reset_default*(repo: ptr git_repository, target: ptr git_object, pathspecs: ptr git_strarray): cint {.git2Proc, importc.}

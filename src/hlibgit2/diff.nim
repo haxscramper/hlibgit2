@@ -15,30 +15,6 @@ type
     mode      *: uint16
     id_abbrev *: uint16
 
-  git_diff_delta* {.importc, bycopy.} = object
-    status     *: git_delta_t
-    flags      *: uint32
-    similarity *: uint16
-    nfiles     *: uint16
-    old_file   *: git_diff_file
-    new_file   *: git_diff_file
-
-  git_diff_options* {.importc, bycopy.} = object
-    version           *: cuint
-    flags             *: uint32
-    ignore_submodules *: git_submodule_ignore_t
-    pathspec          *: git_strarray
-    notify_cb         *: git_diff_notify_cb
-    progress_cb       *: git_diff_progress_cb
-    payload           *: ptr void
-    context_lines     *: uint32
-    interhunk_lines   *: uint32
-    oid_type          *: git_oid_t
-    id_abbrev         *: uint16
-    max_size          *: git_off_t
-    old_prefix        *: cstring
-    new_prefix        *: cstring
-
   c_git_delta_t {.size: sizeof(cint).} = enum
     c_GIT_DELTA_UNMODIFIED = 0 shl 0
     c_GIT_DELTA_ADDED      = 1 shl 0
@@ -64,6 +40,30 @@ type
     GIT_DELTA_TYPECHANGE
     GIT_DELTA_UNREADABLE
     GIT_DELTA_CONFLICTED
+
+  git_diff_delta* {.importc, bycopy.} = object
+    status     *: git_delta_t
+    flags      *: uint32
+    similarity *: uint16
+    nfiles     *: uint16
+    old_file   *: git_diff_file
+    new_file   *: git_diff_file
+
+  git_diff_options* {.importc, bycopy.} = object
+    version           *: cuint
+    flags             *: uint32
+    ignore_submodules *: git_submodule_ignore_t
+    pathspec          *: git_strarray
+    notify_cb         *: git_diff_notify_cb
+    progress_cb       *: git_diff_progress_cb
+    payload           *: ptr void
+    context_lines     *: uint32
+    interhunk_lines   *: uint32
+    oid_type          *: git_oid_t
+    id_abbrev         *: uint16
+    max_size          *: git_off_t
+    old_prefix        *: cstring
+    new_prefix        *: cstring
 
   git_diff_notify_cb = proc (a0: ptr git_diff, a1: ptr git_diff_delta, a2: cstring, a3: ptr void): cint
 

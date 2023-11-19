@@ -21,46 +21,6 @@ type
 
 
 
-converter toCInt*(arg: c_git_reference_format_t): cint = cint(ord(arg))
-
-converter toCInt*(args: set(git_reference_format_t)): cint =
-  for value in items(args):
-    case value:
-      of GIT_REFERENCE_FORMAT_NORMAL           : result = cint(result or 0)
-      of GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL   : result = cint(result or 1)
-      of GIT_REFERENCE_FORMAT_REFSPEC_PATTERN  : result = cint(result or 2)
-      of GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND: result = cint(result or 4)
-
-func `-`*(arg: c_git_reference_format_t, offset: int): cint = cast[c_git_reference_format_t](ord(arg) - offset)
-
-func `-`*(offset: int, arg: c_git_reference_format_t): cint = cast[c_git_reference_format_t](ord(arg) - offset)
-
-func `+`*(arg: c_git_reference_format_t, offset: int): cint = cast[c_git_reference_format_t](ord(arg) + offset)
-
-func `+`*(offset: int, arg: c_git_reference_format_t): cint = cast[c_git_reference_format_t](ord(arg) + offset)
-
-proc git_reference_lookup*(out: ptr git_reference, repo: ptr git_repository, name: cstring): cint {.git2Proc, importc.}
-
-proc git_reference_name_to_id*(out: ptr git_oid, repo: ptr git_repository, name: cstring): cint {.git2Proc, importc.}
-
-proc git_reference_dwim*(out: ptr git_reference, repo: ptr git_repository, shorthand: cstring): cint {.git2Proc, importc.}
-
-proc git_reference_symbolic_create_matching*(out: ptr git_reference, repo: ptr git_repository, name: cstring, target: cstring, force: cint, current_value: cstring, log_message: cstring): cint {.git2Proc, importc.}
-
-proc git_reference_symbolic_create*(out: ptr git_reference, repo: ptr git_repository, name: cstring, target: cstring, force: cint, log_message: cstring): cint {.git2Proc, importc.}
-
-proc git_reference_create*(out: ptr git_reference, repo: ptr git_repository, name: cstring, id: ptr git_oid, force: cint, log_message: cstring): cint {.git2Proc, importc.}
-
-proc git_reference_create_matching*(out: ptr git_reference, repo: ptr git_repository, name: cstring, id: ptr git_oid, force: cint, current_id: ptr git_oid, log_message: cstring): cint {.git2Proc, importc.}
-
-proc git_reference_target*(ref: ptr git_reference): ptr git_oid {.git2Proc, importc.}
-
-proc git_reference_target_peel*(ref: ptr git_reference): ptr git_oid {.git2Proc, importc.}
-
-proc git_reference_symbolic_target*(ref: ptr git_reference): cstring {.git2Proc, importc.}
-
-proc git_reference_type*(ref: ptr git_reference): git_reference_t {.git2Proc, importc.}
-
 proc git_reference_name*(ref: ptr git_reference): cstring {.git2Proc, importc.}
 
 proc git_reference_resolve*(out: ptr git_reference, ref: ptr git_reference): cint {.git2Proc, importc.}
@@ -120,3 +80,43 @@ proc git_reference_peel*(out: ptr git_object, ref: ptr git_reference, type: git_
 proc git_reference_name_is_valid*(valid: ptr cint, refname: cstring): cint {.git2Proc, importc.}
 
 proc git_reference_shorthand*(ref: ptr git_reference): cstring {.git2Proc, importc.}
+
+converter toCInt*(arg: c_git_reference_format_t): cint = cint(ord(arg))
+
+converter toCInt*(args: set(git_reference_format_t)): cint =
+  for value in items(args):
+    case value:
+      of GIT_REFERENCE_FORMAT_NORMAL           : result = cint(result or 0)
+      of GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL   : result = cint(result or 1)
+      of GIT_REFERENCE_FORMAT_REFSPEC_PATTERN  : result = cint(result or 2)
+      of GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND: result = cint(result or 4)
+
+func `-`*(arg: c_git_reference_format_t, offset: int): cint = cast[c_git_reference_format_t](ord(arg) - offset)
+
+func `-`*(offset: int, arg: c_git_reference_format_t): cint = cast[c_git_reference_format_t](ord(arg) - offset)
+
+func `+`*(arg: c_git_reference_format_t, offset: int): cint = cast[c_git_reference_format_t](ord(arg) + offset)
+
+func `+`*(offset: int, arg: c_git_reference_format_t): cint = cast[c_git_reference_format_t](ord(arg) + offset)
+
+proc git_reference_lookup*(out: ptr git_reference, repo: ptr git_repository, name: cstring): cint {.git2Proc, importc.}
+
+proc git_reference_name_to_id*(out: ptr git_oid, repo: ptr git_repository, name: cstring): cint {.git2Proc, importc.}
+
+proc git_reference_dwim*(out: ptr git_reference, repo: ptr git_repository, shorthand: cstring): cint {.git2Proc, importc.}
+
+proc git_reference_symbolic_create_matching*(out: ptr git_reference, repo: ptr git_repository, name: cstring, target: cstring, force: cint, current_value: cstring, log_message: cstring): cint {.git2Proc, importc.}
+
+proc git_reference_symbolic_create*(out: ptr git_reference, repo: ptr git_repository, name: cstring, target: cstring, force: cint, log_message: cstring): cint {.git2Proc, importc.}
+
+proc git_reference_create*(out: ptr git_reference, repo: ptr git_repository, name: cstring, id: ptr git_oid, force: cint, log_message: cstring): cint {.git2Proc, importc.}
+
+proc git_reference_create_matching*(out: ptr git_reference, repo: ptr git_repository, name: cstring, id: ptr git_oid, force: cint, current_id: ptr git_oid, log_message: cstring): cint {.git2Proc, importc.}
+
+proc git_reference_target*(ref: ptr git_reference): ptr git_oid {.git2Proc, importc.}
+
+proc git_reference_target_peel*(ref: ptr git_reference): ptr git_oid {.git2Proc, importc.}
+
+proc git_reference_symbolic_target*(ref: ptr git_reference): cstring {.git2Proc, importc.}
+
+proc git_reference_type*(ref: ptr git_reference): git_reference_t {.git2Proc, importc.}

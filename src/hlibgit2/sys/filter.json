@@ -2,15 +2,27 @@
   "records": [
     {
       "name": {
+        "name": "git_filter_source",
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34 > typedef!=nullptr > struct"
+      },
+      "recordDefName": {
+        "name": "git_filter_source",
+        "tag": "TypeTagStruct"
+      },
+      "isForwardDecl": true
+    },
+    {
+      "name": {
         "name": "git_filter",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "doc": "/** The `version` field should be set to `GIT_FILTER_VERSION`. */"
         },
@@ -20,7 +32,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "doc": "/**\n\t * A whitespace-separated list of attribute names to check for this\n\t * filter (e.g. \"eol crlf text\").  If the attribute name is bare, it\n\t * will be simply loaded and passed to the `check` callback.  If it\n\t * has a value (i.e. \"name=value\"), the attribute must match that\n\t * value for the filter to be applied.  The value may be a wildcard\n\t * (eg, \"name=*\"), in which case the filter will be invoked for any\n\t * value for the given attribute name.  See the attribute parameter\n\t * of the `check` callback for the attribute value that was specified.\n\t */"
         },
@@ -77,98 +90,6 @@
         "name": "git_filter",
         "tag": "TypeTagStruct"
       }
-    },
-    {
-      "name": {
-        "name": "git_filter_source",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:16"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_filter_source",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
-      },
-      "recordDefName": {
-        "name": "git_filter_source",
-        "tag": "TypeTagStruct"
-      },
-      "isForwardDecl": true
-    },
-    {
-      "name": {
-        "name": "git_filter",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:240:8"
-      },
-      "fields": [
-        {
-          "name": "version",
-          "type": {
-            "name": "unsigned int",
-            "dbgOrigin": " >builtin"
-          },
-          "doc": "/** The `version` field should be set to `GIT_FILTER_VERSION`. */"
-        },
-        {
-          "name": "attributes",
-          "type": {
-            "name": "char",
-            "isConst": true,
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
-          },
-          "doc": "/**\n\t * A whitespace-separated list of attribute names to check for this\n\t * filter (e.g. \"eol crlf text\").  If the attribute name is bare, it\n\t * will be simply loaded and passed to the `check` callback.  If it\n\t * has a value (i.e. \"name=value\"), the attribute must match that\n\t * value for the filter to be applied.  The value may be a wildcard\n\t * (eg, \"name=*\"), in which case the filter will be invoked for any\n\t * value for the given attribute name.  See the attribute parameter\n\t * of the `check` callback for the attribute value that was specified.\n\t */"
-        },
-        {
-          "name": "initialize",
-          "type": {
-            "name": "git_filter_init_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:141:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:141:26>"
-          },
-          "doc": "/** Called when the filter is first used for any file. */"
-        },
-        {
-          "name": "shutdown",
-          "type": {
-            "name": "git_filter_shutdown_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:153:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:153:27>"
-          },
-          "doc": "/** Called when the filter is removed or unregistered from the system. */"
-        },
-        {
-          "name": "check",
-          "type": {
-            "name": "git_filter_check_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:175:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:175:26>"
-          },
-          "doc": "/**\n\t * Called to determine whether the filter should be invoked for a\n\t * given file.  If this function returns `GIT_PASSTHROUGH` then the\n\t * `stream` or `apply` functions will not be invoked and the\n\t * contents will be passed through unmodified.\n\t */"
-        },
-        {
-          "name": "apply",
-          "type": {
-            "name": "git_filter_apply_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:196:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:196:26>"
-          },
-          "doc": "/**\n\t * Provided for backward compatibility; this will apply the\n\t * filter to the given contents in a `git_buf`.  Callers should\n\t * provide a `stream` function instead.\n\t */"
-        },
-        {
-          "name": "stream",
-          "type": {
-            "name": "git_filter_stream_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:213:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:213:26>"
-          },
-          "doc": "/**\n\t * Called to apply the filter, this function will provide a\n\t * `git_writestream` that will the original data will be\n\t * written to; with that data, the `git_writestream` will then\n\t * perform the filter translation and stream the filtered data\n\t * out to the `next` location.\n\t */"
-        },
-        {
-          "name": "cleanup",
-          "type": {
-            "name": "git_filter_cleanup_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:229:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:229:27>"
-          },
-          "doc": "/** Called when the system is done filtering for a file. */"
-        }
-      ]
     }
   ],
   "functions": [
@@ -185,7 +106,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "name"
         }
@@ -195,7 +117,8 @@
       "name": "git_filter_list_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -234,7 +157,8 @@
       "name": "git_filter_list_push",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -257,7 +181,8 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           "name": "payload"
         }
@@ -304,7 +229,8 @@
         "name": "char",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -390,7 +316,8 @@
       "name": "git_filter_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -404,7 +331,8 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "version"
         }
@@ -414,7 +342,8 @@
       "name": "git_filter_register",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -422,7 +351,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "name"
         },
@@ -437,7 +367,8 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           "name": "priority"
         }
@@ -447,7 +378,8 @@
       "name": "git_filter_unregister",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin"
+        "dbgOrigin": " >builtin",
+        "isBuiltin": true
       },
       "arguments": [
         {
@@ -455,7 +387,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           },
           "name": "name"
         }
@@ -472,7 +405,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_filter",
@@ -494,7 +428,8 @@
         "parameters": [
           {
             "name": "void",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_filter",
@@ -516,7 +451,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_filter",
@@ -526,7 +462,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_filter_source",
@@ -537,7 +474,8 @@
             "name": "char",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr T-const >char"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,
@@ -554,7 +492,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_filter",
@@ -564,7 +503,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_buf",
@@ -596,7 +536,8 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_writestream",
@@ -611,7 +552,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_filter_source",
@@ -638,7 +580,8 @@
         "parameters": [
           {
             "name": "void",
-            "dbgOrigin": " >builtin"
+            "dbgOrigin": " >builtin",
+            "isBuiltin": true
           },
           {
             "name": "git_filter",
@@ -648,7 +591,8 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin"
+            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "isBuiltin": true
           }
         ],
         "isPointer": true,
