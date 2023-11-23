@@ -175,7 +175,6 @@
       "name": "git_signature_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

@@ -259,10 +259,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "buffer"
@@ -465,10 +465,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "data"
@@ -522,7 +522,6 @@
       "name": "git_buf_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -671,7 +670,6 @@
       "name": "giterr_clear",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       }
     },
@@ -679,7 +677,6 @@
       "name": "giterr_set_str",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -707,7 +704,6 @@
       "name": "giterr_set_oom",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       }
     },
@@ -737,10 +733,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "buffer"
@@ -858,7 +854,6 @@
       "name": "git_cred_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -1147,7 +1142,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -1236,7 +1231,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -1291,7 +1286,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -1320,7 +1315,6 @@
       "name": "git_oidarray_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -1364,7 +1358,6 @@
       "name": "git_strarray_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -2088,7 +2081,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],
@@ -2197,7 +2190,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],

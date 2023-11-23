@@ -54,7 +54,11 @@
                 "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
               },
               {
-                "kind": "TypeExpr"
+                "kind": "TypeExpr",
+                "typeValue": {
+                  "value": "3"
+                },
+                "dbgOrigin": " >int value"
               }
             ],
             "kind": "Array",
@@ -70,7 +74,11 @@
                 "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
               },
               {
-                "kind": "TypeExpr"
+                "kind": "TypeExpr",
+                "typeValue": {
+                  "value": "3"
+                },
+                "dbgOrigin": " >int value"
               }
             ],
             "kind": "Array",

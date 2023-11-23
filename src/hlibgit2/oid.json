@@ -16,7 +16,11 @@
                 "isBuiltin": true
               },
               {
-                "kind": "TypeExpr"
+                "kind": "TypeExpr",
+                "typeValue": {
+                  "value": "20"
+                },
+                "dbgOrigin": " >int value"
               }
             ],
             "kind": "Array",
@@ -552,7 +556,6 @@
       "name": "git_oid_shorten_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

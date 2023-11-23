@@ -1,7 +1,7 @@
 {
   "Defines": [
     {
-      "name": "git_trace_level_t",
+      "name": "git_trace_cb",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -14,7 +14,7 @@
       "func": null
     },
     {
-      "name": "git_trace_cb",
+      "name": "git_trace_level_t",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

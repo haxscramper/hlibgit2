@@ -1,4 +1,18 @@
 {
-  "Defines": [],
+  "Defines": [
+    {
+      "name": "git_odb_backend",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    }
+  ],
   "Depends": []
 }

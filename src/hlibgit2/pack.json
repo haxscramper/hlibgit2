@@ -290,7 +290,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "progress_cb_payload"
@@ -362,7 +362,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -430,7 +430,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "progress_cb_payload"
@@ -441,7 +441,6 @@
       "name": "git_packbuilder_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -472,7 +471,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           {
@@ -482,7 +481,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],
@@ -519,7 +518,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],

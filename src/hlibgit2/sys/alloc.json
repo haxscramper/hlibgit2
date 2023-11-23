@@ -13,7 +13,7 @@
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               },
               {
@@ -45,13 +45,13 @@
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               },
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               },
               {
@@ -82,13 +82,12 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin",
                 "isBuiltin": true
               },
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               }
             ],

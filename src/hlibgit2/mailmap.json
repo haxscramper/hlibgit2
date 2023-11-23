@@ -22,7 +22,6 @@
       "name": "git_mailmap_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

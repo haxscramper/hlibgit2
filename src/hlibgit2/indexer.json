@@ -112,7 +112,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "doc": "/** progress_cb_payload payload for the progress callback */"
@@ -230,10 +230,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "data"
@@ -323,7 +323,6 @@
       "name": "git_indexer_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -359,7 +358,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],

@@ -96,7 +96,7 @@
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               }
             ],
@@ -111,7 +111,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "doc": "/**\n\t * This will be passed to each of the callbacks in this struct\n\t * as the last parameter.\n\t */"
@@ -603,7 +603,6 @@
       "name": "git_rebase_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

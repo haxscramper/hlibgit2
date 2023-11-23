@@ -112,7 +112,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         },
@@ -222,7 +222,6 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin",
                 "isBuiltin": true
               },
               {
@@ -271,10 +270,10 @@
                 "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
               },
               {
-                "name": "const void",
+                "name": "void",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr T-const",
                 "isBuiltin": true
               },
               {
@@ -323,7 +322,6 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin",
                 "isBuiltin": true
               },
               {

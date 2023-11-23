@@ -91,7 +91,6 @@
       "name": "git_pathspec_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -308,7 +307,6 @@
       "name": "git_pathspec_match_list_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

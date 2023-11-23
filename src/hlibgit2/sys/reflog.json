@@ -12,7 +12,6 @@
       "name": "git_reflog_entry__free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

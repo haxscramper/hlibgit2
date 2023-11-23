@@ -289,7 +289,6 @@
       "name": "git_index_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -863,7 +862,6 @@
       "name": "git_index_iterator_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -931,10 +929,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "buffer"
@@ -1019,7 +1017,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -1061,7 +1059,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -1103,7 +1101,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -1412,7 +1410,6 @@
       "name": "git_index_conflict_iterator_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -1457,7 +1454,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],

@@ -52,7 +52,11 @@
                 "isBuiltin": true
               },
               {
-                "kind": "TypeExpr"
+                "kind": "TypeExpr",
+                "typeValue": {
+                  "value": "16"
+                },
+                "dbgOrigin": " >int value"
               }
             ],
             "kind": "Array",
@@ -70,7 +74,11 @@
                 "isBuiltin": true
               },
               {
-                "kind": "TypeExpr"
+                "kind": "TypeExpr",
+                "typeValue": {
+                  "value": "20"
+                },
+                "dbgOrigin": " >int value"
               }
             ],
             "kind": "Array",
@@ -88,7 +96,11 @@
                 "isBuiltin": true
               },
               {
-                "kind": "TypeExpr"
+                "kind": "TypeExpr",
+                "typeValue": {
+                  "value": "32"
+                },
+                "dbgOrigin": " >int value"
               }
             ],
             "kind": "Array",
@@ -144,7 +156,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "doc": "/**\n\t * Pointer to the X.509 certificate data\n\t */"
@@ -282,7 +294,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],

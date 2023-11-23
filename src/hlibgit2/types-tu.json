@@ -157,33 +157,7 @@
       "func": null
     },
     {
-      "name": "git_commit",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
       "name": "git_tree_entry",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_tree",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -326,7 +300,7 @@
       "func": null
     },
     {
-      "name": "git_time_t",
+      "name": "git_submodule",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -404,19 +378,6 @@
       "func": null
     },
     {
-      "name": "git_remote",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
       "name": "git_push",
       "Parameters": [],
       "Spaces": [],
@@ -430,7 +391,7 @@
       "func": null
     },
     {
-      "name": "git_submodule",
+      "name": "git_writestream",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -457,6 +418,19 @@
     },
     {
       "name": "git_reference_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_remote",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -560,6 +534,32 @@
       "func": null
     },
     {
+      "name": "git_object_size_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_time_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
       "name": "git_signature",
       "Parameters": [],
       "Spaces": [],
@@ -573,7 +573,7 @@
       "func": null
     },
     {
-      "name": "git_reference",
+      "name": "git_tree",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -586,7 +586,20 @@
       "func": null
     },
     {
-      "name": "git_object_size_t",
+      "name": "git_commit",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_reference",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

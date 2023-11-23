@@ -331,7 +331,6 @@
       "name": "git_error_clear",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       }
     },
@@ -339,7 +338,6 @@
       "name": "git_error_set",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -395,7 +393,6 @@
       "name": "git_error_set_oom",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       }
     }

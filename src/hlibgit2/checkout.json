@@ -111,7 +111,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "doc": "/** Payload passed to notify_cb */"
@@ -129,7 +129,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "doc": "/** Payload passed to progress_cb */"
@@ -217,7 +217,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "doc": "/** Payload passed to perfdata_cb */"
@@ -533,7 +533,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],
@@ -551,7 +551,6 @@
         "parameters": [
           {
             "name": "void",
-            "dbgOrigin": " >builtin",
             "isBuiltin": true
           },
           {
@@ -572,7 +571,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],
@@ -590,7 +589,6 @@
         "parameters": [
           {
             "name": "void",
-            "dbgOrigin": " >builtin",
             "isBuiltin": true
           },
           {
@@ -601,7 +599,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],

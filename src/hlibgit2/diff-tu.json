@@ -40,19 +40,6 @@
       "func": null
     },
     {
-      "name": "git_diff_delta",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
       "name": "git_diff_options",
       "Parameters": [],
       "Spaces": [],
@@ -67,6 +54,19 @@
     },
     {
       "name": "git_diff_notify_cb",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_diff_progress_cb",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -118,19 +118,6 @@
       "func": null
     },
     {
-      "name": "git_diff_hunk",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
       "name": "git_diff_line",
       "Parameters": [],
       "Spaces": [],
@@ -145,19 +132,6 @@
     },
     {
       "name": "git_diff_similarity_metric",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_diff_progress_cb",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -275,6 +249,32 @@
     },
     {
       "name": "git_diff_format_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_diff_delta",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_diff_hunk",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

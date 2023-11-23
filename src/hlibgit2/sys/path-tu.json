@@ -1,7 +1,7 @@
 {
   "Defines": [
     {
-      "name": "git_path_fs",
+      "name": "git_path_gitfile",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -14,7 +14,7 @@
       "func": null
     },
     {
-      "name": "git_path_gitfile",
+      "name": "git_path_fs",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

@@ -506,7 +506,6 @@
       "name": "git_filter_list_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

@@ -33,7 +33,6 @@
       "name": "git_oidarray_dispose",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

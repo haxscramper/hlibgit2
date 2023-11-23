@@ -40,7 +40,6 @@
       "name": "git_refspec_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

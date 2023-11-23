@@ -200,7 +200,6 @@
       "name": "git_annotated_commit_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

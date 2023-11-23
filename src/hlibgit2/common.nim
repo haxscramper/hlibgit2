@@ -1,27 +1,28 @@
+import "./libgit2_config.nim"
 
 type
-  c_git_feature_t {.size: sizeof(cint).} = enum
+  c_git_feature_t* {.size: sizeof(cint).} = enum
     c_GIT_FEATURE_THREADS = 1 shl 0
     c_GIT_FEATURE_HTTPS   = 1 shl 1
     c_GIT_FEATURE_SSH     = 1 shl 2
     c_GIT_FEATURE_NSEC    = 1 shl 3
 
-  git_feature_t = enum
+  git_feature_t* = enum
     GIT_FEATURE_THREADS
     GIT_FEATURE_HTTPS
     GIT_FEATURE_SSH
     GIT_FEATURE_NSEC
 
-  c_git_libgit2_opt_t {.size: sizeof(cint).} = enum
-    c_GIT_OPT_GET_MWINDOW_SIZE                    = 0 shl 0
-    c_GIT_OPT_SET_MWINDOW_SIZE                    = 1 shl 0
-    c_GIT_OPT_GET_MWINDOW_MAPPED_LIMIT            = 1 shl 1
+  c_git_libgit2_opt_t* {.size: sizeof(cint).} = enum
+    c_GIT_OPT_GET_MWINDOW_SIZE                    = 0
+    c_GIT_OPT_SET_MWINDOW_SIZE                    = 1
+    c_GIT_OPT_GET_MWINDOW_MAPPED_LIMIT            = 2
     c_GIT_OPT_SET_MWINDOW_MAPPED_LIMIT            = 3
-    c_GIT_OPT_GET_SEARCH_PATH                     = 1 shl 2
+    c_GIT_OPT_GET_SEARCH_PATH                     = 4
     c_GIT_OPT_SET_SEARCH_PATH                     = 5
     c_GIT_OPT_SET_CACHE_OBJECT_LIMIT              = 6
     c_GIT_OPT_SET_CACHE_MAX_SIZE                  = 7
-    c_GIT_OPT_ENABLE_CACHING                      = 1 shl 3
+    c_GIT_OPT_ENABLE_CACHING                      = 8
     c_GIT_OPT_GET_CACHED_MEMORY                   = 9
     c_GIT_OPT_GET_TEMPLATE_PATH                   = 10
     c_GIT_OPT_SET_TEMPLATE_PATH                   = 11
@@ -29,7 +30,7 @@ type
     c_GIT_OPT_SET_USER_AGENT                      = 13
     c_GIT_OPT_ENABLE_STRICT_OBJECT_CREATION       = 14
     c_GIT_OPT_ENABLE_STRICT_SYMBOLIC_REF_CREATION = 15
-    c_GIT_OPT_SET_SSL_CIPHERS                     = 1 shl 4
+    c_GIT_OPT_SET_SSL_CIPHERS                     = 16
     c_GIT_OPT_GET_USER_AGENT                      = 17
     c_GIT_OPT_ENABLE_OFS_DELTA                    = 18
     c_GIT_OPT_ENABLE_FSYNC_GITDIR                 = 19
@@ -45,7 +46,7 @@ type
     c_GIT_OPT_GET_MWINDOW_FILE_LIMIT              = 29
     c_GIT_OPT_SET_MWINDOW_FILE_LIMIT              = 30
     c_GIT_OPT_SET_ODB_PACKED_PRIORITY             = 31
-    c_GIT_OPT_SET_ODB_LOOSE_PRIORITY              = 1 shl 5
+    c_GIT_OPT_SET_ODB_LOOSE_PRIORITY              = 32
     c_GIT_OPT_GET_EXTENSIONS                      = 33
     c_GIT_OPT_SET_EXTENSIONS                      = 34
     c_GIT_OPT_GET_OWNER_VALIDATION                = 35
@@ -57,7 +58,7 @@ type
     c_GIT_OPT_SET_SERVER_TIMEOUT                  = 41
     c_GIT_OPT_GET_SERVER_TIMEOUT                  = 42
 
-  git_libgit2_opt_t = enum
+  git_libgit2_opt_t* = enum
     GIT_OPT_GET_MWINDOW_SIZE
     GIT_OPT_SET_MWINDOW_SIZE
     GIT_OPT_GET_MWINDOW_MAPPED_LIMIT
@@ -104,15 +105,9 @@ type
 
 
 
-proc git_libgit2_prerelease*(): cstring {.git2Proc, importc.}
-
-proc git_libgit2_features*(): cint {.git2Proc, importc.}
-
-proc git_libgit2_opts*(option: cint): cint {.git2Proc, importc.}
-
 converter toCInt*(arg: c_git_feature_t): cint = cint(ord(arg))
 
-converter toCInt*(args: set(git_feature_t)): cint =
+converter toCInt*(args: set[git_feature_t]): cint =
   for value in items(args):
     case value:
       of GIT_FEATURE_THREADS: result = cint(result or 1)
@@ -130,7 +125,7 @@ func `+`*(offset: int, arg: c_git_feature_t): cint = cast[c_git_feature_t](ord(a
 
 converter toCInt*(arg: c_git_libgit2_opt_t): cint = cint(ord(arg))
 
-converter toCInt*(args: set(git_libgit2_opt_t)): cint =
+converter toCInt*(args: set[git_libgit2_opt_t]): cint =
   for value in items(args):
     case value:
       of GIT_OPT_GET_MWINDOW_SIZE                   : result = cint(result or 0)
@@ -185,4 +180,10 @@ func `+`*(arg: c_git_libgit2_opt_t, offset: int): cint = cast[c_git_libgit2_opt_
 
 func `+`*(offset: int, arg: c_git_libgit2_opt_t): cint = cast[c_git_libgit2_opt_t](ord(arg) + offset)
 
-proc git_libgit2_version*(major: ptr cint, minor: ptr cint, rev: ptr cint): cint {.git2Proc, importc.}
+proc git_libgit2_version*(major: `ptr` cint, minor: `ptr` cint, rev: `ptr` cint): cint {.git2Proc, importc.}
+
+proc git_libgit2_prerelease*(): cstring {.git2Proc, importc.}
+
+proc git_libgit2_features*(): cint {.git2Proc, importc.}
+
+proc git_libgit2_opts*(option: cint): cint {.git2Proc, importc.}

@@ -1,8 +1,10 @@
-import "../checkout.nim"
-import "../commit.nim"
-import "../merge.nim"
-import "../oid.nim"
-import "../types.nim"
+import "./buffer.nim"
+import "./checkout.nim"
+import "./commit.nim"
+import "./libgit2_config.nim"
+import "./merge.nim"
+import "./oid.nim"
+import "./types.nim"
 
 type
   git_rebase_options* {.importc, bycopy.} = object
@@ -13,23 +15,23 @@ type
     merge_options     *: git_merge_options
     checkout_options  *: git_checkout_options
     commit_create_cb  *: git_commit_create_cb
-    signing_cb        *: proc (a0: ptr git_buf, a1: ptr git_buf, a2: cstring, a3: ptr void): cint
-    payload           *: ptr void
+    signing_cb        *: proc (a0: `ptr` git_buf, a1: `ptr` git_buf, a2: cstring, a3: pointer): cint
+    payload           *: pointer
 
   git_rebase_operation* {.importc, bycopy.} = object
-    type *: git_rebase_operation_t
-    id   *: git_oid
-    exec *: cstring
+    `type` *: git_rebase_operation_t
+    id     *: git_oid
+    exec   *: cstring
 
-  c_git_rebase_operation_t {.size: sizeof(cint).} = enum
-    c_GIT_REBASE_OPERATION_PICK   = 0 shl 0
-    c_GIT_REBASE_OPERATION_REWORD = 1 shl 0
-    c_GIT_REBASE_OPERATION_EDIT   = 1 shl 1
+  c_git_rebase_operation_t* {.size: sizeof(cint).} = enum
+    c_GIT_REBASE_OPERATION_PICK   = 0
+    c_GIT_REBASE_OPERATION_REWORD = 1
+    c_GIT_REBASE_OPERATION_EDIT   = 2
     c_GIT_REBASE_OPERATION_SQUASH = 3
-    c_GIT_REBASE_OPERATION_FIXUP  = 1 shl 2
+    c_GIT_REBASE_OPERATION_FIXUP  = 4
     c_GIT_REBASE_OPERATION_EXEC   = 5
 
-  git_rebase_operation_t = enum
+  git_rebase_operation_t* = enum
     GIT_REBASE_OPERATION_PICK
     GIT_REBASE_OPERATION_REWORD
     GIT_REBASE_OPERATION_EDIT
@@ -39,9 +41,35 @@ type
 
 
 
+proc git_rebase_orig_head_name*(rebase: `ptr` git_rebase): cstring {.git2Proc, importc.}
+
+proc git_rebase_orig_head_id*(rebase: `ptr` git_rebase): `ptr` git_oid {.git2Proc, importc.}
+
+proc git_rebase_onto_name*(rebase: `ptr` git_rebase): cstring {.git2Proc, importc.}
+
+proc git_rebase_onto_id*(rebase: `ptr` git_rebase): `ptr` git_oid {.git2Proc, importc.}
+
+proc git_rebase_operation_entrycount*(rebase: `ptr` git_rebase): csize_t {.git2Proc, importc.}
+
+proc git_rebase_operation_current*(rebase: `ptr` git_rebase): csize_t {.git2Proc, importc.}
+
+proc git_rebase_operation_byindex*(rebase: `ptr` git_rebase, idx: csize_t): `ptr` git_rebase_operation {.git2Proc, importc.}
+
+proc git_rebase_next*(operation: `ptr` git_rebase_operation, rebase: `ptr` git_rebase): cint {.git2Proc, importc.}
+
+proc git_rebase_inmemory_index*(index: `ptr` git_index, rebase: `ptr` git_rebase): cint {.git2Proc, importc.}
+
+proc git_rebase_commit*(id: `ptr` git_oid, rebase: `ptr` git_rebase, author: `ptr` git_signature, committer: `ptr` git_signature, message_encoding: cstring, message: cstring): cint {.git2Proc, importc.}
+
+proc git_rebase_abort*(rebase: `ptr` git_rebase): cint {.git2Proc, importc.}
+
+proc git_rebase_finish*(rebase: `ptr` git_rebase, signature: `ptr` git_signature): cint {.git2Proc, importc.}
+
+proc git_rebase_free*(rebase: `ptr` git_rebase): void {.git2Proc, importc.}
+
 converter toCInt*(arg: c_git_rebase_operation_t): cint = cint(ord(arg))
 
-converter toCInt*(args: set(git_rebase_operation_t)): cint =
+converter toCInt*(args: set[git_rebase_operation_t]): cint =
   for value in items(args):
     case value:
       of GIT_REBASE_OPERATION_PICK  : result = cint(result or 0)
@@ -59,34 +87,8 @@ func `+`*(arg: c_git_rebase_operation_t, offset: int): cint = cast[c_git_rebase_
 
 func `+`*(offset: int, arg: c_git_rebase_operation_t): cint = cast[c_git_rebase_operation_t](ord(arg) + offset)
 
-proc git_rebase_options_init*(opts: ptr git_rebase_options, version: cuint): cint {.git2Proc, importc.}
+proc git_rebase_options_init*(opts: `ptr` git_rebase_options, version: cuint): cint {.git2Proc, importc.}
 
-proc git_rebase_init*(out: ptr git_rebase, repo: ptr git_repository, branch: ptr git_annotated_commit, upstream: ptr git_annotated_commit, onto: ptr git_annotated_commit, opts: ptr git_rebase_options): cint {.git2Proc, importc.}
+proc git_rebase_init*(`out`: `ptr` git_rebase, repo: `ptr` git_repository, branch: `ptr` git_annotated_commit, upstream: `ptr` git_annotated_commit, onto: `ptr` git_annotated_commit, opts: `ptr` git_rebase_options): cint {.git2Proc, importc.}
 
-proc git_rebase_open*(out: ptr git_rebase, repo: ptr git_repository, opts: ptr git_rebase_options): cint {.git2Proc, importc.}
-
-proc git_rebase_orig_head_name*(rebase: ptr git_rebase): cstring {.git2Proc, importc.}
-
-proc git_rebase_orig_head_id*(rebase: ptr git_rebase): ptr git_oid {.git2Proc, importc.}
-
-proc git_rebase_onto_name*(rebase: ptr git_rebase): cstring {.git2Proc, importc.}
-
-proc git_rebase_onto_id*(rebase: ptr git_rebase): ptr git_oid {.git2Proc, importc.}
-
-proc git_rebase_operation_entrycount*(rebase: ptr git_rebase): csize_t {.git2Proc, importc.}
-
-proc git_rebase_operation_current*(rebase: ptr git_rebase): csize_t {.git2Proc, importc.}
-
-proc git_rebase_operation_byindex*(rebase: ptr git_rebase, idx: csize_t): ptr git_rebase_operation {.git2Proc, importc.}
-
-proc git_rebase_next*(operation: ptr git_rebase_operation, rebase: ptr git_rebase): cint {.git2Proc, importc.}
-
-proc git_rebase_inmemory_index*(index: ptr git_index, rebase: ptr git_rebase): cint {.git2Proc, importc.}
-
-proc git_rebase_commit*(id: ptr git_oid, rebase: ptr git_rebase, author: ptr git_signature, committer: ptr git_signature, message_encoding: cstring, message: cstring): cint {.git2Proc, importc.}
-
-proc git_rebase_abort*(rebase: ptr git_rebase): cint {.git2Proc, importc.}
-
-proc git_rebase_finish*(rebase: ptr git_rebase, signature: ptr git_signature): cint {.git2Proc, importc.}
-
-proc git_rebase_free*(rebase: ptr git_rebase): void {.git2Proc, importc.}
+proc git_rebase_open*(`out`: `ptr` git_rebase, repo: `ptr` git_repository, opts: `ptr` git_rebase_options): cint {.git2Proc, importc.}

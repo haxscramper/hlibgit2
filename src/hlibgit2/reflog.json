@@ -317,7 +317,6 @@
       "name": "git_reflog_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

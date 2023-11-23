@@ -34,7 +34,6 @@
       "name": "git_strarray_dispose",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

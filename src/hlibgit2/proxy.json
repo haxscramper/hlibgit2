@@ -54,7 +54,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "doc": "/**\n\t * Payload to be provided to the credentials and certificate\n\t * check callbacks.\n\t */"

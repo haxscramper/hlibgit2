@@ -303,7 +303,6 @@
       "name": "git_describe_result_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

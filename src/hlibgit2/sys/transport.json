@@ -316,7 +316,6 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin",
                 "isBuiltin": true
               },
               {
@@ -356,7 +355,6 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin",
                 "isBuiltin": true
               },
               {
@@ -477,7 +475,6 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin",
                 "isBuiltin": true
               },
               {
@@ -565,7 +562,6 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin",
                 "isBuiltin": true
               },
               {
@@ -613,7 +609,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "doc": "/** User-specified parameter passed to the callback */"
@@ -742,7 +738,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -778,7 +774,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "param"
@@ -833,7 +829,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -868,7 +864,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -903,7 +899,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -1052,7 +1048,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "param"
@@ -1087,7 +1083,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "param"
@@ -1122,7 +1118,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "param"
@@ -1156,7 +1152,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],

@@ -40,6 +40,19 @@
       "func": null
     },
     {
+      "name": "git_remote_completion_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
       "name": "git_push_transfer_progress_cb",
       "Parameters": [],
       "Spaces": [],
@@ -184,19 +197,6 @@
     },
     {
       "name": "git_remote_create_flags",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_remote_completion_t",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

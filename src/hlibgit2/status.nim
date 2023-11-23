@@ -1,6 +1,7 @@
-import "../diff.nim"
-import "../strarray.nim"
-import "../types.nim"
+import "./diff.nim"
+import "./libgit2_config.nim"
+import "./strarray.nim"
+import "./types.nim"
 
 type
   git_status_options* {.importc, bycopy.} = object
@@ -8,28 +9,28 @@ type
     show             *: git_status_show_t
     flags            *: cuint
     pathspec         *: git_strarray
-    baseline         *: ptr git_tree
+    baseline         *: `ptr` git_tree
     rename_threshold *: uint16
 
-  c_git_status_show_t {.size: sizeof(cint).} = enum
-    c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR = 0 shl 0
-    c_GIT_STATUS_SHOW_INDEX_ONLY        = 1 shl 0
-    c_GIT_STATUS_SHOW_WORKDIR_ONLY      = 1 shl 1
+  c_git_status_show_t* {.size: sizeof(cint).} = enum
+    c_GIT_STATUS_SHOW_INDEX_AND_WORKDIR = 0
+    c_GIT_STATUS_SHOW_INDEX_ONLY        = 1
+    c_GIT_STATUS_SHOW_WORKDIR_ONLY      = 2
 
-  git_status_show_t = enum
+  git_status_show_t* = enum
     GIT_STATUS_SHOW_INDEX_AND_WORKDIR
     GIT_STATUS_SHOW_INDEX_ONLY
     GIT_STATUS_SHOW_WORKDIR_ONLY
 
   git_status_entry* {.importc, bycopy.} = object
     status           *: git_status_t
-    head_to_index    *: ptr git_diff_delta
-    index_to_workdir *: ptr git_diff_delta
+    head_to_index    *: `ptr` git_diff_delta
+    index_to_workdir *: `ptr` git_diff_delta
 
-  c_git_status_t {.size: sizeof(cint).} = enum
-    c_GIT_STATUS_CURRENT          = 0 shl 0
-    c_GIT_STATUS_INDEX_NEW        = 1 shl 0
-    c_GIT_STATUS_INDEX_MODIFIED   = 1 shl 1
+  c_git_status_t* {.size: sizeof(cint).} = enum
+    c_GIT_STATUS_CURRENT          = 0
+    c_GIT_STATUS_INDEX_NEW        = 1
+    c_GIT_STATUS_INDEX_MODIFIED   = 2
     c_GIT_STATUS_INDEX_DELETED    = 1 shl 2
     c_GIT_STATUS_INDEX_RENAMED    = 1 shl 3
     c_GIT_STATUS_INDEX_TYPECHANGE = 1 shl 4
@@ -42,7 +43,7 @@ type
     c_GIT_STATUS_IGNORED          = 1 shl 14
     c_GIT_STATUS_CONFLICTED       = 1 shl 15
 
-  git_status_t = enum
+  git_status_t* = enum
     GIT_STATUS_CURRENT
     GIT_STATUS_INDEX_NEW
     GIT_STATUS_INDEX_MODIFIED
@@ -58,7 +59,7 @@ type
     GIT_STATUS_IGNORED
     GIT_STATUS_CONFLICTED
 
-  c_git_status_opt_t {.size: sizeof(cint).} = enum
+  c_git_status_opt_t* {.size: sizeof(cint).} = enum
     c_GIT_STATUS_OPT_INCLUDE_UNTRACKED               = 1 shl 0
     c_GIT_STATUS_OPT_INCLUDE_IGNORED                 = 1 shl 1
     c_GIT_STATUS_OPT_INCLUDE_UNMODIFIED              = 1 shl 2
@@ -76,7 +77,7 @@ type
     c_GIT_STATUS_OPT_INCLUDE_UNREADABLE              = 1 shl 14
     c_GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED = 1 shl 15
 
-  git_status_opt_t = enum
+  git_status_opt_t* = enum
     GIT_STATUS_OPT_INCLUDE_UNTRACKED
     GIT_STATUS_OPT_INCLUDE_IGNORED
     GIT_STATUS_OPT_INCLUDE_UNMODIFIED
@@ -94,23 +95,13 @@ type
     GIT_STATUS_OPT_INCLUDE_UNREADABLE
     GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED
 
-  git_status_cb = proc (a0: cstring, a1: cuint, a2: ptr void): cint
+  git_status_cb* = proc (a0: cstring, a1: cuint, a2: pointer): cint
 
 
-
-proc git_status_list_new*(out: ptr git_status_list, repo: ptr git_repository, opts: ptr git_status_options): cint {.git2Proc, importc.}
-
-proc git_status_list_entrycount*(statuslist: ptr git_status_list): csize_t {.git2Proc, importc.}
-
-proc git_status_byindex*(statuslist: ptr git_status_list, idx: csize_t): ptr git_status_entry {.git2Proc, importc.}
-
-proc git_status_list_free*(statuslist: ptr git_status_list): void {.git2Proc, importc.}
-
-proc git_status_should_ignore*(ignored: ptr cint, repo: ptr git_repository, path: cstring): cint {.git2Proc, importc.}
 
 converter toCInt*(arg: c_git_status_show_t): cint = cint(ord(arg))
 
-converter toCInt*(args: set(git_status_show_t)): cint =
+converter toCInt*(args: set[git_status_show_t]): cint =
   for value in items(args):
     case value:
       of GIT_STATUS_SHOW_INDEX_AND_WORKDIR: result = cint(result or 0)
@@ -127,7 +118,7 @@ func `+`*(offset: int, arg: c_git_status_show_t): cint = cast[c_git_status_show_
 
 converter toCInt*(arg: c_git_status_t): cint = cint(ord(arg))
 
-converter toCInt*(args: set(git_status_t)): cint =
+converter toCInt*(args: set[git_status_t]): cint =
   for value in items(args):
     case value:
       of GIT_STATUS_CURRENT         : result = cint(result or 0)
@@ -155,7 +146,7 @@ func `+`*(offset: int, arg: c_git_status_t): cint = cast[c_git_status_t](ord(arg
 
 converter toCInt*(arg: c_git_status_opt_t): cint = cint(ord(arg))
 
-converter toCInt*(args: set(git_status_opt_t)): cint =
+converter toCInt*(args: set[git_status_opt_t]): cint =
   for value in items(args):
     case value:
       of GIT_STATUS_OPT_INCLUDE_UNTRACKED              : result = cint(result or 1)
@@ -183,10 +174,20 @@ func `+`*(arg: c_git_status_opt_t, offset: int): cint = cast[c_git_status_opt_t]
 
 func `+`*(offset: int, arg: c_git_status_opt_t): cint = cast[c_git_status_opt_t](ord(arg) + offset)
 
-proc git_status_options_init*(opts: ptr git_status_options, version: cuint): cint {.git2Proc, importc.}
+proc git_status_options_init*(opts: `ptr` git_status_options, version: cuint): cint {.git2Proc, importc.}
 
-proc git_status_foreach*(repo: ptr git_repository, callback: git_status_cb, payload: ptr void): cint {.git2Proc, importc.}
+proc git_status_foreach*(repo: `ptr` git_repository, callback: git_status_cb, payload: pointer): cint {.git2Proc, importc.}
 
-proc git_status_foreach_ext*(repo: ptr git_repository, opts: ptr git_status_options, callback: git_status_cb, payload: ptr void): cint {.git2Proc, importc.}
+proc git_status_foreach_ext*(repo: `ptr` git_repository, opts: `ptr` git_status_options, callback: git_status_cb, payload: pointer): cint {.git2Proc, importc.}
 
-proc git_status_file*(status_flags: ptr cuint, repo: ptr git_repository, path: cstring): cint {.git2Proc, importc.}
+proc git_status_file*(status_flags: `ptr` cuint, repo: `ptr` git_repository, path: cstring): cint {.git2Proc, importc.}
+
+proc git_status_list_new*(`out`: `ptr` git_status_list, repo: `ptr` git_repository, opts: `ptr` git_status_options): cint {.git2Proc, importc.}
+
+proc git_status_list_entrycount*(statuslist: `ptr` git_status_list): csize_t {.git2Proc, importc.}
+
+proc git_status_byindex*(statuslist: `ptr` git_status_list, idx: csize_t): `ptr` git_status_entry {.git2Proc, importc.}
+
+proc git_status_list_free*(statuslist: `ptr` git_status_list): void {.git2Proc, importc.}
+
+proc git_status_should_ignore*(ignored: `ptr` cint, repo: `ptr` git_repository, path: cstring): cint {.git2Proc, importc.}

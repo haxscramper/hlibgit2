@@ -257,7 +257,6 @@
         "parameters": [
           {
             "name": "void",
-            "dbgOrigin": " >builtin",
             "isBuiltin": true
           },
           {

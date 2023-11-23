@@ -32,7 +32,6 @@
       "name": "git_midx_writer_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

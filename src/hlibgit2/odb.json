@@ -156,7 +156,6 @@
       "name": "git_odb_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -466,7 +465,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"
@@ -499,10 +498,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "data"
@@ -662,7 +661,6 @@
       "name": "git_odb_stream_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -761,7 +759,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "progress_payload"
@@ -804,10 +802,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "data"
@@ -893,7 +891,6 @@
       "name": "git_odb_object_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -928,10 +925,10 @@
     {
       "name": "git_odb_object_data",
       "resultTy": {
-        "name": "const void",
+        "name": "void",
         "isConst": true,
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+        "dbgOrigin": " T-pointer >ref/ptr T-const",
         "isBuiltin": true
       },
       "arguments": [
@@ -1145,7 +1142,7 @@
           {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],

@@ -1,6 +1,19 @@
 {
   "Defines": [
     {
+      "name": "git_odb_stream",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
       "name": "git_odb_writepack",
       "Parameters": [],
       "Spaces": [],
@@ -54,19 +67,6 @@
     },
     {
       "name": "git_odb_backend_loose_options",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_odb_stream",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

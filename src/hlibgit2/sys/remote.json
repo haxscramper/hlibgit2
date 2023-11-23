@@ -22,7 +22,6 @@
       "name": "git_remote_connect_options_dispose",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

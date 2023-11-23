@@ -138,7 +138,6 @@
       "name": "git_message_trailer_array_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [

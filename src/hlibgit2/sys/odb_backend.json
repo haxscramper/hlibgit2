@@ -34,7 +34,7 @@
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr",
                 "isBuiltin": true
               },
               {
@@ -80,7 +80,7 @@
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr",
                 "isBuiltin": true
               },
               {
@@ -168,10 +168,10 @@
                 "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
               },
               {
-                "name": "const void",
+                "name": "void",
                 "isConst": true,
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr T-const",
                 "isBuiltin": true
               },
               {
@@ -361,7 +361,7 @@
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               }
             ],
@@ -401,7 +401,7 @@
               {
                 "name": "void",
                 "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               }
             ],
@@ -461,7 +461,6 @@
             "parameters": [
               {
                 "name": "void",
-                "dbgOrigin": " >builtin",
                 "isBuiltin": true
               },
               {
@@ -514,7 +513,7 @@
       "resultTy": {
         "name": "void",
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr >builtin",
+        "dbgOrigin": " T-pointer >ref/ptr",
         "isBuiltin": true
       },
       "arguments": [
@@ -539,7 +538,6 @@
       "name": "git_odb_backend_data_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -555,7 +553,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "data"
@@ -567,7 +565,7 @@
       "resultTy": {
         "name": "void",
         "isPointer": true,
-        "dbgOrigin": " T-pointer >ref/ptr >builtin",
+        "dbgOrigin": " T-pointer >ref/ptr",
         "isBuiltin": true
       },
       "arguments": [

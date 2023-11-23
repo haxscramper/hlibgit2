@@ -162,10 +162,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "buffer"
@@ -215,10 +215,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "old_buffer"
@@ -242,10 +242,10 @@
         },
         {
           "type": {
-            "name": "const void",
+            "name": "void",
             "isConst": true,
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
           "name": "new_buffer"
@@ -281,7 +281,6 @@
       "name": "git_patch_free",
       "resultTy": {
         "name": "void",
-        "dbgOrigin": " >builtin",
         "isBuiltin": true
       },
       "arguments": [
@@ -546,7 +545,7 @@
           "type": {
             "name": "void",
             "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
           "name": "payload"

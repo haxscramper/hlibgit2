@@ -1,6 +1,19 @@
 {
   "Defines": [
     {
+      "name": "git_packbuilder_progress",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
       "name": "git_packbuilder_stage_t",
       "Parameters": [],
       "Spaces": [],
@@ -15,19 +28,6 @@
     },
     {
       "name": "git_packbuilder_foreach_cb",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_packbuilder_progress",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
