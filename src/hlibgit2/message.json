@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_message_trailer",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:46:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/message.h:46:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -31,7 +31,7 @@
     {
       "name": {
         "name": "git_message_trailer_array",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:60:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/message.h:60:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -39,14 +39,14 @@
           "type": {
             "name": "git_message_trailer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:46:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/message.h:46:3"
           }
         },
         {
           "name": "count",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           }
         },
         {
@@ -74,7 +74,7 @@
           "type": {
             "name": "git_buf",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           "name": "out"
         },
@@ -118,7 +118,7 @@
           "type": {
             "name": "git_message_trailer_array",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:60:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/message.h:60:3"
           },
           "name": "arr"
         },
@@ -145,7 +145,7 @@
           "type": {
             "name": "git_message_trailer_array",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/message.h:60:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/message.h:60:3"
           },
           "name": "arr"
         }

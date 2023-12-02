@@ -1,7 +1,7 @@
 {
   "Defines": [
     {
-      "name": "git_index_name_entry",
+      "name": "git_email_create_options",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -14,7 +14,7 @@
       "func": null
     },
     {
-      "name": "git_index_reuc_entry",
+      "name": "git_email_create_flags_t",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

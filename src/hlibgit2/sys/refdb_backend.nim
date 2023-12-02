@@ -1,8 +1,14 @@
-import "../libgit2_config.nim"
+import "../libgit2_config.nim" ## From gen file
 import "../oid.nim"
 import "../types.nim"
 
 type
+  git_reference_iterator* {.importc, bycopy, incompleteStruct.} = object
+    db        *: `ptr` git_refdb
+    next      *: proc (a0: `ptr` git_reference, a1: `ptr` git_reference_iterator): cint
+    next_name *: proc (a0: cstring, a1: `ptr` git_reference_iterator): cint
+    free      *: proc (a0: `ptr` git_reference_iterator): void
+
   git_refdb_backend* {.importc, bycopy, incompleteStruct.} = object
     version       *: cuint
     exists        *: proc (a0: `ptr` cint, a1: `ptr` git_refdb_backend, a2: cstring): cint
@@ -22,16 +28,10 @@ type
     lock          *: proc (a0: pointer, a1: `ptr` git_refdb_backend, a2: cstring): cint
     unlock        *: proc (a0: `ptr` git_refdb_backend, a1: pointer, a2: cint, a3: cint, a4: `ptr` git_reference, a5: `ptr` git_signature, a6: cstring): cint
 
-  git_reference_iterator* {.importc, bycopy, incompleteStruct.} = object
-    db        *: `ptr` git_refdb
-    next      *: proc (a0: `ptr` git_reference, a1: `ptr` git_reference_iterator): cint
-    next_name *: proc (a0: cstring, a1: `ptr` git_reference_iterator): cint
-    free      *: proc (a0: `ptr` git_reference_iterator): void
 
 
+proc git_refdb_init_backend*(backend: `ptr` git_refdb_backend, version: cuint): cint {.git2Proc, importc: "git_refdb_init_backend".}
 
-proc git_refdb_init_backend*(backend: `ptr` git_refdb_backend, version: cuint): cint {.git2Proc, importc.}
+proc git_refdb_backend_fs*(backend_out: `ptr` git_refdb_backend, repo: `ptr` git_repository): cint {.git2Proc, importc: "git_refdb_backend_fs".}
 
-proc git_refdb_backend_fs*(backend_out: `ptr` git_refdb_backend, repo: `ptr` git_repository): cint {.git2Proc, importc.}
-
-proc git_refdb_set_backend*(refdb: `ptr` git_refdb, backend: `ptr` git_refdb_backend): cint {.git2Proc, importc.}
+proc git_refdb_set_backend*(refdb: `ptr` git_refdb, backend: `ptr` git_refdb_backend): cint {.git2Proc, importc: "git_refdb_set_backend".}

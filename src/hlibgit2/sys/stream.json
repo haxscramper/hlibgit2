@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_stream",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:55:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type include/git2/sys/stream.h:55:3 typedef type include/git2/sys/stream.h:55:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -60,7 +60,7 @@
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:48:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:48:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:48:6"
               }
             ],
             "isPointer": true,
@@ -80,12 +80,12 @@
               {
                 "name": "git_cert",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:262:25"
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:262:25"
               },
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:49:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:49:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:49:6"
               }
             ],
             "isPointer": true,
@@ -105,12 +105,12 @@
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:50:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:50:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:50:6"
               },
               {
                 "name": "git_proxy_options",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/proxy.h:79:3"
+                "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/proxy.h:79:3"
               }
             ],
             "isPointer": true,
@@ -124,12 +124,12 @@
             "parameters": [
               {
                 "name": "ssize_t",
-                "dbgOrigin": "typedef type /include/sys/types.h:108:19"
+                "dbgOrigin": " typedef type /include/sys/types.h:108:19"
               },
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:51:10 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:51:23>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:51:10"
               },
               {
                 "name": "void",
@@ -139,7 +139,7 @@
               },
               {
                 "name": "size_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+                "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
               }
             ],
             "isPointer": true,
@@ -153,12 +153,12 @@
             "parameters": [
               {
                 "name": "ssize_t",
-                "dbgOrigin": "typedef type /include/sys/types.h:108:19"
+                "dbgOrigin": " typedef type /include/sys/types.h:108:19"
               },
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:52:10 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:52:23>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:52:10"
               },
               {
                 "name": "char",
@@ -169,7 +169,7 @@
               },
               {
                 "name": "size_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+                "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
               },
               {
                 "name": "int",
@@ -194,7 +194,7 @@
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:53:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:53:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:53:6"
               }
             ],
             "isPointer": true,
@@ -213,7 +213,7 @@
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:54:7 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:54:20>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:54:7"
               }
             ],
             "isPointer": true,
@@ -230,7 +230,7 @@
     {
       "name": {
         "name": "git_stream_registration",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:86:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type include/git2/sys/stream.h:86:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -254,7 +254,7 @@
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:55:3"
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type include/git2/sys/stream.h:55:3"
               },
               {
                 "name": "char",
@@ -288,12 +288,12 @@
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:55:3"
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type include/git2/sys/stream.h:55:3"
               },
               {
                 "name": "git_stream",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:55:3"
+                "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/stream.h:55:3"
               },
               {
                 "name": "char",
@@ -325,7 +325,7 @@
       ],
       "name": {
         "name": "git_stream_t",
-        "dbgOrigin": "enum typedef typedef:git_stream_tname:/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:91:9"
+        "dbgOrigin": "enum typedef typedef:git_stream_tname:include/git2/sys/stream.h:91:9"
       }
     }
   ],
@@ -341,7 +341,7 @@
         {
           "type": {
             "name": "git_stream_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:97:3"
+            "dbgOrigin": " typedef type include/git2/sys/stream.h:97:3"
           },
           "name": "type"
         },
@@ -349,7 +349,7 @@
           "type": {
             "name": "git_stream_registration",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:86:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/stream.h:86:3"
           },
           "name": "registration"
         }
@@ -366,7 +366,7 @@
         {
           "type": {
             "name": "git_stream_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:131:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:131:26>"
+            "dbgOrigin": " typedef type include/git2/sys/stream.h:131:13"
           },
           "name": "ctor"
         }
@@ -377,7 +377,7 @@
     {
       "name": {
         "name": "git_stream_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:131:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/stream.h:131:26>"
+        "dbgOrigin": "include/git2/sys/stream.h:131:13"
       },
       "baseType": {
         "parameters": [
@@ -389,7 +389,7 @@
           {
             "name": "git_stream",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/stream.h:55:3"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type include/git2/sys/stream.h:55:3"
           },
           {
             "name": "char",
@@ -408,7 +408,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

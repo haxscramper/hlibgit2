@@ -27,7 +27,7 @@
       "func": null
     },
     {
-      "name": "git_repository_create_cb",
+      "name": "git_remote_create_cb",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -40,7 +40,7 @@
       "func": null
     },
     {
-      "name": "git_remote_create_cb",
+      "name": "git_repository_create_cb",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

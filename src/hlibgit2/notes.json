@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_note_iterator",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/notes.h:35:29 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/notes.h:35:29 typedef type libgit2/include/git2/notes.h:35:29 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_iterator",
@@ -25,7 +25,7 @@
           "type": {
             "name": "git_note_iterator",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/notes.h:35:29"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/notes.h:35:29"
           },
           "name": "out"
         },
@@ -33,7 +33,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -61,7 +61,7 @@
           "type": {
             "name": "git_note_iterator",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/notes.h:35:29"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/notes.h:35:29"
           },
           "name": "out"
         },
@@ -69,7 +69,7 @@
           "type": {
             "name": "git_commit",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
           },
           "name": "notes_commit"
         }
@@ -86,7 +86,7 @@
           "type": {
             "name": "git_note_iterator",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/notes.h:35:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/notes.h:35:29"
           },
           "name": "it"
         }
@@ -104,7 +104,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "note_id"
         },
@@ -112,7 +112,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "annotated_id"
         },
@@ -120,7 +120,7 @@
           "type": {
             "name": "git_note_iterator",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/notes.h:35:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/notes.h:35:29"
           },
           "name": "it"
         }
@@ -138,7 +138,7 @@
           "type": {
             "name": "git_note",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:169:25"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
           },
           "name": "out"
         },
@@ -146,7 +146,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -164,7 +164,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "oid"
         }
@@ -182,7 +182,7 @@
           "type": {
             "name": "git_note",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:169:25"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
           },
           "name": "out"
         },
@@ -190,7 +190,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -198,7 +198,7 @@
           "type": {
             "name": "git_commit",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
           },
           "name": "notes_commit"
         },
@@ -206,7 +206,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "oid"
         }
@@ -217,14 +217,14 @@
       "resultTy": {
         "name": "git_signature",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_note",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:169:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
           },
           "name": "note"
         }
@@ -235,14 +235,14 @@
       "resultTy": {
         "name": "git_signature",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_note",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:169:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
           },
           "name": "note"
         }
@@ -262,7 +262,7 @@
           "type": {
             "name": "git_note",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:169:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
           },
           "name": "note"
         }
@@ -273,14 +273,14 @@
       "resultTy": {
         "name": "git_oid",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_note",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:169:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
           },
           "name": "note"
         }
@@ -298,7 +298,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "out"
         },
@@ -306,7 +306,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -324,7 +324,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "author"
         },
@@ -332,7 +332,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "committer"
         },
@@ -340,7 +340,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "oid"
         },
@@ -376,7 +376,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "notes_commit_out"
         },
@@ -384,7 +384,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "notes_blob_out"
         },
@@ -392,7 +392,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -400,7 +400,7 @@
           "type": {
             "name": "git_commit",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
           },
           "name": "parent"
         },
@@ -408,7 +408,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "author"
         },
@@ -416,7 +416,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "committer"
         },
@@ -424,7 +424,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "oid"
         },
@@ -460,7 +460,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -478,7 +478,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "author"
         },
@@ -486,7 +486,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "committer"
         },
@@ -494,7 +494,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "oid"
         }
@@ -512,7 +512,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "notes_commit_out"
         },
@@ -520,7 +520,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -528,7 +528,7 @@
           "type": {
             "name": "git_commit",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
           },
           "name": "notes_commit"
         },
@@ -536,7 +536,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "author"
         },
@@ -544,7 +544,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "committer"
         },
@@ -552,7 +552,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "oid"
         }
@@ -569,7 +569,7 @@
           "type": {
             "name": "git_note",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:169:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
           },
           "name": "note"
         }
@@ -587,7 +587,7 @@
           "type": {
             "name": "git_buf",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           "name": "out"
         },
@@ -595,7 +595,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         }
@@ -613,7 +613,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -630,7 +630,7 @@
         {
           "type": {
             "name": "git_note_foreach_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/notes.h:29:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/notes.h:29:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/notes.h:29:13"
           },
           "name": "note_cb"
         },
@@ -650,7 +650,7 @@
     {
       "name": {
         "name": "git_note_foreach_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/notes.h:29:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/notes.h:29:26>"
+        "dbgOrigin": "libgit2/include/git2/notes.h:29:13"
       },
       "baseType": {
         "parameters": [
@@ -662,12 +662,12 @@
           {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           {
             "name": "void",
@@ -678,7 +678,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

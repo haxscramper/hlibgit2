@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_blame_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:123:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/blame.h:123:3 typedef type libgit2/include/git2/blame.h:123:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -18,7 +18,7 @@
           "name": "flags",
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "doc": "/** A combination of `git_blame_flag_t` */"
         },
@@ -26,7 +26,7 @@
           "name": "min_match_characters",
           "type": {
             "name": "uint16_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:25:20"
           },
           "doc": "/**\n\t * The lower bound on the number of alphanumeric characters that\n\t * must be detected as moving/copying within a file for it to\n\t * associate those lines with the parent commit. The default value\n\t * is 20.\n\t *\n\t * This value only takes effect if any of the `GIT_BLAME_TRACK_COPIES_*`\n\t * flags are specified.\n\t */"
         },
@@ -34,7 +34,7 @@
           "name": "newest_commit",
           "type": {
             "name": "git_oid",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/oid.h:108:3"
           },
           "doc": "/** The id of the newest commit to consider. The default is HEAD. */"
         },
@@ -42,7 +42,7 @@
           "name": "oldest_commit",
           "type": {
             "name": "git_oid",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/oid.h:108:3"
           },
           "doc": "/**\n\t * The id of the oldest commit to consider.\n\t * The default is the first commit encountered with a NULL parent.\n\t */"
         },
@@ -50,7 +50,7 @@
           "name": "min_line",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "doc": "/**\n\t * The first line in the file to blame.\n\t * The default is 1 (line numbers start with 1).\n\t */"
         },
@@ -58,7 +58,7 @@
           "name": "max_line",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "doc": "/**\n\t * The last line in the file to blame.\n\t * The default is the last line of the file.\n\t */"
         }
@@ -71,14 +71,14 @@
     {
       "name": {
         "name": "git_blame_hunk",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:198:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/blame.h:198:3 typedef type libgit2/include/git2/blame.h:198:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "lines_in_hunk",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "doc": "/**\n\t * The number of lines in this hunk.\n\t */"
         },
@@ -86,7 +86,7 @@
           "name": "final_commit_id",
           "type": {
             "name": "git_oid",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/oid.h:108:3"
           },
           "doc": "/**\n\t * The OID of the commit where this line was last changed.\n\t */"
         },
@@ -94,7 +94,7 @@
           "name": "final_start_line_number",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "doc": "/**\n\t * The 1-based line number where this hunk begins, in the final version\n\t * of the file.\n\t */"
         },
@@ -103,7 +103,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "doc": "/**\n\t * The author of `final_commit_id`. If `GIT_BLAME_USE_MAILMAP` has been\n\t * specified, it will contain the canonical real name and email address.\n\t */"
         },
@@ -111,7 +111,7 @@
           "name": "orig_commit_id",
           "type": {
             "name": "git_oid",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/oid.h:108:3"
           },
           "doc": "/**\n\t * The OID of the commit where this hunk was found.\n\t * This will usually be the same as `final_commit_id`, except when\n\t * `GIT_BLAME_TRACK_COPIES_ANY_COMMIT_COPIES` has been specified.\n\t */"
         },
@@ -130,7 +130,7 @@
           "name": "orig_start_line_number",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "doc": "/**\n\t * The 1-based line number where this hunk begins in the file named by\n\t * `orig_path` in the commit specified by `orig_commit_id`.\n\t */"
         },
@@ -139,7 +139,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "doc": "/**\n\t * The author of `orig_commit_id`. If `GIT_BLAME_USE_MAILMAP` has been\n\t * specified, it will contain the canonical real name and email address.\n\t */"
         },
@@ -161,7 +161,7 @@
     {
       "name": {
         "name": "git_blame",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:202:26 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/blame.h:202:26 typedef type libgit2/include/git2/blame.h:202:26 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_blame",
@@ -207,7 +207,7 @@
       ],
       "name": {
         "name": "git_blame_flag_t",
-        "dbgOrigin": "enum typedef typedef:git_blame_flag_tname:/mnt/workspace/repos/libgit2/include/git2/blame.h:26:9"
+        "dbgOrigin": "enum typedef typedef:git_blame_flag_tname:libgit2/include/git2/blame.h:26:9"
       }
     }
   ],
@@ -224,7 +224,7 @@
           "type": {
             "name": "git_blame_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:123:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:123:3"
           },
           "name": "opts"
         },
@@ -242,14 +242,14 @@
       "name": "git_blame_get_hunk_count",
       "resultTy": {
         "name": "uint32_t",
-        "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+        "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
       },
       "arguments": [
         {
           "type": {
             "name": "git_blame",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:202:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:202:26"
           },
           "name": "blame"
         }
@@ -260,21 +260,21 @@
       "resultTy": {
         "name": "git_blame_hunk",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:198:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:198:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_blame",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:202:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:202:26"
           },
           "name": "blame"
         },
         {
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "name": "index"
         }
@@ -285,21 +285,21 @@
       "resultTy": {
         "name": "git_blame_hunk",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:198:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:198:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_blame",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:202:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:202:26"
           },
           "name": "blame"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "lineno"
         }
@@ -317,7 +317,7 @@
           "type": {
             "name": "git_blame",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:202:26"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:202:26"
           },
           "name": "out"
         },
@@ -325,7 +325,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -343,7 +343,7 @@
           "type": {
             "name": "git_blame_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:123:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:123:3"
           },
           "name": "options"
         }
@@ -361,7 +361,7 @@
           "type": {
             "name": "git_blame",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:202:26"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:202:26"
           },
           "name": "out"
         },
@@ -369,7 +369,7 @@
           "type": {
             "name": "git_blame",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:202:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:202:26"
           },
           "name": "reference"
         },
@@ -386,7 +386,7 @@
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "buffer_len"
         }
@@ -403,7 +403,7 @@
           "type": {
             "name": "git_blame",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/blame.h:202:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/blame.h:202:26"
           },
           "name": "blame"
         }

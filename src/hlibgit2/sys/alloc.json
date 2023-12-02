@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_allocator",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/alloc.h:39:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type include/git2/sys/alloc.h:39:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -18,7 +18,7 @@
               },
               {
                 "name": "size_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+                "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
               },
               {
                 "name": "char",
@@ -56,7 +56,7 @@
               },
               {
                 "name": "size_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+                "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
               },
               {
                 "name": "char",
@@ -112,7 +112,7 @@
           "type": {
             "name": "git_allocator",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/alloc.h:39:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/alloc.h:39:3"
           },
           "name": "allocator"
         }
@@ -130,7 +130,7 @@
           "type": {
             "name": "git_allocator",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/alloc.h:39:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/alloc.h:39:3"
           },
           "name": "allocator"
         }

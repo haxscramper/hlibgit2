@@ -1,4 +1,4 @@
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 import "./oid.nim"
 import "./types.nim"
 
@@ -48,6 +48,12 @@ type
 
 
 
+proc git_blame_file*(`out`: `ptr` git_blame, repo: `ptr` git_repository, path: cstring, options: `ptr` git_blame_options): cint {.git2Proc, importc: "git_blame_file".}
+
+proc git_blame_buffer*(`out`: `ptr` git_blame, reference: `ptr` git_blame, buffer: cstring, buffer_len: csize_t): cint {.git2Proc, importc: "git_blame_buffer".}
+
+proc git_blame_free*(blame: `ptr` git_blame): void {.git2Proc, importc: "git_blame_free".}
+
 converter toCInt*(arg: c_git_blame_flag_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set[git_blame_flag_t]): cint =
@@ -70,16 +76,10 @@ func `+`*(arg: c_git_blame_flag_t, offset: int): cint = cast[c_git_blame_flag_t]
 
 func `+`*(offset: int, arg: c_git_blame_flag_t): cint = cast[c_git_blame_flag_t](ord(arg) + offset)
 
-proc git_blame_options_init*(opts: `ptr` git_blame_options, version: cuint): cint {.git2Proc, importc.}
+proc git_blame_options_init*(opts: `ptr` git_blame_options, version: cuint): cint {.git2Proc, importc: "git_blame_options_init".}
 
-proc git_blame_get_hunk_count*(blame: `ptr` git_blame): uint32 {.git2Proc, importc.}
+proc git_blame_get_hunk_count*(blame: `ptr` git_blame): uint32 {.git2Proc, importc: "git_blame_get_hunk_count".}
 
-proc git_blame_get_hunk_byindex*(blame: `ptr` git_blame, index: uint32): `ptr` git_blame_hunk {.git2Proc, importc.}
+proc git_blame_get_hunk_byindex*(blame: `ptr` git_blame, index: uint32): `ptr` git_blame_hunk {.git2Proc, importc: "git_blame_get_hunk_byindex".}
 
-proc git_blame_get_hunk_byline*(blame: `ptr` git_blame, lineno: csize_t): `ptr` git_blame_hunk {.git2Proc, importc.}
-
-proc git_blame_file*(`out`: `ptr` git_blame, repo: `ptr` git_repository, path: cstring, options: `ptr` git_blame_options): cint {.git2Proc, importc.}
-
-proc git_blame_buffer*(`out`: `ptr` git_blame, reference: `ptr` git_blame, buffer: cstring, buffer_len: csize_t): cint {.git2Proc, importc.}
-
-proc git_blame_free*(blame: `ptr` git_blame): void {.git2Proc, importc.}
+proc git_blame_get_hunk_byline*(blame: `ptr` git_blame, lineno: csize_t): `ptr` git_blame_hunk {.git2Proc, importc: "git_blame_get_hunk_byline".}

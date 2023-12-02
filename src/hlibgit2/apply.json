@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_apply_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/apply.h:91:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -19,7 +19,7 @@
           "name": "delta_cb",
           "type": {
             "name": "git_apply_delta_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:38:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/apply.h:38:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/apply.h:38:13"
           },
           "doc": "/** When applying a patch, callback that will be made per delta (file). */"
         },
@@ -27,7 +27,7 @@
           "name": "hunk_cb",
           "type": {
             "name": "git_apply_hunk_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:56:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/apply.h:56:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/apply.h:56:13"
           },
           "doc": "/** When applying a patch, callback that will be made per hunk. */"
         },
@@ -63,7 +63,7 @@
       ],
       "name": {
         "name": "git_apply_flags_t",
-        "dbgOrigin": "enum typedef typedef:git_apply_flags_tname:/mnt/workspace/repos/libgit2/include/git2/apply.h:61:9"
+        "dbgOrigin": "enum typedef typedef:git_apply_flags_tname:libgit2/include/git2/apply.h:61:9"
       }
     },
     {
@@ -82,7 +82,7 @@
       ],
       "name": {
         "name": "git_apply_location_t",
-        "dbgOrigin": "enum typedef typedef:git_apply_location_tname:/mnt/workspace/repos/libgit2/include/git2/apply.h:127:9"
+        "dbgOrigin": "enum typedef typedef:git_apply_location_tname:libgit2/include/git2/apply.h:127:9"
       }
     }
   ],
@@ -99,7 +99,7 @@
           "type": {
             "name": "git_apply_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/apply.h:91:3"
           },
           "name": "opts"
         },
@@ -125,7 +125,7 @@
           "type": {
             "name": "git_index",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:148:26"
           },
           "name": "out"
         },
@@ -133,7 +133,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -141,7 +141,7 @@
           "type": {
             "name": "git_tree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:142:25"
           },
           "name": "preimage"
         },
@@ -149,7 +149,7 @@
           "type": {
             "name": "git_diff",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:196:25"
           },
           "name": "diff"
         },
@@ -157,7 +157,7 @@
           "type": {
             "name": "git_apply_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/apply.h:91:3"
           },
           "name": "options"
         }
@@ -175,7 +175,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -183,14 +183,14 @@
           "type": {
             "name": "git_diff",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:196:25"
           },
           "name": "diff"
         },
         {
           "type": {
             "name": "git_apply_location_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:145:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/apply.h:145:3"
           },
           "name": "location"
         },
@@ -198,7 +198,7 @@
           "type": {
             "name": "git_apply_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/apply.h:91:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/apply.h:91:3"
           },
           "name": "options"
         }
@@ -209,7 +209,7 @@
     {
       "name": {
         "name": "git_apply_delta_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/apply.h:38:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/apply.h:38:26>"
+        "dbgOrigin": "libgit2/include/git2/apply.h:38:13"
       },
       "baseType": {
         "parameters": [
@@ -221,7 +221,7 @@
           {
             "name": "git_diff_delta",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:331:3"
           },
           {
             "name": "void",
@@ -232,13 +232,13 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_apply_hunk_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/apply.h:56:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/apply.h:56:26>"
+        "dbgOrigin": "libgit2/include/git2/apply.h:56:13"
       },
       "baseType": {
         "parameters": [
@@ -250,7 +250,7 @@
           {
             "name": "git_diff_hunk",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:583:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:583:3"
           },
           {
             "name": "void",
@@ -261,7 +261,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

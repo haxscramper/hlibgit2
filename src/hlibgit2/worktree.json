@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_worktree_add_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/worktree.h:96:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/worktree.h:96:3 typedef type libgit2/include/git2/worktree.h:96:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -28,7 +28,7 @@
           "type": {
             "name": "git_reference",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:189:30"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
           },
           "doc": "/**< reference to use for the new worktree HEAD */"
         },
@@ -36,7 +36,7 @@
           "name": "checkout_options",
           "type": {
             "name": "git_checkout_options",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:345:3"
           },
           "doc": "/**\n\t * Options for the checkout.\n\t */"
         }
@@ -49,7 +49,7 @@
     {
       "name": {
         "name": "git_worktree_prune_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/worktree.h:210:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/worktree.h:210:3 typedef type libgit2/include/git2/worktree.h:210:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -64,7 +64,7 @@
           "name": "flags",
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "doc": "/** A combination of `git_worktree_prune_t` */"
         }
@@ -93,7 +93,7 @@
       ],
       "name": {
         "name": "git_worktree_prune_t",
-        "dbgOrigin": "enum typedef typedef:git_worktree_prune_tname:/mnt/workspace/repos/libgit2/include/git2/worktree.h:189:9"
+        "dbgOrigin": "enum typedef typedef:git_worktree_prune_tname:libgit2/include/git2/worktree.h:189:9"
       }
     }
   ],
@@ -110,7 +110,7 @@
           "type": {
             "name": "git_strarray",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/strarray.h:25:3"
           },
           "name": "out"
         },
@@ -118,7 +118,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         }
@@ -136,7 +136,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "out"
         },
@@ -144,7 +144,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -172,7 +172,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "out"
         },
@@ -180,7 +180,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         }
@@ -197,7 +197,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
         }
@@ -215,7 +215,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
         }
@@ -233,7 +233,7 @@
           "type": {
             "name": "git_worktree_add_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/worktree.h:96:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:96:3"
           },
           "name": "opts"
         },
@@ -259,7 +259,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "out"
         },
@@ -267,7 +267,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -295,7 +295,7 @@
           "type": {
             "name": "git_worktree_add_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/worktree.h:96:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:96:3"
           },
           "name": "opts"
         }
@@ -313,7 +313,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
         },
@@ -341,7 +341,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
         }
@@ -359,7 +359,7 @@
           "type": {
             "name": "git_buf",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           "name": "reason"
         },
@@ -367,7 +367,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
         }
@@ -387,7 +387,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
         }
@@ -407,7 +407,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
         }
@@ -425,7 +425,7 @@
           "type": {
             "name": "git_worktree_prune_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/worktree.h:210:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:210:3"
           },
           "name": "opts"
         },
@@ -451,7 +451,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
         },
@@ -459,7 +459,7 @@
           "type": {
             "name": "git_worktree_prune_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/worktree.h:210:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:210:3"
           },
           "name": "opts"
         }
@@ -477,7 +477,7 @@
           "type": {
             "name": "git_worktree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
         },
@@ -485,7 +485,7 @@
           "type": {
             "name": "git_worktree_prune_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/worktree.h:210:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:210:3"
           },
           "name": "opts"
         }

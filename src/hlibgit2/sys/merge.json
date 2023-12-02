@@ -3,14 +3,14 @@
     {
       "name": {
         "name": "git_merge_driver",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:16 > typedef==nullptr > struct"
+        "dbgOrigin": "record type filler include/git2/sys/merge.h:24:16 > typedef==nullptr > struct"
       },
       "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_merge_driver_source",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type include/git2/sys/merge.h:41:40 typedef type include/git2/sys/merge.h:41:40 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_merge_driver_source",
@@ -21,7 +21,7 @@
     {
       "name": {
         "name": "git_merge_driver",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type include/git2/sys/merge.h:24:33 typedef type include/git2/sys/merge.h:24:33 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -37,7 +37,7 @@
           "name": "initialize",
           "type": {
             "name": "git_merge_driver_init_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:26>"
+            "dbgOrigin": " typedef type include/git2/sys/merge.h:76:13"
           },
           "doc": "/** Called when the merge driver is first used for any file. */"
         },
@@ -45,7 +45,7 @@
           "name": "shutdown",
           "type": {
             "name": "git_merge_driver_shutdown_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:27>"
+            "dbgOrigin": " typedef type include/git2/sys/merge.h:88:14"
           },
           "doc": "/** Called when the merge driver is unregistered from the system. */"
         },
@@ -53,7 +53,7 @@
           "name": "apply",
           "type": {
             "name": "git_merge_driver_apply_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:26>"
+            "dbgOrigin": " typedef type include/git2/sys/merge.h:108:13"
           },
           "doc": "/**\n\t * Called to merge the contents of a conflict.  If this function\n\t * returns `GIT_PASSTHROUGH` then the default (`text`) merge driver\n\t * will instead be invoked.  If this function returns\n\t * `GIT_EMERGECONFLICT` then the file will remain conflicted.\n\t */"
         }
@@ -70,7 +70,7 @@
       "resultTy": {
         "name": "git_merge_driver",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:24:33"
       },
       "arguments": [
         {
@@ -90,14 +90,14 @@
       "resultTy": {
         "name": "git_repository",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
       },
       "arguments": [
         {
           "type": {
             "name": "git_merge_driver_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:41:40"
           },
           "name": "src"
         }
@@ -108,14 +108,14 @@
       "resultTy": {
         "name": "git_index_entry",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/index.h:70:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/index.h:70:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_merge_driver_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:41:40"
           },
           "name": "src"
         }
@@ -126,14 +126,14 @@
       "resultTy": {
         "name": "git_index_entry",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/index.h:70:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/index.h:70:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_merge_driver_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:41:40"
           },
           "name": "src"
         }
@@ -144,14 +144,14 @@
       "resultTy": {
         "name": "git_index_entry",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/index.h:70:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/index.h:70:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_merge_driver_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:41:40"
           },
           "name": "src"
         }
@@ -162,14 +162,14 @@
       "resultTy": {
         "name": "git_merge_file_options",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:218:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/merge.h:218:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_merge_driver_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:41:40"
           },
           "name": "src"
         }
@@ -197,7 +197,7 @@
           "type": {
             "name": "git_merge_driver",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:24:33"
           },
           "name": "driver"
         }
@@ -228,7 +228,7 @@
     {
       "name": {
         "name": "git_merge_driver_init_fn",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:76:26>"
+        "dbgOrigin": "include/git2/sys/merge.h:76:13"
       },
       "baseType": {
         "parameters": [
@@ -240,18 +240,18 @@
           {
             "name": "git_merge_driver",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:24:33"
           }
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_merge_driver_shutdown_fn",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:88:27>"
+        "dbgOrigin": "include/git2/sys/merge.h:88:14"
       },
       "baseType": {
         "parameters": [
@@ -262,18 +262,18 @@
           {
             "name": "git_merge_driver",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:24:33"
           }
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_merge_driver_apply_fn",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/merge.h:108:26>"
+        "dbgOrigin": "include/git2/sys/merge.h:108:13"
       },
       "baseType": {
         "parameters": [
@@ -285,7 +285,7 @@
           {
             "name": "git_merge_driver",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:24:33"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:24:33"
           },
           {
             "name": "char",
@@ -297,12 +297,12 @@
           {
             "name": "uint32_t",
             "isPointer": true,
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type /include/bits/stdint-uintn.h:26:20"
           },
           {
             "name": "git_buf",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           {
             "name": "char",
@@ -314,12 +314,12 @@
           {
             "name": "git_merge_driver_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/merge.h:41:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/merge.h:41:40"
           }
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

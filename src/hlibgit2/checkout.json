@@ -3,28 +3,28 @@
     {
       "name": {
         "name": "git_checkout_perfdata",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:252:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:252:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "mkdir_calls",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           }
         },
         {
           "name": "stat_calls",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           }
         },
         {
           "name": "chmod_calls",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           }
         }
       ]
@@ -32,7 +32,7 @@
     {
       "name": {
         "name": "git_checkout_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:345:3 typedef type libgit2/include/git2/checkout.h:345:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -102,7 +102,7 @@
           "name": "notify_cb",
           "type": {
             "name": "git_checkout_notify_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:255:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/checkout.h:255:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:255:13"
           },
           "doc": "/**\n\t * Optional callback to get notifications on specific file states.\n\t * @see git_checkout_notify_t\n\t */"
         },
@@ -120,7 +120,7 @@
           "name": "progress_cb",
           "type": {
             "name": "git_checkout_progress_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:264:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/checkout.h:264:27>"
+            "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:264:14"
           },
           "doc": "/** Optional callback to notify the consumer of checkout progress. */"
         },
@@ -138,7 +138,7 @@
           "name": "paths",
           "type": {
             "name": "git_strarray",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/strarray.h:25:3"
           },
           "doc": "/**\n\t * A list of wildmatch patterns or paths.\n\t *\n\t * By default, all paths are processed. If you pass an array of wildmatch\n\t * patterns, those will be used to filter which paths should be taken into\n\t * account.\n\t *\n\t * Use GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH to treat as a simple list.\n\t */"
         },
@@ -147,7 +147,7 @@
           "type": {
             "name": "git_tree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:142:25"
           },
           "doc": "/**\n\t * The expected content of the working directory; defaults to HEAD.\n\t *\n\t * If the working directory does not match this baseline information,\n\t * that will produce a checkout conflict.\n\t */"
         },
@@ -156,7 +156,7 @@
           "type": {
             "name": "git_index",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:148:26"
           },
           "doc": "/**\n\t * Like `baseline` above, though expressed as an index.  This\n\t * option overrides `baseline`.\n\t */"
         },
@@ -208,7 +208,7 @@
           "name": "perfdata_cb",
           "type": {
             "name": "git_checkout_perfdata_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:271:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/checkout.h:271:27>"
+            "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:271:14"
           },
           "doc": "/** Optional callback to notify the consumer of performance data. */"
         },
@@ -330,7 +330,7 @@
       ],
       "name": {
         "name": "git_checkout_strategy_t",
-        "dbgOrigin": "enum typedef typedef:git_checkout_strategy_tname:/mnt/workspace/repos/libgit2/include/git2/checkout.h:106:9"
+        "dbgOrigin": "enum typedef typedef:git_checkout_strategy_tname:libgit2/include/git2/checkout.h:106:9"
       }
     },
     {
@@ -365,7 +365,7 @@
       ],
       "name": {
         "name": "git_checkout_notify_t",
-        "dbgOrigin": "enum typedef typedef:git_checkout_notify_tname:/mnt/workspace/repos/libgit2/include/git2/checkout.h:214:9"
+        "dbgOrigin": "enum typedef typedef:git_checkout_notify_tname:libgit2/include/git2/checkout.h:214:9"
       }
     }
   ],
@@ -382,7 +382,7 @@
           "type": {
             "name": "git_checkout_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/checkout.h:345:3"
           },
           "name": "opts"
         },
@@ -408,7 +408,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -416,7 +416,7 @@
           "type": {
             "name": "git_checkout_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/checkout.h:345:3"
           },
           "name": "opts"
         }
@@ -434,7 +434,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -442,7 +442,7 @@
           "type": {
             "name": "git_index",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:148:26"
           },
           "name": "index"
         },
@@ -450,7 +450,7 @@
           "type": {
             "name": "git_checkout_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/checkout.h:345:3"
           },
           "name": "opts"
         }
@@ -468,7 +468,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -476,7 +476,7 @@
           "type": {
             "name": "git_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:124:27"
           },
           "name": "treeish"
         },
@@ -484,7 +484,7 @@
           "type": {
             "name": "git_checkout_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/checkout.h:345:3"
           },
           "name": "opts"
         }
@@ -495,7 +495,7 @@
     {
       "name": {
         "name": "git_checkout_notify_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/checkout.h:255:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/checkout.h:255:26>"
+        "dbgOrigin": "libgit2/include/git2/checkout.h:255:13"
       },
       "baseType": {
         "parameters": [
@@ -506,7 +506,7 @@
           },
           {
             "name": "git_checkout_notify_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:245:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:245:3"
           },
           {
             "name": "char",
@@ -518,17 +518,17 @@
           {
             "name": "git_diff_file",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:282:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:282:3"
           },
           {
             "name": "git_diff_file",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:282:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:282:3"
           },
           {
             "name": "git_diff_file",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:282:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:282:3"
           },
           {
             "name": "void",
@@ -539,13 +539,13 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_checkout_progress_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/checkout.h:264:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/checkout.h:264:27>"
+        "dbgOrigin": "libgit2/include/git2/checkout.h:264:14"
       },
       "baseType": {
         "parameters": [
@@ -562,11 +562,11 @@
           },
           {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           {
             "name": "void",
@@ -577,13 +577,13 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_checkout_perfdata_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/checkout.h:271:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/checkout.h:271:27>"
+        "dbgOrigin": "libgit2/include/git2/checkout.h:271:14"
       },
       "baseType": {
         "parameters": [
@@ -594,7 +594,7 @@
           {
             "name": "git_checkout_perfdata",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:252:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/checkout.h:252:3"
           },
           {
             "name": "void",
@@ -605,7 +605,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

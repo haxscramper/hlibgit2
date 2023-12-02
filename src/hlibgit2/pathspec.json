@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_pathspec",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/pathspec.h:20:29 typedef type libgit2/include/git2/pathspec.h:20:29 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_pathspec",
@@ -14,7 +14,7 @@
     {
       "name": {
         "name": "git_pathspec_match_list",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/pathspec.h:25:40 typedef type libgit2/include/git2/pathspec.h:25:40 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_pathspec_match_list",
@@ -56,7 +56,7 @@
       ],
       "name": {
         "name": "git_pathspec_flag_t",
-        "dbgOrigin": "enum typedef typedef:git_pathspec_flag_tname:/mnt/workspace/repos/libgit2/include/git2/pathspec.h:30:9"
+        "dbgOrigin": "enum typedef typedef:git_pathspec_flag_tname:libgit2/include/git2/pathspec.h:30:9"
       }
     }
   ],
@@ -73,7 +73,7 @@
           "type": {
             "name": "git_pathspec",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "out"
         },
@@ -81,7 +81,7 @@
           "type": {
             "name": "git_strarray",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/strarray.h:25:3"
           },
           "name": "pathspec"
         }
@@ -98,7 +98,7 @@
           "type": {
             "name": "git_pathspec",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
         }
@@ -116,14 +116,14 @@
           "type": {
             "name": "git_pathspec",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
         },
         {
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "name": "flags"
         },
@@ -151,7 +151,7 @@
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "out"
         },
@@ -159,14 +159,14 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
         {
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "name": "flags"
         },
@@ -174,7 +174,7 @@
           "type": {
             "name": "git_pathspec",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
         }
@@ -192,7 +192,7 @@
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "out"
         },
@@ -200,14 +200,14 @@
           "type": {
             "name": "git_index",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:148:26"
           },
           "name": "index"
         },
         {
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "name": "flags"
         },
@@ -215,7 +215,7 @@
           "type": {
             "name": "git_pathspec",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
         }
@@ -233,7 +233,7 @@
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "out"
         },
@@ -241,14 +241,14 @@
           "type": {
             "name": "git_tree",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:142:25"
           },
           "name": "tree"
         },
         {
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "name": "flags"
         },
@@ -256,7 +256,7 @@
           "type": {
             "name": "git_pathspec",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
         }
@@ -274,7 +274,7 @@
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "out"
         },
@@ -282,14 +282,14 @@
           "type": {
             "name": "git_diff",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:196:25"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:196:25"
           },
           "name": "diff"
         },
         {
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "name": "flags"
         },
@@ -297,7 +297,7 @@
           "type": {
             "name": "git_pathspec",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:20:29"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
         }
@@ -314,7 +314,7 @@
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
         }
@@ -324,14 +324,14 @@
       "name": "git_pathspec_match_list_entrycount",
       "resultTy": {
         "name": "size_t",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+        "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
         }
@@ -351,14 +351,14 @@
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "pos"
         }
@@ -369,21 +369,21 @@
       "resultTy": {
         "name": "git_diff_delta",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/diff.h:331:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:331:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "pos"
         }
@@ -393,14 +393,14 @@
       "name": "git_pathspec_match_list_failed_entrycount",
       "resultTy": {
         "name": "size_t",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+        "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
         }
@@ -420,14 +420,14 @@
           "type": {
             "name": "git_pathspec_match_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/pathspec.h:25:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "pos"
         }

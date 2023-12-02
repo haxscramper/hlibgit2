@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_revspec",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revparse.h:90:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/revparse.h:90:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -11,7 +11,7 @@
           "type": {
             "name": "git_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:124:27"
           },
           "doc": "/** The left element of the revspec; must be freed by the user */"
         },
@@ -20,7 +20,7 @@
           "type": {
             "name": "git_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:124:27"
           },
           "doc": "/** The right element of the revspec; must be freed by the user */"
         },
@@ -54,7 +54,7 @@
       ],
       "name": {
         "name": "git_revspec_t",
-        "dbgOrigin": "enum typedef typedef:git_revspec_tname:/mnt/workspace/repos/libgit2/include/git2/revparse.h:71:9"
+        "dbgOrigin": "enum typedef typedef:git_revspec_tname:libgit2/include/git2/revparse.h:71:9"
       }
     }
   ],
@@ -71,7 +71,7 @@
           "type": {
             "name": "git_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:124:27"
           },
           "name": "out"
         },
@@ -79,7 +79,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -107,7 +107,7 @@
           "type": {
             "name": "git_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:124:27"
           },
           "name": "object_out"
         },
@@ -115,7 +115,7 @@
           "type": {
             "name": "git_reference",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:189:30"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
           },
           "name": "reference_out"
         },
@@ -123,7 +123,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -151,7 +151,7 @@
           "type": {
             "name": "git_revspec",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revparse.h:90:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/revparse.h:90:3"
           },
           "name": "revspec"
         },
@@ -159,7 +159,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },

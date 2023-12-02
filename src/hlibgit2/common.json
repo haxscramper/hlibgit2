@@ -21,7 +21,7 @@
       ],
       "name": {
         "name": "git_feature_t",
-        "dbgOrigin": "enum typedef typedef:git_feature_tname:/mnt/workspace/repos/libgit2/include/git2/common.h:134:9"
+        "dbgOrigin": "enum typedef typedef:git_feature_tname:libgit2/include/git2/common.h:134:9"
       }
     },
     {
@@ -200,7 +200,7 @@
       ],
       "name": {
         "name": "git_libgit2_opt_t",
-        "dbgOrigin": "enum typedef typedef:git_libgit2_opt_tname:/mnt/workspace/repos/libgit2/include/git2/common.h:188:9"
+        "dbgOrigin": "enum typedef typedef:git_libgit2_opt_tname:libgit2/include/git2/common.h:188:9"
       }
     }
   ],

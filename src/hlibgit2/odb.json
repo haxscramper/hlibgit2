@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_odb_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb.h:50:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/odb.h:50:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -19,7 +19,7 @@
           "name": "oid_type",
           "type": {
             "name": "git_oid_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:33:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/oid.h:33:3"
           },
           "doc": "/**\n\t * Type of object IDs to use for this object database, or\n\t * 0 for default (currently SHA1).\n\t */"
         }
@@ -28,14 +28,14 @@
     {
       "name": {
         "name": "git_odb_expand_id",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb.h:245:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/odb.h:245:3 typedef type libgit2/include/git2/odb.h:245:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "id",
           "type": {
             "name": "git_oid",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/oid.h:108:3"
           },
           "doc": "/** The object ID to expand */"
         },
@@ -52,7 +52,7 @@
           "name": "type",
           "type": {
             "name": "git_object_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:82:3"
           },
           "doc": "/**\n\t * The (optional) type of the object to search for; leave as `0` or set\n\t * to `GIT_OBJECT_ANY` to query for any object matching the ID.\n\t */"
         }
@@ -73,7 +73,7 @@
       ],
       "name": {
         "name": "git_odb_lookup_flags_t",
-        "dbgOrigin": "enum typedef typedef:git_odb_lookup_flags_tname:/mnt/workspace/repos/libgit2/include/git2/odb.h:26:9"
+        "dbgOrigin": "enum typedef typedef:git_odb_lookup_flags_tname:libgit2/include/git2/odb.h:26:9"
       }
     }
   ],
@@ -90,7 +90,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "out"
         }
@@ -108,7 +108,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "out"
         },
@@ -136,7 +136,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
         },
@@ -163,7 +163,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         }
@@ -181,7 +181,7 @@
           "type": {
             "name": "git_odb_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:91:31"
           },
           "name": "out"
         },
@@ -189,7 +189,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
@@ -197,7 +197,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "id"
         }
@@ -215,7 +215,7 @@
           "type": {
             "name": "git_odb_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:91:31"
           },
           "name": "out"
         },
@@ -223,7 +223,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
@@ -231,14 +231,14 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "short_id"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "len"
         }
@@ -256,7 +256,7 @@
           "type": {
             "name": "size_t",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "len_out"
         },
@@ -264,7 +264,7 @@
           "type": {
             "name": "git_object_t",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:82:3"
           },
           "name": "type_out"
         },
@@ -272,7 +272,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
@@ -280,7 +280,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "id"
         }
@@ -298,7 +298,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
@@ -306,7 +306,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "id"
         }
@@ -324,7 +324,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
@@ -332,7 +332,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "id"
         },
@@ -358,7 +358,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "out"
         },
@@ -366,7 +366,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
@@ -374,14 +374,14 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "short_id"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "len"
         }
@@ -399,7 +399,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
@@ -407,14 +407,14 @@
           "type": {
             "name": "git_odb_expand_id",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb.h:245:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/odb.h:245:3"
           },
           "name": "ids"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "count"
         }
@@ -432,7 +432,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/odb.h:289:49"
+            "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler libgit2/include/git2/odb.h:289:49"
           },
           "name": "db"
         }
@@ -450,14 +450,14 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
         {
           "type": {
             "name": "git_odb_foreach_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/odb.h:39:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/odb.h:39:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/odb.h:39:13"
           },
           "name": "cb"
         },
@@ -484,7 +484,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "out"
         },
@@ -492,7 +492,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
         },
@@ -509,14 +509,14 @@
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "len"
         },
         {
           "type": {
             "name": "git_object_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:82:3"
           },
           "name": "type"
         }
@@ -534,7 +534,7 @@
           "type": {
             "name": "git_odb_stream",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
           },
           "name": "out"
         },
@@ -542,21 +542,21 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
         {
           "type": {
             "name": "git_object_size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:67:18"
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:67:18"
           },
           "name": "size"
         },
         {
           "type": {
             "name": "git_object_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:82:3"
           },
           "name": "type"
         }
@@ -574,7 +574,7 @@
           "type": {
             "name": "git_odb_stream",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
           },
           "name": "stream"
         },
@@ -591,7 +591,7 @@
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "len"
         }
@@ -609,7 +609,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "out"
         },
@@ -617,7 +617,7 @@
           "type": {
             "name": "git_odb_stream",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
           },
           "name": "stream"
         }
@@ -635,7 +635,7 @@
           "type": {
             "name": "git_odb_stream",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
           },
           "name": "stream"
         },
@@ -651,7 +651,7 @@
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "len"
         }
@@ -668,7 +668,7 @@
           "type": {
             "name": "git_odb_stream",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
           },
           "name": "stream"
         }
@@ -686,7 +686,7 @@
           "type": {
             "name": "git_odb_stream",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
           },
           "name": "out"
         },
@@ -694,7 +694,7 @@
           "type": {
             "name": "size_t",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "len"
         },
@@ -702,7 +702,7 @@
           "type": {
             "name": "git_object_t",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:82:3"
           },
           "name": "type"
         },
@@ -710,7 +710,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
@@ -718,7 +718,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "oid"
         }
@@ -736,7 +736,7 @@
           "type": {
             "name": "git_odb_writepack",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:97:34"
           },
           "name": "out"
         },
@@ -744,14 +744,14 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         },
         {
           "type": {
             "name": "git_indexer_progress_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:57:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/indexer.h:57:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/indexer.h:57:13"
           },
           "name": "progress_cb"
         },
@@ -778,7 +778,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "db"
         }
@@ -796,7 +796,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "out"
         },
@@ -813,14 +813,14 @@
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "len"
         },
         {
           "type": {
             "name": "git_object_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:82:3"
           },
           "name": "type"
         }
@@ -838,7 +838,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "out"
         },
@@ -855,7 +855,7 @@
         {
           "type": {
             "name": "git_object_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:82:3"
           },
           "name": "type"
         }
@@ -873,7 +873,7 @@
           "type": {
             "name": "git_odb_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:91:31"
           },
           "name": "dest"
         },
@@ -881,7 +881,7 @@
           "type": {
             "name": "git_odb_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:91:31"
           },
           "name": "source"
         }
@@ -898,7 +898,7 @@
           "type": {
             "name": "git_odb_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:91:31"
           },
           "name": "object"
         }
@@ -909,14 +909,14 @@
       "resultTy": {
         "name": "git_oid",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_odb_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:91:31"
           },
           "name": "object"
         }
@@ -936,7 +936,7 @@
           "type": {
             "name": "git_odb_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:91:31"
           },
           "name": "object"
         }
@@ -946,14 +946,14 @@
       "name": "git_odb_object_size",
       "resultTy": {
         "name": "size_t",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+        "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
       },
       "arguments": [
         {
           "type": {
             "name": "git_odb_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:91:31"
           },
           "name": "object"
         }
@@ -963,14 +963,14 @@
       "name": "git_odb_object_type",
       "resultTy": {
         "name": "git_object_t",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:82:3"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:82:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_odb_object",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:91:31"
           },
           "name": "object"
         }
@@ -988,7 +988,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
         },
@@ -996,7 +996,7 @@
           "type": {
             "name": "git_odb_backend",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:88:32"
           },
           "name": "backend"
         },
@@ -1022,7 +1022,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
         },
@@ -1030,7 +1030,7 @@
           "type": {
             "name": "git_odb_backend",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:88:32"
           },
           "name": "backend"
         },
@@ -1048,14 +1048,14 @@
       "name": "git_odb_num_backends",
       "resultTy": {
         "name": "size_t",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+        "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
       },
       "arguments": [
         {
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
         }
@@ -1073,7 +1073,7 @@
           "type": {
             "name": "git_odb_backend",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:88:32"
           },
           "name": "out"
         },
@@ -1081,14 +1081,14 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "pos"
         }
@@ -1106,7 +1106,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
         },
@@ -1114,7 +1114,7 @@
           "type": {
             "name": "git_commit_graph",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:109:33"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:109:33"
           },
           "name": "cgraph"
         }
@@ -1125,7 +1125,7 @@
     {
       "name": {
         "name": "git_odb_foreach_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/odb.h:39:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/odb.h:39:26>"
+        "dbgOrigin": "libgit2/include/git2/odb.h:39:13"
       },
       "baseType": {
         "parameters": [
@@ -1137,7 +1137,7 @@
           {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           {
             "name": "void",
@@ -1148,7 +1148,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

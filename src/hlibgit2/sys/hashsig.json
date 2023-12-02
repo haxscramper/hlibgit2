@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_hashsig",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type include/git2/sys/hashsig.h:17:28 typedef type include/git2/sys/hashsig.h:17:28 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_hashsig",
@@ -33,7 +33,7 @@
       ],
       "name": {
         "name": "git_hashsig_option_t",
-        "dbgOrigin": "enum typedef typedef:git_hashsig_option_tname:/mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:25:9"
+        "dbgOrigin": "enum typedef typedef:git_hashsig_option_tname:include/git2/sys/hashsig.h:25:9"
       }
     }
   ],
@@ -50,7 +50,7 @@
           "type": {
             "name": "git_hashsig",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "out"
         },
@@ -67,14 +67,14 @@
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "buflen"
         },
         {
           "type": {
             "name": "git_hashsig_option_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:45:3"
+            "dbgOrigin": " typedef type include/git2/sys/hashsig.h:45:3"
           },
           "name": "opts"
         }
@@ -92,7 +92,7 @@
           "type": {
             "name": "git_hashsig",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "out"
         },
@@ -109,7 +109,7 @@
         {
           "type": {
             "name": "git_hashsig_option_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:45:3"
+            "dbgOrigin": " typedef type include/git2/sys/hashsig.h:45:3"
           },
           "name": "opts"
         }
@@ -126,7 +126,7 @@
           "type": {
             "name": "git_hashsig",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "sig"
         }
@@ -144,7 +144,7 @@
           "type": {
             "name": "git_hashsig",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "a"
         },
@@ -152,7 +152,7 @@
           "type": {
             "name": "git_hashsig",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/hashsig.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "b"
         }

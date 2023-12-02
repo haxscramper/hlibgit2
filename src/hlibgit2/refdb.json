@@ -12,7 +12,7 @@
           "type": {
             "name": "git_refdb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:103:26"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "out"
         },
@@ -20,7 +20,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         }
@@ -38,7 +38,7 @@
           "type": {
             "name": "git_refdb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:103:26"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "out"
         },
@@ -46,7 +46,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         }
@@ -64,7 +64,7 @@
           "type": {
             "name": "git_refdb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:103:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "refdb"
         }
@@ -81,7 +81,7 @@
           "type": {
             "name": "git_refdb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:103:26"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "refdb"
         }

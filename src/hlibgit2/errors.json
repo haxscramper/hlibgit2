@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_error",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/errors.h:74:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/errors.h:74:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -159,7 +159,7 @@
       ],
       "name": {
         "name": "git_error_code",
-        "dbgOrigin": "enum typedef typedef:git_error_codename:/mnt/workspace/repos/libgit2/include/git2/errors.h:21:9"
+        "dbgOrigin": "enum typedef typedef:git_error_codename:libgit2/include/git2/errors.h:21:9"
       }
     },
     {
@@ -314,7 +314,7 @@
       ],
       "name": {
         "name": "git_error_t",
-        "dbgOrigin": "enum typedef typedef:git_error_tname:/mnt/workspace/repos/libgit2/include/git2/errors.h:77:9"
+        "dbgOrigin": "enum typedef typedef:git_error_tname:libgit2/include/git2/errors.h:77:9"
       }
     }
   ],
@@ -324,7 +324,7 @@
       "resultTy": {
         "name": "git_error",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/errors.h:74:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/errors.h:74:3"
       }
     },
     {

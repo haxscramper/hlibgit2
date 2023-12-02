@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_config_iterator",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/config.h:92:36 typedef type libgit2/include/git2/config.h:92:36 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -11,7 +11,7 @@
           "type": {
             "name": "git_config_backend",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:160:35"
           }
         },
         {
@@ -34,12 +34,12 @@
               {
                 "name": "git_config_entry",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/config.h:71:3"
               },
               {
                 "name": "git_config_iterator",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+                "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/config.h:92:36"
               }
             ],
             "isPointer": true,
@@ -58,7 +58,7 @@
               {
                 "name": "git_config_iterator",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+                "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/config.h:92:36"
               }
             ],
             "isPointer": true,
@@ -75,7 +75,7 @@
     {
       "name": {
         "name": "git_config_backend",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:160:35 typedef type libgit2/include/git2/types.h:160:35 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -100,7 +100,7 @@
           "type": {
             "name": "git_config",
             "isPointer": true,
-            "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:58:21"
+            "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:58:21"
           }
         },
         {
@@ -115,16 +115,16 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:61:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:61:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:61:6"
               },
               {
                 "name": "git_config_level_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:59:3"
+                "dbgOrigin": " typedef type libgit2/include/git2/config.h:59:3"
               },
               {
                 "name": "git_repository",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+                "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
               }
             ],
             "isPointer": true,
@@ -144,7 +144,7 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:62:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:62:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:62:6"
               },
               {
                 "name": "char",
@@ -156,7 +156,7 @@
               {
                 "name": "git_config_entry",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:71:3"
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/config.h:71:3"
               }
             ],
             "isPointer": true,
@@ -176,7 +176,7 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:63:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:63:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:63:6"
               },
               {
                 "name": "char",
@@ -210,7 +210,7 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
+                "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:160:35"
               },
               {
                 "name": "char",
@@ -251,7 +251,7 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:65:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:65:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:65:6"
               },
               {
                 "name": "char",
@@ -278,7 +278,7 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:66:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:66:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:66:6"
               },
               {
                 "name": "char",
@@ -312,12 +312,12 @@
               {
                 "name": "git_config_iterator",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:92:36"
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/config.h:92:36"
               },
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:67:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:67:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:67:6"
               }
             ],
             "isPointer": true,
@@ -337,12 +337,12 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:69:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:69:19>"
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:69:6"
               },
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:69:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:69:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:69:6"
               }
             ],
             "isPointer": true,
@@ -362,7 +362,7 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:77:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:77:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:77:6"
               }
             ],
             "isPointer": true,
@@ -382,7 +382,7 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:83:6 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:83:19>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:83:6"
               },
               {
                 "name": "int",
@@ -406,7 +406,7 @@
               {
                 "name": "git_config_backend",
                 "isPointer": true,
-                "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/sys/config.h:84:7 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/config.h:84:20>"
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/config.h:84:7"
               }
             ],
             "isPointer": true,
@@ -434,7 +434,7 @@
           "type": {
             "name": "git_config_backend",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:160:35"
           },
           "name": "backend"
         },
@@ -460,7 +460,7 @@
           "type": {
             "name": "git_config",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:157:27"
           },
           "name": "cfg"
         },
@@ -468,14 +468,14 @@
           "type": {
             "name": "git_config_backend",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:160:35"
           },
           "name": "file"
         },
         {
           "type": {
             "name": "git_config_level_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/config.h:59:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/config.h:59:3"
           },
           "name": "level"
         },
@@ -483,7 +483,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },

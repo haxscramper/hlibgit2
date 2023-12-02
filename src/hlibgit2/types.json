@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_odb",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:85:24 typedef type libgit2/include/git2/types.h:85:24 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_odb",
@@ -14,7 +14,7 @@
     {
       "name": {
         "name": "git_odb_backend",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:88:32 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:88:32 typedef type libgit2/include/git2/types.h:88:32 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_odb_backend",
@@ -25,7 +25,7 @@
     {
       "name": {
         "name": "git_odb_object",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:91:31 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:91:31 typedef type libgit2/include/git2/types.h:91:31 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_odb_object",
@@ -36,7 +36,7 @@
     {
       "name": {
         "name": "git_odb_stream",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:94:31 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:94:31 typedef type libgit2/include/git2/types.h:94:31 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_odb_stream",
@@ -47,7 +47,7 @@
     {
       "name": {
         "name": "git_odb_writepack",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:97:34 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:97:34 typedef type libgit2/include/git2/types.h:97:34 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_odb_writepack",
@@ -58,7 +58,7 @@
     {
       "name": {
         "name": "git_midx_writer",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:100:32 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:100:32 typedef type libgit2/include/git2/types.h:100:32 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_midx_writer",
@@ -69,7 +69,7 @@
     {
       "name": {
         "name": "git_refdb",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:103:26 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:103:26 typedef type libgit2/include/git2/types.h:103:26 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_refdb",
@@ -80,7 +80,7 @@
     {
       "name": {
         "name": "git_refdb_backend",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:106:34 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:106:34 typedef type libgit2/include/git2/types.h:106:34 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_refdb_backend",
@@ -91,7 +91,7 @@
     {
       "name": {
         "name": "git_commit_graph",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:109:33 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:109:33 typedef type libgit2/include/git2/types.h:109:33 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_commit_graph",
@@ -102,7 +102,7 @@
     {
       "name": {
         "name": "git_commit_graph_writer",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:112:40 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:112:40 typedef type libgit2/include/git2/types.h:112:40 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_commit_graph_writer",
@@ -113,7 +113,7 @@
     {
       "name": {
         "name": "git_repository",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:118:31 typedef type libgit2/include/git2/types.h:118:31 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_repository",
@@ -124,7 +124,7 @@
     {
       "name": {
         "name": "git_worktree",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:121:29 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:121:29 typedef type libgit2/include/git2/types.h:121:29 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_worktree",
@@ -135,7 +135,7 @@
     {
       "name": {
         "name": "git_object",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:124:27 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:124:27 typedef type libgit2/include/git2/types.h:124:27 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_object",
@@ -146,7 +146,7 @@
     {
       "name": {
         "name": "git_revwalk",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:127:28 typedef type libgit2/include/git2/types.h:127:28 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_revwalk",
@@ -157,7 +157,7 @@
     {
       "name": {
         "name": "git_tag",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:130:24 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:130:24 typedef type libgit2/include/git2/types.h:130:24 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_tag",
@@ -168,7 +168,7 @@
     {
       "name": {
         "name": "git_blob",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:133:25 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:133:25 typedef type libgit2/include/git2/types.h:133:25 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_blob",
@@ -179,7 +179,7 @@
     {
       "name": {
         "name": "git_commit",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:136:27 typedef type libgit2/include/git2/types.h:136:27 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_commit",
@@ -190,7 +190,7 @@
     {
       "name": {
         "name": "git_tree_entry",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:139:31 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:139:31 typedef type libgit2/include/git2/types.h:139:31 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_tree_entry",
@@ -201,7 +201,7 @@
     {
       "name": {
         "name": "git_tree",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:142:25 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:142:25 typedef type libgit2/include/git2/types.h:142:25 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_tree",
@@ -212,7 +212,7 @@
     {
       "name": {
         "name": "git_treebuilder",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:145:32 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:145:32 typedef type libgit2/include/git2/types.h:145:32 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_treebuilder",
@@ -223,7 +223,7 @@
     {
       "name": {
         "name": "git_index",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:148:26 typedef type libgit2/include/git2/types.h:148:26 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_index",
@@ -234,7 +234,7 @@
     {
       "name": {
         "name": "git_index_iterator",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:151:35 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:151:35 typedef type libgit2/include/git2/types.h:151:35 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_index_iterator",
@@ -245,7 +245,7 @@
     {
       "name": {
         "name": "git_index_conflict_iterator",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:154:44 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:154:44 typedef type libgit2/include/git2/types.h:154:44 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_index_conflict_iterator",
@@ -256,7 +256,7 @@
     {
       "name": {
         "name": "git_config",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:157:27 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:157:27 typedef type libgit2/include/git2/types.h:157:27 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_config",
@@ -267,7 +267,7 @@
     {
       "name": {
         "name": "git_config_backend",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:160:35 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:160:35 typedef type libgit2/include/git2/types.h:160:35 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_config_backend",
@@ -278,7 +278,7 @@
     {
       "name": {
         "name": "git_reflog_entry",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:163:33 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:163:33 typedef type libgit2/include/git2/types.h:163:33 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_reflog_entry",
@@ -289,7 +289,7 @@
     {
       "name": {
         "name": "git_reflog",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:166:27 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:166:27 typedef type libgit2/include/git2/types.h:166:27 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_reflog",
@@ -300,7 +300,7 @@
     {
       "name": {
         "name": "git_note",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:169:25 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:169:25 typedef type libgit2/include/git2/types.h:169:25 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_note",
@@ -311,7 +311,7 @@
     {
       "name": {
         "name": "git_packbuilder",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:172:32 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:172:32 typedef type libgit2/include/git2/types.h:172:32 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_packbuilder",
@@ -322,14 +322,14 @@
     {
       "name": {
         "name": "git_time",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:179:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:179:3 typedef type libgit2/include/git2/types.h:179:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
           "name": "time",
           "type": {
             "name": "git_time_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:62:17"
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:62:17"
           },
           "doc": "/**< time in seconds from epoch */"
         },
@@ -360,7 +360,7 @@
     {
       "name": {
         "name": "git_signature",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:186:3 typedef type libgit2/include/git2/types.h:186:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -387,7 +387,7 @@
           "name": "when",
           "type": {
             "name": "git_time",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:179:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:179:3"
           },
           "doc": "/**< time when the action happened */"
         }
@@ -400,7 +400,7 @@
     {
       "name": {
         "name": "git_reference",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:189:30 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:189:30 typedef type libgit2/include/git2/types.h:189:30 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_reference",
@@ -411,7 +411,7 @@
     {
       "name": {
         "name": "git_reference_iterator",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:192:40 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:192:40 typedef type libgit2/include/git2/types.h:192:40 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_reference_iterator",
@@ -422,7 +422,7 @@
     {
       "name": {
         "name": "git_transaction",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:195:32 typedef type libgit2/include/git2/types.h:195:32 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_transaction",
@@ -433,7 +433,7 @@
     {
       "name": {
         "name": "git_annotated_commit",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:198:37 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:198:37 typedef type libgit2/include/git2/types.h:198:37 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_annotated_commit",
@@ -444,7 +444,7 @@
     {
       "name": {
         "name": "git_status_list",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:201:32 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:201:32 typedef type libgit2/include/git2/types.h:201:32 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_status_list",
@@ -455,7 +455,7 @@
     {
       "name": {
         "name": "git_rebase",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:204:27 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:204:27 typedef type libgit2/include/git2/types.h:204:27 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_rebase",
@@ -466,7 +466,7 @@
     {
       "name": {
         "name": "git_refspec",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:235:28 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:235:28 typedef type libgit2/include/git2/types.h:235:28 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_refspec",
@@ -477,7 +477,7 @@
     {
       "name": {
         "name": "git_remote",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:241:27 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:241:27 typedef type libgit2/include/git2/types.h:241:27 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_remote",
@@ -488,7 +488,7 @@
     {
       "name": {
         "name": "git_transport",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:247:30 typedef type libgit2/include/git2/types.h:247:30 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_transport",
@@ -499,7 +499,7 @@
     {
       "name": {
         "name": "git_push",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:253:25 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:253:25 typedef type libgit2/include/git2/types.h:253:25 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_push",
@@ -510,7 +510,7 @@
     {
       "name": {
         "name": "git_remote_head",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:256:32 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:256:32 typedef type libgit2/include/git2/types.h:256:32 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_remote_head",
@@ -521,7 +521,7 @@
     {
       "name": {
         "name": "git_remote_callbacks",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:257:37 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:257:37 typedef type libgit2/include/git2/types.h:257:37 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_remote_callbacks",
@@ -532,7 +532,7 @@
     {
       "name": {
         "name": "git_cert",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:262:25 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:262:25 typedef type libgit2/include/git2/types.h:262:25 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_cert",
@@ -543,7 +543,7 @@
     {
       "name": {
         "name": "git_submodule",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:267:30 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:267:30 typedef type libgit2/include/git2/types.h:267:30 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_submodule",
@@ -554,14 +554,14 @@
     {
       "name": {
         "name": "git_writestream",
-        "dbgOrigin": "record type filler /mnt/workspace/repos/libgit2/include/git2/types.h:356:16 > typedef==nullptr > struct"
+        "dbgOrigin": "record type filler libgit2/include/git2/types.h:356:16 > typedef==nullptr > struct"
       },
       "isForwardDecl": true
     },
     {
       "name": {
         "name": "git_writestream",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:356:32 typedef type libgit2/include/git2/types.h:356:32 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -576,7 +576,7 @@
               {
                 "name": "git_writestream",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+                "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:356:32"
               },
               {
                 "name": "char",
@@ -587,7 +587,7 @@
               },
               {
                 "name": "size_t",
-                "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+                "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
               }
             ],
             "isPointer": true,
@@ -607,7 +607,7 @@
               {
                 "name": "git_writestream",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+                "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:356:32"
               }
             ],
             "isPointer": true,
@@ -626,7 +626,7 @@
               {
                 "name": "git_writestream",
                 "isPointer": true,
-                "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+                "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:356:32"
               }
             ],
             "isPointer": true,
@@ -643,7 +643,7 @@
     {
       "name": {
         "name": "git_mailmap",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:366:28 typedef type libgit2/include/git2/types.h:366:28 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_mailmap",
@@ -690,7 +690,7 @@
       ],
       "name": {
         "name": "git_object_t",
-        "dbgOrigin": "enum typedef typedef:git_object_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:73:9"
+        "dbgOrigin": "enum typedef typedef:git_object_tname:libgit2/include/git2/types.h:73:9"
       }
     },
     {
@@ -713,7 +713,7 @@
       ],
       "name": {
         "name": "git_reference_t",
-        "dbgOrigin": "enum typedef typedef:git_reference_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:207:9"
+        "dbgOrigin": "enum typedef typedef:git_reference_tname:libgit2/include/git2/types.h:207:9"
       }
     },
     {
@@ -733,7 +733,7 @@
       ],
       "name": {
         "name": "git_branch_t",
-        "dbgOrigin": "enum typedef typedef:git_branch_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:215:9"
+        "dbgOrigin": "enum typedef typedef:git_branch_tname:libgit2/include/git2/types.h:215:9"
       }
     },
     {
@@ -764,7 +764,7 @@
       ],
       "name": {
         "name": "git_filemode_t",
-        "dbgOrigin": "enum typedef typedef:git_filemode_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:222:9"
+        "dbgOrigin": "enum typedef typedef:git_filemode_tname:libgit2/include/git2/types.h:222:9"
       }
     },
     {
@@ -791,7 +791,7 @@
       ],
       "name": {
         "name": "git_submodule_update_t",
-        "dbgOrigin": "enum typedef typedef:git_submodule_update_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:295:9"
+        "dbgOrigin": "enum typedef typedef:git_submodule_update_tname:libgit2/include/git2/types.h:295:9"
       }
     },
     {
@@ -819,7 +819,7 @@
       ],
       "name": {
         "name": "git_submodule_ignore_t",
-        "dbgOrigin": "enum typedef typedef:git_submodule_ignore_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:331:9"
+        "dbgOrigin": "enum typedef typedef:git_submodule_ignore_tname:libgit2/include/git2/types.h:331:9"
       }
     },
     {
@@ -838,7 +838,7 @@
       ],
       "name": {
         "name": "git_submodule_recurse_t",
-        "dbgOrigin": "enum typedef typedef:git_submodule_recurse_tname:/mnt/workspace/repos/libgit2/include/git2/types.h:350:9"
+        "dbgOrigin": "enum typedef typedef:git_submodule_recurse_tname:libgit2/include/git2/types.h:350:9"
       }
     }
   ],
@@ -846,31 +846,31 @@
     {
       "name": {
         "name": "git_off_t",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/types.h:61:17"
+        "dbgOrigin": "libgit2/include/git2/types.h:61:17"
       },
       "baseType": {
         "name": "int64_t",
-        "dbgOrigin": "typedef type /include/bits/stdint-intn.h:27:19"
+        "dbgOrigin": " Typedef Decl Visit typedef type /include/bits/stdint-intn.h:27:19"
       }
     },
     {
       "name": {
         "name": "git_time_t",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/types.h:62:17"
+        "dbgOrigin": "libgit2/include/git2/types.h:62:17"
       },
       "baseType": {
         "name": "int64_t",
-        "dbgOrigin": "typedef type /include/bits/stdint-intn.h:27:19"
+        "dbgOrigin": " Typedef Decl Visit typedef type /include/bits/stdint-intn.h:27:19"
       }
     },
     {
       "name": {
         "name": "git_object_size_t",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/types.h:67:18"
+        "dbgOrigin": "libgit2/include/git2/types.h:67:18"
       },
       "baseType": {
         "name": "uint64_t",
-        "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:27:20"
+        "dbgOrigin": " Typedef Decl Visit typedef type /include/bits/stdint-uintn.h:27:20"
       }
     }
   ]

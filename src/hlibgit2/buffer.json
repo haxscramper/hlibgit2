@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_buf",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/buffer.h:52:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -20,7 +20,7 @@
           "name": "reserved",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "doc": "/**\n\t * This field is reserved and unused.\n\t */"
         },
@@ -28,7 +28,7 @@
           "name": "size",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "doc": "/**\n\t * The length (in bytes) of the buffer pointed to by `ptr`,\n\t * not including a NUL terminator.\n\t */"
         }
@@ -47,7 +47,7 @@
           "type": {
             "name": "git_buf",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           "name": "buffer"
         }

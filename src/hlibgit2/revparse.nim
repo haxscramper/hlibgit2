@@ -1,4 +1,4 @@
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 import "./types.nim"
 
 type
@@ -19,10 +19,6 @@ type
 
 
 
-proc git_revparse_ext*(object_out: `ptr` git_object, reference_out: `ptr` git_reference, repo: `ptr` git_repository, spec: cstring): cint {.git2Proc, importc.}
-
-proc git_revparse*(revspec: `ptr` git_revspec, repo: `ptr` git_repository, spec: cstring): cint {.git2Proc, importc.}
-
 converter toCInt*(arg: c_git_revspec_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set[git_revspec_t]): cint =
@@ -40,4 +36,8 @@ func `+`*(arg: c_git_revspec_t, offset: int): cint = cast[c_git_revspec_t](ord(a
 
 func `+`*(offset: int, arg: c_git_revspec_t): cint = cast[c_git_revspec_t](ord(arg) + offset)
 
-proc git_revparse_single*(`out`: `ptr` git_object, repo: `ptr` git_repository, spec: cstring): cint {.git2Proc, importc.}
+proc git_revparse_single*(`out`: `ptr` git_object, repo: `ptr` git_repository, spec: cstring): cint {.git2Proc, importc: "git_revparse_single".}
+
+proc git_revparse_ext*(object_out: `ptr` git_object, reference_out: `ptr` git_reference, repo: `ptr` git_repository, spec: cstring): cint {.git2Proc, importc: "git_revparse_ext".}
+
+proc git_revparse*(revspec: `ptr` git_revspec, repo: `ptr` git_repository, spec: cstring): cint {.git2Proc, importc: "git_revparse".}

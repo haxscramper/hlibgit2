@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_transport_message_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/transport.h:34:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/transport.h:34:26>"
+        "dbgOrigin": "libgit2/include/git2/transport.h:34:13"
       },
       "baseType": {
         "parameters": [
@@ -33,13 +33,13 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_transport_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/transport.h:37:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/transport.h:37:26>"
+        "dbgOrigin": "libgit2/include/git2/transport.h:37:13"
       },
       "baseType": {
         "parameters": [
@@ -51,12 +51,12 @@
           {
             "name": "git_transport",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:247:30"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:247:30"
           },
           {
             "name": "git_remote",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:241:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:241:27"
           },
           {
             "name": "void",
@@ -67,7 +67,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

@@ -1,4 +1,4 @@
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 import "./oid.nim"
 import "./types.nim"
 
@@ -25,16 +25,6 @@ type
 
 
 
-proc git_attr_get_many_ext*(values_out: cstring, repo: `ptr` git_repository, opts: `ptr` git_attr_options, path: cstring, num_attr: csize_t, names: cstring): cint {.git2Proc, importc.}
-
-proc git_attr_foreach*(repo: `ptr` git_repository, flags: uint32, path: cstring, callback: git_attr_foreach_cb, payload: pointer): cint {.git2Proc, importc.}
-
-proc git_attr_foreach_ext*(repo: `ptr` git_repository, opts: `ptr` git_attr_options, path: cstring, callback: git_attr_foreach_cb, payload: pointer): cint {.git2Proc, importc.}
-
-proc git_attr_cache_flush*(repo: `ptr` git_repository): cint {.git2Proc, importc.}
-
-proc git_attr_add_macro*(repo: `ptr` git_repository, name: cstring, values: cstring): cint {.git2Proc, importc.}
-
 converter toCInt*(arg: c_git_attr_value_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set[git_attr_value_t]): cint =
@@ -53,10 +43,20 @@ func `+`*(arg: c_git_attr_value_t, offset: int): cint = cast[c_git_attr_value_t]
 
 func `+`*(offset: int, arg: c_git_attr_value_t): cint = cast[c_git_attr_value_t](ord(arg) + offset)
 
-proc git_attr_value*(attr: cstring): git_attr_value_t {.git2Proc, importc.}
+proc git_attr_value*(attr: cstring): git_attr_value_t {.git2Proc, importc: "git_attr_value".}
 
-proc git_attr_get*(value_out: cstring, repo: `ptr` git_repository, flags: uint32, path: cstring, name: cstring): cint {.git2Proc, importc.}
+proc git_attr_get*(value_out: cstring, repo: `ptr` git_repository, flags: uint32, path: cstring, name: cstring): cint {.git2Proc, importc: "git_attr_get".}
 
-proc git_attr_get_ext*(value_out: cstring, repo: `ptr` git_repository, opts: `ptr` git_attr_options, path: cstring, name: cstring): cint {.git2Proc, importc.}
+proc git_attr_get_ext*(value_out: cstring, repo: `ptr` git_repository, opts: `ptr` git_attr_options, path: cstring, name: cstring): cint {.git2Proc, importc: "git_attr_get_ext".}
 
-proc git_attr_get_many*(values_out: cstring, repo: `ptr` git_repository, flags: uint32, path: cstring, num_attr: csize_t, names: cstring): cint {.git2Proc, importc.}
+proc git_attr_get_many*(values_out: cstring, repo: `ptr` git_repository, flags: uint32, path: cstring, num_attr: csize_t, names: cstring): cint {.git2Proc, importc: "git_attr_get_many".}
+
+proc git_attr_get_many_ext*(values_out: cstring, repo: `ptr` git_repository, opts: `ptr` git_attr_options, path: cstring, num_attr: csize_t, names: cstring): cint {.git2Proc, importc: "git_attr_get_many_ext".}
+
+proc git_attr_foreach*(repo: `ptr` git_repository, flags: uint32, path: cstring, callback: git_attr_foreach_cb, payload: pointer): cint {.git2Proc, importc: "git_attr_foreach".}
+
+proc git_attr_foreach_ext*(repo: `ptr` git_repository, opts: `ptr` git_attr_options, path: cstring, callback: git_attr_foreach_cb, payload: pointer): cint {.git2Proc, importc: "git_attr_foreach_ext".}
+
+proc git_attr_cache_flush*(repo: `ptr` git_repository): cint {.git2Proc, importc: "git_attr_cache_flush".}
+
+proc git_attr_add_macro*(repo: `ptr` git_repository, name: cstring, values: cstring): cint {.git2Proc, importc: "git_attr_add_macro".}

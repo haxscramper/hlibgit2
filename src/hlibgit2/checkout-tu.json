@@ -1,7 +1,7 @@
 {
   "Defines": [
     {
-      "name": "git_checkout_progress_cb",
+      "name": "git_checkout_perfdata",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -14,7 +14,7 @@
       "func": null
     },
     {
-      "name": "git_checkout_perfdata_cb",
+      "name": "git_checkout_options",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -53,33 +53,33 @@
       "func": null
     },
     {
-      "name": "git_checkout_options",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_checkout_perfdata",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
       "name": "git_checkout_notify_cb",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_checkout_progress_cb",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_checkout_perfdata_cb",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

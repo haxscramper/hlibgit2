@@ -1,6 +1,19 @@
 {
   "Defines": [
     {
+      "name": "git_config_backend",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
       "name": "git_config_entry",
       "Parameters": [],
       "Spaces": [],
@@ -14,7 +27,7 @@
       "func": null
     },
     {
-      "name": "git_config_level_t",
+      "name": "git_config_iterator",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -28,6 +41,19 @@
     },
     {
       "name": "git_configmap",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_config_level_t",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

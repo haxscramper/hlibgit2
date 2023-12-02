@@ -1,26 +1,10 @@
-import "./checkout.nim"
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 import "./oid.nim"
 import "./strarray.nim"
 import "./types.nim"
+import "./checkout.nim"
 
 type
-  git_stash_save_options* {.importc, bycopy.} = object
-    version *: cuint
-    flags   *: uint32
-    stasher *: `ptr` git_signature
-    message *: cstring
-    paths   *: git_strarray
-
-  git_stash_apply_options* {.importc, bycopy.} = object
-    version          *: cuint
-    flags            *: uint32
-    checkout_options *: git_checkout_options
-    progress_cb      *: git_stash_apply_progress_cb
-    progress_payload *: pointer
-
-  git_stash_apply_progress_cb* = proc (a0: git_stash_apply_progress_t, a1: pointer): cint
-
   c_git_stash_flags* {.size: sizeof(cint).} = enum
     c_GIT_STASH_DEFAULT           = 0
     c_GIT_STASH_KEEP_INDEX        = 1
@@ -63,7 +47,23 @@ type
     GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED
     GIT_STASH_APPLY_PROGRESS_DONE
 
+  git_stash_apply_progress_cb* = proc (a0: git_stash_apply_progress_t, a1: pointer): cint
+
   git_stash_cb* = proc (a0: csize_t, a1: cstring, a2: `ptr` git_oid, a3: pointer): cint
+
+  git_stash_save_options* {.importc, bycopy.} = object
+    version *: cuint
+    flags   *: uint32
+    stasher *: `ptr` git_signature
+    message *: cstring
+    paths   *: git_strarray
+
+  git_stash_apply_options* {.importc, bycopy.} = object
+    version          *: cuint
+    flags            *: uint32
+    checkout_options *: git_checkout_options
+    progress_cb      *: git_stash_apply_progress_cb
+    progress_payload *: pointer
 
 
 
@@ -124,18 +124,18 @@ func `+`*(arg: c_git_stash_apply_progress_t, offset: int): cint = cast[c_git_sta
 
 func `+`*(offset: int, arg: c_git_stash_apply_progress_t): cint = cast[c_git_stash_apply_progress_t](ord(arg) + offset)
 
-proc git_stash_save*(`out`: `ptr` git_oid, repo: `ptr` git_repository, stasher: `ptr` git_signature, message: cstring, flags: uint32): cint {.git2Proc, importc.}
+proc git_stash_save*(`out`: `ptr` git_oid, repo: `ptr` git_repository, stasher: `ptr` git_signature, message: cstring, flags: uint32): cint {.git2Proc, importc: "git_stash_save".}
 
-proc git_stash_save_options_init*(opts: `ptr` git_stash_save_options, version: cuint): cint {.git2Proc, importc.}
+proc git_stash_save_options_init*(opts: `ptr` git_stash_save_options, version: cuint): cint {.git2Proc, importc: "git_stash_save_options_init".}
 
-proc git_stash_save_with_opts*(`out`: `ptr` git_oid, repo: `ptr` git_repository, opts: `ptr` git_stash_save_options): cint {.git2Proc, importc.}
+proc git_stash_save_with_opts*(`out`: `ptr` git_oid, repo: `ptr` git_repository, opts: `ptr` git_stash_save_options): cint {.git2Proc, importc: "git_stash_save_with_opts".}
 
-proc git_stash_apply_options_init*(opts: `ptr` git_stash_apply_options, version: cuint): cint {.git2Proc, importc.}
+proc git_stash_apply_options_init*(opts: `ptr` git_stash_apply_options, version: cuint): cint {.git2Proc, importc: "git_stash_apply_options_init".}
 
-proc git_stash_apply*(repo: `ptr` git_repository, index: csize_t, options: `ptr` git_stash_apply_options): cint {.git2Proc, importc.}
+proc git_stash_apply*(repo: `ptr` git_repository, index: csize_t, options: `ptr` git_stash_apply_options): cint {.git2Proc, importc: "git_stash_apply".}
 
-proc git_stash_foreach*(repo: `ptr` git_repository, callback: git_stash_cb, payload: pointer): cint {.git2Proc, importc.}
+proc git_stash_foreach*(repo: `ptr` git_repository, callback: git_stash_cb, payload: pointer): cint {.git2Proc, importc: "git_stash_foreach".}
 
-proc git_stash_drop*(repo: `ptr` git_repository, index: csize_t): cint {.git2Proc, importc.}
+proc git_stash_drop*(repo: `ptr` git_repository, index: csize_t): cint {.git2Proc, importc: "git_stash_drop".}
 
-proc git_stash_pop*(repo: `ptr` git_repository, index: csize_t, options: `ptr` git_stash_apply_options): cint {.git2Proc, importc.}
+proc git_stash_pop*(repo: `ptr` git_repository, index: csize_t, options: `ptr` git_stash_apply_options): cint {.git2Proc, importc: "git_stash_pop".}

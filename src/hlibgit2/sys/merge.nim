@@ -1,8 +1,8 @@
-import "../buffer.nim"
+import "../libgit2_config.nim" ## From gen file
 import "../index.nim"
-import "../libgit2_config.nim"
-import "../merge.nim"
+import "../buffer.nim"
 import "../types.nim"
+import "../merge.nim"
 
 type
   git_merge_driver* {.importc, bycopy, incompleteStruct.} = object
@@ -22,18 +22,18 @@ type
 
 
 
-proc git_merge_driver_lookup*(name: cstring): `ptr` git_merge_driver {.git2Proc, importc.}
+proc git_merge_driver_lookup*(name: cstring): `ptr` git_merge_driver {.git2Proc, importc: "git_merge_driver_lookup".}
 
-proc git_merge_driver_source_repo*(src: `ptr` git_merge_driver_source): `ptr` git_repository {.git2Proc, importc.}
+proc git_merge_driver_source_repo*(src: `ptr` git_merge_driver_source): `ptr` git_repository {.git2Proc, importc: "git_merge_driver_source_repo".}
 
-proc git_merge_driver_source_ancestor*(src: `ptr` git_merge_driver_source): `ptr` git_index_entry {.git2Proc, importc.}
+proc git_merge_driver_source_ancestor*(src: `ptr` git_merge_driver_source): `ptr` git_index_entry {.git2Proc, importc: "git_merge_driver_source_ancestor".}
 
-proc git_merge_driver_source_ours*(src: `ptr` git_merge_driver_source): `ptr` git_index_entry {.git2Proc, importc.}
+proc git_merge_driver_source_ours*(src: `ptr` git_merge_driver_source): `ptr` git_index_entry {.git2Proc, importc: "git_merge_driver_source_ours".}
 
-proc git_merge_driver_source_theirs*(src: `ptr` git_merge_driver_source): `ptr` git_index_entry {.git2Proc, importc.}
+proc git_merge_driver_source_theirs*(src: `ptr` git_merge_driver_source): `ptr` git_index_entry {.git2Proc, importc: "git_merge_driver_source_theirs".}
 
-proc git_merge_driver_source_file_options*(src: `ptr` git_merge_driver_source): `ptr` git_merge_file_options {.git2Proc, importc.}
+proc git_merge_driver_source_file_options*(src: `ptr` git_merge_driver_source): `ptr` git_merge_file_options {.git2Proc, importc: "git_merge_driver_source_file_options".}
 
-proc git_merge_driver_register*(name: cstring, driver: `ptr` git_merge_driver): cint {.git2Proc, importc.}
+proc git_merge_driver_register*(name: cstring, driver: `ptr` git_merge_driver): cint {.git2Proc, importc: "git_merge_driver_register".}
 
-proc git_merge_driver_unregister*(name: cstring): cint {.git2Proc, importc.}
+proc git_merge_driver_unregister*(name: cstring): cint {.git2Proc, importc: "git_merge_driver_unregister".}

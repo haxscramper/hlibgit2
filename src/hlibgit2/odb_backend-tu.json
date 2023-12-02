@@ -1,6 +1,45 @@
 {
   "Defines": [
     {
+      "name": "git_odb_backend",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_odb_backend_pack_options",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_odb_backend_loose_options",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
       "name": "git_odb_stream",
       "Parameters": [],
       "Spaces": [],
@@ -41,32 +80,6 @@
     },
     {
       "name": "git_odb_stream_t",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_odb_backend_pack_options",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_odb_backend_loose_options",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

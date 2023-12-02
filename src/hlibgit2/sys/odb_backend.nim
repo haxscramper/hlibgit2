@@ -1,8 +1,8 @@
-import "../indexer.nim"
-import "../libgit2_config.nim"
+import "../libgit2_config.nim" ## From gen file
 import "../odb.nim"
-import "../odb_backend.nim"
+import "../indexer.nim"
 import "../oid.nim"
+import "../odb_backend.nim"
 import "../types.nim"
 
 type

@@ -12,7 +12,7 @@
           "type": {
             "name": "git_midx_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:100:32"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:100:32"
           },
           "name": "out"
         },
@@ -39,7 +39,7 @@
           "type": {
             "name": "git_midx_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:100:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:100:32"
           },
           "name": "w"
         }
@@ -57,7 +57,7 @@
           "type": {
             "name": "git_midx_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:100:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:100:32"
           },
           "name": "w"
         },
@@ -85,7 +85,7 @@
           "type": {
             "name": "git_midx_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:100:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:100:32"
           },
           "name": "w"
         }
@@ -103,7 +103,7 @@
           "type": {
             "name": "git_buf",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           "name": "midx"
         },
@@ -111,7 +111,7 @@
           "type": {
             "name": "git_midx_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:100:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:100:32"
           },
           "name": "w"
         }

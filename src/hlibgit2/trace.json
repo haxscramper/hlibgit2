@@ -32,7 +32,7 @@
       ],
       "name": {
         "name": "git_trace_level_t",
-        "dbgOrigin": "enum typedef typedef:git_trace_level_tname:/mnt/workspace/repos/libgit2/include/git2/trace.h:26:9"
+        "dbgOrigin": "enum typedef typedef:git_trace_level_tname:libgit2/include/git2/trace.h:26:9"
       }
     }
   ],
@@ -48,14 +48,14 @@
         {
           "type": {
             "name": "git_trace_level_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/trace.h:47:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/trace.h:47:3"
           },
           "name": "level"
         },
         {
           "type": {
             "name": "git_trace_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/trace.h:52:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/trace.h:52:27>"
+            "dbgOrigin": " typedef type libgit2/include/git2/trace.h:52:14"
           },
           "name": "cb"
         }
@@ -66,7 +66,7 @@
     {
       "name": {
         "name": "git_trace_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/trace.h:52:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/trace.h:52:27>"
+        "dbgOrigin": "libgit2/include/git2/trace.h:52:14"
       },
       "baseType": {
         "parameters": [
@@ -76,7 +76,7 @@
           },
           {
             "name": "git_trace_level_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/trace.h:47:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/trace.h:47:3"
           },
           {
             "name": "char",
@@ -88,7 +88,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

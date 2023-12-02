@@ -1,4 +1,4 @@
-import "../libgit2_config.nim"
+import "../libgit2_config.nim" ## From gen file
 
 type
   c_git_path_gitfile* {.size: sizeof(cint).} = enum
@@ -57,4 +57,4 @@ func `+`*(arg: c_git_path_fs, offset: int): cint = cast[c_git_path_fs](ord(arg) 
 
 func `+`*(offset: int, arg: c_git_path_fs): cint = cast[c_git_path_fs](ord(arg) + offset)
 
-proc git_path_is_gitfile*(path: cstring, pathlen: csize_t, gitfile: git_path_gitfile, fs: git_path_fs): cint {.git2Proc, importc.}
+proc git_path_is_gitfile*(path: cstring, pathlen: csize_t, gitfile: git_path_gitfile, fs: git_path_fs): cint {.git2Proc, importc: "git_path_is_gitfile".}

@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_strarray",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/strarray.h:25:3 typedef type libgit2/include/git2/strarray.h:25:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -19,7 +19,7 @@
           "name": "count",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           }
         }
       ],
@@ -41,7 +41,7 @@
           "type": {
             "name": "git_strarray",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/strarray.h:25:3"
           },
           "name": "array"
         }

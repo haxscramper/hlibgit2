@@ -12,7 +12,7 @@
           "type": {
             "name": "git_transaction",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:195:32"
           },
           "name": "out"
         },
@@ -20,7 +20,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         }
@@ -38,7 +38,7 @@
           "type": {
             "name": "git_transaction",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:195:32"
           },
           "name": "tx"
         },
@@ -66,7 +66,7 @@
           "type": {
             "name": "git_transaction",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:195:32"
           },
           "name": "tx"
         },
@@ -84,7 +84,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "target"
         },
@@ -92,7 +92,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "sig"
         },
@@ -120,7 +120,7 @@
           "type": {
             "name": "git_transaction",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:195:32"
           },
           "name": "tx"
         },
@@ -148,7 +148,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "sig"
         },
@@ -176,7 +176,7 @@
           "type": {
             "name": "git_transaction",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:195:32"
           },
           "name": "tx"
         },
@@ -194,7 +194,7 @@
           "type": {
             "name": "git_reflog",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:166:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:166:27"
           },
           "name": "reflog"
         }
@@ -212,7 +212,7 @@
           "type": {
             "name": "git_transaction",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:195:32"
           },
           "name": "tx"
         },
@@ -240,7 +240,7 @@
           "type": {
             "name": "git_transaction",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:195:32"
           },
           "name": "tx"
         }
@@ -257,7 +257,7 @@
           "type": {
             "name": "git_transaction",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:195:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:195:32"
           },
           "name": "tx"
         }

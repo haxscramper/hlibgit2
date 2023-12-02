@@ -1,7 +1,7 @@
 {
   "Defines": [
     {
-      "name": "git_transport_cb",
+      "name": "git_transport_message_cb",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -14,7 +14,7 @@
       "func": null
     },
     {
-      "name": "git_transport_message_cb",
+      "name": "git_transport_cb",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

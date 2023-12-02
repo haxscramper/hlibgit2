@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_revert_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revert.h:34:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/revert.h:34:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -27,7 +27,7 @@
           "name": "merge_opts",
           "type": {
             "name": "git_merge_options",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:313:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/merge.h:313:3"
           },
           "doc": "/**< Options for the merging */"
         },
@@ -35,7 +35,7 @@
           "name": "checkout_opts",
           "type": {
             "name": "git_checkout_options",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:345:3"
           },
           "doc": "/**< Options for the checkout */"
         }
@@ -55,7 +55,7 @@
           "type": {
             "name": "git_revert_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revert.h:34:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/revert.h:34:3"
           },
           "name": "opts"
         },
@@ -81,7 +81,7 @@
           "type": {
             "name": "git_index",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:148:26"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:148:26"
           },
           "name": "out"
         },
@@ -89,7 +89,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -97,7 +97,7 @@
           "type": {
             "name": "git_commit",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
           },
           "name": "revert_commit"
         },
@@ -105,7 +105,7 @@
           "type": {
             "name": "git_commit",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
           },
           "name": "our_commit"
         },
@@ -121,7 +121,7 @@
           "type": {
             "name": "git_merge_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/merge.h:313:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/merge.h:313:3"
           },
           "name": "merge_options"
         }
@@ -139,7 +139,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -147,7 +147,7 @@
           "type": {
             "name": "git_commit",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:136:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
           },
           "name": "commit"
         },
@@ -155,7 +155,7 @@
           "type": {
             "name": "git_revert_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/revert.h:34:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/revert.h:34:3"
           },
           "name": "given_opts"
         }

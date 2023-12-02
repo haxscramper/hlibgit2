@@ -1,5 +1,5 @@
+import "../libgit2_config.nim" ## From gen file
 import "../credential.nim"
-import "../libgit2_config.nim"
 
 type
   git_credential* {.importc, bycopy, incompleteStruct.} = object

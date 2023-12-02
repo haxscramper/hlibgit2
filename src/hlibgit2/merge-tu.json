@@ -1,7 +1,33 @@
 {
   "Defines": [
     {
-      "name": "git_merge_options",
+      "name": "git_merge_file_flag_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_merge_analysis_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_merge_preference_t",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -40,7 +66,7 @@
       "func": null
     },
     {
-      "name": "git_merge_file_favor_t",
+      "name": "git_merge_file_result",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -53,7 +79,7 @@
       "func": null
     },
     {
-      "name": "git_merge_file_result",
+      "name": "git_merge_options",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -79,33 +105,7 @@
       "func": null
     },
     {
-      "name": "git_merge_file_flag_t",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_merge_analysis_t",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_merge_preference_t",
+      "name": "git_merge_file_favor_t",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

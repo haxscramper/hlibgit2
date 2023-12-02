@@ -16,7 +16,7 @@
       ],
       "name": {
         "name": "git_path_gitfile",
-        "dbgOrigin": "enum typedef typedef:git_path_gitfilename:/mnt/workspace/repos/libgit2/include/git2/sys/path.h:21:9"
+        "dbgOrigin": "enum typedef typedef:git_path_gitfilename:include/git2/sys/path.h:21:9"
       }
     },
     {
@@ -35,7 +35,7 @@
       ],
       "name": {
         "name": "git_path_fs",
-        "dbgOrigin": "enum typedef typedef:git_path_fsname:/mnt/workspace/repos/libgit2/include/git2/sys/path.h:34:9"
+        "dbgOrigin": "enum typedef typedef:git_path_fsname:include/git2/sys/path.h:34:9"
       }
     }
   ],
@@ -61,21 +61,21 @@
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "pathlen"
         },
         {
           "type": {
             "name": "git_path_gitfile",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/path.h:28:3"
+            "dbgOrigin": " typedef type include/git2/sys/path.h:28:3"
           },
           "name": "gitfile"
         },
         {
           "type": {
             "name": "git_path_fs",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/path.h:41:3"
+            "dbgOrigin": " typedef type include/git2/sys/path.h:41:3"
           },
           "name": "fs"
         }

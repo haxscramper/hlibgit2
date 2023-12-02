@@ -13,7 +13,7 @@
       ],
       "name": {
         "name": "git_remote_capability_t",
-        "dbgOrigin": "enum typedef typedef:git_remote_capability_tname:/mnt/workspace/repos/libgit2/include/git2/sys/remote.h:23:9"
+        "dbgOrigin": "enum typedef typedef:git_remote_capability_tname:include/git2/sys/remote.h:23:9"
       }
     }
   ],
@@ -29,7 +29,7 @@
           "type": {
             "name": "git_remote_connect_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/remote.h:877:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/remote.h:877:3"
           },
           "name": "opts"
         }

@@ -1,30 +1,14 @@
-import "../cert.nim"
-import "../indexer.nim"
-import "../libgit2_config.nim"
-import "../net.nim"
-import "../oid.nim"
-import "../oidarray.nim"
+import "../libgit2_config.nim" ## From gen file
 import "../remote.nim"
-import "../transport.nim"
+import "../indexer.nim"
+import "../oid.nim"
+import "../net.nim"
+import "../cert.nim"
 import "../types.nim"
+import "../oidarray.nim"
 import "./credential.nim"
 
 type
-  git_transport* {.importc, bycopy, incompleteStruct.} = object
-    version          *: cuint
-    connect          *: proc (a0: `ptr` git_transport, a1: cstring, a2: cint, a3: `ptr` git_remote_connect_options): cint
-    set_connect_opts *: proc (a0: `ptr` git_transport, a1: `ptr` git_remote_connect_options): cint
-    capabilities     *: proc (a0: `ptr` cuint, a1: `ptr` git_transport): cint
-    ls               *: proc (a0: `ptr` git_remote_head, a1: `ptr` csize_t, a2: `ptr` git_transport): cint
-    push             *: proc (a0: `ptr` git_transport, a1: `ptr` git_push): cint
-    negotiate_fetch  *: proc (a0: `ptr` git_transport, a1: `ptr` git_repository, a2: `ptr` git_fetch_negotiation): cint
-    shallow_roots    *: proc (a0: `ptr` git_oidarray, a1: `ptr` git_transport): cint
-    download_pack    *: proc (a0: `ptr` git_transport, a1: `ptr` git_repository, a2: `ptr` git_indexer_progress): cint
-    is_connected     *: proc (a0: `ptr` git_transport): cint
-    cancel           *: proc (a0: `ptr` git_transport): void
-    close            *: proc (a0: `ptr` git_transport): cint
-    free             *: proc (a0: `ptr` git_transport): void
-
   git_fetch_negotiation* {.importc, bycopy.} = object
     refs              *: `ptr` git_remote_head
     refs_len          *: csize_t
@@ -43,6 +27,11 @@ type
     write        *: proc (a0: `ptr` git_smart_subtransport_stream, a1: cstring, a2: csize_t): cint
     free         *: proc (a0: `ptr` git_smart_subtransport_stream): void
 
+  git_smart_subtransport_definition* {.importc, bycopy.} = object
+    callback *: git_smart_subtransport_cb
+    rpc      *: cuint
+    param    *: pointer
+
   c_git_smart_service_t* {.size: sizeof(cint).} = enum
     c_GIT_SERVICE_UPLOADPACK_LS  = 1 shl 0
     c_GIT_SERVICE_UPLOADPACK     = 1 shl 1
@@ -55,12 +44,22 @@ type
     GIT_SERVICE_RECEIVEPACK_LS
     GIT_SERVICE_RECEIVEPACK
 
-  git_smart_subtransport_definition* {.importc, bycopy.} = object
-    callback *: git_smart_subtransport_cb
-    rpc      *: cuint
-    param    *: pointer
-
   git_smart_subtransport_cb* = proc (a0: `ptr` git_smart_subtransport, a1: `ptr` git_transport, a2: pointer): cint
+
+  git_transport* {.importc, bycopy, incompleteStruct.} = object
+    version          *: cuint
+    connect          *: proc (a0: `ptr` git_transport, a1: cstring, a2: cint, a3: `ptr` git_remote_connect_options): cint
+    set_connect_opts *: proc (a0: `ptr` git_transport, a1: `ptr` git_remote_connect_options): cint
+    capabilities     *: proc (a0: `ptr` cuint, a1: `ptr` git_transport): cint
+    ls               *: proc (a0: `ptr` git_remote_head, a1: `ptr` csize_t, a2: `ptr` git_transport): cint
+    push             *: proc (a0: `ptr` git_transport, a1: `ptr` git_push): cint
+    negotiate_fetch  *: proc (a0: `ptr` git_transport, a1: `ptr` git_repository, a2: `ptr` git_fetch_negotiation): cint
+    shallow_roots    *: proc (a0: `ptr` git_oidarray, a1: `ptr` git_transport): cint
+    download_pack    *: proc (a0: `ptr` git_transport, a1: `ptr` git_repository, a2: `ptr` git_indexer_progress): cint
+    is_connected     *: proc (a0: `ptr` git_transport): cint
+    cancel           *: proc (a0: `ptr` git_transport): void
+    close            *: proc (a0: `ptr` git_transport): cint
+    free             *: proc (a0: `ptr` git_transport): void
 
 
 

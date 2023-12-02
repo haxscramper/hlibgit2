@@ -1,6 +1,19 @@
 {
   "Defines": [
     {
+      "name": "git_filter_options",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
       "name": "git_filter_list",
       "Parameters": [],
       "Spaces": [],
@@ -28,19 +41,6 @@
     },
     {
       "name": "git_filter_flag_t",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_filter_options",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

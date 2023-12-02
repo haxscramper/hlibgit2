@@ -1,4 +1,4 @@
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 
 type
   c_git_feature_t* {.size: sizeof(cint).} = enum
@@ -180,10 +180,10 @@ func `+`*(arg: c_git_libgit2_opt_t, offset: int): cint = cast[c_git_libgit2_opt_
 
 func `+`*(offset: int, arg: c_git_libgit2_opt_t): cint = cast[c_git_libgit2_opt_t](ord(arg) + offset)
 
-proc git_libgit2_version*(major: `ptr` cint, minor: `ptr` cint, rev: `ptr` cint): cint {.git2Proc, importc.}
+proc git_libgit2_version*(major: `ptr` cint, minor: `ptr` cint, rev: `ptr` cint): cint {.git2Proc, importc: "git_libgit2_version".}
 
-proc git_libgit2_prerelease*(): cstring {.git2Proc, importc.}
+proc git_libgit2_prerelease*(): cstring {.git2Proc, importc: "git_libgit2_prerelease".}
 
-proc git_libgit2_features*(): cint {.git2Proc, importc.}
+proc git_libgit2_features*(): cint {.git2Proc, importc: "git_libgit2_features".}
 
-proc git_libgit2_opts*(option: cint): cint {.git2Proc, importc.}
+proc git_libgit2_opts*(option: cint): cint {.git2Proc, importc: "git_libgit2_opts".}

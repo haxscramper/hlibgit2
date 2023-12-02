@@ -1,7 +1,7 @@
-import "./buffer.nim"
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 import "./oid.nim"
 import "./strarray.nim"
+import "./buffer.nim"
 import "./types.nim"
 
 type
@@ -16,31 +16,13 @@ type
     mode      *: uint16
     id_abbrev *: uint16
 
-  c_git_delta_t* {.size: sizeof(cint).} = enum
-    c_GIT_DELTA_UNMODIFIED = 0
-    c_GIT_DELTA_ADDED      = 1
-    c_GIT_DELTA_DELETED    = 2
-    c_GIT_DELTA_MODIFIED   = 3
-    c_GIT_DELTA_RENAMED    = 4
-    c_GIT_DELTA_COPIED     = 5
-    c_GIT_DELTA_IGNORED    = 6
-    c_GIT_DELTA_UNTRACKED  = 7
-    c_GIT_DELTA_TYPECHANGE = 8
-    c_GIT_DELTA_UNREADABLE = 9
-    c_GIT_DELTA_CONFLICTED = 10
-
-  git_delta_t* = enum
-    GIT_DELTA_UNMODIFIED
-    GIT_DELTA_ADDED
-    GIT_DELTA_DELETED
-    GIT_DELTA_MODIFIED
-    GIT_DELTA_RENAMED
-    GIT_DELTA_COPIED
-    GIT_DELTA_IGNORED
-    GIT_DELTA_UNTRACKED
-    GIT_DELTA_TYPECHANGE
-    GIT_DELTA_UNREADABLE
-    GIT_DELTA_CONFLICTED
+  git_diff_delta* {.importc, bycopy.} = object
+    status     *: git_delta_t
+    flags      *: uint32
+    similarity *: uint16
+    nfiles     *: uint16
+    old_file   *: git_diff_file
+    new_file   *: git_diff_file
 
   git_diff_options* {.importc, bycopy.} = object
     version           *: cuint
@@ -58,30 +40,24 @@ type
     old_prefix        *: cstring
     new_prefix        *: cstring
 
-  git_diff_notify_cb* = proc (a0: `ptr` git_diff, a1: `ptr` git_diff_delta, a2: cstring, a3: pointer): cint
-
-  git_diff_progress_cb* = proc (a0: `ptr` git_diff, a1: cstring, a2: cstring, a3: pointer): cint
-
   git_diff_binary_file* {.importc, bycopy.} = object
     `type`      *: git_diff_binary_t
     data        *: cstring
     datalen     *: csize_t
     inflatedlen *: csize_t
 
-  c_git_diff_binary_t* {.size: sizeof(cint).} = enum
-    c_GIT_DIFF_BINARY_NONE    = 0
-    c_GIT_DIFF_BINARY_LITERAL = 1
-    c_GIT_DIFF_BINARY_DELTA   = 2
-
-  git_diff_binary_t* = enum
-    GIT_DIFF_BINARY_NONE
-    GIT_DIFF_BINARY_LITERAL
-    GIT_DIFF_BINARY_DELTA
-
   git_diff_binary* {.importc, bycopy.} = object
     contains_data *: cuint
     old_file      *: git_diff_binary_file
     new_file      *: git_diff_binary_file
+
+  git_diff_hunk* {.importc, bycopy.} = object
+    old_start  *: cint
+    old_lines  *: cint
+    new_start  *: cint
+    new_lines  *: cint
+    header_len *: csize_t
+    header     *: array[128, char]
 
   git_diff_line* {.importc, bycopy.} = object
     origin         *: char
@@ -199,6 +175,42 @@ type
     GIT_DIFF_FLAG_EXISTS
     GIT_DIFF_FLAG_VALID_SIZE
 
+  c_git_delta_t* {.size: sizeof(cint).} = enum
+    c_GIT_DELTA_UNMODIFIED = 0
+    c_GIT_DELTA_ADDED      = 1
+    c_GIT_DELTA_DELETED    = 2
+    c_GIT_DELTA_MODIFIED   = 3
+    c_GIT_DELTA_RENAMED    = 4
+    c_GIT_DELTA_COPIED     = 5
+    c_GIT_DELTA_IGNORED    = 6
+    c_GIT_DELTA_UNTRACKED  = 7
+    c_GIT_DELTA_TYPECHANGE = 8
+    c_GIT_DELTA_UNREADABLE = 9
+    c_GIT_DELTA_CONFLICTED = 10
+
+  git_delta_t* = enum
+    GIT_DELTA_UNMODIFIED
+    GIT_DELTA_ADDED
+    GIT_DELTA_DELETED
+    GIT_DELTA_MODIFIED
+    GIT_DELTA_RENAMED
+    GIT_DELTA_COPIED
+    GIT_DELTA_IGNORED
+    GIT_DELTA_UNTRACKED
+    GIT_DELTA_TYPECHANGE
+    GIT_DELTA_UNREADABLE
+    GIT_DELTA_CONFLICTED
+
+  c_git_diff_binary_t* {.size: sizeof(cint).} = enum
+    c_GIT_DIFF_BINARY_NONE    = 0
+    c_GIT_DIFF_BINARY_LITERAL = 1
+    c_GIT_DIFF_BINARY_DELTA   = 2
+
+  git_diff_binary_t* = enum
+    GIT_DIFF_BINARY_NONE
+    GIT_DIFF_BINARY_LITERAL
+    GIT_DIFF_BINARY_DELTA
+
   c_git_diff_line_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_LINE_CONTEXT       = 1 shl 5
     c_GIT_DIFF_LINE_ADDITION      = 43
@@ -272,22 +284,6 @@ type
     GIT_DIFF_FORMAT_NAME_STATUS
     GIT_DIFF_FORMAT_PATCH_ID
 
-  git_diff_delta* {.importc, bycopy.} = object
-    status     *: git_delta_t
-    flags      *: uint32
-    similarity *: uint16
-    nfiles     *: uint16
-    old_file   *: git_diff_file
-    new_file   *: git_diff_file
-
-  git_diff_hunk* {.importc, bycopy.} = object
-    old_start  *: cint
-    old_lines  *: cint
-    new_start  *: cint
-    new_lines  *: cint
-    header_len *: csize_t
-    header     *: array[128, char]
-
   c_git_diff_stats_format_t* {.size: sizeof(cint).} = enum
     c_GIT_DIFF_STATS_NONE            = 0
     c_GIT_DIFF_STATS_FULL            = 1
@@ -302,6 +298,10 @@ type
     GIT_DIFF_STATS_NUMBER
     GIT_DIFF_STATS_INCLUDE_SUMMARY
 
+  git_diff_notify_cb* = proc (a0: `ptr` git_diff, a1: `ptr` git_diff_delta, a2: cstring, a3: pointer): cint
+
+  git_diff_progress_cb* = proc (a0: `ptr` git_diff, a1: cstring, a2: cstring, a3: pointer): cint
+
   git_diff_file_cb* = proc (a0: `ptr` git_diff_delta, a1: cfloat, a2: pointer): cint
 
   git_diff_binary_cb* = proc (a0: `ptr` git_diff_delta, a1: `ptr` git_diff_binary, a2: pointer): cint
@@ -311,48 +311,6 @@ type
   git_diff_line_cb* = proc (a0: `ptr` git_diff_delta, a1: `ptr` git_diff_hunk, a2: `ptr` git_diff_line, a3: pointer): cint
 
 
-
-converter toCInt*(arg: c_git_delta_t): cint = cint(ord(arg))
-
-converter toCInt*(args: set[git_delta_t]): cint =
-  for value in items(args):
-    case value:
-      of GIT_DELTA_UNMODIFIED: result = cint(result or 0)
-      of GIT_DELTA_ADDED     : result = cint(result or 1)
-      of GIT_DELTA_DELETED   : result = cint(result or 2)
-      of GIT_DELTA_MODIFIED  : result = cint(result or 3)
-      of GIT_DELTA_RENAMED   : result = cint(result or 4)
-      of GIT_DELTA_COPIED    : result = cint(result or 5)
-      of GIT_DELTA_IGNORED   : result = cint(result or 6)
-      of GIT_DELTA_UNTRACKED : result = cint(result or 7)
-      of GIT_DELTA_TYPECHANGE: result = cint(result or 8)
-      of GIT_DELTA_UNREADABLE: result = cint(result or 9)
-      of GIT_DELTA_CONFLICTED: result = cint(result or 10)
-
-func `-`*(arg: c_git_delta_t, offset: int): cint = cast[c_git_delta_t](ord(arg) - offset)
-
-func `-`*(offset: int, arg: c_git_delta_t): cint = cast[c_git_delta_t](ord(arg) - offset)
-
-func `+`*(arg: c_git_delta_t, offset: int): cint = cast[c_git_delta_t](ord(arg) + offset)
-
-func `+`*(offset: int, arg: c_git_delta_t): cint = cast[c_git_delta_t](ord(arg) + offset)
-
-converter toCInt*(arg: c_git_diff_binary_t): cint = cint(ord(arg))
-
-converter toCInt*(args: set[git_diff_binary_t]): cint =
-  for value in items(args):
-    case value:
-      of GIT_DIFF_BINARY_NONE   : result = cint(result or 0)
-      of GIT_DIFF_BINARY_LITERAL: result = cint(result or 1)
-      of GIT_DIFF_BINARY_DELTA  : result = cint(result or 2)
-
-func `-`*(arg: c_git_diff_binary_t, offset: int): cint = cast[c_git_diff_binary_t](ord(arg) - offset)
-
-func `-`*(offset: int, arg: c_git_diff_binary_t): cint = cast[c_git_diff_binary_t](ord(arg) - offset)
-
-func `+`*(arg: c_git_diff_binary_t, offset: int): cint = cast[c_git_diff_binary_t](ord(arg) + offset)
-
-func `+`*(offset: int, arg: c_git_diff_binary_t): cint = cast[c_git_diff_binary_t](ord(arg) + offset)
 
 converter toCInt*(arg: c_git_diff_option_t): cint = cint(ord(arg))
 
@@ -417,6 +375,48 @@ func `-`*(offset: int, arg: c_git_diff_flag_t): cint = cast[c_git_diff_flag_t](o
 func `+`*(arg: c_git_diff_flag_t, offset: int): cint = cast[c_git_diff_flag_t](ord(arg) + offset)
 
 func `+`*(offset: int, arg: c_git_diff_flag_t): cint = cast[c_git_diff_flag_t](ord(arg) + offset)
+
+converter toCInt*(arg: c_git_delta_t): cint = cint(ord(arg))
+
+converter toCInt*(args: set[git_delta_t]): cint =
+  for value in items(args):
+    case value:
+      of GIT_DELTA_UNMODIFIED: result = cint(result or 0)
+      of GIT_DELTA_ADDED     : result = cint(result or 1)
+      of GIT_DELTA_DELETED   : result = cint(result or 2)
+      of GIT_DELTA_MODIFIED  : result = cint(result or 3)
+      of GIT_DELTA_RENAMED   : result = cint(result or 4)
+      of GIT_DELTA_COPIED    : result = cint(result or 5)
+      of GIT_DELTA_IGNORED   : result = cint(result or 6)
+      of GIT_DELTA_UNTRACKED : result = cint(result or 7)
+      of GIT_DELTA_TYPECHANGE: result = cint(result or 8)
+      of GIT_DELTA_UNREADABLE: result = cint(result or 9)
+      of GIT_DELTA_CONFLICTED: result = cint(result or 10)
+
+func `-`*(arg: c_git_delta_t, offset: int): cint = cast[c_git_delta_t](ord(arg) - offset)
+
+func `-`*(offset: int, arg: c_git_delta_t): cint = cast[c_git_delta_t](ord(arg) - offset)
+
+func `+`*(arg: c_git_delta_t, offset: int): cint = cast[c_git_delta_t](ord(arg) + offset)
+
+func `+`*(offset: int, arg: c_git_delta_t): cint = cast[c_git_delta_t](ord(arg) + offset)
+
+converter toCInt*(arg: c_git_diff_binary_t): cint = cint(ord(arg))
+
+converter toCInt*(args: set[git_diff_binary_t]): cint =
+  for value in items(args):
+    case value:
+      of GIT_DIFF_BINARY_NONE   : result = cint(result or 0)
+      of GIT_DIFF_BINARY_LITERAL: result = cint(result or 1)
+      of GIT_DIFF_BINARY_DELTA  : result = cint(result or 2)
+
+func `-`*(arg: c_git_diff_binary_t, offset: int): cint = cast[c_git_diff_binary_t](ord(arg) - offset)
+
+func `-`*(offset: int, arg: c_git_diff_binary_t): cint = cast[c_git_diff_binary_t](ord(arg) - offset)
+
+func `+`*(arg: c_git_diff_binary_t, offset: int): cint = cast[c_git_diff_binary_t](ord(arg) + offset)
+
+func `+`*(offset: int, arg: c_git_diff_binary_t): cint = cast[c_git_diff_binary_t](ord(arg) + offset)
 
 converter toCInt*(arg: c_git_diff_line_t): cint = cint(ord(arg))
 
@@ -510,64 +510,64 @@ func `+`*(arg: c_git_diff_stats_format_t, offset: int): cint = cast[c_git_diff_s
 
 func `+`*(offset: int, arg: c_git_diff_stats_format_t): cint = cast[c_git_diff_stats_format_t](ord(arg) + offset)
 
-proc git_diff_options_init*(opts: `ptr` git_diff_options, version: cuint): cint {.git2Proc, importc.}
+proc git_diff_options_init*(opts: `ptr` git_diff_options, version: cuint): cint {.git2Proc, importc: "git_diff_options_init".}
 
-proc git_diff_find_options_init*(opts: `ptr` git_diff_find_options, version: cuint): cint {.git2Proc, importc.}
+proc git_diff_find_options_init*(opts: `ptr` git_diff_find_options, version: cuint): cint {.git2Proc, importc: "git_diff_find_options_init".}
 
-proc git_diff_free*(diff: `ptr` git_diff): void {.git2Proc, importc.}
+proc git_diff_free*(diff: `ptr` git_diff): void {.git2Proc, importc: "git_diff_free".}
 
-proc git_diff_tree_to_tree*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_tree: `ptr` git_tree, new_tree: `ptr` git_tree, opts: `ptr` git_diff_options): cint {.git2Proc, importc.}
+proc git_diff_tree_to_tree*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_tree: `ptr` git_tree, new_tree: `ptr` git_tree, opts: `ptr` git_diff_options): cint {.git2Proc, importc: "git_diff_tree_to_tree".}
 
-proc git_diff_tree_to_index*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_tree: `ptr` git_tree, index: `ptr` git_index, opts: `ptr` git_diff_options): cint {.git2Proc, importc.}
+proc git_diff_tree_to_index*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_tree: `ptr` git_tree, index: `ptr` git_index, opts: `ptr` git_diff_options): cint {.git2Proc, importc: "git_diff_tree_to_index".}
 
-proc git_diff_index_to_workdir*(diff: `ptr` git_diff, repo: `ptr` git_repository, index: `ptr` git_index, opts: `ptr` git_diff_options): cint {.git2Proc, importc.}
+proc git_diff_index_to_workdir*(diff: `ptr` git_diff, repo: `ptr` git_repository, index: `ptr` git_index, opts: `ptr` git_diff_options): cint {.git2Proc, importc: "git_diff_index_to_workdir".}
 
-proc git_diff_tree_to_workdir*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_tree: `ptr` git_tree, opts: `ptr` git_diff_options): cint {.git2Proc, importc.}
+proc git_diff_tree_to_workdir*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_tree: `ptr` git_tree, opts: `ptr` git_diff_options): cint {.git2Proc, importc: "git_diff_tree_to_workdir".}
 
-proc git_diff_tree_to_workdir_with_index*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_tree: `ptr` git_tree, opts: `ptr` git_diff_options): cint {.git2Proc, importc.}
+proc git_diff_tree_to_workdir_with_index*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_tree: `ptr` git_tree, opts: `ptr` git_diff_options): cint {.git2Proc, importc: "git_diff_tree_to_workdir_with_index".}
 
-proc git_diff_index_to_index*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_index: `ptr` git_index, new_index: `ptr` git_index, opts: `ptr` git_diff_options): cint {.git2Proc, importc.}
+proc git_diff_index_to_index*(diff: `ptr` git_diff, repo: `ptr` git_repository, old_index: `ptr` git_index, new_index: `ptr` git_index, opts: `ptr` git_diff_options): cint {.git2Proc, importc: "git_diff_index_to_index".}
 
-proc git_diff_merge*(onto: `ptr` git_diff, `from`: `ptr` git_diff): cint {.git2Proc, importc.}
+proc git_diff_merge*(onto: `ptr` git_diff, `from`: `ptr` git_diff): cint {.git2Proc, importc: "git_diff_merge".}
 
-proc git_diff_find_similar*(diff: `ptr` git_diff, options: `ptr` git_diff_find_options): cint {.git2Proc, importc.}
+proc git_diff_find_similar*(diff: `ptr` git_diff, options: `ptr` git_diff_find_options): cint {.git2Proc, importc: "git_diff_find_similar".}
 
-proc git_diff_num_deltas*(diff: `ptr` git_diff): csize_t {.git2Proc, importc.}
+proc git_diff_num_deltas*(diff: `ptr` git_diff): csize_t {.git2Proc, importc: "git_diff_num_deltas".}
 
-proc git_diff_num_deltas_of_type*(diff: `ptr` git_diff, `type`: git_delta_t): csize_t {.git2Proc, importc.}
+proc git_diff_num_deltas_of_type*(diff: `ptr` git_diff, `type`: git_delta_t): csize_t {.git2Proc, importc: "git_diff_num_deltas_of_type".}
 
-proc git_diff_get_delta*(diff: `ptr` git_diff, idx: csize_t): `ptr` git_diff_delta {.git2Proc, importc.}
+proc git_diff_get_delta*(diff: `ptr` git_diff, idx: csize_t): `ptr` git_diff_delta {.git2Proc, importc: "git_diff_get_delta".}
 
-proc git_diff_is_sorted_icase*(diff: `ptr` git_diff): cint {.git2Proc, importc.}
+proc git_diff_is_sorted_icase*(diff: `ptr` git_diff): cint {.git2Proc, importc: "git_diff_is_sorted_icase".}
 
-proc git_diff_foreach*(diff: `ptr` git_diff, file_cb: git_diff_file_cb, binary_cb: git_diff_binary_cb, hunk_cb: git_diff_hunk_cb, line_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc.}
+proc git_diff_foreach*(diff: `ptr` git_diff, file_cb: git_diff_file_cb, binary_cb: git_diff_binary_cb, hunk_cb: git_diff_hunk_cb, line_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc: "git_diff_foreach".}
 
-proc git_diff_status_char*(status: git_delta_t): char {.git2Proc, importc.}
+proc git_diff_status_char*(status: git_delta_t): char {.git2Proc, importc: "git_diff_status_char".}
 
-proc git_diff_print*(diff: `ptr` git_diff, format: git_diff_format_t, print_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc.}
+proc git_diff_print*(diff: `ptr` git_diff, format: git_diff_format_t, print_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc: "git_diff_print".}
 
-proc git_diff_to_buf*(`out`: `ptr` git_buf, diff: `ptr` git_diff, format: git_diff_format_t): cint {.git2Proc, importc.}
+proc git_diff_to_buf*(`out`: `ptr` git_buf, diff: `ptr` git_diff, format: git_diff_format_t): cint {.git2Proc, importc: "git_diff_to_buf".}
 
-proc git_diff_blobs*(old_blob: `ptr` git_blob, old_as_path: cstring, new_blob: `ptr` git_blob, new_as_path: cstring, options: `ptr` git_diff_options, file_cb: git_diff_file_cb, binary_cb: git_diff_binary_cb, hunk_cb: git_diff_hunk_cb, line_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc.}
+proc git_diff_blobs*(old_blob: `ptr` git_blob, old_as_path: cstring, new_blob: `ptr` git_blob, new_as_path: cstring, options: `ptr` git_diff_options, file_cb: git_diff_file_cb, binary_cb: git_diff_binary_cb, hunk_cb: git_diff_hunk_cb, line_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc: "git_diff_blobs".}
 
-proc git_diff_blob_to_buffer*(old_blob: `ptr` git_blob, old_as_path: cstring, buffer: cstring, buffer_len: csize_t, buffer_as_path: cstring, options: `ptr` git_diff_options, file_cb: git_diff_file_cb, binary_cb: git_diff_binary_cb, hunk_cb: git_diff_hunk_cb, line_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc.}
+proc git_diff_blob_to_buffer*(old_blob: `ptr` git_blob, old_as_path: cstring, buffer: cstring, buffer_len: csize_t, buffer_as_path: cstring, options: `ptr` git_diff_options, file_cb: git_diff_file_cb, binary_cb: git_diff_binary_cb, hunk_cb: git_diff_hunk_cb, line_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc: "git_diff_blob_to_buffer".}
 
-proc git_diff_buffers*(old_buffer: pointer, old_len: csize_t, old_as_path: cstring, new_buffer: pointer, new_len: csize_t, new_as_path: cstring, options: `ptr` git_diff_options, file_cb: git_diff_file_cb, binary_cb: git_diff_binary_cb, hunk_cb: git_diff_hunk_cb, line_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc.}
+proc git_diff_buffers*(old_buffer: pointer, old_len: csize_t, old_as_path: cstring, new_buffer: pointer, new_len: csize_t, new_as_path: cstring, options: `ptr` git_diff_options, file_cb: git_diff_file_cb, binary_cb: git_diff_binary_cb, hunk_cb: git_diff_hunk_cb, line_cb: git_diff_line_cb, payload: pointer): cint {.git2Proc, importc: "git_diff_buffers".}
 
-proc git_diff_from_buffer*(`out`: `ptr` git_diff, content: cstring, content_len: csize_t): cint {.git2Proc, importc.}
+proc git_diff_from_buffer*(`out`: `ptr` git_diff, content: cstring, content_len: csize_t): cint {.git2Proc, importc: "git_diff_from_buffer".}
 
-proc git_diff_get_stats*(`out`: `ptr` git_diff_stats, diff: `ptr` git_diff): cint {.git2Proc, importc.}
+proc git_diff_get_stats*(`out`: `ptr` git_diff_stats, diff: `ptr` git_diff): cint {.git2Proc, importc: "git_diff_get_stats".}
 
-proc git_diff_stats_files_changed*(stats: `ptr` git_diff_stats): csize_t {.git2Proc, importc.}
+proc git_diff_stats_files_changed*(stats: `ptr` git_diff_stats): csize_t {.git2Proc, importc: "git_diff_stats_files_changed".}
 
-proc git_diff_stats_insertions*(stats: `ptr` git_diff_stats): csize_t {.git2Proc, importc.}
+proc git_diff_stats_insertions*(stats: `ptr` git_diff_stats): csize_t {.git2Proc, importc: "git_diff_stats_insertions".}
 
-proc git_diff_stats_deletions*(stats: `ptr` git_diff_stats): csize_t {.git2Proc, importc.}
+proc git_diff_stats_deletions*(stats: `ptr` git_diff_stats): csize_t {.git2Proc, importc: "git_diff_stats_deletions".}
 
-proc git_diff_stats_to_buf*(`out`: `ptr` git_buf, stats: `ptr` git_diff_stats, format: git_diff_stats_format_t, width: csize_t): cint {.git2Proc, importc.}
+proc git_diff_stats_to_buf*(`out`: `ptr` git_buf, stats: `ptr` git_diff_stats, format: git_diff_stats_format_t, width: csize_t): cint {.git2Proc, importc: "git_diff_stats_to_buf".}
 
-proc git_diff_stats_free*(stats: `ptr` git_diff_stats): void {.git2Proc, importc.}
+proc git_diff_stats_free*(stats: `ptr` git_diff_stats): void {.git2Proc, importc: "git_diff_stats_free".}
 
-proc git_diff_patchid_options_init*(opts: `ptr` git_diff_patchid_options, version: cuint): cint {.git2Proc, importc.}
+proc git_diff_patchid_options_init*(opts: `ptr` git_diff_patchid_options, version: cuint): cint {.git2Proc, importc: "git_diff_patchid_options_init".}
 
-proc git_diff_patchid*(`out`: `ptr` git_oid, diff: `ptr` git_diff, opts: `ptr` git_diff_patchid_options): cint {.git2Proc, importc.}
+proc git_diff_patchid*(`out`: `ptr` git_oid, diff: `ptr` git_diff, opts: `ptr` git_diff_patchid_options): cint {.git2Proc, importc: "git_diff_patchid".}

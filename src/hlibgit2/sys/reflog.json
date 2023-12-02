@@ -5,7 +5,7 @@
       "resultTy": {
         "name": "git_reflog_entry",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:163:33"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:163:33"
       }
     },
     {
@@ -19,7 +19,7 @@
           "type": {
             "name": "git_reflog_entry",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:163:33"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:163:33"
           },
           "name": "entry"
         }

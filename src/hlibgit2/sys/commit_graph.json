@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_commit_graph_writer_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/commit_graph.h:137:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type include/git2/sys/commit_graph.h:137:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -18,7 +18,7 @@
           "name": "split_strategy",
           "type": {
             "name": "git_commit_graph_split_strategy_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/commit_graph.h:108:3"
+            "dbgOrigin": " typedef type include/git2/sys/commit_graph.h:108:3"
           },
           "doc": "/**\n\t * The strategy to use when adding new commits to a pre-existing commit-graph\n\t * chain.\n\t */"
         },
@@ -35,7 +35,7 @@
           "name": "max_commits",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "doc": "/**\n\t * The number of commits in level N + 1 is more than C commits.\n\t * Default is 64000.\n\t */"
         }
@@ -51,7 +51,7 @@
       ],
       "name": {
         "name": "git_commit_graph_split_strategy_t",
-        "dbgOrigin": "enum typedef typedef:git_commit_graph_split_strategy_tname:/mnt/workspace/repos/libgit2/include/git2/sys/commit_graph.h:102:9"
+        "dbgOrigin": "enum typedef typedef:git_commit_graph_split_strategy_tname:include/git2/sys/commit_graph.h:102:9"
       }
     }
   ],
@@ -68,7 +68,7 @@
           "type": {
             "name": "git_commit_graph",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:109:33"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:109:33"
           },
           "name": "cgraph_out"
         },
@@ -95,7 +95,7 @@
           "type": {
             "name": "git_commit_graph",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:109:33"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:109:33"
           },
           "name": "cgraph"
         }
@@ -113,7 +113,7 @@
           "type": {
             "name": "git_commit_graph_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:112:40"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:112:40"
           },
           "name": "out"
         },
@@ -140,7 +140,7 @@
           "type": {
             "name": "git_commit_graph_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:112:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:112:40"
           },
           "name": "w"
         }
@@ -158,7 +158,7 @@
           "type": {
             "name": "git_commit_graph_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:112:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:112:40"
           },
           "name": "w"
         },
@@ -166,7 +166,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -194,7 +194,7 @@
           "type": {
             "name": "git_commit_graph_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:112:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:112:40"
           },
           "name": "w"
         },
@@ -202,7 +202,7 @@
           "type": {
             "name": "git_revwalk",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:127:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:127:28"
           },
           "name": "walk"
         }
@@ -220,7 +220,7 @@
           "type": {
             "name": "git_commit_graph_writer_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/commit_graph.h:137:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/commit_graph.h:137:3"
           },
           "name": "opts"
         },
@@ -246,7 +246,7 @@
           "type": {
             "name": "git_commit_graph_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:112:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:112:40"
           },
           "name": "w"
         },
@@ -254,7 +254,7 @@
           "type": {
             "name": "git_commit_graph_writer_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/commit_graph.h:137:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/commit_graph.h:137:3"
           },
           "name": "opts"
         }
@@ -272,7 +272,7 @@
           "type": {
             "name": "git_buf",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           "name": "buffer"
         },
@@ -280,7 +280,7 @@
           "type": {
             "name": "git_commit_graph_writer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:112:40"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:112:40"
           },
           "name": "w"
         },
@@ -288,7 +288,7 @@
           "type": {
             "name": "git_commit_graph_writer_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/commit_graph.h:137:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/commit_graph.h:137:3"
           },
           "name": "opts"
         }

@@ -1,4 +1,4 @@
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 
 type
   git_error* {.importc, bycopy.} = object
@@ -153,14 +153,6 @@ type
 
 
 
-proc git_error_clear*(): void {.git2Proc, importc.}
-
-proc git_error_set*(error_class: cint, fmt: cstring): void {.git2Proc, importc.}
-
-proc git_error_set_str*(error_class: cint, string: cstring): cint {.git2Proc, importc.}
-
-proc git_error_set_oom*(): void {.git2Proc, importc.}
-
 converter toCInt*(arg: c_git_error_code): cint = cint(ord(arg))
 
 converter toCInt*(args: set[git_error_code]): cint =
@@ -258,4 +250,12 @@ func `+`*(arg: c_git_error_t, offset: int): cint = cast[c_git_error_t](ord(arg) 
 
 func `+`*(offset: int, arg: c_git_error_t): cint = cast[c_git_error_t](ord(arg) + offset)
 
-proc git_error_last*(): `ptr` git_error {.git2Proc, importc.}
+proc git_error_last*(): `ptr` git_error {.git2Proc, importc: "git_error_last".}
+
+proc git_error_clear*(): void {.git2Proc, importc: "git_error_clear".}
+
+proc git_error_set*(error_class: cint, fmt: cstring): void {.git2Proc, importc: "git_error_set".}
+
+proc git_error_set_str*(error_class: cint, string: cstring): cint {.git2Proc, importc: "git_error_set_str".}
+
+proc git_error_set_oom*(): void {.git2Proc, importc: "git_error_set_oom".}

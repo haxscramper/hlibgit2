@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_filter_source",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type include/git2/sys/filter.h:95:34 typedef type include/git2/sys/filter.h:95:34 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_filter_source",
@@ -14,7 +14,7 @@
     {
       "name": {
         "name": "git_filter",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/filter.h:100:27 typedef type libgit2/include/git2/filter.h:100:27 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -41,7 +41,7 @@
           "name": "initialize",
           "type": {
             "name": "git_filter_init_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:141:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:141:26>"
+            "dbgOrigin": " typedef type include/git2/sys/filter.h:141:13"
           },
           "doc": "/** Called when the filter is first used for any file. */"
         },
@@ -49,7 +49,7 @@
           "name": "shutdown",
           "type": {
             "name": "git_filter_shutdown_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:153:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:153:27>"
+            "dbgOrigin": " typedef type include/git2/sys/filter.h:153:14"
           },
           "doc": "/** Called when the filter is removed or unregistered from the system. */"
         },
@@ -57,7 +57,7 @@
           "name": "check",
           "type": {
             "name": "git_filter_check_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:175:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:175:26>"
+            "dbgOrigin": " typedef type include/git2/sys/filter.h:175:13"
           },
           "doc": "/**\n\t * Called to determine whether the filter should be invoked for a\n\t * given file.  If this function returns `GIT_PASSTHROUGH` then the\n\t * `stream` or `apply` functions will not be invoked and the\n\t * contents will be passed through unmodified.\n\t */"
         },
@@ -65,7 +65,7 @@
           "name": "apply",
           "type": {
             "name": "git_filter_apply_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:196:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:196:26>"
+            "dbgOrigin": " typedef type include/git2/sys/filter.h:196:13"
           },
           "doc": "/**\n\t * Provided for backward compatibility; this will apply the\n\t * filter to the given contents in a `git_buf`.  Callers should\n\t * provide a `stream` function instead.\n\t */"
         },
@@ -73,7 +73,7 @@
           "name": "stream",
           "type": {
             "name": "git_filter_stream_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:213:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:213:26>"
+            "dbgOrigin": " typedef type include/git2/sys/filter.h:213:13"
           },
           "doc": "/**\n\t * Called to apply the filter, this function will provide a\n\t * `git_writestream` that will the original data will be\n\t * written to; with that data, the `git_writestream` will then\n\t * perform the filter translation and stream the filtered data\n\t * out to the `next` location.\n\t */"
         },
@@ -81,7 +81,7 @@
           "name": "cleanup",
           "type": {
             "name": "git_filter_cleanup_fn",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:229:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:229:27>"
+            "dbgOrigin": " typedef type include/git2/sys/filter.h:229:14"
           },
           "doc": "/** Called when the system is done filtering for a file. */"
         }
@@ -98,7 +98,7 @@
       "resultTy": {
         "name": "git_filter",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
       },
       "arguments": [
         {
@@ -125,7 +125,7 @@
           "type": {
             "name": "git_filter_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:112:32"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:112:32"
           },
           "name": "out"
         },
@@ -133,21 +133,21 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
         {
           "type": {
             "name": "git_filter_mode_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:36:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/filter.h:36:3"
           },
           "name": "mode"
         },
         {
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "name": "options"
         }
@@ -165,7 +165,7 @@
           "type": {
             "name": "git_filter_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:112:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:112:32"
           },
           "name": "fl"
         },
@@ -173,7 +173,7 @@
           "type": {
             "name": "git_filter",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
           },
           "name": "filter"
         },
@@ -192,14 +192,14 @@
       "name": "git_filter_list_length",
       "resultTy": {
         "name": "size_t",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+        "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
       },
       "arguments": [
         {
           "type": {
             "name": "git_filter_list",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:112:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:112:32"
           },
           "name": "fl"
         }
@@ -210,14 +210,14 @@
       "resultTy": {
         "name": "git_repository",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
       },
       "arguments": [
         {
           "type": {
             "name": "git_filter_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/filter.h:95:34"
           },
           "name": "src"
         }
@@ -237,7 +237,7 @@
           "type": {
             "name": "git_filter_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/filter.h:95:34"
           },
           "name": "src"
         }
@@ -247,14 +247,14 @@
       "name": "git_filter_source_filemode",
       "resultTy": {
         "name": "uint16_t",
-        "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:25:20"
+        "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:25:20"
       },
       "arguments": [
         {
           "type": {
             "name": "git_filter_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/filter.h:95:34"
           },
           "name": "src"
         }
@@ -265,14 +265,14 @@
       "resultTy": {
         "name": "git_oid",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_filter_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/filter.h:95:34"
           },
           "name": "src"
         }
@@ -282,14 +282,14 @@
       "name": "git_filter_source_mode",
       "resultTy": {
         "name": "git_filter_mode_t",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:36:3"
+        "dbgOrigin": " typedef type libgit2/include/git2/filter.h:36:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_filter_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/filter.h:95:34"
           },
           "name": "src"
         }
@@ -299,14 +299,14 @@
       "name": "git_filter_source_flags",
       "resultTy": {
         "name": "uint32_t",
-        "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+        "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
       },
       "arguments": [
         {
           "type": {
             "name": "git_filter_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/filter.h:95:34"
           },
           "name": "src"
         }
@@ -324,7 +324,7 @@
           "type": {
             "name": "git_filter",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
           },
           "name": "filter"
         },
@@ -360,7 +360,7 @@
           "type": {
             "name": "git_filter",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
           },
           "name": "filter"
         },
@@ -399,7 +399,7 @@
     {
       "name": {
         "name": "git_filter_init_fn",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:141:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:141:26>"
+        "dbgOrigin": "include/git2/sys/filter.h:141:13"
       },
       "baseType": {
         "parameters": [
@@ -411,18 +411,18 @@
           {
             "name": "git_filter",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
           }
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_filter_shutdown_fn",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:153:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:153:27>"
+        "dbgOrigin": "include/git2/sys/filter.h:153:14"
       },
       "baseType": {
         "parameters": [
@@ -433,18 +433,18 @@
           {
             "name": "git_filter",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
           }
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_filter_check_fn",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:175:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:175:26>"
+        "dbgOrigin": "include/git2/sys/filter.h:175:13"
       },
       "baseType": {
         "parameters": [
@@ -456,7 +456,7 @@
           {
             "name": "git_filter",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
           },
           {
             "name": "void",
@@ -467,7 +467,7 @@
           {
             "name": "git_filter_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/filter.h:95:34"
           },
           {
             "name": "char",
@@ -479,13 +479,13 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_filter_apply_fn",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:196:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:196:26>"
+        "dbgOrigin": "include/git2/sys/filter.h:196:13"
       },
       "baseType": {
         "parameters": [
@@ -497,7 +497,7 @@
           {
             "name": "git_filter",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
           },
           {
             "name": "void",
@@ -508,28 +508,28 @@
           {
             "name": "git_buf",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           {
             "name": "git_buf",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/buffer.h:52:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           {
             "name": "git_filter_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/filter.h:95:34"
           }
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_filter_stream_fn",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:213:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:213:26>"
+        "dbgOrigin": "include/git2/sys/filter.h:213:13"
       },
       "baseType": {
         "parameters": [
@@ -541,12 +541,12 @@
           {
             "name": "git_writestream",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:356:32"
           },
           {
             "name": "git_filter",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
           },
           {
             "name": "void",
@@ -557,23 +557,23 @@
           {
             "name": "git_filter_source",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/sys/filter.h:95:34"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/filter.h:95:34"
           },
           {
             "name": "git_writestream",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:356:32"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:356:32"
           }
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_filter_cleanup_fn",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:229:14 <Spelling=/mnt/workspace/repos/libgit2/include/git2/sys/filter.h:229:27>"
+        "dbgOrigin": "include/git2/sys/filter.h:229:14"
       },
       "baseType": {
         "parameters": [
@@ -584,7 +584,7 @@
           {
             "name": "git_filter",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/filter.h:100:27"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/filter.h:100:27"
           },
           {
             "name": "void",
@@ -595,7 +595,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

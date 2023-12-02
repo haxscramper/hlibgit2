@@ -1,10 +1,10 @@
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 
 type
-  git_transport_certificate_check_cb* = proc (a0: `ptr` git_cert, a1: cint, a2: cstring, a3: pointer): cint
-
-  git_cert* {.importc, bycopy.} = object
-    cert_type *: git_cert_t
+  git_cert_x509* {.importc, bycopy.} = object
+    parent *: git_cert
+    data   *: pointer
+    len    *: csize_t
 
   c_git_cert_t* {.size: sizeof(cint).} = enum
     c_GIT_CERT_NONE            = 0
@@ -17,16 +17,6 @@ type
     GIT_CERT_X509
     GIT_CERT_HOSTKEY_LIBSSH2
     GIT_CERT_STRARRAY
-
-  git_cert_hostkey* {.importc, bycopy.} = object
-    parent      *: git_cert
-    `type`      *: git_cert_ssh_t
-    hash_md5    *: array[16, char]
-    hash_sha1   *: array[20, char]
-    hash_sha256 *: array[32, char]
-    raw_type    *: git_cert_ssh_raw_type_t
-    hostkey     *: cstring
-    hostkey_len *: csize_t
 
   c_git_cert_ssh_t* {.size: sizeof(cint).} = enum
     c_GIT_CERT_SSH_MD5    = 1 shl 0
@@ -58,10 +48,20 @@ type
     GIT_CERT_SSH_RAW_TYPE_KEY_ECDSA_521
     GIT_CERT_SSH_RAW_TYPE_KEY_ED25519
 
-  git_cert_x509* {.importc, bycopy.} = object
-    parent *: git_cert
-    data   *: pointer
-    len    *: csize_t
+  git_transport_certificate_check_cb* = proc (a0: `ptr` git_cert, a1: cint, a2: cstring, a3: pointer): cint
+
+  git_cert* {.importc, bycopy.} = object
+    cert_type *: git_cert_t
+
+  git_cert_hostkey* {.importc, bycopy.} = object
+    parent      *: git_cert
+    `type`      *: git_cert_ssh_t
+    hash_md5    *: array[16, char]
+    hash_sha1   *: array[20, char]
+    hash_sha256 *: array[32, char]
+    raw_type    *: git_cert_ssh_raw_type_t
+    hostkey     *: cstring
+    hostkey_len *: csize_t
 
 
 

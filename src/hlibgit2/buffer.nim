@@ -1,4 +1,4 @@
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 
 type
   git_buf* {.importc, bycopy.} = object
@@ -8,4 +8,4 @@ type
 
 
 
-proc git_buf_dispose*(buffer: `ptr` git_buf): void {.git2Proc, importc.}
+proc git_buf_dispose*(buffer: `ptr` git_buf): void {.git2Proc, importc: "git_buf_dispose".}

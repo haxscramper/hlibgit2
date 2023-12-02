@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_stash_save_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:95:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/stash.h:95:3 typedef type libgit2/include/git2/stash.h:95:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -18,7 +18,7 @@
           "name": "flags",
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "doc": "/** Flags to control the stashing process. (see GIT_STASH_* above) */"
         },
@@ -27,7 +27,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "doc": "/** The identity of the person performing the stashing. */"
         },
@@ -46,7 +46,7 @@
           "name": "paths",
           "type": {
             "name": "git_strarray",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/strarray.h:25:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/strarray.h:25:3"
           },
           "doc": "/** Optional paths that control which files are stashed. */"
         }
@@ -59,7 +59,7 @@
     {
       "name": {
         "name": "git_stash_apply_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:192:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/stash.h:192:3 typedef type libgit2/include/git2/stash.h:192:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -74,7 +74,7 @@
           "name": "flags",
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "doc": "/** See `git_stash_apply_flags`, above. */"
         },
@@ -82,7 +82,7 @@
           "name": "checkout_options",
           "type": {
             "name": "git_checkout_options",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/checkout.h:345:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:345:3"
           },
           "doc": "/** Options to use when writing files to the working directory. */"
         },
@@ -90,7 +90,7 @@
           "name": "progress_cb",
           "type": {
             "name": "git_stash_apply_progress_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:169:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/stash.h:169:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/stash.h:169:13"
           },
           "doc": "/** Optional callback to notify the consumer of application progress. */"
         },
@@ -135,7 +135,7 @@
       ],
       "name": {
         "name": "git_stash_flags",
-        "dbgOrigin": "enum typedef typedef:git_stash_flagsname:/mnt/workspace/repos/libgit2/include/git2/stash.h:25:9"
+        "dbgOrigin": "enum typedef typedef:git_stash_flagsname:libgit2/include/git2/stash.h:25:9"
       }
     },
     {
@@ -150,7 +150,7 @@
       ],
       "name": {
         "name": "git_stash_apply_flags",
-        "dbgOrigin": "enum typedef typedef:git_stash_apply_flagsname:/mnt/workspace/repos/libgit2/include/git2/stash.h:129:9"
+        "dbgOrigin": "enum typedef typedef:git_stash_apply_flagsname:libgit2/include/git2/stash.h:129:9"
       }
     },
     {
@@ -189,7 +189,7 @@
       ],
       "name": {
         "name": "git_stash_apply_progress_t",
-        "dbgOrigin": "enum typedef typedef:git_stash_apply_progress_tname:/mnt/workspace/repos/libgit2/include/git2/stash.h:139:9"
+        "dbgOrigin": "enum typedef typedef:git_stash_apply_progress_tname:libgit2/include/git2/stash.h:139:9"
       }
     }
   ],
@@ -206,7 +206,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "out"
         },
@@ -214,7 +214,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -222,7 +222,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "stasher"
         },
@@ -239,7 +239,7 @@
         {
           "type": {
             "name": "uint32_t",
-            "dbgOrigin": "typedef type /include/bits/stdint-uintn.h:26:20"
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
           },
           "name": "flags"
         }
@@ -257,7 +257,7 @@
           "type": {
             "name": "git_stash_save_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:95:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/stash.h:95:3"
           },
           "name": "opts"
         },
@@ -283,7 +283,7 @@
           "type": {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           "name": "out"
         },
@@ -291,7 +291,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
@@ -299,7 +299,7 @@
           "type": {
             "name": "git_stash_save_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:95:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/stash.h:95:3"
           },
           "name": "opts"
         }
@@ -317,7 +317,7 @@
           "type": {
             "name": "git_stash_apply_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:192:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/stash.h:192:3"
           },
           "name": "opts"
         },
@@ -343,14 +343,14 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "index"
         },
@@ -358,7 +358,7 @@
           "type": {
             "name": "git_stash_apply_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:192:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/stash.h:192:3"
           },
           "name": "options"
         }
@@ -376,14 +376,14 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
         {
           "type": {
             "name": "git_stash_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:255:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/stash.h:255:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/stash.h:255:13"
           },
           "name": "callback"
         },
@@ -410,14 +410,14 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "index"
         }
@@ -435,14 +435,14 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         },
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "index"
         },
@@ -450,7 +450,7 @@
           "type": {
             "name": "git_stash_apply_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:192:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/stash.h:192:3"
           },
           "name": "options"
         }
@@ -461,7 +461,7 @@
     {
       "name": {
         "name": "git_stash_apply_progress_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/stash.h:169:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/stash.h:169:26>"
+        "dbgOrigin": "libgit2/include/git2/stash.h:169:13"
       },
       "baseType": {
         "parameters": [
@@ -472,7 +472,7 @@
           },
           {
             "name": "git_stash_apply_progress_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/stash.h:162:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/stash.h:162:3"
           },
           {
             "name": "void",
@@ -483,13 +483,13 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     },
     {
       "name": {
         "name": "git_stash_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/stash.h:255:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/stash.h:255:26>"
+        "dbgOrigin": "libgit2/include/git2/stash.h:255:13"
       },
       "baseType": {
         "parameters": [
@@ -500,7 +500,7 @@
           },
           {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           {
             "name": "char",
@@ -512,7 +512,7 @@
           {
             "name": "git_oid",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           },
           {
             "name": "void",
@@ -523,7 +523,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

@@ -14,7 +14,7 @@
       "func": null
     },
     {
-      "name": "git_tree_update_t",
+      "name": "git_treewalk_mode",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -27,7 +27,7 @@
       "func": null
     },
     {
-      "name": "git_treewalk_mode",
+      "name": "git_tree_update_t",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

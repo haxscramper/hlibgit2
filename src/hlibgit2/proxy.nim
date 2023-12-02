@@ -1,6 +1,6 @@
+import "./libgit2_config.nim" ## From gen file
 import "./cert.nim"
 import "./credential.nim"
-import "./libgit2_config.nim"
 
 type
   git_proxy_options* {.importc, bycopy.} = object
@@ -40,4 +40,4 @@ func `+`*(arg: c_git_proxy_t, offset: int): cint = cast[c_git_proxy_t](ord(arg) 
 
 func `+`*(offset: int, arg: c_git_proxy_t): cint = cast[c_git_proxy_t](ord(arg) + offset)
 
-proc git_proxy_options_init*(opts: `ptr` git_proxy_options, version: cuint): cint {.git2Proc, importc.}
+proc git_proxy_options_init*(opts: `ptr` git_proxy_options, version: cuint): cint {.git2Proc, importc: "git_proxy_options_init".}

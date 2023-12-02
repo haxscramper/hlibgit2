@@ -12,7 +12,7 @@
           "type": {
             "name": "git_mailmap",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:366:28"
           },
           "name": "out"
         }
@@ -29,7 +29,7 @@
           "type": {
             "name": "git_mailmap",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:366:28"
           },
           "name": "mm"
         }
@@ -47,7 +47,7 @@
           "type": {
             "name": "git_mailmap",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:366:28"
           },
           "name": "mm"
         },
@@ -105,7 +105,7 @@
           "type": {
             "name": "git_mailmap",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:366:28"
           },
           "name": "out"
         },
@@ -122,7 +122,7 @@
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "len"
         }
@@ -140,7 +140,7 @@
           "type": {
             "name": "git_mailmap",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:366:28"
           },
           "name": "out"
         },
@@ -148,7 +148,7 @@
           "type": {
             "name": "git_repository",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:118:31"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
         }
@@ -186,7 +186,7 @@
           "type": {
             "name": "git_mailmap",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:366:28"
           },
           "name": "mm"
         },
@@ -224,7 +224,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "out"
         },
@@ -232,7 +232,7 @@
           "type": {
             "name": "git_mailmap",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:366:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:366:28"
           },
           "name": "mm"
         },
@@ -240,7 +240,7 @@
           "type": {
             "name": "git_signature",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:186:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
           },
           "name": "sig"
         }

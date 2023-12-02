@@ -1,9 +1,6 @@
-import "./libgit2_config.nim"
+import "./libgit2_config.nim" ## From gen file
 
 type
-  git_repository* {.importc, bycopy, incompleteStruct.} = object
-
-
   git_odb* {.importc, bycopy, incompleteStruct.} = object
 
 
@@ -22,6 +19,9 @@ type
   git_commit_graph_writer* {.importc, bycopy, incompleteStruct.} = object
 
 
+  git_repository* {.importc, bycopy, incompleteStruct.} = object
+
+
   git_worktree* {.importc, bycopy, incompleteStruct.} = object
 
 
@@ -37,7 +37,13 @@ type
   git_blob* {.importc, bycopy, incompleteStruct.} = object
 
 
+  git_commit* {.importc, bycopy, incompleteStruct.} = object
+
+
   git_tree_entry* {.importc, bycopy, incompleteStruct.} = object
+
+
+  git_tree* {.importc, bycopy, incompleteStruct.} = object
 
 
   git_treebuilder* {.importc, bycopy, incompleteStruct.} = object
@@ -72,7 +78,12 @@ type
     offset *: cint
     sign   *: char
 
-  git_submodule* {.importc, bycopy, incompleteStruct.} = object
+  git_signature* {.importc, bycopy.} = object
+    name   *: `ptr` char
+    email  *: `ptr` char
+    `when` *: git_time
+
+  git_reference* {.importc, bycopy, incompleteStruct.} = object
 
 
   git_transaction* {.importc, bycopy, incompleteStruct.} = object
@@ -90,7 +101,13 @@ type
   git_refspec* {.importc, bycopy, incompleteStruct.} = object
 
 
+  git_remote* {.importc, bycopy, incompleteStruct.} = object
+
+
   git_push* {.importc, bycopy, incompleteStruct.} = object
+
+
+  git_submodule* {.importc, bycopy, incompleteStruct.} = object
 
 
   git_writestream* {.importc, bycopy, incompleteStruct.} = object
@@ -100,6 +117,26 @@ type
 
   git_mailmap* {.importc, bycopy, incompleteStruct.} = object
 
+
+  c_git_object_t* {.size: sizeof(cint).} = enum
+    c_GIT_OBJECT_ANY       = -2
+    c_GIT_OBJECT_INVALID   = -1
+    c_GIT_OBJECT_COMMIT    = 1 shl 0
+    c_GIT_OBJECT_TREE      = 1 shl 1
+    c_GIT_OBJECT_BLOB      = 3
+    c_GIT_OBJECT_TAG       = 1 shl 2
+    c_GIT_OBJECT_OFS_DELTA = 6
+    c_GIT_OBJECT_REF_DELTA = 7
+
+  git_object_t* = enum
+    GIT_OBJECT_ANY
+    GIT_OBJECT_INVALID
+    GIT_OBJECT_COMMIT
+    GIT_OBJECT_TREE
+    GIT_OBJECT_BLOB
+    GIT_OBJECT_TAG
+    GIT_OBJECT_OFS_DELTA
+    GIT_OBJECT_REF_DELTA
 
   c_git_reference_t* {.size: sizeof(cint).} = enum
     c_GIT_REFERENCE_INVALID  = 0
@@ -112,9 +149,6 @@ type
     GIT_REFERENCE_DIRECT
     GIT_REFERENCE_SYMBOLIC
     GIT_REFERENCE_ALL
-
-  git_remote* {.importc, bycopy, incompleteStruct.} = object
-
 
   c_git_branch_t* {.size: sizeof(cint).} = enum
     c_GIT_BRANCH_LOCAL  = 1 shl 0
@@ -182,45 +216,33 @@ type
 
   git_off_t* = int64
 
-  c_git_object_t* {.size: sizeof(cint).} = enum
-    c_GIT_OBJECT_ANY       = -2
-    c_GIT_OBJECT_INVALID   = -1
-    c_GIT_OBJECT_COMMIT    = 1 shl 0
-    c_GIT_OBJECT_TREE      = 1 shl 1
-    c_GIT_OBJECT_BLOB      = 3
-    c_GIT_OBJECT_TAG       = 1 shl 2
-    c_GIT_OBJECT_OFS_DELTA = 6
-    c_GIT_OBJECT_REF_DELTA = 7
-
-  git_object_t* = enum
-    GIT_OBJECT_ANY
-    GIT_OBJECT_INVALID
-    GIT_OBJECT_COMMIT
-    GIT_OBJECT_TREE
-    GIT_OBJECT_BLOB
-    GIT_OBJECT_TAG
-    GIT_OBJECT_OFS_DELTA
-    GIT_OBJECT_REF_DELTA
+  git_time_t* = int64
 
   git_object_size_t* = uint64
 
-  git_time_t* = int64
-
-  git_signature* {.importc, bycopy.} = object
-    name   *: `ptr` char
-    email  *: `ptr` char
-    `when` *: git_time
-
-  git_tree* {.importc, bycopy, incompleteStruct.} = object
 
 
-  git_commit* {.importc, bycopy, incompleteStruct.} = object
+converter toCInt*(arg: c_git_object_t): cint = cint(ord(arg))
 
+converter toCInt*(args: set[git_object_t]): cint =
+  for value in items(args):
+    case value:
+      of GIT_OBJECT_ANY      : result = cint(result or -2)
+      of GIT_OBJECT_INVALID  : result = cint(result or -1)
+      of GIT_OBJECT_COMMIT   : result = cint(result or 1)
+      of GIT_OBJECT_TREE     : result = cint(result or 2)
+      of GIT_OBJECT_BLOB     : result = cint(result or 3)
+      of GIT_OBJECT_TAG      : result = cint(result or 4)
+      of GIT_OBJECT_OFS_DELTA: result = cint(result or 6)
+      of GIT_OBJECT_REF_DELTA: result = cint(result or 7)
 
-  git_reference* {.importc, bycopy, incompleteStruct.} = object
+func `-`*(arg: c_git_object_t, offset: int): cint = cast[c_git_object_t](ord(arg) - offset)
 
+func `-`*(offset: int, arg: c_git_object_t): cint = cast[c_git_object_t](ord(arg) - offset)
 
+func `+`*(arg: c_git_object_t, offset: int): cint = cast[c_git_object_t](ord(arg) + offset)
 
+func `+`*(offset: int, arg: c_git_object_t): cint = cast[c_git_object_t](ord(arg) + offset)
 
 converter toCInt*(arg: c_git_reference_t): cint = cint(ord(arg))
 
@@ -331,25 +353,3 @@ func `-`*(offset: int, arg: c_git_submodule_recurse_t): cint = cast[c_git_submod
 func `+`*(arg: c_git_submodule_recurse_t, offset: int): cint = cast[c_git_submodule_recurse_t](ord(arg) + offset)
 
 func `+`*(offset: int, arg: c_git_submodule_recurse_t): cint = cast[c_git_submodule_recurse_t](ord(arg) + offset)
-
-converter toCInt*(arg: c_git_object_t): cint = cint(ord(arg))
-
-converter toCInt*(args: set[git_object_t]): cint =
-  for value in items(args):
-    case value:
-      of GIT_OBJECT_ANY      : result = cint(result or -2)
-      of GIT_OBJECT_INVALID  : result = cint(result or -1)
-      of GIT_OBJECT_COMMIT   : result = cint(result or 1)
-      of GIT_OBJECT_TREE     : result = cint(result or 2)
-      of GIT_OBJECT_BLOB     : result = cint(result or 3)
-      of GIT_OBJECT_TAG      : result = cint(result or 4)
-      of GIT_OBJECT_OFS_DELTA: result = cint(result or 6)
-      of GIT_OBJECT_REF_DELTA: result = cint(result or 7)
-
-func `-`*(arg: c_git_object_t, offset: int): cint = cast[c_git_object_t](ord(arg) - offset)
-
-func `-`*(offset: int, arg: c_git_object_t): cint = cast[c_git_object_t](ord(arg) - offset)
-
-func `+`*(arg: c_git_object_t, offset: int): cint = cast[c_git_object_t](ord(arg) + offset)
-
-func `+`*(offset: int, arg: c_git_object_t): cint = cast[c_git_object_t](ord(arg) + offset)

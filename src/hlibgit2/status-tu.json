@@ -1,32 +1,6 @@
 {
   "Defines": [
     {
-      "name": "git_status_options",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_status_show_t",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
       "name": "git_status_entry",
       "Parameters": [],
       "Spaces": [],
@@ -53,6 +27,19 @@
       "func": null
     },
     {
+      "name": "git_status_show_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
       "name": "git_status_opt_t",
       "Parameters": [],
       "Spaces": [],
@@ -67,6 +54,19 @@
     },
     {
       "name": "git_status_cb",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_status_options",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

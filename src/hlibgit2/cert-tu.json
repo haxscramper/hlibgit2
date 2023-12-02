@@ -1,20 +1,7 @@
 {
   "Defines": [
     {
-      "name": "git_transport_certificate_check_cb",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_cert",
+      "name": "git_cert_x509",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -28,19 +15,6 @@
     },
     {
       "name": "git_cert_t",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_cert_hostkey",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,
@@ -79,7 +53,33 @@
       "func": null
     },
     {
-      "name": "git_cert_x509",
+      "name": "git_transport_certificate_check_cb",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_cert",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "func": null
+    },
+    {
+      "name": "git_cert_hostkey",
       "Parameters": [],
       "Spaces": [],
       "isNamespace": false,

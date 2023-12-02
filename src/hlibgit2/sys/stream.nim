@@ -1,6 +1,6 @@
-import "../cert.nim"
-import "../libgit2_config.nim"
+import "../libgit2_config.nim" ## From gen file
 import "../proxy.nim"
+import "../cert.nim"
 
 type
   git_stream* {.importc, bycopy.} = object
@@ -50,6 +50,6 @@ func `+`*(arg: c_git_stream_t, offset: int): cint = cast[c_git_stream_t](ord(arg
 
 func `+`*(offset: int, arg: c_git_stream_t): cint = cast[c_git_stream_t](ord(arg) + offset)
 
-proc git_stream_register*(`type`: git_stream_t, registration: `ptr` git_stream_registration): cint {.git2Proc, importc.}
+proc git_stream_register*(`type`: git_stream_t, registration: `ptr` git_stream_registration): cint {.git2Proc, importc: "git_stream_register".}
 
-proc git_stream_register_tls*(ctor: git_stream_cb): cint {.git2Proc, importc.}
+proc git_stream_register_tls*(ctor: git_stream_cb): cint {.git2Proc, importc: "git_stream_register_tls".}

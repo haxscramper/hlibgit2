@@ -1,4 +1,4 @@
-import "../libgit2_config.nim"
+import "../libgit2_config.nim" ## From gen file
 
 type
   git_allocator* {.importc, bycopy.} = object
@@ -8,6 +8,6 @@ type
 
 
 
-proc git_stdalloc_init_allocator*(allocator: `ptr` git_allocator): cint {.git2Proc, importc.}
+proc git_stdalloc_init_allocator*(allocator: `ptr` git_allocator): cint {.git2Proc, importc: "git_stdalloc_init_allocator".}
 
-proc git_win32_crtdbg_init_allocator*(allocator: `ptr` git_allocator): cint {.git2Proc, importc.}
+proc git_win32_crtdbg_init_allocator*(allocator: `ptr` git_allocator): cint {.git2Proc, importc: "git_win32_crtdbg_init_allocator".}

@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_indexer",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/indexer.h:17:28 typedef type libgit2/include/git2/indexer.h:17:28 > typedef!=nullptr > struct"
       },
       "recordDefName": {
         "name": "git_indexer",
@@ -14,7 +14,7 @@
     {
       "name": {
         "name": "git_indexer_progress",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/indexer.h:48:3 typedef type libgit2/include/git2/indexer.h:48:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -75,7 +75,7 @@
           "name": "received_bytes",
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "doc": "/** size of the packfile received up to now */"
         }
@@ -88,7 +88,7 @@
     {
       "name": {
         "name": "git_indexer_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:86:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/indexer.h:86:3 typedef type libgit2/include/git2/indexer.h:86:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -103,7 +103,7 @@
           "name": "progress_cb",
           "type": {
             "name": "git_indexer_progress_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:57:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/indexer.h:57:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/indexer.h:57:13"
           },
           "doc": "/** progress_cb function to call with progress information */"
         },
@@ -146,7 +146,7 @@
           "type": {
             "name": "git_indexer_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:86:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:86:3"
           },
           "name": "opts"
         },
@@ -172,7 +172,7 @@
           "type": {
             "name": "git_indexer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "out"
         },
@@ -198,7 +198,7 @@
           "type": {
             "name": "git_odb",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/types.h:85:24"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
         },
@@ -206,7 +206,7 @@
           "type": {
             "name": "git_indexer_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:86:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:86:3"
           },
           "name": "opts"
         }
@@ -224,7 +224,7 @@
           "type": {
             "name": "git_indexer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
         },
@@ -241,7 +241,7 @@
         {
           "type": {
             "name": "size_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/haxorg/toolchain/llvm/lib/clang/16/include/stddef.h:46:23"
+            "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
           },
           "name": "size"
         },
@@ -249,7 +249,7 @@
           "type": {
             "name": "git_indexer_progress",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:48:3"
           },
           "name": "stats"
         }
@@ -267,7 +267,7 @@
           "type": {
             "name": "git_indexer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
         },
@@ -275,7 +275,7 @@
           "type": {
             "name": "git_indexer_progress",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:48:3"
           },
           "name": "stats"
         }
@@ -286,14 +286,14 @@
       "resultTy": {
         "name": "git_oid",
         "isPointer": true,
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/oid.h:108:3"
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_indexer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
         }
@@ -313,7 +313,7 @@
           "type": {
             "name": "git_indexer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
         }
@@ -330,7 +330,7 @@
           "type": {
             "name": "git_indexer",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:17:28"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
         }
@@ -341,7 +341,7 @@
     {
       "name": {
         "name": "git_indexer_progress_cb",
-        "dbgOrigin": "/mnt/workspace/repos/libgit2/include/git2/indexer.h:57:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/indexer.h:57:26>"
+        "dbgOrigin": "libgit2/include/git2/indexer.h:57:13"
       },
       "baseType": {
         "parameters": [
@@ -353,7 +353,7 @@
           {
             "name": "git_indexer_progress",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/indexer.h:48:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:48:3"
           },
           {
             "name": "void",
@@ -364,7 +364,7 @@
         ],
         "isPointer": true,
         "kind": "FunctionPtr",
-        "dbgOrigin": " T-pointer >ref/ptr >func"
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }
     }
   ]

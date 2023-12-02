@@ -3,7 +3,7 @@
     {
       "name": {
         "name": "git_proxy_options",
-        "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/proxy.h:79:3 > typedef!=nullptr > struct"
+        "dbgOrigin": " typedef type libgit2/include/git2/proxy.h:79:3 > typedef!=nullptr > struct"
       },
       "fields": [
         {
@@ -18,7 +18,7 @@
           "name": "type",
           "type": {
             "name": "git_proxy_t",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/proxy.h:36:3"
+            "dbgOrigin": " typedef type libgit2/include/git2/proxy.h:36:3"
           },
           "doc": "/**\n\t * The type of proxy to use, by URL, auto-detect.\n\t */"
         },
@@ -37,7 +37,7 @@
           "name": "credentials",
           "type": {
             "name": "git_credential_acquire_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/credential.h:131:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/credential.h:131:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/credential.h:131:13"
           },
           "doc": "/**\n\t * This will be called if the remote host requires\n\t * authentication in order to connect to it.\n\t *\n\t * Returning GIT_PASSTHROUGH will make libgit2 behave as\n\t * though this field isn't set.\n\t */"
         },
@@ -45,7 +45,7 @@
           "name": "certificate_check",
           "type": {
             "name": "git_transport_certificate_check_cb",
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/cert.h:72:13 <Spelling=/mnt/workspace/repos/libgit2/include/git2/cert.h:72:26>"
+            "dbgOrigin": " typedef type libgit2/include/git2/cert.h:72:13"
           },
           "doc": "/**\n\t * If cert verification fails, this will be called to let the\n\t * user make the final decision of whether to allow the\n\t * connection to proceed. Returns 0 to allow the connection\n\t * or a negative value to indicate an error.\n\t */"
         },
@@ -79,7 +79,7 @@
       ],
       "name": {
         "name": "git_proxy_t",
-        "dbgOrigin": "enum typedef typedef:git_proxy_tname:/mnt/workspace/repos/libgit2/include/git2/proxy.h:20:9"
+        "dbgOrigin": "enum typedef typedef:git_proxy_tname:libgit2/include/git2/proxy.h:20:9"
       }
     }
   ],
@@ -96,7 +96,7 @@
           "type": {
             "name": "git_proxy_options",
             "isPointer": true,
-            "dbgOrigin": "typedef type /mnt/workspace/repos/libgit2/include/git2/proxy.h:79:3"
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/proxy.h:79:3"
           },
           "name": "opts"
         },
