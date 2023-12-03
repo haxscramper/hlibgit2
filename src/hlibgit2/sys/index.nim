@@ -3,12 +3,12 @@ import "../oid.nim"
 import "../types.nim"
 
 type
-  git_index_name_entry* {.importc, bycopy.} = object
+  git_index_name_entry* {.bycopy.} = object
     ancestor *: ptr char
     ours     *: ptr char
     theirs   *: ptr char
 
-  git_index_reuc_entry* {.importc, bycopy.} = object
+  git_index_reuc_entry* {.bycopy.} = object
     mode *: array[3, uint32]
     oid  *: array[3, git_oid]
     path *: ptr char

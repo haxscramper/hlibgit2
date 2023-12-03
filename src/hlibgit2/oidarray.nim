@@ -2,7 +2,7 @@ import "./libgit2_config.nim" ## From gen file
 import "./oid.nim"
 
 type
-  git_oidarray* {.importc, bycopy.} = object
+  git_oidarray* {.bycopy.} = object
     ids   *: ptr git_oid
     count *: csize_t
 

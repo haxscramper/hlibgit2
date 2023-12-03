@@ -3,7 +3,7 @@ import "./cert.nim"
 import "./credential.nim"
 
 type
-  git_proxy_options* {.importc, bycopy.} = object
+  git_proxy_options* {.bycopy.} = object
     version           *: cuint
     `type`            *: git_proxy_t
     url               *: cstring

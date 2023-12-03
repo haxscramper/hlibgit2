@@ -2,7 +2,7 @@ import "./libgit2_config.nim" ## From gen file
 import "./credential.nim"
 
 type
-  git_credential_userpass_payload* {.importc, bycopy.} = object
+  git_credential_userpass_payload* {.bycopy.} = object
     username *: cstring
     password *: cstring
 

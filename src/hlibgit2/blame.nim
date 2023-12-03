@@ -3,7 +3,7 @@ import "./oid.nim"
 import "./types.nim"
 
 type
-  git_blame_options* {.importc, bycopy.} = object
+  git_blame_options* {.bycopy.} = object
     version              *: cuint
     flags                *: uint32
     min_match_characters *: uint16
@@ -12,7 +12,7 @@ type
     min_line             *: csize_t
     max_line             *: csize_t
 
-  git_blame_hunk* {.importc, bycopy.} = object
+  git_blame_hunk* {.bycopy.} = object
     lines_in_hunk           *: csize_t
     final_commit_id         *: git_oid
     final_start_line_number *: csize_t
@@ -23,7 +23,7 @@ type
     orig_signature          *: ptr git_signature
     boundary                *: char
 
-  git_blame* {.importc, bycopy, incompleteStruct.} = object
+  git_blame* {.bycopy, incompleteStruct.} = object
 
 
   c_git_blame_flag_t* {.size: sizeof(cint).} = enum

@@ -1,33 +1,33 @@
 import "./libgit2_config.nim" ## From gen file
 
 type
-  git_credential* {.importc, bycopy, incompleteStruct.} = object
+  git_credential* {.bycopy, incompleteStruct.} = object
     credtype *: git_credential_t
     free     *: proc (a0: ptr git_credential): void
 
-  git_credential_userpass_plaintext* {.importc, bycopy, incompleteStruct.} = object
+  git_credential_userpass_plaintext* {.bycopy, incompleteStruct.} = object
     parent   *: git_credential
     username *: ptr char
     password *: ptr char
 
-  git_credential_username* {.importc, bycopy, incompleteStruct.} = object
+  git_credential_username* {.bycopy, incompleteStruct.} = object
     parent   *: git_credential
     username *: array[1, char]
 
-  git_credential_ssh_key* {.importc, bycopy, incompleteStruct.} = object
+  git_credential_ssh_key* {.bycopy, incompleteStruct.} = object
     parent     *: git_credential
     username   *: ptr char
     publickey  *: ptr char
     privatekey *: ptr char
     passphrase *: ptr char
 
-  git_credential_ssh_interactive* {.importc, bycopy, incompleteStruct.} = object
+  git_credential_ssh_interactive* {.bycopy, incompleteStruct.} = object
     parent          *: git_credential
     username        *: ptr char
     prompt_callback *: git_credential_ssh_interactive_cb
     payload         *: pointer
 
-  git_credential_ssh_custom* {.importc, bycopy, incompleteStruct.} = object
+  git_credential_ssh_custom* {.bycopy, incompleteStruct.} = object
     parent        *: git_credential
     username      *: ptr char
     publickey     *: ptr char
@@ -35,13 +35,13 @@ type
     sign_callback *: git_credential_sign_cb
     payload       *: pointer
 
-  LIBSSH2_SESSION* {.importc, bycopy, incompleteStruct.} = object
+  LIBSSH2_SESSION* {.bycopy, incompleteStruct.} = object
 
 
-  LIBSSH2_USERAUTH_KBDINT_PROMPT* {.importc, bycopy, incompleteStruct.} = object
+  LIBSSH2_USERAUTH_KBDINT_PROMPT* {.bycopy, incompleteStruct.} = object
 
 
-  LIBSSH2_USERAUTH_KBDINT_RESPONSE* {.importc, bycopy, incompleteStruct.} = object
+  LIBSSH2_USERAUTH_KBDINT_RESPONSE* {.bycopy, incompleteStruct.} = object
 
 
   c_git_credential_t* {.size: sizeof(cint).} = enum

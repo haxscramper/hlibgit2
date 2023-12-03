@@ -3,7 +3,7 @@ import "../proxy.nim"
 import "../cert.nim"
 
 type
-  git_stream* {.importc, bycopy.} = object
+  git_stream* {.bycopy.} = object
     version         *: cint
     encrypted       *: cint
     proxy_support   *: cint
@@ -17,7 +17,7 @@ type
     close           *: proc (a0: ptr git_stream): cint
     free            *: proc (a0: ptr git_stream): void
 
-  git_stream_registration* {.importc, bycopy.} = object
+  git_stream_registration* {.bycopy.} = object
     version *: cint
     init    *: proc (a0: ptr ptr git_stream, a1: cstring, a2: cstring): cint
     wrap    *: proc (a0: ptr ptr git_stream, a1: ptr git_stream, a2: cstring): cint

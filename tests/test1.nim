@@ -19,7 +19,6 @@ import hlibgit2/[
   config,
   credential_helpers,
   credential,
-  cred_helpers,
   deprecated,
   describe,
   diff,
@@ -67,7 +66,6 @@ import hlibgit2/[
   transport,
   tree,
   types,
-  version,
   worktree
 ]
 

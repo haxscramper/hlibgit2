@@ -6,7 +6,7 @@ import "./types.nim"
 import "./checkout.nim"
 
 type
-  git_submodule_update_options* {.importc, bycopy.} = object
+  git_submodule_update_options* {.bycopy.} = object
     version       *: cuint
     checkout_opts *: git_checkout_options
     fetch_opts    *: git_fetch_options

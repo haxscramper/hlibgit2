@@ -29,7 +29,7 @@ import "./checkout.nim"
 import "./cherrypick.nim"
 
 type
-  git_diff_format_email_options* {.importc, bycopy.} = object
+  git_diff_format_email_options* {.bycopy.} = object
     version       *: cuint
     flags         *: uint32
     patch_no      *: csize_t

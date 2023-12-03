@@ -1,10 +1,10 @@
 import "./libgit2_config.nim" ## From gen file
 
 type
-  git_oid* {.importc, bycopy.} = object
+  git_oid* {.bycopy.} = object
     id *: array[20, char]
 
-  git_oid_shorten* {.importc, bycopy, incompleteStruct.} = object
+  git_oid_shorten* {.bycopy, incompleteStruct.} = object
 
 
   c_git_oid_t* {.size: sizeof(cint).} = enum

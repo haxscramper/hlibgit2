@@ -3,7 +3,7 @@ import "./types.nim"
 import "./diff.nim"
 
 type
-  git_apply_options* {.importc, bycopy.} = object
+  git_apply_options* {.bycopy.} = object
     version  *: cuint
     delta_cb *: git_apply_delta_cb
     hunk_cb  *: git_apply_hunk_cb

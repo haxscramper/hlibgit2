@@ -57,14 +57,14 @@ type
     GIT_MERGE_PREFERENCE_NO_FASTFORWARD
     GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY
 
-  git_merge_file_input* {.importc, bycopy.} = object
+  git_merge_file_input* {.bycopy.} = object
     version *: cuint
     `ptr`   *: cstring
     size    *: csize_t
     path    *: cstring
     mode    *: cuint
 
-  git_merge_file_options* {.importc, bycopy.} = object
+  git_merge_file_options* {.bycopy.} = object
     version        *: cuint
     ancestor_label *: cstring
     our_label      *: cstring
@@ -73,14 +73,14 @@ type
     flags          *: uint32
     marker_size    *: cushort
 
-  git_merge_file_result* {.importc, bycopy.} = object
+  git_merge_file_result* {.bycopy.} = object
     automergeable *: cuint
     path          *: cstring
     mode          *: cuint
     `ptr`         *: cstring
     len           *: csize_t
 
-  git_merge_options* {.importc, bycopy.} = object
+  git_merge_options* {.bycopy.} = object
     version          *: cuint
     flags            *: uint32
     rename_threshold *: cuint

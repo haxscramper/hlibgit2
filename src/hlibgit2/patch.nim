@@ -4,7 +4,7 @@ import "./types.nim"
 import "./diff.nim"
 
 type
-  git_patch* {.importc, bycopy, incompleteStruct.} = object
+  git_patch* {.bycopy, incompleteStruct.} = object
 
 
 

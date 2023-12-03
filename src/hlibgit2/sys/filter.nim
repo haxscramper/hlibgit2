@@ -5,7 +5,7 @@ import "../types.nim"
 import "../filter.nim"
 
 type
-  git_filter* {.importc, bycopy, incompleteStruct.} = object
+  git_filter* {.bycopy, incompleteStruct.} = object
     version    *: cuint
     attributes *: cstring
     initialize *: git_filter_init_fn
@@ -15,7 +15,7 @@ type
     stream     *: git_filter_stream_fn
     cleanup    *: git_filter_cleanup_fn
 
-  git_filter_source* {.importc, bycopy, incompleteStruct.} = object
+  git_filter_source* {.bycopy, incompleteStruct.} = object
 
 
   git_filter_init_fn* = proc (a0: ptr git_filter): cint

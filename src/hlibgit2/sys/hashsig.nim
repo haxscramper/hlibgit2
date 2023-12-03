@@ -1,7 +1,7 @@
 import "../libgit2_config.nim" ## From gen file
 
 type
-  git_hashsig* {.importc, bycopy, incompleteStruct.} = object
+  git_hashsig* {.bycopy, incompleteStruct.} = object
 
 
   c_git_hashsig_option_t* {.size: sizeof(cint).} = enum

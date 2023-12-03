@@ -3,7 +3,7 @@ import "./buffer.nim"
 import "./types.nim"
 
 type
-  git_describe_options* {.importc, bycopy.} = object
+  git_describe_options* {.bycopy.} = object
     version                     *: cuint
     max_candidates_tags         *: cuint
     describe_strategy           *: cuint
@@ -11,13 +11,13 @@ type
     only_follow_first_parent    *: cint
     show_commit_oid_as_fallback *: cint
 
-  git_describe_format_options* {.importc, bycopy.} = object
+  git_describe_format_options* {.bycopy.} = object
     version                *: cuint
     abbreviated_size       *: cuint
     always_use_long_format *: cint
     dirty_suffix           *: cstring
 
-  git_describe_result* {.importc, bycopy, incompleteStruct.} = object
+  git_describe_result* {.bycopy, incompleteStruct.} = object
 
 
   c_git_describe_strategy_t* {.size: sizeof(cint).} = enum

@@ -2,7 +2,7 @@ import "./libgit2_config.nim" ## From gen file
 import "./oid.nim"
 
 type
-  git_remote_head* {.importc, bycopy.} = object
+  git_remote_head* {.bycopy.} = object
     local         *: cint
     oid           *: git_oid
     loid          *: git_oid

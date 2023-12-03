@@ -4,10 +4,10 @@ import "./types.nim"
 import "./diff.nim"
 
 type
-  git_pathspec* {.importc, bycopy, incompleteStruct.} = object
+  git_pathspec* {.bycopy, incompleteStruct.} = object
 
 
-  git_pathspec_match_list* {.importc, bycopy, incompleteStruct.} = object
+  git_pathspec_match_list* {.bycopy, incompleteStruct.} = object
 
 
   c_git_pathspec_flag_t* {.size: sizeof(cint).} = enum

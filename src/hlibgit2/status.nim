@@ -4,7 +4,7 @@ import "./types.nim"
 import "./diff.nim"
 
 type
-  git_status_entry* {.importc, bycopy.} = object
+  git_status_entry* {.bycopy.} = object
     status           *: git_status_t
     head_to_index    *: ptr git_diff_delta
     index_to_workdir *: ptr git_diff_delta
@@ -89,7 +89,7 @@ type
 
   git_status_cb* = proc (a0: cstring, a1: cuint, a2: pointer): cint
 
-  git_status_options* {.importc, bycopy.} = object
+  git_status_options* {.bycopy.} = object
     version          *: cuint
     show             *: git_status_show_t
     flags            *: cuint

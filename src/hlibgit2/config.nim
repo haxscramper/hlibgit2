@@ -3,7 +3,7 @@ import "./buffer.nim"
 import "./types.nim"
 
 type
-  git_config_backend* {.importc, bycopy, incompleteStruct.} = object
+  git_config_backend* {.bycopy, incompleteStruct.} = object
     version      *: cuint
     readonly     *: cint
     cfg          *: ptr git_config
@@ -19,7 +19,7 @@ type
     unlock       *: proc (a0: ptr git_config_backend, a1: cint): cint
     free         *: proc (a0: ptr git_config_backend): void
 
-  git_config_entry* {.importc, bycopy.} = object
+  git_config_entry* {.bycopy.} = object
     name          *: cstring
     value         *: cstring
     include_depth *: cuint
@@ -27,13 +27,13 @@ type
     free          *: proc (a0: ptr git_config_entry): void
     payload       *: pointer
 
-  git_config_iterator* {.importc, bycopy, incompleteStruct.} = object
+  git_config_iterator* {.bycopy, incompleteStruct.} = object
     backend *: ptr git_config_backend
     flags   *: cuint
     next    *: proc (a0: ptr ptr git_config_entry, a1: ptr git_config_iterator): cint
     free    *: proc (a0: ptr git_config_iterator): void
 
-  git_configmap* {.importc, bycopy.} = object
+  git_configmap* {.bycopy.} = object
     `type`    *: git_configmap_t
     str_match *: cstring
     map_value *: cint

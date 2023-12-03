@@ -1,7 +1,7 @@
 import "./libgit2_config.nim" ## From gen file
 
 type
-  git_error* {.importc, bycopy.} = object
+  git_error* {.bycopy.} = object
     message *: ptr char
     klass   *: cint
 

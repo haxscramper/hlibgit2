@@ -4,11 +4,11 @@ import "./strarray.nim"
 import "./types.nim"
 
 type
-  git_index_time* {.importc, bycopy.} = object
+  git_index_time* {.bycopy.} = object
     seconds     *: int32
     nanoseconds *: uint32
 
-  git_index_entry* {.importc, bycopy.} = object
+  git_index_entry* {.bycopy.} = object
     ctime          *: git_index_time
     mtime          *: git_index_time
     dev            *: uint32

@@ -5,13 +5,13 @@ import "./types.nim"
 import "./checkout.nim"
 
 type
-  git_worktree_add_options* {.importc, bycopy.} = object
+  git_worktree_add_options* {.bycopy.} = object
     version          *: cuint
     lock             *: cint
     `ref`            *: ptr git_reference
     checkout_options *: git_checkout_options
 
-  git_worktree_prune_options* {.importc, bycopy.} = object
+  git_worktree_prune_options* {.bycopy.} = object
     version *: cuint
     flags   *: uint32
 

@@ -4,7 +4,7 @@ import "./oid.nim"
 import "./types.nim"
 
 type
-  git_odb_stream* {.importc, bycopy.} = object
+  git_odb_stream* {.bycopy.} = object
     backend        *: ptr git_odb_backend
     mode           *: cuint
     hash_ctx       *: pointer
@@ -15,13 +15,13 @@ type
     finalize_write *: proc (a0: ptr git_odb_stream, a1: ptr git_oid): cint
     free           *: proc (a0: ptr git_odb_stream): void
 
-  git_odb_writepack* {.importc, bycopy.} = object
+  git_odb_writepack* {.bycopy.} = object
     backend *: ptr git_odb_backend
     append  *: proc (a0: ptr git_odb_writepack, a1: pointer, a2: csize_t, a3: ptr git_indexer_progress): cint
     commit  *: proc (a0: ptr git_odb_writepack, a1: ptr git_indexer_progress): cint
     free    *: proc (a0: ptr git_odb_writepack): void
 
-  git_odb_backend* {.importc, bycopy, incompleteStruct.} = object
+  git_odb_backend* {.bycopy, incompleteStruct.} = object
     version       *: cuint
     odb           *: ptr git_odb
     read          *: proc (a0: ptr pointer, a1: ptr csize_t, a2: ptr git_object_t, a3: ptr git_odb_backend, a4: ptr git_oid): cint
@@ -55,11 +55,11 @@ type
     GIT_STREAM_WRONLY
     GIT_STREAM_RW
 
-  git_odb_options* {.importc, bycopy.} = object
+  git_odb_options* {.bycopy.} = object
     version  *: cuint
     oid_type *: git_oid_t
 
-  git_odb_expand_id* {.importc, bycopy.} = object
+  git_odb_expand_id* {.bycopy.} = object
     id     *: git_oid
     length *: cushort
     `type` *: git_object_t
@@ -72,11 +72,11 @@ type
 
   git_odb_foreach_cb* = proc (a0: ptr git_oid, a1: pointer): cint
 
-  git_odb_backend_pack_options* {.importc, bycopy.} = object
+  git_odb_backend_pack_options* {.bycopy.} = object
     version  *: cuint
     oid_type *: git_oid_t
 
-  git_odb_backend_loose_options* {.importc, bycopy.} = object
+  git_odb_backend_loose_options* {.bycopy.} = object
     version           *: cuint
     flags             *: uint32
     compression_level *: cint
