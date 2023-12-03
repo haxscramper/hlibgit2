@@ -42,14 +42,21 @@
       "name": "git_hashsig_create",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_hashsig",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "out"
@@ -57,8 +64,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -84,14 +97,21 @@
       "name": "git_hashsig_create_fromfile",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_hashsig",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "out"
@@ -99,8 +119,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -125,7 +151,11 @@
         {
           "type": {
             "name": "git_hashsig",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "sig"
@@ -136,14 +166,18 @@
       "name": "git_hashsig_compare",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_hashsig",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "a"
@@ -151,7 +185,11 @@
         {
           "type": {
             "name": "git_hashsig",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/hashsig.h:17:28"
           },
           "name": "b"

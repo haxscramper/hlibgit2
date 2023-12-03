@@ -10,8 +10,14 @@
           "name": "key",
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           }
@@ -20,8 +26,14 @@
           "name": "value",
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           }
@@ -38,7 +50,11 @@
           "name": "trailers",
           "type": {
             "name": "git_message_trailer",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/message.h:46:3"
           }
         },
@@ -53,7 +69,11 @@
           "name": "_trailer_block",
           "type": {
             "name": "char",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr >char",
             "isBuiltin": true
           }
@@ -66,14 +86,18 @@
       "name": "git_message_prettify",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_buf",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           "name": "out"
@@ -81,8 +105,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -91,7 +121,7 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "strip_comments"
@@ -110,14 +140,18 @@
       "name": "git_message_trailers",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_message_trailer_array",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/message.h:60:3"
           },
           "name": "arr"
@@ -125,8 +159,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -144,7 +184,11 @@
         {
           "type": {
             "name": "git_message_trailer_array",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/message.h:60:3"
           },
           "name": "arr"

@@ -10,7 +10,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           }
         },
@@ -18,7 +18,7 @@
           "name": "lock",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**< lock newly created worktree */"
@@ -27,7 +27,11 @@
           "name": "ref",
           "type": {
             "name": "git_reference",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
           },
           "doc": "/**< reference to use for the new worktree HEAD */"
@@ -56,7 +60,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           }
         },
@@ -102,14 +106,18 @@
       "name": "git_worktree_list",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_strarray",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/strarray.h:25:3"
           },
           "name": "out"
@@ -117,7 +125,11 @@
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -128,14 +140,21 @@
       "name": "git_worktree_lookup",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "out"
@@ -143,7 +162,11 @@
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -151,8 +174,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -164,14 +193,21 @@
       "name": "git_worktree_open_from_repository",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "out"
@@ -179,7 +215,11 @@
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -196,7 +236,11 @@
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
@@ -207,14 +251,18 @@
       "name": "git_worktree_validate",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
@@ -225,14 +273,18 @@
       "name": "git_worktree_add_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree_add_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:96:3"
           },
           "name": "opts"
@@ -240,7 +292,7 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "version"
@@ -251,14 +303,21 @@
       "name": "git_worktree_add",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "out"
@@ -266,7 +325,11 @@
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -274,8 +337,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -284,8 +353,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -294,7 +369,11 @@
         {
           "type": {
             "name": "git_worktree_add_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:96:3"
           },
           "name": "opts"
@@ -305,14 +384,18 @@
       "name": "git_worktree_lock",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
@@ -320,8 +403,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -333,14 +422,18 @@
       "name": "git_worktree_unlock",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
@@ -351,14 +444,18 @@
       "name": "git_worktree_is_locked",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_buf",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           "name": "reason"
@@ -366,7 +463,11 @@
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
@@ -377,8 +478,14 @@
       "name": "git_worktree_name",
       "resultTy": {
         "name": "char",
-        "isConst": true,
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
         "dbgOrigin": " T-pointer >ref/ptr T-const >char",
         "isBuiltin": true
       },
@@ -386,7 +493,11 @@
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
@@ -397,8 +508,14 @@
       "name": "git_worktree_path",
       "resultTy": {
         "name": "char",
-        "isConst": true,
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
         "dbgOrigin": " T-pointer >ref/ptr T-const >char",
         "isBuiltin": true
       },
@@ -406,7 +523,11 @@
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
@@ -417,14 +538,18 @@
       "name": "git_worktree_prune_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree_prune_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:210:3"
           },
           "name": "opts"
@@ -432,7 +557,7 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "version"
@@ -443,14 +568,18 @@
       "name": "git_worktree_is_prunable",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
@@ -458,7 +587,11 @@
         {
           "type": {
             "name": "git_worktree_prune_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:210:3"
           },
           "name": "opts"
@@ -469,14 +602,18 @@
       "name": "git_worktree_prune",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_worktree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
           },
           "name": "wt"
@@ -484,7 +621,11 @@
         {
           "type": {
             "name": "git_worktree_prune_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:210:3"
           },
           "name": "opts"

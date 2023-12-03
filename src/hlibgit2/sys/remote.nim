@@ -28,4 +28,4 @@ func `+`*(arg: c_git_remote_capability_t, offset: int): cint = cast[c_git_remote
 
 func `+`*(offset: int, arg: c_git_remote_capability_t): cint = cast[c_git_remote_capability_t](ord(arg) + offset)
 
-proc git_remote_connect_options_dispose*(opts: `ptr` git_remote_connect_options): void {.git2Proc, importc: "git_remote_connect_options_dispose".}
+proc git_remote_connect_options_dispose*(opts: ptr git_remote_connect_options): void {.git2Proc, importc: "git_remote_connect_options_dispose".}

@@ -4,14 +4,21 @@
       "name": "git_repository_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "out"
@@ -22,14 +29,18 @@
       "name": "git_repository__cleanup",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -40,14 +51,18 @@
       "name": "git_repository_reinit_filesystem",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -55,7 +70,7 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "recurse_submodules"
@@ -66,14 +81,18 @@
       "name": "git_repository_set_config",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -81,7 +100,11 @@
         {
           "type": {
             "name": "git_config",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:157:27"
           },
           "name": "config"
@@ -92,14 +115,18 @@
       "name": "git_repository_set_odb",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -107,7 +134,11 @@
         {
           "type": {
             "name": "git_odb",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
@@ -118,14 +149,18 @@
       "name": "git_repository_set_refdb",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -133,7 +168,11 @@
         {
           "type": {
             "name": "git_refdb",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "refdb"
@@ -144,14 +183,18 @@
       "name": "git_repository_set_index",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -159,7 +202,11 @@
         {
           "type": {
             "name": "git_index",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:148:26"
           },
           "name": "index"
@@ -170,14 +217,18 @@
       "name": "git_repository_set_bare",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -188,14 +239,18 @@
       "name": "git_repository_submodule_cache_all",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -206,14 +261,18 @@
       "name": "git_repository_submodule_cache_clear",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"

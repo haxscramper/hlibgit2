@@ -4,7 +4,11 @@
       "name": "git_reflog_entry__alloc",
       "resultTy": {
         "name": "git_reflog_entry",
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
         "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:163:33"
       }
     },
@@ -18,7 +22,11 @@
         {
           "type": {
             "name": "git_reflog_entry",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:163:33"
           },
           "name": "entry"

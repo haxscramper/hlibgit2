@@ -4,14 +4,21 @@
       "name": "git_refdb_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_refdb",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "out"
@@ -19,7 +26,11 @@
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -30,14 +41,21 @@
       "name": "git_refdb_open",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_refdb",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "out"
@@ -45,7 +63,11 @@
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -56,14 +78,18 @@
       "name": "git_refdb_compress",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_refdb",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "refdb"
@@ -80,7 +106,11 @@
         {
           "type": {
             "name": "git_refdb",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "refdb"

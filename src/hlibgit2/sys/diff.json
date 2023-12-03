@@ -10,7 +10,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           }
         },
@@ -38,14 +38,18 @@
       "name": "git_diff_print_callback__to_buf",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_diff_delta",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:331:3"
           },
           "name": "delta"
@@ -53,7 +57,11 @@
         {
           "type": {
             "name": "git_diff_hunk",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:583:3"
           },
           "name": "hunk"
@@ -61,7 +69,11 @@
         {
           "type": {
             "name": "git_diff_line",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:639:3"
           },
           "name": "line"
@@ -69,7 +81,11 @@
         {
           "type": {
             "name": "void",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
@@ -81,14 +97,18 @@
       "name": "git_diff_print_callback__to_file_handle",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_diff_delta",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:331:3"
           },
           "name": "delta"
@@ -96,7 +116,11 @@
         {
           "type": {
             "name": "git_diff_hunk",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:583:3"
           },
           "name": "hunk"
@@ -104,7 +128,11 @@
         {
           "type": {
             "name": "git_diff_line",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:639:3"
           },
           "name": "line"
@@ -112,7 +140,11 @@
         {
           "type": {
             "name": "void",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
@@ -124,14 +156,18 @@
       "name": "git_diff_get_perfdata",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_diff_perfdata",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/diff.h:71:3"
           },
           "name": "out"
@@ -139,7 +175,11 @@
         {
           "type": {
             "name": "git_diff",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:196:25"
           },
           "name": "diff"
@@ -150,14 +190,18 @@
       "name": "git_status_list_get_perfdata",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_diff_perfdata",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/diff.h:71:3"
           },
           "name": "out"
@@ -165,7 +209,11 @@
         {
           "type": {
             "name": "git_status_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:201:32"
           },
           "name": "status"

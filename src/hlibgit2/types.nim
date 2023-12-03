@@ -79,8 +79,8 @@ type
     sign   *: char
 
   git_signature* {.importc, bycopy.} = object
-    name   *: `ptr` char
-    email  *: `ptr` char
+    name   *: ptr char
+    email  *: ptr char
     `when` *: git_time
 
   git_reference* {.importc, bycopy, incompleteStruct.} = object
@@ -111,9 +111,9 @@ type
 
 
   git_writestream* {.importc, bycopy, incompleteStruct.} = object
-    write *: proc (a0: `ptr` git_writestream, a1: cstring, a2: csize_t): cint
-    close *: proc (a0: `ptr` git_writestream): cint
-    free  *: proc (a0: `ptr` git_writestream): void
+    write *: proc (a0: ptr git_writestream, a1: cstring, a2: csize_t): cint
+    close *: proc (a0: ptr git_writestream): cint
+    free  *: proc (a0: ptr git_writestream): void
 
   git_mailmap* {.importc, bycopy, incompleteStruct.} = object
 

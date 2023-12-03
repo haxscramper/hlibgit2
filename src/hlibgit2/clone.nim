@@ -28,9 +28,9 @@ type
     GIT_CLONE_NO_LOCAL
     GIT_CLONE_LOCAL_NO_LINKS
 
-  git_remote_create_cb* = proc (a0: `ptr` git_remote, a1: `ptr` git_repository, a2: cstring, a3: cstring, a4: pointer): cint
+  git_remote_create_cb* = proc (a0: ptr ptr git_remote, a1: ptr git_repository, a2: cstring, a3: cstring, a4: pointer): cint
 
-  git_repository_create_cb* = proc (a0: `ptr` git_repository, a1: cstring, a2: cint, a3: pointer): cint
+  git_repository_create_cb* = proc (a0: ptr ptr git_repository, a1: cstring, a2: cint, a3: pointer): cint
 
 
 
@@ -52,6 +52,6 @@ func `+`*(arg: c_git_clone_local_t, offset: int): cint = cast[c_git_clone_local_
 
 func `+`*(offset: int, arg: c_git_clone_local_t): cint = cast[c_git_clone_local_t](ord(arg) + offset)
 
-proc git_clone_options_init*(opts: `ptr` git_clone_options, version: cuint): cint {.git2Proc, importc: "git_clone_options_init".}
+proc git_clone_options_init*(opts: ptr git_clone_options, version: cuint): cint {.git2Proc, importc: "git_clone_options_init".}
 
-proc git_clone*(`out`: `ptr` git_repository, url: cstring, local_path: cstring, options: `ptr` git_clone_options): cint {.git2Proc, importc: "git_clone".}
+proc git_clone*(`out`: ptr ptr git_repository, url: cstring, local_path: cstring, options: ptr git_clone_options): cint {.git2Proc, importc: "git_clone".}

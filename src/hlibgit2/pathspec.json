@@ -65,14 +65,21 @@
       "name": "git_pathspec_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "out"
@@ -80,7 +87,11 @@
         {
           "type": {
             "name": "git_strarray",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/strarray.h:25:3"
           },
           "name": "pathspec"
@@ -97,7 +108,11 @@
         {
           "type": {
             "name": "git_pathspec",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
@@ -108,14 +123,18 @@
       "name": "git_pathspec_matches_path",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
@@ -130,8 +149,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -143,14 +168,21 @@
       "name": "git_pathspec_match_workdir",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "out"
@@ -158,7 +190,11 @@
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -173,7 +209,11 @@
         {
           "type": {
             "name": "git_pathspec",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
@@ -184,14 +224,21 @@
       "name": "git_pathspec_match_index",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "out"
@@ -199,7 +246,11 @@
         {
           "type": {
             "name": "git_index",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:148:26"
           },
           "name": "index"
@@ -214,7 +265,11 @@
         {
           "type": {
             "name": "git_pathspec",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
@@ -225,14 +280,21 @@
       "name": "git_pathspec_match_tree",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "out"
@@ -240,7 +302,11 @@
         {
           "type": {
             "name": "git_tree",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:142:25"
           },
           "name": "tree"
@@ -255,7 +321,11 @@
         {
           "type": {
             "name": "git_pathspec",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
@@ -266,14 +336,21 @@
       "name": "git_pathspec_match_diff",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "out"
@@ -281,7 +358,11 @@
         {
           "type": {
             "name": "git_diff",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:196:25"
           },
           "name": "diff"
@@ -296,7 +377,11 @@
         {
           "type": {
             "name": "git_pathspec",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:20:29"
           },
           "name": "ps"
@@ -313,7 +398,11 @@
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
@@ -330,7 +419,11 @@
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
@@ -341,8 +434,14 @@
       "name": "git_pathspec_match_list_entry",
       "resultTy": {
         "name": "char",
-        "isConst": true,
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
         "dbgOrigin": " T-pointer >ref/ptr T-const >char",
         "isBuiltin": true
       },
@@ -350,7 +449,11 @@
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
@@ -368,14 +471,22 @@
       "name": "git_pathspec_match_list_diff_entry",
       "resultTy": {
         "name": "git_diff_delta",
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
         "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/diff.h:331:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
@@ -399,7 +510,11 @@
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"
@@ -410,8 +525,14 @@
       "name": "git_pathspec_match_list_failed_entry",
       "resultTy": {
         "name": "char",
-        "isConst": true,
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
         "dbgOrigin": " T-pointer >ref/ptr T-const >char",
         "isBuiltin": true
       },
@@ -419,7 +540,11 @@
         {
           "type": {
             "name": "git_pathspec_match_list",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/pathspec.h:25:40"
           },
           "name": "m"

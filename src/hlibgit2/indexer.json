@@ -21,7 +21,7 @@
           "name": "total_objects",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/** number of objects in the packfile being indexed */"
@@ -30,7 +30,7 @@
           "name": "indexed_objects",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/** received objects that have been hashed */"
@@ -39,7 +39,7 @@
           "name": "received_objects",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/** received_objects: objects which have been downloaded */"
@@ -48,7 +48,7 @@
           "name": "local_objects",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**\n\t * locally-available objects that have been injected in order\n\t * to fix a thin pack\n\t */"
@@ -57,7 +57,7 @@
           "name": "total_deltas",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/** number of deltas in the packfile being indexed */"
@@ -66,7 +66,7 @@
           "name": "indexed_deltas",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/** received deltas that have been indexed */"
@@ -95,7 +95,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           }
         },
@@ -111,7 +111,11 @@
           "name": "progress_cb_payload",
           "type": {
             "name": "void",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           },
@@ -138,14 +142,18 @@
       "name": "git_indexer_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_indexer_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:86:3"
           },
           "name": "opts"
@@ -153,7 +161,7 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "version"
@@ -164,14 +172,21 @@
       "name": "git_indexer_new",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_indexer",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "out"
@@ -179,8 +194,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -189,7 +210,7 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "mode"
@@ -197,7 +218,11 @@
         {
           "type": {
             "name": "git_odb",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:85:24"
           },
           "name": "odb"
@@ -205,7 +230,11 @@
         {
           "type": {
             "name": "git_indexer_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:86:3"
           },
           "name": "opts"
@@ -216,14 +245,18 @@
       "name": "git_indexer_append",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_indexer",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
@@ -231,8 +264,14 @@
         {
           "type": {
             "name": "void",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const",
             "isBuiltin": true
           },
@@ -248,7 +287,11 @@
         {
           "type": {
             "name": "git_indexer_progress",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:48:3"
           },
           "name": "stats"
@@ -259,14 +302,18 @@
       "name": "git_indexer_commit",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_indexer",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
@@ -274,7 +321,11 @@
         {
           "type": {
             "name": "git_indexer_progress",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:48:3"
           },
           "name": "stats"
@@ -285,14 +336,22 @@
       "name": "git_indexer_hash",
       "resultTy": {
         "name": "git_oid",
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
         "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
       },
       "arguments": [
         {
           "type": {
             "name": "git_indexer",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
@@ -303,8 +362,14 @@
       "name": "git_indexer_name",
       "resultTy": {
         "name": "char",
-        "isConst": true,
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
         "dbgOrigin": " T-pointer >ref/ptr T-const >char",
         "isBuiltin": true
       },
@@ -312,7 +377,11 @@
         {
           "type": {
             "name": "git_indexer",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
@@ -329,7 +398,11 @@
         {
           "type": {
             "name": "git_indexer",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:17:28"
           },
           "name": "idx"
@@ -347,22 +420,34 @@
         "parameters": [
           {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           {
             "name": "git_indexer_progress",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:48:3"
           },
           {
             "name": "void",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
         ],
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
         "kind": "FunctionPtr",
         "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
       }

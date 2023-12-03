@@ -10,7 +10,11 @@
           "name": "db",
           "type": {
             "name": "git_refdb",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           }
         },
@@ -20,21 +24,36 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_reference",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
               },
               {
                 "name": "git_reference_iterator",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:192:40"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -45,23 +64,40 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               },
               {
                 "name": "git_reference_iterator",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:192:40"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -76,11 +112,19 @@
               },
               {
                 "name": "git_reference_iterator",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:192:40"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -101,7 +145,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**< The backend API version */"
@@ -112,29 +156,47 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "int",
-                "isPointer": true,
-                "dbgOrigin": " T-pointer >ref/ptr >builtin",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -145,28 +207,49 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_reference",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -177,28 +260,49 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_reference_iterator",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:192:40"
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/refdb_backend.h:111:6"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -209,50 +313,82 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "git_reference",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
               },
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_signature",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               },
               {
                 "name": "git_oid",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -263,52 +399,89 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_reference",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               },
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_signature",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -319,35 +492,59 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               },
               {
                 "name": "git_oid",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -358,16 +555,24 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -378,23 +583,37 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -405,23 +624,37 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -436,11 +669,19 @@
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -451,28 +692,49 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_reflog",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:166:27"
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -483,21 +745,33 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "git_reflog",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:166:27"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -508,30 +782,50 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -542,23 +836,37 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -569,29 +877,50 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "void",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -602,49 +931,75 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_refdb_backend",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
               },
               {
                 "name": "void",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               },
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_reference",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
               },
               {
                 "name": "git_signature",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -661,14 +1016,18 @@
       "name": "git_refdb_init_backend",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_refdb_backend",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
           },
           "name": "backend"
@@ -676,7 +1035,7 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "version"
@@ -687,14 +1046,21 @@
       "name": "git_refdb_backend_fs",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_refdb_backend",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
           },
           "name": "backend_out"
@@ -702,7 +1068,11 @@
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -713,14 +1083,18 @@
       "name": "git_refdb_set_backend",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_refdb",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:103:26"
           },
           "name": "refdb"
@@ -728,7 +1102,11 @@
         {
           "type": {
             "name": "git_refdb_backend",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:106:34"
           },
           "name": "backend"

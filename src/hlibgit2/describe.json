@@ -10,7 +10,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           }
         },
@@ -18,7 +18,7 @@
           "name": "max_candidates_tags",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**< default: 10 */"
@@ -27,7 +27,7 @@
           "name": "describe_strategy",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**< default: GIT_DESCRIBE_DEFAULT */"
@@ -36,8 +36,14 @@
           "name": "pattern",
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           }
@@ -46,7 +52,7 @@
           "name": "only_follow_first_parent",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**\n\t * When calculating the distance from the matching tag or\n\t * reference, only walk down the first-parent ancestry.\n\t */"
@@ -55,7 +61,7 @@
           "name": "show_commit_oid_as_fallback",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**\n\t * If no matching tag or reference is found, the describe\n\t * operation would normally fail. If this option is set, it\n\t * will instead fall back to showing the full id of the\n\t * commit.\n\t */"
@@ -76,7 +82,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           }
         },
@@ -84,7 +90,7 @@
           "name": "abbreviated_size",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**\n\t * Size of the abbreviated commit id to use. This value is the\n\t * lower bound for the length of the abbreviated string. The\n\t * default is 7.\n\t */"
@@ -93,7 +99,7 @@
           "name": "always_use_long_format",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**\n\t * Set to use the long format even when a shorter name could be used.\n\t */"
@@ -102,8 +108,14 @@
           "name": "dirty_suffix",
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -149,14 +161,18 @@
       "name": "git_describe_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_describe_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/describe.h:61:3"
           },
           "name": "opts"
@@ -164,7 +180,7 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "version"
@@ -175,14 +191,18 @@
       "name": "git_describe_format_options_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_describe_format_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/describe.h:111:3"
           },
           "name": "opts"
@@ -190,7 +210,7 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "version"
@@ -201,14 +221,21 @@
       "name": "git_describe_commit",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_describe_result",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/describe.h:134:36"
           },
           "name": "result"
@@ -216,7 +243,11 @@
         {
           "type": {
             "name": "git_object",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:124:27"
           },
           "name": "committish"
@@ -224,7 +255,11 @@
         {
           "type": {
             "name": "git_describe_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/describe.h:61:3"
           },
           "name": "opts"
@@ -235,14 +270,21 @@
       "name": "git_describe_workdir",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_describe_result",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/describe.h:134:36"
           },
           "name": "out"
@@ -250,7 +292,11 @@
         {
           "type": {
             "name": "git_repository",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
           },
           "name": "repo"
@@ -258,7 +304,11 @@
         {
           "type": {
             "name": "git_describe_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/describe.h:61:3"
           },
           "name": "opts"
@@ -269,14 +319,18 @@
       "name": "git_describe_format",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_buf",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
           },
           "name": "out"
@@ -284,7 +338,11 @@
         {
           "type": {
             "name": "git_describe_result",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/describe.h:134:36"
           },
           "name": "result"
@@ -292,7 +350,11 @@
         {
           "type": {
             "name": "git_describe_format_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/describe.h:111:3"
           },
           "name": "opts"
@@ -309,7 +371,11 @@
         {
           "type": {
             "name": "git_describe_result",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/describe.h:134:36"
           },
           "name": "result"

@@ -209,15 +209,19 @@
       "name": "git_libgit2_version",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "int",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
             "isBuiltin": true
           },
           "name": "major"
@@ -225,8 +229,12 @@
         {
           "type": {
             "name": "int",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
             "isBuiltin": true
           },
           "name": "minor"
@@ -234,8 +242,12 @@
         {
           "type": {
             "name": "int",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
             "isBuiltin": true
           },
           "name": "rev"
@@ -246,8 +258,14 @@
       "name": "git_libgit2_prerelease",
       "resultTy": {
         "name": "char",
-        "isConst": true,
-        "isPointer": true,
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
         "dbgOrigin": " T-pointer >ref/ptr T-const >char",
         "isBuiltin": true
       }
@@ -256,7 +274,7 @@
       "name": "git_libgit2_features",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       }
     },
@@ -264,14 +282,14 @@
       "name": "git_libgit2_opts",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "option"

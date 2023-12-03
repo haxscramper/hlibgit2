@@ -10,7 +10,7 @@
           "name": "local",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           }
         },
@@ -32,7 +32,11 @@
           "name": "name",
           "type": {
             "name": "char",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr >char",
             "isBuiltin": true
           }
@@ -41,7 +45,11 @@
           "name": "symref_target",
           "type": {
             "name": "char",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr >char",
             "isBuiltin": true
           },

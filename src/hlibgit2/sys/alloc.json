@@ -12,7 +12,11 @@
             "parameters": [
               {
                 "name": "void",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               },
@@ -22,18 +26,28 @@
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               },
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -44,13 +58,21 @@
             "parameters": [
               {
                 "name": "void",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               },
               {
                 "name": "void",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               },
@@ -60,18 +82,28 @@
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               },
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -86,12 +118,20 @@
               },
               {
                 "name": "void",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr",
                 "isBuiltin": true
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -104,14 +144,18 @@
       "name": "git_stdalloc_init_allocator",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_allocator",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/alloc.h:39:3"
           },
           "name": "allocator"
@@ -122,14 +166,18 @@
       "name": "git_win32_crtdbg_init_allocator",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_allocator",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/alloc.h:39:3"
           },
           "name": "allocator"

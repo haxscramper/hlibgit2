@@ -10,7 +10,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           }
         },
@@ -26,7 +26,7 @@
           "name": "diff_opts",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/** Options to use when creating diffs */"
@@ -35,7 +35,7 @@
           "name": "diff_find_opts",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/** Options for finding similarities within diffs */"
@@ -44,8 +44,14 @@
           "name": "subject_prefix",
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -100,15 +106,19 @@
       "name": "git_email_create_from_diff",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "int",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
             "isBuiltin": true
           },
           "name": "out"
@@ -116,8 +126,12 @@
         {
           "type": {
             "name": "int",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
             "isBuiltin": true
           },
           "name": "diff"
@@ -138,10 +152,16 @@
         },
         {
           "type": {
-            "name": "const int",
-            "isConst": true,
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "name": "int",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin/unqual",
             "isBuiltin": true
           },
           "name": "commit_id"
@@ -149,8 +169,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -159,8 +185,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -168,10 +200,16 @@
         },
         {
           "type": {
-            "name": "const int",
-            "isConst": true,
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin",
+            "name": "int",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >builtin/unqual",
             "isBuiltin": true
           },
           "name": "author"
@@ -179,7 +217,11 @@
         {
           "type": {
             "name": "git_email_create_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/email.h:71:3"
           },
           "name": "opts"
@@ -190,15 +232,19 @@
       "name": "git_email_create_from_commit",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "int",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
             "isBuiltin": true
           },
           "name": "out"
@@ -206,8 +252,12 @@
         {
           "type": {
             "name": "int",
-            "isPointer": true,
-            "dbgOrigin": " T-pointer >ref/ptr >builtin",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
             "isBuiltin": true
           },
           "name": "commit"
@@ -215,7 +265,11 @@
         {
           "type": {
             "name": "git_email_create_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/email.h:71:3"
           },
           "name": "opts"

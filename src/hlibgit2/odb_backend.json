@@ -10,7 +10,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**< version for the struct */"
@@ -35,7 +35,7 @@
           "name": "version",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**< version for the struct */"
@@ -52,7 +52,7 @@
           "name": "compression_level",
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/**\n\t * zlib compression level to use (0-9), where 1 is the fastest\n\t * at the expense of larger files, and 9 produces the best\n\t * compression at the expense of speed.  0 indicates that no\n\t * compression should be performed.  -1 is the default (currently\n\t * optimizing for speed).\n\t */"
@@ -61,7 +61,7 @@
           "name": "dir_mode",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/** Permissions to use creating a directory or 0 for defaults */"
@@ -70,7 +70,7 @@
           "name": "file_mode",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "doc": "/** Permissions to use creating a file or 0 for defaults */"
@@ -95,7 +95,11 @@
           "name": "backend",
           "type": {
             "name": "git_odb_backend",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:88:32"
           }
         },
@@ -103,7 +107,7 @@
           "name": "mode",
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           }
         },
@@ -111,7 +115,11 @@
           "name": "hash_ctx",
           "type": {
             "name": "void",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr",
             "isBuiltin": true
           }
@@ -136,17 +144,25 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_odb_stream",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
               },
               {
                 "name": "char",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr >char",
                 "isBuiltin": true
               },
@@ -155,7 +171,11 @@
                 "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -166,18 +186,28 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_odb_stream",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
               },
               {
                 "name": "char",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const >char",
                 "isBuiltin": true
               },
@@ -186,7 +216,11 @@
                 "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -197,21 +231,33 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_odb_stream",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
               },
               {
                 "name": "git_oid",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -226,11 +272,19 @@
               },
               {
                 "name": "git_odb_stream",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:94:31"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -251,7 +305,11 @@
           "name": "backend",
           "type": {
             "name": "git_odb_backend",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:88:32"
           }
         },
@@ -261,18 +319,28 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_odb_writepack",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:97:34"
               },
               {
                 "name": "void",
-                "isConst": true,
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr T-const",
                 "isBuiltin": true
               },
@@ -282,11 +350,19 @@
               },
               {
                 "name": "git_indexer_progress",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:48:3"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -297,21 +373,33 @@
             "parameters": [
               {
                 "name": "int",
-                "dbgOrigin": " >builtin",
+                "dbgOrigin": " >builtin/unqual",
                 "isBuiltin": true
               },
               {
                 "name": "git_odb_writepack",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:97:34"
               },
               {
                 "name": "git_indexer_progress",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/indexer.h:48:3"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -326,11 +414,19 @@
               },
               {
                 "name": "git_odb_writepack",
-                "isPointer": true,
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
                 "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:97:34"
               }
             ],
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
           }
@@ -381,14 +477,21 @@
       "name": "git_odb_backend_pack",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_odb_backend",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:88:32"
           },
           "name": "out"
@@ -396,8 +499,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -409,14 +518,21 @@
       "name": "git_odb_backend_one_pack",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_odb_backend",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:88:32"
           },
           "name": "out"
@@ -424,8 +540,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -437,14 +559,21 @@
       "name": "git_odb_backend_loose",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       },
       "arguments": [
         {
           "type": {
             "name": "git_odb_backend",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:88:32"
           },
           "name": "out"
@@ -452,8 +581,14 @@
         {
           "type": {
             "name": "char",
-            "isConst": true,
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr T-const >char",
             "isBuiltin": true
           },
@@ -462,7 +597,7 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "compression_level"
@@ -470,7 +605,7 @@
         {
           "type": {
             "name": "int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "do_fsync"
@@ -478,7 +613,7 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "dir_mode"
@@ -486,7 +621,7 @@
         {
           "type": {
             "name": "unsigned int",
-            "dbgOrigin": " >builtin",
+            "dbgOrigin": " >builtin/unqual",
             "isBuiltin": true
           },
           "name": "file_mode"

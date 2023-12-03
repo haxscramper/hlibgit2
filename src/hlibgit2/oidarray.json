@@ -10,7 +10,11 @@
           "name": "ids",
           "type": {
             "name": "git_oid",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
           }
         },
@@ -39,7 +43,11 @@
         {
           "type": {
             "name": "git_oidarray",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oidarray.h:19:3"
           },
           "name": "array"

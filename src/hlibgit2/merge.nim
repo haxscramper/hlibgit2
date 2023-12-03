@@ -85,7 +85,7 @@ type
     flags            *: uint32
     rename_threshold *: cuint
     target_limit     *: cuint
-    metric           *: `ptr` git_diff_similarity_metric
+    metric           *: ptr git_diff_similarity_metric
     recursion_limit  *: cuint
     default_driver   *: cstring
     file_favor       *: git_merge_file_favor_t
@@ -180,37 +180,37 @@ func `+`*(arg: c_git_merge_preference_t, offset: int): cint = cast[c_git_merge_p
 
 func `+`*(offset: int, arg: c_git_merge_preference_t): cint = cast[c_git_merge_preference_t](ord(arg) + offset)
 
-proc git_merge_file_input_init*(opts: `ptr` git_merge_file_input, version: cuint): cint {.git2Proc, importc: "git_merge_file_input_init".}
+proc git_merge_file_input_init*(opts: ptr git_merge_file_input, version: cuint): cint {.git2Proc, importc: "git_merge_file_input_init".}
 
-proc git_merge_file_options_init*(opts: `ptr` git_merge_file_options, version: cuint): cint {.git2Proc, importc: "git_merge_file_options_init".}
+proc git_merge_file_options_init*(opts: ptr git_merge_file_options, version: cuint): cint {.git2Proc, importc: "git_merge_file_options_init".}
 
-proc git_merge_options_init*(opts: `ptr` git_merge_options, version: cuint): cint {.git2Proc, importc: "git_merge_options_init".}
+proc git_merge_options_init*(opts: ptr git_merge_options, version: cuint): cint {.git2Proc, importc: "git_merge_options_init".}
 
-proc git_merge_analysis*(analysis_out: `ptr` git_merge_analysis_t, preference_out: `ptr` git_merge_preference_t, repo: `ptr` git_repository, their_heads: `ptr` git_annotated_commit, their_heads_len: csize_t): cint {.git2Proc, importc: "git_merge_analysis".}
+proc git_merge_analysis*(analysis_out: ptr git_merge_analysis_t, preference_out: ptr git_merge_preference_t, repo: ptr git_repository, their_heads: ptr ptr git_annotated_commit, their_heads_len: csize_t): cint {.git2Proc, importc: "git_merge_analysis".}
 
-proc git_merge_analysis_for_ref*(analysis_out: `ptr` git_merge_analysis_t, preference_out: `ptr` git_merge_preference_t, repo: `ptr` git_repository, our_ref: `ptr` git_reference, their_heads: `ptr` git_annotated_commit, their_heads_len: csize_t): cint {.git2Proc, importc: "git_merge_analysis_for_ref".}
+proc git_merge_analysis_for_ref*(analysis_out: ptr git_merge_analysis_t, preference_out: ptr git_merge_preference_t, repo: ptr git_repository, our_ref: ptr git_reference, their_heads: ptr ptr git_annotated_commit, their_heads_len: csize_t): cint {.git2Proc, importc: "git_merge_analysis_for_ref".}
 
-proc git_merge_base*(`out`: `ptr` git_oid, repo: `ptr` git_repository, one: `ptr` git_oid, two: `ptr` git_oid): cint {.git2Proc, importc: "git_merge_base".}
+proc git_merge_base*(`out`: ptr git_oid, repo: ptr git_repository, one: ptr git_oid, two: ptr git_oid): cint {.git2Proc, importc: "git_merge_base".}
 
-proc git_merge_bases*(`out`: `ptr` git_oidarray, repo: `ptr` git_repository, one: `ptr` git_oid, two: `ptr` git_oid): cint {.git2Proc, importc: "git_merge_bases".}
+proc git_merge_bases*(`out`: ptr git_oidarray, repo: ptr git_repository, one: ptr git_oid, two: ptr git_oid): cint {.git2Proc, importc: "git_merge_bases".}
 
-proc git_merge_base_many*(`out`: `ptr` git_oid, repo: `ptr` git_repository, length: csize_t, input_array: `ptr` git_oid): cint {.git2Proc, importc: "git_merge_base_many".}
+proc git_merge_base_many*(`out`: ptr git_oid, repo: ptr git_repository, length: csize_t, input_array: ptr git_oid): cint {.git2Proc, importc: "git_merge_base_many".}
 
-proc git_merge_bases_many*(`out`: `ptr` git_oidarray, repo: `ptr` git_repository, length: csize_t, input_array: `ptr` git_oid): cint {.git2Proc, importc: "git_merge_bases_many".}
+proc git_merge_bases_many*(`out`: ptr git_oidarray, repo: ptr git_repository, length: csize_t, input_array: ptr git_oid): cint {.git2Proc, importc: "git_merge_bases_many".}
 
-proc git_merge_base_octopus*(`out`: `ptr` git_oid, repo: `ptr` git_repository, length: csize_t, input_array: `ptr` git_oid): cint {.git2Proc, importc: "git_merge_base_octopus".}
+proc git_merge_base_octopus*(`out`: ptr git_oid, repo: ptr git_repository, length: csize_t, input_array: ptr git_oid): cint {.git2Proc, importc: "git_merge_base_octopus".}
 
-proc git_merge_file*(`out`: `ptr` git_merge_file_result, ancestor: `ptr` git_merge_file_input, ours: `ptr` git_merge_file_input, theirs: `ptr` git_merge_file_input, opts: `ptr` git_merge_file_options): cint {.git2Proc, importc: "git_merge_file".}
+proc git_merge_file*(`out`: ptr git_merge_file_result, ancestor: ptr git_merge_file_input, ours: ptr git_merge_file_input, theirs: ptr git_merge_file_input, opts: ptr git_merge_file_options): cint {.git2Proc, importc: "git_merge_file".}
 
-proc git_merge_file_from_index*(`out`: `ptr` git_merge_file_result, repo: `ptr` git_repository, ancestor: `ptr` git_index_entry, ours: `ptr` git_index_entry, theirs: `ptr` git_index_entry, opts: `ptr` git_merge_file_options): cint {.git2Proc, importc: "git_merge_file_from_index".}
+proc git_merge_file_from_index*(`out`: ptr git_merge_file_result, repo: ptr git_repository, ancestor: ptr git_index_entry, ours: ptr git_index_entry, theirs: ptr git_index_entry, opts: ptr git_merge_file_options): cint {.git2Proc, importc: "git_merge_file_from_index".}
 
-proc git_merge_file_result_free*(result: `ptr` git_merge_file_result): void {.git2Proc, importc: "git_merge_file_result_free".}
+proc git_merge_file_result_free*(result: ptr git_merge_file_result): void {.git2Proc, importc: "git_merge_file_result_free".}
 
-proc git_merge_trees*(`out`: `ptr` git_index, repo: `ptr` git_repository, ancestor_tree: `ptr` git_tree, our_tree: `ptr` git_tree, their_tree: `ptr` git_tree, opts: `ptr` git_merge_options): cint {.git2Proc, importc: "git_merge_trees".}
+proc git_merge_trees*(`out`: ptr ptr git_index, repo: ptr git_repository, ancestor_tree: ptr git_tree, our_tree: ptr git_tree, their_tree: ptr git_tree, opts: ptr git_merge_options): cint {.git2Proc, importc: "git_merge_trees".}
 
-proc git_merge_commits*(`out`: `ptr` git_index, repo: `ptr` git_repository, our_commit: `ptr` git_commit, their_commit: `ptr` git_commit, opts: `ptr` git_merge_options): cint {.git2Proc, importc: "git_merge_commits".}
+proc git_merge_commits*(`out`: ptr ptr git_index, repo: ptr git_repository, our_commit: ptr git_commit, their_commit: ptr git_commit, opts: ptr git_merge_options): cint {.git2Proc, importc: "git_merge_commits".}
 
-proc git_merge*(repo: `ptr` git_repository, their_heads: `ptr` git_annotated_commit, their_heads_len: csize_t, merge_opts: `ptr` git_merge_options, checkout_opts: `ptr` git_checkout_options): cint {.git2Proc, importc: "git_merge".}
+proc git_merge*(repo: ptr git_repository, their_heads: ptr ptr git_annotated_commit, their_heads_len: csize_t, merge_opts: ptr git_merge_options, checkout_opts: ptr git_checkout_options): cint {.git2Proc, importc: "git_merge".}
 
 converter toCInt*(arg: c_git_merge_flag_t): cint = cint(ord(arg))
 

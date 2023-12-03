@@ -48,7 +48,7 @@ type
     GIT_CERT_SSH_RAW_TYPE_KEY_ECDSA_521
     GIT_CERT_SSH_RAW_TYPE_KEY_ED25519
 
-  git_transport_certificate_check_cb* = proc (a0: `ptr` git_cert, a1: cint, a2: cstring, a3: pointer): cint
+  git_transport_certificate_check_cb* = proc (a0: ptr git_cert, a1: cint, a2: cstring, a3: pointer): cint
 
   git_cert* {.importc, bycopy.} = object
     cert_type *: git_cert_t

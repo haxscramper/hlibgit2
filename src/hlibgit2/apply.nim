@@ -26,9 +26,9 @@ type
     GIT_APPLY_LOCATION_INDEX
     GIT_APPLY_LOCATION_BOTH
 
-  git_apply_delta_cb* = proc (a0: `ptr` git_diff_delta, a1: pointer): cint
+  git_apply_delta_cb* = proc (a0: ptr git_diff_delta, a1: pointer): cint
 
-  git_apply_hunk_cb* = proc (a0: `ptr` git_diff_hunk, a1: pointer): cint
+  git_apply_hunk_cb* = proc (a0: ptr git_diff_hunk, a1: pointer): cint
 
 
 
@@ -64,8 +64,8 @@ func `+`*(arg: c_git_apply_location_t, offset: int): cint = cast[c_git_apply_loc
 
 func `+`*(offset: int, arg: c_git_apply_location_t): cint = cast[c_git_apply_location_t](ord(arg) + offset)
 
-proc git_apply_options_init*(opts: `ptr` git_apply_options, version: cuint): cint {.git2Proc, importc: "git_apply_options_init".}
+proc git_apply_options_init*(opts: ptr git_apply_options, version: cuint): cint {.git2Proc, importc: "git_apply_options_init".}
 
-proc git_apply_to_tree*(`out`: `ptr` git_index, repo: `ptr` git_repository, preimage: `ptr` git_tree, diff: `ptr` git_diff, options: `ptr` git_apply_options): cint {.git2Proc, importc: "git_apply_to_tree".}
+proc git_apply_to_tree*(`out`: ptr ptr git_index, repo: ptr git_repository, preimage: ptr git_tree, diff: ptr git_diff, options: ptr git_apply_options): cint {.git2Proc, importc: "git_apply_to_tree".}
 
-proc git_apply*(repo: `ptr` git_repository, diff: `ptr` git_diff, location: git_apply_location_t, options: `ptr` git_apply_options): cint {.git2Proc, importc: "git_apply".}
+proc git_apply*(repo: ptr git_repository, diff: ptr git_diff, location: git_apply_location_t, options: ptr git_apply_options): cint {.git2Proc, importc: "git_apply".}

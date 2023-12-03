@@ -4,7 +4,7 @@
       "name": "git_libgit2_init",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       }
     },
@@ -12,7 +12,7 @@
       "name": "git_libgit2_shutdown",
       "resultTy": {
         "name": "int",
-        "dbgOrigin": " >builtin",
+        "dbgOrigin": " >builtin/unqual",
         "isBuiltin": true
       }
     }

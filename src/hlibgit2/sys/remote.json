@@ -28,7 +28,11 @@
         {
           "type": {
             "name": "git_remote_connect_options",
-            "isPointer": true,
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
             "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/remote.h:877:3"
           },
           "name": "opts"

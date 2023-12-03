@@ -6,8 +6,8 @@ type
     local         *: cint
     oid           *: git_oid
     loid          *: git_oid
-    name          *: `ptr` char
-    symref_target *: `ptr` char
+    name          *: ptr char
+    symref_target *: ptr char
 
   c_git_direction* {.size: sizeof(cint).} = enum
     c_GIT_DIRECTION_FETCH = 0

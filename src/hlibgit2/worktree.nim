@@ -8,7 +8,7 @@ type
   git_worktree_add_options* {.importc, bycopy.} = object
     version          *: cuint
     lock             *: cint
-    `ref`            *: `ptr` git_reference
+    `ref`            *: ptr git_reference
     checkout_options *: git_checkout_options
 
   git_worktree_prune_options* {.importc, bycopy.} = object
@@ -44,32 +44,32 @@ func `+`*(arg: c_git_worktree_prune_t, offset: int): cint = cast[c_git_worktree_
 
 func `+`*(offset: int, arg: c_git_worktree_prune_t): cint = cast[c_git_worktree_prune_t](ord(arg) + offset)
 
-proc git_worktree_list*(`out`: `ptr` git_strarray, repo: `ptr` git_repository): cint {.git2Proc, importc: "git_worktree_list".}
+proc git_worktree_list*(`out`: ptr git_strarray, repo: ptr git_repository): cint {.git2Proc, importc: "git_worktree_list".}
 
-proc git_worktree_lookup*(`out`: `ptr` git_worktree, repo: `ptr` git_repository, name: cstring): cint {.git2Proc, importc: "git_worktree_lookup".}
+proc git_worktree_lookup*(`out`: ptr ptr git_worktree, repo: ptr git_repository, name: cstring): cint {.git2Proc, importc: "git_worktree_lookup".}
 
-proc git_worktree_open_from_repository*(`out`: `ptr` git_worktree, repo: `ptr` git_repository): cint {.git2Proc, importc: "git_worktree_open_from_repository".}
+proc git_worktree_open_from_repository*(`out`: ptr ptr git_worktree, repo: ptr git_repository): cint {.git2Proc, importc: "git_worktree_open_from_repository".}
 
-proc git_worktree_free*(wt: `ptr` git_worktree): void {.git2Proc, importc: "git_worktree_free".}
+proc git_worktree_free*(wt: ptr git_worktree): void {.git2Proc, importc: "git_worktree_free".}
 
-proc git_worktree_validate*(wt: `ptr` git_worktree): cint {.git2Proc, importc: "git_worktree_validate".}
+proc git_worktree_validate*(wt: ptr git_worktree): cint {.git2Proc, importc: "git_worktree_validate".}
 
-proc git_worktree_add_options_init*(opts: `ptr` git_worktree_add_options, version: cuint): cint {.git2Proc, importc: "git_worktree_add_options_init".}
+proc git_worktree_add_options_init*(opts: ptr git_worktree_add_options, version: cuint): cint {.git2Proc, importc: "git_worktree_add_options_init".}
 
-proc git_worktree_add*(`out`: `ptr` git_worktree, repo: `ptr` git_repository, name: cstring, path: cstring, opts: `ptr` git_worktree_add_options): cint {.git2Proc, importc: "git_worktree_add".}
+proc git_worktree_add*(`out`: ptr ptr git_worktree, repo: ptr git_repository, name: cstring, path: cstring, opts: ptr git_worktree_add_options): cint {.git2Proc, importc: "git_worktree_add".}
 
-proc git_worktree_lock*(wt: `ptr` git_worktree, reason: cstring): cint {.git2Proc, importc: "git_worktree_lock".}
+proc git_worktree_lock*(wt: ptr git_worktree, reason: cstring): cint {.git2Proc, importc: "git_worktree_lock".}
 
-proc git_worktree_unlock*(wt: `ptr` git_worktree): cint {.git2Proc, importc: "git_worktree_unlock".}
+proc git_worktree_unlock*(wt: ptr git_worktree): cint {.git2Proc, importc: "git_worktree_unlock".}
 
-proc git_worktree_is_locked*(reason: `ptr` git_buf, wt: `ptr` git_worktree): cint {.git2Proc, importc: "git_worktree_is_locked".}
+proc git_worktree_is_locked*(reason: ptr git_buf, wt: ptr git_worktree): cint {.git2Proc, importc: "git_worktree_is_locked".}
 
-proc git_worktree_name*(wt: `ptr` git_worktree): cstring {.git2Proc, importc: "git_worktree_name".}
+proc git_worktree_name*(wt: ptr git_worktree): cstring {.git2Proc, importc: "git_worktree_name".}
 
-proc git_worktree_path*(wt: `ptr` git_worktree): cstring {.git2Proc, importc: "git_worktree_path".}
+proc git_worktree_path*(wt: ptr git_worktree): cstring {.git2Proc, importc: "git_worktree_path".}
 
-proc git_worktree_prune_options_init*(opts: `ptr` git_worktree_prune_options, version: cuint): cint {.git2Proc, importc: "git_worktree_prune_options_init".}
+proc git_worktree_prune_options_init*(opts: ptr git_worktree_prune_options, version: cuint): cint {.git2Proc, importc: "git_worktree_prune_options_init".}
 
-proc git_worktree_is_prunable*(wt: `ptr` git_worktree, opts: `ptr` git_worktree_prune_options): cint {.git2Proc, importc: "git_worktree_is_prunable".}
+proc git_worktree_is_prunable*(wt: ptr git_worktree, opts: ptr git_worktree_prune_options): cint {.git2Proc, importc: "git_worktree_is_prunable".}
 
-proc git_worktree_prune*(wt: `ptr` git_worktree, opts: `ptr` git_worktree_prune_options): cint {.git2Proc, importc: "git_worktree_prune".}
+proc git_worktree_prune*(wt: ptr git_worktree, opts: ptr git_worktree_prune_options): cint {.git2Proc, importc: "git_worktree_prune".}

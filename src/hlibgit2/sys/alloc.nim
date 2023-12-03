@@ -8,6 +8,6 @@ type
 
 
 
-proc git_stdalloc_init_allocator*(allocator: `ptr` git_allocator): cint {.git2Proc, importc: "git_stdalloc_init_allocator".}
+proc git_stdalloc_init_allocator*(allocator: ptr git_allocator): cint {.git2Proc, importc: "git_stdalloc_init_allocator".}
 
-proc git_win32_crtdbg_init_allocator*(allocator: `ptr` git_allocator): cint {.git2Proc, importc: "git_win32_crtdbg_init_allocator".}
+proc git_win32_crtdbg_init_allocator*(allocator: ptr git_allocator): cint {.git2Proc, importc: "git_win32_crtdbg_init_allocator".}
