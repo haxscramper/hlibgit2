@@ -55,15 +55,39 @@ proc git_pathspec_new*(`out`: ptr ptr git_pathspec, pathspec: ptr git_strarray):
 
 proc git_pathspec_free*(ps: ptr git_pathspec): void {.git2Proc, importc: "git_pathspec_free".}
 
-proc git_pathspec_matches_path*(ps: ptr git_pathspec, flags: uint32, path: cstring): cint {.git2Proc, importc: "git_pathspec_matches_path".}
+proc git_pathspec_matches_path*(
+    ps: ptr git_pathspec,
+    flags: uint32,
+    path: cstring,
+): cint {.git2Proc, importc: "git_pathspec_matches_path".}
 
-proc git_pathspec_match_workdir*(`out`: ptr ptr git_pathspec_match_list, repo: ptr git_repository, flags: uint32, ps: ptr git_pathspec): cint {.git2Proc, importc: "git_pathspec_match_workdir".}
+proc git_pathspec_match_workdir*(
+    `out`: ptr ptr git_pathspec_match_list,
+    repo: ptr git_repository,
+    flags: uint32,
+    ps: ptr git_pathspec,
+): cint {.git2Proc, importc: "git_pathspec_match_workdir".}
 
-proc git_pathspec_match_index*(`out`: ptr ptr git_pathspec_match_list, index: ptr git_index, flags: uint32, ps: ptr git_pathspec): cint {.git2Proc, importc: "git_pathspec_match_index".}
+proc git_pathspec_match_index*(
+    `out`: ptr ptr git_pathspec_match_list,
+    index: ptr git_index,
+    flags: uint32,
+    ps: ptr git_pathspec,
+): cint {.git2Proc, importc: "git_pathspec_match_index".}
 
-proc git_pathspec_match_tree*(`out`: ptr ptr git_pathspec_match_list, tree: ptr git_tree, flags: uint32, ps: ptr git_pathspec): cint {.git2Proc, importc: "git_pathspec_match_tree".}
+proc git_pathspec_match_tree*(
+    `out`: ptr ptr git_pathspec_match_list,
+    tree: ptr git_tree,
+    flags: uint32,
+    ps: ptr git_pathspec,
+): cint {.git2Proc, importc: "git_pathspec_match_tree".}
 
-proc git_pathspec_match_diff*(`out`: ptr ptr git_pathspec_match_list, diff: ptr git_diff, flags: uint32, ps: ptr git_pathspec): cint {.git2Proc, importc: "git_pathspec_match_diff".}
+proc git_pathspec_match_diff*(
+    `out`: ptr ptr git_pathspec_match_list,
+    diff: ptr git_diff,
+    flags: uint32,
+    ps: ptr git_pathspec,
+): cint {.git2Proc, importc: "git_pathspec_match_diff".}
 
 proc git_pathspec_match_list_free*(m: ptr git_pathspec_match_list): void {.git2Proc, importc: "git_pathspec_match_list_free".}
 

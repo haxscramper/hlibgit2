@@ -66,6 +66,17 @@ func `+`*(offset: int, arg: c_git_apply_location_t): cint = cast[c_git_apply_loc
 
 proc git_apply_options_init*(opts: ptr git_apply_options, version: cuint): cint {.git2Proc, importc: "git_apply_options_init".}
 
-proc git_apply_to_tree*(`out`: ptr ptr git_index, repo: ptr git_repository, preimage: ptr git_tree, diff: ptr git_diff, options: ptr git_apply_options): cint {.git2Proc, importc: "git_apply_to_tree".}
+proc git_apply_to_tree*(
+    `out`: ptr ptr git_index,
+    repo: ptr git_repository,
+    preimage: ptr git_tree,
+    diff: ptr git_diff,
+    options: ptr git_apply_options,
+): cint {.git2Proc, importc: "git_apply_to_tree".}
 
-proc git_apply*(repo: ptr git_repository, diff: ptr git_diff, location: git_apply_location_t, options: ptr git_apply_options): cint {.git2Proc, importc: "git_apply".}
+proc git_apply*(
+    repo: ptr git_repository,
+    diff: ptr git_diff,
+    location: git_apply_location_t,
+    options: ptr git_apply_options,
+): cint {.git2Proc, importc: "git_apply".}

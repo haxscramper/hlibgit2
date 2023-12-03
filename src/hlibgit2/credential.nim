@@ -64,9 +64,9 @@ type
 
   git_credential_acquire_cb* = proc (a0: ptr ptr git_credential, a1: cstring, a2: cstring, a3: cuint, a4: pointer): cint
 
-  git_credential_ssh_interactive_cb* = proc (a0: cstring, a1: cint, a2: cstring, a3: cint, a4: cint, a5: ptr LIBSSH2_USERAUTH_KBDINT_PROMPT, a6: ptr LIBSSH2_USERAUTH_KBDINT_RESPONSE, a7: ptr ptr void): void
+  git_credential_ssh_interactive_cb* = proc (a0: cstring, a1: cint, a2: cstring, a3: cint, a4: cint, a5: ptr LIBSSH2_USERAUTH_KBDINT_PROMPT, a6: ptr LIBSSH2_USERAUTH_KBDINT_RESPONSE, a7: ptr pointer): void
 
-  git_credential_sign_cb* = proc (a0: ptr LIBSSH2_SESSION, a1: ptr ptr char, a2: ptr csize_t, a3: cstring, a4: csize_t, a5: ptr ptr void): cint
+  git_credential_sign_cb* = proc (a0: ptr LIBSSH2_SESSION, a1: cstringArray, a2: ptr csize_t, a3: cstring, a4: csize_t, a5: ptr pointer): cint
 
 
 
@@ -97,18 +97,46 @@ proc git_credential_has_username*(cred: ptr git_credential): cint {.git2Proc, im
 
 proc git_credential_get_username*(cred: ptr git_credential): cstring {.git2Proc, importc: "git_credential_get_username".}
 
-proc git_credential_userpass_plaintext_new*(`out`: ptr ptr git_credential, username: cstring, password: cstring): cint {.git2Proc, importc: "git_credential_userpass_plaintext_new".}
+proc git_credential_userpass_plaintext_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    password: cstring,
+): cint {.git2Proc, importc: "git_credential_userpass_plaintext_new".}
 
 proc git_credential_default_new*(`out`: ptr ptr git_credential): cint {.git2Proc, importc: "git_credential_default_new".}
 
 proc git_credential_username_new*(`out`: ptr ptr git_credential, username: cstring): cint {.git2Proc, importc: "git_credential_username_new".}
 
-proc git_credential_ssh_key_new*(`out`: ptr ptr git_credential, username: cstring, publickey: cstring, privatekey: cstring, passphrase: cstring): cint {.git2Proc, importc: "git_credential_ssh_key_new".}
+proc git_credential_ssh_key_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    publickey: cstring,
+    privatekey: cstring,
+    passphrase: cstring,
+): cint {.git2Proc, importc: "git_credential_ssh_key_new".}
 
-proc git_credential_ssh_key_memory_new*(`out`: ptr ptr git_credential, username: cstring, publickey: cstring, privatekey: cstring, passphrase: cstring): cint {.git2Proc, importc: "git_credential_ssh_key_memory_new".}
+proc git_credential_ssh_key_memory_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    publickey: cstring,
+    privatekey: cstring,
+    passphrase: cstring,
+): cint {.git2Proc, importc: "git_credential_ssh_key_memory_new".}
 
-proc git_credential_ssh_interactive_new*(`out`: ptr ptr git_credential, username: cstring, prompt_callback: git_credential_ssh_interactive_cb, payload: pointer): cint {.git2Proc, importc: "git_credential_ssh_interactive_new".}
+proc git_credential_ssh_interactive_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    prompt_callback: git_credential_ssh_interactive_cb,
+    payload: pointer,
+): cint {.git2Proc, importc: "git_credential_ssh_interactive_new".}
 
 proc git_credential_ssh_key_from_agent*(`out`: ptr ptr git_credential, username: cstring): cint {.git2Proc, importc: "git_credential_ssh_key_from_agent".}
 
-proc git_credential_ssh_custom_new*(`out`: ptr ptr git_credential, username: cstring, publickey: cstring, publickey_len: csize_t, sign_callback: git_credential_sign_cb, payload: pointer): cint {.git2Proc, importc: "git_credential_ssh_custom_new".}
+proc git_credential_ssh_custom_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    publickey: cstring,
+    publickey_len: csize_t,
+    sign_callback: git_credential_sign_cb,
+    payload: pointer,
+): cint {.git2Proc, importc: "git_credential_ssh_custom_new".}

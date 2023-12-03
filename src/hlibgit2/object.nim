@@ -8,17 +8,42 @@ proc git_object_string2type*(str: cstring): git_object_t {.git2Proc, importc: "g
 
 proc git_object_typeisloose*(`type`: git_object_t): cint {.git2Proc, importc: "git_object_typeisloose".}
 
-proc git_object_peel*(peeled: ptr ptr git_object, `object`: ptr git_object, target_type: git_object_t): cint {.git2Proc, importc: "git_object_peel".}
+proc git_object_peel*(
+    peeled: ptr ptr git_object,
+    `object`: ptr git_object,
+    target_type: git_object_t,
+): cint {.git2Proc, importc: "git_object_peel".}
 
 proc git_object_dup*(dest: ptr ptr git_object, source: ptr git_object): cint {.git2Proc, importc: "git_object_dup".}
 
-proc git_object_rawcontent_is_valid*(valid: ptr cint, buf: cstring, len: csize_t, object_type: git_object_t): cint {.git2Proc, importc: "git_object_rawcontent_is_valid".}
+proc git_object_rawcontent_is_valid*(
+    valid: ptr cint,
+    buf: cstring,
+    len: csize_t,
+    object_type: git_object_t,
+): cint {.git2Proc, importc: "git_object_rawcontent_is_valid".}
 
-proc git_object_lookup*(`object`: ptr ptr git_object, repo: ptr git_repository, id: ptr git_oid, `type`: git_object_t): cint {.git2Proc, importc: "git_object_lookup".}
+proc git_object_lookup*(
+    `object`: ptr ptr git_object,
+    repo: ptr git_repository,
+    id: ptr git_oid,
+    `type`: git_object_t,
+): cint {.git2Proc, importc: "git_object_lookup".}
 
-proc git_object_lookup_prefix*(object_out: ptr ptr git_object, repo: ptr git_repository, id: ptr git_oid, len: csize_t, `type`: git_object_t): cint {.git2Proc, importc: "git_object_lookup_prefix".}
+proc git_object_lookup_prefix*(
+    object_out: ptr ptr git_object,
+    repo: ptr git_repository,
+    id: ptr git_oid,
+    len: csize_t,
+    `type`: git_object_t,
+): cint {.git2Proc, importc: "git_object_lookup_prefix".}
 
-proc git_object_lookup_bypath*(`out`: ptr ptr git_object, treeish: ptr git_object, path: cstring, `type`: git_object_t): cint {.git2Proc, importc: "git_object_lookup_bypath".}
+proc git_object_lookup_bypath*(
+    `out`: ptr ptr git_object,
+    treeish: ptr git_object,
+    path: cstring,
+    `type`: git_object_t,
+): cint {.git2Proc, importc: "git_object_lookup_bypath".}
 
 proc git_object_id*(obj: ptr git_object): ptr git_oid {.git2Proc, importc: "git_object_id".}
 

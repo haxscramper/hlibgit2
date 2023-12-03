@@ -54,4 +54,9 @@ func `+`*(offset: int, arg: c_git_clone_local_t): cint = cast[c_git_clone_local_
 
 proc git_clone_options_init*(opts: ptr git_clone_options, version: cuint): cint {.git2Proc, importc: "git_clone_options_init".}
 
-proc git_clone*(`out`: ptr ptr git_repository, url: cstring, local_path: cstring, options: ptr git_clone_options): cint {.git2Proc, importc: "git_clone".}
+proc git_clone*(
+    `out`: ptr ptr git_repository,
+    url: cstring,
+    local_path: cstring,
+    options: ptr git_clone_options,
+): cint {.git2Proc, importc: "git_clone".}

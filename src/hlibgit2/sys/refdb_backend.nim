@@ -6,7 +6,7 @@ type
   git_reference_iterator* {.importc, bycopy, incompleteStruct.} = object
     db        *: ptr git_refdb
     next      *: proc (a0: ptr ptr git_reference, a1: ptr git_reference_iterator): cint
-    next_name *: proc (a0: ptr ptr char, a1: ptr git_reference_iterator): cint
+    next_name *: proc (a0: cstringArray, a1: ptr git_reference_iterator): cint
     free      *: proc (a0: ptr git_reference_iterator): void
 
   git_refdb_backend* {.importc, bycopy, incompleteStruct.} = object
@@ -25,7 +25,7 @@ type
     reflog_write  *: proc (a0: ptr git_refdb_backend, a1: ptr git_reflog): cint
     reflog_rename *: proc (a0: ptr git_refdb_backend, a1: cstring, a2: cstring): cint
     reflog_delete *: proc (a0: ptr git_refdb_backend, a1: cstring): cint
-    lock          *: proc (a0: ptr ptr void, a1: ptr git_refdb_backend, a2: cstring): cint
+    lock          *: proc (a0: ptr pointer, a1: ptr git_refdb_backend, a2: cstring): cint
     unlock        *: proc (a0: ptr git_refdb_backend, a1: pointer, a2: cint, a3: cint, a4: ptr git_reference, a5: ptr git_signature, a6: cstring): cint
 
 

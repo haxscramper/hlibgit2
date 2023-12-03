@@ -40,7 +40,11 @@ proc git_commit_graph_writer_new*(`out`: ptr ptr git_commit_graph_writer, object
 
 proc git_commit_graph_writer_free*(w: ptr git_commit_graph_writer): void {.git2Proc, importc: "git_commit_graph_writer_free".}
 
-proc git_commit_graph_writer_add_index_file*(w: ptr git_commit_graph_writer, repo: ptr git_repository, idx_path: cstring): cint {.git2Proc, importc: "git_commit_graph_writer_add_index_file".}
+proc git_commit_graph_writer_add_index_file*(
+    w: ptr git_commit_graph_writer,
+    repo: ptr git_repository,
+    idx_path: cstring,
+): cint {.git2Proc, importc: "git_commit_graph_writer_add_index_file".}
 
 proc git_commit_graph_writer_add_revwalk*(w: ptr git_commit_graph_writer, walk: ptr git_revwalk): cint {.git2Proc, importc: "git_commit_graph_writer_add_revwalk".}
 
@@ -48,4 +52,8 @@ proc git_commit_graph_writer_options_init*(opts: ptr git_commit_graph_writer_opt
 
 proc git_commit_graph_writer_commit*(w: ptr git_commit_graph_writer, opts: ptr git_commit_graph_writer_options): cint {.git2Proc, importc: "git_commit_graph_writer_commit".}
 
-proc git_commit_graph_writer_dump*(buffer: ptr git_buf, w: ptr git_commit_graph_writer, opts: ptr git_commit_graph_writer_options): cint {.git2Proc, importc: "git_commit_graph_writer_dump".}
+proc git_commit_graph_writer_dump*(
+    buffer: ptr git_buf,
+    w: ptr git_commit_graph_writer,
+    opts: ptr git_commit_graph_writer_options,
+): cint {.git2Proc, importc: "git_commit_graph_writer_dump".}

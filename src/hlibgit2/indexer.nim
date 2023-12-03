@@ -25,7 +25,12 @@ type
 
 
 
-proc git_indexer_append*(idx: ptr git_indexer, data: pointer, size: csize_t, stats: ptr git_indexer_progress): cint {.git2Proc, importc: "git_indexer_append".}
+proc git_indexer_append*(
+    idx: ptr git_indexer,
+    data: pointer,
+    size: csize_t,
+    stats: ptr git_indexer_progress,
+): cint {.git2Proc, importc: "git_indexer_append".}
 
 proc git_indexer_commit*(idx: ptr git_indexer, stats: ptr git_indexer_progress): cint {.git2Proc, importc: "git_indexer_commit".}
 
@@ -37,4 +42,10 @@ proc git_indexer_free*(idx: ptr git_indexer): void {.git2Proc, importc: "git_ind
 
 proc git_indexer_options_init*(opts: ptr git_indexer_options, version: cuint): cint {.git2Proc, importc: "git_indexer_options_init".}
 
-proc git_indexer_new*(`out`: ptr ptr git_indexer, path: cstring, mode: cuint, odb: ptr git_odb, opts: ptr git_indexer_options): cint {.git2Proc, importc: "git_indexer_new".}
+proc git_indexer_new*(
+    `out`: ptr ptr git_indexer,
+    path: cstring,
+    mode: cuint,
+    odb: ptr git_odb,
+    opts: ptr git_indexer_options,
+): cint {.git2Proc, importc: "git_indexer_new".}

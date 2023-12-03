@@ -38,19 +38,31 @@ proc git_oid_fromstr*(`out`: ptr git_oid, str: cstring): cint {.git2Proc, import
 
 proc git_oid_fromstrp*(`out`: ptr git_oid, str: cstring): cint {.git2Proc, importc: "git_oid_fromstrp".}
 
-proc git_oid_fromstrn*(`out`: ptr git_oid, str: cstring, length: csize_t): cint {.git2Proc, importc: "git_oid_fromstrn".}
+proc git_oid_fromstrn*(
+    `out`: ptr git_oid,
+    str: cstring,
+    length: csize_t,
+): cint {.git2Proc, importc: "git_oid_fromstrn".}
 
 proc git_oid_fromraw*(`out`: ptr git_oid, raw: cstring): cint {.git2Proc, importc: "git_oid_fromraw".}
 
 proc git_oid_fmt*(`out`: ptr char, id: ptr git_oid): cint {.git2Proc, importc: "git_oid_fmt".}
 
-proc git_oid_nfmt*(`out`: ptr char, n: csize_t, id: ptr git_oid): cint {.git2Proc, importc: "git_oid_nfmt".}
+proc git_oid_nfmt*(
+    `out`: ptr char,
+    n: csize_t,
+    id: ptr git_oid,
+): cint {.git2Proc, importc: "git_oid_nfmt".}
 
 proc git_oid_pathfmt*(`out`: ptr char, id: ptr git_oid): cint {.git2Proc, importc: "git_oid_pathfmt".}
 
 proc git_oid_tostr_s*(oid: ptr git_oid): ptr char {.git2Proc, importc: "git_oid_tostr_s".}
 
-proc git_oid_tostr*(`out`: ptr char, n: csize_t, id: ptr git_oid): ptr char {.git2Proc, importc: "git_oid_tostr".}
+proc git_oid_tostr*(
+    `out`: ptr char,
+    n: csize_t,
+    id: ptr git_oid,
+): ptr char {.git2Proc, importc: "git_oid_tostr".}
 
 proc git_oid_cpy*(`out`: ptr git_oid, src: ptr git_oid): cint {.git2Proc, importc: "git_oid_cpy".}
 
@@ -58,7 +70,11 @@ proc git_oid_cmp*(a: ptr git_oid, b: ptr git_oid): cint {.git2Proc, importc: "gi
 
 proc git_oid_equal*(a: ptr git_oid, b: ptr git_oid): cint {.git2Proc, importc: "git_oid_equal".}
 
-proc git_oid_ncmp*(a: ptr git_oid, b: ptr git_oid, len: csize_t): cint {.git2Proc, importc: "git_oid_ncmp".}
+proc git_oid_ncmp*(
+    a: ptr git_oid,
+    b: ptr git_oid,
+    len: csize_t,
+): cint {.git2Proc, importc: "git_oid_ncmp".}
 
 proc git_oid_streq*(id: ptr git_oid, str: cstring): cint {.git2Proc, importc: "git_oid_streq".}
 

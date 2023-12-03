@@ -48,9 +48,19 @@ type
 
 
 
-proc git_blame_file*(`out`: ptr ptr git_blame, repo: ptr git_repository, path: cstring, options: ptr git_blame_options): cint {.git2Proc, importc: "git_blame_file".}
+proc git_blame_file*(
+    `out`: ptr ptr git_blame,
+    repo: ptr git_repository,
+    path: cstring,
+    options: ptr git_blame_options,
+): cint {.git2Proc, importc: "git_blame_file".}
 
-proc git_blame_buffer*(`out`: ptr ptr git_blame, reference: ptr git_blame, buffer: cstring, buffer_len: csize_t): cint {.git2Proc, importc: "git_blame_buffer".}
+proc git_blame_buffer*(
+    `out`: ptr ptr git_blame,
+    reference: ptr git_blame,
+    buffer: cstring,
+    buffer_len: csize_t,
+): cint {.git2Proc, importc: "git_blame_buffer".}
 
 proc git_blame_free*(blame: ptr git_blame): void {.git2Proc, importc: "git_blame_free".}
 

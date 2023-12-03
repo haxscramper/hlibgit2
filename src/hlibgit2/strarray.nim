@@ -2,7 +2,7 @@ import "./libgit2_config.nim" ## From gen file
 
 type
   git_strarray* {.importc, bycopy.} = object
-    strings *: ptr ptr char
+    strings *: cstringArray
     count   *: csize_t
 
 

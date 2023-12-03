@@ -176,13 +176,30 @@ func `+`*(offset: int, arg: c_git_status_opt_t): cint = cast[c_git_status_opt_t]
 
 proc git_status_options_init*(opts: ptr git_status_options, version: cuint): cint {.git2Proc, importc: "git_status_options_init".}
 
-proc git_status_foreach*(repo: ptr git_repository, callback: git_status_cb, payload: pointer): cint {.git2Proc, importc: "git_status_foreach".}
+proc git_status_foreach*(
+    repo: ptr git_repository,
+    callback: git_status_cb,
+    payload: pointer,
+): cint {.git2Proc, importc: "git_status_foreach".}
 
-proc git_status_foreach_ext*(repo: ptr git_repository, opts: ptr git_status_options, callback: git_status_cb, payload: pointer): cint {.git2Proc, importc: "git_status_foreach_ext".}
+proc git_status_foreach_ext*(
+    repo: ptr git_repository,
+    opts: ptr git_status_options,
+    callback: git_status_cb,
+    payload: pointer,
+): cint {.git2Proc, importc: "git_status_foreach_ext".}
 
-proc git_status_file*(status_flags: ptr cuint, repo: ptr git_repository, path: cstring): cint {.git2Proc, importc: "git_status_file".}
+proc git_status_file*(
+    status_flags: ptr cuint,
+    repo: ptr git_repository,
+    path: cstring,
+): cint {.git2Proc, importc: "git_status_file".}
 
-proc git_status_list_new*(`out`: ptr ptr git_status_list, repo: ptr git_repository, opts: ptr git_status_options): cint {.git2Proc, importc: "git_status_list_new".}
+proc git_status_list_new*(
+    `out`: ptr ptr git_status_list,
+    repo: ptr git_repository,
+    opts: ptr git_status_options,
+): cint {.git2Proc, importc: "git_status_list_new".}
 
 proc git_status_list_entrycount*(statuslist: ptr git_status_list): csize_t {.git2Proc, importc: "git_status_list_entrycount".}
 
@@ -190,4 +207,8 @@ proc git_status_byindex*(statuslist: ptr git_status_list, idx: csize_t): ptr git
 
 proc git_status_list_free*(statuslist: ptr git_status_list): void {.git2Proc, importc: "git_status_list_free".}
 
-proc git_status_should_ignore*(ignored: ptr cint, repo: ptr git_repository, path: cstring): cint {.git2Proc, importc: "git_status_should_ignore".}
+proc git_status_should_ignore*(
+    ignored: ptr cint,
+    repo: ptr git_repository,
+    path: cstring,
+): cint {.git2Proc, importc: "git_status_should_ignore".}

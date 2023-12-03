@@ -8,9 +8,18 @@ type
 
 
 
-proc git_tag_lookup*(`out`: ptr ptr git_tag, repo: ptr git_repository, id: ptr git_oid): cint {.git2Proc, importc: "git_tag_lookup".}
+proc git_tag_lookup*(
+    `out`: ptr ptr git_tag,
+    repo: ptr git_repository,
+    id: ptr git_oid,
+): cint {.git2Proc, importc: "git_tag_lookup".}
 
-proc git_tag_lookup_prefix*(`out`: ptr ptr git_tag, repo: ptr git_repository, id: ptr git_oid, len: csize_t): cint {.git2Proc, importc: "git_tag_lookup_prefix".}
+proc git_tag_lookup_prefix*(
+    `out`: ptr ptr git_tag,
+    repo: ptr git_repository,
+    id: ptr git_oid,
+    len: csize_t,
+): cint {.git2Proc, importc: "git_tag_lookup_prefix".}
 
 proc git_tag_free*(tag: ptr git_tag): void {.git2Proc, importc: "git_tag_free".}
 
@@ -30,21 +39,55 @@ proc git_tag_tagger*(tag: ptr git_tag): ptr git_signature {.git2Proc, importc: "
 
 proc git_tag_message*(tag: ptr git_tag): cstring {.git2Proc, importc: "git_tag_message".}
 
-proc git_tag_create*(oid: ptr git_oid, repo: ptr git_repository, tag_name: cstring, target: ptr git_object, tagger: ptr git_signature, message: cstring, force: cint): cint {.git2Proc, importc: "git_tag_create".}
+proc git_tag_create*(
+    oid: ptr git_oid,
+    repo: ptr git_repository,
+    tag_name: cstring,
+    target: ptr git_object,
+    tagger: ptr git_signature,
+    message: cstring,
+    force: cint,
+): cint {.git2Proc, importc: "git_tag_create".}
 
-proc git_tag_annotation_create*(oid: ptr git_oid, repo: ptr git_repository, tag_name: cstring, target: ptr git_object, tagger: ptr git_signature, message: cstring): cint {.git2Proc, importc: "git_tag_annotation_create".}
+proc git_tag_annotation_create*(
+    oid: ptr git_oid,
+    repo: ptr git_repository,
+    tag_name: cstring,
+    target: ptr git_object,
+    tagger: ptr git_signature,
+    message: cstring,
+): cint {.git2Proc, importc: "git_tag_annotation_create".}
 
-proc git_tag_create_from_buffer*(oid: ptr git_oid, repo: ptr git_repository, buffer: cstring, force: cint): cint {.git2Proc, importc: "git_tag_create_from_buffer".}
+proc git_tag_create_from_buffer*(
+    oid: ptr git_oid,
+    repo: ptr git_repository,
+    buffer: cstring,
+    force: cint,
+): cint {.git2Proc, importc: "git_tag_create_from_buffer".}
 
-proc git_tag_create_lightweight*(oid: ptr git_oid, repo: ptr git_repository, tag_name: cstring, target: ptr git_object, force: cint): cint {.git2Proc, importc: "git_tag_create_lightweight".}
+proc git_tag_create_lightweight*(
+    oid: ptr git_oid,
+    repo: ptr git_repository,
+    tag_name: cstring,
+    target: ptr git_object,
+    force: cint,
+): cint {.git2Proc, importc: "git_tag_create_lightweight".}
 
 proc git_tag_delete*(repo: ptr git_repository, tag_name: cstring): cint {.git2Proc, importc: "git_tag_delete".}
 
 proc git_tag_list*(tag_names: ptr git_strarray, repo: ptr git_repository): cint {.git2Proc, importc: "git_tag_list".}
 
-proc git_tag_list_match*(tag_names: ptr git_strarray, pattern: cstring, repo: ptr git_repository): cint {.git2Proc, importc: "git_tag_list_match".}
+proc git_tag_list_match*(
+    tag_names: ptr git_strarray,
+    pattern: cstring,
+    repo: ptr git_repository,
+): cint {.git2Proc, importc: "git_tag_list_match".}
 
-proc git_tag_foreach*(repo: ptr git_repository, callback: git_tag_foreach_cb, payload: pointer): cint {.git2Proc, importc: "git_tag_foreach".}
+proc git_tag_foreach*(
+    repo: ptr git_repository,
+    callback: git_tag_foreach_cb,
+    payload: pointer,
+): cint {.git2Proc, importc: "git_tag_foreach".}
 
 proc git_tag_peel*(tag_target_out: ptr ptr git_object, tag: ptr git_tag): cint {.git2Proc, importc: "git_tag_peel".}
 

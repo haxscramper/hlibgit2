@@ -18,7 +18,7 @@ type
 
   git_merge_driver_shutdown_fn* = proc (a0: ptr git_merge_driver): void
 
-  git_merge_driver_apply_fn* = proc (a0: ptr git_merge_driver, a1: ptr ptr char, a2: ptr uint32, a3: ptr git_buf, a4: cstring, a5: ptr git_merge_driver_source): cint
+  git_merge_driver_apply_fn* = proc (a0: ptr git_merge_driver, a1: cstringArray, a2: ptr uint32, a3: ptr git_buf, a4: cstring, a5: ptr git_merge_driver_source): cint
 
 
 

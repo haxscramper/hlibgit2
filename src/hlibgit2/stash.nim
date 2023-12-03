@@ -124,18 +124,40 @@ func `+`*(arg: c_git_stash_apply_progress_t, offset: int): cint = cast[c_git_sta
 
 func `+`*(offset: int, arg: c_git_stash_apply_progress_t): cint = cast[c_git_stash_apply_progress_t](ord(arg) + offset)
 
-proc git_stash_save*(`out`: ptr git_oid, repo: ptr git_repository, stasher: ptr git_signature, message: cstring, flags: uint32): cint {.git2Proc, importc: "git_stash_save".}
+proc git_stash_save*(
+    `out`: ptr git_oid,
+    repo: ptr git_repository,
+    stasher: ptr git_signature,
+    message: cstring,
+    flags: uint32,
+): cint {.git2Proc, importc: "git_stash_save".}
 
 proc git_stash_save_options_init*(opts: ptr git_stash_save_options, version: cuint): cint {.git2Proc, importc: "git_stash_save_options_init".}
 
-proc git_stash_save_with_opts*(`out`: ptr git_oid, repo: ptr git_repository, opts: ptr git_stash_save_options): cint {.git2Proc, importc: "git_stash_save_with_opts".}
+proc git_stash_save_with_opts*(
+    `out`: ptr git_oid,
+    repo: ptr git_repository,
+    opts: ptr git_stash_save_options,
+): cint {.git2Proc, importc: "git_stash_save_with_opts".}
 
 proc git_stash_apply_options_init*(opts: ptr git_stash_apply_options, version: cuint): cint {.git2Proc, importc: "git_stash_apply_options_init".}
 
-proc git_stash_apply*(repo: ptr git_repository, index: csize_t, options: ptr git_stash_apply_options): cint {.git2Proc, importc: "git_stash_apply".}
+proc git_stash_apply*(
+    repo: ptr git_repository,
+    index: csize_t,
+    options: ptr git_stash_apply_options,
+): cint {.git2Proc, importc: "git_stash_apply".}
 
-proc git_stash_foreach*(repo: ptr git_repository, callback: git_stash_cb, payload: pointer): cint {.git2Proc, importc: "git_stash_foreach".}
+proc git_stash_foreach*(
+    repo: ptr git_repository,
+    callback: git_stash_cb,
+    payload: pointer,
+): cint {.git2Proc, importc: "git_stash_foreach".}
 
 proc git_stash_drop*(repo: ptr git_repository, index: csize_t): cint {.git2Proc, importc: "git_stash_drop".}
 
-proc git_stash_pop*(repo: ptr git_repository, index: csize_t, options: ptr git_stash_apply_options): cint {.git2Proc, importc: "git_stash_pop".}
+proc git_stash_pop*(
+    repo: ptr git_repository,
+    index: csize_t,
+    options: ptr git_stash_apply_options,
+): cint {.git2Proc, importc: "git_stash_pop".}

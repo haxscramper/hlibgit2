@@ -13,7 +13,12 @@ type
 
 
 
-proc git_message_prettify*(`out`: ptr git_buf, message: cstring, strip_comments: cint, comment_char: char): cint {.git2Proc, importc: "git_message_prettify".}
+proc git_message_prettify*(
+    `out`: ptr git_buf,
+    message: cstring,
+    strip_comments: cint,
+    comment_char: char,
+): cint {.git2Proc, importc: "git_message_prettify".}
 
 proc git_message_trailers*(arr: ptr git_message_trailer_array, message: cstring): cint {.git2Proc, importc: "git_message_trailers".}
 

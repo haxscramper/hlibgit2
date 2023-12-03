@@ -46,7 +46,11 @@ func `+`*(offset: int, arg: c_git_worktree_prune_t): cint = cast[c_git_worktree_
 
 proc git_worktree_list*(`out`: ptr git_strarray, repo: ptr git_repository): cint {.git2Proc, importc: "git_worktree_list".}
 
-proc git_worktree_lookup*(`out`: ptr ptr git_worktree, repo: ptr git_repository, name: cstring): cint {.git2Proc, importc: "git_worktree_lookup".}
+proc git_worktree_lookup*(
+    `out`: ptr ptr git_worktree,
+    repo: ptr git_repository,
+    name: cstring,
+): cint {.git2Proc, importc: "git_worktree_lookup".}
 
 proc git_worktree_open_from_repository*(`out`: ptr ptr git_worktree, repo: ptr git_repository): cint {.git2Proc, importc: "git_worktree_open_from_repository".}
 
@@ -56,7 +60,13 @@ proc git_worktree_validate*(wt: ptr git_worktree): cint {.git2Proc, importc: "gi
 
 proc git_worktree_add_options_init*(opts: ptr git_worktree_add_options, version: cuint): cint {.git2Proc, importc: "git_worktree_add_options_init".}
 
-proc git_worktree_add*(`out`: ptr ptr git_worktree, repo: ptr git_repository, name: cstring, path: cstring, opts: ptr git_worktree_add_options): cint {.git2Proc, importc: "git_worktree_add".}
+proc git_worktree_add*(
+    `out`: ptr ptr git_worktree,
+    repo: ptr git_repository,
+    name: cstring,
+    path: cstring,
+    opts: ptr git_worktree_add_options,
+): cint {.git2Proc, importc: "git_worktree_add".}
 
 proc git_worktree_lock*(wt: ptr git_worktree, reason: cstring): cint {.git2Proc, importc: "git_worktree_lock".}
 

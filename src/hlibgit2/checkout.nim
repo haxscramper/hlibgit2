@@ -172,6 +172,14 @@ proc git_checkout_options_init*(opts: ptr git_checkout_options, version: cuint):
 
 proc git_checkout_head*(repo: ptr git_repository, opts: ptr git_checkout_options): cint {.git2Proc, importc: "git_checkout_head".}
 
-proc git_checkout_index*(repo: ptr git_repository, index: ptr git_index, opts: ptr git_checkout_options): cint {.git2Proc, importc: "git_checkout_index".}
+proc git_checkout_index*(
+    repo: ptr git_repository,
+    index: ptr git_index,
+    opts: ptr git_checkout_options,
+): cint {.git2Proc, importc: "git_checkout_index".}
 
-proc git_checkout_tree*(repo: ptr git_repository, treeish: ptr git_object, opts: ptr git_checkout_options): cint {.git2Proc, importc: "git_checkout_tree".}
+proc git_checkout_tree*(
+    repo: ptr git_repository,
+    treeish: ptr git_object,
+    opts: ptr git_checkout_options,
+): cint {.git2Proc, importc: "git_checkout_tree".}

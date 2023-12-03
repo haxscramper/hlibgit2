@@ -42,9 +42,18 @@ func `+`*(arg: c_git_blob_filter_flag_t, offset: int): cint = cast[c_git_blob_fi
 
 func `+`*(offset: int, arg: c_git_blob_filter_flag_t): cint = cast[c_git_blob_filter_flag_t](ord(arg) + offset)
 
-proc git_blob_lookup*(blob: ptr ptr git_blob, repo: ptr git_repository, id: ptr git_oid): cint {.git2Proc, importc: "git_blob_lookup".}
+proc git_blob_lookup*(
+    blob: ptr ptr git_blob,
+    repo: ptr git_repository,
+    id: ptr git_oid,
+): cint {.git2Proc, importc: "git_blob_lookup".}
 
-proc git_blob_lookup_prefix*(blob: ptr ptr git_blob, repo: ptr git_repository, id: ptr git_oid, len: csize_t): cint {.git2Proc, importc: "git_blob_lookup_prefix".}
+proc git_blob_lookup_prefix*(
+    blob: ptr ptr git_blob,
+    repo: ptr git_repository,
+    id: ptr git_oid,
+    len: csize_t,
+): cint {.git2Proc, importc: "git_blob_lookup_prefix".}
 
 proc git_blob_free*(blob: ptr git_blob): void {.git2Proc, importc: "git_blob_free".}
 
@@ -58,17 +67,39 @@ proc git_blob_rawsize*(blob: ptr git_blob): git_object_size_t {.git2Proc, import
 
 proc git_blob_filter_options_init*(opts: ptr git_blob_filter_options, version: cuint): cint {.git2Proc, importc: "git_blob_filter_options_init".}
 
-proc git_blob_filter*(`out`: ptr git_buf, blob: ptr git_blob, as_path: cstring, opts: ptr git_blob_filter_options): cint {.git2Proc, importc: "git_blob_filter".}
+proc git_blob_filter*(
+    `out`: ptr git_buf,
+    blob: ptr git_blob,
+    as_path: cstring,
+    opts: ptr git_blob_filter_options,
+): cint {.git2Proc, importc: "git_blob_filter".}
 
-proc git_blob_create_from_workdir*(id: ptr git_oid, repo: ptr git_repository, relative_path: cstring): cint {.git2Proc, importc: "git_blob_create_from_workdir".}
+proc git_blob_create_from_workdir*(
+    id: ptr git_oid,
+    repo: ptr git_repository,
+    relative_path: cstring,
+): cint {.git2Proc, importc: "git_blob_create_from_workdir".}
 
-proc git_blob_create_from_disk*(id: ptr git_oid, repo: ptr git_repository, path: cstring): cint {.git2Proc, importc: "git_blob_create_from_disk".}
+proc git_blob_create_from_disk*(
+    id: ptr git_oid,
+    repo: ptr git_repository,
+    path: cstring,
+): cint {.git2Proc, importc: "git_blob_create_from_disk".}
 
-proc git_blob_create_from_stream*(`out`: ptr ptr git_writestream, repo: ptr git_repository, hintpath: cstring): cint {.git2Proc, importc: "git_blob_create_from_stream".}
+proc git_blob_create_from_stream*(
+    `out`: ptr ptr git_writestream,
+    repo: ptr git_repository,
+    hintpath: cstring,
+): cint {.git2Proc, importc: "git_blob_create_from_stream".}
 
 proc git_blob_create_from_stream_commit*(`out`: ptr git_oid, stream: ptr git_writestream): cint {.git2Proc, importc: "git_blob_create_from_stream_commit".}
 
-proc git_blob_create_from_buffer*(id: ptr git_oid, repo: ptr git_repository, buffer: pointer, len: csize_t): cint {.git2Proc, importc: "git_blob_create_from_buffer".}
+proc git_blob_create_from_buffer*(
+    id: ptr git_oid,
+    repo: ptr git_repository,
+    buffer: pointer,
+    len: csize_t,
+): cint {.git2Proc, importc: "git_blob_create_from_buffer".}
 
 proc git_blob_is_binary*(blob: ptr git_blob): cint {.git2Proc, importc: "git_blob_is_binary".}
 

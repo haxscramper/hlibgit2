@@ -63,9 +63,20 @@ func `+`*(offset: int, arg: c_git_rebase_operation_t): cint = cast[c_git_rebase_
 
 proc git_rebase_options_init*(opts: ptr git_rebase_options, version: cuint): cint {.git2Proc, importc: "git_rebase_options_init".}
 
-proc git_rebase_init*(`out`: ptr ptr git_rebase, repo: ptr git_repository, branch: ptr git_annotated_commit, upstream: ptr git_annotated_commit, onto: ptr git_annotated_commit, opts: ptr git_rebase_options): cint {.git2Proc, importc: "git_rebase_init".}
+proc git_rebase_init*(
+    `out`: ptr ptr git_rebase,
+    repo: ptr git_repository,
+    branch: ptr git_annotated_commit,
+    upstream: ptr git_annotated_commit,
+    onto: ptr git_annotated_commit,
+    opts: ptr git_rebase_options,
+): cint {.git2Proc, importc: "git_rebase_init".}
 
-proc git_rebase_open*(`out`: ptr ptr git_rebase, repo: ptr git_repository, opts: ptr git_rebase_options): cint {.git2Proc, importc: "git_rebase_open".}
+proc git_rebase_open*(
+    `out`: ptr ptr git_rebase,
+    repo: ptr git_repository,
+    opts: ptr git_rebase_options,
+): cint {.git2Proc, importc: "git_rebase_open".}
 
 proc git_rebase_orig_head_name*(rebase: ptr git_rebase): cstring {.git2Proc, importc: "git_rebase_orig_head_name".}
 
@@ -85,7 +96,14 @@ proc git_rebase_next*(operation: ptr ptr git_rebase_operation, rebase: ptr git_r
 
 proc git_rebase_inmemory_index*(index: ptr ptr git_index, rebase: ptr git_rebase): cint {.git2Proc, importc: "git_rebase_inmemory_index".}
 
-proc git_rebase_commit*(id: ptr git_oid, rebase: ptr git_rebase, author: ptr git_signature, committer: ptr git_signature, message_encoding: cstring, message: cstring): cint {.git2Proc, importc: "git_rebase_commit".}
+proc git_rebase_commit*(
+    id: ptr git_oid,
+    rebase: ptr git_rebase,
+    author: ptr git_signature,
+    committer: ptr git_signature,
+    message_encoding: cstring,
+    message: cstring,
+): cint {.git2Proc, importc: "git_rebase_commit".}
 
 proc git_rebase_abort*(rebase: ptr git_rebase): cint {.git2Proc, importc: "git_rebase_abort".}
 

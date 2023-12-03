@@ -85,27 +85,65 @@ func `+`*(arg: c_git_diff_format_email_flags_t, offset: int): cint = cast[c_git_
 
 func `+`*(offset: int, arg: c_git_diff_format_email_flags_t): cint = cast[c_git_diff_format_email_flags_t](ord(arg) + offset)
 
-proc git_blob_create_fromworkdir*(id: ptr git_oid, repo: ptr git_repository, relative_path: cstring): cint {.git2Proc, importc: "git_blob_create_fromworkdir".}
+proc git_blob_create_fromworkdir*(
+    id: ptr git_oid,
+    repo: ptr git_repository,
+    relative_path: cstring,
+): cint {.git2Proc, importc: "git_blob_create_fromworkdir".}
 
-proc git_blob_create_fromdisk*(id: ptr git_oid, repo: ptr git_repository, path: cstring): cint {.git2Proc, importc: "git_blob_create_fromdisk".}
+proc git_blob_create_fromdisk*(
+    id: ptr git_oid,
+    repo: ptr git_repository,
+    path: cstring,
+): cint {.git2Proc, importc: "git_blob_create_fromdisk".}
 
-proc git_blob_create_fromstream*(`out`: ptr ptr git_writestream, repo: ptr git_repository, hintpath: cstring): cint {.git2Proc, importc: "git_blob_create_fromstream".}
+proc git_blob_create_fromstream*(
+    `out`: ptr ptr git_writestream,
+    repo: ptr git_repository,
+    hintpath: cstring,
+): cint {.git2Proc, importc: "git_blob_create_fromstream".}
 
 proc git_blob_create_fromstream_commit*(`out`: ptr git_oid, stream: ptr git_writestream): cint {.git2Proc, importc: "git_blob_create_fromstream_commit".}
 
-proc git_blob_create_frombuffer*(id: ptr git_oid, repo: ptr git_repository, buffer: pointer, len: csize_t): cint {.git2Proc, importc: "git_blob_create_frombuffer".}
+proc git_blob_create_frombuffer*(
+    id: ptr git_oid,
+    repo: ptr git_repository,
+    buffer: pointer,
+    len: csize_t,
+): cint {.git2Proc, importc: "git_blob_create_frombuffer".}
 
-proc git_blob_filtered_content*(`out`: ptr git_buf, blob: ptr git_blob, as_path: cstring, check_for_binary_data: cint): cint {.git2Proc, importc: "git_blob_filtered_content".}
+proc git_blob_filtered_content*(
+    `out`: ptr git_buf,
+    blob: ptr git_blob,
+    as_path: cstring,
+    check_for_binary_data: cint,
+): cint {.git2Proc, importc: "git_blob_filtered_content".}
 
-proc git_filter_list_stream_data*(filters: ptr git_filter_list, data: ptr git_buf, target: ptr git_writestream): cint {.git2Proc, importc: "git_filter_list_stream_data".}
+proc git_filter_list_stream_data*(
+    filters: ptr git_filter_list,
+    data: ptr git_buf,
+    target: ptr git_writestream,
+): cint {.git2Proc, importc: "git_filter_list_stream_data".}
 
-proc git_filter_list_apply_to_data*(`out`: ptr git_buf, filters: ptr git_filter_list, `in`: ptr git_buf): cint {.git2Proc, importc: "git_filter_list_apply_to_data".}
+proc git_filter_list_apply_to_data*(
+    `out`: ptr git_buf,
+    filters: ptr git_filter_list,
+    `in`: ptr git_buf,
+): cint {.git2Proc, importc: "git_filter_list_apply_to_data".}
 
-proc git_treebuilder_write_with_buffer*(oid: ptr git_oid, bld: ptr git_treebuilder, tree: ptr git_buf): cint {.git2Proc, importc: "git_treebuilder_write_with_buffer".}
+proc git_treebuilder_write_with_buffer*(
+    oid: ptr git_oid,
+    bld: ptr git_treebuilder,
+    tree: ptr git_buf,
+): cint {.git2Proc, importc: "git_treebuilder_write_with_buffer".}
 
 proc git_buf_grow*(buffer: ptr git_buf, target_size: csize_t): cint {.git2Proc, importc: "git_buf_grow".}
 
-proc git_buf_set*(buffer: ptr git_buf, data: pointer, datalen: csize_t): cint {.git2Proc, importc: "git_buf_set".}
+proc git_buf_set*(
+    buffer: ptr git_buf,
+    data: pointer,
+    datalen: csize_t,
+): cint {.git2Proc, importc: "git_buf_set".}
 
 proc git_buf_is_binary*(buf: ptr git_buf): cint {.git2Proc, importc: "git_buf_is_binary".}
 
@@ -113,9 +151,21 @@ proc git_buf_contains_nul*(buf: ptr git_buf): cint {.git2Proc, importc: "git_buf
 
 proc git_buf_free*(buffer: ptr git_buf): void {.git2Proc, importc: "git_buf_free".}
 
-proc git_diff_format_email*(`out`: ptr git_buf, diff: ptr git_diff, opts: ptr git_diff_format_email_options): cint {.git2Proc, importc: "git_diff_format_email".}
+proc git_diff_format_email*(
+    `out`: ptr git_buf,
+    diff: ptr git_diff,
+    opts: ptr git_diff_format_email_options,
+): cint {.git2Proc, importc: "git_diff_format_email".}
 
-proc git_diff_commit_as_email*(`out`: ptr git_buf, repo: ptr git_repository, commit: ptr git_commit, patch_no: csize_t, total_patches: csize_t, flags: uint32, diff_opts: ptr git_diff_options): cint {.git2Proc, importc: "git_diff_commit_as_email".}
+proc git_diff_commit_as_email*(
+    `out`: ptr git_buf,
+    repo: ptr git_repository,
+    commit: ptr git_commit,
+    patch_no: csize_t,
+    total_patches: csize_t,
+    flags: uint32,
+    diff_opts: ptr git_diff_options,
+): cint {.git2Proc, importc: "git_diff_commit_as_email".}
 
 proc git_diff_format_email_options_init*(opts: ptr git_diff_format_email_options, version: cuint): cint {.git2Proc, importc: "git_diff_format_email_options_init".}
 
@@ -127,7 +177,12 @@ proc giterr_set_str*(error_class: cint, string: cstring): void {.git2Proc, impor
 
 proc giterr_set_oom*(): void {.git2Proc, importc: "giterr_set_oom".}
 
-proc git_index_add_frombuffer*(index: ptr git_index, entry: ptr git_index_entry, buffer: pointer, len: csize_t): cint {.git2Proc, importc: "git_index_add_frombuffer".}
+proc git_index_add_frombuffer*(
+    index: ptr git_index,
+    entry: ptr git_index_entry,
+    buffer: pointer,
+    len: csize_t,
+): cint {.git2Proc, importc: "git_index_add_frombuffer".}
 
 proc git_object_size*(`type`: git_object_t): csize_t {.git2Proc, importc: "git_object__size".}
 
@@ -135,7 +190,12 @@ proc git_remote_is_valid_name*(remote_name: cstring): cint {.git2Proc, importc: 
 
 proc git_reference_is_valid_name*(refname: cstring): cint {.git2Proc, importc: "git_reference_is_valid_name".}
 
-proc git_tag_create_frombuffer*(oid: ptr git_oid, repo: ptr git_repository, buffer: cstring, force: cint): cint {.git2Proc, importc: "git_tag_create_frombuffer".}
+proc git_tag_create_frombuffer*(
+    oid: ptr git_oid,
+    repo: ptr git_repository,
+    buffer: cstring,
+    force: cint,
+): cint {.git2Proc, importc: "git_tag_create_frombuffer".}
 
 proc git_cred_free*(cred: ptr git_credential): void {.git2Proc, importc: "git_cred_free".}
 
@@ -143,23 +203,57 @@ proc git_cred_has_username*(cred: ptr git_credential): cint {.git2Proc, importc:
 
 proc git_cred_get_username*(cred: ptr git_credential): cstring {.git2Proc, importc: "git_cred_get_username".}
 
-proc git_cred_userpass_plaintext_new*(`out`: ptr ptr git_credential, username: cstring, password: cstring): cint {.git2Proc, importc: "git_cred_userpass_plaintext_new".}
+proc git_cred_userpass_plaintext_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    password: cstring,
+): cint {.git2Proc, importc: "git_cred_userpass_plaintext_new".}
 
 proc git_cred_default_new*(`out`: ptr ptr git_credential): cint {.git2Proc, importc: "git_cred_default_new".}
 
 proc git_cred_username_new*(`out`: ptr ptr git_credential, username: cstring): cint {.git2Proc, importc: "git_cred_username_new".}
 
-proc git_cred_ssh_key_new*(`out`: ptr ptr git_credential, username: cstring, publickey: cstring, privatekey: cstring, passphrase: cstring): cint {.git2Proc, importc: "git_cred_ssh_key_new".}
+proc git_cred_ssh_key_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    publickey: cstring,
+    privatekey: cstring,
+    passphrase: cstring,
+): cint {.git2Proc, importc: "git_cred_ssh_key_new".}
 
-proc git_cred_ssh_key_memory_new*(`out`: ptr ptr git_credential, username: cstring, publickey: cstring, privatekey: cstring, passphrase: cstring): cint {.git2Proc, importc: "git_cred_ssh_key_memory_new".}
+proc git_cred_ssh_key_memory_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    publickey: cstring,
+    privatekey: cstring,
+    passphrase: cstring,
+): cint {.git2Proc, importc: "git_cred_ssh_key_memory_new".}
 
-proc git_cred_ssh_interactive_new*(`out`: ptr ptr git_credential, username: cstring, prompt_callback: git_credential_ssh_interactive_cb, payload: pointer): cint {.git2Proc, importc: "git_cred_ssh_interactive_new".}
+proc git_cred_ssh_interactive_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    prompt_callback: git_credential_ssh_interactive_cb,
+    payload: pointer,
+): cint {.git2Proc, importc: "git_cred_ssh_interactive_new".}
 
 proc git_cred_ssh_key_from_agent*(`out`: ptr ptr git_credential, username: cstring): cint {.git2Proc, importc: "git_cred_ssh_key_from_agent".}
 
-proc git_cred_ssh_custom_new*(`out`: ptr ptr git_credential, username: cstring, publickey: cstring, publickey_len: csize_t, sign_callback: git_credential_sign_cb, payload: pointer): cint {.git2Proc, importc: "git_cred_ssh_custom_new".}
+proc git_cred_ssh_custom_new*(
+    `out`: ptr ptr git_credential,
+    username: cstring,
+    publickey: cstring,
+    publickey_len: csize_t,
+    sign_callback: git_credential_sign_cb,
+    payload: pointer,
+): cint {.git2Proc, importc: "git_cred_ssh_custom_new".}
 
-proc git_cred_userpass*(`out`: ptr ptr git_credential, url: cstring, user_from_url: cstring, allowed_types: cuint, payload: pointer): cint {.git2Proc, importc: "git_cred_userpass".}
+proc git_cred_userpass*(
+    `out`: ptr ptr git_credential,
+    url: cstring,
+    user_from_url: cstring,
+    allowed_types: cuint,
+    payload: pointer,
+): cint {.git2Proc, importc: "git_cred_userpass".}
 
 proc git_oid_iszero*(id: ptr git_oid): cint {.git2Proc, importc: "git_oid_iszero".}
 

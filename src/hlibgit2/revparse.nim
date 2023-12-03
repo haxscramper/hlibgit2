@@ -36,8 +36,21 @@ func `+`*(arg: c_git_revspec_t, offset: int): cint = cast[c_git_revspec_t](ord(a
 
 func `+`*(offset: int, arg: c_git_revspec_t): cint = cast[c_git_revspec_t](ord(arg) + offset)
 
-proc git_revparse_single*(`out`: ptr ptr git_object, repo: ptr git_repository, spec: cstring): cint {.git2Proc, importc: "git_revparse_single".}
+proc git_revparse_single*(
+    `out`: ptr ptr git_object,
+    repo: ptr git_repository,
+    spec: cstring,
+): cint {.git2Proc, importc: "git_revparse_single".}
 
-proc git_revparse_ext*(object_out: ptr ptr git_object, reference_out: ptr ptr git_reference, repo: ptr git_repository, spec: cstring): cint {.git2Proc, importc: "git_revparse_ext".}
+proc git_revparse_ext*(
+    object_out: ptr ptr git_object,
+    reference_out: ptr ptr git_reference,
+    repo: ptr git_repository,
+    spec: cstring,
+): cint {.git2Proc, importc: "git_revparse_ext".}
 
-proc git_revparse*(revspec: ptr git_revspec, repo: ptr git_repository, spec: cstring): cint {.git2Proc, importc: "git_revparse".}
+proc git_revparse*(
+    revspec: ptr git_revspec,
+    repo: ptr git_repository,
+    spec: cstring,
+): cint {.git2Proc, importc: "git_revparse".}
