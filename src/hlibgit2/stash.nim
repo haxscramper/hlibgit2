@@ -5,7 +5,7 @@ import "./checkout.nim"
 import "./oid.nim"
 
 type
-  git_stash_apply_options* {.header: "<stash.h>", importc, bycopy.} = object
+  git_stash_apply_options* {.importc, bycopy.} = object
     version          *: cuint
     flags            *: uint32
     checkout_options *: git_checkout_options
@@ -58,7 +58,7 @@ type
 
   git_stash_cb* = proc (a0: csize_t, a1: cstring, a2: ptr git_oid, a3: pointer): cint
 
-  git_stash_save_options* {.header: "<stash.h>", importc, bycopy.} = object
+  git_stash_save_options* {.importc, bycopy.} = object
     version *: cuint
     flags   *: uint32
     stasher *: ptr git_signature
@@ -184,34 +184,34 @@ proc git_stash_save*(
     stasher: ptr git_signature,
     message: cstring,
     flags: uint32,
-): cint {.importc: "git_stash_save", header: "<stash.h>".}
+): cint {.importc: "git_stash_save".}
 
-proc git_stash_save_options_init*(opts: ptr git_stash_save_options, version: cuint): cint {.importc: "git_stash_save_options_init", header: "<stash.h>".}
+proc git_stash_save_options_init*(opts: ptr git_stash_save_options, version: cuint): cint {.importc: "git_stash_save_options_init".}
 
 proc git_stash_save_with_opts*(
     `out`: ptr git_oid,
     repo: ptr git_repository,
     opts: ptr git_stash_save_options,
-): cint {.importc: "git_stash_save_with_opts", header: "<stash.h>".}
+): cint {.importc: "git_stash_save_with_opts".}
 
-proc git_stash_apply_options_init*(opts: ptr git_stash_apply_options, version: cuint): cint {.importc: "git_stash_apply_options_init", header: "<stash.h>".}
+proc git_stash_apply_options_init*(opts: ptr git_stash_apply_options, version: cuint): cint {.importc: "git_stash_apply_options_init".}
 
 proc git_stash_apply*(
     repo: ptr git_repository,
     index: csize_t,
     options: ptr git_stash_apply_options,
-): cint {.importc: "git_stash_apply", header: "<stash.h>".}
+): cint {.importc: "git_stash_apply".}
 
 proc git_stash_foreach*(
     repo: ptr git_repository,
     callback: git_stash_cb,
     payload: pointer,
-): cint {.importc: "git_stash_foreach", header: "<stash.h>".}
+): cint {.importc: "git_stash_foreach".}
 
-proc git_stash_drop*(repo: ptr git_repository, index: csize_t): cint {.importc: "git_stash_drop", header: "<stash.h>".}
+proc git_stash_drop*(repo: ptr git_repository, index: csize_t): cint {.importc: "git_stash_drop".}
 
 proc git_stash_pop*(
     repo: ptr git_repository,
     index: csize_t,
     options: ptr git_stash_apply_options,
-): cint {.importc: "git_stash_pop", header: "<stash.h>".}
+): cint {.importc: "git_stash_pop".}

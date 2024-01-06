@@ -20,7 +20,7 @@ proc git_reset_default*(
     repo: ptr git_repository,
     target: ptr git_object,
     pathspecs: ptr git_strarray,
-): cint {.importc: "git_reset_default", header: "<reset.h>".}
+): cint {.importc: "git_reset_default".}
 
 converter to_git_reset_t*(arg: c_git_reset_t): git_reset_t =
   case arg:
@@ -58,11 +58,11 @@ proc git_reset*(
     target: ptr git_object,
     reset_type: git_reset_t,
     checkout_opts: ptr git_checkout_options,
-): cint {.importc: "git_reset", header: "<reset.h>".}
+): cint {.importc: "git_reset".}
 
 proc git_reset_from_annotated*(
     repo: ptr git_repository,
     commit: ptr git_annotated_commit,
     reset_type: git_reset_t,
     checkout_opts: ptr git_checkout_options,
-): cint {.importc: "git_reset_from_annotated", header: "<reset.h>".}
+): cint {.importc: "git_reset_from_annotated".}

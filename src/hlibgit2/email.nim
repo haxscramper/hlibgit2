@@ -1,7 +1,7 @@
 import "./libgit2_config.nim" ## From gen file
 
 type
-  git_email_create_options* {.header: "<email.h>", importc, bycopy.} = object
+  git_email_create_options* {.importc, bycopy.} = object
     version        *: cuint
     flags          *: uint32
     diff_opts      *: cint
@@ -68,10 +68,10 @@ proc git_email_create_from_diff*(
     body: cstring,
     author: ptr cint,
     opts: ptr git_email_create_options,
-): cint {.importc: "git_email_create_from_diff", header: "<email.h>".}
+): cint {.importc: "git_email_create_from_diff".}
 
 proc git_email_create_from_commit*(
     `out`: ptr cint,
     commit: ptr cint,
     opts: ptr git_email_create_options,
-): cint {.importc: "git_email_create_from_commit", header: "<email.h>".}
+): cint {.importc: "git_email_create_from_commit".}

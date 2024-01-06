@@ -4,13 +4,13 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_filter_options* {.header: "<filter.h>", importc, bycopy.} = object
+  git_filter_options* {.importc, bycopy.} = object
     version        *: cuint
     flags          *: uint32
     commit_id      *: ptr git_oid
     attr_commit_id *: git_oid
 
-  git_filter_list* {.header: "<filter.h>", importc, incompleteStruct.} = object
+  git_filter_list* {.importc, incompleteStruct.} = object
 
 
   c_git_filter_mode_t* {.size: sizeof(cint).} = enum
@@ -109,7 +109,7 @@ proc git_filter_list_load*(
     path: cstring,
     mode: git_filter_mode_t,
     flags: uint32,
-): cint {.importc: "git_filter_list_load", header: "<filter.h>".}
+): cint {.importc: "git_filter_list_load".}
 
 proc git_filter_list_load_ext*(
     filters: ptr ptr git_filter_list,
@@ -118,48 +118,48 @@ proc git_filter_list_load_ext*(
     path: cstring,
     mode: git_filter_mode_t,
     opts: ptr git_filter_options,
-): cint {.importc: "git_filter_list_load_ext", header: "<filter.h>".}
+): cint {.importc: "git_filter_list_load_ext".}
 
-proc git_filter_list_contains*(filters: ptr git_filter_list, name: cstring): cint {.importc: "git_filter_list_contains", header: "<filter.h>".}
+proc git_filter_list_contains*(filters: ptr git_filter_list, name: cstring): cint {.importc: "git_filter_list_contains".}
 
 proc git_filter_list_apply_to_buffer*(
     `out`: ptr git_buf,
     filters: ptr git_filter_list,
     `in`: cstring,
     in_len: csize_t,
-): cint {.importc: "git_filter_list_apply_to_buffer", header: "<filter.h>".}
+): cint {.importc: "git_filter_list_apply_to_buffer".}
 
 proc git_filter_list_apply_to_file*(
     `out`: ptr git_buf,
     filters: ptr git_filter_list,
     repo: ptr git_repository,
     path: cstring,
-): cint {.importc: "git_filter_list_apply_to_file", header: "<filter.h>".}
+): cint {.importc: "git_filter_list_apply_to_file".}
 
 proc git_filter_list_apply_to_blob*(
     `out`: ptr git_buf,
     filters: ptr git_filter_list,
     blob: ptr git_blob,
-): cint {.importc: "git_filter_list_apply_to_blob", header: "<filter.h>".}
+): cint {.importc: "git_filter_list_apply_to_blob".}
 
 proc git_filter_list_stream_buffer*(
     filters: ptr git_filter_list,
     buffer: cstring,
     len: csize_t,
     target: ptr git_writestream,
-): cint {.importc: "git_filter_list_stream_buffer", header: "<filter.h>".}
+): cint {.importc: "git_filter_list_stream_buffer".}
 
 proc git_filter_list_stream_file*(
     filters: ptr git_filter_list,
     repo: ptr git_repository,
     path: cstring,
     target: ptr git_writestream,
-): cint {.importc: "git_filter_list_stream_file", header: "<filter.h>".}
+): cint {.importc: "git_filter_list_stream_file".}
 
 proc git_filter_list_stream_blob*(
     filters: ptr git_filter_list,
     blob: ptr git_blob,
     target: ptr git_writestream,
-): cint {.importc: "git_filter_list_stream_blob", header: "<filter.h>".}
+): cint {.importc: "git_filter_list_stream_blob".}
 
-proc git_filter_list_free*(filters: ptr git_filter_list): void {.importc: "git_filter_list_free", header: "<filter.h>".}
+proc git_filter_list_free*(filters: ptr git_filter_list): void {.importc: "git_filter_list_free".}

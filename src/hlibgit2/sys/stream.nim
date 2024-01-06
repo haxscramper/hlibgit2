@@ -3,7 +3,7 @@ import "../cert.nim"
 import "../proxy.nim"
 
 type
-  git_stream* {.header: "<sys/stream.h>", importc, bycopy.} = object
+  git_stream* {.importc, bycopy.} = object
     version         *: cint
     encrypted       *: cuint
     proxy_support   *: cuint
@@ -17,7 +17,7 @@ type
     close           *: proc (a0: ptr git_stream): cint
     free            *: proc (a0: ptr git_stream): void
 
-  git_stream_registration* {.header: "<sys/stream.h>", importc, bycopy.} = object
+  git_stream_registration* {.importc, bycopy.} = object
     version *: cint
     init    *: proc (a0: ptr ptr git_stream, a1: cstring, a2: cstring): cint
     wrap    *: proc (a0: ptr ptr git_stream, a1: ptr git_stream, a2: cstring): cint
@@ -34,9 +34,9 @@ type
 
 
 
-proc git_stream_register*(`type`: git_stream_t, registration: ptr git_stream_registration): cint {.importc: "git_stream_register", header: "<sys/stream.h>".}
+proc git_stream_register*(`type`: git_stream_t, registration: ptr git_stream_registration): cint {.importc: "git_stream_register".}
 
-proc git_stream_register_tls*(ctor: git_stream_cb): cint {.importc: "git_stream_register_tls", header: "<sys/stream.h>".}
+proc git_stream_register_tls*(ctor: git_stream_cb): cint {.importc: "git_stream_register_tls".}
 
 converter to_git_stream_t*(arg: c_git_stream_t): git_stream_t =
   case arg:

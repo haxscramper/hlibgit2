@@ -3,7 +3,7 @@ import "./credential.nim"
 import "./cert.nim"
 
 type
-  git_proxy_options* {.header: "<proxy.h>", importc, bycopy.} = object
+  git_proxy_options* {.importc, bycopy.} = object
     version           *: cuint
     `type`            *: git_proxy_t
     url               *: cstring
@@ -54,4 +54,4 @@ func `+`*(arg: c_git_proxy_t, offset: int): cint = cast[c_git_proxy_t](ord(arg) 
 
 func `+`*(offset: int, arg: c_git_proxy_t): cint = cast[c_git_proxy_t](ord(arg) + offset)
 
-proc git_proxy_options_init*(opts: ptr git_proxy_options, version: cuint): cint {.importc: "git_proxy_options_init", header: "<proxy.h>".}
+proc git_proxy_options_init*(opts: ptr git_proxy_options, version: cuint): cint {.importc: "git_proxy_options_init".}

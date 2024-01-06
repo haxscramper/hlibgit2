@@ -3,12 +3,12 @@ import "./types.nim"
 import "./buffer.nim"
 
 type
-  git_config_backend_memory_options* {.header: "<sys/config.h>", importc, bycopy.} = object
+  git_config_backend_memory_options* {.importc, bycopy.} = object
     version      *: cuint
     backend_type *: cstring
     origin_path  *: cstring
 
-  git_config_backend* {.header: "<sys/config.h>", importc, bycopy.} = object
+  git_config_backend* {.importc, bycopy.} = object
     version      *: cuint
     readonly     *: cint
     cfg          *: ptr git_config
@@ -24,7 +24,7 @@ type
     unlock       *: proc (a0: ptr git_config_backend, a1: cint): cint
     free         *: proc (a0: ptr git_config_backend): void
 
-  git_config_entry* {.header: "<config.h>", importc, bycopy.} = object
+  git_config_entry* {.importc, bycopy.} = object
     name          *: cstring
     value         *: cstring
     backend_type  *: cstring
@@ -33,13 +33,13 @@ type
     level         *: git_config_level_t
     free          *: proc (a0: ptr git_config_entry): void
 
-  git_config_iterator* {.header: "<sys/config.h>", importc, bycopy.} = object
+  git_config_iterator* {.importc, bycopy.} = object
     backend *: ptr git_config_backend
     flags   *: cuint
     next    *: proc (a0: ptr ptr git_config_entry, a1: ptr git_config_iterator): cint
     free    *: proc (a0: ptr git_config_iterator): void
 
-  git_configmap* {.header: "<config.h>", importc, bycopy.} = object
+  git_configmap* {.importc, bycopy.} = object
     `type`    *: git_configmap_t
     str_match *: cstring
     map_value *: cint
@@ -78,7 +78,7 @@ type
 
 
 
-proc git_config_init_backend*(backend: ptr git_config_backend, version: cuint): cint {.importc: "git_config_init_backend", header: "<sys/config.h>".}
+proc git_config_init_backend*(backend: ptr git_config_backend, version: cuint): cint {.importc: "git_config_init_backend".}
 
 proc git_config_add_backend*(
     cfg: ptr git_config,
@@ -86,21 +86,21 @@ proc git_config_add_backend*(
     level: git_config_level_t,
     repo: ptr git_repository,
     force: cint,
-): cint {.importc: "git_config_add_backend", header: "<sys/config.h>".}
+): cint {.importc: "git_config_add_backend".}
 
 proc git_config_backend_from_string*(
     `out`: ptr ptr git_config_backend,
     cfg: cstring,
     len: csize_t,
     opts: ptr git_config_backend_memory_options,
-): cint {.importc: "git_config_backend_from_string", header: "<sys/config.h>".}
+): cint {.importc: "git_config_backend_from_string".}
 
 proc git_config_backend_from_values*(
     `out`: ptr ptr git_config_backend,
     values: cstringArray,
     len: csize_t,
     opts: ptr git_config_backend_memory_options,
-): cint {.importc: "git_config_backend_from_values", header: "<sys/config.h>".}
+): cint {.importc: "git_config_backend_from_values".}
 
 converter to_git_config_level_t*(arg: c_git_config_level_t): git_config_level_t =
   case arg:
@@ -179,19 +179,19 @@ func `+`*(arg: c_git_configmap_t, offset: int): cint = cast[c_git_configmap_t](o
 
 func `+`*(offset: int, arg: c_git_configmap_t): cint = cast[c_git_configmap_t](ord(arg) + offset)
 
-proc git_config_entry_free*(entry: ptr git_config_entry): void {.importc: "git_config_entry_free", header: "<config.h>".}
+proc git_config_entry_free*(entry: ptr git_config_entry): void {.importc: "git_config_entry_free".}
 
-proc git_config_find_global*(`out`: ptr git_buf): cint {.importc: "git_config_find_global", header: "<config.h>".}
+proc git_config_find_global*(`out`: ptr git_buf): cint {.importc: "git_config_find_global".}
 
-proc git_config_find_xdg*(`out`: ptr git_buf): cint {.importc: "git_config_find_xdg", header: "<config.h>".}
+proc git_config_find_xdg*(`out`: ptr git_buf): cint {.importc: "git_config_find_xdg".}
 
-proc git_config_find_system*(`out`: ptr git_buf): cint {.importc: "git_config_find_system", header: "<config.h>".}
+proc git_config_find_system*(`out`: ptr git_buf): cint {.importc: "git_config_find_system".}
 
-proc git_config_find_programdata*(`out`: ptr git_buf): cint {.importc: "git_config_find_programdata", header: "<config.h>".}
+proc git_config_find_programdata*(`out`: ptr git_buf): cint {.importc: "git_config_find_programdata".}
 
-proc git_config_open_default*(`out`: ptr ptr git_config): cint {.importc: "git_config_open_default", header: "<config.h>".}
+proc git_config_open_default*(`out`: ptr ptr git_config): cint {.importc: "git_config_open_default".}
 
-proc git_config_new*(`out`: ptr ptr git_config): cint {.importc: "git_config_new", header: "<config.h>".}
+proc git_config_new*(`out`: ptr ptr git_config): cint {.importc: "git_config_new".}
 
 proc git_config_add_file_ondisk*(
     cfg: ptr git_config,
@@ -199,63 +199,63 @@ proc git_config_add_file_ondisk*(
     level: git_config_level_t,
     repo: ptr git_repository,
     force: cint,
-): cint {.importc: "git_config_add_file_ondisk", header: "<config.h>".}
+): cint {.importc: "git_config_add_file_ondisk".}
 
-proc git_config_open_ondisk*(`out`: ptr ptr git_config, path: cstring): cint {.importc: "git_config_open_ondisk", header: "<config.h>".}
+proc git_config_open_ondisk*(`out`: ptr ptr git_config, path: cstring): cint {.importc: "git_config_open_ondisk".}
 
 proc git_config_open_level*(
     `out`: ptr ptr git_config,
     parent: ptr git_config,
     level: git_config_level_t,
-): cint {.importc: "git_config_open_level", header: "<config.h>".}
+): cint {.importc: "git_config_open_level".}
 
-proc git_config_open_global*(`out`: ptr ptr git_config, config: ptr git_config): cint {.importc: "git_config_open_global", header: "<config.h>".}
+proc git_config_open_global*(`out`: ptr ptr git_config, config: ptr git_config): cint {.importc: "git_config_open_global".}
 
-proc git_config_snapshot*(`out`: ptr ptr git_config, config: ptr git_config): cint {.importc: "git_config_snapshot", header: "<config.h>".}
+proc git_config_snapshot*(`out`: ptr ptr git_config, config: ptr git_config): cint {.importc: "git_config_snapshot".}
 
-proc git_config_free*(cfg: ptr git_config): void {.importc: "git_config_free", header: "<config.h>".}
+proc git_config_free*(cfg: ptr git_config): void {.importc: "git_config_free".}
 
 proc git_config_get_entry*(
     `out`: ptr ptr git_config_entry,
     cfg: ptr git_config,
     name: cstring,
-): cint {.importc: "git_config_get_entry", header: "<config.h>".}
+): cint {.importc: "git_config_get_entry".}
 
 proc git_config_get_int32*(
     `out`: ptr int32,
     cfg: ptr git_config,
     name: cstring,
-): cint {.importc: "git_config_get_int32", header: "<config.h>".}
+): cint {.importc: "git_config_get_int32".}
 
 proc git_config_get_int64*(
     `out`: ptr int64,
     cfg: ptr git_config,
     name: cstring,
-): cint {.importc: "git_config_get_int64", header: "<config.h>".}
+): cint {.importc: "git_config_get_int64".}
 
 proc git_config_get_bool*(
     `out`: ptr cint,
     cfg: ptr git_config,
     name: cstring,
-): cint {.importc: "git_config_get_bool", header: "<config.h>".}
+): cint {.importc: "git_config_get_bool".}
 
 proc git_config_get_path*(
     `out`: ptr git_buf,
     cfg: ptr git_config,
     name: cstring,
-): cint {.importc: "git_config_get_path", header: "<config.h>".}
+): cint {.importc: "git_config_get_path".}
 
 proc git_config_get_string*(
     `out`: cstringArray,
     cfg: ptr git_config,
     name: cstring,
-): cint {.importc: "git_config_get_string", header: "<config.h>".}
+): cint {.importc: "git_config_get_string".}
 
 proc git_config_get_string_buf*(
     `out`: ptr git_buf,
     cfg: ptr git_config,
     name: cstring,
-): cint {.importc: "git_config_get_string_buf", header: "<config.h>".}
+): cint {.importc: "git_config_get_string_buf".}
 
 proc git_config_get_multivar_foreach*(
     cfg: ptr git_config,
@@ -263,78 +263,78 @@ proc git_config_get_multivar_foreach*(
     regexp: cstring,
     callback: git_config_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_config_get_multivar_foreach", header: "<config.h>".}
+): cint {.importc: "git_config_get_multivar_foreach".}
 
 proc git_config_multivar_iterator_new*(
     `out`: ptr ptr git_config_iterator,
     cfg: ptr git_config,
     name: cstring,
     regexp: cstring,
-): cint {.importc: "git_config_multivar_iterator_new", header: "<config.h>".}
+): cint {.importc: "git_config_multivar_iterator_new".}
 
-proc git_config_next*(entry: ptr ptr git_config_entry, iter: ptr git_config_iterator): cint {.importc: "git_config_next", header: "<config.h>".}
+proc git_config_next*(entry: ptr ptr git_config_entry, iter: ptr git_config_iterator): cint {.importc: "git_config_next".}
 
-proc git_config_iterator_free*(iter: ptr git_config_iterator): void {.importc: "git_config_iterator_free", header: "<config.h>".}
+proc git_config_iterator_free*(iter: ptr git_config_iterator): void {.importc: "git_config_iterator_free".}
 
 proc git_config_set_int32*(
     cfg: ptr git_config,
     name: cstring,
     value: int32,
-): cint {.importc: "git_config_set_int32", header: "<config.h>".}
+): cint {.importc: "git_config_set_int32".}
 
 proc git_config_set_int64*(
     cfg: ptr git_config,
     name: cstring,
     value: int64,
-): cint {.importc: "git_config_set_int64", header: "<config.h>".}
+): cint {.importc: "git_config_set_int64".}
 
 proc git_config_set_bool*(
     cfg: ptr git_config,
     name: cstring,
     value: cint,
-): cint {.importc: "git_config_set_bool", header: "<config.h>".}
+): cint {.importc: "git_config_set_bool".}
 
 proc git_config_set_string*(
     cfg: ptr git_config,
     name: cstring,
     value: cstring,
-): cint {.importc: "git_config_set_string", header: "<config.h>".}
+): cint {.importc: "git_config_set_string".}
 
 proc git_config_set_multivar*(
     cfg: ptr git_config,
     name: cstring,
     regexp: cstring,
     value: cstring,
-): cint {.importc: "git_config_set_multivar", header: "<config.h>".}
+): cint {.importc: "git_config_set_multivar".}
 
-proc git_config_delete_entry*(cfg: ptr git_config, name: cstring): cint {.importc: "git_config_delete_entry", header: "<config.h>".}
+proc git_config_delete_entry*(cfg: ptr git_config, name: cstring): cint {.importc: "git_config_delete_entry".}
 
 proc git_config_delete_multivar*(
     cfg: ptr git_config,
     name: cstring,
     regexp: cstring,
-): cint {.importc: "git_config_delete_multivar", header: "<config.h>".}
+): cint {.importc: "git_config_delete_multivar".}
 
 proc git_config_foreach*(
     cfg: ptr git_config,
     callback: git_config_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_config_foreach", header: "<config.h>".}
+): cint {.importc: "git_config_foreach".}
 
-proc git_config_iterator_new*(`out`: ptr ptr git_config_iterator, cfg: ptr git_config): cint {.importc: "git_config_iterator_new", header: "<config.h>".}
+proc git_config_iterator_new*(`out`: ptr ptr git_config_iterator, cfg: ptr git_config): cint {.importc: "git_config_iterator_new".}
 
 proc git_config_iterator_glob_new*(
     `out`: ptr ptr git_config_iterator,
     cfg: ptr git_config,
     regexp: cstring,
-): cint {.importc: "git_config_iterator_glob_new", header: "<config.h>".}
+): cint {.importc: "git_config_iterator_glob_new".}
 
 proc git_config_foreach_match*(
     cfg: ptr git_config,
     regexp: cstring,
     callback: git_config_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_config_foreach_match", header: "<config.h>".}
+): cint {.importc: "git_config_foreach_match".}
 
 proc git_config_get_mapped*(
     `out`: ptr cint,
@@ -342,28 +342,28 @@ proc git_config_get_mapped*(
     name: cstring,
     maps: ptr git_configmap,
     map_n: csize_t,
-): cint {.importc: "git_config_get_mapped", header: "<config.h>".}
+): cint {.importc: "git_config_get_mapped".}
 
 proc git_config_lookup_map_value*(
     `out`: ptr cint,
     maps: ptr git_configmap,
     map_n: csize_t,
     value: cstring,
-): cint {.importc: "git_config_lookup_map_value", header: "<config.h>".}
+): cint {.importc: "git_config_lookup_map_value".}
 
-proc git_config_parse_bool*(`out`: ptr cint, value: cstring): cint {.importc: "git_config_parse_bool", header: "<config.h>".}
+proc git_config_parse_bool*(`out`: ptr cint, value: cstring): cint {.importc: "git_config_parse_bool".}
 
-proc git_config_parse_int32*(`out`: ptr int32, value: cstring): cint {.importc: "git_config_parse_int32", header: "<config.h>".}
+proc git_config_parse_int32*(`out`: ptr int32, value: cstring): cint {.importc: "git_config_parse_int32".}
 
-proc git_config_parse_int64*(`out`: ptr int64, value: cstring): cint {.importc: "git_config_parse_int64", header: "<config.h>".}
+proc git_config_parse_int64*(`out`: ptr int64, value: cstring): cint {.importc: "git_config_parse_int64".}
 
-proc git_config_parse_path*(`out`: ptr git_buf, value: cstring): cint {.importc: "git_config_parse_path", header: "<config.h>".}
+proc git_config_parse_path*(`out`: ptr git_buf, value: cstring): cint {.importc: "git_config_parse_path".}
 
 proc git_config_backend_foreach_match*(
     backend: ptr git_config_backend,
     regexp: cstring,
     callback: git_config_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_config_backend_foreach_match", header: "<config.h>".}
+): cint {.importc: "git_config_backend_foreach_match".}
 
-proc git_config_lock*(tx: ptr ptr git_transaction, cfg: ptr git_config): cint {.importc: "git_config_lock", header: "<config.h>".}
+proc git_config_lock*(tx: ptr ptr git_transaction, cfg: ptr git_config): cint {.importc: "git_config_lock".}

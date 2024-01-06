@@ -3,7 +3,7 @@ import "./types.nim"
 import "./oid.nim"
 
 type
-  git_attr_options* {.header: "<attr.h>", importc, bycopy.} = object
+  git_attr_options* {.importc, bycopy.} = object
     version        *: cuint
     flags          *: cuint
     commit_id      *: ptr git_oid
@@ -31,7 +31,7 @@ proc git_attr_get_ext*(
     opts: ptr git_attr_options,
     path: cstring,
     name: cstring,
-): cint {.importc: "git_attr_get_ext", header: "<attr.h>".}
+): cint {.importc: "git_attr_get_ext".}
 
 proc git_attr_get_many*(
     values_out: cstringArray,
@@ -40,7 +40,7 @@ proc git_attr_get_many*(
     path: cstring,
     num_attr: csize_t,
     names: cstringArray,
-): cint {.importc: "git_attr_get_many", header: "<attr.h>".}
+): cint {.importc: "git_attr_get_many".}
 
 proc git_attr_get_many_ext*(
     values_out: cstringArray,
@@ -49,7 +49,7 @@ proc git_attr_get_many_ext*(
     path: cstring,
     num_attr: csize_t,
     names: cstringArray,
-): cint {.importc: "git_attr_get_many_ext", header: "<attr.h>".}
+): cint {.importc: "git_attr_get_many_ext".}
 
 proc git_attr_foreach*(
     repo: ptr git_repository,
@@ -57,7 +57,7 @@ proc git_attr_foreach*(
     path: cstring,
     callback: git_attr_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_attr_foreach", header: "<attr.h>".}
+): cint {.importc: "git_attr_foreach".}
 
 proc git_attr_foreach_ext*(
     repo: ptr git_repository,
@@ -65,15 +65,15 @@ proc git_attr_foreach_ext*(
     path: cstring,
     callback: git_attr_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_attr_foreach_ext", header: "<attr.h>".}
+): cint {.importc: "git_attr_foreach_ext".}
 
-proc git_attr_cache_flush*(repo: ptr git_repository): cint {.importc: "git_attr_cache_flush", header: "<attr.h>".}
+proc git_attr_cache_flush*(repo: ptr git_repository): cint {.importc: "git_attr_cache_flush".}
 
 proc git_attr_add_macro*(
     repo: ptr git_repository,
     name: cstring,
     values: cstring,
-): cint {.importc: "git_attr_add_macro", header: "<attr.h>".}
+): cint {.importc: "git_attr_add_macro".}
 
 converter to_git_attr_value_t*(arg: c_git_attr_value_t): git_attr_value_t =
   case arg:
@@ -109,7 +109,7 @@ func `+`*(arg: c_git_attr_value_t, offset: int): cint = cast[c_git_attr_value_t]
 
 func `+`*(offset: int, arg: c_git_attr_value_t): cint = cast[c_git_attr_value_t](ord(arg) + offset)
 
-proc git_attr_value*(attr: cstring): git_attr_value_t {.importc: "git_attr_value", header: "<attr.h>".}
+proc git_attr_value*(attr: cstring): git_attr_value_t {.importc: "git_attr_value".}
 
 proc git_attr_get*(
     value_out: cstringArray,
@@ -117,4 +117,4 @@ proc git_attr_get*(
     flags: uint32,
     path: cstring,
     name: cstring,
-): cint {.importc: "git_attr_get", header: "<attr.h>".}
+): cint {.importc: "git_attr_get".}

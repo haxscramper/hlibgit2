@@ -2,7 +2,7 @@ import "./libgit2_config.nim" ## From gen file
 import "./types.nim"
 
 type
-  git_revspec* {.header: "<revparse.h>", importc, bycopy.} = object
+  git_revspec* {.importc, bycopy.} = object
     `from` *: ptr git_object
     to     *: ptr git_object
     flags  *: cuint
@@ -54,17 +54,17 @@ proc git_revparse_single*(
     `out`: ptr ptr git_object,
     repo: ptr git_repository,
     spec: cstring,
-): cint {.importc: "git_revparse_single", header: "<revparse.h>".}
+): cint {.importc: "git_revparse_single".}
 
 proc git_revparse_ext*(
     object_out: ptr ptr git_object,
     reference_out: ptr ptr git_reference,
     repo: ptr git_repository,
     spec: cstring,
-): cint {.importc: "git_revparse_ext", header: "<revparse.h>".}
+): cint {.importc: "git_revparse_ext".}
 
 proc git_revparse*(
     revspec: ptr git_revspec,
     repo: ptr git_repository,
     spec: cstring,
-): cint {.importc: "git_revparse", header: "<revparse.h>".}
+): cint {.importc: "git_revparse".}

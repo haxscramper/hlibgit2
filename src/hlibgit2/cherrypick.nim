@@ -4,7 +4,7 @@ import "./merge.nim"
 import "./checkout.nim"
 
 type
-  git_cherrypick_options* {.header: "<cherrypick.h>", importc, bycopy.} = object
+  git_cherrypick_options* {.importc, bycopy.} = object
     version       *: cuint
     mainline      *: cuint
     merge_opts    *: git_merge_options
@@ -12,7 +12,7 @@ type
 
 
 
-proc git_cherrypick_options_init*(opts: ptr git_cherrypick_options, version: cuint): cint {.importc: "git_cherrypick_options_init", header: "<cherrypick.h>".}
+proc git_cherrypick_options_init*(opts: ptr git_cherrypick_options, version: cuint): cint {.importc: "git_cherrypick_options_init".}
 
 proc git_cherrypick_commit*(
     `out`: ptr ptr git_index,
@@ -21,10 +21,10 @@ proc git_cherrypick_commit*(
     our_commit: ptr git_commit,
     mainline: cuint,
     merge_options: ptr git_merge_options,
-): cint {.importc: "git_cherrypick_commit", header: "<cherrypick.h>".}
+): cint {.importc: "git_cherrypick_commit".}
 
 proc git_cherrypick*(
     repo: ptr git_repository,
     commit: ptr git_commit,
     cherrypick_options: ptr git_cherrypick_options,
-): cint {.importc: "git_cherrypick", header: "<cherrypick.h>".}
+): cint {.importc: "git_cherrypick".}

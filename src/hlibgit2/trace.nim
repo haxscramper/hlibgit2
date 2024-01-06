@@ -23,7 +23,7 @@ type
 
 
 
-proc git_trace_set*(level: git_trace_level_t, cb: git_trace_cb): cint {.importc: "git_trace_set", header: "<trace.h>".}
+proc git_trace_set*(level: git_trace_level_t, cb: git_trace_cb): cint {.importc: "git_trace_set".}
 
 converter to_git_trace_level_t*(arg: c_git_trace_level_t): git_trace_level_t =
   case arg:

@@ -4,12 +4,12 @@ import "./strarray.nim"
 import "./diff.nim"
 
 type
-  git_checkout_perfdata* {.header: "<checkout.h>", importc, bycopy.} = object
+  git_checkout_perfdata* {.importc, bycopy.} = object
     mkdir_calls *: csize_t
     stat_calls  *: csize_t
     chmod_calls *: csize_t
 
-  git_checkout_options* {.header: "<checkout.h>", importc, bycopy.} = object
+  git_checkout_options* {.importc, bycopy.} = object
     version           *: cuint
     checkout_strategy *: cuint
     disable_filters   *: cint
@@ -246,18 +246,18 @@ func `+`*(arg: c_git_checkout_notify_t, offset: int): cint = cast[c_git_checkout
 
 func `+`*(offset: int, arg: c_git_checkout_notify_t): cint = cast[c_git_checkout_notify_t](ord(arg) + offset)
 
-proc git_checkout_options_init*(opts: ptr git_checkout_options, version: cuint): cint {.importc: "git_checkout_options_init", header: "<checkout.h>".}
+proc git_checkout_options_init*(opts: ptr git_checkout_options, version: cuint): cint {.importc: "git_checkout_options_init".}
 
-proc git_checkout_head*(repo: ptr git_repository, opts: ptr git_checkout_options): cint {.importc: "git_checkout_head", header: "<checkout.h>".}
+proc git_checkout_head*(repo: ptr git_repository, opts: ptr git_checkout_options): cint {.importc: "git_checkout_head".}
 
 proc git_checkout_index*(
     repo: ptr git_repository,
     index: ptr git_index,
     opts: ptr git_checkout_options,
-): cint {.importc: "git_checkout_index", header: "<checkout.h>".}
+): cint {.importc: "git_checkout_index".}
 
 proc git_checkout_tree*(
     repo: ptr git_repository,
     treeish: ptr git_object,
     opts: ptr git_checkout_options,
-): cint {.importc: "git_checkout_tree", header: "<checkout.h>".}
+): cint {.importc: "git_checkout_tree".}

@@ -15,3 +15,5 @@ function_renames = [
 universal_import = [
   "libgit2_config.nim"
 ]
+
+with_header_imports = false

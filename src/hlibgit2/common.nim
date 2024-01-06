@@ -294,10 +294,10 @@ proc git_libgit2_version*(
     major: ptr cint,
     minor: ptr cint,
     rev: ptr cint,
-): cint {.importc: "git_libgit2_version", header: "<common.h>".}
+): cint {.importc: "git_libgit2_version".}
 
-proc git_libgit2_prerelease*(): cstring {.importc: "git_libgit2_prerelease", header: "<common.h>".}
+proc git_libgit2_prerelease*(): cstring {.importc: "git_libgit2_prerelease".}
 
-proc git_libgit2_features*(): cint {.importc: "git_libgit2_features", header: "<common.h>".}
+proc git_libgit2_features*(): cint {.importc: "git_libgit2_features".}
 
-proc git_libgit2_opts*(option: cint): cint {.importc: "git_libgit2_opts", header: "<common.h>".}
+proc git_libgit2_opts*(option: cint): cint {.importc: "git_libgit2_opts".}

@@ -3,10 +3,10 @@ import "./types.nim"
 import "./oid.nim"
 
 type
-  git_indexer* {.header: "<indexer.h>", importc, incompleteStruct.} = object
+  git_indexer* {.importc, incompleteStruct.} = object
 
 
-  git_indexer_progress* {.header: "<indexer.h>", importc, bycopy.} = object
+  git_indexer_progress* {.importc, bycopy.} = object
     total_objects    *: cuint
     indexed_objects  *: cuint
     received_objects *: cuint
@@ -15,7 +15,7 @@ type
     indexed_deltas   *: cuint
     received_bytes   *: csize_t
 
-  git_indexer_options* {.header: "<indexer.h>", importc, bycopy.} = object
+  git_indexer_options* {.importc, bycopy.} = object
     version             *: cuint
     progress_cb         *: git_indexer_progress_cb
     progress_cb_payload *: pointer
@@ -25,13 +25,13 @@ type
 
 
 
-proc git_indexer_hash*(idx: ptr git_indexer): ptr git_oid {.importc: "git_indexer_hash", header: "<indexer.h>".}
+proc git_indexer_hash*(idx: ptr git_indexer): ptr git_oid {.importc: "git_indexer_hash".}
 
-proc git_indexer_name*(idx: ptr git_indexer): cstring {.importc: "git_indexer_name", header: "<indexer.h>".}
+proc git_indexer_name*(idx: ptr git_indexer): cstring {.importc: "git_indexer_name".}
 
-proc git_indexer_free*(idx: ptr git_indexer): void {.importc: "git_indexer_free", header: "<indexer.h>".}
+proc git_indexer_free*(idx: ptr git_indexer): void {.importc: "git_indexer_free".}
 
-proc git_indexer_options_init*(opts: ptr git_indexer_options, version: cuint): cint {.importc: "git_indexer_options_init", header: "<indexer.h>".}
+proc git_indexer_options_init*(opts: ptr git_indexer_options, version: cuint): cint {.importc: "git_indexer_options_init".}
 
 proc git_indexer_new*(
     `out`: ptr ptr git_indexer,
@@ -39,13 +39,13 @@ proc git_indexer_new*(
     mode: cuint,
     odb: ptr git_odb,
     opts: ptr git_indexer_options,
-): cint {.importc: "git_indexer_new", header: "<indexer.h>".}
+): cint {.importc: "git_indexer_new".}
 
 proc git_indexer_append*(
     idx: ptr git_indexer,
     data: pointer,
     size: csize_t,
     stats: ptr git_indexer_progress,
-): cint {.importc: "git_indexer_append", header: "<indexer.h>".}
+): cint {.importc: "git_indexer_append".}
 
-proc git_indexer_commit*(idx: ptr git_indexer, stats: ptr git_indexer_progress): cint {.importc: "git_indexer_commit", header: "<indexer.h>".}
+proc git_indexer_commit*(idx: ptr git_indexer, stats: ptr git_indexer_progress): cint {.importc: "git_indexer_commit".}

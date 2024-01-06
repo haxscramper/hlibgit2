@@ -5,7 +5,7 @@ import "../oid.nim"
 import "../buffer.nim"
 
 type
-  git_filter_source* {.header: "<sys/filter.h>", importc, incompleteStruct.} = object
+  git_filter_source* {.importc, incompleteStruct.} = object
 
 
   git_filter_init_fn* = proc (a0: ptr git_filter): cint
@@ -20,7 +20,7 @@ type
 
   git_filter_cleanup_fn* = proc (a0: ptr git_filter, a1: pointer): void
 
-  git_filter* {.header: "<sys/filter.h>", importc, bycopy.} = object
+  git_filter* {.importc, bycopy.} = object
     version    *: cuint
     attributes *: cstring
     initialize *: git_filter_init_fn
@@ -32,41 +32,41 @@ type
 
 
 
-proc git_filter_lookup*(name: cstring): ptr git_filter {.importc: "git_filter_lookup", header: "<sys/filter.h>".}
+proc git_filter_lookup*(name: cstring): ptr git_filter {.importc: "git_filter_lookup".}
 
 proc git_filter_list_new*(
     `out`: ptr ptr git_filter_list,
     repo: ptr git_repository,
     mode: git_filter_mode_t,
     options: uint32,
-): cint {.importc: "git_filter_list_new", header: "<sys/filter.h>".}
+): cint {.importc: "git_filter_list_new".}
 
 proc git_filter_list_push*(
     fl: ptr git_filter_list,
     filter: ptr git_filter,
     payload: pointer,
-): cint {.importc: "git_filter_list_push", header: "<sys/filter.h>".}
+): cint {.importc: "git_filter_list_push".}
 
-proc git_filter_list_length*(fl: ptr git_filter_list): csize_t {.importc: "git_filter_list_length", header: "<sys/filter.h>".}
+proc git_filter_list_length*(fl: ptr git_filter_list): csize_t {.importc: "git_filter_list_length".}
 
-proc git_filter_source_repo*(src: ptr git_filter_source): ptr git_repository {.importc: "git_filter_source_repo", header: "<sys/filter.h>".}
+proc git_filter_source_repo*(src: ptr git_filter_source): ptr git_repository {.importc: "git_filter_source_repo".}
 
-proc git_filter_source_path*(src: ptr git_filter_source): cstring {.importc: "git_filter_source_path", header: "<sys/filter.h>".}
+proc git_filter_source_path*(src: ptr git_filter_source): cstring {.importc: "git_filter_source_path".}
 
-proc git_filter_source_filemode*(src: ptr git_filter_source): uint16 {.importc: "git_filter_source_filemode", header: "<sys/filter.h>".}
+proc git_filter_source_filemode*(src: ptr git_filter_source): uint16 {.importc: "git_filter_source_filemode".}
 
-proc git_filter_source_id*(src: ptr git_filter_source): ptr git_oid {.importc: "git_filter_source_id", header: "<sys/filter.h>".}
+proc git_filter_source_id*(src: ptr git_filter_source): ptr git_oid {.importc: "git_filter_source_id".}
 
-proc git_filter_source_mode*(src: ptr git_filter_source): git_filter_mode_t {.importc: "git_filter_source_mode", header: "<sys/filter.h>".}
+proc git_filter_source_mode*(src: ptr git_filter_source): git_filter_mode_t {.importc: "git_filter_source_mode".}
 
-proc git_filter_source_flags*(src: ptr git_filter_source): uint32 {.importc: "git_filter_source_flags", header: "<sys/filter.h>".}
+proc git_filter_source_flags*(src: ptr git_filter_source): uint32 {.importc: "git_filter_source_flags".}
 
-proc git_filter_init*(filter: ptr git_filter, version: cuint): cint {.importc: "git_filter_init", header: "<sys/filter.h>".}
+proc git_filter_init*(filter: ptr git_filter, version: cuint): cint {.importc: "git_filter_init".}
 
 proc git_filter_register*(
     name: cstring,
     filter: ptr git_filter,
     priority: cint,
-): cint {.importc: "git_filter_register", header: "<sys/filter.h>".}
+): cint {.importc: "git_filter_register".}
 
-proc git_filter_unregister*(name: cstring): cint {.importc: "git_filter_unregister", header: "<sys/filter.h>".}
+proc git_filter_unregister*(name: cstring): cint {.importc: "git_filter_unregister".}

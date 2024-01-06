@@ -4,7 +4,7 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_repository_init_options* {.header: "<repository.h>", importc, bycopy.} = object
+  git_repository_init_options* {.importc, bycopy.} = object
     version       *: cuint
     flags         *: uint32
     mode          *: uint32
@@ -129,98 +129,98 @@ proc git_repository_discover*(
     start_path: cstring,
     across_fs: cint,
     ceiling_dirs: cstring,
-): cint {.importc: "git_repository_discover", header: "<repository.h>".}
+): cint {.importc: "git_repository_discover".}
 
 proc git_repository_open_ext*(
     `out`: ptr ptr git_repository,
     path: cstring,
     flags: cuint,
     ceiling_dirs: cstring,
-): cint {.importc: "git_repository_open_ext", header: "<repository.h>".}
+): cint {.importc: "git_repository_open_ext".}
 
-proc git_repository_open_bare*(`out`: ptr ptr git_repository, bare_path: cstring): cint {.importc: "git_repository_open_bare", header: "<repository.h>".}
+proc git_repository_open_bare*(`out`: ptr ptr git_repository, bare_path: cstring): cint {.importc: "git_repository_open_bare".}
 
-proc git_repository_free*(repo: ptr git_repository): void {.importc: "git_repository_free", header: "<repository.h>".}
+proc git_repository_free*(repo: ptr git_repository): void {.importc: "git_repository_free".}
 
 proc git_repository_init*(
     `out`: ptr ptr git_repository,
     path: cstring,
     is_bare: cuint,
-): cint {.importc: "git_repository_init", header: "<repository.h>".}
+): cint {.importc: "git_repository_init".}
 
-proc git_repository_init_options_init*(opts: ptr git_repository_init_options, version: cuint): cint {.importc: "git_repository_init_options_init", header: "<repository.h>".}
+proc git_repository_init_options_init*(opts: ptr git_repository_init_options, version: cuint): cint {.importc: "git_repository_init_options_init".}
 
 proc git_repository_init_ext*(
     `out`: ptr ptr git_repository,
     repo_path: cstring,
     opts: ptr git_repository_init_options,
-): cint {.importc: "git_repository_init_ext", header: "<repository.h>".}
+): cint {.importc: "git_repository_init_ext".}
 
-proc git_repository_head*(`out`: ptr ptr git_reference, repo: ptr git_repository): cint {.importc: "git_repository_head", header: "<repository.h>".}
+proc git_repository_head*(`out`: ptr ptr git_reference, repo: ptr git_repository): cint {.importc: "git_repository_head".}
 
 proc git_repository_head_for_worktree*(
     `out`: ptr ptr git_reference,
     repo: ptr git_repository,
     name: cstring,
-): cint {.importc: "git_repository_head_for_worktree", header: "<repository.h>".}
+): cint {.importc: "git_repository_head_for_worktree".}
 
-proc git_repository_head_detached*(repo: ptr git_repository): cint {.importc: "git_repository_head_detached", header: "<repository.h>".}
+proc git_repository_head_detached*(repo: ptr git_repository): cint {.importc: "git_repository_head_detached".}
 
-proc git_repository_head_detached_for_worktree*(repo: ptr git_repository, name: cstring): cint {.importc: "git_repository_head_detached_for_worktree", header: "<repository.h>".}
+proc git_repository_head_detached_for_worktree*(repo: ptr git_repository, name: cstring): cint {.importc: "git_repository_head_detached_for_worktree".}
 
-proc git_repository_head_unborn*(repo: ptr git_repository): cint {.importc: "git_repository_head_unborn", header: "<repository.h>".}
+proc git_repository_head_unborn*(repo: ptr git_repository): cint {.importc: "git_repository_head_unborn".}
 
-proc git_repository_is_empty*(repo: ptr git_repository): cint {.importc: "git_repository_is_empty", header: "<repository.h>".}
+proc git_repository_is_empty*(repo: ptr git_repository): cint {.importc: "git_repository_is_empty".}
 
 proc git_repository_item_path*(
     `out`: ptr git_buf,
     repo: ptr git_repository,
     item: git_repository_item_t,
-): cint {.importc: "git_repository_item_path", header: "<repository.h>".}
+): cint {.importc: "git_repository_item_path".}
 
-proc git_repository_path*(repo: ptr git_repository): cstring {.importc: "git_repository_path", header: "<repository.h>".}
+proc git_repository_path*(repo: ptr git_repository): cstring {.importc: "git_repository_path".}
 
-proc git_repository_workdir*(repo: ptr git_repository): cstring {.importc: "git_repository_workdir", header: "<repository.h>".}
+proc git_repository_workdir*(repo: ptr git_repository): cstring {.importc: "git_repository_workdir".}
 
-proc git_repository_commondir*(repo: ptr git_repository): cstring {.importc: "git_repository_commondir", header: "<repository.h>".}
+proc git_repository_commondir*(repo: ptr git_repository): cstring {.importc: "git_repository_commondir".}
 
 proc git_repository_set_workdir*(
     repo: ptr git_repository,
     workdir: cstring,
     update_gitlink: cint,
-): cint {.importc: "git_repository_set_workdir", header: "<repository.h>".}
+): cint {.importc: "git_repository_set_workdir".}
 
-proc git_repository_is_bare*(repo: ptr git_repository): cint {.importc: "git_repository_is_bare", header: "<repository.h>".}
+proc git_repository_is_bare*(repo: ptr git_repository): cint {.importc: "git_repository_is_bare".}
 
-proc git_repository_is_worktree*(repo: ptr git_repository): cint {.importc: "git_repository_is_worktree", header: "<repository.h>".}
+proc git_repository_is_worktree*(repo: ptr git_repository): cint {.importc: "git_repository_is_worktree".}
 
-proc git_repository_config*(`out`: ptr ptr git_config, repo: ptr git_repository): cint {.importc: "git_repository_config", header: "<repository.h>".}
+proc git_repository_config*(`out`: ptr ptr git_config, repo: ptr git_repository): cint {.importc: "git_repository_config".}
 
-proc git_repository_config_snapshot*(`out`: ptr ptr git_config, repo: ptr git_repository): cint {.importc: "git_repository_config_snapshot", header: "<repository.h>".}
+proc git_repository_config_snapshot*(`out`: ptr ptr git_config, repo: ptr git_repository): cint {.importc: "git_repository_config_snapshot".}
 
-proc git_repository_odb*(`out`: ptr ptr git_odb, repo: ptr git_repository): cint {.importc: "git_repository_odb", header: "<repository.h>".}
+proc git_repository_odb*(`out`: ptr ptr git_odb, repo: ptr git_repository): cint {.importc: "git_repository_odb".}
 
-proc git_repository_refdb*(`out`: ptr ptr git_refdb, repo: ptr git_repository): cint {.importc: "git_repository_refdb", header: "<repository.h>".}
+proc git_repository_refdb*(`out`: ptr ptr git_refdb, repo: ptr git_repository): cint {.importc: "git_repository_refdb".}
 
-proc git_repository_index*(`out`: ptr ptr git_index, repo: ptr git_repository): cint {.importc: "git_repository_index", header: "<repository.h>".}
+proc git_repository_index*(`out`: ptr ptr git_index, repo: ptr git_repository): cint {.importc: "git_repository_index".}
 
-proc git_repository_message*(`out`: ptr git_buf, repo: ptr git_repository): cint {.importc: "git_repository_message", header: "<repository.h>".}
+proc git_repository_message*(`out`: ptr git_buf, repo: ptr git_repository): cint {.importc: "git_repository_message".}
 
-proc git_repository_message_remove*(repo: ptr git_repository): cint {.importc: "git_repository_message_remove", header: "<repository.h>".}
+proc git_repository_message_remove*(repo: ptr git_repository): cint {.importc: "git_repository_message_remove".}
 
-proc git_repository_state_cleanup*(repo: ptr git_repository): cint {.importc: "git_repository_state_cleanup", header: "<repository.h>".}
+proc git_repository_state_cleanup*(repo: ptr git_repository): cint {.importc: "git_repository_state_cleanup".}
 
 proc git_repository_fetchhead_foreach*(
     repo: ptr git_repository,
     callback: git_repository_fetchhead_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_repository_fetchhead_foreach", header: "<repository.h>".}
+): cint {.importc: "git_repository_fetchhead_foreach".}
 
 proc git_repository_mergehead_foreach*(
     repo: ptr git_repository,
     callback: git_repository_mergehead_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_repository_mergehead_foreach", header: "<repository.h>".}
+): cint {.importc: "git_repository_mergehead_foreach".}
 
 proc git_repository_hashfile*(
     `out`: ptr git_oid,
@@ -228,37 +228,37 @@ proc git_repository_hashfile*(
     path: cstring,
     `type`: git_object_t,
     as_path: cstring,
-): cint {.importc: "git_repository_hashfile", header: "<repository.h>".}
+): cint {.importc: "git_repository_hashfile".}
 
-proc git_repository_set_head*(repo: ptr git_repository, refname: cstring): cint {.importc: "git_repository_set_head", header: "<repository.h>".}
+proc git_repository_set_head*(repo: ptr git_repository, refname: cstring): cint {.importc: "git_repository_set_head".}
 
-proc git_repository_set_head_detached*(repo: ptr git_repository, committish: ptr git_oid): cint {.importc: "git_repository_set_head_detached", header: "<repository.h>".}
+proc git_repository_set_head_detached*(repo: ptr git_repository, committish: ptr git_oid): cint {.importc: "git_repository_set_head_detached".}
 
-proc git_repository_set_head_detached_from_annotated*(repo: ptr git_repository, committish: ptr git_annotated_commit): cint {.importc: "git_repository_set_head_detached_from_annotated", header: "<repository.h>".}
+proc git_repository_set_head_detached_from_annotated*(repo: ptr git_repository, committish: ptr git_annotated_commit): cint {.importc: "git_repository_set_head_detached_from_annotated".}
 
-proc git_repository_detach_head*(repo: ptr git_repository): cint {.importc: "git_repository_detach_head", header: "<repository.h>".}
+proc git_repository_detach_head*(repo: ptr git_repository): cint {.importc: "git_repository_detach_head".}
 
-proc git_repository_state*(repo: ptr git_repository): cint {.importc: "git_repository_state", header: "<repository.h>".}
+proc git_repository_state*(repo: ptr git_repository): cint {.importc: "git_repository_state".}
 
-proc git_repository_set_namespace*(repo: ptr git_repository, nmspace: cstring): cint {.importc: "git_repository_set_namespace", header: "<repository.h>".}
+proc git_repository_set_namespace*(repo: ptr git_repository, nmspace: cstring): cint {.importc: "git_repository_set_namespace".}
 
-proc git_repository_get_namespace*(repo: ptr git_repository): cstring {.importc: "git_repository_get_namespace", header: "<repository.h>".}
+proc git_repository_get_namespace*(repo: ptr git_repository): cstring {.importc: "git_repository_get_namespace".}
 
-proc git_repository_is_shallow*(repo: ptr git_repository): cint {.importc: "git_repository_is_shallow", header: "<repository.h>".}
+proc git_repository_is_shallow*(repo: ptr git_repository): cint {.importc: "git_repository_is_shallow".}
 
 proc git_repository_ident*(
     name: cstringArray,
     email: cstringArray,
     repo: ptr git_repository,
-): cint {.importc: "git_repository_ident", header: "<repository.h>".}
+): cint {.importc: "git_repository_ident".}
 
 proc git_repository_set_ident*(
     repo: ptr git_repository,
     name: cstring,
     email: cstring,
-): cint {.importc: "git_repository_set_ident", header: "<repository.h>".}
+): cint {.importc: "git_repository_set_ident".}
 
-proc git_repository_oid_type*(repo: ptr git_repository): git_oid_t {.importc: "git_repository_oid_type", header: "<repository.h>".}
+proc git_repository_oid_type*(repo: ptr git_repository): git_oid_t {.importc: "git_repository_oid_type".}
 
 converter to_git_repository_open_flag_t*(arg: c_git_repository_open_flag_t): git_repository_open_flag_t =
   case arg:
@@ -496,8 +496,8 @@ func `+`*(arg: c_git_repository_state_t, offset: int): cint = cast[c_git_reposit
 
 func `+`*(offset: int, arg: c_git_repository_state_t): cint = cast[c_git_repository_state_t](ord(arg) + offset)
 
-proc git_repository_open*(`out`: ptr ptr git_repository, path: cstring): cint {.importc: "git_repository_open", header: "<repository.h>".}
+proc git_repository_open*(`out`: ptr ptr git_repository, path: cstring): cint {.importc: "git_repository_open".}
 
-proc git_repository_open_from_worktree*(`out`: ptr ptr git_repository, wt: ptr git_worktree): cint {.importc: "git_repository_open_from_worktree", header: "<repository.h>".}
+proc git_repository_open_from_worktree*(`out`: ptr ptr git_repository, wt: ptr git_worktree): cint {.importc: "git_repository_open_from_worktree".}
 
-proc git_repository_wrap_odb*(`out`: ptr ptr git_repository, odb: ptr git_odb): cint {.importc: "git_repository_wrap_odb", header: "<repository.h>".}
+proc git_repository_wrap_odb*(`out`: ptr ptr git_repository, odb: ptr git_odb): cint {.importc: "git_repository_wrap_odb".}

@@ -18,7 +18,7 @@ proc git_commit_create_from_ids*(
     tree: ptr git_oid,
     parent_count: csize_t,
     parents: ptr ptr git_oid,
-): cint {.importc: "git_commit_create_from_ids", header: "<sys/commit.h>".}
+): cint {.importc: "git_commit_create_from_ids".}
 
 proc git_commit_create_from_callback*(
     id: ptr git_oid,
@@ -31,4 +31,4 @@ proc git_commit_create_from_callback*(
     tree: ptr git_oid,
     parent_cb: git_commit_parent_callback,
     parent_payload: pointer,
-): cint {.importc: "git_commit_create_from_callback", header: "<sys/commit.h>".}
+): cint {.importc: "git_commit_create_from_callback".}

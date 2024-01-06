@@ -10,7 +10,7 @@ type
     GIT_DIRECTION_FETCH = 0
     GIT_DIRECTION_PUSH  = 1
 
-  git_remote_head* {.header: "<net.h>", importc, bycopy.} = object
+  git_remote_head* {.importc, bycopy.} = object
     local         *: cint
     oid           *: git_oid
     loid          *: git_oid

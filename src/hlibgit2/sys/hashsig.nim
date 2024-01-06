@@ -1,7 +1,7 @@
 import "../libgit2_config.nim" ## From gen file
 
 type
-  git_hashsig* {.header: "<sys/hashsig.h>", importc, incompleteStruct.} = object
+  git_hashsig* {.importc, incompleteStruct.} = object
 
 
   c_git_hashsig_option_t* {.size: sizeof(cint).} = enum
@@ -57,14 +57,14 @@ proc git_hashsig_create*(
     buf: cstring,
     buflen: csize_t,
     opts: git_hashsig_option_t,
-): cint {.importc: "git_hashsig_create", header: "<sys/hashsig.h>".}
+): cint {.importc: "git_hashsig_create".}
 
 proc git_hashsig_create_fromfile*(
     `out`: ptr ptr git_hashsig,
     path: cstring,
     opts: git_hashsig_option_t,
-): cint {.importc: "git_hashsig_create_fromfile", header: "<sys/hashsig.h>".}
+): cint {.importc: "git_hashsig_create_fromfile".}
 
-proc git_hashsig_free*(sig: ptr git_hashsig): void {.importc: "git_hashsig_free", header: "<sys/hashsig.h>".}
+proc git_hashsig_free*(sig: ptr git_hashsig): void {.importc: "git_hashsig_free".}
 
-proc git_hashsig_compare*(a: ptr git_hashsig, b: ptr git_hashsig): cint {.importc: "git_hashsig_compare", header: "<sys/hashsig.h>".}
+proc git_hashsig_compare*(a: ptr git_hashsig, b: ptr git_hashsig): cint {.importc: "git_hashsig_compare".}

@@ -23,61 +23,61 @@ type
 
 
 
-proc git_reference_dup*(dest: ptr ptr git_reference, source: ptr git_reference): cint {.importc: "git_reference_dup", header: "<refs.h>".}
+proc git_reference_dup*(dest: ptr ptr git_reference, source: ptr git_reference): cint {.importc: "git_reference_dup".}
 
-proc git_reference_free*(`ref`: ptr git_reference): void {.importc: "git_reference_free", header: "<refs.h>".}
+proc git_reference_free*(`ref`: ptr git_reference): void {.importc: "git_reference_free".}
 
-proc git_reference_cmp*(ref1: ptr git_reference, ref2: ptr git_reference): cint {.importc: "git_reference_cmp", header: "<refs.h>".}
+proc git_reference_cmp*(ref1: ptr git_reference, ref2: ptr git_reference): cint {.importc: "git_reference_cmp".}
 
-proc git_reference_iterator_new*(`out`: ptr ptr git_reference_iterator, repo: ptr git_repository): cint {.importc: "git_reference_iterator_new", header: "<refs.h>".}
+proc git_reference_iterator_new*(`out`: ptr ptr git_reference_iterator, repo: ptr git_repository): cint {.importc: "git_reference_iterator_new".}
 
 proc git_reference_iterator_glob_new*(
     `out`: ptr ptr git_reference_iterator,
     repo: ptr git_repository,
     glob: cstring,
-): cint {.importc: "git_reference_iterator_glob_new", header: "<refs.h>".}
+): cint {.importc: "git_reference_iterator_glob_new".}
 
-proc git_reference_next*(`out`: ptr ptr git_reference, iter: ptr git_reference_iterator): cint {.importc: "git_reference_next", header: "<refs.h>".}
+proc git_reference_next*(`out`: ptr ptr git_reference, iter: ptr git_reference_iterator): cint {.importc: "git_reference_next".}
 
-proc git_reference_next_name*(`out`: cstringArray, iter: ptr git_reference_iterator): cint {.importc: "git_reference_next_name", header: "<refs.h>".}
+proc git_reference_next_name*(`out`: cstringArray, iter: ptr git_reference_iterator): cint {.importc: "git_reference_next_name".}
 
-proc git_reference_iterator_free*(iter: ptr git_reference_iterator): void {.importc: "git_reference_iterator_free", header: "<refs.h>".}
+proc git_reference_iterator_free*(iter: ptr git_reference_iterator): void {.importc: "git_reference_iterator_free".}
 
 proc git_reference_foreach_glob*(
     repo: ptr git_repository,
     glob: cstring,
     callback: git_reference_foreach_name_cb,
     payload: pointer,
-): cint {.importc: "git_reference_foreach_glob", header: "<refs.h>".}
+): cint {.importc: "git_reference_foreach_glob".}
 
-proc git_reference_has_log*(repo: ptr git_repository, refname: cstring): cint {.importc: "git_reference_has_log", header: "<refs.h>".}
+proc git_reference_has_log*(repo: ptr git_repository, refname: cstring): cint {.importc: "git_reference_has_log".}
 
-proc git_reference_ensure_log*(repo: ptr git_repository, refname: cstring): cint {.importc: "git_reference_ensure_log", header: "<refs.h>".}
+proc git_reference_ensure_log*(repo: ptr git_repository, refname: cstring): cint {.importc: "git_reference_ensure_log".}
 
-proc git_reference_is_branch*(`ref`: ptr git_reference): cint {.importc: "git_reference_is_branch", header: "<refs.h>".}
+proc git_reference_is_branch*(`ref`: ptr git_reference): cint {.importc: "git_reference_is_branch".}
 
-proc git_reference_is_remote*(`ref`: ptr git_reference): cint {.importc: "git_reference_is_remote", header: "<refs.h>".}
+proc git_reference_is_remote*(`ref`: ptr git_reference): cint {.importc: "git_reference_is_remote".}
 
-proc git_reference_is_tag*(`ref`: ptr git_reference): cint {.importc: "git_reference_is_tag", header: "<refs.h>".}
+proc git_reference_is_tag*(`ref`: ptr git_reference): cint {.importc: "git_reference_is_tag".}
 
-proc git_reference_is_note*(`ref`: ptr git_reference): cint {.importc: "git_reference_is_note", header: "<refs.h>".}
+proc git_reference_is_note*(`ref`: ptr git_reference): cint {.importc: "git_reference_is_note".}
 
 proc git_reference_normalize_name*(
     buffer_out: ptr char,
     buffer_size: csize_t,
     name: cstring,
     flags: cuint,
-): cint {.importc: "git_reference_normalize_name", header: "<refs.h>".}
+): cint {.importc: "git_reference_normalize_name".}
 
 proc git_reference_peel*(
     `out`: ptr ptr git_object,
     `ref`: ptr git_reference,
     `type`: git_object_t,
-): cint {.importc: "git_reference_peel", header: "<refs.h>".}
+): cint {.importc: "git_reference_peel".}
 
-proc git_reference_name_is_valid*(valid: ptr cint, refname: cstring): cint {.importc: "git_reference_name_is_valid", header: "<refs.h>".}
+proc git_reference_name_is_valid*(valid: ptr cint, refname: cstring): cint {.importc: "git_reference_name_is_valid".}
 
-proc git_reference_shorthand*(`ref`: ptr git_reference): cstring {.importc: "git_reference_shorthand", header: "<refs.h>".}
+proc git_reference_shorthand*(`ref`: ptr git_reference): cstring {.importc: "git_reference_shorthand".}
 
 converter to_git_reference_format_t*(arg: c_git_reference_format_t): git_reference_format_t =
   case arg:
@@ -117,19 +117,19 @@ proc git_reference_lookup*(
     `out`: ptr ptr git_reference,
     repo: ptr git_repository,
     name: cstring,
-): cint {.importc: "git_reference_lookup", header: "<refs.h>".}
+): cint {.importc: "git_reference_lookup".}
 
 proc git_reference_name_to_id*(
     `out`: ptr git_oid,
     repo: ptr git_repository,
     name: cstring,
-): cint {.importc: "git_reference_name_to_id", header: "<refs.h>".}
+): cint {.importc: "git_reference_name_to_id".}
 
 proc git_reference_dwim*(
     `out`: ptr ptr git_reference,
     repo: ptr git_repository,
     shorthand: cstring,
-): cint {.importc: "git_reference_dwim", header: "<refs.h>".}
+): cint {.importc: "git_reference_dwim".}
 
 proc git_reference_symbolic_create_matching*(
     `out`: ptr ptr git_reference,
@@ -139,7 +139,7 @@ proc git_reference_symbolic_create_matching*(
     force: cint,
     current_value: cstring,
     log_message: cstring,
-): cint {.importc: "git_reference_symbolic_create_matching", header: "<refs.h>".}
+): cint {.importc: "git_reference_symbolic_create_matching".}
 
 proc git_reference_symbolic_create*(
     `out`: ptr ptr git_reference,
@@ -148,7 +148,7 @@ proc git_reference_symbolic_create*(
     target: cstring,
     force: cint,
     log_message: cstring,
-): cint {.importc: "git_reference_symbolic_create", header: "<refs.h>".}
+): cint {.importc: "git_reference_symbolic_create".}
 
 proc git_reference_create*(
     `out`: ptr ptr git_reference,
@@ -157,7 +157,7 @@ proc git_reference_create*(
     id: ptr git_oid,
     force: cint,
     log_message: cstring,
-): cint {.importc: "git_reference_create", header: "<refs.h>".}
+): cint {.importc: "git_reference_create".}
 
 proc git_reference_create_matching*(
     `out`: ptr ptr git_reference,
@@ -167,35 +167,35 @@ proc git_reference_create_matching*(
     force: cint,
     current_id: ptr git_oid,
     log_message: cstring,
-): cint {.importc: "git_reference_create_matching", header: "<refs.h>".}
+): cint {.importc: "git_reference_create_matching".}
 
-proc git_reference_target*(`ref`: ptr git_reference): ptr git_oid {.importc: "git_reference_target", header: "<refs.h>".}
+proc git_reference_target*(`ref`: ptr git_reference): ptr git_oid {.importc: "git_reference_target".}
 
-proc git_reference_target_peel*(`ref`: ptr git_reference): ptr git_oid {.importc: "git_reference_target_peel", header: "<refs.h>".}
+proc git_reference_target_peel*(`ref`: ptr git_reference): ptr git_oid {.importc: "git_reference_target_peel".}
 
-proc git_reference_symbolic_target*(`ref`: ptr git_reference): cstring {.importc: "git_reference_symbolic_target", header: "<refs.h>".}
+proc git_reference_symbolic_target*(`ref`: ptr git_reference): cstring {.importc: "git_reference_symbolic_target".}
 
-proc git_reference_type*(`ref`: ptr git_reference): git_reference_t {.importc: "git_reference_type", header: "<refs.h>".}
+proc git_reference_type*(`ref`: ptr git_reference): git_reference_t {.importc: "git_reference_type".}
 
-proc git_reference_name*(`ref`: ptr git_reference): cstring {.importc: "git_reference_name", header: "<refs.h>".}
+proc git_reference_name*(`ref`: ptr git_reference): cstring {.importc: "git_reference_name".}
 
-proc git_reference_resolve*(`out`: ptr ptr git_reference, `ref`: ptr git_reference): cint {.importc: "git_reference_resolve", header: "<refs.h>".}
+proc git_reference_resolve*(`out`: ptr ptr git_reference, `ref`: ptr git_reference): cint {.importc: "git_reference_resolve".}
 
-proc git_reference_owner*(`ref`: ptr git_reference): ptr git_repository {.importc: "git_reference_owner", header: "<refs.h>".}
+proc git_reference_owner*(`ref`: ptr git_reference): ptr git_repository {.importc: "git_reference_owner".}
 
 proc git_reference_symbolic_set_target*(
     `out`: ptr ptr git_reference,
     `ref`: ptr git_reference,
     target: cstring,
     log_message: cstring,
-): cint {.importc: "git_reference_symbolic_set_target", header: "<refs.h>".}
+): cint {.importc: "git_reference_symbolic_set_target".}
 
 proc git_reference_set_target*(
     `out`: ptr ptr git_reference,
     `ref`: ptr git_reference,
     id: ptr git_oid,
     log_message: cstring,
-): cint {.importc: "git_reference_set_target", header: "<refs.h>".}
+): cint {.importc: "git_reference_set_target".}
 
 proc git_reference_rename*(
     new_ref: ptr ptr git_reference,
@@ -203,22 +203,22 @@ proc git_reference_rename*(
     new_name: cstring,
     force: cint,
     log_message: cstring,
-): cint {.importc: "git_reference_rename", header: "<refs.h>".}
+): cint {.importc: "git_reference_rename".}
 
-proc git_reference_delete*(`ref`: ptr git_reference): cint {.importc: "git_reference_delete", header: "<refs.h>".}
+proc git_reference_delete*(`ref`: ptr git_reference): cint {.importc: "git_reference_delete".}
 
-proc git_reference_remove*(repo: ptr git_repository, name: cstring): cint {.importc: "git_reference_remove", header: "<refs.h>".}
+proc git_reference_remove*(repo: ptr git_repository, name: cstring): cint {.importc: "git_reference_remove".}
 
-proc git_reference_list*(array: ptr git_strarray, repo: ptr git_repository): cint {.importc: "git_reference_list", header: "<refs.h>".}
+proc git_reference_list*(array: ptr git_strarray, repo: ptr git_repository): cint {.importc: "git_reference_list".}
 
 proc git_reference_foreach*(
     repo: ptr git_repository,
     callback: git_reference_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_reference_foreach", header: "<refs.h>".}
+): cint {.importc: "git_reference_foreach".}
 
 proc git_reference_foreach_name*(
     repo: ptr git_repository,
     callback: git_reference_foreach_name_cb,
     payload: pointer,
-): cint {.importc: "git_reference_foreach_name", header: "<refs.h>".}
+): cint {.importc: "git_reference_foreach_name".}

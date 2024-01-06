@@ -12,20 +12,20 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_remote_create_options* {.header: "<remote.h>", importc, bycopy.} = object
+  git_remote_create_options* {.importc, bycopy.} = object
     version    *: cuint
     repository *: ptr git_repository
     name       *: cstring
     fetchspec  *: cstring
     flags      *: cuint
 
-  git_push_update* {.header: "<remote.h>", importc, bycopy.} = object
+  git_push_update* {.importc, bycopy.} = object
     src_refname *: ptr char
     dst_refname *: ptr char
     src         *: git_oid
     dst         *: git_oid
 
-  git_fetch_options* {.header: "<remote.h>", importc, bycopy.} = object
+  git_fetch_options* {.importc, bycopy.} = object
     version          *: cint
     callbacks        *: git_remote_callbacks
     prune            *: git_fetch_prune_t
@@ -36,7 +36,7 @@ type
     follow_redirects *: git_remote_redirect_t
     custom_headers   *: git_strarray
 
-  git_push_options* {.header: "<remote.h>", importc, bycopy.} = object
+  git_push_options* {.importc, bycopy.} = object
     version          *: cuint
     pb_parallelism   *: cuint
     callbacks        *: git_remote_callbacks
@@ -44,7 +44,7 @@ type
     follow_redirects *: git_remote_redirect_t
     custom_headers   *: git_strarray
 
-  git_remote_connect_options* {.header: "<remote.h>", importc, bycopy.} = object
+  git_remote_connect_options* {.importc, bycopy.} = object
     version          *: cuint
     callbacks        *: git_remote_callbacks
     proxy_opts       *: git_proxy_options
@@ -131,25 +131,25 @@ type
 
   git_transport_cb* = proc (a0: ptr ptr git_transport, a1: ptr git_remote, a2: pointer): cint
 
-  git_fetch_negotiation* {.header: "<sys/transport.h>", importc, bycopy.} = object
+  git_fetch_negotiation* {.importc, bycopy.} = object
     refs              *: ptr ptr git_remote_head
     refs_len          *: csize_t
     shallow_roots     *: ptr git_oid
     shallow_roots_len *: csize_t
     depth             *: cint
 
-  git_smart_subtransport* {.header: "<sys/transport.h>", importc, bycopy.} = object
+  git_smart_subtransport* {.importc, bycopy.} = object
     action *: proc (a0: ptr ptr git_smart_subtransport_stream, a1: ptr git_smart_subtransport, a2: cstring, a3: git_smart_service_t): cint
     close  *: proc (a0: ptr git_smart_subtransport): cint
     free   *: proc (a0: ptr git_smart_subtransport): void
 
-  git_smart_subtransport_stream* {.header: "<sys/transport.h>", importc, bycopy.} = object
+  git_smart_subtransport_stream* {.importc, bycopy.} = object
     subtransport *: ptr git_smart_subtransport
     read         *: proc (a0: ptr git_smart_subtransport_stream, a1: ptr char, a2: csize_t, a3: ptr csize_t): cint
     write        *: proc (a0: ptr git_smart_subtransport_stream, a1: cstring, a2: csize_t): cint
     free         *: proc (a0: ptr git_smart_subtransport_stream): void
 
-  git_smart_subtransport_definition* {.header: "<sys/transport.h>", importc, bycopy.} = object
+  git_smart_subtransport_definition* {.importc, bycopy.} = object
     callback *: git_smart_subtransport_cb
     rpc      *: cuint
     param    *: pointer
@@ -168,7 +168,7 @@ type
 
   git_smart_subtransport_cb* = proc (a0: ptr ptr git_smart_subtransport, a1: ptr git_transport, a2: pointer): cint
 
-  git_transport* {.header: "<sys/transport.h>", importc, bycopy.} = object
+  git_transport* {.importc, bycopy.} = object
     version          *: cuint
     connect          *: proc (a0: ptr git_transport, a1: cstring, a2: cint, a3: ptr git_remote_connect_options): cint
     set_connect_opts *: proc (a0: ptr git_transport, a1: ptr git_remote_connect_options): cint
@@ -183,7 +183,7 @@ type
     close            *: proc (a0: ptr git_transport): cint
     free             *: proc (a0: ptr git_transport): void
 
-  git_remote_callbacks* {.header: "<remote.h>", importc, bycopy.} = object
+  git_remote_callbacks* {.importc, bycopy.} = object
     version                *: cuint
     sideband_progress      *: git_transport_message_cb
     completion             *: proc (a0: git_remote_completion_t, a1: pointer): cint
@@ -418,15 +418,15 @@ proc git_remote_create*(
     repo: ptr git_repository,
     name: cstring,
     url: cstring,
-): cint {.importc: "git_remote_create", header: "<remote.h>".}
+): cint {.importc: "git_remote_create".}
 
-proc git_remote_create_options_init*(opts: ptr git_remote_create_options, version: cuint): cint {.importc: "git_remote_create_options_init", header: "<remote.h>".}
+proc git_remote_create_options_init*(opts: ptr git_remote_create_options, version: cuint): cint {.importc: "git_remote_create_options_init".}
 
 proc git_remote_create_with_opts*(
     `out`: ptr ptr git_remote,
     url: cstring,
     opts: ptr git_remote_create_options,
-): cint {.importc: "git_remote_create_with_opts", header: "<remote.h>".}
+): cint {.importc: "git_remote_create_with_opts".}
 
 proc git_remote_create_with_fetchspec*(
     `out`: ptr ptr git_remote,
@@ -434,91 +434,91 @@ proc git_remote_create_with_fetchspec*(
     name: cstring,
     url: cstring,
     fetch: cstring,
-): cint {.importc: "git_remote_create_with_fetchspec", header: "<remote.h>".}
+): cint {.importc: "git_remote_create_with_fetchspec".}
 
 proc git_remote_create_anonymous*(
     `out`: ptr ptr git_remote,
     repo: ptr git_repository,
     url: cstring,
-): cint {.importc: "git_remote_create_anonymous", header: "<remote.h>".}
+): cint {.importc: "git_remote_create_anonymous".}
 
-proc git_remote_create_detached*(`out`: ptr ptr git_remote, url: cstring): cint {.importc: "git_remote_create_detached", header: "<remote.h>".}
+proc git_remote_create_detached*(`out`: ptr ptr git_remote, url: cstring): cint {.importc: "git_remote_create_detached".}
 
 proc git_remote_lookup*(
     `out`: ptr ptr git_remote,
     repo: ptr git_repository,
     name: cstring,
-): cint {.importc: "git_remote_lookup", header: "<remote.h>".}
+): cint {.importc: "git_remote_lookup".}
 
-proc git_remote_dup*(dest: ptr ptr git_remote, source: ptr git_remote): cint {.importc: "git_remote_dup", header: "<remote.h>".}
+proc git_remote_dup*(dest: ptr ptr git_remote, source: ptr git_remote): cint {.importc: "git_remote_dup".}
 
-proc git_remote_owner*(remote: ptr git_remote): ptr git_repository {.importc: "git_remote_owner", header: "<remote.h>".}
+proc git_remote_owner*(remote: ptr git_remote): ptr git_repository {.importc: "git_remote_owner".}
 
-proc git_remote_name*(remote: ptr git_remote): cstring {.importc: "git_remote_name", header: "<remote.h>".}
+proc git_remote_name*(remote: ptr git_remote): cstring {.importc: "git_remote_name".}
 
-proc git_remote_url*(remote: ptr git_remote): cstring {.importc: "git_remote_url", header: "<remote.h>".}
+proc git_remote_url*(remote: ptr git_remote): cstring {.importc: "git_remote_url".}
 
-proc git_remote_pushurl*(remote: ptr git_remote): cstring {.importc: "git_remote_pushurl", header: "<remote.h>".}
+proc git_remote_pushurl*(remote: ptr git_remote): cstring {.importc: "git_remote_pushurl".}
 
 proc git_remote_set_url*(
     repo: ptr git_repository,
     remote: cstring,
     url: cstring,
-): cint {.importc: "git_remote_set_url", header: "<remote.h>".}
+): cint {.importc: "git_remote_set_url".}
 
 proc git_remote_set_pushurl*(
     repo: ptr git_repository,
     remote: cstring,
     url: cstring,
-): cint {.importc: "git_remote_set_pushurl", header: "<remote.h>".}
+): cint {.importc: "git_remote_set_pushurl".}
 
-proc git_remote_set_instance_url*(remote: ptr git_remote, url: cstring): cint {.importc: "git_remote_set_instance_url", header: "<remote.h>".}
+proc git_remote_set_instance_url*(remote: ptr git_remote, url: cstring): cint {.importc: "git_remote_set_instance_url".}
 
-proc git_remote_set_instance_pushurl*(remote: ptr git_remote, url: cstring): cint {.importc: "git_remote_set_instance_pushurl", header: "<remote.h>".}
+proc git_remote_set_instance_pushurl*(remote: ptr git_remote, url: cstring): cint {.importc: "git_remote_set_instance_pushurl".}
 
 proc git_remote_add_fetch*(
     repo: ptr git_repository,
     remote: cstring,
     refspec: cstring,
-): cint {.importc: "git_remote_add_fetch", header: "<remote.h>".}
+): cint {.importc: "git_remote_add_fetch".}
 
-proc git_remote_get_fetch_refspecs*(array: ptr git_strarray, remote: ptr git_remote): cint {.importc: "git_remote_get_fetch_refspecs", header: "<remote.h>".}
+proc git_remote_get_fetch_refspecs*(array: ptr git_strarray, remote: ptr git_remote): cint {.importc: "git_remote_get_fetch_refspecs".}
 
 proc git_remote_add_push*(
     repo: ptr git_repository,
     remote: cstring,
     refspec: cstring,
-): cint {.importc: "git_remote_add_push", header: "<remote.h>".}
+): cint {.importc: "git_remote_add_push".}
 
-proc git_remote_get_push_refspecs*(array: ptr git_strarray, remote: ptr git_remote): cint {.importc: "git_remote_get_push_refspecs", header: "<remote.h>".}
+proc git_remote_get_push_refspecs*(array: ptr git_strarray, remote: ptr git_remote): cint {.importc: "git_remote_get_push_refspecs".}
 
-proc git_remote_refspec_count*(remote: ptr git_remote): csize_t {.importc: "git_remote_refspec_count", header: "<remote.h>".}
+proc git_remote_refspec_count*(remote: ptr git_remote): csize_t {.importc: "git_remote_refspec_count".}
 
-proc git_remote_get_refspec*(remote: ptr git_remote, n: csize_t): ptr git_refspec {.importc: "git_remote_get_refspec", header: "<remote.h>".}
+proc git_remote_get_refspec*(remote: ptr git_remote, n: csize_t): ptr git_refspec {.importc: "git_remote_get_refspec".}
 
 proc git_remote_ls*(
     `out`: ptr ptr ptr git_remote_head,
     size: ptr csize_t,
     remote: ptr git_remote,
-): cint {.importc: "git_remote_ls", header: "<remote.h>".}
+): cint {.importc: "git_remote_ls".}
 
-proc git_remote_connected*(remote: ptr git_remote): cint {.importc: "git_remote_connected", header: "<remote.h>".}
+proc git_remote_connected*(remote: ptr git_remote): cint {.importc: "git_remote_connected".}
 
-proc git_remote_stop*(remote: ptr git_remote): cint {.importc: "git_remote_stop", header: "<remote.h>".}
+proc git_remote_stop*(remote: ptr git_remote): cint {.importc: "git_remote_stop".}
 
-proc git_remote_disconnect*(remote: ptr git_remote): cint {.importc: "git_remote_disconnect", header: "<remote.h>".}
+proc git_remote_disconnect*(remote: ptr git_remote): cint {.importc: "git_remote_disconnect".}
 
-proc git_remote_free*(remote: ptr git_remote): void {.importc: "git_remote_free", header: "<remote.h>".}
+proc git_remote_free*(remote: ptr git_remote): void {.importc: "git_remote_free".}
 
-proc git_remote_list*(`out`: ptr git_strarray, repo: ptr git_repository): cint {.importc: "git_remote_list", header: "<remote.h>".}
+proc git_remote_list*(`out`: ptr git_strarray, repo: ptr git_repository): cint {.importc: "git_remote_list".}
 
-proc git_remote_init_callbacks*(opts: ptr git_remote_callbacks, version: cuint): cint {.importc: "git_remote_init_callbacks", header: "<remote.h>".}
+proc git_remote_init_callbacks*(opts: ptr git_remote_callbacks, version: cuint): cint {.importc: "git_remote_init_callbacks".}
 
-proc git_fetch_options_init*(opts: ptr git_fetch_options, version: cuint): cint {.importc: "git_fetch_options_init", header: "<remote.h>".}
+proc git_fetch_options_init*(opts: ptr git_fetch_options, version: cuint): cint {.importc: "git_fetch_options_init".}
 
-proc git_push_options_init*(opts: ptr git_push_options, version: cuint): cint {.importc: "git_push_options_init", header: "<remote.h>".}
+proc git_push_options_init*(opts: ptr git_push_options, version: cuint): cint {.importc: "git_push_options_init".}
 
-proc git_remote_connect_options_init*(opts: ptr git_remote_connect_options, version: cuint): cint {.importc: "git_remote_connect_options_init", header: "<remote.h>".}
+proc git_remote_connect_options_init*(opts: ptr git_remote_connect_options, version: cuint): cint {.importc: "git_remote_connect_options_init".}
 
 proc git_remote_connect*(
     remote: ptr git_remote,
@@ -526,25 +526,25 @@ proc git_remote_connect*(
     callbacks: ptr git_remote_callbacks,
     proxy_opts: ptr git_proxy_options,
     custom_headers: ptr git_strarray,
-): cint {.importc: "git_remote_connect", header: "<remote.h>".}
+): cint {.importc: "git_remote_connect".}
 
 proc git_remote_connect_ext*(
     remote: ptr git_remote,
     direction: git_direction,
     opts: ptr git_remote_connect_options,
-): cint {.importc: "git_remote_connect_ext", header: "<remote.h>".}
+): cint {.importc: "git_remote_connect_ext".}
 
 proc git_remote_download*(
     remote: ptr git_remote,
     refspecs: ptr git_strarray,
     opts: ptr git_fetch_options,
-): cint {.importc: "git_remote_download", header: "<remote.h>".}
+): cint {.importc: "git_remote_download".}
 
 proc git_remote_upload*(
     remote: ptr git_remote,
     refspecs: ptr git_strarray,
     opts: ptr git_push_options,
-): cint {.importc: "git_remote_upload", header: "<remote.h>".}
+): cint {.importc: "git_remote_upload".}
 
 proc git_remote_update_tips*(
     remote: ptr git_remote,
@@ -552,47 +552,47 @@ proc git_remote_update_tips*(
     update_flags: cuint,
     download_tags: git_remote_autotag_option_t,
     reflog_message: cstring,
-): cint {.importc: "git_remote_update_tips", header: "<remote.h>".}
+): cint {.importc: "git_remote_update_tips".}
 
 proc git_remote_fetch*(
     remote: ptr git_remote,
     refspecs: ptr git_strarray,
     opts: ptr git_fetch_options,
     reflog_message: cstring,
-): cint {.importc: "git_remote_fetch", header: "<remote.h>".}
+): cint {.importc: "git_remote_fetch".}
 
-proc git_remote_prune*(remote: ptr git_remote, callbacks: ptr git_remote_callbacks): cint {.importc: "git_remote_prune", header: "<remote.h>".}
+proc git_remote_prune*(remote: ptr git_remote, callbacks: ptr git_remote_callbacks): cint {.importc: "git_remote_prune".}
 
 proc git_remote_push*(
     remote: ptr git_remote,
     refspecs: ptr git_strarray,
     opts: ptr git_push_options,
-): cint {.importc: "git_remote_push", header: "<remote.h>".}
+): cint {.importc: "git_remote_push".}
 
-proc git_remote_stats*(remote: ptr git_remote): ptr git_indexer_progress {.importc: "git_remote_stats", header: "<remote.h>".}
+proc git_remote_stats*(remote: ptr git_remote): ptr git_indexer_progress {.importc: "git_remote_stats".}
 
-proc git_remote_autotag*(remote: ptr git_remote): git_remote_autotag_option_t {.importc: "git_remote_autotag", header: "<remote.h>".}
+proc git_remote_autotag*(remote: ptr git_remote): git_remote_autotag_option_t {.importc: "git_remote_autotag".}
 
 proc git_remote_set_autotag*(
     repo: ptr git_repository,
     remote: cstring,
     value: git_remote_autotag_option_t,
-): cint {.importc: "git_remote_set_autotag", header: "<remote.h>".}
+): cint {.importc: "git_remote_set_autotag".}
 
-proc git_remote_prune_refs*(remote: ptr git_remote): cint {.importc: "git_remote_prune_refs", header: "<remote.h>".}
+proc git_remote_prune_refs*(remote: ptr git_remote): cint {.importc: "git_remote_prune_refs".}
 
 proc git_remote_rename*(
     problems: ptr git_strarray,
     repo: ptr git_repository,
     name: cstring,
     new_name: cstring,
-): cint {.importc: "git_remote_rename", header: "<remote.h>".}
+): cint {.importc: "git_remote_rename".}
 
-proc git_remote_name_is_valid*(valid: ptr cint, remote_name: cstring): cint {.importc: "git_remote_name_is_valid", header: "<remote.h>".}
+proc git_remote_name_is_valid*(valid: ptr cint, remote_name: cstring): cint {.importc: "git_remote_name_is_valid".}
 
-proc git_remote_delete*(repo: ptr git_repository, name: cstring): cint {.importc: "git_remote_delete", header: "<remote.h>".}
+proc git_remote_delete*(repo: ptr git_repository, name: cstring): cint {.importc: "git_remote_delete".}
 
-proc git_remote_default_branch*(`out`: ptr git_buf, remote: ptr git_remote): cint {.importc: "git_remote_default_branch", header: "<remote.h>".}
+proc git_remote_default_branch*(`out`: ptr git_buf, remote: ptr git_remote): cint {.importc: "git_remote_default_branch".}
 
 converter to_git_smart_service_t*(arg: c_git_smart_service_t): git_smart_service_t =
   case arg:
@@ -628,76 +628,76 @@ func `+`*(arg: c_git_smart_service_t, offset: int): cint = cast[c_git_smart_serv
 
 func `+`*(offset: int, arg: c_git_smart_service_t): cint = cast[c_git_smart_service_t](ord(arg) + offset)
 
-proc git_transport_init*(opts: ptr git_transport, version: cuint): cint {.importc: "git_transport_init", header: "<sys/transport.h>".}
+proc git_transport_init*(opts: ptr git_transport, version: cuint): cint {.importc: "git_transport_init".}
 
 proc git_transport_new*(
     `out`: ptr ptr git_transport,
     owner: ptr git_remote,
     url: cstring,
-): cint {.importc: "git_transport_new", header: "<sys/transport.h>".}
+): cint {.importc: "git_transport_new".}
 
 proc git_transport_ssh_with_paths*(
     `out`: ptr ptr git_transport,
     owner: ptr git_remote,
     payload: pointer,
-): cint {.importc: "git_transport_ssh_with_paths", header: "<sys/transport.h>".}
+): cint {.importc: "git_transport_ssh_with_paths".}
 
 proc git_transport_register*(
     prefix: cstring,
     cb: git_transport_cb,
     param: pointer,
-): cint {.importc: "git_transport_register", header: "<sys/transport.h>".}
+): cint {.importc: "git_transport_register".}
 
-proc git_transport_unregister*(prefix: cstring): cint {.importc: "git_transport_unregister", header: "<sys/transport.h>".}
+proc git_transport_unregister*(prefix: cstring): cint {.importc: "git_transport_unregister".}
 
 proc git_transport_dummy*(
     `out`: ptr ptr git_transport,
     owner: ptr git_remote,
     payload: pointer,
-): cint {.importc: "git_transport_dummy", header: "<sys/transport.h>".}
+): cint {.importc: "git_transport_dummy".}
 
 proc git_transport_local*(
     `out`: ptr ptr git_transport,
     owner: ptr git_remote,
     payload: pointer,
-): cint {.importc: "git_transport_local", header: "<sys/transport.h>".}
+): cint {.importc: "git_transport_local".}
 
 proc git_transport_smart*(
     `out`: ptr ptr git_transport,
     owner: ptr git_remote,
     payload: pointer,
-): cint {.importc: "git_transport_smart", header: "<sys/transport.h>".}
+): cint {.importc: "git_transport_smart".}
 
 proc git_transport_smart_certificate_check*(
     transport: ptr git_transport,
     cert: ptr git_cert,
     valid: cint,
     hostname: cstring,
-): cint {.importc: "git_transport_smart_certificate_check", header: "<sys/transport.h>".}
+): cint {.importc: "git_transport_smart_certificate_check".}
 
 proc git_transport_smart_credentials*(
     `out`: ptr ptr git_credential,
     transport: ptr git_transport,
     user: cstring,
     methods: cint,
-): cint {.importc: "git_transport_smart_credentials", header: "<sys/transport.h>".}
+): cint {.importc: "git_transport_smart_credentials".}
 
-proc git_transport_remote_connect_options*(`out`: ptr git_remote_connect_options, transport: ptr git_transport): cint {.importc: "git_transport_remote_connect_options", header: "<sys/transport.h>".}
+proc git_transport_remote_connect_options*(`out`: ptr git_remote_connect_options, transport: ptr git_transport): cint {.importc: "git_transport_remote_connect_options".}
 
 proc git_smart_subtransport_http*(
     `out`: ptr ptr git_smart_subtransport,
     owner: ptr git_transport,
     param: pointer,
-): cint {.importc: "git_smart_subtransport_http", header: "<sys/transport.h>".}
+): cint {.importc: "git_smart_subtransport_http".}
 
 proc git_smart_subtransport_git*(
     `out`: ptr ptr git_smart_subtransport,
     owner: ptr git_transport,
     param: pointer,
-): cint {.importc: "git_smart_subtransport_git", header: "<sys/transport.h>".}
+): cint {.importc: "git_smart_subtransport_git".}
 
 proc git_smart_subtransport_ssh*(
     `out`: ptr ptr git_smart_subtransport,
     owner: ptr git_transport,
     param: pointer,
-): cint {.importc: "git_smart_subtransport_ssh", header: "<sys/transport.h>".}
+): cint {.importc: "git_smart_subtransport_ssh".}

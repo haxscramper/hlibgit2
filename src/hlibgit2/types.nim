@@ -1,121 +1,121 @@
 import "./libgit2_config.nim" ## From gen file
 
 type
-  git_odb* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_odb* {.importc, incompleteStruct.} = object
 
 
-  git_odb_object* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_odb_object* {.importc, incompleteStruct.} = object
 
 
-  git_midx_writer* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_midx_writer* {.importc, incompleteStruct.} = object
 
 
-  git_refdb* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_refdb* {.importc, incompleteStruct.} = object
 
 
-  git_commit_graph* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_commit_graph* {.importc, incompleteStruct.} = object
 
 
-  git_commit_graph_writer* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_commit_graph_writer* {.importc, incompleteStruct.} = object
 
 
-  git_repository* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_repository* {.importc, incompleteStruct.} = object
 
 
-  git_worktree* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_worktree* {.importc, incompleteStruct.} = object
 
 
-  git_object* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_object* {.importc, incompleteStruct.} = object
 
 
-  git_revwalk* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_revwalk* {.importc, incompleteStruct.} = object
 
 
-  git_tag* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_tag* {.importc, incompleteStruct.} = object
 
 
-  git_blob* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_blob* {.importc, incompleteStruct.} = object
 
 
-  git_commit* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_commit* {.importc, incompleteStruct.} = object
 
 
-  git_tree_entry* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_tree_entry* {.importc, incompleteStruct.} = object
 
 
-  git_tree* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_tree* {.importc, incompleteStruct.} = object
 
 
-  git_treebuilder* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_treebuilder* {.importc, incompleteStruct.} = object
 
 
-  git_index* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_index* {.importc, incompleteStruct.} = object
 
 
-  git_index_iterator* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_index_iterator* {.importc, incompleteStruct.} = object
 
 
-  git_index_conflict_iterator* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_index_conflict_iterator* {.importc, incompleteStruct.} = object
 
 
-  git_config* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_config* {.importc, incompleteStruct.} = object
 
 
-  git_reflog_entry* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_reflog_entry* {.importc, incompleteStruct.} = object
 
 
-  git_reflog* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_reflog* {.importc, incompleteStruct.} = object
 
 
-  git_note* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_note* {.importc, incompleteStruct.} = object
 
 
-  git_packbuilder* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_packbuilder* {.importc, incompleteStruct.} = object
 
 
-  git_time* {.header: "<types.h>", importc, bycopy.} = object
+  git_time* {.importc, bycopy.} = object
     time   *: git_time_t
     offset *: cint
     sign   *: char
 
-  git_signature* {.header: "<types.h>", importc, bycopy.} = object
+  git_signature* {.importc, bycopy.} = object
     name   *: ptr char
     email  *: ptr char
     `when` *: git_time
 
-  git_reference* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_reference* {.importc, incompleteStruct.} = object
 
 
-  git_transaction* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_transaction* {.importc, incompleteStruct.} = object
 
 
-  git_annotated_commit* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_annotated_commit* {.importc, incompleteStruct.} = object
 
 
-  git_status_list* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_status_list* {.importc, incompleteStruct.} = object
 
 
-  git_rebase* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_rebase* {.importc, incompleteStruct.} = object
 
 
-  git_refspec* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_refspec* {.importc, incompleteStruct.} = object
 
 
-  git_remote* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_remote* {.importc, incompleteStruct.} = object
 
 
-  git_push* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_push* {.importc, incompleteStruct.} = object
 
 
-  git_submodule* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_submodule* {.importc, incompleteStruct.} = object
 
 
-  git_writestream* {.header: "<types.h>", importc, bycopy.} = object
+  git_writestream* {.importc, bycopy.} = object
     write *: proc (a0: ptr git_writestream, a1: cstring, a2: csize_t): cint
     close *: proc (a0: ptr git_writestream): cint
     free  *: proc (a0: ptr git_writestream): void
 
-  git_mailmap* {.header: "<types.h>", importc, incompleteStruct.} = object
+  git_mailmap* {.importc, incompleteStruct.} = object
 
 
   c_git_object_t* {.size: sizeof(cint).} = enum

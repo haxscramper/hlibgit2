@@ -47,29 +47,29 @@ func `+`*(arg: c_git_packbuilder_stage_t, offset: int): cint = cast[c_git_packbu
 
 func `+`*(offset: int, arg: c_git_packbuilder_stage_t): cint = cast[c_git_packbuilder_stage_t](ord(arg) + offset)
 
-proc git_packbuilder_new*(`out`: ptr ptr git_packbuilder, repo: ptr git_repository): cint {.importc: "git_packbuilder_new", header: "<pack.h>".}
+proc git_packbuilder_new*(`out`: ptr ptr git_packbuilder, repo: ptr git_repository): cint {.importc: "git_packbuilder_new".}
 
-proc git_packbuilder_set_threads*(pb: ptr git_packbuilder, n: cuint): cuint {.importc: "git_packbuilder_set_threads", header: "<pack.h>".}
+proc git_packbuilder_set_threads*(pb: ptr git_packbuilder, n: cuint): cuint {.importc: "git_packbuilder_set_threads".}
 
 proc git_packbuilder_insert*(
     pb: ptr git_packbuilder,
     id: ptr git_oid,
     name: cstring,
-): cint {.importc: "git_packbuilder_insert", header: "<pack.h>".}
+): cint {.importc: "git_packbuilder_insert".}
 
-proc git_packbuilder_insert_tree*(pb: ptr git_packbuilder, id: ptr git_oid): cint {.importc: "git_packbuilder_insert_tree", header: "<pack.h>".}
+proc git_packbuilder_insert_tree*(pb: ptr git_packbuilder, id: ptr git_oid): cint {.importc: "git_packbuilder_insert_tree".}
 
-proc git_packbuilder_insert_commit*(pb: ptr git_packbuilder, id: ptr git_oid): cint {.importc: "git_packbuilder_insert_commit", header: "<pack.h>".}
+proc git_packbuilder_insert_commit*(pb: ptr git_packbuilder, id: ptr git_oid): cint {.importc: "git_packbuilder_insert_commit".}
 
-proc git_packbuilder_insert_walk*(pb: ptr git_packbuilder, walk: ptr git_revwalk): cint {.importc: "git_packbuilder_insert_walk", header: "<pack.h>".}
+proc git_packbuilder_insert_walk*(pb: ptr git_packbuilder, walk: ptr git_revwalk): cint {.importc: "git_packbuilder_insert_walk".}
 
 proc git_packbuilder_insert_recur*(
     pb: ptr git_packbuilder,
     id: ptr git_oid,
     name: cstring,
-): cint {.importc: "git_packbuilder_insert_recur", header: "<pack.h>".}
+): cint {.importc: "git_packbuilder_insert_recur".}
 
-proc git_packbuilder_write_buf*(buf: ptr git_buf, pb: ptr git_packbuilder): cint {.importc: "git_packbuilder_write_buf", header: "<pack.h>".}
+proc git_packbuilder_write_buf*(buf: ptr git_buf, pb: ptr git_packbuilder): cint {.importc: "git_packbuilder_write_buf".}
 
 proc git_packbuilder_write*(
     pb: ptr git_packbuilder,
@@ -77,26 +77,26 @@ proc git_packbuilder_write*(
     mode: cuint,
     progress_cb: git_indexer_progress_cb,
     progress_cb_payload: pointer,
-): cint {.importc: "git_packbuilder_write", header: "<pack.h>".}
+): cint {.importc: "git_packbuilder_write".}
 
-proc git_packbuilder_hash*(pb: ptr git_packbuilder): ptr git_oid {.importc: "git_packbuilder_hash", header: "<pack.h>".}
+proc git_packbuilder_hash*(pb: ptr git_packbuilder): ptr git_oid {.importc: "git_packbuilder_hash".}
 
-proc git_packbuilder_name*(pb: ptr git_packbuilder): cstring {.importc: "git_packbuilder_name", header: "<pack.h>".}
+proc git_packbuilder_name*(pb: ptr git_packbuilder): cstring {.importc: "git_packbuilder_name".}
 
 proc git_packbuilder_foreach*(
     pb: ptr git_packbuilder,
     cb: git_packbuilder_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_packbuilder_foreach", header: "<pack.h>".}
+): cint {.importc: "git_packbuilder_foreach".}
 
-proc git_packbuilder_object_count*(pb: ptr git_packbuilder): csize_t {.importc: "git_packbuilder_object_count", header: "<pack.h>".}
+proc git_packbuilder_object_count*(pb: ptr git_packbuilder): csize_t {.importc: "git_packbuilder_object_count".}
 
-proc git_packbuilder_written*(pb: ptr git_packbuilder): csize_t {.importc: "git_packbuilder_written", header: "<pack.h>".}
+proc git_packbuilder_written*(pb: ptr git_packbuilder): csize_t {.importc: "git_packbuilder_written".}
 
 proc git_packbuilder_set_callbacks*(
     pb: ptr git_packbuilder,
     progress_cb: git_packbuilder_progress,
     progress_cb_payload: pointer,
-): cint {.importc: "git_packbuilder_set_callbacks", header: "<pack.h>".}
+): cint {.importc: "git_packbuilder_set_callbacks".}
 
-proc git_packbuilder_free*(pb: ptr git_packbuilder): void {.importc: "git_packbuilder_free", header: "<pack.h>".}
+proc git_packbuilder_free*(pb: ptr git_packbuilder): void {.importc: "git_packbuilder_free".}

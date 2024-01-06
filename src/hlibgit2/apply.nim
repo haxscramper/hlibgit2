@@ -3,7 +3,7 @@ import "./types.nim"
 import "./diff.nim"
 
 type
-  git_apply_options* {.header: "<apply.h>", importc, bycopy.} = object
+  git_apply_options* {.importc, bycopy.} = object
     version  *: cuint
     delta_cb *: git_apply_delta_cb
     hunk_cb  *: git_apply_hunk_cb
@@ -88,7 +88,7 @@ func `+`*(arg: c_git_apply_location_t, offset: int): cint = cast[c_git_apply_loc
 
 func `+`*(offset: int, arg: c_git_apply_location_t): cint = cast[c_git_apply_location_t](ord(arg) + offset)
 
-proc git_apply_options_init*(opts: ptr git_apply_options, version: cuint): cint {.importc: "git_apply_options_init", header: "<apply.h>".}
+proc git_apply_options_init*(opts: ptr git_apply_options, version: cuint): cint {.importc: "git_apply_options_init".}
 
 proc git_apply_to_tree*(
     `out`: ptr ptr git_index,
@@ -96,11 +96,11 @@ proc git_apply_to_tree*(
     preimage: ptr git_tree,
     diff: ptr git_diff,
     options: ptr git_apply_options,
-): cint {.importc: "git_apply_to_tree", header: "<apply.h>".}
+): cint {.importc: "git_apply_to_tree".}
 
 proc git_apply*(
     repo: ptr git_repository,
     diff: ptr git_diff,
     location: git_apply_location_t,
     options: ptr git_apply_options,
-): cint {.importc: "git_apply", header: "<apply.h>".}
+): cint {.importc: "git_apply".}

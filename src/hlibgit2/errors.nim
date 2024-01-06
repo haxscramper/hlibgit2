@@ -147,7 +147,7 @@ type
     GIT_ERROR_INTERNAL   = 35
     GIT_ERROR_GRAFTS     = 36
 
-  git_error* {.header: "<errors.h>", importc, bycopy.} = object
+  git_error* {.importc, bycopy.} = object
     message *: ptr char
     klass   *: cint
 
@@ -404,4 +404,4 @@ func `+`*(arg: c_git_error_t, offset: int): cint = cast[c_git_error_t](ord(arg) 
 
 func `+`*(offset: int, arg: c_git_error_t): cint = cast[c_git_error_t](ord(arg) + offset)
 
-proc git_error_last*(): ptr git_error {.importc: "git_error_last", header: "<errors.h>".}
+proc git_error_last*(): ptr git_error {.importc: "git_error_last".}

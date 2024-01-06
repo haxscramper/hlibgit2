@@ -2,11 +2,11 @@ import "./libgit2_config.nim" ## From gen file
 import "./buffer.nim"
 
 type
-  git_message_trailer* {.header: "<message.h>", importc, bycopy.} = object
+  git_message_trailer* {.importc, bycopy.} = object
     key   *: cstring
     value *: cstring
 
-  git_message_trailer_array* {.header: "<message.h>", importc, bycopy.} = object
+  git_message_trailer_array* {.importc, bycopy.} = object
     trailers      *: ptr git_message_trailer
     count         *: csize_t
     trailer_block *: ptr char
@@ -18,8 +18,8 @@ proc git_message_prettify*(
     message: cstring,
     strip_comments: cint,
     comment_char: char,
-): cint {.importc: "git_message_prettify", header: "<message.h>".}
+): cint {.importc: "git_message_prettify".}
 
-proc git_message_trailers*(arr: ptr git_message_trailer_array, message: cstring): cint {.importc: "git_message_trailers", header: "<message.h>".}
+proc git_message_trailers*(arr: ptr git_message_trailer_array, message: cstring): cint {.importc: "git_message_trailers".}
 
-proc git_message_trailer_array_free*(arr: ptr git_message_trailer_array): void {.importc: "git_message_trailer_array_free", header: "<message.h>".}
+proc git_message_trailer_array_free*(arr: ptr git_message_trailer_array): void {.importc: "git_message_trailer_array_free".}

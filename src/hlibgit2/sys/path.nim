@@ -90,4 +90,4 @@ proc git_path_is_gitfile*(
     pathlen: csize_t,
     gitfile: git_path_gitfile,
     fs: git_path_fs,
-): cint {.importc: "git_path_is_gitfile", header: "<sys/path.h>".}
+): cint {.importc: "git_path_is_gitfile".}

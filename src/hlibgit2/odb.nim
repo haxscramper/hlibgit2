@@ -4,7 +4,7 @@ import "./types.nim"
 import "./oid.nim"
 
 type
-  git_odb_backend* {.header: "<sys/odb_backend.h>", importc, bycopy.} = object
+  git_odb_backend* {.importc, bycopy.} = object
     version       *: cuint
     odb           *: ptr git_odb
     read          *: proc (a0: ptr pointer, a1: ptr csize_t, a2: ptr git_object_t, a3: ptr git_odb_backend, a4: ptr git_oid): cint
@@ -22,7 +22,7 @@ type
     freshen       *: proc (a0: ptr git_odb_backend, a1: ptr git_oid): cint
     free          *: proc (a0: ptr git_odb_backend): void
 
-  git_odb_stream* {.header: "<odb_backend.h>", importc, bycopy.} = object
+  git_odb_stream* {.importc, bycopy.} = object
     backend        *: ptr git_odb_backend
     mode           *: cuint
     hash_ctx       *: pointer
@@ -33,17 +33,17 @@ type
     finalize_write *: proc (a0: ptr git_odb_stream, a1: ptr git_oid): cint
     free           *: proc (a0: ptr git_odb_stream): void
 
-  git_odb_writepack* {.header: "<odb_backend.h>", importc, bycopy.} = object
+  git_odb_writepack* {.importc, bycopy.} = object
     backend *: ptr git_odb_backend
     append  *: proc (a0: ptr git_odb_writepack, a1: pointer, a2: csize_t, a3: ptr git_indexer_progress): cint
     commit  *: proc (a0: ptr git_odb_writepack, a1: ptr git_indexer_progress): cint
     free    *: proc (a0: ptr git_odb_writepack): void
 
-  git_odb_backend_pack_options* {.header: "<odb_backend.h>", importc, bycopy.} = object
+  git_odb_backend_pack_options* {.importc, bycopy.} = object
     version  *: cuint
     oid_type *: git_oid_t
 
-  git_odb_backend_loose_options* {.header: "<odb_backend.h>", importc, bycopy.} = object
+  git_odb_backend_loose_options* {.importc, bycopy.} = object
     version           *: cuint
     flags             *: uint32
     compression_level *: cint
@@ -67,11 +67,11 @@ type
     GIT_STREAM_WRONLY = 1
     GIT_STREAM_RW     = 2
 
-  git_odb_options* {.header: "<odb.h>", importc, bycopy.} = object
+  git_odb_options* {.importc, bycopy.} = object
     version  *: cuint
     oid_type *: git_oid_t
 
-  git_odb_expand_id* {.header: "<odb.h>", importc, bycopy.} = object
+  git_odb_expand_id* {.importc, bycopy.} = object
     id     *: git_oid
     length *: cushort
     `type` *: git_object_t
@@ -90,17 +90,17 @@ proc git_odb_get_backend*(
     `out`: ptr ptr git_odb_backend,
     odb: ptr git_odb,
     pos: csize_t,
-): cint {.importc: "git_odb_get_backend", header: "<odb.h>".}
+): cint {.importc: "git_odb_get_backend".}
 
-proc git_odb_set_commit_graph*(odb: ptr git_odb, cgraph: ptr git_commit_graph): cint {.importc: "git_odb_set_commit_graph", header: "<odb.h>".}
+proc git_odb_set_commit_graph*(odb: ptr git_odb, cgraph: ptr git_commit_graph): cint {.importc: "git_odb_set_commit_graph".}
 
-proc git_odb_init_backend*(backend: ptr git_odb_backend, version: cuint): cint {.importc: "git_odb_init_backend", header: "<sys/odb_backend.h>".}
+proc git_odb_init_backend*(backend: ptr git_odb_backend, version: cuint): cint {.importc: "git_odb_init_backend".}
 
-proc git_odb_backend_data_alloc*(backend: ptr git_odb_backend, len: csize_t): pointer {.importc: "git_odb_backend_data_alloc", header: "<sys/odb_backend.h>".}
+proc git_odb_backend_data_alloc*(backend: ptr git_odb_backend, len: csize_t): pointer {.importc: "git_odb_backend_data_alloc".}
 
-proc git_odb_backend_data_free*(backend: ptr git_odb_backend, data: pointer): void {.importc: "git_odb_backend_data_free", header: "<sys/odb_backend.h>".}
+proc git_odb_backend_data_free*(backend: ptr git_odb_backend, data: pointer): void {.importc: "git_odb_backend_data_free".}
 
-proc git_odb_backend_malloc*(backend: ptr git_odb_backend, len: csize_t): pointer {.importc: "git_odb_backend_malloc", header: "<sys/odb_backend.h>".}
+proc git_odb_backend_malloc*(backend: ptr git_odb_backend, len: csize_t): pointer {.importc: "git_odb_backend_malloc".}
 
 converter to_git_odb_backend_loose_flag_t*(arg: c_git_odb_backend_loose_flag_t): git_odb_backend_loose_flag_t =
   case arg:
@@ -158,9 +158,9 @@ func `+`*(arg: c_git_odb_stream_t, offset: int): cint = cast[c_git_odb_stream_t]
 
 func `+`*(offset: int, arg: c_git_odb_stream_t): cint = cast[c_git_odb_stream_t](ord(arg) + offset)
 
-proc git_odb_backend_pack*(`out`: ptr ptr git_odb_backend, objects_dir: cstring): cint {.importc: "git_odb_backend_pack", header: "<odb_backend.h>".}
+proc git_odb_backend_pack*(`out`: ptr ptr git_odb_backend, objects_dir: cstring): cint {.importc: "git_odb_backend_pack".}
 
-proc git_odb_backend_one_pack*(`out`: ptr ptr git_odb_backend, index_file: cstring): cint {.importc: "git_odb_backend_one_pack", header: "<odb_backend.h>".}
+proc git_odb_backend_one_pack*(`out`: ptr ptr git_odb_backend, index_file: cstring): cint {.importc: "git_odb_backend_one_pack".}
 
 proc git_odb_backend_loose*(
     `out`: ptr ptr git_odb_backend,
@@ -169,7 +169,7 @@ proc git_odb_backend_loose*(
     do_fsync: cint,
     dir_mode: cuint,
     file_mode: cuint,
-): cint {.importc: "git_odb_backend_loose", header: "<odb_backend.h>".}
+): cint {.importc: "git_odb_backend_loose".}
 
 converter to_git_odb_lookup_flags_t*(arg: c_git_odb_lookup_flags_t): git_odb_lookup_flags_t =
   case arg:
@@ -196,62 +196,62 @@ func `+`*(arg: c_git_odb_lookup_flags_t, offset: int): cint = cast[c_git_odb_loo
 
 func `+`*(offset: int, arg: c_git_odb_lookup_flags_t): cint = cast[c_git_odb_lookup_flags_t](ord(arg) + offset)
 
-proc git_odb_new*(`out`: ptr ptr git_odb): cint {.importc: "git_odb_new", header: "<odb.h>".}
+proc git_odb_new*(`out`: ptr ptr git_odb): cint {.importc: "git_odb_new".}
 
-proc git_odb_open*(`out`: ptr ptr git_odb, objects_dir: cstring): cint {.importc: "git_odb_open", header: "<odb.h>".}
+proc git_odb_open*(`out`: ptr ptr git_odb, objects_dir: cstring): cint {.importc: "git_odb_open".}
 
-proc git_odb_add_disk_alternate*(odb: ptr git_odb, path: cstring): cint {.importc: "git_odb_add_disk_alternate", header: "<odb.h>".}
+proc git_odb_add_disk_alternate*(odb: ptr git_odb, path: cstring): cint {.importc: "git_odb_add_disk_alternate".}
 
-proc git_odb_free*(db: ptr git_odb): void {.importc: "git_odb_free", header: "<odb.h>".}
+proc git_odb_free*(db: ptr git_odb): void {.importc: "git_odb_free".}
 
 proc git_odb_read*(
     `out`: ptr ptr git_odb_object,
     db: ptr git_odb,
     id: ptr git_oid,
-): cint {.importc: "git_odb_read", header: "<odb.h>".}
+): cint {.importc: "git_odb_read".}
 
 proc git_odb_read_prefix*(
     `out`: ptr ptr git_odb_object,
     db: ptr git_odb,
     short_id: ptr git_oid,
     len: csize_t,
-): cint {.importc: "git_odb_read_prefix", header: "<odb.h>".}
+): cint {.importc: "git_odb_read_prefix".}
 
 proc git_odb_read_header*(
     len_out: ptr csize_t,
     type_out: ptr git_object_t,
     db: ptr git_odb,
     id: ptr git_oid,
-): cint {.importc: "git_odb_read_header", header: "<odb.h>".}
+): cint {.importc: "git_odb_read_header".}
 
-proc git_odb_exists*(db: ptr git_odb, id: ptr git_oid): cint {.importc: "git_odb_exists", header: "<odb.h>".}
+proc git_odb_exists*(db: ptr git_odb, id: ptr git_oid): cint {.importc: "git_odb_exists".}
 
 proc git_odb_exists_ext*(
     db: ptr git_odb,
     id: ptr git_oid,
     flags: cuint,
-): cint {.importc: "git_odb_exists_ext", header: "<odb.h>".}
+): cint {.importc: "git_odb_exists_ext".}
 
 proc git_odb_exists_prefix*(
     `out`: ptr git_oid,
     db: ptr git_odb,
     short_id: ptr git_oid,
     len: csize_t,
-): cint {.importc: "git_odb_exists_prefix", header: "<odb.h>".}
+): cint {.importc: "git_odb_exists_prefix".}
 
 proc git_odb_expand_ids*(
     db: ptr git_odb,
     ids: ptr git_odb_expand_id,
     count: csize_t,
-): cint {.importc: "git_odb_expand_ids", header: "<odb.h>".}
+): cint {.importc: "git_odb_expand_ids".}
 
-proc git_odb_refresh*(db: ptr git_odb): cint {.importc: "git_odb_refresh", header: "<odb.h>".}
+proc git_odb_refresh*(db: ptr git_odb): cint {.importc: "git_odb_refresh".}
 
 proc git_odb_foreach*(
     db: ptr git_odb,
     cb: git_odb_foreach_cb,
     payload: pointer,
-): cint {.importc: "git_odb_foreach", header: "<odb.h>".}
+): cint {.importc: "git_odb_foreach".}
 
 proc git_odb_write*(
     `out`: ptr git_oid,
@@ -259,30 +259,30 @@ proc git_odb_write*(
     data: pointer,
     len: csize_t,
     `type`: git_object_t,
-): cint {.importc: "git_odb_write", header: "<odb.h>".}
+): cint {.importc: "git_odb_write".}
 
 proc git_odb_open_wstream*(
     `out`: ptr ptr git_odb_stream,
     db: ptr git_odb,
     size: git_object_size_t,
     `type`: git_object_t,
-): cint {.importc: "git_odb_open_wstream", header: "<odb.h>".}
+): cint {.importc: "git_odb_open_wstream".}
 
 proc git_odb_stream_write*(
     stream: ptr git_odb_stream,
     buffer: cstring,
     len: csize_t,
-): cint {.importc: "git_odb_stream_write", header: "<odb.h>".}
+): cint {.importc: "git_odb_stream_write".}
 
-proc git_odb_stream_finalize_write*(`out`: ptr git_oid, stream: ptr git_odb_stream): cint {.importc: "git_odb_stream_finalize_write", header: "<odb.h>".}
+proc git_odb_stream_finalize_write*(`out`: ptr git_oid, stream: ptr git_odb_stream): cint {.importc: "git_odb_stream_finalize_write".}
 
 proc git_odb_stream_read*(
     stream: ptr git_odb_stream,
     buffer: ptr char,
     len: csize_t,
-): cint {.importc: "git_odb_stream_read", header: "<odb.h>".}
+): cint {.importc: "git_odb_stream_read".}
 
-proc git_odb_stream_free*(stream: ptr git_odb_stream): void {.importc: "git_odb_stream_free", header: "<odb.h>".}
+proc git_odb_stream_free*(stream: ptr git_odb_stream): void {.importc: "git_odb_stream_free".}
 
 proc git_odb_open_rstream*(
     `out`: ptr ptr git_odb_stream,
@@ -290,52 +290,52 @@ proc git_odb_open_rstream*(
     `type`: ptr git_object_t,
     db: ptr git_odb,
     oid: ptr git_oid,
-): cint {.importc: "git_odb_open_rstream", header: "<odb.h>".}
+): cint {.importc: "git_odb_open_rstream".}
 
 proc git_odb_write_pack_fn*(
     `out`: ptr ptr git_odb_writepack,
     db: ptr git_odb,
     progress_cb: git_indexer_progress_cb,
     progress_payload: pointer,
-): cint {.importc: "git_odb_write_pack", header: "<odb.h>".}
+): cint {.importc: "git_odb_write_pack".}
 
-proc git_odb_write_multi_pack_index*(db: ptr git_odb): cint {.importc: "git_odb_write_multi_pack_index", header: "<odb.h>".}
+proc git_odb_write_multi_pack_index*(db: ptr git_odb): cint {.importc: "git_odb_write_multi_pack_index".}
 
 proc git_odb_hash*(
     `out`: ptr git_oid,
     data: pointer,
     len: csize_t,
     `type`: git_object_t,
-): cint {.importc: "git_odb_hash", header: "<odb.h>".}
+): cint {.importc: "git_odb_hash".}
 
 proc git_odb_hashfile*(
     `out`: ptr git_oid,
     path: cstring,
     `type`: git_object_t,
-): cint {.importc: "git_odb_hashfile", header: "<odb.h>".}
+): cint {.importc: "git_odb_hashfile".}
 
-proc git_odb_object_dup*(dest: ptr ptr git_odb_object, source: ptr git_odb_object): cint {.importc: "git_odb_object_dup", header: "<odb.h>".}
+proc git_odb_object_dup*(dest: ptr ptr git_odb_object, source: ptr git_odb_object): cint {.importc: "git_odb_object_dup".}
 
-proc git_odb_object_free*(`object`: ptr git_odb_object): void {.importc: "git_odb_object_free", header: "<odb.h>".}
+proc git_odb_object_free*(`object`: ptr git_odb_object): void {.importc: "git_odb_object_free".}
 
-proc git_odb_object_id*(`object`: ptr git_odb_object): ptr git_oid {.importc: "git_odb_object_id", header: "<odb.h>".}
+proc git_odb_object_id*(`object`: ptr git_odb_object): ptr git_oid {.importc: "git_odb_object_id".}
 
-proc git_odb_object_data*(`object`: ptr git_odb_object): pointer {.importc: "git_odb_object_data", header: "<odb.h>".}
+proc git_odb_object_data*(`object`: ptr git_odb_object): pointer {.importc: "git_odb_object_data".}
 
-proc git_odb_object_size*(`object`: ptr git_odb_object): csize_t {.importc: "git_odb_object_size", header: "<odb.h>".}
+proc git_odb_object_size*(`object`: ptr git_odb_object): csize_t {.importc: "git_odb_object_size".}
 
-proc git_odb_object_type*(`object`: ptr git_odb_object): git_object_t {.importc: "git_odb_object_type", header: "<odb.h>".}
+proc git_odb_object_type*(`object`: ptr git_odb_object): git_object_t {.importc: "git_odb_object_type".}
 
 proc git_odb_add_backend*(
     odb: ptr git_odb,
     backend: ptr git_odb_backend,
     priority: cint,
-): cint {.importc: "git_odb_add_backend", header: "<odb.h>".}
+): cint {.importc: "git_odb_add_backend".}
 
 proc git_odb_add_alternate*(
     odb: ptr git_odb,
     backend: ptr git_odb_backend,
     priority: cint,
-): cint {.importc: "git_odb_add_alternate", header: "<odb.h>".}
+): cint {.importc: "git_odb_add_alternate".}
 
-proc git_odb_num_backends*(odb: ptr git_odb): csize_t {.importc: "git_odb_num_backends", header: "<odb.h>".}
+proc git_odb_num_backends*(odb: ptr git_odb): csize_t {.importc: "git_odb_num_backends".}

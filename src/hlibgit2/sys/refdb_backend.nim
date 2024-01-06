@@ -3,13 +3,13 @@ import "../types.nim"
 import "../oid.nim"
 
 type
-  git_reference_iterator* {.header: "<sys/refdb_backend.h>", importc, bycopy.} = object
+  git_reference_iterator* {.importc, bycopy.} = object
     db        *: ptr git_refdb
     next      *: proc (a0: ptr ptr git_reference, a1: ptr git_reference_iterator): cint
     next_name *: proc (a0: cstringArray, a1: ptr git_reference_iterator): cint
     free      *: proc (a0: ptr git_reference_iterator): void
 
-  git_refdb_backend* {.header: "<sys/refdb_backend.h>", importc, bycopy.} = object
+  git_refdb_backend* {.importc, bycopy.} = object
     version       *: cuint
     exists        *: proc (a0: ptr cint, a1: ptr git_refdb_backend, a2: cstring): cint
     lookup        *: proc (a0: ptr ptr git_reference, a1: ptr git_refdb_backend, a2: cstring): cint
@@ -30,8 +30,8 @@ type
 
 
 
-proc git_refdb_init_backend*(backend: ptr git_refdb_backend, version: cuint): cint {.importc: "git_refdb_init_backend", header: "<sys/refdb_backend.h>".}
+proc git_refdb_init_backend*(backend: ptr git_refdb_backend, version: cuint): cint {.importc: "git_refdb_init_backend".}
 
-proc git_refdb_backend_fs*(backend_out: ptr ptr git_refdb_backend, repo: ptr git_repository): cint {.importc: "git_refdb_backend_fs", header: "<sys/refdb_backend.h>".}
+proc git_refdb_backend_fs*(backend_out: ptr ptr git_refdb_backend, repo: ptr git_repository): cint {.importc: "git_refdb_backend_fs".}
 
-proc git_refdb_set_backend*(refdb: ptr git_refdb, backend: ptr git_refdb_backend): cint {.importc: "git_refdb_set_backend", header: "<sys/refdb_backend.h>".}
+proc git_refdb_set_backend*(refdb: ptr git_refdb, backend: ptr git_refdb_backend): cint {.importc: "git_refdb_set_backend".}
