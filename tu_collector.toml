@@ -1,0 +1,18 @@
+indexing_tool = "{tool_dir}/build/utils_debug/reflection_tool"
+compilation_database = "{config_dir}/libgit2/compile_commands.json"
+toolchain_include = "{tool_dir}/toolchain/llvm/lib/clang/17/include"
+output_directory = "{config_dir}/hlibgit2/src/hlibgit2"
+input = ["{config_dir}/libgit2/include/git2"]
+
+[nim]
+function_renames = [
+  { original = "git_odb_write_pack", renamed = "git_odb_write_pack_fn" }
+]
+
+universal_import = [
+  "libgit2_config.nim"
+]
+
+# cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. 
+# compdb -p build/ list > compile_commands.json
+

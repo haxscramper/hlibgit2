@@ -1,0 +1,636 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_worktree_add_options",
+        "dbgOrigin": " typedef type libgit2/include/git2/worktree.h:96:3 typedef type libgit2/include/git2/worktree.h:96:3 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          }
+        },
+        {
+          "name": "lock",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "doc": "/**< lock newly created worktree */"
+        },
+        {
+          "name": "ref",
+          "type": {
+            "name": "git_reference",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
+          },
+          "doc": "/**< reference to use for the new worktree HEAD */"
+        },
+        {
+          "name": "checkout_options",
+          "type": {
+            "name": "git_checkout_options",
+            "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:345:3"
+          },
+          "doc": "/**\n\t * Options for the checkout.\n\t */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_worktree_add_options",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_worktree_prune_options",
+        "dbgOrigin": " typedef type libgit2/include/git2/worktree.h:210:3 typedef type libgit2/include/git2/worktree.h:210:3 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          }
+        },
+        {
+          "name": "flags",
+          "type": {
+            "name": "uint32_t",
+            "dbgOrigin": " typedef type /include/bits/stdint-uintn.h:26:20"
+          },
+          "doc": "/** A combination of `git_worktree_prune_t` */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_worktree_prune_options",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_WORKTREE_PRUNE_VALID",
+          "value": "1"
+        },
+        {
+          "name": "GIT_WORKTREE_PRUNE_LOCKED",
+          "value": "2"
+        },
+        {
+          "name": "GIT_WORKTREE_PRUNE_WORKING_TREE",
+          "value": "4"
+        }
+      ],
+      "name": {
+        "name": "git_worktree_prune_t",
+        "dbgOrigin": "enum typedef typedef:git_worktree_prune_tname:libgit2/include/git2/worktree.h:189:9"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_worktree_list",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_strarray",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/strarray.h:25:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_lookup",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_open_from_repository",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_free",
+      "resultTy": {
+        "name": "void",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "wt"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_validate",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "wt"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_add_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree_add_options",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:96:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_add",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "path"
+        },
+        {
+          "type": {
+            "name": "git_worktree_add_options",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:96:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_lock",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "wt"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "reason"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_unlock",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "wt"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_is_locked",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "reason"
+        },
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "wt"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_name",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "wt"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_path",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "wt"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_prune_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree_prune_options",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:210:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_is_prunable",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "wt"
+        },
+        {
+          "type": {
+            "name": "git_worktree_prune_options",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:210:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_worktree_prune",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_worktree",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:121:29"
+          },
+          "name": "wt"
+        },
+        {
+          "type": {
+            "name": "git_worktree_prune_options",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/worktree.h:210:3"
+          },
+          "name": "opts"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_TRACE_NONE"
+        },
+        {
+          "name": "GIT_TRACE_FATAL",
+          "value": "1"
+        },
+        {
+          "name": "GIT_TRACE_ERROR",
+          "value": "2"
+        },
+        {
+          "name": "GIT_TRACE_WARN",
+          "value": "3"
+        },
+        {
+          "name": "GIT_TRACE_INFO",
+          "value": "4"
+        },
+        {
+          "name": "GIT_TRACE_DEBUG",
+          "value": "5"
+        },
+        {
+          "name": "GIT_TRACE_TRACE",
+          "value": "6"
+        }
+      ],
+      "name": {
+        "name": "git_trace_level_t",
+        "dbgOrigin": "enum typedef typedef:git_trace_level_tname:libgit2/include/git2/trace.h:26:9"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_trace_set",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_trace_level_t",
+            "dbgOrigin": " typedef type libgit2/include/git2/trace.h:47:3"
+          },
+          "name": "level"
+        },
+        {
+          "type": {
+            "name": "git_trace_cb",
+            "dbgOrigin": " typedef type libgit2/include/git2/trace.h:52:14"
+          },
+          "name": "cb"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_trace_cb",
+        "dbgOrigin": "libgit2/include/git2/trace.h:52:14"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "void",
+            "isBuiltin": true
+          },
+          {
+            "name": "git_trace_level_t",
+            "dbgOrigin": " typedef type libgit2/include/git2/trace.h:47:3"
+          },
+          {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          }
+        ],
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "kind": "FunctionPtr",
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

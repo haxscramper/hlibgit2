@@ -23,6 +23,13 @@ type
 
 
 
+proc git_path_is_gitfile*(
+    path: cstring,
+    pathlen: csize_t,
+    gitfile: git_path_gitfile,
+    fs: git_path_fs,
+): cint {.git2Proc, importc: "git_path_is_gitfile".}
+
 converter toCInt*(arg: c_git_path_gitfile): cint = cint(ord(arg))
 
 converter toCInt*(args: set[git_path_gitfile]): cint =
@@ -56,10 +63,3 @@ func `-`*(offset: int, arg: c_git_path_fs): cint = cast[c_git_path_fs](ord(arg) 
 func `+`*(arg: c_git_path_fs, offset: int): cint = cast[c_git_path_fs](ord(arg) + offset)
 
 func `+`*(offset: int, arg: c_git_path_fs): cint = cast[c_git_path_fs](ord(arg) + offset)
-
-proc git_path_is_gitfile*(
-    path: cstring,
-    pathlen: csize_t,
-    gitfile: git_path_gitfile,
-    fs: git_path_fs,
-): cint {.git2Proc, importc: "git_path_is_gitfile".}

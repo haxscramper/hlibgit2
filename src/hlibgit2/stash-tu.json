@@ -1,58 +1,6 @@
 {
   "Defines": [
     {
-      "name": "git_stash_flags",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_stash_apply_flags",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_stash_apply_progress_t",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_stash_apply_progress_cb",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
       "name": "git_stash_cb",
       "Parameters": [],
       "Spaces": [],
@@ -63,6 +11,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -76,6 +25,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -89,6 +39,63 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_stash_flags",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_stash_apply_flags",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_stash_apply_progress_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_stash_apply_progress_cb",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "meta": {},
       "func": null
     }
   ],

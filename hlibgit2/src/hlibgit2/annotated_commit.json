@@ -1,0 +1,313 @@
+{
+  "functions": [
+    {
+      "name": "git_annotated_commit_from_ref",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_annotated_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:198:37"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_reference",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:189:30"
+          },
+          "name": "ref"
+        }
+      ]
+    },
+    {
+      "name": "git_annotated_commit_from_fetchhead",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_annotated_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:198:37"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "branch_name"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "remote_url"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        }
+      ]
+    },
+    {
+      "name": "git_annotated_commit_lookup",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_annotated_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:198:37"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "id"
+        }
+      ]
+    },
+    {
+      "name": "git_annotated_commit_from_revspec",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_annotated_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:198:37"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "revspec"
+        }
+      ]
+    },
+    {
+      "name": "git_annotated_commit_id",
+      "resultTy": {
+        "name": "git_oid",
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_annotated_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:198:37"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_annotated_commit_ref",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_annotated_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:198:37"
+          },
+          "name": "commit"
+        }
+      ]
+    },
+    {
+      "name": "git_annotated_commit_free",
+      "resultTy": {
+        "name": "void",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_annotated_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:198:37"
+          },
+          "name": "commit"
+        }
+      ]
+    }
+  ]
+}

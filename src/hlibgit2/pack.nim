@@ -19,14 +19,6 @@ type
 
 
 
-proc git_packbuilder_set_callbacks*(
-    pb: ptr git_packbuilder,
-    progress_cb: git_packbuilder_progress,
-    progress_cb_payload: pointer,
-): cint {.git2Proc, importc: "git_packbuilder_set_callbacks".}
-
-proc git_packbuilder_free*(pb: ptr git_packbuilder): void {.git2Proc, importc: "git_packbuilder_free".}
-
 converter toCInt*(arg: c_git_packbuilder_stage_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set[git_packbuilder_stage_t]): cint =
@@ -88,3 +80,11 @@ proc git_packbuilder_foreach*(
 proc git_packbuilder_object_count*(pb: ptr git_packbuilder): csize_t {.git2Proc, importc: "git_packbuilder_object_count".}
 
 proc git_packbuilder_written*(pb: ptr git_packbuilder): csize_t {.git2Proc, importc: "git_packbuilder_written".}
+
+proc git_packbuilder_set_callbacks*(
+    pb: ptr git_packbuilder,
+    progress_cb: git_packbuilder_progress,
+    progress_cb_payload: pointer,
+): cint {.git2Proc, importc: "git_packbuilder_set_callbacks".}
+
+proc git_packbuilder_free*(pb: ptr git_packbuilder): void {.git2Proc, importc: "git_packbuilder_free".}

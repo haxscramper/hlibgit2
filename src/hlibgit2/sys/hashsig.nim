@@ -18,6 +18,23 @@ type
 
 
 
+proc git_hashsig_create*(
+    `out`: ptr ptr git_hashsig,
+    buf: cstring,
+    buflen: csize_t,
+    opts: git_hashsig_option_t,
+): cint {.git2Proc, importc: "git_hashsig_create".}
+
+proc git_hashsig_create_fromfile*(
+    `out`: ptr ptr git_hashsig,
+    path: cstring,
+    opts: git_hashsig_option_t,
+): cint {.git2Proc, importc: "git_hashsig_create_fromfile".}
+
+proc git_hashsig_free*(sig: ptr git_hashsig): void {.git2Proc, importc: "git_hashsig_free".}
+
+proc git_hashsig_compare*(a: ptr git_hashsig, b: ptr git_hashsig): cint {.git2Proc, importc: "git_hashsig_compare".}
+
 converter toCInt*(arg: c_git_hashsig_option_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set[git_hashsig_option_t]): cint =
@@ -35,20 +52,3 @@ func `-`*(offset: int, arg: c_git_hashsig_option_t): cint = cast[c_git_hashsig_o
 func `+`*(arg: c_git_hashsig_option_t, offset: int): cint = cast[c_git_hashsig_option_t](ord(arg) + offset)
 
 func `+`*(offset: int, arg: c_git_hashsig_option_t): cint = cast[c_git_hashsig_option_t](ord(arg) + offset)
-
-proc git_hashsig_create*(
-    `out`: ptr ptr git_hashsig,
-    buf: cstring,
-    buflen: csize_t,
-    opts: git_hashsig_option_t,
-): cint {.git2Proc, importc: "git_hashsig_create".}
-
-proc git_hashsig_create_fromfile*(
-    `out`: ptr ptr git_hashsig,
-    path: cstring,
-    opts: git_hashsig_option_t,
-): cint {.git2Proc, importc: "git_hashsig_create_fromfile".}
-
-proc git_hashsig_free*(sig: ptr git_hashsig): void {.git2Proc, importc: "git_hashsig_free".}
-
-proc git_hashsig_compare*(a: ptr git_hashsig, b: ptr git_hashsig): cint {.git2Proc, importc: "git_hashsig_compare".}

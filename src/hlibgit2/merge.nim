@@ -7,56 +7,6 @@ import "./diff.nim"
 import "./checkout.nim"
 
 type
-  c_git_merge_file_flag_t* {.size: sizeof(cint).} = enum
-    c_GIT_MERGE_FILE_DEFAULT                  = 0
-    c_GIT_MERGE_FILE_STYLE_MERGE              = 1
-    c_GIT_MERGE_FILE_STYLE_DIFF3              = 2
-    c_GIT_MERGE_FILE_SIMPLIFY_ALNUM           = 1 shl 2
-    c_GIT_MERGE_FILE_IGNORE_WHITESPACE        = 1 shl 3
-    c_GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE = 1 shl 4
-    c_GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL    = 1 shl 5
-    c_GIT_MERGE_FILE_DIFF_PATIENCE            = 1 shl 6
-    c_GIT_MERGE_FILE_DIFF_MINIMAL             = 1 shl 7
-    c_GIT_MERGE_FILE_STYLE_ZDIFF3             = 1 shl 8
-    c_GIT_MERGE_FILE_ACCEPT_CONFLICTS         = 1 shl 9
-
-  git_merge_file_flag_t* = enum
-    GIT_MERGE_FILE_DEFAULT
-    GIT_MERGE_FILE_STYLE_MERGE
-    GIT_MERGE_FILE_STYLE_DIFF3
-    GIT_MERGE_FILE_SIMPLIFY_ALNUM
-    GIT_MERGE_FILE_IGNORE_WHITESPACE
-    GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE
-    GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL
-    GIT_MERGE_FILE_DIFF_PATIENCE
-    GIT_MERGE_FILE_DIFF_MINIMAL
-    GIT_MERGE_FILE_STYLE_ZDIFF3
-    GIT_MERGE_FILE_ACCEPT_CONFLICTS
-
-  c_git_merge_analysis_t* {.size: sizeof(cint).} = enum
-    c_GIT_MERGE_ANALYSIS_NONE        = 0
-    c_GIT_MERGE_ANALYSIS_NORMAL      = 1
-    c_GIT_MERGE_ANALYSIS_UP_TO_DATE  = 2
-    c_GIT_MERGE_ANALYSIS_FASTFORWARD = 1 shl 2
-    c_GIT_MERGE_ANALYSIS_UNBORN      = 1 shl 3
-
-  git_merge_analysis_t* = enum
-    GIT_MERGE_ANALYSIS_NONE
-    GIT_MERGE_ANALYSIS_NORMAL
-    GIT_MERGE_ANALYSIS_UP_TO_DATE
-    GIT_MERGE_ANALYSIS_FASTFORWARD
-    GIT_MERGE_ANALYSIS_UNBORN
-
-  c_git_merge_preference_t* {.size: sizeof(cint).} = enum
-    c_GIT_MERGE_PREFERENCE_NONE             = 0
-    c_GIT_MERGE_PREFERENCE_NO_FASTFORWARD   = 1
-    c_GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 2
-
-  git_merge_preference_t* = enum
-    GIT_MERGE_PREFERENCE_NONE
-    GIT_MERGE_PREFERENCE_NO_FASTFORWARD
-    GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY
-
   git_merge_file_input* {.bycopy.} = object
     version *: cuint
     `ptr`   *: cstring
@@ -117,70 +67,57 @@ type
     GIT_MERGE_FILE_FAVOR_THEIRS
     GIT_MERGE_FILE_FAVOR_UNION
 
+  c_git_merge_file_flag_t* {.size: sizeof(cint).} = enum
+    c_GIT_MERGE_FILE_DEFAULT                  = 0
+    c_GIT_MERGE_FILE_STYLE_MERGE              = 1
+    c_GIT_MERGE_FILE_STYLE_DIFF3              = 2
+    c_GIT_MERGE_FILE_SIMPLIFY_ALNUM           = 1 shl 2
+    c_GIT_MERGE_FILE_IGNORE_WHITESPACE        = 1 shl 3
+    c_GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE = 1 shl 4
+    c_GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL    = 1 shl 5
+    c_GIT_MERGE_FILE_DIFF_PATIENCE            = 1 shl 6
+    c_GIT_MERGE_FILE_DIFF_MINIMAL             = 1 shl 7
+    c_GIT_MERGE_FILE_STYLE_ZDIFF3             = 1 shl 8
+    c_GIT_MERGE_FILE_ACCEPT_CONFLICTS         = 1 shl 9
+
+  git_merge_file_flag_t* = enum
+    GIT_MERGE_FILE_DEFAULT
+    GIT_MERGE_FILE_STYLE_MERGE
+    GIT_MERGE_FILE_STYLE_DIFF3
+    GIT_MERGE_FILE_SIMPLIFY_ALNUM
+    GIT_MERGE_FILE_IGNORE_WHITESPACE
+    GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE
+    GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL
+    GIT_MERGE_FILE_DIFF_PATIENCE
+    GIT_MERGE_FILE_DIFF_MINIMAL
+    GIT_MERGE_FILE_STYLE_ZDIFF3
+    GIT_MERGE_FILE_ACCEPT_CONFLICTS
+
+  c_git_merge_analysis_t* {.size: sizeof(cint).} = enum
+    c_GIT_MERGE_ANALYSIS_NONE        = 0
+    c_GIT_MERGE_ANALYSIS_NORMAL      = 1
+    c_GIT_MERGE_ANALYSIS_UP_TO_DATE  = 2
+    c_GIT_MERGE_ANALYSIS_FASTFORWARD = 1 shl 2
+    c_GIT_MERGE_ANALYSIS_UNBORN      = 1 shl 3
+
+  git_merge_analysis_t* = enum
+    GIT_MERGE_ANALYSIS_NONE
+    GIT_MERGE_ANALYSIS_NORMAL
+    GIT_MERGE_ANALYSIS_UP_TO_DATE
+    GIT_MERGE_ANALYSIS_FASTFORWARD
+    GIT_MERGE_ANALYSIS_UNBORN
+
+  c_git_merge_preference_t* {.size: sizeof(cint).} = enum
+    c_GIT_MERGE_PREFERENCE_NONE             = 0
+    c_GIT_MERGE_PREFERENCE_NO_FASTFORWARD   = 1
+    c_GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY = 2
+
+  git_merge_preference_t* = enum
+    GIT_MERGE_PREFERENCE_NONE
+    GIT_MERGE_PREFERENCE_NO_FASTFORWARD
+    GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY
 
 
-converter toCInt*(arg: c_git_merge_file_flag_t): cint = cint(ord(arg))
-
-converter toCInt*(args: set[git_merge_file_flag_t]): cint =
-  for value in items(args):
-    case value:
-      of GIT_MERGE_FILE_DEFAULT                 : result = cint(result or 0)
-      of GIT_MERGE_FILE_STYLE_MERGE             : result = cint(result or 1)
-      of GIT_MERGE_FILE_STYLE_DIFF3             : result = cint(result or 2)
-      of GIT_MERGE_FILE_SIMPLIFY_ALNUM          : result = cint(result or 4)
-      of GIT_MERGE_FILE_IGNORE_WHITESPACE       : result = cint(result or 8)
-      of GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE: result = cint(result or 16)
-      of GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL   : result = cint(result or 32)
-      of GIT_MERGE_FILE_DIFF_PATIENCE           : result = cint(result or 64)
-      of GIT_MERGE_FILE_DIFF_MINIMAL            : result = cint(result or 128)
-      of GIT_MERGE_FILE_STYLE_ZDIFF3            : result = cint(result or 256)
-      of GIT_MERGE_FILE_ACCEPT_CONFLICTS        : result = cint(result or 512)
-
-func `-`*(arg: c_git_merge_file_flag_t, offset: int): cint = cast[c_git_merge_file_flag_t](ord(arg) - offset)
-
-func `-`*(offset: int, arg: c_git_merge_file_flag_t): cint = cast[c_git_merge_file_flag_t](ord(arg) - offset)
-
-func `+`*(arg: c_git_merge_file_flag_t, offset: int): cint = cast[c_git_merge_file_flag_t](ord(arg) + offset)
-
-func `+`*(offset: int, arg: c_git_merge_file_flag_t): cint = cast[c_git_merge_file_flag_t](ord(arg) + offset)
-
-converter toCInt*(arg: c_git_merge_analysis_t): cint = cint(ord(arg))
-
-converter toCInt*(args: set[git_merge_analysis_t]): cint =
-  for value in items(args):
-    case value:
-      of GIT_MERGE_ANALYSIS_NONE       : result = cint(result or 0)
-      of GIT_MERGE_ANALYSIS_NORMAL     : result = cint(result or 1)
-      of GIT_MERGE_ANALYSIS_UP_TO_DATE : result = cint(result or 2)
-      of GIT_MERGE_ANALYSIS_FASTFORWARD: result = cint(result or 4)
-      of GIT_MERGE_ANALYSIS_UNBORN     : result = cint(result or 8)
-
-func `-`*(arg: c_git_merge_analysis_t, offset: int): cint = cast[c_git_merge_analysis_t](ord(arg) - offset)
-
-func `-`*(offset: int, arg: c_git_merge_analysis_t): cint = cast[c_git_merge_analysis_t](ord(arg) - offset)
-
-func `+`*(arg: c_git_merge_analysis_t, offset: int): cint = cast[c_git_merge_analysis_t](ord(arg) + offset)
-
-func `+`*(offset: int, arg: c_git_merge_analysis_t): cint = cast[c_git_merge_analysis_t](ord(arg) + offset)
-
-converter toCInt*(arg: c_git_merge_preference_t): cint = cint(ord(arg))
-
-converter toCInt*(args: set[git_merge_preference_t]): cint =
-  for value in items(args):
-    case value:
-      of GIT_MERGE_PREFERENCE_NONE            : result = cint(result or 0)
-      of GIT_MERGE_PREFERENCE_NO_FASTFORWARD  : result = cint(result or 1)
-      of GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY: result = cint(result or 2)
-
-func `-`*(arg: c_git_merge_preference_t, offset: int): cint = cast[c_git_merge_preference_t](ord(arg) - offset)
-
-func `-`*(offset: int, arg: c_git_merge_preference_t): cint = cast[c_git_merge_preference_t](ord(arg) - offset)
-
-func `+`*(arg: c_git_merge_preference_t, offset: int): cint = cast[c_git_merge_preference_t](ord(arg) + offset)
-
-func `+`*(offset: int, arg: c_git_merge_preference_t): cint = cast[c_git_merge_preference_t](ord(arg) + offset)
-
-proc git_merge_file_input_init*(opts: ptr git_merge_file_input, version: cuint): cint {.git2Proc, importc: "git_merge_file_input_init".}
 
 proc git_merge_file_options_init*(opts: ptr git_merge_file_options, version: cuint): cint {.git2Proc, importc: "git_merge_file_options_init".}
 
@@ -318,3 +255,66 @@ func `-`*(offset: int, arg: c_git_merge_file_favor_t): cint = cast[c_git_merge_f
 func `+`*(arg: c_git_merge_file_favor_t, offset: int): cint = cast[c_git_merge_file_favor_t](ord(arg) + offset)
 
 func `+`*(offset: int, arg: c_git_merge_file_favor_t): cint = cast[c_git_merge_file_favor_t](ord(arg) + offset)
+
+converter toCInt*(arg: c_git_merge_file_flag_t): cint = cint(ord(arg))
+
+converter toCInt*(args: set[git_merge_file_flag_t]): cint =
+  for value in items(args):
+    case value:
+      of GIT_MERGE_FILE_DEFAULT                 : result = cint(result or 0)
+      of GIT_MERGE_FILE_STYLE_MERGE             : result = cint(result or 1)
+      of GIT_MERGE_FILE_STYLE_DIFF3             : result = cint(result or 2)
+      of GIT_MERGE_FILE_SIMPLIFY_ALNUM          : result = cint(result or 4)
+      of GIT_MERGE_FILE_IGNORE_WHITESPACE       : result = cint(result or 8)
+      of GIT_MERGE_FILE_IGNORE_WHITESPACE_CHANGE: result = cint(result or 16)
+      of GIT_MERGE_FILE_IGNORE_WHITESPACE_EOL   : result = cint(result or 32)
+      of GIT_MERGE_FILE_DIFF_PATIENCE           : result = cint(result or 64)
+      of GIT_MERGE_FILE_DIFF_MINIMAL            : result = cint(result or 128)
+      of GIT_MERGE_FILE_STYLE_ZDIFF3            : result = cint(result or 256)
+      of GIT_MERGE_FILE_ACCEPT_CONFLICTS        : result = cint(result or 512)
+
+func `-`*(arg: c_git_merge_file_flag_t, offset: int): cint = cast[c_git_merge_file_flag_t](ord(arg) - offset)
+
+func `-`*(offset: int, arg: c_git_merge_file_flag_t): cint = cast[c_git_merge_file_flag_t](ord(arg) - offset)
+
+func `+`*(arg: c_git_merge_file_flag_t, offset: int): cint = cast[c_git_merge_file_flag_t](ord(arg) + offset)
+
+func `+`*(offset: int, arg: c_git_merge_file_flag_t): cint = cast[c_git_merge_file_flag_t](ord(arg) + offset)
+
+converter toCInt*(arg: c_git_merge_analysis_t): cint = cint(ord(arg))
+
+converter toCInt*(args: set[git_merge_analysis_t]): cint =
+  for value in items(args):
+    case value:
+      of GIT_MERGE_ANALYSIS_NONE       : result = cint(result or 0)
+      of GIT_MERGE_ANALYSIS_NORMAL     : result = cint(result or 1)
+      of GIT_MERGE_ANALYSIS_UP_TO_DATE : result = cint(result or 2)
+      of GIT_MERGE_ANALYSIS_FASTFORWARD: result = cint(result or 4)
+      of GIT_MERGE_ANALYSIS_UNBORN     : result = cint(result or 8)
+
+func `-`*(arg: c_git_merge_analysis_t, offset: int): cint = cast[c_git_merge_analysis_t](ord(arg) - offset)
+
+func `-`*(offset: int, arg: c_git_merge_analysis_t): cint = cast[c_git_merge_analysis_t](ord(arg) - offset)
+
+func `+`*(arg: c_git_merge_analysis_t, offset: int): cint = cast[c_git_merge_analysis_t](ord(arg) + offset)
+
+func `+`*(offset: int, arg: c_git_merge_analysis_t): cint = cast[c_git_merge_analysis_t](ord(arg) + offset)
+
+converter toCInt*(arg: c_git_merge_preference_t): cint = cint(ord(arg))
+
+converter toCInt*(args: set[git_merge_preference_t]): cint =
+  for value in items(args):
+    case value:
+      of GIT_MERGE_PREFERENCE_NONE            : result = cint(result or 0)
+      of GIT_MERGE_PREFERENCE_NO_FASTFORWARD  : result = cint(result or 1)
+      of GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY: result = cint(result or 2)
+
+func `-`*(arg: c_git_merge_preference_t, offset: int): cint = cast[c_git_merge_preference_t](ord(arg) - offset)
+
+func `-`*(offset: int, arg: c_git_merge_preference_t): cint = cast[c_git_merge_preference_t](ord(arg) - offset)
+
+func `+`*(arg: c_git_merge_preference_t, offset: int): cint = cast[c_git_merge_preference_t](ord(arg) + offset)
+
+func `+`*(offset: int, arg: c_git_merge_preference_t): cint = cast[c_git_merge_preference_t](ord(arg) + offset)
+
+proc git_merge_file_input_init*(opts: ptr git_merge_file_input, version: cuint): cint {.git2Proc, importc: "git_merge_file_input_init".}

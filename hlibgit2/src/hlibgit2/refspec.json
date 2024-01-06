@@ -1,0 +1,383 @@
+{
+  "functions": [
+    {
+      "name": "git_refspec_parse",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "refspec"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "input"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "is_fetch"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_free",
+      "resultTy": {
+        "name": "void",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "refspec"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_src",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "refspec"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_dst",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "refspec"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_string",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "refspec"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_force",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "refspec"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_direction",
+      "resultTy": {
+        "name": "git_direction",
+        "dbgOrigin": " typedef type libgit2/include/git2/net.h:34:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "spec"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_src_matches",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "refspec"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "refname"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_dst_matches",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "refspec"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "refname"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_transform",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "spec"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_refspec_rtransform",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_refspec",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:235:28"
+          },
+          "name": "spec"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        }
+      ]
+    }
+  ]
+}

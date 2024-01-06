@@ -12,6 +12,8 @@ type
 
 
 
+proc git_remote_connect_options_dispose*(opts: ptr git_remote_connect_options): void {.git2Proc, importc: "git_remote_connect_options_dispose".}
+
 converter toCInt*(arg: c_git_remote_capability_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set[git_remote_capability_t]): cint =
@@ -27,5 +29,3 @@ func `-`*(offset: int, arg: c_git_remote_capability_t): cint = cast[c_git_remote
 func `+`*(arg: c_git_remote_capability_t, offset: int): cint = cast[c_git_remote_capability_t](ord(arg) + offset)
 
 func `+`*(offset: int, arg: c_git_remote_capability_t): cint = cast[c_git_remote_capability_t](ord(arg) + offset)
-
-proc git_remote_connect_options_dispose*(opts: ptr git_remote_connect_options): void {.git2Proc, importc: "git_remote_connect_options_dispose".}

@@ -1,0 +1,82 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_remote_head",
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:256:32 typedef type libgit2/include/git2/types.h:256:32 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "local",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          }
+        },
+        {
+          "name": "oid",
+          "type": {
+            "name": "git_oid",
+            "dbgOrigin": " typedef type libgit2/include/git2/oid.h:108:3"
+          }
+        },
+        {
+          "name": "loid",
+          "type": {
+            "name": "git_oid",
+            "dbgOrigin": " typedef type libgit2/include/git2/oid.h:108:3"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
+          }
+        },
+        {
+          "name": "symref_target",
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >char",
+            "isBuiltin": true
+          },
+          "doc": "/**\n\t * If the server send a symref mapping for this ref, this will\n\t * point to the target.\n\t */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_remote_head",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_DIRECTION_FETCH"
+        },
+        {
+          "name": "GIT_DIRECTION_PUSH",
+          "value": "1"
+        }
+      ],
+      "name": {
+        "name": "git_direction",
+        "dbgOrigin": "enum typedef typedef:git_directionname:libgit2/include/git2/net.h:31:9"
+      }
+    }
+  ]
+}

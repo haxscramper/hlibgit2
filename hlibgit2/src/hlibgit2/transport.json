@@ -1,0 +1,107 @@
+{
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_transport_message_cb",
+        "dbgOrigin": "libgit2/include/git2/transport.h:34:13"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          {
+            "name": "void",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr",
+            "isBuiltin": true
+          }
+        ],
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "kind": "FunctionPtr",
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
+      }
+    },
+    {
+      "name": {
+        "name": "git_transport_cb",
+        "dbgOrigin": "libgit2/include/git2/transport.h:37:13"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          {
+            "name": "git_transport",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:247:30"
+          },
+          {
+            "name": "git_remote",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:241:27"
+          },
+          {
+            "name": "void",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr",
+            "isBuiltin": true
+          }
+        ],
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "kind": "FunctionPtr",
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

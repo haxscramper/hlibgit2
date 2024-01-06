@@ -15,23 +15,6 @@ type
 
 
 
-proc git_index_reuc_get_byindex*(index: ptr git_index, n: csize_t): ptr git_index_reuc_entry {.git2Proc, importc: "git_index_reuc_get_byindex".}
-
-proc git_index_reuc_add*(
-    index: ptr git_index,
-    path: cstring,
-    ancestor_mode: cint,
-    ancestor_id: ptr git_oid,
-    our_mode: cint,
-    our_id: ptr git_oid,
-    their_mode: cint,
-    their_id: ptr git_oid,
-): cint {.git2Proc, importc: "git_index_reuc_add".}
-
-proc git_index_reuc_remove*(index: ptr git_index, n: csize_t): cint {.git2Proc, importc: "git_index_reuc_remove".}
-
-proc git_index_reuc_clear*(index: ptr git_index): cint {.git2Proc, importc: "git_index_reuc_clear".}
-
 proc git_index_name_entrycount*(index: ptr git_index): csize_t {.git2Proc, importc: "git_index_name_entrycount".}
 
 proc git_index_name_get_byindex*(index: ptr git_index, n: csize_t): ptr git_index_name_entry {.git2Proc, importc: "git_index_name_get_byindex".}
@@ -54,3 +37,20 @@ proc git_index_reuc_find*(
 ): cint {.git2Proc, importc: "git_index_reuc_find".}
 
 proc git_index_reuc_get_bypath*(index: ptr git_index, path: cstring): ptr git_index_reuc_entry {.git2Proc, importc: "git_index_reuc_get_bypath".}
+
+proc git_index_reuc_get_byindex*(index: ptr git_index, n: csize_t): ptr git_index_reuc_entry {.git2Proc, importc: "git_index_reuc_get_byindex".}
+
+proc git_index_reuc_add*(
+    index: ptr git_index,
+    path: cstring,
+    ancestor_mode: cint,
+    ancestor_id: ptr git_oid,
+    our_mode: cint,
+    our_id: ptr git_oid,
+    their_mode: cint,
+    their_id: ptr git_oid,
+): cint {.git2Proc, importc: "git_index_reuc_add".}
+
+proc git_index_reuc_remove*(index: ptr git_index, n: csize_t): cint {.git2Proc, importc: "git_index_reuc_remove".}
+
+proc git_index_reuc_clear*(index: ptr git_index): cint {.git2Proc, importc: "git_index_reuc_clear".}

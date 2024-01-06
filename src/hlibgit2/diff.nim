@@ -5,41 +5,6 @@ import "./buffer.nim"
 import "./types.nim"
 
 type
-  git_diff* {.bycopy, incompleteStruct.} = object
-
-
-  git_diff_file* {.bycopy.} = object
-    id        *: git_oid
-    path      *: cstring
-    size      *: git_object_size_t
-    flags     *: uint32
-    mode      *: uint16
-    id_abbrev *: uint16
-
-  git_diff_delta* {.bycopy.} = object
-    status     *: git_delta_t
-    flags      *: uint32
-    similarity *: uint16
-    nfiles     *: uint16
-    old_file   *: git_diff_file
-    new_file   *: git_diff_file
-
-  git_diff_options* {.bycopy.} = object
-    version           *: cuint
-    flags             *: uint32
-    ignore_submodules *: git_submodule_ignore_t
-    pathspec          *: git_strarray
-    notify_cb         *: git_diff_notify_cb
-    progress_cb       *: git_diff_progress_cb
-    payload           *: pointer
-    context_lines     *: uint32
-    interhunk_lines   *: uint32
-    oid_type          *: git_oid_t
-    id_abbrev         *: uint16
-    max_size          *: git_off_t
-    old_prefix        *: cstring
-    new_prefix        *: cstring
-
   git_diff_binary_file* {.bycopy.} = object
     `type`      *: git_diff_binary_t
     data        *: cstring
@@ -309,6 +274,41 @@ type
   git_diff_hunk_cb* = proc (a0: ptr git_diff_delta, a1: ptr git_diff_hunk, a2: pointer): cint
 
   git_diff_line_cb* = proc (a0: ptr git_diff_delta, a1: ptr git_diff_hunk, a2: ptr git_diff_line, a3: pointer): cint
+
+  git_diff* {.bycopy, incompleteStruct.} = object
+
+
+  git_diff_file* {.bycopy.} = object
+    id        *: git_oid
+    path      *: cstring
+    size      *: git_object_size_t
+    flags     *: uint32
+    mode      *: uint16
+    id_abbrev *: uint16
+
+  git_diff_delta* {.bycopy.} = object
+    status     *: git_delta_t
+    flags      *: uint32
+    similarity *: uint16
+    nfiles     *: uint16
+    old_file   *: git_diff_file
+    new_file   *: git_diff_file
+
+  git_diff_options* {.bycopy.} = object
+    version           *: cuint
+    flags             *: uint32
+    ignore_submodules *: git_submodule_ignore_t
+    pathspec          *: git_strarray
+    notify_cb         *: git_diff_notify_cb
+    progress_cb       *: git_diff_progress_cb
+    payload           *: pointer
+    context_lines     *: uint32
+    interhunk_lines   *: uint32
+    oid_type          *: git_oid_t
+    id_abbrev         *: uint16
+    max_size          *: git_off_t
+    old_prefix        *: cstring
+    new_prefix        *: cstring
 
 
 

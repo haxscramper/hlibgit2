@@ -1,0 +1,957 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_note_iterator",
+        "dbgOrigin": " typedef type libgit2/include/git2/notes.h:35:29 typedef type libgit2/include/git2/notes.h:35:29 > typedef!=nullptr > struct"
+      },
+      "recordDefName": {
+        "name": "git_iterator",
+        "tag": "TypeTagStruct"
+      },
+      "isForwardDecl": true
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_note_iterator_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note_iterator",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/notes.h:35:29"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "notes_ref"
+        }
+      ]
+    },
+    {
+      "name": "git_note_commit_iterator_new",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note_iterator",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/notes.h:35:29"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
+          },
+          "name": "notes_commit"
+        }
+      ]
+    },
+    {
+      "name": "git_note_iterator_free",
+      "resultTy": {
+        "name": "void",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note_iterator",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/notes.h:35:29"
+          },
+          "name": "it"
+        }
+      ]
+    },
+    {
+      "name": "git_note_next",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "note_id"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "annotated_id"
+        },
+        {
+          "type": {
+            "name": "git_note_iterator",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/notes.h:35:29"
+          },
+          "name": "it"
+        }
+      ]
+    },
+    {
+      "name": "git_note_read",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "notes_ref"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "oid"
+        }
+      ]
+    },
+    {
+      "name": "git_note_commit_read",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
+          },
+          "name": "notes_commit"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "oid"
+        }
+      ]
+    },
+    {
+      "name": "git_note_author",
+      "resultTy": {
+        "name": "git_signature",
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
+          },
+          "name": "note"
+        }
+      ]
+    },
+    {
+      "name": "git_note_committer",
+      "resultTy": {
+        "name": "git_signature",
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
+          },
+          "name": "note"
+        }
+      ]
+    },
+    {
+      "name": "git_note_message",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
+          },
+          "name": "note"
+        }
+      ]
+    },
+    {
+      "name": "git_note_id",
+      "resultTy": {
+        "name": "git_oid",
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
+          },
+          "name": "note"
+        }
+      ]
+    },
+    {
+      "name": "git_note_create",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "notes_ref"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+          },
+          "name": "author"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+          },
+          "name": "committer"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "oid"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "note"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "force"
+        }
+      ]
+    },
+    {
+      "name": "git_note_commit_create",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "notes_commit_out"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "notes_blob_out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
+          },
+          "name": "parent"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+          },
+          "name": "author"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+          },
+          "name": "committer"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "oid"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "note"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "allow_note_overwrite"
+        }
+      ]
+    },
+    {
+      "name": "git_note_remove",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "notes_ref"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+          },
+          "name": "author"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+          },
+          "name": "committer"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "oid"
+        }
+      ]
+    },
+    {
+      "name": "git_note_commit_remove",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "notes_commit_out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_commit",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:136:27"
+          },
+          "name": "notes_commit"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+          },
+          "name": "author"
+        },
+        {
+          "type": {
+            "name": "git_signature",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:186:3"
+          },
+          "name": "committer"
+        },
+        {
+          "type": {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          "name": "oid"
+        }
+      ]
+    },
+    {
+      "name": "git_note_free",
+      "resultTy": {
+        "name": "void",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_note",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:169:25"
+          },
+          "name": "note"
+        }
+      ]
+    },
+    {
+      "name": "git_note_default_ref",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        }
+      ]
+    },
+    {
+      "name": "git_note_foreach",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "notes_ref"
+        },
+        {
+          "type": {
+            "name": "git_note_foreach_cb",
+            "dbgOrigin": " typedef type libgit2/include/git2/notes.h:29:13"
+          },
+          "name": "note_cb"
+        },
+        {
+          "type": {
+            "name": "void",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr",
+            "isBuiltin": true
+          },
+          "name": "payload"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_note_foreach_cb",
+        "dbgOrigin": "libgit2/include/git2/notes.h:29:13"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          {
+            "name": "git_oid",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+          },
+          {
+            "name": "void",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr",
+            "isBuiltin": true
+          }
+        ],
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "kind": "FunctionPtr",
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

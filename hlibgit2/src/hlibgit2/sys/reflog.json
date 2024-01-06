@@ -1,0 +1,37 @@
+{
+  "functions": [
+    {
+      "name": "git_reflog_entry__alloc",
+      "resultTy": {
+        "name": "git_reflog_entry",
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:163:33"
+      }
+    },
+    {
+      "name": "git_reflog_entry__free",
+      "resultTy": {
+        "name": "void",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_reflog_entry",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:163:33"
+          },
+          "name": "entry"
+        }
+      ]
+    }
+  ]
+}

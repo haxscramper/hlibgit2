@@ -1,9 +1,5 @@
 import "./libgit2_config.nim" ## From gen file
 import "./types.nim"
-proc git_mailmap_new*(`out`: ptr ptr git_mailmap): cint {.git2Proc, importc: "git_mailmap_new".}
-
-proc git_mailmap_free*(mm: ptr git_mailmap): void {.git2Proc, importc: "git_mailmap_free".}
-
 proc git_mailmap_add_entry*(
     mm: ptr git_mailmap,
     real_name: cstring,
@@ -33,3 +29,7 @@ proc git_mailmap_resolve_signature*(
     mm: ptr git_mailmap,
     sig: ptr git_signature,
 ): cint {.git2Proc, importc: "git_mailmap_resolve_signature".}
+
+proc git_mailmap_new*(`out`: ptr ptr git_mailmap): cint {.git2Proc, importc: "git_mailmap_new".}
+
+proc git_mailmap_free*(mm: ptr git_mailmap): void {.git2Proc, importc: "git_mailmap_free".}

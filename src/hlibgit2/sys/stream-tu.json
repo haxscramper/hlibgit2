@@ -11,6 +11,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -24,6 +25,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -37,6 +39,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -50,6 +53,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     }
   ],

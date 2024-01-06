@@ -1,0 +1,1413 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_submodule_update_options",
+        "dbgOrigin": " typedef type libgit2/include/git2/submodule.h:153:3 typedef type libgit2/include/git2/submodule.h:153:3 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          }
+        },
+        {
+          "name": "checkout_opts",
+          "type": {
+            "name": "git_checkout_options",
+            "dbgOrigin": " typedef type libgit2/include/git2/checkout.h:345:3"
+          },
+          "doc": "/**\n\t * These options are passed to the checkout step. To disable\n\t * checkout, set the `checkout_strategy` to\n\t * `GIT_CHECKOUT_NONE`. Generally you will want the use\n\t * GIT_CHECKOUT_SAFE to update files in the working\n\t * directory.\n\t */"
+        },
+        {
+          "name": "fetch_opts",
+          "type": {
+            "name": "git_fetch_options",
+            "dbgOrigin": " typedef type libgit2/include/git2/remote.h:775:3"
+          },
+          "doc": "/**\n\t * Options which control the fetch, including callbacks.\n\t *\n\t * The callbacks to use for reporting fetch progress, and for acquiring\n\t * credentials in the event they are needed.\n\t */"
+        },
+        {
+          "name": "allow_fetch",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "doc": "/**\n\t * Allow fetching from the submodule's default remote if the target\n\t * commit isn't found. Enabled by default.\n\t */"
+        }
+      ],
+      "recordDefName": {
+        "name": "git_submodule_update_options",
+        "tag": "TypeTagStruct"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_SUBMODULE_STATUS_IN_HEAD",
+          "value": "1"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_IN_INDEX",
+          "value": "2"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_IN_CONFIG",
+          "value": "4"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_IN_WD",
+          "value": "8"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_INDEX_ADDED",
+          "value": "16"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_INDEX_DELETED",
+          "value": "32"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_INDEX_MODIFIED",
+          "value": "64"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_WD_UNINITIALIZED",
+          "value": "128"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_WD_ADDED",
+          "value": "256"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_WD_DELETED",
+          "value": "512"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_WD_MODIFIED",
+          "value": "1024"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED",
+          "value": "2048"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_WD_WD_MODIFIED",
+          "value": "4096"
+        },
+        {
+          "name": "GIT_SUBMODULE_STATUS_WD_UNTRACKED",
+          "value": "8192"
+        }
+      ],
+      "name": {
+        "name": "git_submodule_status_t",
+        "dbgOrigin": "enum typedef typedef:git_submodule_status_tname:libgit2/include/git2/submodule.h:74:9"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_submodule_update_options_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule_update_options",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/submodule.h:153:3"
+          },
+          "name": "opts"
+        },
+        {
+          "type": {
+            "name": "unsigned int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "version"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_update",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "init"
+        },
+        {
+          "type": {
+            "name": "git_submodule_update_options",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/submodule.h:153:3"
+          },
+          "name": "options"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_lookup",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_dup",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "source"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_free",
+      "resultTy": {
+        "name": "void",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_foreach",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_submodule_cb",
+            "dbgOrigin": " typedef type libgit2/include/git2/submodule.h:118:13"
+          },
+          "name": "callback"
+        },
+        {
+          "type": {
+            "name": "void",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr",
+            "isBuiltin": true
+          },
+          "name": "payload"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_add_setup",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "url"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "path"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "use_gitlink"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_clone",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        },
+        {
+          "type": {
+            "name": "git_submodule_update_options",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/submodule.h:153:3"
+          },
+          "name": "opts"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_add_finalize",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_add_to_index",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "write_index"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_owner",
+      "resultTy": {
+        "name": "git_repository",
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_name",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_path",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_url",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_resolve_url",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_buf",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/buffer.h:52:3"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "url"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_branch",
+      "resultTy": {
+        "name": "char",
+        "qualifiers": [
+          {
+            "isPointer": true
+          },
+          {
+            "isConst": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_set_branch",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "branch"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_set_url",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "url"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_index_id",
+      "resultTy": {
+        "name": "git_oid",
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_head_id",
+      "resultTy": {
+        "name": "git_oid",
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_wd_id",
+      "resultTy": {
+        "name": "git_oid",
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/oid.h:108:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_ignore",
+      "resultTy": {
+        "name": "git_submodule_ignore_t",
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:338:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_set_ignore",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "git_submodule_ignore_t",
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:338:3"
+          },
+          "name": "ignore"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_update_strategy",
+      "resultTy": {
+        "name": "git_submodule_update_t",
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:302:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_set_update",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "git_submodule_update_t",
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:302:3"
+          },
+          "name": "update"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_fetch_recurse_submodules",
+      "resultTy": {
+        "name": "git_submodule_recurse_t",
+        "dbgOrigin": " typedef type libgit2/include/git2/types.h:354:3"
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_set_fetch_recurse_submodules",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "git_submodule_recurse_t",
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:354:3"
+          },
+          "name": "fetch_recurse_submodules"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "overwrite"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_repo_init",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "out"
+        },
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "sm"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "use_gitlink"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_sync",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_open",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_reload",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        },
+        {
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "force"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_status",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "unsigned int",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "status"
+        },
+        {
+          "type": {
+            "name": "git_repository",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:118:31"
+          },
+          "name": "repo"
+        },
+        {
+          "type": {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          "name": "name"
+        },
+        {
+          "type": {
+            "name": "git_submodule_ignore_t",
+            "dbgOrigin": " typedef type libgit2/include/git2/types.h:338:3"
+          },
+          "name": "ignore"
+        }
+      ]
+    },
+    {
+      "name": "git_submodule_location",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "unsigned int",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr >builtin/unqual",
+            "isBuiltin": true
+          },
+          "name": "location_status"
+        },
+        {
+          "type": {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          "name": "submodule"
+        }
+      ]
+    }
+  ],
+  "typedefs": [
+    {
+      "name": {
+        "name": "git_submodule_cb",
+        "dbgOrigin": "libgit2/include/git2/submodule.h:118:13"
+      },
+      "baseType": {
+        "parameters": [
+          {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          {
+            "name": "git_submodule",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:267:30"
+          },
+          {
+            "name": "char",
+            "qualifiers": [
+              {
+                "isPointer": true
+              },
+              {
+                "isConst": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+            "isBuiltin": true
+          },
+          {
+            "name": "void",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr",
+            "isBuiltin": true
+          }
+        ],
+        "qualifiers": [
+          {
+            "isPointer": true
+          }
+        ],
+        "kind": "FunctionPtr",
+        "dbgOrigin": " Typedef Decl Visit T-pointer >ref/ptr >func"
+      }
+    }
+  ]
+}

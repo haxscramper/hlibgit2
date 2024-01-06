@@ -1,0 +1,486 @@
+{
+  "records": [
+    {
+      "name": {
+        "name": "git_stream",
+        "dbgOrigin": " typedef type include/git2/sys/stream.h:55:3 typedef type include/git2/sys/stream.h:55:3 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          }
+        },
+        {
+          "name": "encrypted",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          }
+        },
+        {
+          "name": "proxy_support",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          }
+        },
+        {
+          "name": "timeout",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "doc": "/**\n\t * Timeout for read and write operations; can be set to `0` to\n\t * block indefinitely.\n\t */"
+        },
+        {
+          "name": "connect_timeout",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "doc": "/**\n\t * Timeout to connect to the remote server; can be set to `0`\n\t * to use the system defaults. This can be shorter than the\n\t * system default - often 75 seconds - but cannot be longer.\n\t */"
+        },
+        {
+          "name": "connect",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin/unqual",
+                "isBuiltin": true
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:48:6"
+              }
+            ],
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "certificate",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin/unqual",
+                "isBuiltin": true
+              },
+              {
+                "name": "git_cert",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type libgit2/include/git2/types.h:262:25"
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:49:6"
+              }
+            ],
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "set_proxy",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin/unqual",
+                "isBuiltin": true
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:50:6"
+              },
+              {
+                "name": "git_proxy_options",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr typedef type libgit2/include/git2/proxy.h:79:3"
+              }
+            ],
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "read",
+          "type": {
+            "parameters": [
+              {
+                "name": "ssize_t",
+                "dbgOrigin": " typedef type /include/sys/types.h:108:19"
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:51:10"
+              },
+              {
+                "name": "void",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr",
+                "isBuiltin": true
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": " typedef type clang/17/include/stddef.h:46:23"
+              }
+            ],
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "write",
+          "type": {
+            "parameters": [
+              {
+                "name": "ssize_t",
+                "dbgOrigin": " typedef type /include/sys/types.h:108:19"
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:52:10"
+              },
+              {
+                "name": "char",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
+              },
+              {
+                "name": "size_t",
+                "dbgOrigin": " typedef type clang/17/include/stddef.h:46:23"
+              },
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin/unqual",
+                "isBuiltin": true
+              }
+            ],
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "close",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin/unqual",
+                "isBuiltin": true
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:53:6"
+              }
+            ],
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        },
+        {
+          "name": "free",
+          "type": {
+            "parameters": [
+              {
+                "name": "void",
+                "isBuiltin": true
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr >elaboratedrecord type filler include/git2/sys/stream.h:54:7"
+              }
+            ],
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          }
+        }
+      ],
+      "recordDefName": {
+        "name": "git_stream",
+        "tag": "TypeTagStruct"
+      }
+    },
+    {
+      "name": {
+        "name": "git_stream_registration",
+        "dbgOrigin": " typedef type include/git2/sys/stream.h:86:3 > typedef!=nullptr > struct"
+      },
+      "fields": [
+        {
+          "name": "version",
+          "type": {
+            "name": "int",
+            "dbgOrigin": " >builtin/unqual",
+            "isBuiltin": true
+          },
+          "doc": "/** The `version` field should be set to `GIT_STREAM_VERSION`. */"
+        },
+        {
+          "name": "init",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin/unqual",
+                "isBuiltin": true
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type include/git2/sys/stream.h:55:3"
+              },
+              {
+                "name": "char",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
+              },
+              {
+                "name": "char",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
+              }
+            ],
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          },
+          "doc": "/**\n\t * Called to create a new connection to a given host.\n\t *\n\t * @param out The created stream\n\t * @param host The hostname to connect to; may be a hostname or\n\t *             IP address\n\t * @param port The port to connect to; may be a port number or\n\t *             service name\n\t * @return 0 or an error code\n\t */"
+        },
+        {
+          "name": "wrap",
+          "type": {
+            "parameters": [
+              {
+                "name": "int",
+                "dbgOrigin": " >builtin/unqual",
+                "isBuiltin": true
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr T-pointer >ref/ptr typedef type include/git2/sys/stream.h:55:3"
+              },
+              {
+                "name": "git_stream",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/stream.h:55:3"
+              },
+              {
+                "name": "char",
+                "qualifiers": [
+                  {
+                    "isPointer": true
+                  },
+                  {
+                    "isConst": true
+                  }
+                ],
+                "dbgOrigin": " T-pointer >ref/ptr T-const >char",
+                "isBuiltin": true
+              }
+            ],
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "kind": "FunctionPtr",
+            "dbgOrigin": " T-pointer >ref/ptr >func"
+          },
+          "doc": "/**\n\t * Called to create a new connection on top of the given stream.  If\n\t * this is a TLS stream, then this function may be used to proxy a\n\t * TLS stream over an HTTP CONNECT session.  If this is unset, then\n\t * HTTP CONNECT proxies will not be supported.\n\t *\n\t * @param out The created stream\n\t * @param in An existing stream to add TLS to\n\t * @param host The hostname that the stream is connected to,\n\t *             for certificate validation\n\t * @return 0 or an error code\n\t */"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "fields": [
+        {
+          "name": "GIT_STREAM_STANDARD",
+          "value": "1"
+        },
+        {
+          "name": "GIT_STREAM_TLS",
+          "value": "2"
+        }
+      ],
+      "name": {
+        "name": "git_stream_t",
+        "dbgOrigin": "enum typedef typedef:git_stream_tname:include/git2/sys/stream.h:91:9"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "name": "git_stream_register",
+      "resultTy": {
+        "name": "int",
+        "dbgOrigin": " >builtin/unqual",
+        "isBuiltin": true
+      },
+      "arguments": [
+        {
+          "type": {
+            "name": "git_stream_t",
+            "dbgOrigin": " typedef type include/git2/sys/stream.h:97:3"
+          },
+          "name": "type"
+        },
+        {
+          "type": {
+            "name": "git_stream_registration",
+            "qualifiers": [
+              {
+                "isPointer": true
+              }
+            ],
+            "dbgOrigin": " T-pointer >ref/ptr typedef type include/git2/sys/stream.h:86:3"
+          },
+          "name": "registration"
+        }
+      ]
+    }
+  ]
+}

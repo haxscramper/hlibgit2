@@ -182,7 +182,7 @@
               },
               {
                 "name": "size_t",
-                "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
+                "dbgOrigin": " typedef type clang/17/include/stddef.h:46:23"
               }
             ],
             "qualifiers": [
@@ -226,7 +226,7 @@
               },
               {
                 "name": "size_t",
-                "dbgOrigin": " typedef type clang/16/include/stddef.h:46:23"
+                "dbgOrigin": " typedef type clang/17/include/stddef.h:46:23"
               },
               {
                 "name": "int",
@@ -374,7 +374,8 @@
             ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
+          },
+          "doc": "/**\n\t * Called to create a new connection to a given host.\n\t *\n\t * @param out The created stream\n\t * @param host The hostname to connect to; may be a hostname or\n\t *             IP address\n\t * @param port The port to connect to; may be a port number or\n\t *             service name\n\t * @return 0 or an error code\n\t */"
         },
         {
           "name": "wrap",
@@ -427,7 +428,8 @@
             ],
             "kind": "FunctionPtr",
             "dbgOrigin": " T-pointer >ref/ptr >func"
-          }
+          },
+          "doc": "/**\n\t * Called to create a new connection on top of the given stream.  If\n\t * this is a TLS stream, then this function may be used to proxy a\n\t * TLS stream over an HTTP CONNECT session.  If this is unset, then\n\t * HTTP CONNECT proxies will not be supported.\n\t *\n\t * @param out The created stream\n\t * @param in An existing stream to add TLS to\n\t * @param host The hostname that the stream is connected to,\n\t *             for certificate validation\n\t * @return 0 or an error code\n\t */"
         }
       ]
     }

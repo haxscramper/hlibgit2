@@ -1,58 +1,6 @@
 {
   "Defines": [
     {
-      "name": "git_diff",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_diff_file",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_diff_delta",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
-      "name": "git_diff_options",
-      "Parameters": [],
-      "Spaces": [],
-      "isNamespace": false,
-      "isConst": false,
-      "ptrCount": 0,
-      "RefKind": "NotRef",
-      "isBuiltin": false,
-      "expr": null,
-      "Kind": "RegularType",
-      "func": null
-    },
-    {
       "name": "git_diff_binary_file",
       "Parameters": [],
       "Spaces": [],
@@ -63,6 +11,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -76,6 +25,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -89,6 +39,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -102,6 +53,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -115,6 +67,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -128,6 +81,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -141,6 +95,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -154,6 +109,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -167,6 +123,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -180,6 +137,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -193,6 +151,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -206,6 +165,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -219,6 +179,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -232,6 +193,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -245,6 +207,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -258,6 +221,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -271,6 +235,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -284,6 +249,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -297,6 +263,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -310,6 +277,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -323,6 +291,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -336,6 +305,7 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
       "func": null
     },
     {
@@ -349,6 +319,63 @@
       "isBuiltin": false,
       "expr": null,
       "Kind": "RegularType",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_diff",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_diff_file",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_diff_delta",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_diff_options",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularType",
+      "meta": {},
       "func": null
     }
   ],

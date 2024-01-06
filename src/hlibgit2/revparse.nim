@@ -19,6 +19,12 @@ type
 
 
 
+proc git_revparse*(
+    revspec: ptr git_revspec,
+    repo: ptr git_repository,
+    spec: cstring,
+): cint {.git2Proc, importc: "git_revparse".}
+
 converter toCInt*(arg: c_git_revspec_t): cint = cint(ord(arg))
 
 converter toCInt*(args: set[git_revspec_t]): cint =
@@ -48,9 +54,3 @@ proc git_revparse_ext*(
     repo: ptr git_repository,
     spec: cstring,
 ): cint {.git2Proc, importc: "git_revparse_ext".}
-
-proc git_revparse*(
-    revspec: ptr git_revspec,
-    repo: ptr git_repository,
-    spec: cstring,
-): cint {.git2Proc, importc: "git_revparse".}
