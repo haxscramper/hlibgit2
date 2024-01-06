@@ -1,0 +1,47 @@
+{
+  "Defines": [
+    {
+      "name": "git_oid",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_oid_shorten",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_oid_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    }
+  ],
+  "Depends": []
+}

@@ -1,0 +1,19 @@
+{
+  "Defines": [
+    {
+      "name": "git_cherrypick_options",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    }
+  ],
+  "Depends": []
+}

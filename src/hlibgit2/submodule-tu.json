@@ -1,0 +1,47 @@
+{
+  "Defines": [
+    {
+      "name": "git_submodule_update_options",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_submodule_status_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_submodule_cb",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    }
+  ],
+  "Depends": []
+}

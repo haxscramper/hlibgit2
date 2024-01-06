@@ -1,0 +1,75 @@
+{
+  "Defines": [
+    {
+      "name": "git_apply_options",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_apply_flags_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_apply_location_t",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_apply_delta_cb",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    },
+    {
+      "name": "git_apply_hunk_cb",
+      "Parameters": [],
+      "Spaces": [],
+      "isNamespace": false,
+      "isConst": false,
+      "ptrCount": 0,
+      "RefKind": "NotRef",
+      "isBuiltin": false,
+      "expr": null,
+      "Kind": "RegularTyp0e",
+      "meta": {},
+      "func": null
+    }
+  ],
+  "Depends": []
+}
