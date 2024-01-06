@@ -1,8 +1,11 @@
-indexing_tool = "{tool_dir}/build/utils_debug/reflection_tool"
-compilation_database = "{config_dir}/libgit2/compile_commands.json"
-toolchain_include = "{tool_dir}/toolchain/llvm/lib/clang/17/include"
-output_directory = "{config_dir}/hlibgit2/src/hlibgit2"
-input = ["{config_dir}/libgit2/include/git2"]
+indexing_tool = "{haxorg_root}/build/utils_debug/reflection_tool"
+toolchain_include = "{haxorg_root}/toolchain/llvm/lib/clang/17/include"
+output_directory = "{config_dir}/src/hlibgit2"
+input = [ "{config_dir}/libgit2/include" ]
+build_root = "{config_dir}/libgit2/build"
+source_root = "{config_dir}/libgit2"
+header_root = "{config_dir}/libgit2/include/git2"
+cmake_configure_options = ["-DBUILD_TESTS=OFF"]
 
 [nim]
 function_renames = [
@@ -12,7 +15,3 @@ function_renames = [
 universal_import = [
   "libgit2_config.nim"
 ]
-
-# cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. 
-# compdb -p build/ list > compile_commands.json
-
