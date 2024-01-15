@@ -4,13 +4,13 @@ import "../merge.nim"
 import "../buffer.nim"
 
 type
-  git_merge_driver* {.importc, bycopy.} = object
+  git_merge_driver* {.bycopy.} = object
     version    *: cuint
     initialize *: git_merge_driver_init_fn
     shutdown   *: git_merge_driver_shutdown_fn
     apply      *: git_merge_driver_apply_fn
 
-  git_merge_driver_source* {.importc, incompleteStruct.} = object
+  git_merge_driver_source* {.incompleteStruct.} = object
 
 
   git_merge_driver_init_fn* = proc (a0: ptr git_merge_driver): cint

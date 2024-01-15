@@ -1,5 +1,5 @@
 type
-  git_buf* {.importc, bycopy.} = object
+  git_buf* {.bycopy.} = object
     `ptr`    *: ptr char
     reserved *: csize_t
     size     *: csize_t

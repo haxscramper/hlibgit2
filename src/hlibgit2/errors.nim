@@ -145,7 +145,7 @@ type
     GIT_ERROR_INTERNAL   = 35
     GIT_ERROR_GRAFTS     = 36
 
-  git_error* {.importc, bycopy.} = object
+  git_error* {.bycopy.} = object
     message *: ptr char
     klass   *: cint
 

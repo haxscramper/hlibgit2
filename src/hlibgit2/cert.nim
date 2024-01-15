@@ -31,10 +31,10 @@ type
 
   git_transport_certificate_check_cb* = proc (a0: ptr git_cert, a1: cint, a2: cstring, a3: pointer): cint
 
-  git_cert* {.importc, bycopy.} = object
+  git_cert* {.bycopy.} = object
     cert_type *: git_cert_t
 
-  git_cert_hostkey* {.importc, bycopy.} = object
+  git_cert_hostkey* {.bycopy.} = object
     parent      *: git_cert
     `type`      *: git_cert_ssh_t
     hash_md5    *: array[16, char]
@@ -44,7 +44,7 @@ type
     hostkey     *: cstring
     hostkey_len *: csize_t
 
-  git_cert_x509* {.importc, bycopy.} = object
+  git_cert_x509* {.bycopy.} = object
     parent *: git_cert
     data   *: pointer
     len    *: csize_t

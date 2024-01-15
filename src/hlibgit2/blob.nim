@@ -3,7 +3,7 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_blob_filter_options* {.importc, bycopy.} = object
+  git_blob_filter_options* {.bycopy.} = object
     version        *: cint
     flags          *: uint32
     commit_id      *: ptr git_oid

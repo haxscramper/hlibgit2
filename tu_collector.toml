@@ -17,3 +17,4 @@ universal_import = [
 ]
 
 with_header_imports = false
+importx_structs = false

@@ -2,7 +2,7 @@ import "../types.nim"
 import "../buffer.nim"
 
 type
-  git_commit_graph_writer_options* {.importc, bycopy.} = object
+  git_commit_graph_writer_options* {.bycopy.} = object
     version        *: cuint
     split_strategy *: git_commit_graph_split_strategy_t
     size_multiple  *: cfloat

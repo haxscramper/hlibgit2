@@ -1,8 +1,8 @@
 type
-  git_oid* {.importc, bycopy.} = object
+  git_oid* {.bycopy.} = object
     id *: array[20, char]
 
-  git_oid_shorten* {.importc, incompleteStruct.} = object
+  git_oid_shorten* {.incompleteStruct.} = object
 
 
   c_git_oid_t* {.size: sizeof(cint).} = enum

@@ -3,7 +3,7 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_note_iterator* {.importc, incompleteStruct.} = object
+  git_note_iterator* {.incompleteStruct.} = object
 
 
   git_note_foreach_cb* = proc (a0: ptr git_oid, a1: ptr git_oid, a2: pointer): cint

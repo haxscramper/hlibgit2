@@ -11,20 +11,20 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_remote_create_options* {.importc, bycopy.} = object
+  git_remote_create_options* {.bycopy.} = object
     version    *: cuint
     repository *: ptr git_repository
     name       *: cstring
     fetchspec  *: cstring
     flags      *: cuint
 
-  git_push_update* {.importc, bycopy.} = object
+  git_push_update* {.bycopy.} = object
     src_refname *: ptr char
     dst_refname *: ptr char
     src         *: git_oid
     dst         *: git_oid
 
-  git_fetch_options* {.importc, bycopy.} = object
+  git_fetch_options* {.bycopy.} = object
     version          *: cint
     callbacks        *: git_remote_callbacks
     prune            *: git_fetch_prune_t
@@ -35,7 +35,7 @@ type
     follow_redirects *: git_remote_redirect_t
     custom_headers   *: git_strarray
 
-  git_push_options* {.importc, bycopy.} = object
+  git_push_options* {.bycopy.} = object
     version          *: cuint
     pb_parallelism   *: cuint
     callbacks        *: git_remote_callbacks
@@ -43,7 +43,7 @@ type
     follow_redirects *: git_remote_redirect_t
     custom_headers   *: git_strarray
 
-  git_remote_connect_options* {.importc, bycopy.} = object
+  git_remote_connect_options* {.bycopy.} = object
     version          *: cuint
     callbacks        *: git_remote_callbacks
     proxy_opts       *: git_proxy_options
@@ -130,25 +130,25 @@ type
 
   git_transport_cb* = proc (a0: ptr ptr git_transport, a1: ptr git_remote, a2: pointer): cint
 
-  git_fetch_negotiation* {.importc, bycopy.} = object
+  git_fetch_negotiation* {.bycopy.} = object
     refs              *: ptr ptr git_remote_head
     refs_len          *: csize_t
     shallow_roots     *: ptr git_oid
     shallow_roots_len *: csize_t
     depth             *: cint
 
-  git_smart_subtransport* {.importc, bycopy.} = object
+  git_smart_subtransport* {.bycopy.} = object
     action *: proc (a0: ptr ptr git_smart_subtransport_stream, a1: ptr git_smart_subtransport, a2: cstring, a3: git_smart_service_t): cint
     close  *: proc (a0: ptr git_smart_subtransport): cint
     free   *: proc (a0: ptr git_smart_subtransport): void
 
-  git_smart_subtransport_stream* {.importc, bycopy.} = object
+  git_smart_subtransport_stream* {.bycopy.} = object
     subtransport *: ptr git_smart_subtransport
     read         *: proc (a0: ptr git_smart_subtransport_stream, a1: ptr char, a2: csize_t, a3: ptr csize_t): cint
     write        *: proc (a0: ptr git_smart_subtransport_stream, a1: cstring, a2: csize_t): cint
     free         *: proc (a0: ptr git_smart_subtransport_stream): void
 
-  git_smart_subtransport_definition* {.importc, bycopy.} = object
+  git_smart_subtransport_definition* {.bycopy.} = object
     callback *: git_smart_subtransport_cb
     rpc      *: cuint
     param    *: pointer
@@ -167,7 +167,7 @@ type
 
   git_smart_subtransport_cb* = proc (a0: ptr ptr git_smart_subtransport, a1: ptr git_transport, a2: pointer): cint
 
-  git_transport* {.importc, bycopy.} = object
+  git_transport* {.bycopy.} = object
     version          *: cuint
     connect          *: proc (a0: ptr git_transport, a1: cstring, a2: cint, a3: ptr git_remote_connect_options): cint
     set_connect_opts *: proc (a0: ptr git_transport, a1: ptr git_remote_connect_options): cint
@@ -182,7 +182,7 @@ type
     close            *: proc (a0: ptr git_transport): cint
     free             *: proc (a0: ptr git_transport): void
 
-  git_remote_callbacks* {.importc, bycopy.} = object
+  git_remote_callbacks* {.bycopy.} = object
     version                *: cuint
     sideband_progress      *: git_transport_message_cb
     completion             *: proc (a0: git_remote_completion_t, a1: pointer): cint

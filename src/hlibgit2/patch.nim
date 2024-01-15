@@ -3,7 +3,7 @@ import "./diff.nim"
 import "./buffer.nim"
 
 type
-  git_patch* {.importc, incompleteStruct.} = object
+  git_patch* {.incompleteStruct.} = object
 
 
 

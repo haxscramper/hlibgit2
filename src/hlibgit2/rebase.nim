@@ -6,7 +6,7 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_rebase_options* {.importc, bycopy.} = object
+  git_rebase_options* {.bycopy.} = object
     version           *: cuint
     quiet             *: cint
     inmemory          *: cint
@@ -17,7 +17,7 @@ type
     signing_cb        *: proc (a0: ptr git_buf, a1: ptr git_buf, a2: cstring, a3: pointer): cint
     payload           *: pointer
 
-  git_rebase_operation* {.importc, bycopy.} = object
+  git_rebase_operation* {.bycopy.} = object
     `type` *: git_rebase_operation_t
     id     *: git_oid
     exec   *: cstring

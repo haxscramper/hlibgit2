@@ -1,7 +1,7 @@
 import "./types.nim"
 
 type
-  git_revspec* {.importc, bycopy.} = object
+  git_revspec* {.bycopy.} = object
     `from` *: ptr git_object
     to     *: ptr git_object
     flags  *: cuint

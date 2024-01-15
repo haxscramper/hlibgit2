@@ -1,5 +1,5 @@
 type
-  git_strarray* {.importc, bycopy.} = object
+  git_strarray* {.bycopy.} = object
     strings *: cstringArray
     count   *: csize_t
 

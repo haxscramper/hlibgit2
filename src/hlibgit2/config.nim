@@ -2,12 +2,12 @@ import "./types.nim"
 import "./buffer.nim"
 
 type
-  git_config_backend_memory_options* {.importc, bycopy.} = object
+  git_config_backend_memory_options* {.bycopy.} = object
     version      *: cuint
     backend_type *: cstring
     origin_path  *: cstring
 
-  git_config_backend* {.importc, bycopy.} = object
+  git_config_backend* {.bycopy.} = object
     version      *: cuint
     readonly     *: cint
     cfg          *: ptr git_config
@@ -23,7 +23,7 @@ type
     unlock       *: proc (a0: ptr git_config_backend, a1: cint): cint
     free         *: proc (a0: ptr git_config_backend): void
 
-  git_config_entry* {.importc, bycopy.} = object
+  git_config_entry* {.bycopy.} = object
     name          *: cstring
     value         *: cstring
     backend_type  *: cstring
@@ -32,13 +32,13 @@ type
     level         *: git_config_level_t
     free          *: proc (a0: ptr git_config_entry): void
 
-  git_config_iterator* {.importc, bycopy.} = object
+  git_config_iterator* {.bycopy.} = object
     backend *: ptr git_config_backend
     flags   *: cuint
     next    *: proc (a0: ptr ptr git_config_entry, a1: ptr git_config_iterator): cint
     free    *: proc (a0: ptr git_config_iterator): void
 
-  git_configmap* {.importc, bycopy.} = object
+  git_configmap* {.bycopy.} = object
     `type`    *: git_configmap_t
     str_match *: cstring
     map_value *: cint

@@ -1,11 +1,11 @@
 import "./buffer.nim"
 
 type
-  git_message_trailer* {.importc, bycopy.} = object
+  git_message_trailer* {.bycopy.} = object
     key   *: cstring
     value *: cstring
 
-  git_message_trailer_array* {.importc, bycopy.} = object
+  git_message_trailer_array* {.bycopy.} = object
     trailers      *: ptr git_message_trailer
     count         *: csize_t
     trailer_block *: ptr char

@@ -2,7 +2,7 @@ import "./types.nim"
 import "./buffer.nim"
 
 type
-  git_branch_iterator* {.importc, incompleteStruct.} = object
+  git_branch_iterator* {.incompleteStruct.} = object
 
 
 

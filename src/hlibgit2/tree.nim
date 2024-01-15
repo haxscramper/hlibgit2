@@ -2,7 +2,7 @@ import "./types.nim"
 import "./oid.nim"
 
 type
-  git_tree_update* {.importc, bycopy.} = object
+  git_tree_update* {.bycopy.} = object
     action   *: git_tree_update_t
     id       *: git_oid
     filemode *: git_filemode_t

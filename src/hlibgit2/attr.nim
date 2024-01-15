@@ -2,7 +2,7 @@ import "./types.nim"
 import "./oid.nim"
 
 type
-  git_attr_options* {.importc, bycopy.} = object
+  git_attr_options* {.bycopy.} = object
     version        *: cuint
     flags          *: cuint
     commit_id      *: ptr git_oid

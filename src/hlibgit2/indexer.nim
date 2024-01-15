@@ -2,10 +2,10 @@ import "./types.nim"
 import "./oid.nim"
 
 type
-  git_indexer* {.importc, incompleteStruct.} = object
+  git_indexer* {.incompleteStruct.} = object
 
 
-  git_indexer_progress* {.importc, bycopy.} = object
+  git_indexer_progress* {.bycopy.} = object
     total_objects    *: cuint
     indexed_objects  *: cuint
     received_objects *: cuint
@@ -14,7 +14,7 @@ type
     indexed_deltas   *: cuint
     received_bytes   *: csize_t
 
-  git_indexer_options* {.importc, bycopy.} = object
+  git_indexer_options* {.bycopy.} = object
     version             *: cuint
     progress_cb         *: git_indexer_progress_cb
     progress_cb_payload *: pointer

@@ -3,13 +3,13 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_filter_options* {.importc, bycopy.} = object
+  git_filter_options* {.bycopy.} = object
     version        *: cuint
     flags          *: uint32
     commit_id      *: ptr git_oid
     attr_commit_id *: git_oid
 
-  git_filter_list* {.importc, incompleteStruct.} = object
+  git_filter_list* {.incompleteStruct.} = object
 
 
   c_git_filter_mode_t* {.size: sizeof(cint).} = enum

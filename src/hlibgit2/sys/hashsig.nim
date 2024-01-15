@@ -1,5 +1,5 @@
 type
-  git_hashsig* {.importc, incompleteStruct.} = object
+  git_hashsig* {.incompleteStruct.} = object
 
 
   c_git_hashsig_option_t* {.size: sizeof(cint).} = enum

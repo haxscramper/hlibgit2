@@ -3,12 +3,12 @@ import "./strarray.nim"
 import "./diff.nim"
 
 type
-  git_checkout_perfdata* {.importc, bycopy.} = object
+  git_checkout_perfdata* {.bycopy.} = object
     mkdir_calls *: csize_t
     stat_calls  *: csize_t
     chmod_calls *: csize_t
 
-  git_checkout_options* {.importc, bycopy.} = object
+  git_checkout_options* {.bycopy.} = object
     version           *: cuint
     checkout_strategy *: cuint
     disable_filters   *: cint

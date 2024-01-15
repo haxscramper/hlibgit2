@@ -3,7 +3,7 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_repository_init_options* {.importc, bycopy.} = object
+  git_repository_init_options* {.bycopy.} = object
     version       *: cuint
     flags         *: uint32
     mode          *: uint32

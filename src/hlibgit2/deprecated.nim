@@ -48,7 +48,7 @@ type
 
   git_headlist_cb* = proc (a0: ptr git_remote_head, a1: pointer): cint
 
-  git_diff_format_email_options* {.importc, bycopy.} = object
+  git_diff_format_email_options* {.bycopy.} = object
     version       *: cuint
     flags         *: uint32
     patch_no      *: csize_t

@@ -4,14 +4,14 @@ import "./oid.nim"
 import "./buffer.nim"
 
 type
-  git_diff_parse_options* {.importc, bycopy.} = object
+  git_diff_parse_options* {.bycopy.} = object
     version  *: cuint
     oid_type *: git_oid_t
 
-  git_diff_stats* {.importc, incompleteStruct.} = object
+  git_diff_stats* {.incompleteStruct.} = object
 
 
-  git_diff_patchid_options* {.importc, bycopy.} = object
+  git_diff_patchid_options* {.bycopy.} = object
     version *: cuint
 
   c_git_diff_option_t* {.size: sizeof(cint).} = enum
@@ -228,10 +228,10 @@ type
 
   git_diff_line_cb* = proc (a0: ptr git_diff_delta, a1: ptr git_diff_hunk, a2: ptr git_diff_line, a3: pointer): cint
 
-  git_diff* {.importc, incompleteStruct.} = object
+  git_diff* {.incompleteStruct.} = object
 
 
-  git_diff_file* {.importc, bycopy.} = object
+  git_diff_file* {.bycopy.} = object
     id        *: git_oid
     path      *: cstring
     size      *: git_object_size_t
@@ -239,7 +239,7 @@ type
     mode      *: uint16
     id_abbrev *: uint16
 
-  git_diff_delta* {.importc, bycopy.} = object
+  git_diff_delta* {.bycopy.} = object
     status     *: git_delta_t
     flags      *: uint32
     similarity *: uint16
@@ -247,7 +247,7 @@ type
     old_file   *: git_diff_file
     new_file   *: git_diff_file
 
-  git_diff_options* {.importc, bycopy.} = object
+  git_diff_options* {.bycopy.} = object
     version           *: cuint
     flags             *: uint32
     ignore_submodules *: git_submodule_ignore_t
@@ -263,18 +263,18 @@ type
     old_prefix        *: cstring
     new_prefix        *: cstring
 
-  git_diff_binary_file* {.importc, bycopy.} = object
+  git_diff_binary_file* {.bycopy.} = object
     `type`      *: git_diff_binary_t
     data        *: cstring
     datalen     *: csize_t
     inflatedlen *: csize_t
 
-  git_diff_binary* {.importc, bycopy.} = object
+  git_diff_binary* {.bycopy.} = object
     contains_data *: cuint
     old_file      *: git_diff_binary_file
     new_file      *: git_diff_binary_file
 
-  git_diff_hunk* {.importc, bycopy.} = object
+  git_diff_hunk* {.bycopy.} = object
     old_start  *: cint
     old_lines  *: cint
     new_start  *: cint
@@ -282,7 +282,7 @@ type
     header_len *: csize_t
     header     *: array[128, char]
 
-  git_diff_line* {.importc, bycopy.} = object
+  git_diff_line* {.bycopy.} = object
     origin         *: char
     old_lineno     *: cint
     new_lineno     *: cint
@@ -291,14 +291,14 @@ type
     content_offset *: git_off_t
     content        *: cstring
 
-  git_diff_similarity_metric* {.importc, bycopy.} = object
+  git_diff_similarity_metric* {.bycopy.} = object
     file_signature   *: proc (a0: ptr pointer, a1: ptr git_diff_file, a2: cstring, a3: pointer): cint
     buffer_signature *: proc (a0: ptr pointer, a1: ptr git_diff_file, a2: cstring, a3: csize_t, a4: pointer): cint
     free_signature   *: proc (a0: pointer, a1: pointer): void
     similarity       *: proc (a0: ptr cint, a1: pointer, a2: pointer, a3: pointer): cint
     payload          *: pointer
 
-  git_diff_find_options* {.importc, bycopy.} = object
+  git_diff_find_options* {.bycopy.} = object
     version                       *: cuint
     flags                         *: uint32
     rename_threshold              *: uint16

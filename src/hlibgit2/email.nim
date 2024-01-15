@@ -1,5 +1,5 @@
 type
-  git_email_create_options* {.importc, bycopy.} = object
+  git_email_create_options* {.bycopy.} = object
     version        *: cuint
     flags          *: uint32
     diff_opts      *: cint

@@ -4,7 +4,7 @@ import "../oid.nim"
 import "../buffer.nim"
 
 type
-  git_filter_source* {.importc, incompleteStruct.} = object
+  git_filter_source* {.incompleteStruct.} = object
 
 
   git_filter_init_fn* = proc (a0: ptr git_filter): cint
@@ -19,7 +19,7 @@ type
 
   git_filter_cleanup_fn* = proc (a0: ptr git_filter, a1: pointer): void
 
-  git_filter* {.importc, bycopy.} = object
+  git_filter* {.bycopy.} = object
     version    *: cuint
     attributes *: cstring
     initialize *: git_filter_init_fn

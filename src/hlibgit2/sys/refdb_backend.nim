@@ -2,13 +2,13 @@ import "../types.nim"
 import "../oid.nim"
 
 type
-  git_reference_iterator* {.importc, bycopy.} = object
+  git_reference_iterator* {.bycopy.} = object
     db        *: ptr git_refdb
     next      *: proc (a0: ptr ptr git_reference, a1: ptr git_reference_iterator): cint
     next_name *: proc (a0: cstringArray, a1: ptr git_reference_iterator): cint
     free      *: proc (a0: ptr git_reference_iterator): void
 
-  git_refdb_backend* {.importc, bycopy.} = object
+  git_refdb_backend* {.bycopy.} = object
     version       *: cuint
     exists        *: proc (a0: ptr cint, a1: ptr git_refdb_backend, a2: cstring): cint
     lookup        *: proc (a0: ptr ptr git_reference, a1: ptr git_refdb_backend, a2: cstring): cint

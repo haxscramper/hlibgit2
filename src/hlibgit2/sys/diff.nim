@@ -2,7 +2,7 @@ import "../types.nim"
 import "../diff.nim"
 
 type
-  git_diff_perfdata* {.importc, bycopy.} = object
+  git_diff_perfdata* {.bycopy.} = object
     version          *: cuint
     stat_calls       *: csize_t
     oid_calculations *: csize_t

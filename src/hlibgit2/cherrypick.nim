@@ -3,7 +3,7 @@ import "./merge.nim"
 import "./checkout.nim"
 
 type
-  git_cherrypick_options* {.importc, bycopy.} = object
+  git_cherrypick_options* {.bycopy.} = object
     version       *: cuint
     mainline      *: cuint
     merge_opts    *: git_merge_options

@@ -4,7 +4,7 @@ import "./checkout.nim"
 import "./oid.nim"
 
 type
-  git_stash_apply_options* {.importc, bycopy.} = object
+  git_stash_apply_options* {.bycopy.} = object
     version          *: cuint
     flags            *: uint32
     checkout_options *: git_checkout_options
@@ -57,7 +57,7 @@ type
 
   git_stash_cb* = proc (a0: csize_t, a1: cstring, a2: ptr git_oid, a3: pointer): cint
 
-  git_stash_save_options* {.importc, bycopy.} = object
+  git_stash_save_options* {.bycopy.} = object
     version *: cuint
     flags   *: uint32
     stasher *: ptr git_signature

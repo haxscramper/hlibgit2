@@ -3,7 +3,7 @@ import "./remote.nim"
 import "./checkout.nim"
 
 type
-  git_clone_options* {.importc, bycopy.} = object
+  git_clone_options* {.bycopy.} = object
     version               *: cuint
     checkout_opts         *: git_checkout_options
     fetch_opts            *: git_fetch_options
