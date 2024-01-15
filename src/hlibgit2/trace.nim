@@ -58,10 +58,10 @@ converter toCInt*(args: set[git_trace_level_t]): cint =
       of GIT_TRACE_DEBUG: result = cint(result or 5)
       of GIT_TRACE_TRACE: result = cint(result or 6)
 
-func `-`*(arg: c_git_trace_level_t, offset: int): cint = cast[c_git_trace_level_t](ord(arg) - offset)
+func `-`*(arg: c_git_trace_level_t, offset: int): c_git_trace_level_t = cast[c_git_trace_level_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_trace_level_t): cint = cast[c_git_trace_level_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_trace_level_t): c_git_trace_level_t = cast[c_git_trace_level_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_trace_level_t, offset: int): cint = cast[c_git_trace_level_t](ord(arg) + offset)
+func `+`*(arg: c_git_trace_level_t, offset: int): c_git_trace_level_t = cast[c_git_trace_level_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_trace_level_t): cint = cast[c_git_trace_level_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_trace_level_t): c_git_trace_level_t = cast[c_git_trace_level_t](ord(arg) + offset)

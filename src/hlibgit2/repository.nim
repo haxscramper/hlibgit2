@@ -288,13 +288,13 @@ converter toCInt*(args: set[git_repository_open_flag_t]): cint =
       of GIT_REPOSITORY_OPEN_NO_DOTGIT: result = cint(result or 8)
       of GIT_REPOSITORY_OPEN_FROM_ENV : result = cint(result or 16)
 
-func `-`*(arg: c_git_repository_open_flag_t, offset: int): cint = cast[c_git_repository_open_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_repository_open_flag_t, offset: int): c_git_repository_open_flag_t = cast[c_git_repository_open_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_repository_open_flag_t): cint = cast[c_git_repository_open_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_repository_open_flag_t): c_git_repository_open_flag_t = cast[c_git_repository_open_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_repository_open_flag_t, offset: int): cint = cast[c_git_repository_open_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_repository_open_flag_t, offset: int): c_git_repository_open_flag_t = cast[c_git_repository_open_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_repository_open_flag_t): cint = cast[c_git_repository_open_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_repository_open_flag_t): c_git_repository_open_flag_t = cast[c_git_repository_open_flag_t](ord(arg) + offset)
 
 converter to_git_repository_init_flag_t*(arg: c_git_repository_init_flag_t): git_repository_init_flag_t =
   case arg:
@@ -331,13 +331,13 @@ converter toCInt*(args: set[git_repository_init_flag_t]): cint =
       of GIT_REPOSITORY_INIT_EXTERNAL_TEMPLATE: result = cint(result or 32)
       of GIT_REPOSITORY_INIT_RELATIVE_GITLINK : result = cint(result or 64)
 
-func `-`*(arg: c_git_repository_init_flag_t, offset: int): cint = cast[c_git_repository_init_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_repository_init_flag_t, offset: int): c_git_repository_init_flag_t = cast[c_git_repository_init_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_repository_init_flag_t): cint = cast[c_git_repository_init_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_repository_init_flag_t): c_git_repository_init_flag_t = cast[c_git_repository_init_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_repository_init_flag_t, offset: int): cint = cast[c_git_repository_init_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_repository_init_flag_t, offset: int): c_git_repository_init_flag_t = cast[c_git_repository_init_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_repository_init_flag_t): cint = cast[c_git_repository_init_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_repository_init_flag_t): c_git_repository_init_flag_t = cast[c_git_repository_init_flag_t](ord(arg) + offset)
 
 converter to_git_repository_init_mode_t*(arg: c_git_repository_init_mode_t): git_repository_init_mode_t =
   case arg:
@@ -362,13 +362,13 @@ converter toCInt*(args: set[git_repository_init_mode_t]): cint =
       of GIT_REPOSITORY_INIT_SHARED_GROUP: result = cint(result or 1533)
       of GIT_REPOSITORY_INIT_SHARED_ALL  : result = cint(result or 1535)
 
-func `-`*(arg: c_git_repository_init_mode_t, offset: int): cint = cast[c_git_repository_init_mode_t](ord(arg) - offset)
+func `-`*(arg: c_git_repository_init_mode_t, offset: int): c_git_repository_init_mode_t = cast[c_git_repository_init_mode_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_repository_init_mode_t): cint = cast[c_git_repository_init_mode_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_repository_init_mode_t): c_git_repository_init_mode_t = cast[c_git_repository_init_mode_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_repository_init_mode_t, offset: int): cint = cast[c_git_repository_init_mode_t](ord(arg) + offset)
+func `+`*(arg: c_git_repository_init_mode_t, offset: int): c_git_repository_init_mode_t = cast[c_git_repository_init_mode_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_repository_init_mode_t): cint = cast[c_git_repository_init_mode_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_repository_init_mode_t): c_git_repository_init_mode_t = cast[c_git_repository_init_mode_t](ord(arg) + offset)
 
 converter to_git_repository_item_t*(arg: c_git_repository_item_t): git_repository_item_t =
   case arg:
@@ -429,13 +429,13 @@ converter toCInt*(args: set[git_repository_item_t]): cint =
       of GIT_REPOSITORY_ITEM_WORKTREES  : result = cint(result or 13)
       of GIT_REPOSITORY_ITEM_LAST       : result = cint(result or 14)
 
-func `-`*(arg: c_git_repository_item_t, offset: int): cint = cast[c_git_repository_item_t](ord(arg) - offset)
+func `-`*(arg: c_git_repository_item_t, offset: int): c_git_repository_item_t = cast[c_git_repository_item_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_repository_item_t): cint = cast[c_git_repository_item_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_repository_item_t): c_git_repository_item_t = cast[c_git_repository_item_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_repository_item_t, offset: int): cint = cast[c_git_repository_item_t](ord(arg) + offset)
+func `+`*(arg: c_git_repository_item_t, offset: int): c_git_repository_item_t = cast[c_git_repository_item_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_repository_item_t): cint = cast[c_git_repository_item_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_repository_item_t): c_git_repository_item_t = cast[c_git_repository_item_t](ord(arg) + offset)
 
 converter to_git_repository_state_t*(arg: c_git_repository_state_t): git_repository_state_t =
   case arg:
@@ -487,13 +487,13 @@ converter toCInt*(args: set[git_repository_state_t]): cint =
       of GIT_REPOSITORY_STATE_APPLY_MAILBOX          : result = cint(result or 10)
       of GIT_REPOSITORY_STATE_APPLY_MAILBOX_OR_REBASE: result = cint(result or 11)
 
-func `-`*(arg: c_git_repository_state_t, offset: int): cint = cast[c_git_repository_state_t](ord(arg) - offset)
+func `-`*(arg: c_git_repository_state_t, offset: int): c_git_repository_state_t = cast[c_git_repository_state_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_repository_state_t): cint = cast[c_git_repository_state_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_repository_state_t): c_git_repository_state_t = cast[c_git_repository_state_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_repository_state_t, offset: int): cint = cast[c_git_repository_state_t](ord(arg) + offset)
+func `+`*(arg: c_git_repository_state_t, offset: int): c_git_repository_state_t = cast[c_git_repository_state_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_repository_state_t): cint = cast[c_git_repository_state_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_repository_state_t): c_git_repository_state_t = cast[c_git_repository_state_t](ord(arg) + offset)
 
 proc git_repository_open*(`out`: ptr ptr git_repository, path: cstring): cint {.importc: "git_repository_open".}
 

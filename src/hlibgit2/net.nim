@@ -38,10 +38,10 @@ converter toCInt*(args: set[git_direction]): cint =
       of GIT_DIRECTION_FETCH: result = cint(result or 0)
       of GIT_DIRECTION_PUSH : result = cint(result or 1)
 
-func `-`*(arg: c_git_direction, offset: int): cint = cast[c_git_direction](ord(arg) - offset)
+func `-`*(arg: c_git_direction, offset: int): c_git_direction = cast[c_git_direction](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_direction): cint = cast[c_git_direction](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_direction): c_git_direction = cast[c_git_direction](ord(arg) - offset)
 
-func `+`*(arg: c_git_direction, offset: int): cint = cast[c_git_direction](ord(arg) + offset)
+func `+`*(arg: c_git_direction, offset: int): c_git_direction = cast[c_git_direction](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_direction): cint = cast[c_git_direction](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_direction): c_git_direction = cast[c_git_direction](ord(arg) + offset)

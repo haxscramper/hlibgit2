@@ -54,13 +54,13 @@ converter toCInt*(args: set[git_describe_strategy_t]): cint =
       of GIT_DESCRIBE_TAGS   : result = cint(result or 1)
       of GIT_DESCRIBE_ALL    : result = cint(result or 2)
 
-func `-`*(arg: c_git_describe_strategy_t, offset: int): cint = cast[c_git_describe_strategy_t](ord(arg) - offset)
+func `-`*(arg: c_git_describe_strategy_t, offset: int): c_git_describe_strategy_t = cast[c_git_describe_strategy_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_describe_strategy_t): cint = cast[c_git_describe_strategy_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_describe_strategy_t): c_git_describe_strategy_t = cast[c_git_describe_strategy_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_describe_strategy_t, offset: int): cint = cast[c_git_describe_strategy_t](ord(arg) + offset)
+func `+`*(arg: c_git_describe_strategy_t, offset: int): c_git_describe_strategy_t = cast[c_git_describe_strategy_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_describe_strategy_t): cint = cast[c_git_describe_strategy_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_describe_strategy_t): c_git_describe_strategy_t = cast[c_git_describe_strategy_t](ord(arg) + offset)
 
 proc git_describe_options_init*(opts: ptr git_describe_options, version: cuint): cint {.importc: "git_describe_options_init".}
 

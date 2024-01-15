@@ -258,13 +258,13 @@ converter toCInt*(args: set[git_object_t]): cint =
       of GIT_OBJECT_OFS_DELTA: result = cint(result or 6)
       of GIT_OBJECT_REF_DELTA: result = cint(result or 7)
 
-func `-`*(arg: c_git_object_t, offset: int): cint = cast[c_git_object_t](ord(arg) - offset)
+func `-`*(arg: c_git_object_t, offset: int): c_git_object_t = cast[c_git_object_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_object_t): cint = cast[c_git_object_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_object_t): c_git_object_t = cast[c_git_object_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_object_t, offset: int): cint = cast[c_git_object_t](ord(arg) + offset)
+func `+`*(arg: c_git_object_t, offset: int): c_git_object_t = cast[c_git_object_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_object_t): cint = cast[c_git_object_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_object_t): c_git_object_t = cast[c_git_object_t](ord(arg) + offset)
 
 converter to_git_reference_t*(arg: c_git_reference_t): git_reference_t =
   case arg:
@@ -292,13 +292,13 @@ converter toCInt*(args: set[git_reference_t]): cint =
       of GIT_REFERENCE_SYMBOLIC: result = cint(result or 2)
       of GIT_REFERENCE_ALL     : result = cint(result or 3)
 
-func `-`*(arg: c_git_reference_t, offset: int): cint = cast[c_git_reference_t](ord(arg) - offset)
+func `-`*(arg: c_git_reference_t, offset: int): c_git_reference_t = cast[c_git_reference_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_reference_t): cint = cast[c_git_reference_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_reference_t): c_git_reference_t = cast[c_git_reference_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_reference_t, offset: int): cint = cast[c_git_reference_t](ord(arg) + offset)
+func `+`*(arg: c_git_reference_t, offset: int): c_git_reference_t = cast[c_git_reference_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_reference_t): cint = cast[c_git_reference_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_reference_t): c_git_reference_t = cast[c_git_reference_t](ord(arg) + offset)
 
 converter to_git_branch_t*(arg: c_git_branch_t): git_branch_t =
   case arg:
@@ -323,13 +323,13 @@ converter toCInt*(args: set[git_branch_t]): cint =
       of GIT_BRANCH_REMOTE: result = cint(result or 2)
       of GIT_BRANCH_ALL   : result = cint(result or 3)
 
-func `-`*(arg: c_git_branch_t, offset: int): cint = cast[c_git_branch_t](ord(arg) - offset)
+func `-`*(arg: c_git_branch_t, offset: int): c_git_branch_t = cast[c_git_branch_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_branch_t): cint = cast[c_git_branch_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_branch_t): c_git_branch_t = cast[c_git_branch_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_branch_t, offset: int): cint = cast[c_git_branch_t](ord(arg) + offset)
+func `+`*(arg: c_git_branch_t, offset: int): c_git_branch_t = cast[c_git_branch_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_branch_t): cint = cast[c_git_branch_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_branch_t): c_git_branch_t = cast[c_git_branch_t](ord(arg) + offset)
 
 converter to_git_filemode_t*(arg: c_git_filemode_t): git_filemode_t =
   case arg:
@@ -363,13 +363,13 @@ converter toCInt*(args: set[git_filemode_t]): cint =
       of GIT_FILEMODE_LINK           : result = cint(result or 40960)
       of GIT_FILEMODE_COMMIT         : result = cint(result or 57344)
 
-func `-`*(arg: c_git_filemode_t, offset: int): cint = cast[c_git_filemode_t](ord(arg) - offset)
+func `-`*(arg: c_git_filemode_t, offset: int): c_git_filemode_t = cast[c_git_filemode_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_filemode_t): cint = cast[c_git_filemode_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_filemode_t): c_git_filemode_t = cast[c_git_filemode_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_filemode_t, offset: int): cint = cast[c_git_filemode_t](ord(arg) + offset)
+func `+`*(arg: c_git_filemode_t, offset: int): c_git_filemode_t = cast[c_git_filemode_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_filemode_t): cint = cast[c_git_filemode_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_filemode_t): c_git_filemode_t = cast[c_git_filemode_t](ord(arg) + offset)
 
 converter to_git_submodule_update_t*(arg: c_git_submodule_update_t): git_submodule_update_t =
   case arg:
@@ -400,13 +400,13 @@ converter toCInt*(args: set[git_submodule_update_t]): cint =
       of GIT_SUBMODULE_UPDATE_MERGE   : result = cint(result or 3)
       of GIT_SUBMODULE_UPDATE_NONE    : result = cint(result or 4)
 
-func `-`*(arg: c_git_submodule_update_t, offset: int): cint = cast[c_git_submodule_update_t](ord(arg) - offset)
+func `-`*(arg: c_git_submodule_update_t, offset: int): c_git_submodule_update_t = cast[c_git_submodule_update_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_submodule_update_t): cint = cast[c_git_submodule_update_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_submodule_update_t): c_git_submodule_update_t = cast[c_git_submodule_update_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_submodule_update_t, offset: int): cint = cast[c_git_submodule_update_t](ord(arg) + offset)
+func `+`*(arg: c_git_submodule_update_t, offset: int): c_git_submodule_update_t = cast[c_git_submodule_update_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_submodule_update_t): cint = cast[c_git_submodule_update_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_submodule_update_t): c_git_submodule_update_t = cast[c_git_submodule_update_t](ord(arg) + offset)
 
 converter to_git_submodule_ignore_t*(arg: c_git_submodule_ignore_t): git_submodule_ignore_t =
   case arg:
@@ -437,13 +437,13 @@ converter toCInt*(args: set[git_submodule_ignore_t]): cint =
       of GIT_SUBMODULE_IGNORE_DIRTY      : result = cint(result or 3)
       of GIT_SUBMODULE_IGNORE_ALL        : result = cint(result or 4)
 
-func `-`*(arg: c_git_submodule_ignore_t, offset: int): cint = cast[c_git_submodule_ignore_t](ord(arg) - offset)
+func `-`*(arg: c_git_submodule_ignore_t, offset: int): c_git_submodule_ignore_t = cast[c_git_submodule_ignore_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_submodule_ignore_t): cint = cast[c_git_submodule_ignore_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_submodule_ignore_t): c_git_submodule_ignore_t = cast[c_git_submodule_ignore_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_submodule_ignore_t, offset: int): cint = cast[c_git_submodule_ignore_t](ord(arg) + offset)
+func `+`*(arg: c_git_submodule_ignore_t, offset: int): c_git_submodule_ignore_t = cast[c_git_submodule_ignore_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_submodule_ignore_t): cint = cast[c_git_submodule_ignore_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_submodule_ignore_t): c_git_submodule_ignore_t = cast[c_git_submodule_ignore_t](ord(arg) + offset)
 
 converter to_git_submodule_recurse_t*(arg: c_git_submodule_recurse_t): git_submodule_recurse_t =
   case arg:
@@ -468,10 +468,10 @@ converter toCInt*(args: set[git_submodule_recurse_t]): cint =
       of GIT_SUBMODULE_RECURSE_YES     : result = cint(result or 1)
       of GIT_SUBMODULE_RECURSE_ONDEMAND: result = cint(result or 2)
 
-func `-`*(arg: c_git_submodule_recurse_t, offset: int): cint = cast[c_git_submodule_recurse_t](ord(arg) - offset)
+func `-`*(arg: c_git_submodule_recurse_t, offset: int): c_git_submodule_recurse_t = cast[c_git_submodule_recurse_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_submodule_recurse_t): cint = cast[c_git_submodule_recurse_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_submodule_recurse_t): c_git_submodule_recurse_t = cast[c_git_submodule_recurse_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_submodule_recurse_t, offset: int): cint = cast[c_git_submodule_recurse_t](ord(arg) + offset)
+func `+`*(arg: c_git_submodule_recurse_t, offset: int): c_git_submodule_recurse_t = cast[c_git_submodule_recurse_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_submodule_recurse_t): cint = cast[c_git_submodule_recurse_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_submodule_recurse_t): c_git_submodule_recurse_t = cast[c_git_submodule_recurse_t](ord(arg) + offset)

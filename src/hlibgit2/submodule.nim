@@ -1,5 +1,4 @@
 import "./types.nim"
-import "./remote.nim"
 import "./checkout.nim"
 import "./oid.nim"
 import "./buffer.nim"
@@ -8,8 +7,11 @@ type
   git_submodule_update_options* {.bycopy.} = object
     version       *: cuint
     checkout_opts *: git_checkout_options
-    fetch_opts    *: git_fetch_options
+    fetch_opts    *: git_submodule_update_options_fetch_opts_field
     allow_fetch   *: cint
+
+  git_submodule_update_options_fetch_opts_field* {.bycopy.} = object
+
 
   c_git_submodule_status_t* {.size: sizeof(cint).} = enum
     c_GIT_SUBMODULE_STATUS_IN_HEAD           = 1 shl 0
@@ -103,13 +105,13 @@ converter toCInt*(args: set[git_submodule_status_t]): cint =
       of GIT_SUBMODULE_STATUS_WD_WD_MODIFIED   : result = cint(result or 4096)
       of GIT_SUBMODULE_STATUS_WD_UNTRACKED     : result = cint(result or 8192)
 
-func `-`*(arg: c_git_submodule_status_t, offset: int): cint = cast[c_git_submodule_status_t](ord(arg) - offset)
+func `-`*(arg: c_git_submodule_status_t, offset: int): c_git_submodule_status_t = cast[c_git_submodule_status_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_submodule_status_t): cint = cast[c_git_submodule_status_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_submodule_status_t): c_git_submodule_status_t = cast[c_git_submodule_status_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_submodule_status_t, offset: int): cint = cast[c_git_submodule_status_t](ord(arg) + offset)
+func `+`*(arg: c_git_submodule_status_t, offset: int): c_git_submodule_status_t = cast[c_git_submodule_status_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_submodule_status_t): cint = cast[c_git_submodule_status_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_submodule_status_t): c_git_submodule_status_t = cast[c_git_submodule_status_t](ord(arg) + offset)
 
 proc git_submodule_update_options_init*(opts: ptr git_submodule_update_options, version: cuint): cint {.importc: "git_submodule_update_options_init".}
 

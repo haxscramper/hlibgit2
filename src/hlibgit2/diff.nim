@@ -244,8 +244,24 @@ type
     flags      *: uint32
     similarity *: uint16
     nfiles     *: uint16
-    old_file   *: git_diff_file
-    new_file   *: git_diff_file
+    old_file   *: git_diff_delta_old_file_field
+    new_file   *: git_diff_delta_new_file_field
+
+  git_diff_delta_new_file_field* {.bycopy.} = object
+    id        *: git_oid
+    path      *: cstring
+    size      *: git_object_size_t
+    flags     *: uint32
+    mode      *: uint16
+    id_abbrev *: uint16
+
+  git_diff_delta_old_file_field* {.bycopy.} = object
+    id        *: git_oid
+    path      *: cstring
+    size      *: git_object_size_t
+    flags     *: uint32
+    mode      *: uint16
+    id_abbrev *: uint16
 
   git_diff_options* {.bycopy.} = object
     version           *: cuint
@@ -271,8 +287,20 @@ type
 
   git_diff_binary* {.bycopy.} = object
     contains_data *: cuint
-    old_file      *: git_diff_binary_file
-    new_file      *: git_diff_binary_file
+    old_file      *: git_diff_binary_old_file_field
+    new_file      *: git_diff_binary_new_file_field
+
+  git_diff_binary_new_file_field* {.bycopy.} = object
+    `type`      *: git_diff_binary_t
+    data        *: cstring
+    datalen     *: csize_t
+    inflatedlen *: csize_t
+
+  git_diff_binary_old_file_field* {.bycopy.} = object
+    `type`      *: git_diff_binary_t
+    data        *: cstring
+    datalen     *: csize_t
+    inflatedlen *: csize_t
 
   git_diff_hunk* {.bycopy.} = object
     old_start  *: cint
@@ -417,13 +445,13 @@ converter toCInt*(args: set[git_diff_option_t]): cint =
       of GIT_DIFF_MINIMAL                        : result = cint(result or 536870912)
       of GIT_DIFF_SHOW_BINARY                    : result = cint(result or 1073741824)
 
-func `-`*(arg: c_git_diff_option_t, offset: int): cint = cast[c_git_diff_option_t](ord(arg) - offset)
+func `-`*(arg: c_git_diff_option_t, offset: int): c_git_diff_option_t = cast[c_git_diff_option_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_diff_option_t): cint = cast[c_git_diff_option_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_diff_option_t): c_git_diff_option_t = cast[c_git_diff_option_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_diff_option_t, offset: int): cint = cast[c_git_diff_option_t](ord(arg) + offset)
+func `+`*(arg: c_git_diff_option_t, offset: int): c_git_diff_option_t = cast[c_git_diff_option_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_diff_option_t): cint = cast[c_git_diff_option_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_diff_option_t): c_git_diff_option_t = cast[c_git_diff_option_t](ord(arg) + offset)
 
 converter to_git_diff_flag_t*(arg: c_git_diff_flag_t): git_diff_flag_t =
   case arg:
@@ -454,13 +482,13 @@ converter toCInt*(args: set[git_diff_flag_t]): cint =
       of GIT_DIFF_FLAG_EXISTS    : result = cint(result or 8)
       of GIT_DIFF_FLAG_VALID_SIZE: result = cint(result or 16)
 
-func `-`*(arg: c_git_diff_flag_t, offset: int): cint = cast[c_git_diff_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_diff_flag_t, offset: int): c_git_diff_flag_t = cast[c_git_diff_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_diff_flag_t): cint = cast[c_git_diff_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_diff_flag_t): c_git_diff_flag_t = cast[c_git_diff_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_diff_flag_t, offset: int): cint = cast[c_git_diff_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_diff_flag_t, offset: int): c_git_diff_flag_t = cast[c_git_diff_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_diff_flag_t): cint = cast[c_git_diff_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_diff_flag_t): c_git_diff_flag_t = cast[c_git_diff_flag_t](ord(arg) + offset)
 
 converter to_git_delta_t*(arg: c_git_delta_t): git_delta_t =
   case arg:
@@ -509,13 +537,13 @@ converter toCInt*(args: set[git_delta_t]): cint =
       of GIT_DELTA_UNREADABLE: result = cint(result or 9)
       of GIT_DELTA_CONFLICTED: result = cint(result or 10)
 
-func `-`*(arg: c_git_delta_t, offset: int): cint = cast[c_git_delta_t](ord(arg) - offset)
+func `-`*(arg: c_git_delta_t, offset: int): c_git_delta_t = cast[c_git_delta_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_delta_t): cint = cast[c_git_delta_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_delta_t): c_git_delta_t = cast[c_git_delta_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_delta_t, offset: int): cint = cast[c_git_delta_t](ord(arg) + offset)
+func `+`*(arg: c_git_delta_t, offset: int): c_git_delta_t = cast[c_git_delta_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_delta_t): cint = cast[c_git_delta_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_delta_t): c_git_delta_t = cast[c_git_delta_t](ord(arg) + offset)
 
 converter to_git_diff_binary_t*(arg: c_git_diff_binary_t): git_diff_binary_t =
   case arg:
@@ -540,13 +568,13 @@ converter toCInt*(args: set[git_diff_binary_t]): cint =
       of GIT_DIFF_BINARY_LITERAL: result = cint(result or 1)
       of GIT_DIFF_BINARY_DELTA  : result = cint(result or 2)
 
-func `-`*(arg: c_git_diff_binary_t, offset: int): cint = cast[c_git_diff_binary_t](ord(arg) - offset)
+func `-`*(arg: c_git_diff_binary_t, offset: int): c_git_diff_binary_t = cast[c_git_diff_binary_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_diff_binary_t): cint = cast[c_git_diff_binary_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_diff_binary_t): c_git_diff_binary_t = cast[c_git_diff_binary_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_diff_binary_t, offset: int): cint = cast[c_git_diff_binary_t](ord(arg) + offset)
+func `+`*(arg: c_git_diff_binary_t, offset: int): c_git_diff_binary_t = cast[c_git_diff_binary_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_diff_binary_t): cint = cast[c_git_diff_binary_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_diff_binary_t): c_git_diff_binary_t = cast[c_git_diff_binary_t](ord(arg) + offset)
 
 converter to_git_diff_line_t*(arg: c_git_diff_line_t): git_diff_line_t =
   case arg:
@@ -589,13 +617,13 @@ converter toCInt*(args: set[git_diff_line_t]): cint =
       of GIT_DIFF_LINE_FILE_HDR     : result = cint(result or 70)
       of GIT_DIFF_LINE_HUNK_HDR     : result = cint(result or 72)
 
-func `-`*(arg: c_git_diff_line_t, offset: int): cint = cast[c_git_diff_line_t](ord(arg) - offset)
+func `-`*(arg: c_git_diff_line_t, offset: int): c_git_diff_line_t = cast[c_git_diff_line_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_diff_line_t): cint = cast[c_git_diff_line_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_diff_line_t): c_git_diff_line_t = cast[c_git_diff_line_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_diff_line_t, offset: int): cint = cast[c_git_diff_line_t](ord(arg) + offset)
+func `+`*(arg: c_git_diff_line_t, offset: int): c_git_diff_line_t = cast[c_git_diff_line_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_diff_line_t): cint = cast[c_git_diff_line_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_diff_line_t): c_git_diff_line_t = cast[c_git_diff_line_t](ord(arg) + offset)
 
 converter to_git_diff_find_t*(arg: c_git_diff_find_t): git_diff_find_t =
   case arg:
@@ -656,13 +684,13 @@ converter toCInt*(args: set[git_diff_find_t]): cint =
       of GIT_DIFF_BREAK_REWRITES_FOR_RENAMES_ONLY: result = cint(result or 32768)
       of GIT_DIFF_FIND_REMOVE_UNMODIFIED         : result = cint(result or 65536)
 
-func `-`*(arg: c_git_diff_find_t, offset: int): cint = cast[c_git_diff_find_t](ord(arg) - offset)
+func `-`*(arg: c_git_diff_find_t, offset: int): c_git_diff_find_t = cast[c_git_diff_find_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_diff_find_t): cint = cast[c_git_diff_find_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_diff_find_t): c_git_diff_find_t = cast[c_git_diff_find_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_diff_find_t, offset: int): cint = cast[c_git_diff_find_t](ord(arg) + offset)
+func `+`*(arg: c_git_diff_find_t, offset: int): c_git_diff_find_t = cast[c_git_diff_find_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_diff_find_t): cint = cast[c_git_diff_find_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_diff_find_t): c_git_diff_find_t = cast[c_git_diff_find_t](ord(arg) + offset)
 
 converter to_git_diff_format_t*(arg: c_git_diff_format_t): git_diff_format_t =
   case arg:
@@ -696,13 +724,13 @@ converter toCInt*(args: set[git_diff_format_t]): cint =
       of GIT_DIFF_FORMAT_NAME_STATUS : result = cint(result or 5)
       of GIT_DIFF_FORMAT_PATCH_ID    : result = cint(result or 6)
 
-func `-`*(arg: c_git_diff_format_t, offset: int): cint = cast[c_git_diff_format_t](ord(arg) - offset)
+func `-`*(arg: c_git_diff_format_t, offset: int): c_git_diff_format_t = cast[c_git_diff_format_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_diff_format_t): cint = cast[c_git_diff_format_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_diff_format_t): c_git_diff_format_t = cast[c_git_diff_format_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_diff_format_t, offset: int): cint = cast[c_git_diff_format_t](ord(arg) + offset)
+func `+`*(arg: c_git_diff_format_t, offset: int): c_git_diff_format_t = cast[c_git_diff_format_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_diff_format_t): cint = cast[c_git_diff_format_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_diff_format_t): c_git_diff_format_t = cast[c_git_diff_format_t](ord(arg) + offset)
 
 converter to_git_diff_stats_format_t*(arg: c_git_diff_stats_format_t): git_diff_stats_format_t =
   case arg:
@@ -733,13 +761,13 @@ converter toCInt*(args: set[git_diff_stats_format_t]): cint =
       of GIT_DIFF_STATS_NUMBER         : result = cint(result or 4)
       of GIT_DIFF_STATS_INCLUDE_SUMMARY: result = cint(result or 8)
 
-func `-`*(arg: c_git_diff_stats_format_t, offset: int): cint = cast[c_git_diff_stats_format_t](ord(arg) - offset)
+func `-`*(arg: c_git_diff_stats_format_t, offset: int): c_git_diff_stats_format_t = cast[c_git_diff_stats_format_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_diff_stats_format_t): cint = cast[c_git_diff_stats_format_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_diff_stats_format_t): c_git_diff_stats_format_t = cast[c_git_diff_stats_format_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_diff_stats_format_t, offset: int): cint = cast[c_git_diff_stats_format_t](ord(arg) + offset)
+func `+`*(arg: c_git_diff_stats_format_t, offset: int): c_git_diff_stats_format_t = cast[c_git_diff_stats_format_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_diff_stats_format_t): cint = cast[c_git_diff_stats_format_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_diff_stats_format_t): c_git_diff_stats_format_t = cast[c_git_diff_stats_format_t](ord(arg) + offset)
 
 proc git_diff_options_init*(opts: ptr git_diff_options, version: cuint): cint {.importc: "git_diff_options_init".}
 

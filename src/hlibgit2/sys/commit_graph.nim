@@ -33,13 +33,13 @@ converter toCInt*(args: set[git_commit_graph_split_strategy_t]): cint =
     case value:
       of GIT_COMMIT_GRAPH_SPLIT_STRATEGY_SINGLE_FILE: result = cint(result or 0)
 
-func `-`*(arg: c_git_commit_graph_split_strategy_t, offset: int): cint = cast[c_git_commit_graph_split_strategy_t](ord(arg) - offset)
+func `-`*(arg: c_git_commit_graph_split_strategy_t, offset: int): c_git_commit_graph_split_strategy_t = cast[c_git_commit_graph_split_strategy_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_commit_graph_split_strategy_t): cint = cast[c_git_commit_graph_split_strategy_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_commit_graph_split_strategy_t): c_git_commit_graph_split_strategy_t = cast[c_git_commit_graph_split_strategy_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_commit_graph_split_strategy_t, offset: int): cint = cast[c_git_commit_graph_split_strategy_t](ord(arg) + offset)
+func `+`*(arg: c_git_commit_graph_split_strategy_t, offset: int): c_git_commit_graph_split_strategy_t = cast[c_git_commit_graph_split_strategy_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_commit_graph_split_strategy_t): cint = cast[c_git_commit_graph_split_strategy_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_commit_graph_split_strategy_t): c_git_commit_graph_split_strategy_t = cast[c_git_commit_graph_split_strategy_t](ord(arg) + offset)
 
 proc git_commit_graph_open*(cgraph_out: ptr ptr git_commit_graph, objects_dir: cstring): cint {.importc: "git_commit_graph_open".}
 

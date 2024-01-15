@@ -103,13 +103,13 @@ converter toCInt*(args: set[git_credential_t]): cint =
       of GIT_CREDENTIAL_USERNAME          : result = cint(result or 32)
       of GIT_CREDENTIAL_SSH_MEMORY        : result = cint(result or 64)
 
-func `-`*(arg: c_git_credential_t, offset: int): cint = cast[c_git_credential_t](ord(arg) - offset)
+func `-`*(arg: c_git_credential_t, offset: int): c_git_credential_t = cast[c_git_credential_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_credential_t): cint = cast[c_git_credential_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_credential_t): c_git_credential_t = cast[c_git_credential_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_credential_t, offset: int): cint = cast[c_git_credential_t](ord(arg) + offset)
+func `+`*(arg: c_git_credential_t, offset: int): c_git_credential_t = cast[c_git_credential_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_credential_t): cint = cast[c_git_credential_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_credential_t): c_git_credential_t = cast[c_git_credential_t](ord(arg) + offset)
 
 proc git_credential_free*(cred: ptr git_credential): void {.importc: "git_credential_free".}
 

@@ -129,13 +129,13 @@ converter toCInt*(args: set[git_feature_t]): cint =
       of GIT_FEATURE_SSH    : result = cint(result or 4)
       of GIT_FEATURE_NSEC   : result = cint(result or 8)
 
-func `-`*(arg: c_git_feature_t, offset: int): cint = cast[c_git_feature_t](ord(arg) - offset)
+func `-`*(arg: c_git_feature_t, offset: int): c_git_feature_t = cast[c_git_feature_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_feature_t): cint = cast[c_git_feature_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_feature_t): c_git_feature_t = cast[c_git_feature_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_feature_t, offset: int): cint = cast[c_git_feature_t](ord(arg) + offset)
+func `+`*(arg: c_git_feature_t, offset: int): c_git_feature_t = cast[c_git_feature_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_feature_t): cint = cast[c_git_feature_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_feature_t): c_git_feature_t = cast[c_git_feature_t](ord(arg) + offset)
 
 converter to_git_libgit2_opt_t*(arg: c_git_libgit2_opt_t): git_libgit2_opt_t =
   case arg:
@@ -280,13 +280,13 @@ converter toCInt*(args: set[git_libgit2_opt_t]): cint =
       of GIT_OPT_SET_SERVER_TIMEOUT                 : result = cint(result or 41)
       of GIT_OPT_GET_SERVER_TIMEOUT                 : result = cint(result or 42)
 
-func `-`*(arg: c_git_libgit2_opt_t, offset: int): cint = cast[c_git_libgit2_opt_t](ord(arg) - offset)
+func `-`*(arg: c_git_libgit2_opt_t, offset: int): c_git_libgit2_opt_t = cast[c_git_libgit2_opt_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_libgit2_opt_t): cint = cast[c_git_libgit2_opt_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_libgit2_opt_t): c_git_libgit2_opt_t = cast[c_git_libgit2_opt_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_libgit2_opt_t, offset: int): cint = cast[c_git_libgit2_opt_t](ord(arg) + offset)
+func `+`*(arg: c_git_libgit2_opt_t, offset: int): c_git_libgit2_opt_t = cast[c_git_libgit2_opt_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_libgit2_opt_t): cint = cast[c_git_libgit2_opt_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_libgit2_opt_t): c_git_libgit2_opt_t = cast[c_git_libgit2_opt_t](ord(arg) + offset)
 
 proc git_libgit2_version*(
     major: ptr cint,

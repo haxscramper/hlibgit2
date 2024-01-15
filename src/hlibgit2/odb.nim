@@ -118,13 +118,13 @@ converter toCInt*(args: set[git_odb_backend_loose_flag_t]): cint =
     case value:
       of GIT_ODB_BACKEND_LOOSE_FSYNC: result = cint(result or 1)
 
-func `-`*(arg: c_git_odb_backend_loose_flag_t, offset: int): cint = cast[c_git_odb_backend_loose_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_odb_backend_loose_flag_t, offset: int): c_git_odb_backend_loose_flag_t = cast[c_git_odb_backend_loose_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_odb_backend_loose_flag_t): cint = cast[c_git_odb_backend_loose_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_odb_backend_loose_flag_t): c_git_odb_backend_loose_flag_t = cast[c_git_odb_backend_loose_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_odb_backend_loose_flag_t, offset: int): cint = cast[c_git_odb_backend_loose_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_odb_backend_loose_flag_t, offset: int): c_git_odb_backend_loose_flag_t = cast[c_git_odb_backend_loose_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_odb_backend_loose_flag_t): cint = cast[c_git_odb_backend_loose_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_odb_backend_loose_flag_t): c_git_odb_backend_loose_flag_t = cast[c_git_odb_backend_loose_flag_t](ord(arg) + offset)
 
 converter to_git_odb_stream_t*(arg: c_git_odb_stream_t): git_odb_stream_t =
   case arg:
@@ -149,13 +149,13 @@ converter toCInt*(args: set[git_odb_stream_t]): cint =
       of GIT_STREAM_WRONLY: result = cint(result or 4)
       of GIT_STREAM_RW    : result = cint(result or 6)
 
-func `-`*(arg: c_git_odb_stream_t, offset: int): cint = cast[c_git_odb_stream_t](ord(arg) - offset)
+func `-`*(arg: c_git_odb_stream_t, offset: int): c_git_odb_stream_t = cast[c_git_odb_stream_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_odb_stream_t): cint = cast[c_git_odb_stream_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_odb_stream_t): c_git_odb_stream_t = cast[c_git_odb_stream_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_odb_stream_t, offset: int): cint = cast[c_git_odb_stream_t](ord(arg) + offset)
+func `+`*(arg: c_git_odb_stream_t, offset: int): c_git_odb_stream_t = cast[c_git_odb_stream_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_odb_stream_t): cint = cast[c_git_odb_stream_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_odb_stream_t): c_git_odb_stream_t = cast[c_git_odb_stream_t](ord(arg) + offset)
 
 proc git_odb_backend_pack*(`out`: ptr ptr git_odb_backend, objects_dir: cstring): cint {.importc: "git_odb_backend_pack".}
 
@@ -187,13 +187,13 @@ converter toCInt*(args: set[git_odb_lookup_flags_t]): cint =
     case value:
       of GIT_ODB_LOOKUP_NO_REFRESH: result = cint(result or 1)
 
-func `-`*(arg: c_git_odb_lookup_flags_t, offset: int): cint = cast[c_git_odb_lookup_flags_t](ord(arg) - offset)
+func `-`*(arg: c_git_odb_lookup_flags_t, offset: int): c_git_odb_lookup_flags_t = cast[c_git_odb_lookup_flags_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_odb_lookup_flags_t): cint = cast[c_git_odb_lookup_flags_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_odb_lookup_flags_t): c_git_odb_lookup_flags_t = cast[c_git_odb_lookup_flags_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_odb_lookup_flags_t, offset: int): cint = cast[c_git_odb_lookup_flags_t](ord(arg) + offset)
+func `+`*(arg: c_git_odb_lookup_flags_t, offset: int): c_git_odb_lookup_flags_t = cast[c_git_odb_lookup_flags_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_odb_lookup_flags_t): cint = cast[c_git_odb_lookup_flags_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_odb_lookup_flags_t): c_git_odb_lookup_flags_t = cast[c_git_odb_lookup_flags_t](ord(arg) + offset)
 
 proc git_odb_new*(`out`: ptr ptr git_odb): cint {.importc: "git_odb_new".}
 

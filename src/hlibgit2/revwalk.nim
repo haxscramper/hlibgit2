@@ -64,13 +64,13 @@ converter toCInt*(args: set[git_sort_t]): cint =
       of GIT_SORT_TIME       : result = cint(result or 2)
       of GIT_SORT_REVERSE    : result = cint(result or 4)
 
-func `-`*(arg: c_git_sort_t, offset: int): cint = cast[c_git_sort_t](ord(arg) - offset)
+func `-`*(arg: c_git_sort_t, offset: int): c_git_sort_t = cast[c_git_sort_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_sort_t): cint = cast[c_git_sort_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_sort_t): c_git_sort_t = cast[c_git_sort_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_sort_t, offset: int): cint = cast[c_git_sort_t](ord(arg) + offset)
+func `+`*(arg: c_git_sort_t, offset: int): c_git_sort_t = cast[c_git_sort_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_sort_t): cint = cast[c_git_sort_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_sort_t): c_git_sort_t = cast[c_git_sort_t](ord(arg) + offset)
 
 proc git_revwalk_new*(`out`: ptr ptr git_revwalk, repo: ptr git_repository): cint {.importc: "git_revwalk_new".}
 

@@ -89,13 +89,13 @@ converter toCInt*(args: set[git_cert_ssh_t]): cint =
       of GIT_CERT_SSH_SHA256: result = cint(result or 4)
       of GIT_CERT_SSH_RAW   : result = cint(result or 8)
 
-func `-`*(arg: c_git_cert_ssh_t, offset: int): cint = cast[c_git_cert_ssh_t](ord(arg) - offset)
+func `-`*(arg: c_git_cert_ssh_t, offset: int): c_git_cert_ssh_t = cast[c_git_cert_ssh_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_cert_ssh_t): cint = cast[c_git_cert_ssh_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_cert_ssh_t): c_git_cert_ssh_t = cast[c_git_cert_ssh_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_cert_ssh_t, offset: int): cint = cast[c_git_cert_ssh_t](ord(arg) + offset)
+func `+`*(arg: c_git_cert_ssh_t, offset: int): c_git_cert_ssh_t = cast[c_git_cert_ssh_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_cert_ssh_t): cint = cast[c_git_cert_ssh_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_cert_ssh_t): c_git_cert_ssh_t = cast[c_git_cert_ssh_t](ord(arg) + offset)
 
 converter to_git_cert_ssh_raw_type_t*(arg: c_git_cert_ssh_raw_type_t): git_cert_ssh_raw_type_t =
   case arg:
@@ -132,13 +132,13 @@ converter toCInt*(args: set[git_cert_ssh_raw_type_t]): cint =
       of GIT_CERT_SSH_RAW_TYPE_KEY_ECDSA_521: result = cint(result or 5)
       of GIT_CERT_SSH_RAW_TYPE_KEY_ED25519  : result = cint(result or 6)
 
-func `-`*(arg: c_git_cert_ssh_raw_type_t, offset: int): cint = cast[c_git_cert_ssh_raw_type_t](ord(arg) - offset)
+func `-`*(arg: c_git_cert_ssh_raw_type_t, offset: int): c_git_cert_ssh_raw_type_t = cast[c_git_cert_ssh_raw_type_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_cert_ssh_raw_type_t): cint = cast[c_git_cert_ssh_raw_type_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_cert_ssh_raw_type_t): c_git_cert_ssh_raw_type_t = cast[c_git_cert_ssh_raw_type_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_cert_ssh_raw_type_t, offset: int): cint = cast[c_git_cert_ssh_raw_type_t](ord(arg) + offset)
+func `+`*(arg: c_git_cert_ssh_raw_type_t, offset: int): c_git_cert_ssh_raw_type_t = cast[c_git_cert_ssh_raw_type_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_cert_ssh_raw_type_t): cint = cast[c_git_cert_ssh_raw_type_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_cert_ssh_raw_type_t): c_git_cert_ssh_raw_type_t = cast[c_git_cert_ssh_raw_type_t](ord(arg) + offset)
 
 converter to_git_cert_t*(arg: c_git_cert_t): git_cert_t =
   case arg:
@@ -166,10 +166,10 @@ converter toCInt*(args: set[git_cert_t]): cint =
       of GIT_CERT_HOSTKEY_LIBSSH2: result = cint(result or 2)
       of GIT_CERT_STRARRAY       : result = cint(result or 3)
 
-func `-`*(arg: c_git_cert_t, offset: int): cint = cast[c_git_cert_t](ord(arg) - offset)
+func `-`*(arg: c_git_cert_t, offset: int): c_git_cert_t = cast[c_git_cert_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_cert_t): cint = cast[c_git_cert_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_cert_t): c_git_cert_t = cast[c_git_cert_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_cert_t, offset: int): cint = cast[c_git_cert_t](ord(arg) + offset)
+func `+`*(arg: c_git_cert_t, offset: int): c_git_cert_t = cast[c_git_cert_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_cert_t): cint = cast[c_git_cert_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_cert_t): c_git_cert_t = cast[c_git_cert_t](ord(arg) + offset)

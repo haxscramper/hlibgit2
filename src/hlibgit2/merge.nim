@@ -147,13 +147,13 @@ converter toCInt*(args: set[git_merge_flag_t]): cint =
       of GIT_MERGE_NO_RECURSIVE    : result = cint(result or 8)
       of GIT_MERGE_VIRTUAL_BASE    : result = cint(result or 16)
 
-func `-`*(arg: c_git_merge_flag_t, offset: int): cint = cast[c_git_merge_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_merge_flag_t, offset: int): c_git_merge_flag_t = cast[c_git_merge_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_merge_flag_t): cint = cast[c_git_merge_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_merge_flag_t): c_git_merge_flag_t = cast[c_git_merge_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_merge_flag_t, offset: int): cint = cast[c_git_merge_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_merge_flag_t, offset: int): c_git_merge_flag_t = cast[c_git_merge_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_merge_flag_t): cint = cast[c_git_merge_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_merge_flag_t): c_git_merge_flag_t = cast[c_git_merge_flag_t](ord(arg) + offset)
 
 converter to_git_merge_file_favor_t*(arg: c_git_merge_file_favor_t): git_merge_file_favor_t =
   case arg:
@@ -181,13 +181,13 @@ converter toCInt*(args: set[git_merge_file_favor_t]): cint =
       of GIT_MERGE_FILE_FAVOR_THEIRS: result = cint(result or 2)
       of GIT_MERGE_FILE_FAVOR_UNION : result = cint(result or 3)
 
-func `-`*(arg: c_git_merge_file_favor_t, offset: int): cint = cast[c_git_merge_file_favor_t](ord(arg) - offset)
+func `-`*(arg: c_git_merge_file_favor_t, offset: int): c_git_merge_file_favor_t = cast[c_git_merge_file_favor_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_merge_file_favor_t): cint = cast[c_git_merge_file_favor_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_merge_file_favor_t): c_git_merge_file_favor_t = cast[c_git_merge_file_favor_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_merge_file_favor_t, offset: int): cint = cast[c_git_merge_file_favor_t](ord(arg) + offset)
+func `+`*(arg: c_git_merge_file_favor_t, offset: int): c_git_merge_file_favor_t = cast[c_git_merge_file_favor_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_merge_file_favor_t): cint = cast[c_git_merge_file_favor_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_merge_file_favor_t): c_git_merge_file_favor_t = cast[c_git_merge_file_favor_t](ord(arg) + offset)
 
 converter to_git_merge_file_flag_t*(arg: c_git_merge_file_flag_t): git_merge_file_flag_t =
   case arg:
@@ -236,13 +236,13 @@ converter toCInt*(args: set[git_merge_file_flag_t]): cint =
       of GIT_MERGE_FILE_STYLE_ZDIFF3            : result = cint(result or 256)
       of GIT_MERGE_FILE_ACCEPT_CONFLICTS        : result = cint(result or 512)
 
-func `-`*(arg: c_git_merge_file_flag_t, offset: int): cint = cast[c_git_merge_file_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_merge_file_flag_t, offset: int): c_git_merge_file_flag_t = cast[c_git_merge_file_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_merge_file_flag_t): cint = cast[c_git_merge_file_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_merge_file_flag_t): c_git_merge_file_flag_t = cast[c_git_merge_file_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_merge_file_flag_t, offset: int): cint = cast[c_git_merge_file_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_merge_file_flag_t, offset: int): c_git_merge_file_flag_t = cast[c_git_merge_file_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_merge_file_flag_t): cint = cast[c_git_merge_file_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_merge_file_flag_t): c_git_merge_file_flag_t = cast[c_git_merge_file_flag_t](ord(arg) + offset)
 
 converter to_git_merge_analysis_t*(arg: c_git_merge_analysis_t): git_merge_analysis_t =
   case arg:
@@ -273,13 +273,13 @@ converter toCInt*(args: set[git_merge_analysis_t]): cint =
       of GIT_MERGE_ANALYSIS_FASTFORWARD: result = cint(result or 4)
       of GIT_MERGE_ANALYSIS_UNBORN     : result = cint(result or 8)
 
-func `-`*(arg: c_git_merge_analysis_t, offset: int): cint = cast[c_git_merge_analysis_t](ord(arg) - offset)
+func `-`*(arg: c_git_merge_analysis_t, offset: int): c_git_merge_analysis_t = cast[c_git_merge_analysis_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_merge_analysis_t): cint = cast[c_git_merge_analysis_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_merge_analysis_t): c_git_merge_analysis_t = cast[c_git_merge_analysis_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_merge_analysis_t, offset: int): cint = cast[c_git_merge_analysis_t](ord(arg) + offset)
+func `+`*(arg: c_git_merge_analysis_t, offset: int): c_git_merge_analysis_t = cast[c_git_merge_analysis_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_merge_analysis_t): cint = cast[c_git_merge_analysis_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_merge_analysis_t): c_git_merge_analysis_t = cast[c_git_merge_analysis_t](ord(arg) + offset)
 
 converter to_git_merge_preference_t*(arg: c_git_merge_preference_t): git_merge_preference_t =
   case arg:
@@ -304,13 +304,13 @@ converter toCInt*(args: set[git_merge_preference_t]): cint =
       of GIT_MERGE_PREFERENCE_NO_FASTFORWARD  : result = cint(result or 1)
       of GIT_MERGE_PREFERENCE_FASTFORWARD_ONLY: result = cint(result or 2)
 
-func `-`*(arg: c_git_merge_preference_t, offset: int): cint = cast[c_git_merge_preference_t](ord(arg) - offset)
+func `-`*(arg: c_git_merge_preference_t, offset: int): c_git_merge_preference_t = cast[c_git_merge_preference_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_merge_preference_t): cint = cast[c_git_merge_preference_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_merge_preference_t): c_git_merge_preference_t = cast[c_git_merge_preference_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_merge_preference_t, offset: int): cint = cast[c_git_merge_preference_t](ord(arg) + offset)
+func `+`*(arg: c_git_merge_preference_t, offset: int): c_git_merge_preference_t = cast[c_git_merge_preference_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_merge_preference_t): cint = cast[c_git_merge_preference_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_merge_preference_t): c_git_merge_preference_t = cast[c_git_merge_preference_t](ord(arg) + offset)
 
 proc git_merge_file_input_init*(opts: ptr git_merge_file_input, version: cuint): cint {.importc: "git_merge_file_input_init".}
 

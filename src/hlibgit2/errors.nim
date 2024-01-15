@@ -261,13 +261,13 @@ converter toCInt*(args: set[git_error_code]): cint =
       of GIT_ERROR          : result = cint(result or -1)
       of GIT_OK             : result = cint(result or 0)
 
-func `-`*(arg: c_git_error_code, offset: int): cint = cast[c_git_error_code](ord(arg) - offset)
+func `-`*(arg: c_git_error_code, offset: int): c_git_error_code = cast[c_git_error_code](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_error_code): cint = cast[c_git_error_code](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_error_code): c_git_error_code = cast[c_git_error_code](ord(arg) - offset)
 
-func `+`*(arg: c_git_error_code, offset: int): cint = cast[c_git_error_code](ord(arg) + offset)
+func `+`*(arg: c_git_error_code, offset: int): c_git_error_code = cast[c_git_error_code](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_error_code): cint = cast[c_git_error_code](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_error_code): c_git_error_code = cast[c_git_error_code](ord(arg) + offset)
 
 converter to_git_error_t*(arg: c_git_error_t): git_error_t =
   case arg:
@@ -394,12 +394,12 @@ converter toCInt*(args: set[git_error_t]): cint =
       of GIT_ERROR_INTERNAL  : result = cint(result or 35)
       of GIT_ERROR_GRAFTS    : result = cint(result or 36)
 
-func `-`*(arg: c_git_error_t, offset: int): cint = cast[c_git_error_t](ord(arg) - offset)
+func `-`*(arg: c_git_error_t, offset: int): c_git_error_t = cast[c_git_error_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_error_t): cint = cast[c_git_error_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_error_t): c_git_error_t = cast[c_git_error_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_error_t, offset: int): cint = cast[c_git_error_t](ord(arg) + offset)
+func `+`*(arg: c_git_error_t, offset: int): c_git_error_t = cast[c_git_error_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_error_t): cint = cast[c_git_error_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_error_t): c_git_error_t = cast[c_git_error_t](ord(arg) + offset)
 
 proc git_error_last*(): ptr git_error {.importc: "git_error_last".}

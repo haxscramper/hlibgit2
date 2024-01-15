@@ -104,13 +104,13 @@ converter toCInt*(args: set[git_reference_format_t]): cint =
       of GIT_REFERENCE_FORMAT_REFSPEC_PATTERN  : result = cint(result or 2)
       of GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND: result = cint(result or 4)
 
-func `-`*(arg: c_git_reference_format_t, offset: int): cint = cast[c_git_reference_format_t](ord(arg) - offset)
+func `-`*(arg: c_git_reference_format_t, offset: int): c_git_reference_format_t = cast[c_git_reference_format_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_reference_format_t): cint = cast[c_git_reference_format_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_reference_format_t): c_git_reference_format_t = cast[c_git_reference_format_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_reference_format_t, offset: int): cint = cast[c_git_reference_format_t](ord(arg) + offset)
+func `+`*(arg: c_git_reference_format_t, offset: int): c_git_reference_format_t = cast[c_git_reference_format_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_reference_format_t): cint = cast[c_git_reference_format_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_reference_format_t): c_git_reference_format_t = cast[c_git_reference_format_t](ord(arg) + offset)
 
 proc git_reference_lookup*(
     `out`: ptr ptr git_reference,

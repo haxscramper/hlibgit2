@@ -194,13 +194,13 @@ converter toCInt*(args: set[git_checkout_strategy_t]): cint =
       of GIT_CHECKOUT_DRY_RUN                     : result = cint(result or 16777216)
       of GIT_CHECKOUT_CONFLICT_STYLE_ZDIFF3       : result = cint(result or 33554432)
 
-func `-`*(arg: c_git_checkout_strategy_t, offset: int): cint = cast[c_git_checkout_strategy_t](ord(arg) - offset)
+func `-`*(arg: c_git_checkout_strategy_t, offset: int): c_git_checkout_strategy_t = cast[c_git_checkout_strategy_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_checkout_strategy_t): cint = cast[c_git_checkout_strategy_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_checkout_strategy_t): c_git_checkout_strategy_t = cast[c_git_checkout_strategy_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_checkout_strategy_t, offset: int): cint = cast[c_git_checkout_strategy_t](ord(arg) + offset)
+func `+`*(arg: c_git_checkout_strategy_t, offset: int): c_git_checkout_strategy_t = cast[c_git_checkout_strategy_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_checkout_strategy_t): cint = cast[c_git_checkout_strategy_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_checkout_strategy_t): c_git_checkout_strategy_t = cast[c_git_checkout_strategy_t](ord(arg) + offset)
 
 converter to_git_checkout_notify_t*(arg: c_git_checkout_notify_t): git_checkout_notify_t =
   case arg:
@@ -237,13 +237,13 @@ converter toCInt*(args: set[git_checkout_notify_t]): cint =
       of GIT_CHECKOUT_NOTIFY_IGNORED  : result = cint(result or 16)
       of GIT_CHECKOUT_NOTIFY_ALL      : result = cint(result or 65535)
 
-func `-`*(arg: c_git_checkout_notify_t, offset: int): cint = cast[c_git_checkout_notify_t](ord(arg) - offset)
+func `-`*(arg: c_git_checkout_notify_t, offset: int): c_git_checkout_notify_t = cast[c_git_checkout_notify_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_checkout_notify_t): cint = cast[c_git_checkout_notify_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_checkout_notify_t): c_git_checkout_notify_t = cast[c_git_checkout_notify_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_checkout_notify_t, offset: int): cint = cast[c_git_checkout_notify_t](ord(arg) + offset)
+func `+`*(arg: c_git_checkout_notify_t, offset: int): c_git_checkout_notify_t = cast[c_git_checkout_notify_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_checkout_notify_t): cint = cast[c_git_checkout_notify_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_checkout_notify_t): c_git_checkout_notify_t = cast[c_git_checkout_notify_t](ord(arg) + offset)
 
 proc git_checkout_options_init*(opts: ptr git_checkout_options, version: cuint): cint {.importc: "git_checkout_options_init".}
 

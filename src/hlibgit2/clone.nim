@@ -1,12 +1,11 @@
 import "./types.nim"
-import "./remote.nim"
 import "./checkout.nim"
 
 type
   git_clone_options* {.bycopy.} = object
     version               *: cuint
     checkout_opts         *: git_checkout_options
-    fetch_opts            *: git_fetch_options
+    fetch_opts            *: git_clone_options_fetch_opts_field
     bare                  *: cint
     local                 *: git_clone_local_t
     checkout_branch       *: cstring
@@ -14,6 +13,9 @@ type
     repository_cb_payload *: pointer
     remote_cb             *: git_remote_create_cb
     remote_cb_payload     *: pointer
+
+  git_clone_options_fetch_opts_field* {.bycopy.} = object
+
 
   c_git_clone_local_t* {.size: sizeof(cint).} = enum
     c_GIT_CLONE_LOCAL_AUTO     = 0
@@ -59,13 +61,13 @@ converter toCInt*(args: set[git_clone_local_t]): cint =
       of GIT_CLONE_NO_LOCAL      : result = cint(result or 2)
       of GIT_CLONE_LOCAL_NO_LINKS: result = cint(result or 3)
 
-func `-`*(arg: c_git_clone_local_t, offset: int): cint = cast[c_git_clone_local_t](ord(arg) - offset)
+func `-`*(arg: c_git_clone_local_t, offset: int): c_git_clone_local_t = cast[c_git_clone_local_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_clone_local_t): cint = cast[c_git_clone_local_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_clone_local_t): c_git_clone_local_t = cast[c_git_clone_local_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_clone_local_t, offset: int): cint = cast[c_git_clone_local_t](ord(arg) + offset)
+func `+`*(arg: c_git_clone_local_t, offset: int): c_git_clone_local_t = cast[c_git_clone_local_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_clone_local_t): cint = cast[c_git_clone_local_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_clone_local_t): c_git_clone_local_t = cast[c_git_clone_local_t](ord(arg) + offset)
 
 proc git_clone_options_init*(opts: ptr git_clone_options, version: cuint): cint {.importc: "git_clone_options_init".}
 

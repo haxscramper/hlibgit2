@@ -44,13 +44,13 @@ converter toCInt*(args: set[git_path_gitfile]): cint =
       of GIT_PATH_GITFILE_GITMODULES   : result = cint(result or 1)
       of GIT_PATH_GITFILE_GITATTRIBUTES: result = cint(result or 2)
 
-func `-`*(arg: c_git_path_gitfile, offset: int): cint = cast[c_git_path_gitfile](ord(arg) - offset)
+func `-`*(arg: c_git_path_gitfile, offset: int): c_git_path_gitfile = cast[c_git_path_gitfile](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_path_gitfile): cint = cast[c_git_path_gitfile](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_path_gitfile): c_git_path_gitfile = cast[c_git_path_gitfile](ord(arg) - offset)
 
-func `+`*(arg: c_git_path_gitfile, offset: int): cint = cast[c_git_path_gitfile](ord(arg) + offset)
+func `+`*(arg: c_git_path_gitfile, offset: int): c_git_path_gitfile = cast[c_git_path_gitfile](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_path_gitfile): cint = cast[c_git_path_gitfile](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_path_gitfile): c_git_path_gitfile = cast[c_git_path_gitfile](ord(arg) + offset)
 
 converter to_git_path_fs*(arg: c_git_path_fs): git_path_fs =
   case arg:
@@ -75,13 +75,13 @@ converter toCInt*(args: set[git_path_fs]): cint =
       of GIT_PATH_FS_NTFS   : result = cint(result or 1)
       of GIT_PATH_FS_HFS    : result = cint(result or 2)
 
-func `-`*(arg: c_git_path_fs, offset: int): cint = cast[c_git_path_fs](ord(arg) - offset)
+func `-`*(arg: c_git_path_fs, offset: int): c_git_path_fs = cast[c_git_path_fs](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_path_fs): cint = cast[c_git_path_fs](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_path_fs): c_git_path_fs = cast[c_git_path_fs](ord(arg) - offset)
 
-func `+`*(arg: c_git_path_fs, offset: int): cint = cast[c_git_path_fs](ord(arg) + offset)
+func `+`*(arg: c_git_path_fs, offset: int): c_git_path_fs = cast[c_git_path_fs](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_path_fs): cint = cast[c_git_path_fs](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_path_fs): c_git_path_fs = cast[c_git_path_fs](ord(arg) + offset)
 
 proc git_path_is_gitfile*(
     path: cstring,

@@ -49,13 +49,13 @@ converter toCInt*(args: set[git_blob_filter_flag_t]): cint =
       of GIT_BLOB_FILTER_ATTRIBUTES_FROM_HEAD  : result = cint(result or 4)
       of GIT_BLOB_FILTER_ATTRIBUTES_FROM_COMMIT: result = cint(result or 8)
 
-func `-`*(arg: c_git_blob_filter_flag_t, offset: int): cint = cast[c_git_blob_filter_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_blob_filter_flag_t, offset: int): c_git_blob_filter_flag_t = cast[c_git_blob_filter_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_blob_filter_flag_t): cint = cast[c_git_blob_filter_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_blob_filter_flag_t): c_git_blob_filter_flag_t = cast[c_git_blob_filter_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_blob_filter_flag_t, offset: int): cint = cast[c_git_blob_filter_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_blob_filter_flag_t, offset: int): c_git_blob_filter_flag_t = cast[c_git_blob_filter_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_blob_filter_flag_t): cint = cast[c_git_blob_filter_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_blob_filter_flag_t): c_git_blob_filter_flag_t = cast[c_git_blob_filter_flag_t](ord(arg) + offset)
 
 proc git_blob_lookup*(
     blob: ptr ptr git_blob,

@@ -38,13 +38,13 @@ converter toCInt*(args: set[git_packbuilder_stage_t]): cint =
       of GIT_PACKBUILDER_ADDING_OBJECTS: result = cint(result or 0)
       of GIT_PACKBUILDER_DELTAFICATION : result = cint(result or 1)
 
-func `-`*(arg: c_git_packbuilder_stage_t, offset: int): cint = cast[c_git_packbuilder_stage_t](ord(arg) - offset)
+func `-`*(arg: c_git_packbuilder_stage_t, offset: int): c_git_packbuilder_stage_t = cast[c_git_packbuilder_stage_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_packbuilder_stage_t): cint = cast[c_git_packbuilder_stage_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_packbuilder_stage_t): c_git_packbuilder_stage_t = cast[c_git_packbuilder_stage_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_packbuilder_stage_t, offset: int): cint = cast[c_git_packbuilder_stage_t](ord(arg) + offset)
+func `+`*(arg: c_git_packbuilder_stage_t, offset: int): c_git_packbuilder_stage_t = cast[c_git_packbuilder_stage_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_packbuilder_stage_t): cint = cast[c_git_packbuilder_stage_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_packbuilder_stage_t): c_git_packbuilder_stage_t = cast[c_git_packbuilder_stage_t](ord(arg) + offset)
 
 proc git_packbuilder_new*(`out`: ptr ptr git_packbuilder, repo: ptr git_repository): cint {.importc: "git_packbuilder_new".}
 

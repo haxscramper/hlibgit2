@@ -85,13 +85,13 @@ converter toCInt*(args: set[git_blame_flag_t]): cint =
       of GIT_BLAME_USE_MAILMAP                    : result = cint(result or 32)
       of GIT_BLAME_IGNORE_WHITESPACE              : result = cint(result or 64)
 
-func `-`*(arg: c_git_blame_flag_t, offset: int): cint = cast[c_git_blame_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_blame_flag_t, offset: int): c_git_blame_flag_t = cast[c_git_blame_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_blame_flag_t): cint = cast[c_git_blame_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_blame_flag_t): c_git_blame_flag_t = cast[c_git_blame_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_blame_flag_t, offset: int): cint = cast[c_git_blame_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_blame_flag_t, offset: int): c_git_blame_flag_t = cast[c_git_blame_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_blame_flag_t): cint = cast[c_git_blame_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_blame_flag_t): c_git_blame_flag_t = cast[c_git_blame_flag_t](ord(arg) + offset)
 
 proc git_blame_options_init*(opts: ptr git_blame_options, version: cuint): cint {.importc: "git_blame_options_init".}
 

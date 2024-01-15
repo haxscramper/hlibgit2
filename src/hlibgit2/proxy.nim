@@ -45,12 +45,12 @@ converter toCInt*(args: set[git_proxy_t]): cint =
       of GIT_PROXY_AUTO     : result = cint(result or 1)
       of GIT_PROXY_SPECIFIED: result = cint(result or 2)
 
-func `-`*(arg: c_git_proxy_t, offset: int): cint = cast[c_git_proxy_t](ord(arg) - offset)
+func `-`*(arg: c_git_proxy_t, offset: int): c_git_proxy_t = cast[c_git_proxy_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_proxy_t): cint = cast[c_git_proxy_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_proxy_t): c_git_proxy_t = cast[c_git_proxy_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_proxy_t, offset: int): cint = cast[c_git_proxy_t](ord(arg) + offset)
+func `+`*(arg: c_git_proxy_t, offset: int): c_git_proxy_t = cast[c_git_proxy_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_proxy_t): cint = cast[c_git_proxy_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_proxy_t): c_git_proxy_t = cast[c_git_proxy_t](ord(arg) + offset)
 
 proc git_proxy_options_init*(opts: ptr git_proxy_options, version: cuint): cint {.importc: "git_proxy_options_init".}

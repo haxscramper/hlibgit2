@@ -318,10 +318,10 @@ converter toCInt*(args: set[git_diff_format_email_flags_t]): cint =
       of GIT_DIFF_FORMAT_EMAIL_NONE                        : result = cint(result or 0)
       of GIT_DIFF_FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER: result = cint(result or 1)
 
-func `-`*(arg: c_git_diff_format_email_flags_t, offset: int): cint = cast[c_git_diff_format_email_flags_t](ord(arg) - offset)
+func `-`*(arg: c_git_diff_format_email_flags_t, offset: int): c_git_diff_format_email_flags_t = cast[c_git_diff_format_email_flags_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_diff_format_email_flags_t): cint = cast[c_git_diff_format_email_flags_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_diff_format_email_flags_t): c_git_diff_format_email_flags_t = cast[c_git_diff_format_email_flags_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_diff_format_email_flags_t, offset: int): cint = cast[c_git_diff_format_email_flags_t](ord(arg) + offset)
+func `+`*(arg: c_git_diff_format_email_flags_t, offset: int): c_git_diff_format_email_flags_t = cast[c_git_diff_format_email_flags_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_diff_format_email_flags_t): cint = cast[c_git_diff_format_email_flags_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_diff_format_email_flags_t): c_git_diff_format_email_flags_t = cast[c_git_diff_format_email_flags_t](ord(arg) + offset)

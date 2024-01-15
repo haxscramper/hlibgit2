@@ -48,13 +48,13 @@ converter toCInt*(args: set[git_email_create_flags_t]): cint =
       of GIT_EMAIL_CREATE_ALWAYS_NUMBER: result = cint(result or 2)
       of GIT_EMAIL_CREATE_NO_RENAMES   : result = cint(result or 4)
 
-func `-`*(arg: c_git_email_create_flags_t, offset: int): cint = cast[c_git_email_create_flags_t](ord(arg) - offset)
+func `-`*(arg: c_git_email_create_flags_t, offset: int): c_git_email_create_flags_t = cast[c_git_email_create_flags_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_email_create_flags_t): cint = cast[c_git_email_create_flags_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_email_create_flags_t): c_git_email_create_flags_t = cast[c_git_email_create_flags_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_email_create_flags_t, offset: int): cint = cast[c_git_email_create_flags_t](ord(arg) + offset)
+func `+`*(arg: c_git_email_create_flags_t, offset: int): c_git_email_create_flags_t = cast[c_git_email_create_flags_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_email_create_flags_t): cint = cast[c_git_email_create_flags_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_email_create_flags_t): c_git_email_create_flags_t = cast[c_git_email_create_flags_t](ord(arg) + offset)
 
 proc git_email_create_from_diff*(
     `out`: ptr cint,

@@ -42,13 +42,13 @@ converter toCInt*(args: set[git_hashsig_option_t]): cint =
       of GIT_HASHSIG_SMART_WHITESPACE : result = cint(result or 2)
       of GIT_HASHSIG_ALLOW_SMALL_FILES: result = cint(result or 4)
 
-func `-`*(arg: c_git_hashsig_option_t, offset: int): cint = cast[c_git_hashsig_option_t](ord(arg) - offset)
+func `-`*(arg: c_git_hashsig_option_t, offset: int): c_git_hashsig_option_t = cast[c_git_hashsig_option_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_hashsig_option_t): cint = cast[c_git_hashsig_option_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_hashsig_option_t): c_git_hashsig_option_t = cast[c_git_hashsig_option_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_hashsig_option_t, offset: int): cint = cast[c_git_hashsig_option_t](ord(arg) + offset)
+func `+`*(arg: c_git_hashsig_option_t, offset: int): c_git_hashsig_option_t = cast[c_git_hashsig_option_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_hashsig_option_t): cint = cast[c_git_hashsig_option_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_hashsig_option_t): c_git_hashsig_option_t = cast[c_git_hashsig_option_t](ord(arg) + offset)
 
 proc git_hashsig_create*(
     `out`: ptr ptr git_hashsig,

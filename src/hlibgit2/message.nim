@@ -8,7 +8,7 @@ type
   git_message_trailer_array* {.bycopy.} = object
     trailers      *: ptr git_message_trailer
     count         *: csize_t
-    trailer_block *: ptr char
+    trailer_block * {.importc: "_trailer_block".}: ptr char
 
 
 

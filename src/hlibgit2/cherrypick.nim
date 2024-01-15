@@ -6,8 +6,11 @@ type
   git_cherrypick_options* {.bycopy.} = object
     version       *: cuint
     mainline      *: cuint
-    merge_opts    *: git_merge_options
+    merge_opts    *: git_cherrypick_options_merge_opts_field
     checkout_opts *: git_checkout_options
+
+  git_cherrypick_options_merge_opts_field* {.bycopy.} = object
+
 
 
 

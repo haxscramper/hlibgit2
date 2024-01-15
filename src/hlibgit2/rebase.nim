@@ -1,6 +1,5 @@
 import "./commit.nim"
 import "./types.nim"
-import "./merge.nim"
 import "./checkout.nim"
 import "./oid.nim"
 import "./buffer.nim"
@@ -11,11 +10,14 @@ type
     quiet             *: cint
     inmemory          *: cint
     rewrite_notes_ref *: cstring
-    merge_options     *: git_merge_options
+    merge_options     *: git_rebase_options_merge_options_field
     checkout_options  *: git_checkout_options
     commit_create_cb  *: git_commit_create_cb
     signing_cb        *: proc (a0: ptr git_buf, a1: ptr git_buf, a2: cstring, a3: pointer): cint
     payload           *: pointer
+
+  git_rebase_options_merge_options_field* {.bycopy.} = object
+
 
   git_rebase_operation* {.bycopy.} = object
     `type` *: git_rebase_operation_t
@@ -72,13 +74,13 @@ converter toCInt*(args: set[git_rebase_operation_t]): cint =
       of GIT_REBASE_OPERATION_FIXUP : result = cint(result or 4)
       of GIT_REBASE_OPERATION_EXEC  : result = cint(result or 5)
 
-func `-`*(arg: c_git_rebase_operation_t, offset: int): cint = cast[c_git_rebase_operation_t](ord(arg) - offset)
+func `-`*(arg: c_git_rebase_operation_t, offset: int): c_git_rebase_operation_t = cast[c_git_rebase_operation_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_rebase_operation_t): cint = cast[c_git_rebase_operation_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_rebase_operation_t): c_git_rebase_operation_t = cast[c_git_rebase_operation_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_rebase_operation_t, offset: int): cint = cast[c_git_rebase_operation_t](ord(arg) + offset)
+func `+`*(arg: c_git_rebase_operation_t, offset: int): c_git_rebase_operation_t = cast[c_git_rebase_operation_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_rebase_operation_t): cint = cast[c_git_rebase_operation_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_rebase_operation_t): c_git_rebase_operation_t = cast[c_git_rebase_operation_t](ord(arg) + offset)
 
 proc git_rebase_options_init*(opts: ptr git_rebase_options, version: cuint): cint {.importc: "git_rebase_options_init".}
 

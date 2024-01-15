@@ -100,13 +100,13 @@ converter toCInt*(args: set[git_attr_value_t]): cint =
       of GIT_ATTR_VALUE_FALSE      : result = cint(result or 2)
       of GIT_ATTR_VALUE_STRING     : result = cint(result or 3)
 
-func `-`*(arg: c_git_attr_value_t, offset: int): cint = cast[c_git_attr_value_t](ord(arg) - offset)
+func `-`*(arg: c_git_attr_value_t, offset: int): c_git_attr_value_t = cast[c_git_attr_value_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_attr_value_t): cint = cast[c_git_attr_value_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_attr_value_t): c_git_attr_value_t = cast[c_git_attr_value_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_attr_value_t, offset: int): cint = cast[c_git_attr_value_t](ord(arg) + offset)
+func `+`*(arg: c_git_attr_value_t, offset: int): c_git_attr_value_t = cast[c_git_attr_value_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_attr_value_t): cint = cast[c_git_attr_value_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_attr_value_t): c_git_attr_value_t = cast[c_git_attr_value_t](ord(arg) + offset)
 
 proc git_attr_value*(attr: cstring): git_attr_value_t {.importc: "git_attr_value".}
 

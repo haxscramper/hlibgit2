@@ -154,13 +154,13 @@ converter toCInt*(args: set[git_status_t]): cint =
       of GIT_STATUS_IGNORED         : result = cint(result or 16384)
       of GIT_STATUS_CONFLICTED      : result = cint(result or 32768)
 
-func `-`*(arg: c_git_status_t, offset: int): cint = cast[c_git_status_t](ord(arg) - offset)
+func `-`*(arg: c_git_status_t, offset: int): c_git_status_t = cast[c_git_status_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_status_t): cint = cast[c_git_status_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_status_t): c_git_status_t = cast[c_git_status_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_status_t, offset: int): cint = cast[c_git_status_t](ord(arg) + offset)
+func `+`*(arg: c_git_status_t, offset: int): c_git_status_t = cast[c_git_status_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_status_t): cint = cast[c_git_status_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_status_t): c_git_status_t = cast[c_git_status_t](ord(arg) + offset)
 
 converter to_git_status_show_t*(arg: c_git_status_show_t): git_status_show_t =
   case arg:
@@ -185,13 +185,13 @@ converter toCInt*(args: set[git_status_show_t]): cint =
       of GIT_STATUS_SHOW_INDEX_ONLY       : result = cint(result or 1)
       of GIT_STATUS_SHOW_WORKDIR_ONLY     : result = cint(result or 2)
 
-func `-`*(arg: c_git_status_show_t, offset: int): cint = cast[c_git_status_show_t](ord(arg) - offset)
+func `-`*(arg: c_git_status_show_t, offset: int): c_git_status_show_t = cast[c_git_status_show_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_status_show_t): cint = cast[c_git_status_show_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_status_show_t): c_git_status_show_t = cast[c_git_status_show_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_status_show_t, offset: int): cint = cast[c_git_status_show_t](ord(arg) + offset)
+func `+`*(arg: c_git_status_show_t, offset: int): c_git_status_show_t = cast[c_git_status_show_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_status_show_t): cint = cast[c_git_status_show_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_status_show_t): c_git_status_show_t = cast[c_git_status_show_t](ord(arg) + offset)
 
 converter to_git_status_opt_t*(arg: c_git_status_opt_t): git_status_opt_t =
   case arg:
@@ -255,13 +255,13 @@ converter toCInt*(args: set[git_status_opt_t]): cint =
       of GIT_STATUS_OPT_INCLUDE_UNREADABLE             : result = cint(result or 16384)
       of GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED: result = cint(result or 32768)
 
-func `-`*(arg: c_git_status_opt_t, offset: int): cint = cast[c_git_status_opt_t](ord(arg) - offset)
+func `-`*(arg: c_git_status_opt_t, offset: int): c_git_status_opt_t = cast[c_git_status_opt_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_status_opt_t): cint = cast[c_git_status_opt_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_status_opt_t): c_git_status_opt_t = cast[c_git_status_opt_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_status_opt_t, offset: int): cint = cast[c_git_status_opt_t](ord(arg) + offset)
+func `+`*(arg: c_git_status_opt_t, offset: int): c_git_status_opt_t = cast[c_git_status_opt_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_status_opt_t): cint = cast[c_git_status_opt_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_status_opt_t): c_git_status_opt_t = cast[c_git_status_opt_t](ord(arg) + offset)
 
 proc git_status_options_init*(opts: ptr git_status_options, version: cuint): cint {.importc: "git_status_options_init".}
 

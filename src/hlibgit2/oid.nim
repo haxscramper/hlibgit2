@@ -30,13 +30,13 @@ converter toCInt*(args: set[git_oid_t]): cint =
     case value:
       of GIT_OID_SHA1: result = cint(result or 1)
 
-func `-`*(arg: c_git_oid_t, offset: int): cint = cast[c_git_oid_t](ord(arg) - offset)
+func `-`*(arg: c_git_oid_t, offset: int): c_git_oid_t = cast[c_git_oid_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_oid_t): cint = cast[c_git_oid_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_oid_t): c_git_oid_t = cast[c_git_oid_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_oid_t, offset: int): cint = cast[c_git_oid_t](ord(arg) + offset)
+func `+`*(arg: c_git_oid_t, offset: int): c_git_oid_t = cast[c_git_oid_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_oid_t): cint = cast[c_git_oid_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_oid_t): c_git_oid_t = cast[c_git_oid_t](ord(arg) + offset)
 
 proc git_oid_fromstr*(`out`: ptr git_oid, str: cstring): cint {.importc: "git_oid_fromstr".}
 

@@ -8,8 +8,8 @@ type
     nanoseconds *: uint32
 
   git_index_entry* {.bycopy.} = object
-    ctime          *: git_index_time
-    mtime          *: git_index_time
+    ctime          *: git_index_entry_ctime_field
+    mtime          *: git_index_entry_mtime_field
     dev            *: uint32
     ino            *: uint32
     mode           *: uint32
@@ -20,6 +20,14 @@ type
     flags          *: uint16
     flags_extended *: uint16
     path           *: cstring
+
+  git_index_entry_ctime_field* {.bycopy.} = object
+    seconds     *: int32
+    nanoseconds *: uint32
+
+  git_index_entry_mtime_field* {.bycopy.} = object
+    seconds     *: int32
+    nanoseconds *: uint32
 
   c_git_index_entry_flag_t* {.size: sizeof(cint).} = enum
     c_GIT_INDEX_ENTRY_EXTENDED = 1 shl 14
@@ -105,13 +113,13 @@ converter toCInt*(args: set[git_index_entry_flag_t]): cint =
       of GIT_INDEX_ENTRY_EXTENDED: result = cint(result or 16384)
       of GIT_INDEX_ENTRY_VALID   : result = cint(result or 32768)
 
-func `-`*(arg: c_git_index_entry_flag_t, offset: int): cint = cast[c_git_index_entry_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_index_entry_flag_t, offset: int): c_git_index_entry_flag_t = cast[c_git_index_entry_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_index_entry_flag_t): cint = cast[c_git_index_entry_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_index_entry_flag_t): c_git_index_entry_flag_t = cast[c_git_index_entry_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_index_entry_flag_t, offset: int): cint = cast[c_git_index_entry_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_index_entry_flag_t, offset: int): c_git_index_entry_flag_t = cast[c_git_index_entry_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_index_entry_flag_t): cint = cast[c_git_index_entry_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_index_entry_flag_t): c_git_index_entry_flag_t = cast[c_git_index_entry_flag_t](ord(arg) + offset)
 
 converter to_git_index_entry_extended_flag_t*(arg: c_git_index_entry_extended_flag_t): git_index_entry_extended_flag_t =
   case arg:
@@ -139,13 +147,13 @@ converter toCInt*(args: set[git_index_entry_extended_flag_t]): cint =
       of GIT_INDEX_ENTRY_SKIP_WORKTREE : result = cint(result or 16384)
       of GIT_INDEX_ENTRY_EXTENDED_FLAGS: result = cint(result or 24576)
 
-func `-`*(arg: c_git_index_entry_extended_flag_t, offset: int): cint = cast[c_git_index_entry_extended_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_index_entry_extended_flag_t, offset: int): c_git_index_entry_extended_flag_t = cast[c_git_index_entry_extended_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_index_entry_extended_flag_t): cint = cast[c_git_index_entry_extended_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_index_entry_extended_flag_t): c_git_index_entry_extended_flag_t = cast[c_git_index_entry_extended_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_index_entry_extended_flag_t, offset: int): cint = cast[c_git_index_entry_extended_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_index_entry_extended_flag_t, offset: int): c_git_index_entry_extended_flag_t = cast[c_git_index_entry_extended_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_index_entry_extended_flag_t): cint = cast[c_git_index_entry_extended_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_index_entry_extended_flag_t): c_git_index_entry_extended_flag_t = cast[c_git_index_entry_extended_flag_t](ord(arg) + offset)
 
 converter to_git_index_capability_t*(arg: c_git_index_capability_t): git_index_capability_t =
   case arg:
@@ -173,13 +181,13 @@ converter toCInt*(args: set[git_index_capability_t]): cint =
       of GIT_INDEX_CAPABILITY_NO_FILEMODE: result = cint(result or 2)
       of GIT_INDEX_CAPABILITY_NO_SYMLINKS: result = cint(result or 4)
 
-func `-`*(arg: c_git_index_capability_t, offset: int): cint = cast[c_git_index_capability_t](ord(arg) - offset)
+func `-`*(arg: c_git_index_capability_t, offset: int): c_git_index_capability_t = cast[c_git_index_capability_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_index_capability_t): cint = cast[c_git_index_capability_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_index_capability_t): c_git_index_capability_t = cast[c_git_index_capability_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_index_capability_t, offset: int): cint = cast[c_git_index_capability_t](ord(arg) + offset)
+func `+`*(arg: c_git_index_capability_t, offset: int): c_git_index_capability_t = cast[c_git_index_capability_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_index_capability_t): cint = cast[c_git_index_capability_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_index_capability_t): c_git_index_capability_t = cast[c_git_index_capability_t](ord(arg) + offset)
 
 converter to_git_index_add_option_t*(arg: c_git_index_add_option_t): git_index_add_option_t =
   case arg:
@@ -207,13 +215,13 @@ converter toCInt*(args: set[git_index_add_option_t]): cint =
       of GIT_INDEX_ADD_DISABLE_PATHSPEC_MATCH: result = cint(result or 2)
       of GIT_INDEX_ADD_CHECK_PATHSPEC        : result = cint(result or 4)
 
-func `-`*(arg: c_git_index_add_option_t, offset: int): cint = cast[c_git_index_add_option_t](ord(arg) - offset)
+func `-`*(arg: c_git_index_add_option_t, offset: int): c_git_index_add_option_t = cast[c_git_index_add_option_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_index_add_option_t): cint = cast[c_git_index_add_option_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_index_add_option_t): c_git_index_add_option_t = cast[c_git_index_add_option_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_index_add_option_t, offset: int): cint = cast[c_git_index_add_option_t](ord(arg) + offset)
+func `+`*(arg: c_git_index_add_option_t, offset: int): c_git_index_add_option_t = cast[c_git_index_add_option_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_index_add_option_t): cint = cast[c_git_index_add_option_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_index_add_option_t): c_git_index_add_option_t = cast[c_git_index_add_option_t](ord(arg) + offset)
 
 converter to_git_index_stage_t*(arg: c_git_index_stage_t): git_index_stage_t =
   case arg:
@@ -244,13 +252,13 @@ converter toCInt*(args: set[git_index_stage_t]): cint =
       of GIT_INDEX_STAGE_OURS    : result = cint(result or 2)
       of GIT_INDEX_STAGE_THEIRS  : result = cint(result or 3)
 
-func `-`*(arg: c_git_index_stage_t, offset: int): cint = cast[c_git_index_stage_t](ord(arg) - offset)
+func `-`*(arg: c_git_index_stage_t, offset: int): c_git_index_stage_t = cast[c_git_index_stage_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_index_stage_t): cint = cast[c_git_index_stage_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_index_stage_t): c_git_index_stage_t = cast[c_git_index_stage_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_index_stage_t, offset: int): cint = cast[c_git_index_stage_t](ord(arg) + offset)
+func `+`*(arg: c_git_index_stage_t, offset: int): c_git_index_stage_t = cast[c_git_index_stage_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_index_stage_t): cint = cast[c_git_index_stage_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_index_stage_t): c_git_index_stage_t = cast[c_git_index_stage_t](ord(arg) + offset)
 
 proc git_index_open*(`out`: ptr ptr git_index, index_path: cstring): cint {.importc: "git_index_open".}
 

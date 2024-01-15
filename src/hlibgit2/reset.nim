@@ -44,13 +44,13 @@ converter toCInt*(args: set[git_reset_t]): cint =
       of GIT_RESET_MIXED: result = cint(result or 2)
       of GIT_RESET_HARD : result = cint(result or 3)
 
-func `-`*(arg: c_git_reset_t, offset: int): cint = cast[c_git_reset_t](ord(arg) - offset)
+func `-`*(arg: c_git_reset_t, offset: int): c_git_reset_t = cast[c_git_reset_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_reset_t): cint = cast[c_git_reset_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_reset_t): c_git_reset_t = cast[c_git_reset_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_reset_t, offset: int): cint = cast[c_git_reset_t](ord(arg) + offset)
+func `+`*(arg: c_git_reset_t, offset: int): c_git_reset_t = cast[c_git_reset_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_reset_t): cint = cast[c_git_reset_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_reset_t): c_git_reset_t = cast[c_git_reset_t](ord(arg) + offset)
 
 proc git_reset*(
     repo: ptr git_repository,

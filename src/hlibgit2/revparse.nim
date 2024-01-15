@@ -41,13 +41,13 @@ converter toCInt*(args: set[git_revspec_t]): cint =
       of GIT_REVSPEC_RANGE     : result = cint(result or 2)
       of GIT_REVSPEC_MERGE_BASE: result = cint(result or 4)
 
-func `-`*(arg: c_git_revspec_t, offset: int): cint = cast[c_git_revspec_t](ord(arg) - offset)
+func `-`*(arg: c_git_revspec_t, offset: int): c_git_revspec_t = cast[c_git_revspec_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_revspec_t): cint = cast[c_git_revspec_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_revspec_t): c_git_revspec_t = cast[c_git_revspec_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_revspec_t, offset: int): cint = cast[c_git_revspec_t](ord(arg) + offset)
+func `+`*(arg: c_git_revspec_t, offset: int): c_git_revspec_t = cast[c_git_revspec_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_revspec_t): cint = cast[c_git_revspec_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_revspec_t): c_git_revspec_t = cast[c_git_revspec_t](ord(arg) + offset)
 
 proc git_revparse_single*(
     `out`: ptr ptr git_object,

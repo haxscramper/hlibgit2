@@ -50,13 +50,13 @@ converter toCInt*(args: set[git_treewalk_mode]): cint =
       of GIT_TREEWALK_PRE : result = cint(result or 0)
       of GIT_TREEWALK_POST: result = cint(result or 1)
 
-func `-`*(arg: c_git_treewalk_mode, offset: int): cint = cast[c_git_treewalk_mode](ord(arg) - offset)
+func `-`*(arg: c_git_treewalk_mode, offset: int): c_git_treewalk_mode = cast[c_git_treewalk_mode](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_treewalk_mode): cint = cast[c_git_treewalk_mode](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_treewalk_mode): c_git_treewalk_mode = cast[c_git_treewalk_mode](ord(arg) - offset)
 
-func `+`*(arg: c_git_treewalk_mode, offset: int): cint = cast[c_git_treewalk_mode](ord(arg) + offset)
+func `+`*(arg: c_git_treewalk_mode, offset: int): c_git_treewalk_mode = cast[c_git_treewalk_mode](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_treewalk_mode): cint = cast[c_git_treewalk_mode](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_treewalk_mode): c_git_treewalk_mode = cast[c_git_treewalk_mode](ord(arg) + offset)
 
 converter to_git_tree_update_t*(arg: c_git_tree_update_t): git_tree_update_t =
   case arg:
@@ -78,13 +78,13 @@ converter toCInt*(args: set[git_tree_update_t]): cint =
       of GIT_TREE_UPDATE_UPSERT: result = cint(result or 0)
       of GIT_TREE_UPDATE_REMOVE: result = cint(result or 1)
 
-func `-`*(arg: c_git_tree_update_t, offset: int): cint = cast[c_git_tree_update_t](ord(arg) - offset)
+func `-`*(arg: c_git_tree_update_t, offset: int): c_git_tree_update_t = cast[c_git_tree_update_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_tree_update_t): cint = cast[c_git_tree_update_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_tree_update_t): c_git_tree_update_t = cast[c_git_tree_update_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_tree_update_t, offset: int): cint = cast[c_git_tree_update_t](ord(arg) + offset)
+func `+`*(arg: c_git_tree_update_t, offset: int): c_git_tree_update_t = cast[c_git_tree_update_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_tree_update_t): cint = cast[c_git_tree_update_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_tree_update_t): c_git_tree_update_t = cast[c_git_tree_update_t](ord(arg) + offset)
 
 proc git_tree_lookup*(
     `out`: ptr ptr git_tree,

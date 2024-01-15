@@ -30,25 +30,34 @@ type
     prune            *: git_fetch_prune_t
     update_flags     *: cuint
     download_tags    *: git_remote_autotag_option_t
-    proxy_opts       *: git_proxy_options
+    proxy_opts       *: git_fetch_options_proxy_opts_field
     depth            *: cint
     follow_redirects *: git_remote_redirect_t
     custom_headers   *: git_strarray
+
+  git_fetch_options_proxy_opts_field* {.bycopy.} = object
+
 
   git_push_options* {.bycopy.} = object
     version          *: cuint
     pb_parallelism   *: cuint
     callbacks        *: git_remote_callbacks
-    proxy_opts       *: git_proxy_options
+    proxy_opts       *: git_push_options_proxy_opts_field
     follow_redirects *: git_remote_redirect_t
     custom_headers   *: git_strarray
+
+  git_push_options_proxy_opts_field* {.bycopy.} = object
+
 
   git_remote_connect_options* {.bycopy.} = object
     version          *: cuint
     callbacks        *: git_remote_callbacks
-    proxy_opts       *: git_proxy_options
+    proxy_opts       *: git_remote_connect_options_proxy_opts_field
     follow_redirects *: git_remote_redirect_t
     custom_headers   *: git_strarray
+
+  git_remote_connect_options_proxy_opts_field* {.bycopy.} = object
+
 
   c_git_remote_redirect_t* {.size: sizeof(cint).} = enum
     c_GIT_REMOTE_REDIRECT_NONE    = 1 shl 0
@@ -224,13 +233,13 @@ converter toCInt*(args: set[git_remote_redirect_t]): cint =
       of GIT_REMOTE_REDIRECT_INITIAL: result = cint(result or 2)
       of GIT_REMOTE_REDIRECT_ALL    : result = cint(result or 4)
 
-func `-`*(arg: c_git_remote_redirect_t, offset: int): cint = cast[c_git_remote_redirect_t](ord(arg) - offset)
+func `-`*(arg: c_git_remote_redirect_t, offset: int): c_git_remote_redirect_t = cast[c_git_remote_redirect_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_remote_redirect_t): cint = cast[c_git_remote_redirect_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_remote_redirect_t): c_git_remote_redirect_t = cast[c_git_remote_redirect_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_remote_redirect_t, offset: int): cint = cast[c_git_remote_redirect_t](ord(arg) + offset)
+func `+`*(arg: c_git_remote_redirect_t, offset: int): c_git_remote_redirect_t = cast[c_git_remote_redirect_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_remote_redirect_t): cint = cast[c_git_remote_redirect_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_remote_redirect_t): c_git_remote_redirect_t = cast[c_git_remote_redirect_t](ord(arg) + offset)
 
 converter to_git_remote_create_flags*(arg: c_git_remote_create_flags): git_remote_create_flags =
   case arg:
@@ -252,13 +261,13 @@ converter toCInt*(args: set[git_remote_create_flags]): cint =
       of GIT_REMOTE_CREATE_SKIP_INSTEADOF        : result = cint(result or 1)
       of GIT_REMOTE_CREATE_SKIP_DEFAULT_FETCHSPEC: result = cint(result or 2)
 
-func `-`*(arg: c_git_remote_create_flags, offset: int): cint = cast[c_git_remote_create_flags](ord(arg) - offset)
+func `-`*(arg: c_git_remote_create_flags, offset: int): c_git_remote_create_flags = cast[c_git_remote_create_flags](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_remote_create_flags): cint = cast[c_git_remote_create_flags](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_remote_create_flags): c_git_remote_create_flags = cast[c_git_remote_create_flags](ord(arg) - offset)
 
-func `+`*(arg: c_git_remote_create_flags, offset: int): cint = cast[c_git_remote_create_flags](ord(arg) + offset)
+func `+`*(arg: c_git_remote_create_flags, offset: int): c_git_remote_create_flags = cast[c_git_remote_create_flags](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_remote_create_flags): cint = cast[c_git_remote_create_flags](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_remote_create_flags): c_git_remote_create_flags = cast[c_git_remote_create_flags](ord(arg) + offset)
 
 converter to_git_remote_update_flags*(arg: c_git_remote_update_flags): git_remote_update_flags =
   case arg:
@@ -280,13 +289,13 @@ converter toCInt*(args: set[git_remote_update_flags]): cint =
       of GIT_REMOTE_UPDATE_FETCHHEAD       : result = cint(result or 1)
       of GIT_REMOTE_UPDATE_REPORT_UNCHANGED: result = cint(result or 2)
 
-func `-`*(arg: c_git_remote_update_flags, offset: int): cint = cast[c_git_remote_update_flags](ord(arg) - offset)
+func `-`*(arg: c_git_remote_update_flags, offset: int): c_git_remote_update_flags = cast[c_git_remote_update_flags](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_remote_update_flags): cint = cast[c_git_remote_update_flags](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_remote_update_flags): c_git_remote_update_flags = cast[c_git_remote_update_flags](ord(arg) - offset)
 
-func `+`*(arg: c_git_remote_update_flags, offset: int): cint = cast[c_git_remote_update_flags](ord(arg) + offset)
+func `+`*(arg: c_git_remote_update_flags, offset: int): c_git_remote_update_flags = cast[c_git_remote_update_flags](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_remote_update_flags): cint = cast[c_git_remote_update_flags](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_remote_update_flags): c_git_remote_update_flags = cast[c_git_remote_update_flags](ord(arg) + offset)
 
 converter to_git_remote_completion_t*(arg: c_git_remote_completion_t): git_remote_completion_t =
   case arg:
@@ -311,13 +320,13 @@ converter toCInt*(args: set[git_remote_completion_t]): cint =
       of GIT_REMOTE_COMPLETION_INDEXING: result = cint(result or 1)
       of GIT_REMOTE_COMPLETION_ERROR   : result = cint(result or 2)
 
-func `-`*(arg: c_git_remote_completion_t, offset: int): cint = cast[c_git_remote_completion_t](ord(arg) - offset)
+func `-`*(arg: c_git_remote_completion_t, offset: int): c_git_remote_completion_t = cast[c_git_remote_completion_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_remote_completion_t): cint = cast[c_git_remote_completion_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_remote_completion_t): c_git_remote_completion_t = cast[c_git_remote_completion_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_remote_completion_t, offset: int): cint = cast[c_git_remote_completion_t](ord(arg) + offset)
+func `+`*(arg: c_git_remote_completion_t, offset: int): c_git_remote_completion_t = cast[c_git_remote_completion_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_remote_completion_t): cint = cast[c_git_remote_completion_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_remote_completion_t): c_git_remote_completion_t = cast[c_git_remote_completion_t](ord(arg) + offset)
 
 converter to_git_fetch_prune_t*(arg: c_git_fetch_prune_t): git_fetch_prune_t =
   case arg:
@@ -342,13 +351,13 @@ converter toCInt*(args: set[git_fetch_prune_t]): cint =
       of GIT_FETCH_PRUNE            : result = cint(result or 1)
       of GIT_FETCH_NO_PRUNE         : result = cint(result or 2)
 
-func `-`*(arg: c_git_fetch_prune_t, offset: int): cint = cast[c_git_fetch_prune_t](ord(arg) - offset)
+func `-`*(arg: c_git_fetch_prune_t, offset: int): c_git_fetch_prune_t = cast[c_git_fetch_prune_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_fetch_prune_t): cint = cast[c_git_fetch_prune_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_fetch_prune_t): c_git_fetch_prune_t = cast[c_git_fetch_prune_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_fetch_prune_t, offset: int): cint = cast[c_git_fetch_prune_t](ord(arg) + offset)
+func `+`*(arg: c_git_fetch_prune_t, offset: int): c_git_fetch_prune_t = cast[c_git_fetch_prune_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_fetch_prune_t): cint = cast[c_git_fetch_prune_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_fetch_prune_t): c_git_fetch_prune_t = cast[c_git_fetch_prune_t](ord(arg) + offset)
 
 converter to_git_remote_autotag_option_t*(arg: c_git_remote_autotag_option_t): git_remote_autotag_option_t =
   case arg:
@@ -376,13 +385,13 @@ converter toCInt*(args: set[git_remote_autotag_option_t]): cint =
       of GIT_REMOTE_DOWNLOAD_TAGS_NONE       : result = cint(result or 2)
       of GIT_REMOTE_DOWNLOAD_TAGS_ALL        : result = cint(result or 3)
 
-func `-`*(arg: c_git_remote_autotag_option_t, offset: int): cint = cast[c_git_remote_autotag_option_t](ord(arg) - offset)
+func `-`*(arg: c_git_remote_autotag_option_t, offset: int): c_git_remote_autotag_option_t = cast[c_git_remote_autotag_option_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_remote_autotag_option_t): cint = cast[c_git_remote_autotag_option_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_remote_autotag_option_t): c_git_remote_autotag_option_t = cast[c_git_remote_autotag_option_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_remote_autotag_option_t, offset: int): cint = cast[c_git_remote_autotag_option_t](ord(arg) + offset)
+func `+`*(arg: c_git_remote_autotag_option_t, offset: int): c_git_remote_autotag_option_t = cast[c_git_remote_autotag_option_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_remote_autotag_option_t): cint = cast[c_git_remote_autotag_option_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_remote_autotag_option_t): c_git_remote_autotag_option_t = cast[c_git_remote_autotag_option_t](ord(arg) + offset)
 
 converter to_git_fetch_depth_t*(arg: c_git_fetch_depth_t): git_fetch_depth_t =
   case arg:
@@ -404,13 +413,13 @@ converter toCInt*(args: set[git_fetch_depth_t]): cint =
       of GIT_FETCH_DEPTH_FULL     : result = cint(result or 0)
       of GIT_FETCH_DEPTH_UNSHALLOW: result = cint(result or 2147483647)
 
-func `-`*(arg: c_git_fetch_depth_t, offset: int): cint = cast[c_git_fetch_depth_t](ord(arg) - offset)
+func `-`*(arg: c_git_fetch_depth_t, offset: int): c_git_fetch_depth_t = cast[c_git_fetch_depth_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_fetch_depth_t): cint = cast[c_git_fetch_depth_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_fetch_depth_t): c_git_fetch_depth_t = cast[c_git_fetch_depth_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_fetch_depth_t, offset: int): cint = cast[c_git_fetch_depth_t](ord(arg) + offset)
+func `+`*(arg: c_git_fetch_depth_t, offset: int): c_git_fetch_depth_t = cast[c_git_fetch_depth_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_fetch_depth_t): cint = cast[c_git_fetch_depth_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_fetch_depth_t): c_git_fetch_depth_t = cast[c_git_fetch_depth_t](ord(arg) + offset)
 
 proc git_remote_create*(
     `out`: ptr ptr git_remote,
@@ -619,13 +628,13 @@ converter toCInt*(args: set[git_smart_service_t]): cint =
       of GIT_SERVICE_RECEIVEPACK_LS: result = cint(result or 3)
       of GIT_SERVICE_RECEIVEPACK   : result = cint(result or 4)
 
-func `-`*(arg: c_git_smart_service_t, offset: int): cint = cast[c_git_smart_service_t](ord(arg) - offset)
+func `-`*(arg: c_git_smart_service_t, offset: int): c_git_smart_service_t = cast[c_git_smart_service_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_smart_service_t): cint = cast[c_git_smart_service_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_smart_service_t): c_git_smart_service_t = cast[c_git_smart_service_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_smart_service_t, offset: int): cint = cast[c_git_smart_service_t](ord(arg) + offset)
+func `+`*(arg: c_git_smart_service_t, offset: int): c_git_smart_service_t = cast[c_git_smart_service_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_smart_service_t): cint = cast[c_git_smart_service_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_smart_service_t): c_git_smart_service_t = cast[c_git_smart_service_t](ord(arg) + offset)
 
 proc git_transport_init*(opts: ptr git_transport, version: cuint): cint {.importc: "git_transport_init".}
 

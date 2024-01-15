@@ -56,13 +56,13 @@ converter toCInt*(args: set[git_filter_mode_t]): cint =
       of GIT_FILTER_TO_WORKTREE: result = cint(result or 0)
       of GIT_FILTER_TO_ODB     : result = cint(result or 1)
 
-func `-`*(arg: c_git_filter_mode_t, offset: int): cint = cast[c_git_filter_mode_t](ord(arg) - offset)
+func `-`*(arg: c_git_filter_mode_t, offset: int): c_git_filter_mode_t = cast[c_git_filter_mode_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_filter_mode_t): cint = cast[c_git_filter_mode_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_filter_mode_t): c_git_filter_mode_t = cast[c_git_filter_mode_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_filter_mode_t, offset: int): cint = cast[c_git_filter_mode_t](ord(arg) + offset)
+func `+`*(arg: c_git_filter_mode_t, offset: int): c_git_filter_mode_t = cast[c_git_filter_mode_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_filter_mode_t): cint = cast[c_git_filter_mode_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_filter_mode_t): c_git_filter_mode_t = cast[c_git_filter_mode_t](ord(arg) + offset)
 
 converter to_git_filter_flag_t*(arg: c_git_filter_flag_t): git_filter_flag_t =
   case arg:
@@ -93,13 +93,13 @@ converter toCInt*(args: set[git_filter_flag_t]): cint =
       of GIT_FILTER_ATTRIBUTES_FROM_HEAD  : result = cint(result or 4)
       of GIT_FILTER_ATTRIBUTES_FROM_COMMIT: result = cint(result or 8)
 
-func `-`*(arg: c_git_filter_flag_t, offset: int): cint = cast[c_git_filter_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_filter_flag_t, offset: int): c_git_filter_flag_t = cast[c_git_filter_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_filter_flag_t): cint = cast[c_git_filter_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_filter_flag_t): c_git_filter_flag_t = cast[c_git_filter_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_filter_flag_t, offset: int): cint = cast[c_git_filter_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_filter_flag_t, offset: int): c_git_filter_flag_t = cast[c_git_filter_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_filter_flag_t): cint = cast[c_git_filter_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_filter_flag_t): c_git_filter_flag_t = cast[c_git_filter_flag_t](ord(arg) + offset)
 
 proc git_filter_list_load*(
     filters: ptr ptr git_filter_list,

@@ -57,10 +57,10 @@ converter toCInt*(args: set[git_stream_t]): cint =
       of GIT_STREAM_STANDARD: result = cint(result or 1)
       of GIT_STREAM_TLS     : result = cint(result or 2)
 
-func `-`*(arg: c_git_stream_t, offset: int): cint = cast[c_git_stream_t](ord(arg) - offset)
+func `-`*(arg: c_git_stream_t, offset: int): c_git_stream_t = cast[c_git_stream_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_stream_t): cint = cast[c_git_stream_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_stream_t): c_git_stream_t = cast[c_git_stream_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_stream_t, offset: int): cint = cast[c_git_stream_t](ord(arg) + offset)
+func `+`*(arg: c_git_stream_t, offset: int): c_git_stream_t = cast[c_git_stream_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_stream_t): cint = cast[c_git_stream_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_stream_t): c_git_stream_t = cast[c_git_stream_t](ord(arg) + offset)

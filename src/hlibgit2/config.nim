@@ -136,13 +136,13 @@ converter toCInt*(args: set[git_config_level_t]): cint =
       of GIT_CONFIG_LEVEL_LOCAL      : result = cint(result or 5)
       of GIT_CONFIG_LEVEL_APP        : result = cint(result or 6)
 
-func `-`*(arg: c_git_config_level_t, offset: int): cint = cast[c_git_config_level_t](ord(arg) - offset)
+func `-`*(arg: c_git_config_level_t, offset: int): c_git_config_level_t = cast[c_git_config_level_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_config_level_t): cint = cast[c_git_config_level_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_config_level_t): c_git_config_level_t = cast[c_git_config_level_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_config_level_t, offset: int): cint = cast[c_git_config_level_t](ord(arg) + offset)
+func `+`*(arg: c_git_config_level_t, offset: int): c_git_config_level_t = cast[c_git_config_level_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_config_level_t): cint = cast[c_git_config_level_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_config_level_t): c_git_config_level_t = cast[c_git_config_level_t](ord(arg) + offset)
 
 converter to_git_configmap_t*(arg: c_git_configmap_t): git_configmap_t =
   case arg:
@@ -170,13 +170,13 @@ converter toCInt*(args: set[git_configmap_t]): cint =
       of GIT_CONFIGMAP_INT32 : result = cint(result or 2)
       of GIT_CONFIGMAP_STRING: result = cint(result or 3)
 
-func `-`*(arg: c_git_configmap_t, offset: int): cint = cast[c_git_configmap_t](ord(arg) - offset)
+func `-`*(arg: c_git_configmap_t, offset: int): c_git_configmap_t = cast[c_git_configmap_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_configmap_t): cint = cast[c_git_configmap_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_configmap_t): c_git_configmap_t = cast[c_git_configmap_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_configmap_t, offset: int): cint = cast[c_git_configmap_t](ord(arg) + offset)
+func `+`*(arg: c_git_configmap_t, offset: int): c_git_configmap_t = cast[c_git_configmap_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_configmap_t): cint = cast[c_git_configmap_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_configmap_t): c_git_configmap_t = cast[c_git_configmap_t](ord(arg) + offset)
 
 proc git_config_entry_free*(entry: ptr git_config_entry): void {.importc: "git_config_entry_free".}
 

@@ -48,13 +48,13 @@ converter toCInt*(args: set[git_worktree_prune_t]): cint =
       of GIT_WORKTREE_PRUNE_LOCKED      : result = cint(result or 2)
       of GIT_WORKTREE_PRUNE_WORKING_TREE: result = cint(result or 4)
 
-func `-`*(arg: c_git_worktree_prune_t, offset: int): cint = cast[c_git_worktree_prune_t](ord(arg) - offset)
+func `-`*(arg: c_git_worktree_prune_t, offset: int): c_git_worktree_prune_t = cast[c_git_worktree_prune_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_worktree_prune_t): cint = cast[c_git_worktree_prune_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_worktree_prune_t): c_git_worktree_prune_t = cast[c_git_worktree_prune_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_worktree_prune_t, offset: int): cint = cast[c_git_worktree_prune_t](ord(arg) + offset)
+func `+`*(arg: c_git_worktree_prune_t, offset: int): c_git_worktree_prune_t = cast[c_git_worktree_prune_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_worktree_prune_t): cint = cast[c_git_worktree_prune_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_worktree_prune_t): c_git_worktree_prune_t = cast[c_git_worktree_prune_t](ord(arg) + offset)
 
 proc git_worktree_list*(`out`: ptr git_strarray, repo: ptr git_repository): cint {.importc: "git_worktree_list".}
 

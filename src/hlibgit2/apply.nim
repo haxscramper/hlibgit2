@@ -48,13 +48,13 @@ converter toCInt*(args: set[git_apply_flags_t]): cint =
     case value:
       of GIT_APPLY_CHECK: result = cint(result or 1)
 
-func `-`*(arg: c_git_apply_flags_t, offset: int): cint = cast[c_git_apply_flags_t](ord(arg) - offset)
+func `-`*(arg: c_git_apply_flags_t, offset: int): c_git_apply_flags_t = cast[c_git_apply_flags_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_apply_flags_t): cint = cast[c_git_apply_flags_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_apply_flags_t): c_git_apply_flags_t = cast[c_git_apply_flags_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_apply_flags_t, offset: int): cint = cast[c_git_apply_flags_t](ord(arg) + offset)
+func `+`*(arg: c_git_apply_flags_t, offset: int): c_git_apply_flags_t = cast[c_git_apply_flags_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_apply_flags_t): cint = cast[c_git_apply_flags_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_apply_flags_t): c_git_apply_flags_t = cast[c_git_apply_flags_t](ord(arg) + offset)
 
 converter to_git_apply_location_t*(arg: c_git_apply_location_t): git_apply_location_t =
   case arg:
@@ -79,13 +79,13 @@ converter toCInt*(args: set[git_apply_location_t]): cint =
       of GIT_APPLY_LOCATION_INDEX  : result = cint(result or 1)
       of GIT_APPLY_LOCATION_BOTH   : result = cint(result or 2)
 
-func `-`*(arg: c_git_apply_location_t, offset: int): cint = cast[c_git_apply_location_t](ord(arg) - offset)
+func `-`*(arg: c_git_apply_location_t, offset: int): c_git_apply_location_t = cast[c_git_apply_location_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_apply_location_t): cint = cast[c_git_apply_location_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_apply_location_t): c_git_apply_location_t = cast[c_git_apply_location_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_apply_location_t, offset: int): cint = cast[c_git_apply_location_t](ord(arg) + offset)
+func `+`*(arg: c_git_apply_location_t, offset: int): c_git_apply_location_t = cast[c_git_apply_location_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_apply_location_t): cint = cast[c_git_apply_location_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_apply_location_t): c_git_apply_location_t = cast[c_git_apply_location_t](ord(arg) + offset)
 
 proc git_apply_options_init*(opts: ptr git_apply_options, version: cuint): cint {.importc: "git_apply_options_init".}
 

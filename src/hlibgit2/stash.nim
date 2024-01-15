@@ -95,13 +95,13 @@ converter toCInt*(args: set[git_stash_flags]): cint =
       of GIT_STASH_INCLUDE_IGNORED  : result = cint(result or 4)
       of GIT_STASH_KEEP_ALL         : result = cint(result or 8)
 
-func `-`*(arg: c_git_stash_flags, offset: int): cint = cast[c_git_stash_flags](ord(arg) - offset)
+func `-`*(arg: c_git_stash_flags, offset: int): c_git_stash_flags = cast[c_git_stash_flags](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_stash_flags): cint = cast[c_git_stash_flags](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_stash_flags): c_git_stash_flags = cast[c_git_stash_flags](ord(arg) - offset)
 
-func `+`*(arg: c_git_stash_flags, offset: int): cint = cast[c_git_stash_flags](ord(arg) + offset)
+func `+`*(arg: c_git_stash_flags, offset: int): c_git_stash_flags = cast[c_git_stash_flags](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_stash_flags): cint = cast[c_git_stash_flags](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_stash_flags): c_git_stash_flags = cast[c_git_stash_flags](ord(arg) + offset)
 
 converter to_git_stash_apply_flags*(arg: c_git_stash_apply_flags): git_stash_apply_flags =
   case arg:
@@ -123,13 +123,13 @@ converter toCInt*(args: set[git_stash_apply_flags]): cint =
       of GIT_STASH_APPLY_DEFAULT        : result = cint(result or 0)
       of GIT_STASH_APPLY_REINSTATE_INDEX: result = cint(result or 1)
 
-func `-`*(arg: c_git_stash_apply_flags, offset: int): cint = cast[c_git_stash_apply_flags](ord(arg) - offset)
+func `-`*(arg: c_git_stash_apply_flags, offset: int): c_git_stash_apply_flags = cast[c_git_stash_apply_flags](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_stash_apply_flags): cint = cast[c_git_stash_apply_flags](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_stash_apply_flags): c_git_stash_apply_flags = cast[c_git_stash_apply_flags](ord(arg) - offset)
 
-func `+`*(arg: c_git_stash_apply_flags, offset: int): cint = cast[c_git_stash_apply_flags](ord(arg) + offset)
+func `+`*(arg: c_git_stash_apply_flags, offset: int): c_git_stash_apply_flags = cast[c_git_stash_apply_flags](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_stash_apply_flags): cint = cast[c_git_stash_apply_flags](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_stash_apply_flags): c_git_stash_apply_flags = cast[c_git_stash_apply_flags](ord(arg) + offset)
 
 converter to_git_stash_apply_progress_t*(arg: c_git_stash_apply_progress_t): git_stash_apply_progress_t =
   case arg:
@@ -169,13 +169,13 @@ converter toCInt*(args: set[git_stash_apply_progress_t]): cint =
       of GIT_STASH_APPLY_PROGRESS_CHECKOUT_MODIFIED : result = cint(result or 6)
       of GIT_STASH_APPLY_PROGRESS_DONE              : result = cint(result or 7)
 
-func `-`*(arg: c_git_stash_apply_progress_t, offset: int): cint = cast[c_git_stash_apply_progress_t](ord(arg) - offset)
+func `-`*(arg: c_git_stash_apply_progress_t, offset: int): c_git_stash_apply_progress_t = cast[c_git_stash_apply_progress_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_stash_apply_progress_t): cint = cast[c_git_stash_apply_progress_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_stash_apply_progress_t): c_git_stash_apply_progress_t = cast[c_git_stash_apply_progress_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_stash_apply_progress_t, offset: int): cint = cast[c_git_stash_apply_progress_t](ord(arg) + offset)
+func `+`*(arg: c_git_stash_apply_progress_t, offset: int): c_git_stash_apply_progress_t = cast[c_git_stash_apply_progress_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_stash_apply_progress_t): cint = cast[c_git_stash_apply_progress_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_stash_apply_progress_t): c_git_stash_apply_progress_t = cast[c_git_stash_apply_progress_t](ord(arg) + offset)
 
 proc git_stash_save*(
     `out`: ptr git_oid,

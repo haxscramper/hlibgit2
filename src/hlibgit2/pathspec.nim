@@ -70,13 +70,13 @@ converter toCInt*(args: set[git_pathspec_flag_t]): cint =
       of GIT_PATHSPEC_FIND_FAILURES : result = cint(result or 16)
       of GIT_PATHSPEC_FAILURES_ONLY : result = cint(result or 32)
 
-func `-`*(arg: c_git_pathspec_flag_t, offset: int): cint = cast[c_git_pathspec_flag_t](ord(arg) - offset)
+func `-`*(arg: c_git_pathspec_flag_t, offset: int): c_git_pathspec_flag_t = cast[c_git_pathspec_flag_t](ord(arg) - offset)
 
-func `-`*(offset: int, arg: c_git_pathspec_flag_t): cint = cast[c_git_pathspec_flag_t](ord(arg) - offset)
+func `-`*(offset: int, arg: c_git_pathspec_flag_t): c_git_pathspec_flag_t = cast[c_git_pathspec_flag_t](ord(arg) - offset)
 
-func `+`*(arg: c_git_pathspec_flag_t, offset: int): cint = cast[c_git_pathspec_flag_t](ord(arg) + offset)
+func `+`*(arg: c_git_pathspec_flag_t, offset: int): c_git_pathspec_flag_t = cast[c_git_pathspec_flag_t](ord(arg) + offset)
 
-func `+`*(offset: int, arg: c_git_pathspec_flag_t): cint = cast[c_git_pathspec_flag_t](ord(arg) + offset)
+func `+`*(offset: int, arg: c_git_pathspec_flag_t): c_git_pathspec_flag_t = cast[c_git_pathspec_flag_t](ord(arg) + offset)
 
 proc git_pathspec_new*(`out`: ptr ptr git_pathspec, pathspec: ptr git_strarray): cint {.importc: "git_pathspec_new".}
 
