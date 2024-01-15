@@ -1,4 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
 import "./types.nim"
 import "./oid.nim"
 proc git_transaction_new*(`out`: ptr ptr git_transaction, repo: ptr git_repository): cint {.importc: "git_transaction_new".}

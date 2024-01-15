@@ -1,4 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
 import "./types.nim"
 proc git_refdb_compress*(refdb: ptr git_refdb): cint {.importc: "git_refdb_compress".}
 

@@ -1,5 +1,3 @@
-import "../libgit2_config.nim" ## From gen file
-
 type
   git_allocator* {.importc, bycopy.} = object
     gmalloc  *: proc (a0: csize_t, a1: cstring, a2: cint): pointer

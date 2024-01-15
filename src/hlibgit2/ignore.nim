@@ -1,4 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
 import "./types.nim"
 proc git_ignore_add_rule*(repo: ptr git_repository, rules: cstring): cint {.importc: "git_ignore_add_rule".}
 

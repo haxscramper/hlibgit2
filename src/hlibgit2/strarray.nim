@@ -1,5 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
-
 type
   git_strarray* {.importc, bycopy.} = object
     strings *: cstringArray

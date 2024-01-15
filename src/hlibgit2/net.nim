@@ -1,4 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
 import "./oid.nim"
 
 type

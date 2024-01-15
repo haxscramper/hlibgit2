@@ -1,4 +1,3 @@
-import "../libgit2_config.nim" ## From gen file
 import "../types.nim"
 import "../filter.nim"
 import "../oid.nim"

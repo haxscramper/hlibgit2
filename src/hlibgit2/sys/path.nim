@@ -1,5 +1,3 @@
-import "../libgit2_config.nim" ## From gen file
-
 type
   c_git_path_gitfile* {.size: sizeof(cint).} = enum
     c_GIT_PATH_GITFILE_GITIGNORE     = 0

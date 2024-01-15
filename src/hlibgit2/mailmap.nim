@@ -1,4 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
 import "./types.nim"
 proc git_mailmap_resolve_signature*(
     `out`: ptr ptr git_signature,

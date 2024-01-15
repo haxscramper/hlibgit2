@@ -1,5 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
-
 type
   c_git_feature_t* {.size: sizeof(cint).} = enum
     c_GIT_FEATURE_THREADS = 1 shl 0

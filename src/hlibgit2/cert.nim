@@ -1,5 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
-
 type
   c_git_cert_ssh_t* {.size: sizeof(cint).} = enum
     c_GIT_CERT_SSH_MD5    = 1 shl 0

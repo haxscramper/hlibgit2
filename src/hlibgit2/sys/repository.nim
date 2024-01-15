@@ -1,4 +1,3 @@
-import "../libgit2_config.nim" ## From gen file
 import "../types.nim"
 proc git_repository_new*(`out`: ptr ptr git_repository): cint {.importc: "git_repository_new".}
 

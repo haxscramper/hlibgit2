@@ -1,4 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
 import "./oidarray.nim"
 import "./index.nim"
 import "./types.nim"

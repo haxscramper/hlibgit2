@@ -1,5 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
-
 type
   c_git_error_code* {.size: sizeof(cint).} = enum
     c_GIT_TIMEOUT         = -37

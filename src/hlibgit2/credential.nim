@@ -1,5 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
-
 type
   git_credential* {.importc, bycopy.} = object
     credtype *: git_credential_t

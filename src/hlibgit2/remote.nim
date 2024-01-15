@@ -1,4 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
 import "./pack.nim"
 import "./credential.nim"
 import "./cert.nim"

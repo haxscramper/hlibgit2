@@ -1,5 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
-
 type
   c_git_trace_level_t* {.size: sizeof(cint).} = enum
     c_GIT_TRACE_NONE  = 0

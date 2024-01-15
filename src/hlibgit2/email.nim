@@ -1,5 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
-
 type
   git_email_create_options* {.importc, bycopy.} = object
     version        *: cuint

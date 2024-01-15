@@ -1,4 +1,3 @@
-import "../libgit2_config.nim" ## From gen file
 import "../types.nim"
 import "../buffer.nim"
 proc git_midx_writer_new*(`out`: ptr ptr git_midx_writer, pack_dir: cstring): cint {.importc: "git_midx_writer_new".}

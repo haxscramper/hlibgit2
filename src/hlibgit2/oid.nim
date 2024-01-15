@@ -1,5 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
-
 type
   git_oid* {.importc, bycopy.} = object
     id *: array[20, char]

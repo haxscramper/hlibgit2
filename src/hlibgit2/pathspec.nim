@@ -1,4 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
 import "./types.nim"
 import "./strarray.nim"
 import "./diff.nim"

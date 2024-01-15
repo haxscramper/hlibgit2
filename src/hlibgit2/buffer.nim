@@ -1,5 +1,3 @@
-import "./libgit2_config.nim" ## From gen file
-
 type
   git_buf* {.importc, bycopy.} = object
     `ptr`    *: ptr char

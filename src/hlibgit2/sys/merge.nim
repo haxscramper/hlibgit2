@@ -1,4 +1,3 @@
-import "../libgit2_config.nim" ## From gen file
 import "../index.nim"
 import "../types.nim"
 import "../merge.nim"
